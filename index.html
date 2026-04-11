@@ -6,56 +6,50 @@
   <title>AnonLab</title>
   <meta name="description" content="AnonLab — strumenti moderni per la tua presenza online. Siti veloci, design pulito, SEO e strategie digitali." />
   <link rel="icon" href="/favicon.ico" />
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --bg:#ffffff; --text:#000000; --muted:#666666; --accent:#000000;
-      --max-width:1100px; --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --bg:#ffffff;
+      --text:#000000;
+      --muted:#666666;
+      --accent:#000000;
+      --max-width:1100px;
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
     a{color:inherit}
-    .wrap{max-width:var(--max-width);margin:0 auto;padding:28px 20px}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:12px}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:48px 20px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--accent)}
     .logo{width:48px;height:48px;display:inline-block}
     .brand h1{margin:0;font-size:18px;font-weight:700}
-    nav a{margin-left:14px;text-decoration:none;color:var(--muted);font-weight:600}
-    /* Hero */
-    .hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
-    .left{flex:1 1 420px;min-width:260px}
-    .subtitle{margin:0 0 12px 0;font-size:32px;line-height:1.15;color:#000;font-weight:700}
-    .lead{margin:0 0 18px 0;color:var(--muted);font-size:16px;line-height:1.6}
-    .cta{display:inline-block;padding:10px 18px;background:#000;color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
-    .right{flex:0 0 420px;min-width:260px;display:flex;align-items:center;justify-content:center}
+    nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
+    .hero{display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap}
+    .left{flex:1 1 480px;min-width:260px}
+    .subtitle{
+      margin:0 0 18px 0;
+      font-size:32px;
+      line-height:1.15;
+      color:#000000;
+      font-weight:700;
+      letter-spacing:0.2px;
+    }
+    .lead{margin:0 0 24px 0;color:var(--muted);font-size:16px;line-height:1.6}
+    .cta{display:inline-block;padding:12px 20px;background:#000;color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
+    .right{flex:0 0 360px;min-width:260px;display:flex;align-items:center;justify-content:center}
     .hero-img{width:100%;height:auto;border-radius:12px;display:block;object-fit:cover}
-    /* Cards */
-    .cards{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
-    .card{flex:1 1 220px;background:#fff;border:1px solid #eee;padding:14px;border-radius:10px;display:flex;gap:12px;align-items:center}
-    .card img{width:64px;height:64px;object-fit:contain}
-    .card h3{margin:0;font-size:16px}
-    .card p{margin:6px 0 0 0;color:var(--muted);font-size:14px}
-    /* Register */
-    .register{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:18px}
-    .register .visual{flex:0 0 120px}
-    .register form{flex:1 1 320px;display:flex;gap:8px;flex-direction:column}
-    .register input, .register button{padding:10px 12px;border-radius:8px;border:1px solid #ddd;font-size:15px}
-    .register button{background:#000;color:#fff;border:0;font-weight:700;cursor:pointer}
-    .small{color:var(--muted);font-size:13px}
-    /* Footer */
-    footer{margin-top:36px;color:var(--muted);font-size:14px;padding-top:18px;border-top:1px solid #eee}
+    footer{margin-top:48px;color:var(--muted);font-size:14px}
     .footer-links a{margin-right:12px;text-decoration:none;color:var(--muted);font-weight:600}
-    /* Cookie banner */
-    .cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;background:#fff;border:1px solid #eee;padding:12px 16px;border-radius:10px;display:flex;gap:12px;align-items:center;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
-    .cookie-banner button{background:#000;color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+    /* small form styles (non invasive) */
+    .signup-inline{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .signup-inline input{padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px}
+    .signup-inline button{padding:10px 14px;border-radius:8px;border:0;background:#000;color:#fff;font-weight:700;cursor:pointer}
     @media (max-width:720px){
-      .hero{flex-direction:column-reverse}
+      .subtitle{font-size:22px}
+      .hero{flex-direction:column}
       .right{order:-1;width:100%}
       header{flex-direction:column;align-items:flex-start;gap:12px}
-      .cards{flex-direction:column}
     }
   </style>
 </head>
@@ -63,97 +57,57 @@
   <div class="wrap">
     <header>
       <a class="brand" href="/">
+        <!-- logo.png nella cartella /img -->
         <img src="/img/logo.png" alt="AnonLab logo" class="logo" width="48" height="48">
         <h1>AnonLab</h1>
       </a>
-
       <nav aria-label="main">
         <a href="#servizi">Servizi</a>
         <a href="#contatti">Contatti</a>
-        <a href="/privacy.html">Privacy</a>
       </nav>
     </header>
 
-    <!-- HERO -->
     <main class="hero" role="main">
       <div class="left">
-        <p class="subtitle">strumenti moderni<br>per la tua presenza online.</p>
-        <p class="lead">Soluzioni su misura per brand, freelance e piccole imprese: siti veloci, design pulito, SEO e strategie digitali.</p>
+        <p class="subtitle">
+          strumenti moderni<br>per la tua presenza online.
+        </p>
+        <p class="lead">
+          Soluzioni su misura per brand, freelance e piccole imprese: siti veloci, design pulito, SEO e strategie digitali.
+        </p>
 
         <a class="cta" href="#contatti">Scopri di più</a>
 
-        <!-- Cards -->
-        <div class="cards" aria-hidden="false">
-          <div class="card" aria-labelledby="card1-title">
-            <img src="/img/register.png" alt="Registrati" loading="lazy">
-            <div>
-              <h3 id="card1-title">Registrati</h3>
-              <p>Pochi secondi per ottenere la tua user e password.</p>
-            </div>
-          </div>
+        <!-- FORM DI REGISTRAZIONE MINIMA (non invasivo, inline) -->
+        <!-- Sostituisci action con Formspree o il tuo endpoint backend -->
+        <form id="signup-inline" class="signup-inline" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Nome e Cognome" required aria-label="Nome e Cognome">
+          <input type="email" name="email" placeholder="Email" required aria-label="Email">
+          <button type="submit">Registrati</button>
+        </form>
 
-          <div class="card" aria-labelledby="card2-title">
-            <img src="/img/envelope.png" alt="Contatti" loading="lazy">
-            <div>
-              <h3 id="card2-title">Contattaci</h3>
-              <p>Scrivici per preventivi, assistenza o collaborazioni.</p>
-            </div>
-          </div>
-
-          <div class="card" aria-labelledby="card3-title">
-            <img src="/img/support.png" alt="Supporto" loading="lazy">
-            <div>
-              <h3 id="card3-title">Supporto</h3>
-              <p>Assistenza tecnica e consulenza dedicata.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Registrazione / Login -->
-        <div class="register" id="auth-area" aria-live="polite">
-          <div class="visual">
-            <img src="/img/register.png" alt="Registrati" width="120" height="120" loading="lazy">
-          </div>
-
-          <form id="signup-form" aria-label="Registrazione">
-            <h3 style="margin:0 0 6px 0;">Registrati</h3>
-            <input id="name" type="text" placeholder="Nome e Cognome" required>
-            <input id="email" type="email" placeholder="Email" required>
-            <input id="password" type="password" placeholder="Password (min 6 caratteri)" required>
-            <button id="signup-btn" type="button">Crea account</button>
-
-            <div style="display:flex;gap:8px;margin-top:8px;">
-              <input id="login-email" type="email" placeholder="Email per login" style="flex:1">
-              <input id="login-password" type="password" placeholder="Password" style="flex:1">
-              <button id="login-btn" type="button">Login</button>
-            </div>
-
-            <div style="display:flex;gap:8px;margin-top:8px;align-items:center;">
-              <button id="logout-btn" type="button" style="display:none;background:#eee;color:#000;padding:8px;border-radius:8px;border:1px solid #ddd">Logout</button>
-              <div id="auth-status" class="small" style="margin-left:8px"></div>
-            </div>
-
-            <small class="small">Riceverai una email di verifica. Non condividiamo dati personali.</small>
-          </form>
-        </div>
+        <!-- Piccola riga esplicativa -->
+        <p style="margin-top:10px;color:var(--muted);font-size:13px;">
+          Riceverai user e password via email. Non condividiamo dati personali.
+        </p>
       </div>
 
       <div class="right" aria-hidden="true">
+        <!-- hero image: eyes.png nella cartella /img -->
         <img src="/img/eyes.png" alt="Immagine hero occhi" class="hero-img" loading="lazy" width="800" height="450">
       </div>
     </main>
 
-    <!-- SEZIONE SERVIZI -->
-    <section id="servizi" style="margin-top:36px">
+    <section id="servizi" style="margin-top:48px">
       <h2 style="margin:0 0 12px 0;font-size:20px">Cosa facciamo</h2>
       <p style="margin:0;color:var(--muted)">Siti web, e-commerce, ottimizzazione SEO, performance e consulenza digitale.</p>
     </section>
 
-    <!-- FOOTER -->
-    <footer id="site-footer">
+    <footer id="site-footer" style="margin-top:48px;padding-top:18px;border-top:1px solid #eee;">
       <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center">
         <div>
-          <strong>AnonLab</strong><br>Varese, Italia
+          <strong>AnonLab</strong><br>
+          Varese, Italia
         </div>
         <div class="footer-links" style="min-width:200px;text-align:right">
           <a href="/privacy.html">Privacy Policy</a>
@@ -162,170 +116,22 @@
           <a href="/disclaimer.html">Disclaimer</a>
         </div>
       </div>
-
-      <!-- Contatore globale CountAPI -->
-      <div style="margin-top:12px;font-weight:600;color:#000">
-        Visite totali: <span id="global-count">...</span>
-        <small id="counter-note" style="display:block;color:#666;font-weight:400;margin-top:6px;font-size:13px;">Contatore globale (CountAPI).</small>
-      </div>
-
       <p style="margin-top:18px;color:var(--muted)">© <span id="year"></span> AnonLab. Tutti i diritti riservati.</p>
     </footer>
   </div>
 
-  <!-- Cookie banner -->
-  <div id="cookie-banner" class="cookie-banner" style="display:none" role="dialog" aria-live="polite">
-    <div style="flex:1">
-      Questo sito utilizza cookie tecnici e servizi di terze parti per il conteggio visite e la gestione dei form.
-      <a href="/cookie.html" style="text-decoration:underline;color:#000">Maggiori informazioni</a>
-    </div>
-    <div>
-      <button id="accept-cookies">Accetto</button>
-    </div>
-  </div>
-
-  <!-- SCRIPTS -->
   <script>
-    // Year
+    // anno footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // CountAPI config (namespace sicuro generato)
-    const COUNTAPI_NAMESPACE = 'anonlab-2026-r8k3p2q';
-    const COUNTAPI_KEY = 'visite';
-    const COUNTAPI_BASE = 'https://api.countapi.xyz';
-    const INCREMENT_URL = `${COUNTAPI_BASE}/hit/${encodeURIComponent(COUNTAPI_NAMESPACE)}/${encodeURIComponent(COUNTAPI_KEY)}`;
-    const GET_URL = `${COUNTAPI_BASE}/get/${encodeURIComponent(COUNTAPI_NAMESPACE)}/${encodeURIComponent(COUNTAPI_KEY)}`;
-    const elCount = document.getElementById('global-count');
-    const elNote = document.getElementById('counter-note');
-
-    function showLocalCounter() {
-      try {
-        const key = 'anonlab_local_visits_fallback';
-        let localCount = parseInt(localStorage.getItem(key) || '0', 10);
-        localCount = localCount + 1;
-        localStorage.setItem(key, localCount);
-        if (elCount) elCount.textContent = localCount + ' (locale)';
-        if (elNote) elNote.textContent = 'CountAPI non disponibile — visualizzato contatore locale.';
-      } catch (e) {
-        if (elCount) elCount.textContent = '—';
-        if (elNote) elNote.textContent = 'Impossibile aggiornare il contatore.';
-      }
-    }
-
-    function updateGlobalCounter() {
-      if (!COUNTAPI_NAMESPACE || !COUNTAPI_KEY) { showLocalCounter(); return; }
-      fetch(INCREMENT_URL, { method: 'GET', cache: 'no-store' })
-        .then(res => { if (!res.ok) throw new Error('CountAPI hit failed'); return res.json(); })
-        .then(data => { if (elCount) elCount.textContent = data.value; if (elNote) elNote.textContent = 'Contatore globale aggiornato.'; })
-        .catch(err => {
-          console.warn('CountAPI hit error:', err);
-          fetch(GET_URL, { method: 'GET', cache: 'no-store' })
-            .then(res => { if (!res.ok) throw new Error('CountAPI get failed'); return res.json(); })
-            .then(data => { if (elCount) elCount.textContent = data.value + ' (letto)'; if (elNote) elNote.textContent = 'CountAPI raggiungibile ma hit non riuscito.'; })
-            .catch(err2 => { console.warn('CountAPI get error:', err2); showLocalCounter(); });
-        });
-    }
-    updateGlobalCounter();
-
-    // Cookie banner logic
-    (function(){
-      const banner = document.getElementById('cookie-banner');
-      const accepted = localStorage.getItem('anonlab_cookies_accepted');
-      if (!accepted) banner.style.display = 'flex';
-      document.getElementById('accept-cookies').addEventListener('click', function(){
-        localStorage.setItem('anonlab_cookies_accepted', '1');
-        banner.style.display = 'none';
-      });
-    })();
-  </script>
-
-  <!-- FIREBASE AUTH (client-side) -->
-  <!--
-    ISTRUZIONI:
-    1) Crea un progetto Firebase (https://console.firebase.google.com).
-    2) Abilita Authentication -> Sign-in method -> Email/Password.
-    3) Crea Firestore (opzionale) se vuoi salvare profili.
-    4) Copia qui sotto la tua config Firebase (sostituisci i placeholder).
-  -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script>
-    // Sostituisci con la tua Firebase config
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // UI elements
-    const signupBtn = document.getElementById('signup-btn');
-    const loginBtn = document.getElementById('login-btn');
-    const logoutBtn = document.getElementById('logout-btn');
-    const authStatus = document.getElementById('auth-status');
-
-    // Signup
-    signupBtn.addEventListener('click', function(){
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      if (!email || !password) { authStatus.textContent = 'Inserisci email e password.'; return; }
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(userCred => {
-          const user = userCred.user;
-          // Aggiorna displayName
-          user.updateProfile({ displayName: name }).catch(()=>{});
-          // Invia email di verifica
-          user.sendEmailVerification().catch(()=>{});
-          authStatus.textContent = 'Account creato. Controlla la tua email per la verifica.';
-          // Optionally store user in Firestore here
-        })
-        .catch(err => {
-          authStatus.textContent = 'Errore: ' + err.message;
-        });
-    });
-
-    // Login
-    loginBtn.addEventListener('click', function(){
-      const email = document.getElementById('login-email').value.trim();
-      const password = document.getElementById('login-password').value;
-      if (!email || !password) { authStatus.textContent = 'Inserisci email e password per il login.'; return; }
-      auth.signInWithEmailAndPassword(email, password)
-        .then(userCred => {
-          const user = userCred.user;
-          if (!user.emailVerified) {
-            authStatus.textContent = 'Email non verificata. Controlla la tua casella.';
-          } else {
-            authStatus.textContent = 'Benvenuto, ' + (user.displayName || user.email);
-            logoutBtn.style.display = 'inline-block';
-          }
-        })
-        .catch(err => {
-          authStatus.textContent = 'Errore login: ' + err.message;
-        });
-    });
-
-    // Logout
-    logoutBtn.addEventListener('click', function(){
-      auth.signOut().then(()=> {
-        authStatus.textContent = 'Sei uscito.';
-        logoutBtn.style.display = 'none';
-      });
-    });
-
-    // Auth state listener
-    auth.onAuthStateChanged(function(user){
-      if (user) {
-        authStatus.textContent = 'Loggato come ' + (user.displayName || user.email);
-        logoutBtn.style.display = 'inline-block';
-      } else {
-        authStatus.textContent = '';
-        logoutBtn.style.display = 'none';
-      }
+    // Suggerimento: gestione semplice del form (opzionale)
+    // Se usi Formspree l'action invia direttamente; altrimenti intercetta qui e fai fetch al tuo endpoint.
+    document.getElementById('signup-inline').addEventListener('submit', function(e){
+      // lasciare il comportamento di default per Formspree
+      // se vuoi gestire via JS, decommenta e personalizza il codice qui sotto:
+      // e.preventDefault();
+      // const fd = new FormData(this);
+      // fetch('/your-endpoint', { method:'POST', body: fd }).then(...);
     });
   </script>
 </body>
