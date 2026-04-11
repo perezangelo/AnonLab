@@ -1055,6 +1055,78 @@
       <a href="/disclaimer.html">Disclaimer</a>
     </div>
   </div>
+    <!-- START: Contatore globale CountAPI (namespace sicuro inserito) -->
+<div id="visitor-counter" style="font-weight:600;color:#000000;margin-top:12px;font-family:Inter,system-ui,Arial,sans-serif;">
+  Visite totali: <span id="global-count">...</span>
+  <small id="counter-note" style="display:block;color:#666;font-weight:400;margin-top:6px;font-size:13px;">
+    Contatore globale (CountAPI). Se non disponibile verrà mostrato un contatore locale.
+  </small>
+</div>
+
+<script>
+  // Namespace e key sicuri già impostati
+  const COUNTAPI_NAMESPACE = 'anonlab-2026-r8k3p2q';
+  const COUNTAPI_KEY = 'visite';
+
+  const COUNTAPI_BASE = 'https://api.countapi.xyz';
+  const INCREMENT_URL = `${COUNTAPI_BASE}/hit/${encodeURIComponent(COUNTAPI_NAMESPACE)}/${encodeURIComponent(COUNTAPI_KEY)}`;
+  const GET_URL = `${COUNTAPI_BASE}/get/${encodeURIComponent(COUNTAPI_NAMESPACE)}/${encodeURIComponent(COUNTAPI_KEY)}`;
+
+  const elCount = document.getElementById('global-count');
+  const elNote = document.getElementById('counter-note');
+
+  function showLocalCounter() {
+    try {
+      const key = 'anonlab_local_visits_fallback';
+      let localCount = parseInt(localStorage.getItem(key) || '0', 10);
+      localCount = localCount + 1;
+      localStorage.setItem(key, localCount);
+      if (elCount) elCount.textContent = localCount + ' (locale)';
+      if (elNote) elNote.textContent = 'CountAPI non disponibile — visualizzato contatore locale.';
+    } catch (e) {
+      if (elCount) elCount.textContent = '—';
+      if (elNote) elNote.textContent = 'Impossibile aggiornare il contatore.';
+    }
+  }
+
+  function updateGlobalCounter() {
+    if (!COUNTAPI_NAMESPACE || !COUNTAPI_KEY) {
+      if (elNote) elNote.textContent = 'Namespace non impostato. Sostituisci i valori nel codice.';
+      showLocalCounter();
+      return;
+    }
+
+    fetch(INCREMENT_URL, { method: 'GET', cache: 'no-store' })
+      .then(res => {
+        if (!res.ok) throw new Error('CountAPI hit failed');
+        return res.json();
+      })
+      .then(data => {
+        if (elCount) elCount.textContent = data.value;
+        if (elNote) elNote.textContent = 'Contatore globale aggiornato.';
+      })
+      .catch(err => {
+        console.warn('CountAPI hit error:', err);
+        fetch(GET_URL, { method: 'GET', cache: 'no-store' })
+          .then(res => {
+            if (!res.ok) throw new Error('CountAPI get failed');
+            return res.json();
+          })
+          .then(data => {
+            if (elCount) elCount.textContent = data.value + ' (letto)';
+            if (elNote) elNote.textContent = 'CountAPI raggiungibile ma hit non riuscito.';
+          })
+          .catch(err2 => {
+            console.warn('CountAPI get error:', err2);
+            showLocalCounter();
+          });
+      });
+  }
+
+  // Avvia aggiornamento contatore
+  updateGlobalCounter();
+</script>
+<!-- END: Contatore globale CountAPI -->
 </footer>
 </body>
 </html>
