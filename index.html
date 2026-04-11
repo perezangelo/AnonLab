@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="description" content="AnonLab – Cyber culture, privacy, minimal web, sicurezza digitale senza tracciamento.">
-<meta name="keywords" content="cyber, privacy, hacking etico, sicurezza digitale, anonlab">
-<meta name="author" content="AnonLab">
-<meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>AnonLab – Cyber Culture & Privacy</title>
-    <!-- Font -->
+
+    <!-- SEO BASE -->
+    <title>AnonLab – Creative Studio Digitale | Siti Leggeri, Chiari e Veloci</title>
+    <meta name="description" content="AnonLab crea siti leggeri, chiari e veloci: pagine professionali, minimal e senza complicazioni tecniche. Cyber culture, privacy e design pulito.">
+    <meta name="keywords" content="siti web leggeri, one-page, design minimal, cyber culture, privacy, sicurezza digitale, anonlab, studio digitale">
+    <meta name="author" content="AnonLab">
+    <meta name="robots" content="index, follow">
+
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://anonlab.it/">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="AnonLab – Creative Studio Digitale">
+    <meta property="og:description" content="Siti leggeri, chiari e veloci. Strumenti moderni per la tua presenza online.">
+    <meta property="og:url" content="https://anonlab.it/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://anonlab.it/img/hero1.jpg">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AnonLab – Creative Studio Digitale">
+    <meta name="twitter:description" content="Siti leggeri, chiari e veloci. Strumenti moderni per la tua presenza online.">
+    <meta name="twitter:image" content="https://anonlab.it/img/hero1.jpg">
+
+    <!-- JEKYLL SEO TAG -->
+    {% seo %}
+
+    <!-- STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AnonLab",
+      "url": "https://anonlab.it/",
+      "description": "Creative studio digitale specializzato in siti leggeri, chiari e veloci.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AnonLab"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Siti web leggeri e strutture digitali",
+      "provider": {
+        "@type": "Organization",
+        "name": "AnonLab",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Varese",
+          "addressRegion": "VA",
+          "addressCountry": "IT"
+        }
+      }
+    }
+    </script>
+
+    <!-- FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -538,6 +593,17 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 10px;
+            align-items: center;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            margin-left: 8px;
+            font-family: Consolas, monospace;
+        }
+
+        .footer-links a + a {
+            margin-left: 4px;
         }
 
         /* BACK TO TOP */
@@ -669,11 +735,16 @@
     <div class="hero-inner">
         <div class="reveal">
             <div class="hero-kicker">Creative studio digitale</div>
-            <h1>AnonLab</h1> 
+            <h1>AnonLab</h1>
+            <!-- H2 SEO nascosto -->
+            <h2 style="position:absolute; left:-9999px; top:-9999px;">
+                Creative studio digitale specializzato in siti leggeri e strutture operative
+            </h2>
             <p class="subtitle" style="color:#000000;">
-  strumenti moderni<br>per la tua presenza online.
-</p>
-            Siti leggeri, chiari e veloci, pensati per raccontare chi sei con stile professionale
+                strumenti moderni<br>per la tua presenza online.
+            </p>
+            <p>
+                Siti leggeri, chiari e veloci, pensati per raccontare chi sei con stile professionale
                 e senza complicazioni tecniche.
             </p>
             <div class="hero-actions">
@@ -683,9 +754,9 @@
         </div>
 
         <div class="hero-gallery reveal" id="gallery">
-            <img class="hero-image" src="img/hero1.jpg" alt="Grafica astratta blu 1">
-            <img class="hero-image" src="img/hero2.jpg" alt="Grafica astratta blu 2">
-            <img class="hero-image" src="img/hero3.jpg" alt="Grafica astratta blu 3">
+            <img class="hero-image" src="img/hero1.jpg" alt="Design digitale astratto blu – stile AnonLab">
+            <img class="hero-image" src="img/hero2.jpg" alt="Grafica moderna minimal blu – AnonLab" loading="lazy">
+            <img class="hero-image" src="img/hero3.jpg" alt="Illustrazione creativa digitale blu – AnonLab" loading="lazy">
         </div>
     </div>
 </section>
@@ -699,6 +770,7 @@
                 AnonLab nasce dall’idea di unire strumenti semplici, grafica pulita e contenuti chiari.
                 L’obiettivo è creare pagine che funzionano davvero: veloci da caricare, facili da leggere,
                 pensate per chi deve lavorare e non ha tempo da perdere con la tecnica.
+                Se vuoi vedere come questo si traduce in pratica, dai un’occhiata alla sezione <a href="#servizi">Servizi</a>.
             </p>
         </div>
     </section>
@@ -709,7 +781,8 @@
             <h2>Cosa posso fare per te.</h2>
             <p>
                 Una selezione di strumenti essenziali per presentarti online in modo professionale,
-                senza piattaforme pesanti o complicate.
+                senza piattaforme pesanti o complicate. Puoi vedere alcune applicazioni concrete nella sezione
+                <a href="#portfolio">Portfolio</a>.
             </p>
         </div>
 
@@ -746,7 +819,8 @@
             <h2>Alcuni esempi di impostazione.</h2>
             <p>
                 Non è una galleria grafica, ma una raccolta di strutture: modi diversi di organizzare contenuti,
-                informazioni e strumenti.
+                informazioni e strumenti. Ogni struttura può essere adattata e collegata direttamente alla sezione
+                <a href="#contatti">Contatti</a> per trasformarsi in un progetto reale.
             </p>
         </div>
 
@@ -921,8 +995,14 @@
 
 <footer>
     <div class="footer-inner">
-        <div>© <span id="year"></span> AnonLab – Creative Studio</div>
-        <div>Struttura leggera, nessuna piattaforma esterna, codice pulito.</div>
+        <div>© <span id="year"></span> AnonLab – Creative Studio · Struttura leggera, nessuna piattaforma esterna, codice pulito.</div>
+        <div class="footer-links">
+            <a href="/about.html">About</a> |
+            <a href="/privacy.html">Privacy Policy</a> |
+            <a href="/cookies.html">Cookie Policy</a> |
+            <a href="/contatti.html">Contatti</a> |
+            <a href="/disclaimer.html">Disclaimer</a>
+        </div>
     </div>
 </footer>
 
@@ -1046,17 +1126,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
-...
-<!-- Contenuto della pagina -->
 
-<footer style="text-align:center; margin-top:40px; font-family:Consolas, monospace;">
-  <a href="/about.html">About</a> |
-  <a href="/privacy.html">Privacy Policy</a> |
-  <a href="/cookies.html">Cookie Policy</a> |
-  <a href="/contatti.html">Contatti</a> |
-  <a href="/disclaimer.html">Disclaimer</a>
-</footer>
-</body>
-</html>
 </body>
 </html>
