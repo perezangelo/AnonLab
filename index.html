@@ -649,6 +649,57 @@ footer {
     }
 }
 </style>
+<style>
+
+/* tutto il tuo CSS esistente... */
+
+/* QUI INCOLLI LA CARD METEO */
+.weather-cyber-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px;
+    margin-top: 18px;
+    background: #0a0a0a;
+    border-radius: 16px;
+    border: 2px solid #00ff9d;
+    box-shadow: 0 0 20px rgba(0,255,157,0.35);
+    animation: neonPulse 2.5s infinite alternate;
+}
+
+@keyframes neonPulse {
+    0% { box-shadow: 0 0 12px rgba(0,255,157,0.4); }
+    100% { box-shadow: 0 0 28px rgba(0,255,157,0.8); }
+}
+
+.weather-icon {
+    width: 100px;
+    filter: drop-shadow(0 0 12px #00ff9d);
+}
+
+.weather-temp {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00ff9d;
+    text-shadow: 0 0 12px #00ff9d;
+    font-family: Consolas, monospace;
+}
+
+.weather-desc {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    margin-top: 4px;
+}
+
+.weather-city {
+    font-size: 0.85rem;
+    color: #00ff9d;
+    margin-top: 6px;
+    opacity: 0.8;
+}
+
+</style>
+
 
 <header>
     <div class="logo">AnonLab</div>
