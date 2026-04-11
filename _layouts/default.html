@@ -4,12 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SEO AUTOMATICO -->
   {% seo %}
 
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="/img/favicon.png">
+
+  <!-- STILE BASE -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      font-family: Consolas, monospace;
+      line-height: 1.6;
+    }
+    a {
+      color: #00ff9d;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #0a0a0a;
+      border-bottom: 1px solid #00ff9d;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #00ff9d;
+      text-shadow: 0 0 8px #00ff9d;
+    }
+    main {
+      padding: 40px;
+    }
+  </style>
 </head>
 
 <body>
+
+<header>
+  <h1>AnonLab</h1>
+</header>
+
+<main>
   {{ content }}
+</main>
+
 </body>
 </html>
