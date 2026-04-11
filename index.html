@@ -1,72 +1,4 @@
----
-layout: default
-title: "AnonLab – Creative Studio Digitale | Siti Leggeri, Chiari e Veloci"
----
-
-<style>
-/* QUI INCOLLI TUTTO IL TUO CSS INTERO
-   (quello che mi hai già mandato, senza cambiare nulla)
-*/
-</style>
-
-<header>
-    <div class="logo">AnonLab</div>
-    <nav>
-        <div class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="#chi-sono">Chi sono</a>
-            <a href="#servizi">Servizi</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#statistiche">Statistiche</a>
-            <a href="#contatti">Contatti</a>
-        </div>
-        <div class="nav-toggle" id="navToggle" aria-label="Apri menu">
-            <span></span><span></span><span></span>
-        </div>
-    </nav>
-</header>
-
-<section class="hero" id="home">
-    <div class="hero-inner">
-        <div class="reveal">
-            <div class="hero-kicker">Creative studio digitale</div>
-            <h1>AnonLab</h1>
-
-            <h2 style="position:absolute; left:-9999px; top:-9999px;">
-                Creative studio digitale specializzato in siti leggeri e strutture operative
-            </h2>
-
-            <p class="subtitle" style="color:#000000;">
-                strumenti moderni<br>per la tua presenza online.
-            </p>
-
-            <p>
-                Siti leggeri, chiari e veloci, pensati per raccontare chi sei con stile professionale
-                e senza complicazioni tecniche.
-            </p>
-
-            <div class="hero-actions">
-                <a href="#contatti" class="btn-primary">Richiedi un contatto</a>
-                <a href="#portfolio" class="btn-ghost">Guarda alcuni progetti</a>
-            </div>
-        </div>
-
-        <div class="hero-gallery reveal" id="gallery">
-            <img class="hero-image" src="img/hero1.jpg" alt="Design digitale astratto blu – stile AnonLab">
-            <img class="hero-image" src="img/hero2.jpg" alt="Grafica moderna minimal blu – AnonLab" loading="lazy">
-            <img class="hero-image" src="img/hero3.jpg" alt="Illustrazione creativa digitale blu – AnonLab" loading="lazy">
-        </div>
-    </div>
-</section>
-
-<main>
-
-    <!-- TUTTE LE TUE SEZIONI (chi-sono, servizi, portfolio, statistiche, skills) -->
-    <!-- Le ho lasciate identiche, come me le hai inviate -->
-
-    <!-- … (qui incolli tutto il contenuto che mi hai mandato) … -->
-
-    <section class="section reveal">
+ <section class="section reveal">
         <div class="section-header">
             <div class="section-kicker">FAQ</div>
             <h2>Domande frequenti.</h2>
@@ -76,14 +8,83 @@ title: "AnonLab – Creative Studio Digitale | Siti Leggeri, Chiari e Veloci"
         </div>
 
         <div class="faq-list">
-            <!-- FAQ identiche -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso usare questo sito al posto di Wix?</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    Sì. Questo è un sito statico in HTML/CSS/JS: puoi caricarlo su qualsiasi hosting e collegarlo al tuo dominio,
+                    senza dipendere da piattaforme esterne.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>È facile aggiornare testi e immagini?</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    Sì. Tutto è in un unico file: puoi modificare titoli, testi e immagini con un normale editor di testo
+                    o un editor HTML visuale.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Il sito è già ottimizzato per mobile?</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    Sì. Il layout è mobile‑first, con menu adattivo, griglie che si riducono e immagini che si adattano
+                    automaticamente allo schermo.
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="section reveal" id="contatti">
-        <!-- Contatti identici -->
-    </section>
+        <div class="section-header">
+            <div class="section-kicker">Contatti</div>
+            <h2>Parliamone in modo semplice.</h2>
+            <p>
+                Scrivimi cosa ti serve: una pagina, una struttura, uno strumento per il tuo lavoro.
+                Ti risponderò con una proposta chiara, senza tecnicismi inutili.
+            </p>
+        </div>
 
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Dati di contatto</h3>
+                <p>
+                    Puoi usare il modulo qui accanto oppure contattarmi direttamente tramite i riferimenti qui sotto.
+                </p>
+                <ul class="contact-list">
+                    <li><span>Email:</span> tuoindirizzo@example.com</li>
+                    <li><span>Località:</span> Varese (VA)</li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h3>Scrivimi un messaggio</h3>
+                <form>
+                    <div>
+                        <label for="nome">Nome</label>
+                        <input id="nome" type="text" placeholder="Il tuo nome">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="tua@email.it">
+                    </div>
+                    <div>
+                        <label for="messaggio">Messaggio</label>
+                        <textarea id="messaggio" placeholder="Raccontami brevemente cosa ti serve."></textarea>
+                    </div>
+                    <button type="submit">Invia richiesta</button>
+                </form>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer>
@@ -102,7 +103,123 @@ title: "AnonLab – Creative Studio Digitale | Siti Leggeri, Chiari e Veloci"
 <button id="backToTop" aria-label="Torna su">↑</button>
 
 <script>
-/* TUTTO IL TUO JAVASCRIPT ORIGINALE QUI
-   (anno automatico, menu mobile, reveal, counters, skills, FAQ, back-to-top)
-*/
+    // Anno automatico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Ordine casuale immagini hero
+    const gallery = document.getElementById("gallery");
+    const images = Array.from(gallery.children);
+    images.sort(() => Math.random() - 0.5);
+    images.forEach(img => gallery.appendChild(img));
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const handleReveal = () => {
+        reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 80) {
+                el.classList.add('visible');
+            }
+        });
+    };
+    window.addEventListener('scroll', handleReveal);
+    handleReveal();
+
+    // Counter animati
+    const counters = document.querySelectorAll('.counter');
+    let countersStarted = false;
+
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const update = () => {
+                const target = +counter.getAttribute('data-target');
+                const value = +counter.innerText;
+                const increment = Math.ceil(target / 80);
+
+                if (value < target) {
+                    counter.innerText = value + increment;
+                    requestAnimationFrame(update);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            update();
+        });
+    };
+
+    const handleCounters = () => {
+        const section = document.querySelector('#statistiche');
+        if (!section) return;
+        const top = section.getBoundingClientRect().top;
+        if (!countersStarted && top < window.innerHeight - 100) {
+            animateCounters();
+            countersStarted = true;
+        }
+    };
+
+    window.addEventListener('scroll', handleCounters);
+    handleCounters();
+
+    // Progress bar animate
+    const skillFills = document.querySelectorAll('.skill-fill');
+    let skillsStarted = false;
+
+    const animateSkills = () => {
+        skillFills.forEach(fill => {
+            const value = fill.getAttribute('data-fill');
+            fill.style.width = value + '%';
+        });
+    };
+
+    const handleSkills = () => {
+        const section = document.querySelector('.skills-grid');
+        if (!section) return;
+        const top = section.getBoundingClientRect().top;
+        if (!skillsStarted && top < window.innerHeight - 100) {
+            animateSkills();
+            skillsStarted = true;
+        }
+    };
+
+    window.addEventListener('scroll', handleSkills);
+    handleSkills();
+
+    // FAQ accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('open');
+            const toggle = item.querySelector('.faq-toggle');
+            toggle.textContent = item.classList.contains('open') ? '−' : '+';
+        });
+    });
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.style.display = 'flex';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 </script>
+
+</body>
+</html>
