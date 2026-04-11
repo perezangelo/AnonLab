@@ -1,2 +1,52 @@
+# ============================
+#   CONFIGURAZIONE ANONLAB
+# ============================
+
+title: "AnonLab"
+description: "Cyber culture, privacy, minimal web e sicurezza digitale senza tracciamento."
+author: "AnonLab"
+
+# Attiva i plugin supportati da GitHub Pages
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Impostazioni SEO
+seo:
+  name: "AnonLab"
+  description: "Cyber culture, privacy, minimal web e sicurezza digitale."
+  type: "website"
+  author: "AnonLab"
+  locale: "it_IT"
+  url: "https://anonlab.it"
+
+# URL del sito
+url: "https://anonlab.it"
+
+# Esclusione di file non indicizzabili
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - vendor/
+  - .github/
+  - .gitignore
+  - google*.html   # file di verifica Google (non serve indicizzarlo)
+
+# Mantieni la root pulita
+include:
+  - index.html
+  - about.html
+  - privacy.html
+  - cookies.html
+  - contatti.html
+  - disclaimer.html
+  - 404.html
+
+# Impostazioni Jekyll
+markdown: kramdown
+theme: null
