@@ -17,7 +17,7 @@
       --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    html,body{height:100%;margin:0;font-family:var(--font-sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     a{color:inherit}
     .wrap{max-width:var(--max-width);margin:0 auto;padding:48px 20px}
     header{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
@@ -41,10 +41,6 @@
     .hero-img{width:100%;height:auto;border-radius:12px;display:block;object-fit:cover}
     footer{margin-top:48px;color:var(--muted);font-size:14px}
     .footer-links a{margin-right:12px;text-decoration:none;color:var(--muted);font-weight:600}
-    /* small form styles (non invasive) */
-    .signup-inline{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-    .signup-inline input{padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px}
-    .signup-inline button{padding:10px 14px;border-radius:8px;border:0;background:#000;color:#fff;font-weight:700;cursor:pointer}
     @media (max-width:720px){
       .subtitle{font-size:22px}
       .hero{flex-direction:column}
@@ -57,7 +53,7 @@
   <div class="wrap">
     <header>
       <a class="brand" href="/">
-        <!-- logo.png nella cartella /img -->
+        <!-- logo.png deve essere caricato in /img/logo.png -->
         <img src="/img/logo.png" alt="AnonLab logo" class="logo" width="48" height="48">
         <h1>AnonLab</h1>
       </a>
@@ -72,29 +68,17 @@
         <p class="subtitle">
           strumenti moderni<br>per la tua presenza online.
         </p>
+
         <p class="lead">
           Soluzioni su misura per brand, freelance e piccole imprese: siti veloci, design pulito, SEO e strategie digitali.
         </p>
 
         <a class="cta" href="#contatti">Scopri di più</a>
-
-        <!-- FORM DI REGISTRAZIONE MINIMA (non invasivo, inline) -->
-        <!-- Sostituisci action con Formspree o il tuo endpoint backend -->
-        <form id="signup-inline" class="signup-inline" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <input type="text" name="name" placeholder="Nome e Cognome" required aria-label="Nome e Cognome">
-          <input type="email" name="email" placeholder="Email" required aria-label="Email">
-          <button type="submit">Registrati</button>
-        </form>
-
-        <!-- Piccola riga esplicativa -->
-        <p style="margin-top:10px;color:var(--muted);font-size:13px;">
-          Riceverai user e password via email. Non condividiamo dati personali.
-        </p>
       </div>
 
       <div class="right" aria-hidden="true">
-        <!-- hero image: eyes.png nella cartella /img -->
-        <img src="/img/eyes.png" alt="Immagine hero occhi" class="hero-img" loading="lazy" width="800" height="450">
+        <!-- hero.jpg deve essere caricato in /img/hero.jpg -->
+        <img src="/img/hero.jpg" alt="Anteprima AnonLab" class="hero-img" width="800" height="450">
       </div>
     </main>
 
@@ -121,18 +105,7 @@
   </div>
 
   <script>
-    // anno footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Suggerimento: gestione semplice del form (opzionale)
-    // Se usi Formspree l'action invia direttamente; altrimenti intercetta qui e fai fetch al tuo endpoint.
-    document.getElementById('signup-inline').addEventListener('submit', function(e){
-      // lasciare il comportamento di default per Formspree
-      // se vuoi gestire via JS, decommenta e personalizza il codice qui sotto:
-      // e.preventDefault();
-      // const fd = new FormData(this);
-      // fetch('/your-endpoint', { method:'POST', body: fd }).then(...);
-    });
   </script>
 </body>
 </html>
