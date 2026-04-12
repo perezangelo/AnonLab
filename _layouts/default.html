@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="/favicon-96x96.png">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  {% seo %}
+    <!-- FAVICON -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Favicon & Icons -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" href="/favicon-64x64.png" type="image/png" sizes="64x64">
-<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+    <title>{{ page.title }}</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-  {{ content }}
+    <header>
+        {% include header.html %}
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        {% include footer.html %}
+    </footer>
 </body>
 </html>
