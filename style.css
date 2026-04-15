@@ -197,3 +197,11 @@ footer .social a { margin: 0 10px; color: var(--accent); }
     transition: 0.2s;
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
 }
+@keyframes matrixScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 200px; }
+}
+
+body {
+    animation: matrixScroll 6s linear infinite;
+}
