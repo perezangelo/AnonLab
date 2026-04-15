@@ -2,6 +2,7 @@
 layout: null
 permalink: /sw.js
 ---
+
 {% include build_version.html %}
 
 const CACHE_VERSION = 'anonlab-{{ build_version }}';
@@ -38,7 +39,6 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const req = event.request;
 
-  // HTML sempre dalla rete
   if (req.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
       fetch(req).catch(() => caches.match(req))
@@ -46,7 +46,6 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Asset: cache first
   event.respondWith(
     caches.match(req).then(cached =>
       cached || fetch(req)
