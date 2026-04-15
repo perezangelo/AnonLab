@@ -1,441 +1,115 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>CyberPulse Computing – Next‑Gen Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnonLab – Cyber Intelligence & Tech</title>
 
-  <style>
-    :root {
-      --bg: #050816;
-      --bg-soft: #0b1020;
-      --accent: #22d3ee;
-      --accent-soft: rgba(34, 211, 238, 0.15);
-      --accent-2: #a855f7;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --radius: 14px;
-    }
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+<meta name="theme-color" content="#050509">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    header {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 20px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      color: var(--accent);
-    }
-
-    nav a {
-      margin-left: 18px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .hero {
-      max-width: 1100px;
-      margin: 40px auto 60px;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-size: clamp(2.4rem, 4vw, 3.2rem);
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-    .hero-title span {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 480px;
-      margin-bottom: 24px;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .btn-primary {
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #020617;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .btn-secondary {
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .hero-meta {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    .hero-panel {
-      background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 55%),
-                  linear-gradient(145deg, rgba(15, 23, 42, 0.95), #020617);
-      border-radius: 22px;
-      padding: 20px 20px 18px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-chip {
-      font-size: 0.7rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .hero-matrix {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 16px;
-      font-size: 0.75rem;
-    }
-
-    .hero-card {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 12px;
-      padding: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    .hero-card-label {
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .hero-card-value {
-      font-size: 0.85rem;
-    }
-
-    .hero-card-value span {
-      color: var(--accent);
-    }
-
-    .hero-panel-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .hero-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .hero-status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 0 auto 50px;
-      padding: 0 20px;
-    }
-
-    .section-header {
-      margin-bottom: 20px;
-    }
-
-    .section-kicker {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent-2);
-      margin-bottom: 6px;
-    }
-
-    .section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 6px;
-    }
-
-    .section p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: var(--bg-soft);
-      border-radius: var(--radius);
-      padding: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      font-size: 0.9rem;
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .card p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .cta-final {
-      text-align: center;
-      padding: 40px 20px 60px;
-    }
-
-    .cta-final h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .cta-final p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-        margin-top: 20px;
-      }
-      nav { display: none; } /* puoi sostituirlo con un menu mobile se vuoi */
-    }
-  </style>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <div class="logo">CYBERPULSE</div>
-  <nav>
-    <a href="#servizi">Servizi</a>
-    <a href="#soluzioni">Soluzioni</a>
-    <a href="#contatti">Contatti</a>
-  </nav>
+<header class="header">
+    <div class="logo">ANON<span>LAB</span></div>
+    <nav>
+        <a href="news.html">News</a>
+        <a href="cyber.html">Cyber Security</a>
+        <a href="tech.html">Tech</a>
+        <a href="meteo.html">Meteo</a>
+        <a href="oroscopo.html">Oroscopo</a>
+        <a href="dashboard.html">SOC</a>
+    </nav>
 </header>
 
-<section class="hero">
-  <div>
-    <div class="hero-kicker">Edge computing · sicurezza · automazione</div>
-    <h1 class="hero-title">
-      Infrastrutture <span>cyber‑ready</span> per carichi reali.
-    </h1>
-    <p class="hero-subtitle">
-      Progettiamo stack leggeri, sicuri e osservabili per ambienti ibridi, retail distribuito e workload critici.
-    </p>
+<main class="layout">
 
-    <div class="hero-cta">
-      <button class="btn-primary">Parla con noi</button>
-      <button class="btn-secondary">Scarica una scheda tecnica</button>
-    </div>
+    <!-- HERO MAGAZINE -->
+    <section class="hero">
+        <h2>🔥 Ultime dal fronte Cyber</h2>
 
-    <div class="hero-meta">
-      <span><span class="hero-meta-dot"></span> Uptime medio &gt; 99,95%</span>
-      <span>·</span>
-      <span>Deployment in 48–72 ore</span>
-    </div>
-  </div>
+        <div class="hero-grid">
+            <article class="hero-card">
+                <h3>Ransomware colpisce infrastrutture critiche</h3>
+                <p>Nuova variante sfrutta vulnerabilità zero‑day.</p>
+            </article>
 
-  <div class="hero-panel">
-    <div class="hero-panel-header">
-      <span>CyberPulse · Control Plane</span>
-      <span class="hero-chip">Live telemetry</span>
-    </div>
+            <article class="hero-card">
+                <h3>Data breach globale: milioni di account esposti</h3>
+                <p>Errore di configurazione su cluster cloud.</p>
+            </article>
 
-    <div class="hero-matrix">
-      <div class="hero-card">
-        <div class="hero-card-label">Nodi attivi</div>
-        <div class="hero-card-value"><span>128</span> / 128</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-label">Latency media</div>
-        <div class="hero-card-value">&lt; <span>18 ms</span></div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-label">Incidenti critici</div>
-        <div class="hero-card-value"><span>0</span> nelle ultime 24h</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-label">Workload</div>
-        <div class="hero-card-value">Retail · IoT · AI</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-label">Compliance</div>
-        <div class="hero-card-value">ISO 27001 · GDPR</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-label">Modalità</div>
-        <div class="hero-card-value"><span>Always‑on</span></div>
-      </div>
-    </div>
+            <article class="hero-card">
+                <h3>Attacco supply‑chain compromette software diffuso</h3>
+                <p>Indagini in corso, rischio escalation.</p>
+            </article>
+        </div>
+    </section>
 
-    <div class="hero-panel-footer">
-      <div class="hero-status-pill">
-        <span class="hero-status-dot"></span>
-        Cluster stabile · nessuna azione richiesta
-      </div>
-      <span>Monitoraggio 24/7 · SOC dedicato</span>
-    </div>
-  </div>
-</section>
+    <!-- FEED DAL MONDO -->
+    <section class="feed">
+        <h2>🌍 Feed dal Mondo</h2>
+        <ul>
+            <li>• Crescono gli attacchi IoT del 230% nel 2026</li>
+            <li>• Nuove normative UE sulla sicurezza digitale</li>
+            <li>• AI nei SOC: automazione delle minacce</li>
+            <li>• Botnet basata su router domestici scoperta</li>
+        </ul>
+    </section>
 
-<section class="section" id="servizi">
-  <div class="section-header">
-    <div class="section-kicker">Servizi</div>
-    <h2>Dal concept al rollout operativo.</h2>
-    <p>
-      Affianchiamo team tecnici e business nella progettazione di infrastrutture, pipeline dati e strumenti di osservabilità
-      pensati per ambienti distribuiti.
-    </p>
-  </div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-  <div class="cards-grid">
-    <div class="card">
-      <h3>Edge &amp; micro‑datacenter</h3>
-      <p>Architetture leggere per punti vendita, magazzini, filiali e siti remoti con connettività non perfetta.</p>
-    </div>
-    <div class="card">
-      <h3>Security by design</h3>
-      <p>Segmentazione, hardening, identity, logging e risposta agli incidenti integrati nel ciclo di vita del progetto.</p>
-    </div>
-    <div class="card">
-      <h3>Automazione &amp; rollout</h3>
-      <p>Template, playbook e orchestrazione per ridurre errori manuali e tempi di messa in produzione.</p>
-    </div>
-  </div>
-</section>
+        <!-- WIDGET METEO -->
+        <div class="widget">
+            <h3>☁️ Meteo</h3>
+            <div class="widget-box">
+                Milano: 18°C · Sereno  
+                <br>Umidità: 52%  
+                <br>Vento: 6 km/h
+            </div>
+        </div>
 
-<section class="section" id="soluzioni">
-  <div class="section-header">
-    <div class="section-kicker">Stack</div>
-    <h2>Soluzioni componibili, non scatole chiuse.</h2>
-    <p>
-      Lavoriamo con stack aperti e strumenti standard, così puoi mantenere il controllo nel tempo senza lock‑in.
-    </p>
-  </div>
+        <!-- OROSCOPO GEEK -->
+        <div class="widget">
+            <h3>🔮 Oroscopo Geek</h3>
+            <div class="widget-box">
+                <strong>Ariete:</strong> oggi il tuo codice compila.  
+                <br><strong>Gemelli:</strong> evita update sospetti.  
+                <br><strong>Leone:</strong> refactoring epico in arrivo.
+            </div>
+        </div>
 
-  <div class="cards-grid">
-    <div class="card">
-      <h3>Osservabilità</h3>
-      <p>Metriche, log e tracing unificati per capire cosa succede davvero nei tuoi ambienti.</p>
-    </div>
-    <div class="card">
-      <h3>Data pipeline</h3>
-      <p>Raccolta, normalizzazione e inoltro dati da edge, sensori e applicazioni legacy.</p>
-    </div>
-    <div class="card">
-      <h3>Integrazione AI</h3>
-      <p>Modelli e servizi AI integrati in flussi esistenti, senza stravolgere l’operatività.</p>
-    </div>
-  </div>
-</section>
+        <!-- MINI DASHBOARD SOC -->
+        <div class="widget">
+            <h3>🛡️ SOC Live</h3>
+            <div class="terminal">
+                <p>> Threats detected: <span class="green">0</span></p>
+                <p>> Uptime cluster: <span class="green">99.97%</span></p>
+                <p>> Log ultimi 60s: <span class="green">OK</span></p>
+            </div>
+        </div>
 
-<section class="section cta-final" id="contatti">
-  <h2>Hai un ambiente reale da mettere sotto controllo?</h2>
-  <p>Scrivici due righe sul contesto: settore, numero di siti, criticità principali. Ti rispondiamo con una proposta concreta.</p>
-  <button class="btn-primary">Invia una richiesta</button>
-</section>
+    </aside>
+
+</main>
+
+<footer>
+    <p>© 2026 AnonLab — Cyber Intelligence Network</p>
+    <div class="social">
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+    </div>
+</footer>
 
 </body>
 </html>
+
 
