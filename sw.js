@@ -1,3 +1,10 @@
+---
+layout: null
+permalink: /sw.js
+---
+
+{% include build_version.html %}
+
 const CACHE_VERSION = 'anonlab-{{ build_version }}';
 const CACHE_NAME = `anonlab-cache-${CACHE_VERSION}`;
 
@@ -40,7 +47,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Asset: cache first, poi rete
+  // Asset: cache first
   event.respondWith(
     caches.match(req).then(cached =>
       cached || fetch(req)
