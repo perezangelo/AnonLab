@@ -43,43 +43,47 @@
     </footer>
     
 <script>
-// FEED CYBERCRIME
-fetch("https://api.rss2json.com/v1/api.json?rss_url=https://www.cert-agid.gov.it/feed/")
-  .then(r => r.json())
-  .then(data => {
-    const items = data.items.slice(0, 5)
-      .map(i => `<p><a href="${i.link}" target="_blank">${i.title}</a></p>`)
-      .join("");
+document.addEventListener("DOMContentLoaded", function() {
 
-    document.getElementById("cyber").innerHTML = `
-      <h3>Cyber Security</h3>
-      ${items}
-    `;
-  });
+    // FEED CYBERCRIME
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://www.cert-agid.gov.it/feed/")
+      .then(r => r.json())
+      .then(data => {
+        const items = data.items.slice(0, 5)
+          .map(i => `<p><a href="${i.link}" target="_blank">${i.title}</a></p>`)
+          .join("");
 
-// METEO
-fetch("https://api.open-meteo.com/v1/forecast?latitude=45.82&longitude=8.83&current_weather=true")
-  .then(r => r.json())
-  .then(data => {
-    const t = data.current_weather.temperature;
-    const w = data.current_weather.windspeed;
+        document.getElementById("cyber").innerHTML = `
+          <h3>Cyber Security</h3>
+          ${items}
+        `;
+      });
 
-    document.getElementById("meteo").innerHTML = `
-      <h3>Meteo</h3>
-      <p>Temperatura: ${t}°C</p>
-      <p>Vento: ${w} km/h</p>
-    `;
-  });
+    // METEO
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=45.82&longitude=8.83&current_weather=true")
+      .then(r => r.json())
+      .then(data => {
+        const t = data.current_weather.temperature;
+        const w = data.current_weather.windspeed;
 
-// OROSCOPO
-fetch("https://aztro.sameerkumar.website/?sign=aries&day=today", { method: "POST" })
-  .then(r => r.json())
-  .then(data => {
-    document.getElementById("oroscopo").innerHTML = `
-      <h3>Oroscopo</h3>
-      <p>${data.description}</p>
-    `;
-  });
+        document.getElementById("meteo").innerHTML = `
+          <h3>Meteo</h3>
+          <p>Temperatura: ${t}°C</p>
+          <p>Vento: ${w} km/h</p>
+        `;
+      });
+
+    // OROSCOPO
+    fetch("https://aztro.sameerkumar.website/?sign=aries&day=today", { method: "POST" })
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById("oroscopo").innerHTML = `
+          <h3>Oroscopo</h3>
+          <p>${data.description}</p>
+        `;
+      });
+
+});
 </script>
 </body>
 </html>
