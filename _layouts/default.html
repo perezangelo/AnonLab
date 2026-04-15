@@ -3,30 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>{{ page.title }}</title>
 
-    {% include build_version.html %}
-
-    <link rel="icon" type="image/png" href="/favicon.png?v={{ build_version }}">
-    <link rel="stylesheet" href="/style.css?v={{ build_version }}">
+    <!-- CSS principale -->
+    <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
 
-    {% include header.html %}
+<header>
+    <div class="logo">AnonLab</div>
+    <nav>
+        <div class="nav-links" id="navLinks">
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/servizi.html">Servizi</a>
+            <a href="/portfolio.html">Portfolio</a>
+            <a href="/contatti.html">Contatti</a>
+        </div>
 
-    <main>
-        {{ content }}
-    </main>
+        <div class="nav-toggle" id="navToggle" aria-label="Apri menu">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+</header>
 
-    {% include footer.html %}
-    <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .catch(err => console.error('SW registration failed', err));
-  });
-}
+<main>
+    {{ content }}
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            © <span id="year"></span> AnonLab – Creative Studio · Struttura leggera, nessuna piattaforma esterna, codice pulito.
+        </div>
+
+        <div class="footer-links">
+            <a href="/about.html">About</a> |
+            <a href="/privacy.html">Privacy Policy</a> |
+            <a href="/cookies.html">Cookie Policy</a> |
+            <a href="/disclaimer.html">Disclaimer</a> |
+            <a href="/contatti.html">Contatti</a> |
+            <a href="/termini.html">Termini di utilizzo</a> |
+            <a href="/readme.html">Readme</a> |
+            <a href="/sitemap.xml">Sitemap</a> |
+            <a href="/404.html">404</a>
+        </div>
+    </div>
+</footer>
+
+<button id="backToTop" aria-label="Torna su">↑</button>
+
+<script>
+// Anno automatico
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Menu mobile
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+});
+
+navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Back to top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
+
 </body>
 </html>
