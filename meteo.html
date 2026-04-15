@@ -26,17 +26,34 @@
 
     <h1 class="page-title">☁️ Meteo</h1>
 
-    <div class="widget-box">
-        Milano: 18°C · Sereno  
-        <br>Umidità: 52%  
-        <br>Vento: 6 km/h
-    </div>
-
+    <div id="weather-box" class="widget-box">
+    Caricamento meteo...
+</div>
 </main>
 
 <footer>
     <p>© 2026 AnonLab — Cyber Intelligence Network</p>
 </footer>
+    <script>
+async function loadWeather() {
+    const box = document.querySelector("#weather-box");
+    const apiKey = "INSERISCI_LA_TUA_API_KEY"; // da OpenWeatherMap
+    const city = "Milano";
 
+    try {
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=it`);
+        const data = await res.json();
+
+        box.innerHTML = `
+            ${data.name}: ${data.main.temp}°C · ${data.weather[0].description}<br>
+            Umidità: ${data.main.humidity}%<br>
+            Vento: ${data.wind.speed} km/h
+        `;
+    } catch (e) {
+        box.textContent = "Impossibile caricare il meteo.";
+    }
+}
+loadWeather();
+</script>
 </body>
 </html>
