@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealOnScroll();
 
     // ===============================
-    // WIDGETS: CARICAMENTO
+    // WIDGETS
     // ===============================
     loadCyberNews();
     loadWeather();
@@ -54,9 +54,8 @@ function loadCyberNews() {
     const box = document.getElementById("cyber");
     if (!box) return;
 
-    box.innerHTML = `
+    box.innerHTML += `
         <h3>Cyber News</h3>
-        <p>Aggiornamenti su sicurezza, privacy e tecnologia.</p>
         <ul>
             <li>• Nuove vulnerabilità rilevate oggi</li>
             <li>• Aggiornamenti software consigliati</li>
@@ -73,7 +72,7 @@ function loadWeather() {
     const box = document.getElementById("meteo");
     if (!box) return;
 
-    box.innerHTML = `
+    box.innerHTML += `
         <h3>Meteo</h3>
         <p>15°C — Sereno</p>
         <p>Vento: 7 km/h</p>
@@ -88,7 +87,7 @@ function loadHoroscope() {
     const box = document.getElementById("oroscopo");
     if (!box) return;
 
-    box.innerHTML = `
+    box.innerHTML += `
         <h3>Oroscopo</h3>
         <p>Giornata positiva per nuove idee.</p>
         <p>Consiglio: mantieni la mente aperta.</p>
