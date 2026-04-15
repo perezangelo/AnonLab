@@ -24,7 +24,12 @@
 
 <main class="page">
     <h1 class="page-title">📰 Ultime News</h1>
-
+    <section class="feed">
+    <h2>📰 Feed in tempo reale</h2>
+    <ul id="news-feed">
+        <li>Caricamento notizie...</li>
+    </ul>
+</section>
     <div class="article-list">
 
         <article class="article">
@@ -48,6 +53,24 @@
 <footer>
     <p>© 2026 AnonLab — Cyber Intelligence Network</p>
 </footer>
+    <script>
+async function loadNews() {
+    const box = document.querySelector("#news-feed");
+    const apiKey = "INSERISCI_API_KEY_NEWS"; // es. NewsAPI
+    const url = `https://newsapi.org/v2/top-headlines?category=technology&language=it&apiKey=${apiKey}`;
 
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        box.innerHTML = data.articles.slice(0, 5).map(a => `
+            <li>• <strong>${a.title}</strong></li>
+        `).join("");
+    } catch (e) {
+        box.innerHTML = "<li>Impossibile caricare le notizie.</li>";
+    }
+}
+loadNews();
+</script>
 </body>
 </html>
