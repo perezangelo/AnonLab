@@ -2,11 +2,6 @@
 layout: null
 permalink: /sw.js
 ---
----
-layout: null
-permalink: /sw.js
----
-
 {% include build_version.html %}
 
 const CACHE_VERSION = 'anonlab-{{ build_version }}';
