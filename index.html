@@ -31,6 +31,7 @@ title: AnonLab
 }
 </style>
 
+<!-- HERO -->
 <section class="hero" id="home">
     <div class="hero-inner">
         <div class="reveal">
@@ -67,12 +68,13 @@ title: AnonLab
         </div>
     </div>
 </section>
-</section> <!-- fine hero -->
 
+<!-- WIDGETS POSIZIONATI QUI -->
 <section class="widgets-row">
     {% include widgets.html %}
 </section>
-<section class="section reveal" id="chi-sono">
+
+<!-- CHI SONO -->
 <section class="section reveal" id="chi-sono">
     <div class="section-header">
         <div class="section-kicker">Chi sono</div>
@@ -86,6 +88,7 @@ title: AnonLab
     </div>
 </section>
 
+<!-- SERVIZI -->
 <section class="section reveal" id="servizi">
     <div class="section-header">
         <div class="section-kicker">Servizi</div>
@@ -124,6 +127,7 @@ title: AnonLab
     </div>
 </section>
 
+<!-- PORTFOLIO -->
 <section class="section reveal" id="portfolio">
     <div class="section-header">
         <div class="section-kicker">Portfolio</div>
@@ -151,6 +155,7 @@ title: AnonLab
     </div>
 </section>
 
+<!-- STATISTICHE -->
 <section class="section reveal" id="statistiche">
     <div class="section-header">
         <div class="section-kicker">Statistiche</div>
@@ -178,6 +183,7 @@ title: AnonLab
     </div>
 </section>
 
+<!-- AREE DI LAVORO -->
 <section class="section reveal">
     <div class="section-header">
         <div class="section-kicker">Aree di lavoro</div>
@@ -211,6 +217,7 @@ title: AnonLab
     </div>
 </section>
 
+<!-- IMMAGINE SUPPORT -->
 <div style="width: 100%; text-align: center; margin-bottom: 50px;">
     <img src="/support.png" alt="Support"
          style="width: 100%; max-width: 600px; height: auto;
@@ -218,6 +225,7 @@ title: AnonLab
                 box-shadow: 0 8px 20px rgba(0,0,0,0.12);">
 </div>
 
+<!-- FAQ -->
 <section class="section reveal">
     <div class="section-header">
         <div class="section-kicker">FAQ</div>
@@ -251,3 +259,48 @@ title: AnonLab
         </div>
     </div>
 </section>
+
+<!-- SCRIPT WIDGETS FUNZIONANTI -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    // CYBER NEWS
+    fetch("https://hnrss.org/security.json")
+      .then(r => r.json())
+      .then(data => {
+        const items = data.items.slice(0, 5)
+          .map(i => `<p><a href="${i.url}" target="_blank">${i.title}</a></p>`)
+          .join("");
+
+        document.getElementById("cyber").innerHTML = `
+          <h3>Cyber News</h3>
+          ${items}
+        `;
+      });
+
+    // METEO
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=45.82&longitude=8.83&current_weather=true")
+      .then(r => r.json())
+      .then(data => {
+        const t = data.current_weather.temperature;
+        const w = data.current_weather.windspeed;
+
+        document.getElementById("meteo").innerHTML = `
+          <h3>Meteo</h3>
+          <p>Temperatura: ${t}°C</p>
+          <p>Vento: ${w} km/h</p>
+        `;
+      });
+
+    // OROSCOPO
+    fetch("https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=aries&day=today")
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById("oroscopo").innerHTML = `
+          <h3>Oroscopo</h3>
+          <p>${data.data.horoscope_data}</p>
+        `;
+      });
+
+});
+</script>
