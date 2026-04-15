@@ -26,19 +26,28 @@
 
     <h1 class="page-title">🔮 Oroscopo Geek</h1>
 
-    <div class="widget-box">
-        <strong>Ariete:</strong> il tuo codice compila.  
-        <br><strong>Gemelli:</strong> evita update sospetti.  
-        <br><strong>Leone:</strong> refactoring epico in arrivo.  
-        <br><strong>Vergine:</strong> oggi firewall impeccabile.  
-        <br><strong>Scorpione:</strong> patch critical in arrivo.  
-    </div>
-
+    <div id="geek-horoscope" class="widget-box">
+    Caricamento oroscopo geek...
+</div>
 </main>
 
 <footer>
     <p>© 2026 AnonLab — Cyber Intelligence Network</p>
 </footer>
+    <script>
+const signs = {
+    Ariete: "Il tuo codice compila al primo colpo.",
+    Toro: "Backup consigliato prima di ogni modifica.",
+    Gemelli: "Evita aggiornamenti non richiesti.",
+    Leone: "Refactoring epico in arrivo.",
+    Vergine: "Firewall impeccabile oggi.",
+    Scorpione: "Patch critical in arrivo.",
+};
 
+const box = document.querySelector("#geek-horoscope");
+box.innerHTML = Object.entries(signs)
+    .map(([segno, testo]) => `<p><strong>${segno}:</strong> ${testo}</p>`)
+    .join("");
+</script>
 </body>
 </html>
