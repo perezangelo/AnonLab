@@ -32,24 +32,21 @@
         <p>> uptime: <span class="green">99.97%</span></p>
         <p>> log feed: <span class="green">OK</span></p>
     </section>
-
     <div class="cards-grid">
-        <div class="card">
-            <h3>Incidenti</h3>
-            <p>0 nelle ultime 24h</p>
-        </div>
-        <div class="card">
-            <h3>Traffico</h3>
-            <p>Normale</p>
-        </div>
-        <div class="card">
-            <h3>Firewall</h3>
-            <p>Regole aggiornate</p>
-        </div>
+    <div class="card">
+        <h3>Minacce</h3>
+        <p><span id="soc-threats">0</span> rilevate</p>
     </div>
-
+    <div class="card">
+        <h3>Traffico</h3>
+        <p><span id="soc-traffic">70%</span> utilizzo</p>
+    </div>
+    <div class="card">
+        <h3>Log/min</h3>
+        <p><span id="soc-logs">120</span></p>
+    </div>
+</div>
 </main>
-
 <footer>
     <p>© 2026 AnonLab — Cyber Intelligence Network</p>
 </footer>
@@ -75,6 +72,22 @@ document.addEventListener("DOMContentLoaded", () => {
         typeWriter(terminal, text, 35);
     }
 });
+</script>
+    <script>
+function randomValue(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+setInterval(() => {
+    const t = document.querySelector("#soc-threats");
+    const tr = document.querySelector("#soc-traffic");
+    const l = document.querySelector("#soc-logs");
+    if (!t || !tr || !l) return;
+
+    t.textContent = randomValue(0, 3);
+    tr.textContent = randomValue(40, 90) + "%";
+    l.textContent = randomValue(100, 500);
+}, 3000);
 </script>
 </body>
 </html>
