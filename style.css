@@ -145,3 +145,49 @@ footer {
 
 footer p { color: var(--muted); }
 footer .social a { margin: 0 10px; color: var(--accent); }
+/* GLOW NEON */
+.neon {
+    text-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent2);
+}
+
+/* EFFETTO GLITCH */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.7;
+}
+.glitch::before {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+}
+.glitch::after {
+    color: var(--accent2);
+    transform: translate(-2px, 2px);
+}
+
+/* ANIMAZIONE CURSORE TERMINALE */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: var(--accent);
+    animation: blink 0.8s infinite;
+}
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* CARDS ANIMATE */
+.card:hover {
+    transform: translateY(-4px);
+    transition: 0.2s;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
