@@ -1,76 +1,32 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnonLab News – Ultime Notizie Tech & Cyber</title>
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>News — AnonLab</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
 
-<header class="header">
-    <div class="logo">ANON<span>LAB</span></div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="cyber.html">Cyber Security</a>
-        <a href="tech.html">Tech</a>
-        <a href="meteo.html">Meteo</a>
-        <a href="oroscopo.html">Oroscopo</a>
-        <a href="dashboard.html">SOC</a>
-    </nav>
-</header>
+  <div id="header"></div>
+  <div id="ticker"></div>
 
-<main class="page">
-    <h1 class="page-title">📰 Ultime News</h1>
-    <section class="feed">
-    <h2>📰 Feed in tempo reale</h2>
-    <ul id="news-feed">
-        <li>Caricamento notizie...</li>
-    </ul>
-</section>
-    <div class="article-list">
+  <main class="page">
+    <section class="main-column">
+      <h1 class="page-title">Tutte le News</h1>
+      <div id="news-container"></div>
+    </section>
 
-        <article class="article">
-            <h2>Ransomware globale: nuova ondata di attacchi</h2>
-            <p>Le infrastrutture critiche europee sotto pressione...</p>
-        </article>
+    <div id="sidebar"></div>
+  </main>
 
-        <article class="article">
-            <h2>AI nei SOC: rivoluzione o rischio?</h2>
-            <p>Automazione, detection avanzata e nuovi scenari...</p>
-        </article>
+  <div id="footer"></div>
 
-        <article class="article">
-            <h2>Data breach massivo: milioni di account esposti</h2>
-            <p>Un errore di configurazione scatena un incidente...</p>
-        </article>
+  <script src="/js/ui.js"></script>
+  <script src="/js/news.js"></script>
+  <script src="/js/feed.js"></script>
+  <script src="/js/meteo.js"></script>
+  <script src="/js/oroscopo.js"></script>
 
-    </div>
-</main>
-
-<footer>
-    <p>© 2026 AnonLab — Cyber Intelligence Network</p>
-</footer>
-    <script>
-async function loadNews() {
-    const box = document.querySelector("#news-feed");
-    const apiKey = "4c651c1dc3e84a9b850e173daeee99d9"; // es. NewsAPI
-    const url = `https://newsapi.org/v2/top-headlines?category=technology&language=it&apiKey=${apiKey}`;
-
-    try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        box.innerHTML = data.articles.slice(0, 5).map(a => `
-            <li>• <strong>${a.title}</strong></li>
-        `).join("");
-    } catch (e) {
-        box.innerHTML = "<li>Impossibile caricare le notizie.</li>";
-    }
-}
-loadNews();
-</script>
 </body>
 </html>
+
