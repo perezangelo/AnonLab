@@ -15,6 +15,10 @@
 /* ------------------------------
    BASE + MATRIX BACKGROUND
 --------------------------------*/
+html {
+    font-size: 18px;
+}
+
 body {
     font-family: "Inter", sans-serif;
 
@@ -100,7 +104,7 @@ body::after {
 --------------------------------*/
 .header {
     background: var(--bg-soft);
-    padding: 18px 30px;
+    padding: 22px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -108,7 +112,7 @@ body::after {
 }
 
 .logo {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     color: var(--accent);
@@ -118,6 +122,7 @@ body::after {
 nav a {
     margin-left: 22px;
     color: var(--muted);
+    font-size: 1.1rem;
 }
 nav a:hover { color: var(--accent); }
 
@@ -142,7 +147,7 @@ nav a:hover { color: var(--accent); }
 --------------------------------*/
 .hero {
     background: var(--bg-soft);
-    padding: 25px;
+    padding: 28px;
     border-radius: var(--radius);
     margin-bottom: 30px;
 }
@@ -150,6 +155,7 @@ nav a:hover { color: var(--accent); }
 .hero h2 {
     color: var(--accent);
     margin-bottom: 15px;
+    font-size: 1.6rem;
 }
 
 .hero-grid {
@@ -159,7 +165,7 @@ nav a:hover { color: var(--accent); }
 
 .hero-card {
     background: #11111a;
-    padding: 18px;
+    padding: 20px;
     border-radius: var(--radius);
     border: 1px solid rgba(255,255,255,0.06);
 }
@@ -175,30 +181,33 @@ nav a:hover { color: var(--accent); }
     margin-bottom: 30px;
 }
 
-.feed h2 { color: var(--accent2); }
+.feed h2 { 
+    color: var(--accent2);
+    font-size: 1.4rem;
+}
 
 /* ------------------------------
    SIDEBAR
 --------------------------------*/
 .sidebar .widget {
     background: var(--bg-soft);
-    padding: 20px;
+    padding: 22px;
     border-radius: var(--radius);
     margin-bottom: 25px;
 }
 
 .widget-box {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--muted);
 }
 
 /* Terminal style */
 .terminal {
     background: #000;
-    padding: 12px;
+    padding: 14px;
     border-radius: var(--radius);
     font-family: "Consolas", monospace;
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--accent);
 }
 .green { color: var(--green); }
@@ -208,7 +217,7 @@ nav a:hover { color: var(--accent); }
 --------------------------------*/
 footer {
     margin-top: 40px;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     background: var(--bg-soft);
     border-top: 1px solid rgba(255,255,255,0.06);
@@ -273,4 +282,19 @@ footer p { color: var(--muted); }
     transform: translateY(-4px);
     transition: 0.2s;
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+/* ------------------------------
+   RESPONSIVE MOBILE
+--------------------------------*/
+@media (max-width: 600px) {
+    html { font-size: 20px; }
+
+    .page-title { font-size: 1.8rem; }
+
+    nav a { font-size: 1.2rem; }
+
+    .hero, .feed, .sidebar .widget, .terminal, .card {
+        padding: 24px;
+    }
 }
