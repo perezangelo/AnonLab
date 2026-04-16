@@ -11,37 +11,40 @@
   <div id="ticker"></div>
 
   <main class="page">
-    <section class="main-column">
-      <h1 class="page-title">SOC Dashboard</h1>
 
-      <div class="dashboard-grid">
+  <section class="soc-grid">
 
-        <div class="dash-card">
-          <h3>Alert Attivi</h3>
-          <p class="dash-number">12</p>
-        </div>
+    <!-- Threat Level -->
+    <div class="soc-card threat-card">
+      <h2>Threat Level</h2>
+      <div id="threat-level" class="threat-level">Loading...</div>
+    </div>
 
-        <div class="dash-card">
-          <h3>Threat Level</h3>
-          <p class="dash-number danger">ALTO</p>
-        </div>
+    <!-- Attacchi rilevati -->
+    <div class="soc-card">
+      <h2>Attacchi rilevati (ultime 24h)</h2>
+      <canvas id="attacksChart"></canvas>
+    </div>
 
-        <div class="dash-card">
-          <h3>Eventi Monitorati</h3>
-          <p class="dash-number">4.291</p>
-        </div>
+    <!-- Log eventi -->
+    <div class="soc-card log-card">
+      <h2>Event Log</h2>
+      <div id="event-log" class="event-log"></div>
+    </div>
 
-        <div class="dash-card">
-          <h3>Ultimo Incidente</h3>
-          <p class="dash-number">23 min fa</p>
-        </div>
+    <!-- Indicatori di sistema -->
+    <div class="soc-card">
+      <h2>System Status</h2>
+      <ul class="system-status">
+        <li>CPU Load: <span id="cpu-load">--%</span></li>
+        <li>Network Activity: <span id="net-activity">-- kb/s</span></li>
+        <li>Firewall Status: <span id="fw-status">--</span></li>
+      </ul>
+    </div>
 
-      </div>
+  </section>
 
-    </section>
-
-    <div id="sidebar"></div>
-  </main>
+</main>
 
   <div id="footer"></div>
 
