@@ -1,5 +1,8 @@
-// Qui in futuro puoi gestire:
-// - caricamento dinamico news
-// - meteo da API
-// - oroscopo da API
-console.log("TechShadow Lab UI loaded");
+// Script base per AnonLab
+// Qui in futuro potrai gestire:
+// - caricamento dinamico delle news
+// - meteo tramite API
+// - oroscopo tramite API
+// - aggiornamento automatico della data LIVE
+
+console.log("AnonLab UI loaded");
