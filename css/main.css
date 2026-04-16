@@ -494,6 +494,59 @@ body {
   color: var(--accent);
   text-shadow: 0 0 8px rgba(0,255,157,0.4);
 }
+/* ================================
+   SOC DASHBOARD — CYBER UPGRADE
+   ================================ */
+
+.soc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.soc-card {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(0,255,157,0.15);
+  border-radius: 10px;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+  transition: 0.3s ease;
+}
+
+.soc-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0,255,157,0.3);
+}
+
+/* Threat Level */
+.threat-level {
+  font-size: 2rem;
+  font-family: var(--font-mono);
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(0,255,157,0.4);
+}
+
+/* Event Log */
+.event-log {
+  height: 220px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-right: 10px;
+}
+
+.event-log div {
+  margin-bottom: 6px;
+}
+
+/* System Status */
+.system-status li {
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+}
+
 
 
 
