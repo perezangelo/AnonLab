@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechShadow Lab</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- TITOLO SITO -->
+    <title>AnonLab — Cybersecurity, Tech & Digital Culture</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- HEADER -->
     <header class="ts-header">
         <div class="ts-header-top">
-            <div class="ts-logo">TechShadow <span>Lab</span></div>
+            <div class="ts-logo">Anon<span>Lab</span></div>
+
             <div class="ts-header-right">
                 <div class="ts-live-badge">LIVE</div>
                 <div class="ts-date">Giovedì 16 Aprile 2026</div>
             </div>
         </div>
+
         <nav class="ts-nav">
-            <a href="#">Home</a>
-            <a href="#">News</a>
-            <a href="#">Cyber Security</a>
-            <a href="#">Tech</a>
-            <a href="#">Meteo</a>
-            <a href="#">Oroscopo</a>
+            <a href="index.html">Home</a>
+            <a href="news.html">News</a>
+            <a href="cyber.html">Cyber Security</a>
+            <a href="tech.html">Tech</a>
+            <a href="meteo.html">Meteo</a>
+            <a href="oroscopo.html">Oroscopo</a>
         </nav>
     </header>
 
@@ -43,16 +54,20 @@
     <!-- MAIN LAYOUT -->
     <main class="ts-main">
 
-        <!-- COLONNA SINISTRA: HERO + NEWS -->
+        <!-- COLONNA SINISTRA -->
         <section class="ts-main-left">
 
-            <!-- HERO PRINCIPALE -->
+            <!-- HERO -->
             <article class="ts-hero-card">
                 <div class="ts-hero-image"></div>
+
                 <div class="ts-hero-content">
                     <div class="ts-tag ts-tag-red">Breaking</div>
+
                     <h1>Attacco ransomware blocca infrastrutture critiche in Europa</h1>
+
                     <p>Un nuovo gruppo di cyber criminali ha preso di mira reti industriali e servizi essenziali, causando disservizi diffusi e allerta massima nei CERT nazionali.</p>
+
                     <div class="ts-meta">
                         <span>Cyber Security</span>
                         <span>•</span>
@@ -61,7 +76,7 @@
                 </div>
             </article>
 
-            <!-- GRIGLIA NEWS -->
+            <!-- NEWS GRID -->
             <section class="ts-news-grid">
 
                 <article class="ts-news-card">
@@ -110,10 +125,10 @@
 
         </section>
 
-        <!-- COLONNA DESTRA: SIDEBAR -->
+        <!-- SIDEBAR -->
         <aside class="ts-sidebar">
 
-            <!-- WIDGET FEED DAL MONDO -->
+            <!-- FEED DAL MONDO -->
             <section class="ts-widget">
                 <h3>🌍 Feed dal mondo</h3>
                 <ul class="ts-feed-list">
@@ -136,7 +151,7 @@
                 </ul>
             </section>
 
-            <!-- WIDGET METEO -->
+            <!-- METEO -->
             <section class="ts-widget">
                 <h3>☀️ Meteo</h3>
                 <div class="ts-meteo">
@@ -146,7 +161,7 @@
                 </div>
             </section>
 
-            <!-- WIDGET OROSCOPO -->
+            <!-- OROSCOPO -->
             <section class="ts-widget">
                 <h3>🔮 Oroscopo</h3>
                 <div class="ts-oroscopo">
@@ -161,13 +176,15 @@
     <!-- FOOTER -->
     <footer class="ts-footer">
         <div class="ts-footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Termini di servizio</a>
-            <a href="#">Contatti</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="cookies.html">Cookies</a>
+            <a href="termini.html">Termini</a>
+            <a href="contatti.html">Contatti</a>
         </div>
-        <p>© 2026 TechShadow Lab — Portale indipendente di news tech & cyber security</p>
+
+        <p>© 2026 AnonLab — Portale indipendente di cybersecurity, tecnologia e cultura digitale</p>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
