@@ -1,96 +1,37 @@
----
-layout: default
-title: contatti
----
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <title>Contatti – AnonLab</title>
-  <meta name="description" content="Contatta AnonLab in modo sicuro: nessuna esposizione pubblica dell'email, nessuno spam, nessun tracciamento.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="AnonLab">
-
-  <!-- CANONICAL -->
-  <link rel="canonical" href="https://anonlab.it/contatti.html">
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Contatti – AnonLab">
-  <meta property="og:description" content="Richiedi l'indirizzo email ufficiale di AnonLab in modo sicuro e senza tracciamento.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://anonlab.it/contatti.html">
-  <meta property="og:image" content="https://anonlab.it/img/hero1.jpg">
-
-  <!-- TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contatti – AnonLab">
-  <meta name="twitter:description" content="Comunicazioni sicure, nessuno spam, nessun tracciamento.">
-  <meta name="twitter:image" content="https://anonlab.it/img/hero1.jpg">
-
-  <!-- JEKYLL SEO TAG -->
-  {% seo %}
-
-  <!-- STRUCTURED DATA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contatti – AnonLab",
-    "url": "https://anonlab.it/contatti.html",
-    "description": "Pagina contatti di AnonLab: comunicazioni sicure senza esposizione pubblica dell'indirizzo email.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "AnonLab"
-    }
-  }
-  </script>
-
-  <style>
-    body {
-      background: #0a0a0a;
-      color: #e0e0e0;
-      font-family: Consolas, monospace;
-      line-height: 1.6;
-      padding: 40px;
-    }
-    h1 {
-      color: #00ff9d;
-      text-shadow: 0 0 8px #00ff9d;
-    }
-    a {
-      color: #00ff9d;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .box {
-      border: 1px solid #00ff9d;
-      padding: 20px;
-      margin-top: 20px;
-      background: rgba(0,255,157,0.05);
-    }
-  </style>
+  <title>Contatti — AnonLab</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
 
-<h1>Contatti – AnonLab</h1>
+  <div id="header"></div>
+  <div id="ticker"></div>
 
-<p>Per motivi di sicurezza e per ridurre lo spam, l’indirizzo email ufficiale di AnonLab non è pubblicato direttamente online.</p>
+  <main class="page">
+    <section class="main-column">
+      <h1 class="page-title">Contatti</h1>
 
-<div class="box">
-  <p><strong>Come contattarci</strong><br>
-  Puoi richiedere l’indirizzo email ufficiale tramite i canali indicati sul sito o attraverso richiesta formale.  
-  Il team di AnonLab risponde esclusivamente a comunicazioni pertinenti e verificate.</p>
-</div>
+      <div class="legal-box">
+        <p>Per informazioni, segnalazioni o collaborazioni puoi contattarci a:</p>
 
-<p>Per informazioni legali, consulta la <a href="/privacy.html">Privacy Policy</a> e la <a href="/cookies.html">Cookie Policy</a>.</p>
+        <p><strong>Email:</strong> admin@anonlab.it</p>
+
+        <p>Rispondiamo entro 24/48 ore.</p>
+      </div>
+    </section>
+
+    <div id="sidebar"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/js/ui.js"></script>
+  <script src="/js/feed.js"></script>
+  <script src="/js/meteo.js"></script>
+  <script src="/js/oroscopo.js"></script>
 
 </body>
 </html>
-
-
