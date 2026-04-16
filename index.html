@@ -1,190 +1,28 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- TITOLO SITO -->
-    <title>AnonLab — Cybersecurity, Tech & Digital Culture</title>
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>AnonLab — Cybersecurity, Tech e Cultura Digitale</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+  <div id="header"></div>
+  <div id="ticker"></div>
 
-    <!-- HEADER -->
-    <header class="ts-header">
-        <div class="ts-header-top">
-            <div class="ts-logo">Anon<span>Lab</span></div>
-
-            <div class="ts-header-right">
-                <div class="ts-live-badge">LIVE</div>
-                <div class="ts-date">Giovedì 16 Aprile 2026</div>
-            </div>
-        </div>
-
-        <nav class="ts-nav">
-            <a href="index.html">Home</a>
-            <a href="news.html">News</a>
-            <a href="cyber.html">Cyber Security</a>
-            <a href="tech.html">Tech</a>
-            <a href="meteo.html">Meteo</a>
-            <a href="oroscopo.html">Oroscopo</a>
-        </nav>
-    </header>
-
-    <!-- TICKER -->
-    <section class="ts-ticker">
-        <div class="ts-ticker-label">ULTIM’ORA</div>
-        <div class="ts-ticker-track">
-            <div class="ts-ticker-content">
-                <span>⚠️ Nuovi attacchi ransomware colpiscono infrastrutture critiche europee</span>
-                <span>🌐 Cresce il mercato IoT: +25% nel primo trimestre 2026</span>
-                <span>🤖 L’AI entra nei SOC: automazione delle risposte agli incidenti</span>
-                <span>🔐 Scoperte nuove vulnerabilità zero‑day in software enterprise</span>
-            </div>
-        </div>
+  <main class="page">
+    <section class="main-column">
+      <div id="news-container"></div>
     </section>
+    <div id="sidebar"></div>
+  </main>
 
-    <!-- MAIN LAYOUT -->
-    <main class="ts-main">
+  <div id="footer"></div>
 
-        <!-- COLONNA SINISTRA -->
-        <section class="ts-main-left">
-
-            <!-- HERO -->
-            <article class="ts-hero-card">
-                <div class="ts-hero-image"></div>
-
-                <div class="ts-hero-content">
-                    <div class="ts-tag ts-tag-red">Breaking</div>
-
-                    <h1>Attacco ransomware blocca infrastrutture critiche in Europa</h1>
-
-                    <p>Un nuovo gruppo di cyber criminali ha preso di mira reti industriali e servizi essenziali, causando disservizi diffusi e allerta massima nei CERT nazionali.</p>
-
-                    <div class="ts-meta">
-                        <span>Cyber Security</span>
-                        <span>•</span>
-                        <span>Aggiornato ora</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- NEWS GRID -->
-            <section class="ts-news-grid">
-
-                <article class="ts-news-card">
-                    <div class="ts-news-image img-1"></div>
-                    <div class="ts-news-body">
-                        <div class="ts-tag ts-tag-green">Analisi</div>
-                        <h2>AI e difesa: come cambiano i SOC nel 2026</h2>
-                        <p>L’intelligenza artificiale sta rivoluzionando il modo in cui vengono rilevati e gestiti gli incidenti di sicurezza.</p>
-                        <div class="ts-meta">
-                            <span>Tech</span>
-                            <span>•</span>
-                            <span>3 ore fa</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="ts-news-card">
-                    <div class="ts-news-image img-2"></div>
-                    <div class="ts-news-body">
-                        <div class="ts-tag ts-tag-blue">Report</div>
-                        <h2>IoT: crescita record e nuovi rischi per le aziende</h2>
-                        <p>Il numero di dispositivi connessi continua a crescere, ma la sicurezza rimane spesso un punto debole.</p>
-                        <div class="ts-meta">
-                            <span>Cyber Security</span>
-                            <span>•</span>
-                            <span>Ieri</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="ts-news-card">
-                    <div class="ts-news-image img-3"></div>
-                    <div class="ts-news-body">
-                        <div class="ts-tag ts-tag-yellow">Focus</div>
-                        <h2>Phishing mirato: le nuove tecniche nel 2026</h2>
-                        <p>Le campagne di spear phishing diventano sempre più sofisticate e difficili da individuare.</p>
-                        <div class="ts-meta">
-                            <span>News</span>
-                            <span>•</span>
-                            <span>2 giorni fa</span>
-                        </div>
-                    </div>
-                </article>
-
-            </section>
-
-        </section>
-
-        <!-- SIDEBAR -->
-        <aside class="ts-sidebar">
-
-            <!-- FEED DAL MONDO -->
-            <section class="ts-widget">
-                <h3>🌍 Feed dal mondo</h3>
-                <ul class="ts-feed-list">
-                    <li>
-                        <span class="ts-feed-time">Adesso</span>
-                        <span class="ts-feed-text">Nuova vulnerabilità zero‑day in un noto software di gestione remota.</span>
-                    </li>
-                    <li>
-                        <span class="ts-feed-time">10 min fa</span>
-                        <span class="ts-feed-text">Azienda italiana subisce data breach, in corso le indagini.</span>
-                    </li>
-                    <li>
-                        <span class="ts-feed-time">30 min fa</span>
-                        <span class="ts-feed-text">Ricercatori scoprono nuova tecnica di evasione per malware fileless.</span>
-                    </li>
-                    <li>
-                        <span class="ts-feed-time">1 ora fa</span>
-                        <span class="ts-feed-text">Annunciato nuovo framework open source per la difesa delle reti OT.</span>
-                    </li>
-                </ul>
-            </section>
-
-            <!-- METEO -->
-            <section class="ts-widget">
-                <h3>☀️ Meteo</h3>
-                <div class="ts-meteo">
-                    <div class="ts-meteo-city">Milano</div>
-                    <div class="ts-meteo-temp">19°C</div>
-                    <div class="ts-meteo-desc">Parzialmente nuvoloso</div>
-                </div>
-            </section>
-
-            <!-- OROSCOPO -->
-            <section class="ts-widget">
-                <h3>🔮 Oroscopo</h3>
-                <div class="ts-oroscopo">
-                    <p>Errore nel caricamento dell’oroscopo.</p>
-                </div>
-            </section>
-
-        </aside>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="ts-footer">
-        <div class="ts-footer-links">
-            <a href="privacy.html">Privacy</a>
-            <a href="cookies.html">Cookies</a>
-            <a href="termini.html">Termini</a>
-            <a href="contatti.html">Contatti</a>
-        </div>
-
-        <p>© 2026 AnonLab — Portale indipendente di cybersecurity, tecnologia e cultura digitale</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/feed.js"></script>
+  <script src="/js/meteo.js"></script>
+  <script src="/js/oroscopo.js"></script>
+  <script src="/js/news.js"></script>
 </body>
 </html>
+
