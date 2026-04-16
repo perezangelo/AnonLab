@@ -2,56 +2,71 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard — AnonLab</title>
+  <title>SOC Dashboard — AnonLab</title>
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 
+  <!-- HEADER -->
   <div id="header"></div>
+
+  <!-- TICKER -->
   <div id="ticker"></div>
 
+  <!-- CONTENUTO PRINCIPALE -->
   <main class="page">
 
-  <section class="soc-grid">
+    <section class="soc-grid">
 
-    <!-- Threat Level -->
-    <div class="soc-card threat-card">
-      <h2>Threat Level</h2>
-      <div id="threat-level" class="threat-level">Loading...</div>
-    </div>
+      <!-- THREAT LEVEL -->
+      <div class="soc-card threat-card">
+        <h2>Threat Level</h2>
+        <div id="threat-level" class="threat-level dash-number">--</div>
+      </div>
 
-    <!-- Attacchi rilevati -->
-    <div class="soc-card">
-      <h2>Attacchi rilevati (ultime 24h)</h2>
-      <canvas id="attacksChart"></canvas>
-    </div>
+      <!-- GRAFICO ATTACCHI -->
+      <div class="soc-card">
+        <h2>Attacchi rilevati (ultime 24h)</h2>
+        <canvas id="attacksChart"></canvas>
+      </div>
 
-    <!-- Log eventi -->
-    <div class="soc-card log-card">
-      <h2>Event Log</h2>
-      <div id="event-log" class="event-log"></div>
-    </div>
+      <!-- EVENT LOG -->
+      <div class="soc-card log-card">
+        <h2>Event Log</h2>
+        <div id="event-log" class="event-log"></div>
+      </div>
 
-    <!-- Indicatori di sistema -->
-    <div class="soc-card">
-      <h2>System Status</h2>
-      <ul class="system-status">
-        <li>CPU Load: <span id="cpu-load">--%</span></li>
-        <li>Network Activity: <span id="net-activity">-- kb/s</span></li>
-        <li>Firewall Status: <span id="fw-status">--</span></li>
-      </ul>
-    </div>
+      <!-- SYSTEM STATUS -->
+      <div class="soc-card">
+        <h2>System Status</h2>
+        <ul class="system-status">
+          <li>CPU Load: <span id="cpu-load" class="dash-number">--%</span></li>
+          <li>Network Activity: <span id="net-activity" class="dash-number">-- kb/s</span></li>
+          <li>Firewall Status: <span id="fw-status" class="dash-number">--</span></li>
+        </ul>
+      </div>
 
-  </section>
+    </section>
 
-</main>
+  </main>
 
+  <!-- SIDEBAR -->
+  <div id="sidebar"></div>
+
+  <!-- FOOTER -->
   <div id="footer"></div>
 
+  <!-- SCRIPT GLOBALI -->
   <script src="/js/ui.js"></script>
   <script src="/js/feed.js"></script>
   <script src="/js/meteo.js"></script>
   <script src="/js/oroscopo.js"></script>
+
+  <!-- CHART.JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- DASHBOARD JS COMPLETO -->
+  <script src="/js/dashboard.js"></script>
 
 </body>
 </html>
