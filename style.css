@@ -13,23 +13,88 @@
 }
 
 /* ------------------------------
-   BASE
+   BASE + MATRIX BACKGROUND
 --------------------------------*/
 body {
     font-family: "Inter", sans-serif;
+
+    /* SFONDO MATRIX POTENZIATO */
     background:
         linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
         repeating-linear-gradient(
             0deg,
-            rgba(0, 255, 140, 0.08) 0px,
-            rgba(0, 255, 140, 0.08) 2px,
+            rgba(0, 255, 140, 0.12) 0px,
+            rgba(0, 255, 140, 0.12) 2px,
             transparent 2px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0, 255, 140, 0.05) 0px,
+            rgba(0, 255, 140, 0.05) 1px,
+            transparent 1px,
             transparent 4px
         ),
-        radial-gradient(circle at top, #0a0f0a, #000);
+        radial-gradient(circle at top, #0d1f0d, #000);
+
     color: var(--text);
     line-height: 1.6;
+
+    /* ANIMAZIONE MATRIX */
+    animation: matrixScroll 8s linear infinite;
 }
+
+/* Pioggia Matrix */
+@keyframes matrixScroll {
+    0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+    100% { background-position: 0 200px, 0 400px, 0 0, 0 0; }
+}
+
+/* Rumore digitale */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,255,140,0.03) 0px,
+        rgba(0,255,140,0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    opacity: 0.08;
+    animation: noise 0.3s steps(2) infinite;
+}
+
+@keyframes noise {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-1px,1px); }
+    100% { transform: translate(1px,-1px); }
+}
+
+/* Effetto CRT (scanlines) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        180deg,
+        rgba(0,0,0,0.15) 0px,
+        rgba(0,0,0,0.15) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    opacity: 0.15;
+}
+
 /* ------------------------------
    HEADER
 --------------------------------*/
@@ -150,16 +215,24 @@ footer {
 }
 
 footer p { color: var(--muted); }
-footer .social a { margin: 0 10px; color: var(--accent); }
-/* GLOW NEON */
+
+/* ------------------------------
+   GLOW NEON
+--------------------------------*/
 .neon {
-    text-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent2);
+    text-shadow:
+        0 0 4px #00ff9d,
+        0 0 8px #00ff9d,
+        0 0 16px #00ff9d;
 }
 
-/* EFFETTO GLITCH */
+/* ------------------------------
+   GLITCH
+--------------------------------*/
 .glitch {
     position: relative;
     display: inline-block;
+    color: var(--accent);
 }
 .glitch::before,
 .glitch::after {
@@ -167,18 +240,20 @@ footer .social a { margin: 0 10px; color: var(--accent); }
     position: absolute;
     left: 0;
     top: 0;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 .glitch::before {
-    color: var(--accent);
+    color: #00ff9d;
     transform: translate(2px, -2px);
 }
 .glitch::after {
-    color: var(--accent2);
+    color: #00eaff;
     transform: translate(-2px, 2px);
 }
 
-/* ANIMAZIONE CURSORE TERMINALE */
+/* ------------------------------
+   CURSORE TERMINALE
+--------------------------------*/
 .cursor {
     display: inline-block;
     width: 10px;
@@ -191,17 +266,11 @@ footer .social a { margin: 0 10px; color: var(--accent); }
     51%, 100% { opacity: 0; }
 }
 
-/* CARDS ANIMATE */
+/* ------------------------------
+   CARDS ANIMATE
+--------------------------------*/
 .card:hover {
     transform: translateY(-4px);
     transition: 0.2s;
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
-}
-@keyframes matrixScroll {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 200px; }
-}
-
-body {
-    animation: matrixScroll 6s linear infinite;
 }
