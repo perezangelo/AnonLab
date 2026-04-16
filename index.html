@@ -1,115 +1,94 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnonLab – Cyber Intelligence & Tech</title>
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-<meta name="theme-color" content="#050509">
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShadow Lab</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="logo">ANON<span>LAB</span></div>
-    <nav>
-        <a href="news.html">News</a>
-        <a href="cyber.html">Cyber Security</a>
-        <a href="tech.html">Tech</a>
-        <a href="meteo.html">Meteo</a>
-        <a href="oroscopo.html">Oroscopo</a>
-        <a href="dashboard.html">SOC</a>
-    </nav>
-</header>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">TechShadow Lab</div>
+        <nav class="nav">
+            <a href="#">News</a>
+            <a href="#">Cyber Security</a>
+            <a href="#">Tech</a>
+            <a href="#">Meteo</a>
+            <a href="#">Oroscopo</a>
+        </nav>
+    </header>
 
-<main class="layout">
-
-    <!-- HERO MAGAZINE -->
-    <section class="hero">
-        <h2>🔥 Ultime dal fronte Cyber</h2>
-
-        <div class="hero-grid">
-            <article class="hero-card">
-                <h3>Ransomware colpisce infrastrutture critiche</h3>
-                <p>Nuova variante sfrutta vulnerabilità zero‑day.</p>
-            </article>
-
-            <article class="hero-card">
-                <h3>Data breach globale: milioni di account esposti</h3>
-                <p>Errore di configurazione su cluster cloud.</p>
-            </article>
-
-            <article class="hero-card">
-                <h3>Attacco supply‑chain compromette software diffuso</h3>
-                <p>Indagini in corso, rischio escalation.</p>
-            </article>
+    <!-- TICKER -->
+    <div class="ticker">
+        <div class="ticker-content">
+            <span>⚠️ Nuovi attacchi ransomware in Europa</span>
+            <span>🌐 Cresce il mercato IoT nel 2026</span>
+            <span>🤖 L’AI rivoluziona la sicurezza informatica</span>
+            <span>🔐 Nuove vulnerabilità zero‑day scoperte</span>
         </div>
-    </section>
-
-    <!-- FEED DAL MONDO -->
-    <section class="feed">
-        <h2>🌍 Feed dal Mondo</h2>
-        <ul>
-            <li>• Crescono gli attacchi IoT del 230% nel 2026</li>
-            <li>• Nuove normative UE sulla sicurezza digitale</li>
-            <li>• AI nei SOC: automazione delle minacce</li>
-            <li>• Botnet basata su router domestici scoperta</li>
-        </ul>
-    </section>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-        <!-- WIDGET METEO -->
-        <div class="widget">
-            <h3>☁️ Meteo</h3>
-            <div class="widget-box">
-                Milano: 18°C · Sereno  
-                <br>Umidità: 52%  
-                <br>Vento: 6 km/h
-            </div>
-        </div>
-
-        <!-- OROSCOPO GEEK -->
-        <div class="widget">
-            <h3>🔮 Oroscopo Geek</h3>
-            <div class="widget-box">
-                <strong>Ariete:</strong> oggi il tuo codice compila.  
-                <br><strong>Gemelli:</strong> evita update sospetti.  
-                <br><strong>Leone:</strong> refactoring epico in arrivo.
-            </div>
-        </div>
-
-        <!-- MINI DASHBOARD SOC -->
-        <div class="widget">
-            <h3>🛡️ SOC Live</h3>
-            <div class="terminal">
-                <p>> Threats detected: <span class="green">0</span></p>
-                <p>> Uptime cluster: <span class="green">99.97%</span></p>
-                <p>> Log ultimi 60s: <span class="green">OK</span></p>
-            </div>
-        </div>
-
-    </aside>
-
-</main>
-
-<footer>
-    <p>© 2026 AnonLab — Cyber Intelligence Network</p>
-    <div class="social">
-        <a href="#">Twitter</a>
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
     </div>
-</footer>
 
+    <!-- MAIN LAYOUT -->
+    <main class="container">
+
+        <!-- NEWS PRINCIPALI -->
+        <section class="news">
+            <h2>Ultime Notizie</h2>
+
+            <article class="card">
+                <img src="assets/img/news1.jpg" alt="">
+                <h3>Attacco ransomware colpisce infrastrutture critiche</h3>
+                <p>Un nuovo gruppo hacker ha preso di mira reti industriali europee...</p>
+            </article>
+
+            <article class="card">
+                <img src="assets/img/news2.jpg" alt="">
+                <h3>AI e Cybersecurity: cosa aspettarsi nel 2026</h3>
+                <p>L’intelligenza artificiale sta cambiando il modo di difendere i sistemi...</p>
+            </article>
+
+            <article class="card">
+                <img src="assets/img/news3.jpg" alt="">
+                <h3>IoT: crescita record e nuovi rischi</h3>
+                <p>Il numero di dispositivi connessi supera ogni previsione...</p>
+            </article>
+        </section>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="widget">
+                <h3>🌍 Feed dal mondo</h3>
+                <ul>
+                    <li>• Nuova vulnerabilità zero‑day scoperta</li>
+                    <li>• Cresce il mercato dei chip quantistici</li>
+                    <li>• Microsoft annuncia nuove misure di sicurezza</li>
+                    <li>• Italia: aumento attacchi phishing nel Q1</li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>☀️ Meteo</h3>
+                <p>Milano: <strong>19°C</strong></p>
+            </div>
+
+            <div class="widget">
+                <h3>🔮 Oroscopo</h3>
+                <p>Errore nel caricamento dell’oroscopo.</p>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 TechShadow Lab — Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
