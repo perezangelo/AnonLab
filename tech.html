@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnonLab – Tecnologia & Innovazione</title>
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Tech — AnonLab</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
 
-<header class="header">
-    <div class="logo">ANON<span>LAB</span></div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="news.html">News</a>
-        <a href="cyber.html">Cyber Security</a>
-        <a href="meteo.html">Meteo</a>
-        <a href="oroscopo.html">Oroscopo</a>
-        <a href="dashboard.html">SOC</a>
-    </nav>
-</header>
+  <div id="header"></div>
+  <div id="ticker"></div>
 
-<main class="page">
+  <main class="page">
+    <section class="main-column">
+      <h1 class="page-title">Tecnologia</h1>
+      <div id="tech-container"></div>
+    </section>
 
-    <h1 class="page-title">💻 Tecnologia</h1>
+    <div id="sidebar"></div>
+  </main>
 
-    <div class="article-list">
+  <div id="footer"></div>
 
-        <article class="article">
-            <h2>Nuovi processori 2026: prestazioni record</h2>
-            <p>Architetture ibride e consumi ridotti...</p>
-        </article>
+  <script src="/js/ui.js"></script>
+  <script src="/js/news.js"></script>
+  <script src="/js/feed.js"></script>
+  <script src="/js/meteo.js"></script>
+  <script src="/js/oroscopo.js"></script>
 
-        <article class="article">
-            <h2>AI generativa nei flussi aziendali</h2>
-            <p>Automazione intelligente e nuovi scenari...</p>
-        </article>
-
-        <article class="article">
-            <h2>Cloud distribuito: il futuro dell’infrastruttura</h2>
-            <p>Edge computing e micro‑datacenter...</p>
-        </article>
-
-    </div>
-
-</main>
-
-<footer>
-    <p>© 2026 AnonLab — Cyber Intelligence Network</p>
-</footer>
+  <script>
+    // Filtra solo le news di categoria "Tech"
+    fetch("/data/news.json")
+      .then(res => res.json())
+      .then(news => {
+        const tech = news.filter(n => n.category.toLowerCase().includes("tech"));
+        document.getElementById("tech-container").innerHTML =
+          tech.map(item => `
+            <article class="news-card">
+              <img src="${item.image}">
+              <div class="news-content">
+                <span class="category">${item.category}</span>
+                <h2>${item.title}</h2>
+                <p>${item.excerpt}</p>
+                <span class="time">${item.time}</span>
+              </div>
+            </article>
+          `).join("");
+      });
+  </script>
 
 </body>
 </html>
