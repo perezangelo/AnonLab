@@ -1,300 +1,125 @@
-/* ------------------------------
-   PALETTE
---------------------------------*/
-:root {
-    --bg: #050509;
-    --bg-soft: #0d0d14;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #00eaff;
-    --accent2: #a855f7;
-    --green: #00ff9d;
-    --radius: 14px;
-}
-
-/* ------------------------------
-   BASE + MATRIX BACKGROUND
---------------------------------*/
-html {
-    font-size: 18px;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: "Inter", sans-serif;
-
-    /* SFONDO MATRIX POTENZIATO */
-    background:
-        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-        repeating-linear-gradient(
-            0deg,
-            rgba(0, 255, 140, 0.12) 0px,
-            rgba(0, 255, 140, 0.12) 2px,
-            transparent 2px,
-            transparent 6px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(0, 255, 140, 0.05) 0px,
-            rgba(0, 255, 140, 0.05) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        radial-gradient(circle at top, #0d1f0d, #000);
-
-    color: var(--text);
-    line-height: 1.6;
-
-    /* ANIMAZIONE MATRIX */
-    animation: matrixScroll 8s linear infinite;
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: #e0e0e0;
 }
 
-/* Pioggia Matrix */
-@keyframes matrixScroll {
-    0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-    100% { background-position: 0 200px, 0 400px, 0 0, 0 0; }
-}
-
-/* Rumore digitale */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0,255,140,0.03) 0px,
-        rgba(0,255,140,0.03) 1px,
-        transparent 1px,
-        transparent 2px
-    );
-    opacity: 0.08;
-    animation: noise 0.3s steps(2) infinite;
-}
-
-@keyframes noise {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(-1px,1px); }
-    100% { transform: translate(1px,-1px); }
-}
-
-/* Effetto CRT (scanlines) */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-        180deg,
-        rgba(0,0,0,0.15) 0px,
-        rgba(0,0,0,0.15) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    opacity: 0.15;
-}
-
-/* ------------------------------
-   HEADER
---------------------------------*/
+/* HEADER */
 .header {
-    background: var(--bg-soft);
-    padding: 22px 30px;
+    background: #111;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 2px solid #0f0;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--accent);
+    font-size: 24px;
+    font-weight: bold;
+    color: #0f0;
 }
-.logo span { color: var(--accent2); }
 
-nav a {
-    margin-left: 22px;
-    color: var(--muted);
-    font-size: 1.1rem;
+.nav a {
+    margin-left: 20px;
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
 }
-nav a:hover { color: var(--accent); }
 
-/* ------------------------------
-   LAYOUT
---------------------------------*/
-.layout {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+.nav a:hover {
+    text-shadow: 0 0 5px #0f0;
+}
+
+/* TICKER */
+.ticker {
+    background: #000;
+    border-top: 1px solid #0f0;
+    border-bottom: 1px solid #0f0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    display: inline-block;
+    padding: 10px;
+    animation: scroll 20s linear infinite;
+}
+
+.ticker-content span {
+    margin-right: 50px;
+    color: #0f0;
+}
+
+@keyframes scroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    padding: 30px;
     gap: 30px;
 }
 
-@media(max-width: 900px) {
-    .layout { grid-template-columns: 1fr; }
+/* NEWS */
+.news {
+    flex: 3;
 }
 
-/* ------------------------------
-   HERO
---------------------------------*/
-.hero {
-    background: var(--bg-soft);
-    padding: 28px;
-    border-radius: var(--radius);
-    margin-bottom: 30px;
+.news h2 {
+    margin-bottom: 20px;
+    color: #0f0;
 }
 
-.hero h2 {
-    color: var(--accent);
-    margin-bottom: 15px;
-    font-size: 1.6rem;
+.card {
+    background: #111;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #0f0;
 }
 
-.hero-grid {
-    display: grid;
-    gap: 20px;
+.card img {
+    width: 100%;
+    border-bottom: 1px solid #0f0;
+    margin-bottom: 10px;
 }
 
-.hero-card {
-    background: #11111a;
-    padding: 20px;
-    border-radius: var(--radius);
-    border: 1px solid rgba(255,255,255,0.06);
-}
-.hero-card h3 { margin-bottom: 6px; }
-
-/* ------------------------------
-   FEED
---------------------------------*/
-.feed {
-    background: var(--bg-soft);
-    padding: 25px;
-    border-radius: var(--radius);
-    margin-bottom: 30px;
+.card h3 {
+    margin-bottom: 10px;
+    color: #0f0;
 }
 
-.feed h2 { 
-    color: var(--accent2);
-    font-size: 1.4rem;
+/* SIDEBAR */
+.sidebar {
+    flex: 1;
 }
 
-/* ------------------------------
-   SIDEBAR
---------------------------------*/
-.sidebar .widget {
-    background: var(--bg-soft);
-    padding: 22px;
-    border-radius: var(--radius);
-    margin-bottom: 25px;
+.widget {
+    background: #111;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #0f0;
 }
 
-.widget-box {
-    font-size: 1rem;
-    color: var(--muted);
+.widget h3 {
+    margin-bottom: 10px;
+    color: #0f0;
 }
 
-/* Terminal style */
-.terminal {
-    background: #000;
-    padding: 14px;
-    border-radius: var(--radius);
-    font-family: "Consolas", monospace;
-    font-size: 1rem;
-    color: var(--accent);
-}
-.green { color: var(--green); }
-
-/* ------------------------------
-   FOOTER
---------------------------------*/
-footer {
-    margin-top: 40px;
-    padding: 25px;
+/* FOOTER */
+.footer {
     text-align: center;
-    background: var(--bg-soft);
-    border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-footer p { color: var(--muted); }
-
-/* ------------------------------
-   GLOW NEON
---------------------------------*/
-.neon {
-    text-shadow:
-        0 0 4px #00ff9d,
-        0 0 8px #00ff9d,
-        0 0 16px #00ff9d;
-}
-
-/* ------------------------------
-   GLITCH
---------------------------------*/
-.glitch {
-    position: relative;
-    display: inline-block;
-    color: var(--accent);
-}
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0.6;
-}
-.glitch::before {
-    color: #00ff9d;
-    transform: translate(2px, -2px);
-}
-.glitch::after {
-    color: #00eaff;
-    transform: translate(-2px, 2px);
-}
-
-/* ------------------------------
-   CURSORE TERMINALE
---------------------------------*/
-.cursor {
-    display: inline-block;
-    width: 10px;
-    height: 18px;
-    background: var(--accent);
-    animation: blink 0.8s infinite;
-}
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-/* ------------------------------
-   CARDS ANIMATE
---------------------------------*/
-.card:hover {
-    transform: translateY(-4px);
-    transition: 0.2s;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
-}
-
-/* ------------------------------
-   RESPONSIVE MOBILE
---------------------------------*/
-@media (max-width: 600px) {
-    html { font-size: 20px; }
-
-    .page-title { font-size: 1.8rem; }
-
-    nav a { font-size: 1.2rem; }
-
-    .hero, .feed, .sidebar .widget, .terminal, .card {
-        padding: 24px;
-    }
+    padding: 20px;
+    background: #111;
+    border-top: 2px solid #0f0;
+    margin-top: 30px;
 }
