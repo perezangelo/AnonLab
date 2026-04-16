@@ -454,5 +454,46 @@ body {
   color: var(--text-muted);
   opacity: 0.8;
 }
+/* ================================
+   ULTIME DAL MONDO CYBER
+   ================================ */
+
+.cyber-feed {
+  margin: 40px 0;
+  padding: 20px;
+  border: 1px solid rgba(0,255,157,0.15);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(0,255,157,0.4);
+}
+
+.cyber-feed-list div {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0,255,157,0.1);
+}
+
+.cyber-feed-list div:last-child {
+  border-bottom: none;
+}
+
+.cyber-feed-list a {
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.cyber-feed-list a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0,255,157,0.4);
+}
+
 
 
