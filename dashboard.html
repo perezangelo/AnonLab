@@ -1,93 +1,54 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnonLab – SOC Dashboard</title>
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Dashboard — AnonLab</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
 
-<header class="header">
-    <div class="logo">ANON<span>LAB</span></div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="news.html">News</a>
-        <a href="cyber.html">Cyber Security</a>
-        <a href="tech.html">Tech</a>
-        <a href="meteo.html">Meteo</a>
-        <a href="oroscopo.html">Oroscopo</a>
-    </nav>
-</header>
+  <div id="header"></div>
+  <div id="ticker"></div>
 
-<main class="page">
+  <main class="page">
+    <section class="main-column">
+      <h1 class="page-title">SOC Dashboard</h1>
 
-    <h1 class="page-title">🛡️ SOC Dashboard</h1>
-    <div class="terminal terminal-live"></div>
-    <section class="terminal">
-        <p>> system scan...</p>
-        <p>> threats detected: <span class="green">0</span></p>
-        <p>> uptime: <span class="green">99.97%</span></p>
-        <p>> log feed: <span class="green">OK</span></p>
+      <div class="dashboard-grid">
+
+        <div class="dash-card">
+          <h3>Alert Attivi</h3>
+          <p class="dash-number">12</p>
+        </div>
+
+        <div class="dash-card">
+          <h3>Threat Level</h3>
+          <p class="dash-number danger">ALTO</p>
+        </div>
+
+        <div class="dash-card">
+          <h3>Eventi Monitorati</h3>
+          <p class="dash-number">4.291</p>
+        </div>
+
+        <div class="dash-card">
+          <h3>Ultimo Incidente</h3>
+          <p class="dash-number">23 min fa</p>
+        </div>
+
+      </div>
+
     </section>
-    <div class="cards-grid">
-    <div class="card">
-        <h3>Minacce</h3>
-        <p><span id="soc-threats">0</span> rilevate</p>
-    </div>
-    <div class="card">
-        <h3>Traffico</h3>
-        <p><span id="soc-traffic">70%</span> utilizzo</p>
-    </div>
-    <div class="card">
-        <h3>Log/min</h3>
-        <p><span id="soc-logs">120</span></p>
-    </div>
-</div>
-</main>
-<footer>
-    <p>© 2026 AnonLab — Cyber Intelligence Network</p>
-</footer>
-    <script>
-function typeWriter(element, text, speed = 40) {
-    let i = 0;
-    function typing() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
-        }
-    }
-    typing();
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    const terminal = document.querySelector(".terminal-live");
-    if (terminal) {
-        const text = "> initializing anonlab terminal...\n"
-                   + "> loading modules...\n"
-                   + "> system online.\n";
-        typeWriter(terminal, text, 35);
-    }
-});
-</script>
-    <script>
-function randomValue(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+    <div id="sidebar"></div>
+  </main>
 
-setInterval(() => {
-    const t = document.querySelector("#soc-threats");
-    const tr = document.querySelector("#soc-traffic");
-    const l = document.querySelector("#soc-logs");
-    if (!t || !tr || !l) return;
+  <div id="footer"></div>
 
-    t.textContent = randomValue(0, 3);
-    tr.textContent = randomValue(40, 90) + "%";
-    l.textContent = randomValue(100, 500);
-}, 3000);
-</script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/feed.js"></script>
+  <script src="/js/meteo.js"></script>
+  <script src="/js/oroscopo.js"></script>
+
 </body>
 </html>
