@@ -4,53 +4,47 @@
 
 .hero-big {
   text-align: center;
-  padding: 40px 20px 20px;
+  padding: 48px 20px 28px;
 }
 
 .hero-big h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   color: #0a0a0a;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.6px;
+  margin-bottom: 6px;
 }
 
-/* Occhi animati sotto il titolo */
+/* Occhi ORIGINALI senza animazioni */
 .hero-favicon {
-  width: 80px;
-  height: 80px;
-  margin: 15px auto;
+  width: 90px;        /* bilanciato per desktop */
+  height: auto;       /* mantiene proporzioni perfette */
+  margin: 18px auto 12px;
   display: block;
-  opacity: 0.95;
-  animation: eyesGlow 2.4s ease-in-out infinite;
-}
-
-@keyframes eyesGlow {
-  0% { filter: drop-shadow(0 0 2px rgba(0,0,0,0.2)); }
-  50% { filter: drop-shadow(0 0 12px rgba(0,0,0,0.35)); }
-  100% { filter: drop-shadow(0 0 2px rgba(0,0,0,0.2)); }
+  opacity: 1;
 }
 
 .hero-sub {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   color: #333;
-  margin-top: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   font-weight: 400;
 }
 
 .hero-button {
   display: inline-block;
-  padding: 12px 26px;
+  padding: 14px 28px;
   background: #000;
   color: #fff;
   border-radius: 999px;
   text-decoration: none;
   font-size: 1.15rem;
-  transition: background 0.2s ease;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .hero-button:hover {
   background: #222;
+  transform: translateY(-2px);
 }
 
 
@@ -60,26 +54,26 @@
 
 .widget-large {
   background: #ffffff;
-  border: 1px solid #dfe6ee;
-  padding: 24px;
-  margin-bottom: 30px;
-  border-radius: 14px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #d9e1ea;
+  padding: 26px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .widget-large:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .widget-large h2 {
-  font-size: 1.75rem;
-  margin-bottom: 16px;
+  font-size: 1.85rem;
+  margin-bottom: 18px;
   color: #111;
   font-weight: 600;
+  letter-spacing: -0.3px;
 }
 
-/* Icona decorativa nei titoli */
 .widget-large h2::before {
   content: "◆ ";
   color: #000;
@@ -93,80 +87,48 @@
 
 .search-google {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   font-size: 1.15rem;
-  border: 1px solid #c7c7c7;
-  border-radius: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 12px;
 }
 
 .search-btn {
-  margin-top: 12px;
-  padding: 12px 20px;
+  margin-top: 14px;
+  padding: 12px 22px;
   font-size: 1.1rem;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .search-btn:hover {
   background: #222;
+  transform: translateY(-2px);
 }
 
 
 /* =========================================================
-   METEO
-========================================================= */
-
-.big-temp {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #00bcd4;
-}
-
-
-/* =========================================================
-   CYBER THREAT LEVEL
-========================================================= */
-
-.threat-box {
-  padding: 18px;
-  background: #f7f9fc;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.threat-level {
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: #ff9800;
-}
-
-
-/* =========================================================
-   LISTE (AI, TECH, TOOLS)
+   LISTE E STATUS
 ========================================================= */
 
 .alert-list li,
 .ai-trends li,
 .tech-radar li,
 .tools-list li {
-  font-size: 1.15rem;
-  padding: 7px 0;
+  font-size: 1.18rem;
+  padding: 8px 0;
   color: #222;
+  line-height: 1.35;
 }
-
-
-/* =========================================================
-   SYSTEM STATUS
-========================================================= */
 
 .status-box {
   background: #f7f9fc;
-  padding: 18px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 14px;
 }
 
 .status-box .ok {
@@ -176,34 +138,35 @@
 
 
 /* =========================================================
-   SIDEBAR WIDGETS
+   SIDEBAR WIDGETS (CON FORM)
 ========================================================= */
 
 .sidebar-widget {
   background: #ffffff;
-  border: 1px solid #dfe6ee;
-  padding: 20px;
-  border-radius: 14px;
-  margin-bottom: 26px;
+  border: 1px solid #d9e1ea;
+  padding: 22px;
+  border-radius: 16px;
+  margin-bottom: 28px;
   text-align: center;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 .sidebar-widget:hover {
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
 }
 
 .sidebar-widget h3 {
-  font-size: 1.35rem;
-  margin-bottom: 14px;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
   color: #111;
   font-weight: 600;
 }
 
 .sidebar-icon {
-  width: 52px;
-  height: 52px;
-  margin-bottom: 12px;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 14px;
   opacity: 0.9;
 }
 
@@ -211,10 +174,10 @@
 .sidebar-widget textarea {
   width: 100%;
   padding: 12px;
-  margin-bottom: 12px;
-  font-size: 1.05rem;
-  border: 1px solid #c7c7c7;
-  border-radius: 10px;
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+  border: 1px solid #c5c5c5;
+  border-radius: 12px;
 }
 
 .sidebar-widget button {
@@ -223,14 +186,15 @@
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1.05rem;
-  transition: background 0.2s ease;
+  font-size: 1.1rem;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .sidebar-widget button:hover {
   background: #222;
+  transform: translateY(-2px);
 }
 
 
@@ -241,20 +205,20 @@
 @media (max-width: 768px) {
 
   .hero-big h1 {
-    font-size: 2.25rem;
+    font-size: 2.35rem;
   }
 
   .hero-favicon {
-    width: 60px;
-    height: 60px;
+    width: 70px;   /* bilanciato per mobile */
+    height: auto;
   }
 
   .widget-large {
-    padding: 18px;
+    padding: 20px;
   }
 
   .widget-large h2 {
-    font-size: 1.45rem;
+    font-size: 1.55rem;
   }
 
   .tech-radar li,
@@ -264,10 +228,10 @@
   }
 
   .sidebar-widget {
-    padding: 18px;
+    padding: 20px;
   }
 
   .sidebar-widget h3 {
-    font-size: 1.25rem;
+    font-size: 1.28rem;
   }
 }
