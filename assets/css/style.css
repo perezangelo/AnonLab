@@ -366,3 +366,129 @@ body {
         align-items: flex-start;
     }
 }
+.news-ticker {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    border-top: 1px solid #0f0;
+    border-bottom: 1px solid #0f0;
+    padding: 8px 0;
+    position: relative;
+}
+
+.ticker-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 20s linear infinite;
+}
+
+.ticker-track a {
+    display: inline-block;
+    margin-right: 50px;
+    color: #0f0;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.ticker-track a:hover {
+    text-decoration: underline;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.news-card {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #0f0;
+    padding: 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 12px #0f0;
+}
+
+.news-card img {
+    width: 100%;
+    border: 1px solid #0f0;
+    margin-bottom: 10px;
+}
+
+.news-card h2 a {
+    color: #0f0;
+    text-decoration: none;
+}
+
+.news-card h2 a:hover {
+    text-decoration: underline;
+}
+
+.tags {
+    margin: 8px 0;
+}
+
+.tags span {
+    display: inline-block;
+    border: 1px solid #0f0;
+    padding: 2px 6px;
+    margin-right: 6px;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.site-footer {
+    margin-top: 40px;
+    padding: 30px 20px;
+    border-top: 1px solid #0f0;
+    background: rgba(0,0,0,0.7);
+}
+
+.footer-columns {
+    max-width: 1100px;
+    margin: 0 auto 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.footer-columns h3 {
+    color: #0f0;
+    margin-bottom: 10px;
+}
+
+.footer-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-columns li {
+    margin-bottom: 6px;
+}
+
+.footer-columns a {
+    color: #0f0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-columns a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 13px;
+    opacity: 0.7;
+}
