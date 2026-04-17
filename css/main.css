@@ -927,3 +927,18 @@ border: 1px solid #dce6ef;
 .sidebar-box form button:hover {
   background: #222;
 }
+/* === Hero Eyes (immagine originale, proporzionata) === */
+
+.hero-favicon {
+  width: 90px;     /* proporzionato per desktop */
+  height: auto;    /* mantiene proporzioni originali */
+  display: block;
+  margin: 18px auto 12px;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-favicon {
+    width: 70px;   /* proporzionato per mobile */
+  }
+}
