@@ -891,3 +891,39 @@ border: 1px solid #dce6ef;
     font-size: 1rem;
   }
 }
+/* === Sidebar Forms (Registrazione, Info, FAQ) === */
+
+.sidebar-icon {
+  width: 42px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  opacity: 0.9;
+}
+
+.sidebar-box form input,
+.sidebar-box form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.sidebar-box form button {
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s ease;
+}
+
+.sidebar-box form button:hover {
+  background: #222;
+}
