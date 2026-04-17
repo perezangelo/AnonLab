@@ -5,15 +5,15 @@
   <title>Tech — AnonLab</title>
   <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
 
+<body>
   <div id="header"></div>
   <div id="ticker"></div>
 
   <main class="page">
     <section class="main-column">
-      <h1 class="page-title">Tecnologia</h1>
-      <div id="tech-container"></div>
+      <h1>Tech</h1>
+      <p>Novità, guide e approfondimenti sul mondo della tecnologia.</p>
     </section>
 
     <div id="sidebar"></div>
@@ -22,31 +22,5 @@
   <div id="footer"></div>
 
   <script src="/js/ui.js"></script>
-  <script src="/js/news.js"></script>
-  <script src="/js/feed.js"></script>
-  <script src="/js/meteo.js"></script>
-  <script src="/js/oroscopo.js"></script>
-
-  <script>
-    // Filtra solo le news di categoria "Tech"
-    fetch("/data/news.json")
-      .then(res => res.json())
-      .then(news => {
-        const tech = news.filter(n => n.category.toLowerCase().includes("tech"));
-        document.getElementById("tech-container").innerHTML =
-          tech.map(item => `
-            <article class="news-card">
-              <img src="${item.image}">
-              <div class="news-content">
-                <span class="category">${item.category}</span>
-                <h2>${item.title}</h2>
-                <p>${item.excerpt}</p>
-                <span class="time">${item.time}</span>
-              </div>
-            </article>
-          `).join("");
-      });
-  </script>
-
 </body>
 </html>
