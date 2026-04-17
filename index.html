@@ -5,14 +5,18 @@
   <title>AnonLab — Cybersecurity, Tech e Cultura Digitale</title>
   <link rel="stylesheet" href="/css/main.css">
 </head>
+
 <body>
+
+  <!-- HEADER DINAMICO -->
   <div id="header"></div>
 
-  <!-- TICKER NEWS (sostituisce il vecchio #ticker) -->
+  <!-- TICKER NEWS (nuovo, collegato al JSON) -->
   <div class="news-ticker">
     <div class="ticker-track" id="ticker-track"></div>
   </div>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <h1 class="hero-title">
@@ -25,40 +29,44 @@
     </div>
   </section>
 
+  <!-- FEED ESTERNO (manteniamo solo questo, NON duplica le news interne) -->
   <section class="cyber-feed">
     <h2 class="section-title">Ultime dal mondo cyber</h2>
     <div id="cyber-feed-list" class="cyber-feed-list"></div>
   </section>
 
-  <!-- UN SOLO MAIN -->
+  <!-- MAIN UNICO -->
   <main class="page">
-    <section class="main-column">
-      <div id="news-container"></div>
 
-      <!-- SEZIONE ULTIME NEWS (dal tuo news.json) -->
+    <section class="main-column">
+
+      <!-- NEWS INTERNE (dal tuo news.json) -->
       <section class="home-section">
         <h2>Ultime dal mondo AnonLab</h2>
         <div id="home-news" class="news-grid"></div>
       </section>
 
-      <!-- SEZIONE RICERCA -->
+      <!-- RICERCA INTERNA -->
       <section class="home-section">
         <h2>Cerca tra le news</h2>
         <input type="text" id="search-input" placeholder="Cerca per titolo, categoria o tag...">
         <div id="search-results" class="news-grid"></div>
       </section>
+
     </section>
 
+    <!-- SIDEBAR DINAMICA -->
     <div id="sidebar"></div>
+
   </main>
 
-  <!-- Footer gestito da ui.js dentro #footer -->
+  <!-- FOOTER DINAMICO -->
   <div id="footer"></div>
 
+  <!-- TYPEWRITER -->
   <script>
     const text = "AnonLab — Cybersecurity & Digital Culture";
     let i = 0;
-
     function typeWriter() {
       if (i < text.length) {
         document.getElementById("typewriter").textContent += text.charAt(i);
@@ -66,20 +74,20 @@
         setTimeout(typeWriter, 60);
       }
     }
-
     document.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 
-  <!-- Nuovi script -->
+  <!-- NUOVI SCRIPT -->
   <script src="/js/ticker.js"></script>
   <script src="/js/home-news.js"></script>
   <script src="/js/search.js"></script>
 
-  <!-- Script esistenti -->
+  <!-- SCRIPT ESISTENTI -->
   <script src="/js/ui.js"></script>
   <script src="/js/feed.js"></script>
   <script src="/js/meteo.js"></script>
   <script src="/js/oroscopo.js"></script>
   <script src="/js/news.js"></script>
+
 </body>
 </html>
