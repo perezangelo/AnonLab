@@ -7,70 +7,75 @@
 </head>
 <body>
   <div id="header"></div>
-  <div id="ticker"></div>
-  <section class="hero">
-  <div class="hero-inner">
-    <h1 class="hero-title">
-      <span class="typewriter" id="typewriter"></span>
-    </h1>
-    <p class="hero-subtitle">
-      Portale indipendente di cybersecurity, tecnologia e cultura digitale.
-    </p>
-    <a href="/news.html" class="hero-button">Esplora le ultime news</a>
+
+  <!-- TICKER NEWS (sostituisce il vecchio #ticker) -->
+  <div class="news-ticker">
+    <div class="ticker-track" id="ticker-track"></div>
   </div>
-</section>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        <span class="typewriter" id="typewriter"></span>
+      </h1>
+      <p class="hero-subtitle">
+        Portale indipendente di cybersecurity, tecnologia e cultura digitale.
+      </p>
+      <a href="/news.html" class="hero-button">Esplora le ultime news</a>
+    </div>
+  </section>
+
   <section class="cyber-feed">
-  <h2 class="section-title">Ultime dal mondo cyber</h2>
-  <div id="cyber-feed-list" class="cyber-feed-list"></div>
-</section>
+    <h2 class="section-title">Ultime dal mondo cyber</h2>
+    <div id="cyber-feed-list" class="cyber-feed-list"></div>
+  </section>
+
+  <!-- UN SOLO MAIN -->
   <main class="page">
     <section class="main-column">
       <div id="news-container"></div>
+
+      <!-- SEZIONE ULTIME NEWS (dal tuo news.json) -->
+      <section class="home-section">
+        <h2>Ultime dal mondo AnonLab</h2>
+        <div id="home-news" class="news-grid"></div>
+      </section>
+
+      <!-- SEZIONE RICERCA -->
+      <section class="home-section">
+        <h2>Cerca tra le news</h2>
+        <input type="text" id="search-input" placeholder="Cerca per titolo, categoria o tag...">
+        <div id="search-results" class="news-grid"></div>
+      </section>
     </section>
+
     <div id="sidebar"></div>
   </main>
-<!-- TICKER NEWS -->
-<div class="news-ticker">
-  <div class="ticker-track" id="ticker-track"></div>
-</div>
-<main>
-  <!-- SEZIONE ULTIME NEWS -->
-  <section class="home-section">
-    <h2>Ultime dal mondo cyber</h2>
-    <div id="home-news" class="news-grid"></div>
-  </section>
 
-  <!-- SEZIONE RICERCA -->
-  <section class="home-section">
-    <h2>Cerca tra le news</h2>
-    <input type="text" id="search-input" placeholder="Cerca per titolo, categoria o tag...">
-    <div id="search-results" class="news-grid"></div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <!-- il footer lo sistemiamo al passo 5 -->
-</footer>
-
-<script src="/js/ticker.js"></script>
-<script src="/js/home-news.js"></script>
-<script src="/js/search.js"></script>
+  <!-- Footer gestito da ui.js dentro #footer -->
   <div id="footer"></div>
+
   <script>
-const text = "AnonLab — Cybersecurity & Digital Culture";
-let i = 0;
+    const text = "AnonLab — Cybersecurity & Digital Culture";
+    let i = 0;
 
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typewriter").textContent += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 60);
-  }
-}
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typewriter").textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 60);
+      }
+    }
 
-document.addEventListener("DOMContentLoaded", typeWriter);
-</script>
+    document.addEventListener("DOMContentLoaded", typeWriter);
+  </script>
+
+  <!-- Nuovi script -->
+  <script src="/js/ticker.js"></script>
+  <script src="/js/home-news.js"></script>
+  <script src="/js/search.js"></script>
+
+  <!-- Script esistenti -->
   <script src="/js/ui.js"></script>
   <script src="/js/feed.js"></script>
   <script src="/js/meteo.js"></script>
@@ -78,4 +83,3 @@ document.addEventListener("DOMContentLoaded", typeWriter);
   <script src="/js/news.js"></script>
 </body>
 </html>
-
