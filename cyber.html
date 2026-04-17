@@ -2,18 +2,18 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Cyber Security — AnonLab</title>
+  <title>Cyber — AnonLab</title>
   <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
 
+<body>
   <div id="header"></div>
   <div id="ticker"></div>
 
   <main class="page">
     <section class="main-column">
-      <h1 class="page-title">Cyber Security</h1>
-      <div id="cyber-container"></div>
+      <h1>Cyber</h1>
+      <p>Articoli, analisi e contenuti dedicati alla sicurezza informatica.</p>
     </section>
 
     <div id="sidebar"></div>
@@ -22,31 +22,5 @@
   <div id="footer"></div>
 
   <script src="/js/ui.js"></script>
-  <script src="/js/news.js"></script>
-  <script src="/js/feed.js"></script>
-  <script src="/js/meteo.js"></script>
-  <script src="/js/oroscopo.js"></script>
-
-  <script>
-    // Filtra solo le news di categoria "Cyber Security"
-    fetch("/data/news.json")
-      .then(res => res.json())
-      .then(news => {
-        const cyber = news.filter(n => n.category.toLowerCase().includes("cyber"));
-        document.getElementById("cyber-container").innerHTML =
-          cyber.map(item => `
-            <article class="news-card">
-              <img src="${item.image}">
-              <div class="news-content">
-                <span class="category">${item.category}</span>
-                <h2>${item.title}</h2>
-                <p>${item.excerpt}</p>
-                <span class="time">${item.time}</span>
-              </div>
-            </article>
-          `).join("");
-      });
-  </script>
-
 </body>
 </html>
