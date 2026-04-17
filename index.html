@@ -2,92 +2,124 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>AnonLab — Cybersecurity, Tech e Cultura Digitale</title>
+  <title>AnonLab — Cybersecurity & Digital Culture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
 
-  <!-- HEADER DINAMICO -->
   <div id="header"></div>
+  <div id="ticker"></div>
 
-  <!-- TICKER NEWS (nuovo, collegato al JSON) -->
-  <div class="news-ticker">
-    <div class="ticker-track" id="ticker-track"></div>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-title">
-        <span class="typewriter" id="typewriter"></span>
-      </h1>
-      <p class="hero-subtitle">
-        Portale indipendente di cybersecurity, tecnologia e cultura digitale.
-      </p>
-      <a href="/news.html" class="hero-button">Esplora le ultime news</a>
-    </div>
-  </section>
-
-  <!-- FEED ESTERNO (manteniamo solo questo, NON duplica le news interne) -->
-  <section class="cyber-feed">
-    <h2 class="section-title">Ultime dal mondo cyber</h2>
-    <div id="cyber-feed-list" class="cyber-feed-list"></div>
-  </section>
-
-  <!-- MAIN UNICO -->
   <main class="page">
 
     <section class="main-column">
 
-      <!-- NEWS INTERNE (dal tuo news.json) -->
-      <section class="home-section">
-        <h2>Ultime dal mondo AnonLab</h2>
-        <div id="home-news" class="news-grid"></div>
+      <!-- HERO PRINCIPALE -->
+      <section class="hero-big">
+        <h1>AnonLab</h1>
+        <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
+        <a href="/news.html" class="hero-button">Esplora le ultime news</a>
       </section>
 
-      <!-- RICERCA INTERNA -->
-      <section class="home-section">
-        <h2>Cerca tra le news</h2>
-        <input type="text" id="search-input" placeholder="Cerca per titolo, categoria o tag...">
-        <div id="search-results" class="news-grid"></div>
+      <!-- RICERCA GOOGLE -->
+      <section class="widget-large">
+        <h2>Ricerca Google</h2>
+        <form action="https://www.google.com/search" method="GET" target="_blank">
+          <input type="text" name="q" placeholder="Cerca nel web..." class="search-google">
+          <button type="submit" class="search-btn">Cerca</button>
+        </form>
+      </section>
+
+      <!-- ULTIME DAL MONDO CYBER (tuo blocco attuale, mantenuto) -->
+      <section class="widget-large">
+        <h2>Ultime dal mondo cyber</h2>
+        <div id="news-container"></div>
+      </section>
+
+      <!-- CYBER THREAT LEVEL -->
+      <section class="widget-large">
+        <h2>Cyber Threat Level</h2>
+        <div class="threat-box">
+          <span class="threat-level">Moderato</span>
+          <p>Aggiornato quotidianamente</p>
+        </div>
+      </section>
+
+      <!-- VULNERABILITÀ DEL GIORNO -->
+      <section class="widget-large">
+        <h2>Vulnerabilità del Giorno</h2>
+        <div id="cve-today">Caricamento...</div>
+      </section>
+
+      <!-- CYBER ALERT LIVE -->
+      <section class="widget-large">
+        <h2>Cyber Alert Live</h2>
+        <ul class="alert-list" id="alert-live">
+          <li>Caricamento...</li>
+        </ul>
+      </section>
+
+      <!-- FEED DAL MONDO -->
+      <section class="widget-large">
+        <h2>Feed dal Mondo</h2>
+        <div id="world-feed"></div>
+      </section>
+
+      <!-- TECH RADAR -->
+      <section class="widget-large">
+        <h2>Tech Radar</h2>
+        <ul class="tech-radar">
+          <li>AI generativa in crescita</li>
+          <li>Zero Trust nei SOC</li>
+          <li>Quantum Security</li>
+          <li>Automazione DevSecOps</li>
+        </ul>
+      </section>
+
+      <!-- AI TRENDS -->
+      <section class="widget-large">
+        <h2>AI Trends</h2>
+        <ul class="ai-trends">
+          <li>Modelli multimodali</li>
+          <li>AI nei SOC</li>
+          <li>AI per la difesa</li>
+          <li>AI per la produttività</li>
+        </ul>
+      </section>
+
+      <!-- STRUMENTI CYBER -->
+      <section class="widget-large">
+        <h2>Strumenti Cyber</h2>
+        <ul class="tools-list">
+          <li>Port Scanner</li>
+          <li>Hash Analyzer</li>
+          <li>IP Lookup</li>
+          <li>Header Inspector</li>
+        </ul>
+      </section>
+
+      <!-- SYSTEM STATUS -->
+      <section class="widget-large">
+        <h2>System Status</h2>
+        <div class="status-box">
+          <p>Server: <span class="ok">Online</span></p>
+          <p>API: <span class="ok">Operative</span></p>
+          <p>News Feed: <span class="ok">Attivo</span></p>
+        </div>
       </section>
 
     </section>
 
-    <!-- SIDEBAR DINAMICA -->
     <div id="sidebar"></div>
 
   </main>
 
-  <!-- FOOTER DINAMICO -->
   <div id="footer"></div>
 
-  <!-- TYPEWRITER -->
-  <script>
-    const text = "AnonLab — Cybersecurity & Digital Culture";
-    let i = 0;
-    function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("typewriter").textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 60);
-      }
-    }
-    document.addEventListener("DOMContentLoaded", typeWriter);
-  </script>
-
-  <!-- NUOVI SCRIPT -->
-  <script src="/js/ticker.js"></script>
-  <script src="/js/home-news.js"></script>
-  <script src="/js/search.js"></script>
-
-  <!-- SCRIPT ESISTENTI -->
-  <script src="/js/ui.js"></script>
-  <script src="/js/feed.js"></script>
-  <script src="/js/meteo.js"></script>
-  <script src="/js/oroscopo.js"></script>
   <script src="/js/news.js"></script>
+  <script src="/js/ui.js"></script>
 
 </body>
 </html>
