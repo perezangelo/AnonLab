@@ -1,5 +1,6 @@
 <div class="sidebar">
 
+    <!-- BOX METEO -->
     <div class="sidebar-box">
         <h3>Meteo</h3>
         <div class="meteo-city">Caricamento...</div>
@@ -7,11 +8,52 @@
         <div class="meteo-desc"></div>
     </div>
 
+    <!-- BOX FEED DAL MONDO -->
     <div class="sidebar-box">
         <h3>Feed dal Mondo</h3>
         <div class="cyber-feed-list" id="world-feed">
             <div>Caricamento feed...</div>
         </div>
+    </div>
+
+    <!-- ============================
+         FORM 1 — RICHIESTA INFO
+    ============================= -->
+    <div class="sidebar-box">
+        <img src="/img/envelope.png" class="sidebar-icon" alt="Richiesta informazioni">
+        <h3>Richiedi Informazioni</h3>
+        <form action="mailto:info@anonlab.it" method="POST" enctype="text/plain">
+            <input type="text" name="name" placeholder="Il tuo nome" required>
+            <input type="email" name="email" placeholder="La tua email" required>
+            <textarea name="message" placeholder="Scrivi la tua richiesta..." required></textarea>
+            <button type="submit">Invia</button>
+        </form>
+    </div>
+
+    <!-- ============================
+         FORM 2 — FAQ & DOMANDE
+    ============================= -->
+    <div class="sidebar-box">
+        <img src="/img/supporti.png" class="sidebar-icon" alt="FAQ e Domande">
+        <h3>FAQ & Domande</h3>
+        <form action="#" method="POST">
+            <input type="text" name="question" placeholder="La tua domanda" required>
+            <textarea name="details" placeholder="Dettagli (opzionale)"></textarea>
+            <button type="submit">Invia</button>
+        </form>
+    </div>
+
+    <!-- ============================
+         FORM 3 — REGISTRAZIONE UTENTE
+    ============================= -->
+    <div class="sidebar-box">
+        <img src="/img/register.png" class="sidebar-icon" alt="Registrazione">
+        <h3>Registrazione Utente</h3>
+        <form action="#" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <button type="submit">Registrati</button>
+        </form>
     </div>
 
 </div>
