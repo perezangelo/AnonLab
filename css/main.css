@@ -655,6 +655,110 @@ border: 1px solid #dce6ef;
   color: #00c853;
   font-weight: bold;
 }
+.hero-big {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.hero-big h1 {
+  font-size: 2.8rem;
+  color: #0a0a0a;
+}
+
+.hero-favicon {
+  width: 80px;
+  height: 80px;
+  margin: 15px auto;
+  display: block;
+  opacity: 0.95;
+}
+
+.hero-sub {
+  font-size: 1.3rem;
+  color: #333;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.widget-large {
+  background: #ffffff;
+  border: 1px solid #dce6ef;
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+}
+
+.widget-large h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.search-google {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.search-btn {
+  margin-top: 10px;
+  padding: 10px 18px;
+  font-size: 1.05rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.big-temp {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+.threat-box {
+  padding: 16px;
+  background: #f7f9fc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.threat-level {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff9800;
+}
+
+.alert-list li,
+.ai-trends li,
+.tech-radar li,
+.tools-list li {
+  font-size: 1.1rem;
+  padding: 6px 0;
+}
+
+.status-box {
+  background: #f7f9fc;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.status-box .ok {
+  color: #00c853;
+  font-weight: bold;
+}
 
 
 
