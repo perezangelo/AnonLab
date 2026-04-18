@@ -105,7 +105,18 @@ body {
   background: rgba(0, 255, 157, 0.06);
 }
 
-/* Ticker */
+/* Mobile fix: evita che “Tech” esca dalla barra */
+@media (max-width: 480px) {
+  .main-nav {
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+  .main-nav a {
+    padding: 4px 8px;
+  }
+}
+
+/* === TICKER OTTIMIZZATO — LOOP INFINITO === */
 
 .ticker {
   max-width: 1200px;
@@ -146,18 +157,34 @@ body {
   color: var(--accent);
   margin-right: 8px;
   font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-loop 12s linear infinite;
+}
+
+.ticker-content:hover .ticker-track {
+  animation-play-state: paused;
 }
 
 .ticker-item {
-  white-space: nowrap;
+  margin-right: 40px;
   font-size: 0.85rem;
   color: var(--text-main);
-  animation: ticker-scroll 26s linear infinite;
 }
 
-@keyframes ticker-scroll {
+@keyframes ticker-loop {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-60%); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .ticker-track {
+    animation-duration: 9s;
+  }
 }
 
 /* Contenuto principale */
@@ -254,93 +281,7 @@ body {
   color: var(--accent);
 }
 
-/* Feed */
-
-.feed-item {
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
-  padding: 6px 0;
-}
-
-.feed-item:last-child {
-  border-bottom: none;
-}
-
-.feed-time {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-/* Meteo */
-
-.meteo-city {
-  font-weight: 600;
-}
-
-.meteo-temp {
-  font-size: 1.2rem;
-  color: var(--accent);
-}
-
-.meteo-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* Footer */
-
-.site-footer {
-  max-width: 1200px;
-  margin: 18px auto 10px;
-  padding: 12px 16px;
-  border-radius: 999px;
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.footer-nav {
-  display: flex;
-  gap: 10px;
-}
-
-.footer-nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.8rem;
-}
-
-.footer-nav a:hover {
-  color: var(--accent);
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 768px) {
-  .widget-large {
-    padding: 16px;
-  }
-
-  .hero-big h1 {
-    font-size: 2.2rem;
-  }
-
-  .widget-large h2 {
-    font-size: 1.4rem;
-  }
-
-  .tech-radar li,
-  .ai-trends li,
-  .tools-list li {
-    font-size: 1rem;
-  }
-}
-
-/* === Sidebar Forms (Registrazione, Info, FAQ) === */
+/* Sidebar Forms */
 
 .sidebar-icon {
   width: 42px;
