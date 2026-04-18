@@ -100,7 +100,7 @@ async function loadWorldFeed() {
 }
 
 /* ============================
-   LIBRESPEED – SPEED TEST REALE
+   LIBRESPEED – SPEED TEST PRO
 ============================ */
 
 let st = new Speedtest({
@@ -169,7 +169,10 @@ let st = new Speedtest({
     ]
 });
 
-// Gauge animation
+/* ============================
+   GAUGE + PROGRESS BAR
+============================ */
+
 function animateGauge(id, value, max = 1000) {
     const pct = Math.min(100, (value / max) * 100);
     const offset = 100 - pct;
@@ -177,11 +180,11 @@ function animateGauge(id, value, max = 1000) {
     if (el) el.style.strokeDashoffset = offset;
 }
 
-// Progress bar
 function setProgress(pct) {
     const bar = document.getElementById("speedtest-progress-bar");
     if (bar) bar.style.width = pct + "%";
 }
+
 /* ============================
    QUALITY SCORE (A/B/C/D)
 ============================ */
@@ -201,6 +204,11 @@ function getQualityLabel(score) {
         case "D": return "Scarsa";
     }
 }
+
+/* ============================
+   AVVIO SPEED TEST
+============================ */
+
 function startSpeedTest() {
     const status = document.getElementById("speedtest-status");
     const pingEl = document.getElementById("speedtest-ping");
@@ -235,20 +243,20 @@ function startSpeedTest() {
     };
 
     st.onend = () => {
-    status.textContent = "Test completato";
-    setProgress(100);
+        status.textContent = "Test completato";
+        setProgress(100);
 
-    const ping = parseFloat(document.getElementById("speedtest-ping").textContent);
-    const jitter = parseFloat(document.getElementById("speedtest-jitter").textContent);
-    const download = parseFloat(document.getElementById("speedtest-download").textContent);
-    const upload = parseFloat(document.getElementById("speedtest-upload").textContent);
+        const ping = parseFloat(pingEl.textContent);
+        const jitter = parseFloat(jitterEl.textContent);
+        const download = parseFloat(downEl.textContent);
+        const upload = parseFloat(upEl.textContent);
 
-    const score = getQualityScore(ping, jitter, download, upload);
-    const label = getQualityLabel(score);
+        const score = getQualityScore(ping, jitter, download, upload);
+        const label = getQualityLabel(score);
 
-    const qualityBox = document.getElementById("speedtest-quality");
-    qualityBox.textContent = `Qualità connessione: ${score} (${label})`;
-};
+        const qualityBox = document.getElementById("speedtest-quality");
+        qualityBox.textContent = `Qualità connessione: ${score} (${label})`;
+    };
 
     st.start();
 }
