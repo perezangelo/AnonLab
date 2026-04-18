@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – AnonLab</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="logo">AnonLab</div>
+
+    <nav class="main-nav">
+        <a href="/index.html">Home</a>
+        <a href="/news.html">News</a>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/cyber.html">Cyber</a>
+        <a href="/tech.html">Tech</a>
+        <a href="/about.html">About</a>
+    </nav>
+</header>
+
+<!-- PAGE WRAPPER -->
+<div class="page">
+
+    <!-- MAIN COLUMN -->
+    <div class="main-column">
+
+        <!-- HERO ABOUT -->
+        <section class="widget-large">
+            <h2>Chi Siamo</h2>
+            <p>
+                AnonLab è un progetto indipendente dedicato alla cybersecurity, alla tecnologia e alla cultura digitale.
+                Nasce con l’obiettivo di offrire un punto di riferimento chiaro, affidabile e accessibile per chi vuole
+                comprendere il mondo digitale moderno: minacce, innovazioni, strumenti, tendenze e sicurezza personale.
+            </p>
+        </section>
+
+        <!-- MISSION -->
+        <section class="widget-large">
+            <h2>La Nostra Mission</h2>
+            <p>
+                Rendere la sicurezza informatica comprensibile a tutti, senza sensazionalismi e senza complessità inutili.
+                Crediamo in un web più sicuro, più consapevole e più umano.
+            </p>
+
+            <ul class="tools-list">
+                <li>✔ Diffondere cultura digitale</li>
+                <li>✔ Rendere accessibile la cybersecurity</li>
+                <li>✔ Analizzare minacce e tendenze reali</li>
+                <li>✔ Fornire strumenti utili e pratici</li>
+            </ul>
+        </section>
+
+        <!-- TIMELINE -->
+        <section class="widget-large">
+            <h2>La Nostra Storia</h2>
+
+            <div class="cyber-feed-list">
+                <div>
+                    <strong>2024</strong><br>
+                    Nasce l’idea di creare un portale indipendente dedicato alla sicurezza informatica.
+                </div>
+
+                <div>
+                    <strong>2025</strong><br>
+                    Viene sviluppata la prima versione del sito, con focus su news e cultura cyber.
+                </div>
+
+                <div>
+                    <strong>2026</strong><br>
+                    AnonLab evolve in un hub completo: dashboard SOC, feed globali, strumenti e approfondimenti.
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="widget-large">
+            <h2>Contatti</h2>
+            <p>Per collaborazioni, segnalazioni o richieste:</p>
+
+            <p><strong>Email:</strong> info@anonlab.it</p>
+        </section>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-box">
+            <h3>Meteo</h3>
+            <div class="meteo-city">Caricamento...</div>
+            <div class="meteo-temp"></div>
+            <div class="meteo-desc"></div>
+        </div>
+
+        <div class="sidebar-box">
+            <h3>Feed dal Mondo</h3>
+            <div class="cyber-feed-list" id="world-feed">
+                <div>Caricamento feed...</div>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <img src="/img/envelope.png" class="sidebar-icon" alt="Richiesta informazioni">
+            <h3>Richiedi Informazioni</h3>
+            <form action="mailto:info@anonlab.it" method="POST" enctype="text/plain">
+                <input type="text" name="name" placeholder="Il tuo nome" required>
+                <input type="email" name="email" placeholder="La tua email" required>
+                <textarea name="message" placeholder="Scrivi la tua richiesta..." required></textarea>
+                <button type="submit">Invia</button>
+            </form>
+        </div>
+
+        <div class="sidebar-box">
+            <img src="/img/support.png" class="sidebar-icon" alt="FAQ e Domande">
+            <h3>FAQ & Domande</h3>
+            <form action="#" method="POST">
+                <input type="text" name="question" placeholder="La tua domanda" required>
+                <textarea name="details" placeholder="Dettagli (opzionale)"></textarea>
+                <button type="submit">Invia</button>
+            </form>
+        </div>
+
+        <div class="sidebar-box">
+            <img src="/img/register.png" class="sidebar-icon" alt="Registrazione">
+            <h3>Registrazione Utente</h3>
+            <form action="#" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <button type="submit">Registrati</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div>© 2026 AnonLab – Cybersecurity & Cultura Digitale</div>
+    <div class="footer-nav">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/about.html">About</a>
+    </div>
+</footer>
+
+</body>
+</html>
