@@ -1,3 +1,7 @@
+/* ============================
+   CARICAMENTO PARTIALS
+============================ */
+
 function loadPartial(id, file) {
   const el = document.getElementById(id);
   if (!el) return; // evita errori se il contenitore non esiste
@@ -6,6 +10,12 @@ function loadPartial(id, file) {
     .then(res => res.text())
     .then(html => {
       el.innerHTML = html;
+
+      // AGGANCIA IL BOTTONE DOPO IL CARICAMENTO DEL SIDEBAR
+      if (id === "sidebar") {
+        const btn = document.getElementById("speedtest-start");
+        if (btn) btn.addEventListener("click", startSpeedTest);
+      }
     });
 }
 
@@ -14,18 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
 
-    // RIMOSSO: loadPartial("ticker", ...)
-    // RIMOSSO: loadTicker();
-
     loadMeteo();
     loadWorldFeed();
     loadCVEToday();
     loadCyberAlerts();
-
-    // attiva Speed Test se presente
-    const btn = document.getElementById("speedtest-start");
-    if (btn) btn.addEventListener("click", startSpeedTest);
 });
+
+/* ============================
+   WIDGET CVE DEL GIORNO
+============================ */
 
 async function loadCVEToday() {
     const box = document.getElementById("cve-today");
@@ -45,6 +52,10 @@ async function loadCVEToday() {
     `;
 }
 
+/* ============================
+   WIDGET CYBER ALERT LIVE
+============================ */
+
 async function loadCyberAlerts() {
     const list = document.getElementById("alert-live");
     if (!list) return;
@@ -57,6 +68,10 @@ async function loadCyberAlerts() {
     ];
     list.innerHTML = alerts.map(a => `<li>${a}</li>`).join("");
 }
+
+/* ============================
+   WIDGET FEED DAL MONDO
+============================ */
 
 async function loadWorldFeed() {
     const feed = document.getElementById("world-feed");
@@ -79,7 +94,8 @@ async function loadWorldFeed() {
 function animateGauge(id, value, max = 200) {
     const pct = Math.min(100, (value / max) * 100);
     const offset = 100 - pct;
-    document.getElementById(id).style.strokeDashoffset = offset;
+    const el = document.getElementById(id);
+    if (el) el.style.strokeDashoffset = offset;
 }
 
 function setProgress(pct) {
@@ -93,6 +109,8 @@ function startSpeedTest() {
     const downEl = document.getElementById("speedtest-download");
     const upEl = document.getElementById("speedtest-upload");
     const jitterEl = document.getElementById("speedtest-jitter");
+
+    if (!status || !pingEl || !downEl || !upEl || !jitterEl) return;
 
     status.textContent = "Test in corso...";
     setProgress(5);
@@ -153,3 +171,4 @@ function startSpeedTest() {
             status.textContent = "Errore durante il test";
         });
 }
+
