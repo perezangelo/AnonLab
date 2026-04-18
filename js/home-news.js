@@ -1,29 +1,53 @@
-fetch("/data/news.json")
-  .then(res => res.json())
-  .then(news => {
+/* ============================================
+   HOME NEWS — CARICAMENTO NEWS CON IMMAGINI
+============================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadHomeNews();
+});
+
+async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    const latest = news.slice(0, 4);
+    try {
+        const res = await fetch("/data/news.json");
+        const news = await res.json();
 
-    container.innerHTML = latest.map(renderCard).join("");
-  });
+        // HERO fallback rotation
+        const heroFallback = ["/img/hero1.jpg", "/img/hero2.jpg", "/img/hero3.jpg"];
+        let heroIndex = 0;
 
-function renderCard(item) {
-  const tags = item.tags && item.tags.length
-    ? `<div class="tags">${item.tags.map(t => `<span>${t}</span>`).join("")}</div>`
-    : "";
+        const html = news.map(article => {
+            // Se manca l’immagine → usa HERO1/2/3 a rotazione
+            const img = article.image && article.image.trim() !== ""
+                ? article.image
+                : heroFallback[(heroIndex++) % heroFallback.length];
 
-  return `
-    <article class="news-card">
-      <img src="${item.image}" alt="${item.title}">
-      <div class="news-content">
-        <span class="category">${item.category}</span>
-        <h2><a href="${item.url}">${item.title}</a></h2>
-        <p>${item.excerpt}</p>
-        ${tags}
-        <span class="time">${item.time}</span>
-      </div>
-    </article>
-  `;
+            return `
+                <article class="news-card">
+                    <img src="${img}" alt="${article.title}" class="news-thumb">
+
+                    <div class="news-content">
+                        <h3 class="news-title">${article.title}</h3>
+
+                        <div class="news-meta">
+                            <span class="news-category">${article.category}</span>
+                            <span class="news-time">${article.time}</span>
+                        </div>
+
+                        <p class="news-excerpt">${article.excerpt}</p>
+
+                        <a href="${article.url}" class="news-link">Leggi di più →</a>
+                    </div>
+                </article>
+            `;
+        }).join("");
+
+        container.innerHTML = html;
+
+    } catch (err) {
+        console.error("Errore nel caricamento delle news:", err);
+        container.innerHTML = "<p>Impossibile caricare le news.</p>";
+    }
 }
