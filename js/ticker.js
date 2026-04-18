@@ -1,12 +1,20 @@
+// Carica le news dal JSON e popola il ticker
 fetch("/data/news.json")
   .then(res => res.json())
   .then(news => {
-    const ticker = document.getElementById("ticker-track");
-    if (!ticker) return;
+    const track = document.querySelector(".ticker-track");
+    if (!track) return;
 
+    // Genera i titoli cliccabili
     const items = news
-      .map(item => `<a href="${item.url}">${item.title}</a>`)
+      .map(item => `<span class="ticker-item"><a href="${item.url}">${item.title}</a></span>`)
       .join("");
 
-    ticker.innerHTML = items + items;
-  });
+    // Inserisce gli elementi una sola volta
+    track.innerHTML = items;
+
+    // Duplica automaticamente per loop infinito fluido
+    const clone = track.cloneNode(true);
+    track.parentElement.appendChild(clone);
+  })
+  .catch(err => console.error("Errore nel caricamento delle news:", err));
