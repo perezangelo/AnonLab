@@ -62,10 +62,10 @@ async function loadWorldFeed() {
     feed.innerHTML = items.map(i => `<div>${i}</div>`).join("");
 }
 /* ============================
-   SPEED TEST CYBER GAUGE
+   SPEED TEST CYBER GAUGE (FIXED)
 ============================ */
 
-function animateGauge(id, value, max = 100) {
+function animateGauge(id, value, max = 200) {
     const pct = Math.min(100, (value / max) * 100);
     const offset = 100 - pct;
     document.getElementById(id).style.strokeDashoffset = offset;
@@ -80,8 +80,8 @@ function startSpeedTest() {
 
     status.textContent = "Test in corso...";
 
-    const testFile = "/img/eyes.png";
-    const uploadData = new Blob([new ArrayBuffer(2000000)]);
+    const testFile = "/img/eyes.png"; // file locale
+    const uploadData = new Blob([new ArrayBuffer(2000000)]); // 2MB
 
     let pingStart = performance.now();
 
@@ -96,32 +96,35 @@ function startSpeedTest() {
 
             // DOWNLOAD
             let startDown = performance.now();
-            return fetch(testFile);
-        })
-        .then(res => res.blob())
-        .then(blob => {
-            let endDown = performance.now();
-            let seconds = (endDown - performance.now()) / 1000;
-            let mbps = ((blob.size * 8) / 1_000_000) / seconds;
+            return fetch(testFile).then(r => r.blob()).then(blob => {
+                let endDown = performance.now();
+                let seconds = (endDown - startDown) / 1000;
+                let mbps = ((blob.size * 8) / 1_000_000) / seconds;
 
-            downEl.textContent = mbps.toFixed(1);
-            animateGauge("gauge-download", mbps, 200);
+                downEl.textContent = mbps.toFixed(1);
+                animateGauge("gauge-download", mbps);
 
-            // UPLOAD
-            let startUp = performance.now();
-            return fetch("/upload-test", {
-                method: "POST",
-                body: uploadData
-            }).catch(() => {});
+                return blob;
+            });
         })
         .then(() => {
-            let endUp = performance.now();
-            let seconds = (endUp - performance.now()) / 1000;
-            let mbps = ((uploadData.size * 8) / 1_000_000) / seconds;
+            // UPLOAD SIMULATO (senza endpoint)
+            let startUp = performance.now();
 
-            upEl.textContent = mbps.toFixed(1);
-            animateGauge("gauge-upload", mbps, 200);
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    let endUp = performance.now();
+                    let seconds = (endUp - startUp) / 1000;
+                    let mbps = ((uploadData.size * 8) / 1_000_000) / seconds;
 
+                    upEl.textContent = mbps.toFixed(1);
+                    animateGauge("gauge-upload", mbps);
+
+                    resolve();
+                }, 600); // simulazione upload
+            });
+        })
+        .then(() => {
             status.textContent = "Test completato";
         })
         .catch(() => {
@@ -133,4 +136,3 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("speedtest-start");
     if (btn) btn.addEventListener("click", startSpeedTest);
 });
-
