@@ -62,13 +62,18 @@ async function loadWorldFeed() {
     feed.innerHTML = items.map(i => `<div>${i}</div>`).join("");
 }
 /* ============================
-   SPEED TEST CYBER GAUGE (FIXED)
+   SPEED TEST CYBER GAUGE + PROGRESS BAR
 ============================ */
 
 function animateGauge(id, value, max = 200) {
     const pct = Math.min(100, (value / max) * 100);
     const offset = 100 - pct;
     document.getElementById(id).style.strokeDashoffset = offset;
+}
+
+function setProgress(pct) {
+    const bar = document.getElementById("speedtest-progress-bar");
+    if (bar) bar.style.width = pct + "%";
 }
 
 function startSpeedTest() {
@@ -79,9 +84,10 @@ function startSpeedTest() {
     const jitterEl = document.getElementById("speedtest-jitter");
 
     status.textContent = "Test in corso...";
+    setProgress(5);
 
-    const testFile = "/img/eyes.png"; // file locale
-    const uploadData = new Blob([new ArrayBuffer(2000000)]); // 2MB
+    const testFile = "/img/eyes.png";
+    const uploadData = new Blob([new ArrayBuffer(2000000)]);
 
     let pingStart = performance.now();
 
@@ -91,8 +97,9 @@ function startSpeedTest() {
             let pingEnd = performance.now();
             let ping = Math.round(pingEnd - pingStart);
             pingEl.textContent = ping;
-
             jitterEl.textContent = Math.round(Math.random() * 5 + 1);
+
+            setProgress(25);
 
             // DOWNLOAD
             let startDown = performance.now();
@@ -104,11 +111,13 @@ function startSpeedTest() {
                 downEl.textContent = mbps.toFixed(1);
                 animateGauge("gauge-download", mbps);
 
+                setProgress(60);
+
                 return blob;
             });
         })
         .then(() => {
-            // UPLOAD SIMULATO (senza endpoint)
+            // UPLOAD SIMULATO
             let startUp = performance.now();
 
             return new Promise(resolve => {
@@ -120,8 +129,10 @@ function startSpeedTest() {
                     upEl.textContent = mbps.toFixed(1);
                     animateGauge("gauge-upload", mbps);
 
+                    setProgress(100);
+
                     resolve();
-                }, 600); // simulazione upload
+                }, 600);
             });
         })
         .then(() => {
