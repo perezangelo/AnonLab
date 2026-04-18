@@ -106,14 +106,65 @@ async function loadWorldFeed() {
 let st = new Speedtest({
     telemetry_level: "basic",
     test_order: "P_D_U",
+    auto_start: false,
+    time_dl_max: 8,
+    time_ul_max: 8,
+    ping_allow_jitter: true,
+    server_select: "auto",
     servers: [
         {
-            name: "LibreSpeed EU",
+            name: "Italia – Milano",
+            server: "https://milano.speedtest.wifx.net/",
+            dlURL: "garbage.php",
+            ulURL: "empty.php",
+            pingURL: "empty.php",
+            getIpURL: "getIP.php",
+            distance: 1
+        },
+        {
+            name: "Italia – Roma",
+            server: "https://rome.speedtest.wifx.net/",
+            dlURL: "garbage.php",
+            ulURL: "empty.php",
+            pingURL: "empty.php",
+            getIpURL: "getIP.php",
+            distance: 2
+        },
+        {
+            name: "EU – Svizzera",
             server: "https://speedtest.wifx.net/",
             dlURL: "garbage.php",
             ulURL: "empty.php",
             pingURL: "empty.php",
-            getIpURL: "getIP.php"
+            getIpURL: "getIP.php",
+            distance: 3
+        },
+        {
+            name: "EU – Germania",
+            server: "https://de-fra.speedtest.wifx.net/",
+            dlURL: "garbage.php",
+            ulURL: "empty.php",
+            pingURL: "empty.php",
+            getIpURL: "getIP.php",
+            distance: 4
+        },
+        {
+            name: "Cloudflare Global",
+            server: "https://speed.cloudflare.com/",
+            dlURL: "cdn-cgi/trace",
+            ulURL: "cdn-cgi/trace",
+            pingURL: "cdn-cgi/trace",
+            getIpURL: "cdn-cgi/trace",
+            distance: 5
+        },
+        {
+            name: "OVH – Francia",
+            server: "https://proof.ovh.net/files/",
+            dlURL: "1Mb.dat",
+            ulURL: "1Mb.dat",
+            pingURL: "1Mb.dat",
+            getIpURL: "1Mb.dat",
+            distance: 6
         }
     ]
 });
@@ -131,7 +182,25 @@ function setProgress(pct) {
     const bar = document.getElementById("speedtest-progress-bar");
     if (bar) bar.style.width = pct + "%";
 }
+/* ============================
+   QUALITY SCORE (A/B/C/D)
+============================ */
 
+function getQualityScore(ping, jitter, download, upload) {
+    if (ping < 20 && jitter < 5 && download > 100 && upload > 50) return "A";
+    if (ping < 40 && jitter < 10 && download > 50 && upload > 20) return "B";
+    if (ping < 80 && jitter < 20 && download > 20 && upload > 10) return "C";
+    return "D";
+}
+
+function getQualityLabel(score) {
+    switch(score) {
+        case "A": return "Ottima";
+        case "B": return "Buona";
+        case "C": return "Sufficiente";
+        case "D": return "Scarsa";
+    }
+}
 function startSpeedTest() {
     const status = document.getElementById("speedtest-status");
     const pingEl = document.getElementById("speedtest-ping");
