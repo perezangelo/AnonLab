@@ -103,7 +103,20 @@ async function loadWorldFeed() {
    LIBRESPEED – SPEED TEST REALE
 ============================ */
 
-let st = new Speedtest();
+let st = new Speedtest({
+    telemetry_level: "basic",
+    test_order: "P_D_U",
+    servers: [
+        {
+            name: "LibreSpeed EU",
+            server: "https://speedtest.wifx.net/",
+            dlURL: "garbage.php",
+            ulURL: "empty.php",
+            pingURL: "empty.php",
+            getIpURL: "getIP.php"
+        }
+    ]
+});
 
 // Gauge animation
 function animateGauge(id, value, max = 1000) {
