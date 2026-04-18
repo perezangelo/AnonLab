@@ -4,7 +4,7 @@
 
 function loadPartial(id, file) {
   const el = document.getElementById(id);
-  if (!el) return; // evita errori se il contenitore non esiste
+  if (!el) return;
 
   fetch(file)
     .then(res => res.text())
@@ -18,6 +18,18 @@ function loadPartial(id, file) {
       }
     });
 }
+
+/* ============================
+   FUNZIONE METEO (placeholder)
+============================ */
+
+function loadMeteo() {
+  // Funzione placeholder — verrà implementata in futuro
+}
+
+/* ============================
+   DOM READY
+============================ */
 
 document.addEventListener("DOMContentLoaded", () => {
     loadPartial("header", "/partials/header.html");
@@ -171,4 +183,3 @@ function startSpeedTest() {
             status.textContent = "Errore durante il test";
         });
 }
-
