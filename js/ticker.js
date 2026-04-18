@@ -1,13 +1,12 @@
-// Carica le news dal JSON e popola il ticker
 fetch("/data/news.json")
   .then(res => res.json())
   .then(news => {
     const track = document.querySelector(".ticker-track");
     if (!track) return;
 
-    // Genera i titoli cliccabili
+    // Genera i titoli (senza URL)
     const items = news
-      .map(item => `<span class="ticker-item"><a href="${item.url}">${item.title}</a></span>`)
+      .map(item => `<span class="ticker-item">${item.title}</span>`)
       .join("");
 
     // Inserisce gli elementi una sola volta
