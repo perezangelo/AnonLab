@@ -581,6 +581,26 @@ body {
     object-fit: cover;
     border-radius: 6px;
 }
+/* Uniformità immagini news */
+.news-thumb {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* Layout news card */
+.news-card {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.03);
+    padding: 12px;
+    border-radius: 8px;
+    align-items: flex-start;
+}
+
 
 
 
