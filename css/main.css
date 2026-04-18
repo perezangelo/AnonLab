@@ -105,7 +105,7 @@ body {
   background: rgba(0, 255, 157, 0.06);
 }
 
-/* Mobile fix: evita che “Tech” esca dalla barra */
+/* Mobile fix */
 @media (max-width: 480px) {
   .main-nav {
     gap: 8px;
@@ -116,7 +116,7 @@ body {
   }
 }
 
-/* === TICKER OTTIMIZZATO — LOOP INFINITO === */
+/* === TICKER === */
 
 .ticker {
   max-width: 1200px;
@@ -284,11 +284,12 @@ body {
 /* Sidebar Forms */
 
 .sidebar-icon {
-  width: 42px;
+  width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto 10px;
-  opacity: 0.9;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  opacity: 1;
 }
 
 .sidebar-box form input,
@@ -318,58 +319,84 @@ body {
   background: #222;
 }
 
-/* === Hero Eyes (versione grande e proporzionata) === */
+/* === HERO POTENZIATO === */
+
+.hero-big {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.08), var(--shadow-soft);
+  margin-bottom: 30px;
+}
+
+.hero-big h1 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  padding: 20px 0;
+}
 
 .hero-favicon {
-  width: 220px;
+  width: 55%;
+  max-width: 480px;
   height: auto;
   display: block;
-  margin: 25px auto 18px;
+  margin: 25px auto 20px;
   opacity: 1;
 }
 
+.hero-sub {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
 @media (max-width: 992px) {
+  .hero-big h1 {
+    font-size: 3.2rem;
+  }
   .hero-favicon {
-    width: 180px;
+    width: 65%;
   }
 }
 
 @media (max-width: 768px) {
+  .hero-big h1 {
+    font-size: 2.6rem;
+  }
   .hero-favicon {
-    width: 150px;
+    width: 70%;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-favicon {
-    width: 130px;
+  .hero-big h1 {
+    font-size: 2.2rem;
   }
-}
-/* === Sidebar Icons (ingrandite a larghezza box) === */
-.sidebar-icon {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    display: block;
-    border-radius: 6px;
-    opacity: 1;
+  .hero-favicon {
+    width: 80%;
+  }
 }
 
 /* === Link About === */
 .about-link {
-    display: block;
-    padding: 10px;
-    background: #1e88e5;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 10px;
-    font-size: 0.95rem;
-    transition: 0.2s ease;
+  display: block;
+  padding: 10px;
+  background: #1e88e5;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
 }
 
 .about-link:hover {
-    background: #1565c0;
+  background: #1565c0;
 }
-
