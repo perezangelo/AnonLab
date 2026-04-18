@@ -111,60 +111,17 @@ let st = new Speedtest({
     time_ul_max: 8,
     ping_allow_jitter: true,
     server_select: "auto",
+
+    /* 🔥 QUI I SERVER SONO STATI SOSTITUITI CON I TUOI 🔥 */
     servers: [
         {
-            name: "Italia – Milano",
-            server: "https://milano.speedtest.wifx.net/",
+            name: "AnonLab Server",
+            server: "https://anonlab.it/speedtest/",
             dlURL: "garbage.php",
-            ulURL: "empty.php",
+            ulURL: "backend.php",
             pingURL: "empty.php",
             getIpURL: "getIP.php",
             distance: 1
-        },
-        {
-            name: "Italia – Roma",
-            server: "https://rome.speedtest.wifx.net/",
-            dlURL: "garbage.php",
-            ulURL: "empty.php",
-            pingURL: "empty.php",
-            getIpURL: "getIP.php",
-            distance: 2
-        },
-        {
-            name: "EU – Svizzera",
-            server: "https://speedtest.wifx.net/",
-            dlURL: "garbage.php",
-            ulURL: "empty.php",
-            pingURL: "empty.php",
-            getIpURL: "getIP.php",
-            distance: 3
-        },
-        {
-            name: "EU – Germania",
-            server: "https://de-fra.speedtest.wifx.net/",
-            dlURL: "garbage.php",
-            ulURL: "empty.php",
-            pingURL: "empty.php",
-            getIpURL: "getIP.php",
-            distance: 4
-        },
-        {
-            name: "Cloudflare Global",
-            server: "https://speed.cloudflare.com/",
-            dlURL: "cdn-cgi/trace",
-            ulURL: "cdn-cgi/trace",
-            pingURL: "cdn-cgi/trace",
-            getIpURL: "cdn-cgi/trace",
-            distance: 5
-        },
-        {
-            name: "OVH – Francia",
-            server: "https://proof.ovh.net/files/",
-            dlURL: "1Mb.dat",
-            ulURL: "1Mb.dat",
-            pingURL: "1Mb.dat",
-            getIpURL: "1Mb.dat",
-            distance: 6
         }
     ]
 });
