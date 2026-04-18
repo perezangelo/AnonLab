@@ -480,4 +480,24 @@ body {
     font-size: 0.9rem;
     color: var(--text-muted);
 }
+/* Centra il widget Ricerca Google sotto il titolo */
+.widget-large {
+    text-align: center;
+}
+
+.widget-large form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-google {
+    width: 60%;
+    max-width: 420px;
+}
+
+.search-btn {
+    padding: 10px 18px;
+}
+
 
