@@ -1,18 +1,18 @@
-fetch("/data/news.json")
-  .then(res => res.json())
-  .then(news => {
-    const container = document.getElementById("news-container");
-    if (!container) return;
-
-    container.innerHTML = news.map(item => `
-      <article class="news-card">
-        <img src="${item.image}" alt="">
-        <div class="news-content">
-          <span class="category">${item.category}</span>
-          <h2>${item.title}</h2>
-          <p>${item.excerpt}</p>
-          <span class="time">${item.time}</span>
-        </div>
-      </article>
-    `).join("");
-  });
+[
+  {
+    "title": "Attacco ransomware blocca infrastrutture critiche in Europa",
+    "category": "Cyber Security",
+    "time": "Adesso",
+    "image": "/img/ransomware.jpg",
+    "excerpt": "Un nuovo gruppo di cyber criminali ha preso di mira reti industriali e servizi essenziali.",
+    "url": "/news/ransomware.html"
+  },
+  {
+    "title": "AI e difesa: come cambiano i SOC nel 2026",
+    "category": "Tech",
+    "time": "3 ore fa",
+    "image": "/img/ai-soc.jpg",
+    "excerpt": "L'intelligenza artificiale sta rivoluzionando il modo in cui vengono rilevati gli incidenti.",
+    "url": "/news/ai-soc.html"
+  }
+]
