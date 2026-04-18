@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
 
+    // RIMOSSO: loadPartial("ticker", ...)
+    // RIMOSSO: loadTicker();
+
     loadMeteo();
     loadWorldFeed();
     loadCVEToday();
