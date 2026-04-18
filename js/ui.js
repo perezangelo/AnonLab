@@ -1,3 +1,4 @@
+// Carica un partial HTML e restituisce una Promise
 function loadPartial(id, file) {
   return fetch(file)
     .then(res => res.text())
@@ -7,19 +8,17 @@ function loadPartial(id, file) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // Carica i partials IN ORDINE
+
+    // Caricamento ordinato dei partials
     await loadPartial("header", "/partials/header.html");
-    await loadPartial("ticker", "/partials/ticker.html");   // ticker prima!
+    await loadPartial("ticker", "/partials/ticker.html");
     await loadPartial("sidebar", "/partials/sidebar.html");
     await loadPartial("footer", "/partials/footer.html");
 
-    // Ora il ticker ESISTE nel DOM
-    if (typeof loadTicker === "function") {
-        loadTicker();
-    }
-
-    loadMeteo();
-    loadWorldFeed();
-    loadCVEToday();
-    loadCyberAlerts();
+    // Ora gli elementi ESISTONO nel DOM
+    if (typeof loadTicker === "function") loadTicker();
+    if (typeof loadMeteo === "function") loadMeteo();
+    if (typeof loadWorldFeed === "function") loadWorldFeed();
+    if (typeof loadCVEToday === "function") loadCVEToday();
+    if (typeof loadCyberAlerts === "function") loadCyberAlerts();
 });
