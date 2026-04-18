@@ -11,7 +11,6 @@ function loadPartial(id, file) {
     .then(html => {
       el.innerHTML = html;
 
-      // Aggancia il nuovo Speed Test dopo il caricamento del sidebar
       if (id === "sidebar") {
         const btn = document.getElementById("speedtest-start");
         if (btn) btn.addEventListener("click", startSpeedTest);
@@ -23,9 +22,7 @@ function loadPartial(id, file) {
    FUNZIONE METEO (placeholder)
 ============================ */
 
-function loadMeteo() {
-  // In attesa di implementazione
-}
+function loadMeteo() {}
 
 /* ============================
    DOM READY
@@ -54,13 +51,19 @@ async function loadCVEToday() {
         id: "CVE-2026-12345",
         severity: "High",
         desc: "Vulnerabilità RCE in un componente molto diffuso.",
-        link: "https://nvd.nist.gov/vuln/detail/CVE-2026-12345"
+        link: "https://nvd.nist.gov/vuln/detail/CVE-2026-12345",
+        img: "/img/hero3.jpg"
     };
 
     box.innerHTML = `
-        <strong>${cve.id}</strong> — <span style="color:#d32f2f">${cve.severity}</span><br>
-        ${cve.desc}<br>
-        <a href="${cve.link}" target="_blank">Dettagli</a>
+        <div class="box-img-row">
+            <img src="${cve.img}" class="box-thumb">
+            <div>
+                <strong>${cve.id}</strong> — <span style="color:#d32f2f">${cve.severity}</span><br>
+                ${cve.desc}<br>
+                <a href="${cve.link}" target="_blank">Dettagli</a>
+            </div>
+        </div>
     `;
 }
 
@@ -73,12 +76,20 @@ async function loadCyberAlerts() {
     if (!list) return;
 
     const alerts = [
-        "⚠ Attacco DDoS in corso su infrastrutture EU",
-        "⚠ Nuova campagna phishing su larga scala",
-        "⚠ Exploit attivo su Apache ActiveMQ",
-        "⚠ Malware bancario in rapida diffusione"
+        { text: "Attacco DDoS in corso su infrastrutture EU", img: "/img/hero1.jpg" },
+        { text: "Nuova campagna phishing su larga scala", img: "/img/hero2.jpg" },
+        { text: "Exploit attivo su Apache ActiveMQ", img: "/img/hero3.jpg" },
+        { text: "Malware bancario in rapida diffusione", img: "/img/hero1.jpg" }
     ];
-    list.innerHTML = alerts.map(a => `<li>${a}</li>`).join("");
+
+    list.innerHTML = alerts
+        .map(a => `
+            <li class="alert-item">
+                <img src="${a.img}" class="alert-thumb">
+                <span>${a.text}</span>
+            </li>
+        `)
+        .join("");
 }
 
 /* ============================
@@ -90,13 +101,20 @@ async function loadWorldFeed() {
     if (!feed) return;
 
     const items = [
-        "🌍 Aumentano gli attacchi supply-chain",
-        "🌍 Cresce l’adozione Zero Trust",
-        "🌍 Nuove normative EU sulla cybersicurezza",
-        "🌍 AI nei SOC di nuova generazione"
+        { text: "Aumentano gli attacchi supply-chain", img: "/img/hero1.jpg" },
+        { text: "Cresce l’adozione Zero Trust", img: "/img/hero2.jpg" },
+        { text: "Nuove normative EU sulla cybersicurezza", img: "/img/hero3.jpg" },
+        { text: "AI nei SOC di nuova generazione", img: "/img/hero1.jpg" }
     ];
 
-    feed.innerHTML = items.map(i => `<div>${i}</div>`).join("");
+    feed.innerHTML = items
+        .map(i => `
+            <div class="feed-item">
+                <img src="${i.img}" class="feed-thumb">
+                <span>${i.text}</span>
+            </div>
+        `)
+        .join("");
 }
 
 /* ============================
@@ -112,7 +130,6 @@ let st = new Speedtest({
     ping_allow_jitter: true,
     server_select: "auto",
 
-    /* 🔥 QUI I SERVER SONO STATI SOSTITUITI CON I TUOI 🔥 */
     servers: [
         {
             name: "AnonLab Server",
