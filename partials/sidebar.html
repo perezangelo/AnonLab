@@ -63,41 +63,45 @@
         <h3>About</h3>
         <a href="/about.html" class="about-link">Scopri di più su AnonLab</a>
     </div>
-<div class="sidebar-box speedtest-box">
-    <h3>Speed Test</h3>
 
-    <div class="speedtest-gauges">
-        <div class="gauge">
-            <svg viewBox="0 0 36 36">
-                <path class="bg" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-                <path class="meter" id="gauge-download" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-            </svg>
-            <div class="gauge-label">Download</div>
-            <div class="gauge-value" id="speedtest-download">0</div>
+    <!-- ============================
+         SPEED TEST CYBER
+    ============================= -->
+    <div class="sidebar-box speedtest-box">
+        <h3>Speed Test</h3>
+
+        <div class="speedtest-gauges">
+            <div class="gauge">
+                <svg viewBox="0 0 36 36">
+                    <path class="bg" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
+                    <path class="meter" id="gauge-download" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
+                </svg>
+                <div class="gauge-label">Download</div>
+                <div class="gauge-value" id="speedtest-download">0</div>
+            </div>
+
+            <div class="gauge">
+                <svg viewBox="0 0 36 36">
+                    <path class="bg" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
+                    <path class="meter" id="gauge-upload" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
+                </svg>
+                <div class="gauge-label">Upload</div>
+                <div class="gauge-value" id="speedtest-upload">0</div>
+            </div>
         </div>
 
-        <div class="gauge">
-            <svg viewBox="0 0 36 36">
-                <path class="bg" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-                <path class="meter" id="gauge-upload" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-            </svg>
-            <div class="gauge-label">Upload</div>
-            <div class="gauge-value" id="speedtest-upload">0</div>
+        <div class="speedtest-info">
+            <p><strong>Ping:</strong> <span id="speedtest-ping">-</span> ms</p>
+            <p><strong>Jitter:</strong> <span id="speedtest-jitter">-</span> ms</p>
         </div>
-    </div>
 
-    <div class="speedtest-info">
-        <p><strong>Ping:</strong> <span id="speedtest-ping">-</span> ms</p>
-        <p><strong>Jitter:</strong> <span id="speedtest-jitter">-</span> ms</p>
-    </div>
+        <!-- BARRA DI PROGRESSO -->
+        <div class="speedtest-progress">
+            <div class="speedtest-progress-bar" id="speedtest-progress-bar"></div>
+        </div>
 
-    <!-- BARRA DI PROGRESSO -->
-    <div class="speedtest-progress">
-        <div class="speedtest-progress-bar" id="speedtest-progress-bar"></div>
+        <button id="speedtest-start" class="speedtest-btn">Avvia Test</button>
+        <div id="speedtest-status" class="speedtest-status">Pronto</div>
     </div>
-
-    <button id="speedtest-start" class="speedtest-btn">Avvia Test</button>
-    <div id="speedtest-status" class="speedtest-status">Pronto</div>
-</div>
 
 </div>
