@@ -317,6 +317,7 @@ body {
 .footer-nav a:hover {
   color: var(--accent);
 }
+
 /* RESPONSIVE */
 
 @media (max-width: 768px) {
@@ -376,18 +377,30 @@ body {
   background: #222;
 }
 
-/* === Hero Eyes (immagine originale, proporzionata) === */
+/* === Hero Eyes (versione grande e proporzionata) === */
 
 .hero-favicon {
-  width: 90px;
+  width: 220px;
   height: auto;
   display: block;
-  margin: 18px auto 12px;
+  margin: 25px auto 18px;
   opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .hero-favicon {
+    width: 180px;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-favicon {
-    width: 70px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-favicon {
+    width: 130px;
   }
 }
