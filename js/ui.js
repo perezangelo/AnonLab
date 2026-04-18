@@ -11,7 +11,7 @@ function loadPartial(id, file) {
     .then(html => {
       el.innerHTML = html;
 
-      // AGGANCIA IL BOTTONE DOPO IL CARICAMENTO DEL SIDEBAR
+      // Aggancia il nuovo Speed Test dopo il caricamento del sidebar
       if (id === "sidebar") {
         const btn = document.getElementById("speedtest-start");
         if (btn) btn.addEventListener("click", startSpeedTest);
@@ -24,7 +24,7 @@ function loadPartial(id, file) {
 ============================ */
 
 function loadMeteo() {
-  // Funzione placeholder — verrà implementata in futuro
+  // In attesa di implementazione
 }
 
 /* ============================
@@ -100,16 +100,20 @@ async function loadWorldFeed() {
 }
 
 /* ============================
-   SPEED TEST CYBER GAUGE + PROGRESS BAR
+   LIBRESPEED – SPEED TEST REALE
 ============================ */
 
-function animateGauge(id, value, max = 200) {
+let st = new Speedtest();
+
+// Gauge animation
+function animateGauge(id, value, max = 1000) {
     const pct = Math.min(100, (value / max) * 100);
     const offset = 100 - pct;
     const el = document.getElementById(id);
     if (el) el.style.strokeDashoffset = offset;
 }
 
+// Progress bar
 function setProgress(pct) {
     const bar = document.getElementById("speedtest-progress-bar");
     if (bar) bar.style.width = pct + "%";
@@ -118,68 +122,40 @@ function setProgress(pct) {
 function startSpeedTest() {
     const status = document.getElementById("speedtest-status");
     const pingEl = document.getElementById("speedtest-ping");
+    const jitterEl = document.getElementById("speedtest-jitter");
     const downEl = document.getElementById("speedtest-download");
     const upEl = document.getElementById("speedtest-upload");
-    const jitterEl = document.getElementById("speedtest-jitter");
-
-    if (!status || !pingEl || !downEl || !upEl || !jitterEl) return;
 
     status.textContent = "Test in corso...";
     setProgress(5);
 
-    const testFile = "/img/eyes.png";
-    const uploadData = new Blob([new ArrayBuffer(2000000)]);
+    st.onupdate = data => {
+        if (data.ping) {
+            pingEl.textContent = data.ping.latency.toFixed(1);
+            jitterEl.textContent = data.ping.jitter.toFixed(1);
+        }
 
-    let pingStart = performance.now();
+        if (data.download) {
+            const mbps = data.download.bandwidth;
+            downEl.textContent = mbps.toFixed(2) + " Mbps";
+            animateGauge("gauge-download", mbps);
+        }
 
-    // PING
-    fetch(testFile)
-        .then(() => {
-            let pingEnd = performance.now();
-            let ping = Math.round(pingEnd - pingStart);
-            pingEl.textContent = ping;
-            jitterEl.textContent = Math.round(Math.random() * 5 + 1);
+        if (data.upload) {
+            const mbps = data.upload.bandwidth;
+            upEl.textContent = mbps.toFixed(2) + " Mbps";
+            animateGauge("gauge-upload", mbps);
+        }
 
-            setProgress(25);
+        if (data.progress) {
+            setProgress(Math.round(data.progress * 100));
+        }
+    };
 
-            // DOWNLOAD
-            let startDown = performance.now();
-            return fetch(testFile).then(r => r.blob()).then(blob => {
-                let endDown = performance.now();
-                let seconds = (endDown - startDown) / 1000;
-                let mbps = ((blob.size * 8) / 1_000_000) / seconds;
+    st.onend = () => {
+        status.textContent = "Test completato";
+        setProgress(100);
+    };
 
-                downEl.textContent = mbps.toFixed(1);
-                animateGauge("gauge-download", mbps);
-
-                setProgress(60);
-
-                return blob;
-            });
-        })
-        .then(() => {
-            // UPLOAD SIMULATO
-            let startUp = performance.now();
-
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    let endUp = performance.now();
-                    let seconds = (endUp - startUp) / 1000;
-                    let mbps = ((uploadData.size * 8) / 1_000_000) / seconds;
-
-                    upEl.textContent = mbps.toFixed(1);
-                    animateGauge("gauge-upload", mbps);
-
-                    setProgress(100);
-
-                    resolve();
-                }, 600);
-            });
-        })
-        .then(() => {
-            status.textContent = "Test completato";
-        })
-        .catch(() => {
-            status.textContent = "Errore durante il test";
-        });
+    st.start();
 }
