@@ -235,9 +235,20 @@ function startSpeedTest() {
     };
 
     st.onend = () => {
-        status.textContent = "Test completato";
-        setProgress(100);
-    };
+    status.textContent = "Test completato";
+    setProgress(100);
+
+    const ping = parseFloat(document.getElementById("speedtest-ping").textContent);
+    const jitter = parseFloat(document.getElementById("speedtest-jitter").textContent);
+    const download = parseFloat(document.getElementById("speedtest-download").textContent);
+    const upload = parseFloat(document.getElementById("speedtest-upload").textContent);
+
+    const score = getQualityScore(ping, jitter, download, upload);
+    const label = getQualityLabel(score);
+
+    const qualityBox = document.getElementById("speedtest-quality");
+    qualityBox.textContent = `Qualità connessione: ${score} (${label})`;
+};
 
     st.start();
 }
