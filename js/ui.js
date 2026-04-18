@@ -1,22 +1,29 @@
 function loadPartial(id, file) {
+  const el = document.getElementById(id);
+  if (!el) return; // evita errori se il contenitore non esiste
+
   fetch(file)
     .then(res => res.text())
     .then(html => {
-      document.getElementById(id).innerHTML = html;
+      el.innerHTML = html;
     });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
     loadPartial("header", "/partials/header.html");
-    loadPartial("ticker", "/partials/ticker.html");
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
 
-    loadTicker();
     loadMeteo();
     loadWorldFeed();
     loadCVEToday();
     loadCyberAlerts();
+
+    // attiva Speed Test se presente
+    const btn = document.getElementById("speedtest-start");
+    if (btn) btn.addEventListener("click", startSpeedTest);
 });
+
 async function loadCVEToday() {
     const box = document.getElementById("cve-today");
     if (!box) return;
@@ -45,7 +52,7 @@ async function loadCyberAlerts() {
         "⚠ Exploit attivo su Apache ActiveMQ",
         "⚠ Malware bancario in rapida diffusione"
     ];
- list.innerHTML = alerts.map(a => `<li>${a}</li>`).join("");
+    list.innerHTML = alerts.map(a => `<li>${a}</li>`).join("");
 }
 
 async function loadWorldFeed() {
@@ -61,6 +68,7 @@ async function loadWorldFeed() {
 
     feed.innerHTML = items.map(i => `<div>${i}</div>`).join("");
 }
+
 /* ============================
    SPEED TEST CYBER GAUGE + PROGRESS BAR
 ============================ */
@@ -142,8 +150,3 @@ function startSpeedTest() {
             status.textContent = "Errore durante il test";
         });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("speedtest-start");
-    if (btn) btn.addEventListener("click", startSpeedTest);
-});
