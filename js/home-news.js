@@ -1,53 +1,37 @@
-/* ============================================
-   HOME NEWS — CARICAMENTO NEWS CON IMMAGINI
-============================================ */
-
-document.addEventListener("DOMContentLoaded", () => {
-    loadHomeNews();
-});
+/* ============================
+   HOME NEWS — CARICAMENTO NEWS
+============================ */
 
 async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
     try {
-        const res = await fetch("/data/news.json");
+        const res = await fetch("data/news.json");
         const news = await res.json();
 
-        // HERO fallback rotation
-        const heroFallback = ["/img/hero1.jpg", "/img/hero2.jpg", "/img/hero3.jpg"];
-        let heroIndex = 0;
-
-        const html = news.map(article => {
-            // Se manca l’immagine → usa HERO1/2/3 a rotazione
-            const img = article.image && article.image.trim() !== ""
-                ? article.image
-                : heroFallback[(heroIndex++) % heroFallback.length];
-
-            return `
+        container.innerHTML = news
+            .slice(0, 5) // Mostra solo le prime 5 news
+            .map(n => `
                 <article class="news-card">
-                    <img src="${img}" alt="${article.title}" class="news-thumb">
-
+                    <img src="${n.img}" class="news-thumb" alt="${n.title}">
                     <div class="news-content">
-                        <h3 class="news-title">${article.title}</h3>
-
+                        <h2 class="news-title">${n.title}</h2>
                         <div class="news-meta">
-                            <span class="news-category">${article.category}</span>
-                            <span class="news-time">${article.time}</span>
+                            <span class="news-category">${n.category}</span>
+                            <span class="news-time">${n.time}</span>
                         </div>
-
-                        <p class="news-excerpt">${article.excerpt}</p>
-
-                        <a href="${article.url}" class="news-link">Leggi di più →</a>
+                        <p class="news-excerpt">${n.excerpt}</p>
+                        <a href="${n.link}" class="news-link">Leggi di più →</a>
                     </div>
                 </article>
-            `;
-        }).join("");
-
-        container.innerHTML = html;
+            `)
+            .join("");
 
     } catch (err) {
+        container.innerHTML = "<p>Errore nel caricamento delle news.</p>";
         console.error("Errore nel caricamento delle news:", err);
-        container.innerHTML = "<p>Impossibile caricare le news.</p>";
     }
 }
+
+document.addEventListener("DOMContentLoaded", loadHomeNews);
