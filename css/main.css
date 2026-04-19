@@ -541,17 +541,24 @@ body {
 
 /* === NEWS + FEED + ALERT IMMAGINI === */
 
-/* FEED + ALERT + CVE IMAGES */
+/* Reset lista Cyber Alert Live */
+#alert-live {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
+/* Struttura uniforme */
 .feed-item,
 .alert-item,
 .box-img-row {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
+/* Immagini uniformi */
 .feed-thumb,
 .alert-thumb,
 .box-thumb {
@@ -562,9 +569,24 @@ body {
     flex-shrink: 0;
 }
 
-/* Reset lista Cyber Alert Live per allineamento con Feed dal Mondo */
-#alert-live {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Fix testo Cyber Alert Live */
+.alert-item span {
+    display: inline-block;
+    line-height: 1.25;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .feed-thumb,
+    .alert-thumb,
+    .box-thumb {
+        width: 42px;
+        height: 42px;
+    }
+
+    .feed-item,
+    .alert-item,
+    .box-img-row {
+        gap: 8px;
+    }
 }
