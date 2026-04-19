@@ -1,22 +1,30 @@
 /* ============================
-   CARICAMENTO PARTIALS
+   CARICAMENTO PARTIALS (ROBUSTO)
 ============================ */
 
-function loadPartial(id, file) {
-  const el = document.getElementById(id);
-  if (!el) return;
+async function loadPartial(id, file) {
+    const el = document.getElementById(id);
+    if (!el) return;
 
-  fetch(file)
-    .then(res => res.text())
-    .then(html => {
-      el.innerHTML = html;
+    try {
+        const res = await fetch(file);
+        if (!res.ok) throw new Error(`Errore nel caricamento di ${file}`);
 
-      // Attiva Speedtest solo dopo che la sidebar è caricata
-      if (id === "sidebar") {
-        const btn = document.getElementById("speedtest-start");
-        if (btn) btn.addEventListener("click", startSpeedTest);
-      }
-    });
+        const html = await res.text();
+        el.innerHTML = html;
+
+        // Attiva Speedtest solo dopo che la sidebar è caricata
+        if (id === "sidebar") {
+            const btn = document.getElementById("speedtest-start");
+            if (btn && typeof startSpeedTest === "function") {
+                btn.addEventListener("click", startSpeedTest);
+            }
+        }
+
+    } catch (err) {
+        console.error(err);
+        el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
+    }
 }
 
 /* ============================
@@ -24,7 +32,7 @@ function loadPartial(id, file) {
 ============================ */
 
 function loadMeteo() {
-  // In futuro potrai collegare un'API meteo reale
+    // In futuro potrai collegare un'API meteo reale
 }
 
 /* ============================
@@ -47,13 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
 ============================ */
 
 const alertIcon = `
-<svg class="alert-icon" viewBox="0 0 24 24">
+<svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true">
   <path fill="#ff4b6e" d="M12 2L2 22h20L12 2zm0 6l1 8h-2l1-8zm0 10a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
 </svg>
 `;
 
 const feedIcon = `
-<svg class="feed-icon" viewBox="0 0 24 24">
+<svg class="feed-icon" viewBox="0 0 24 24" aria-hidden="true">
   <path fill="#00eaff" d="M3 3v2c9.4 0 17 7.6 17 17h2C22 11.8 12.2 2 3 2zm0 6v2c5 0 9 4 9 9h2c0-6.1-4.9-11-11-11zm0 6v2c1.7 0 3 1.3 3 3h2c0-2.8-2.2-5-5-5z"/>
 </svg>
 `;
@@ -76,11 +84,11 @@ async function loadCVEToday() {
 
     box.innerHTML = `
         <div class="box-img-row">
-            <img src="${cve.img}" class="box-thumb">
+            <img src="${cve.img}" class="box-thumb" alt="${cve.id}">
             <div>
                 <strong>${cve.id}</strong> — <span style="color:#d32f2f">${cve.severity}</span><br>
                 ${cve.desc}<br>
-                <a href="${cve.link}" target="_blank">Dettagli</a>
+                <a href="${cve.link}" target="_blank" rel="noopener">Dettagli</a>
             </div>
         </div>
     `;
