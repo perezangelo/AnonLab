@@ -452,3 +452,9 @@ body {
     box-shadow: 0 0 10px var(--accent);
     transition: width 0.3s ease;
 }
+.alert-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
