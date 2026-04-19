@@ -2,7 +2,7 @@
 
     <!-- BOX METEO -->
     <div class="sidebar-box">
-        <h3>Meteo</h3>
+        <h2 class="sidebar-title">Meteo</h2>
         <div class="meteo-city">Caricamento...</div>
         <div class="meteo-temp"></div>
         <div class="meteo-desc"></div>
@@ -10,7 +10,7 @@
 
     <!-- BOX FEED DAL MONDO -->
     <div class="sidebar-box">
-        <h3>Feed dal Mondo</h3>
+        <h2 class="sidebar-title">Feed dal Mondo</h2>
         <div class="cyber-feed-list" id="world-feed">
             <div>Caricamento feed...</div>
         </div>
@@ -19,7 +19,7 @@
     <!-- FORM 1 — RICHIESTA INFO -->
     <div class="sidebar-box">
         <img src="/img/envelope.png" class="sidebar-icon" alt="Richiesta informazioni">
-        <h3>Richiedi Informazioni</h3>
+        <h2 class="sidebar-title">Richiedi Informazioni</h2>
         <form action="mailto:info@anonlab.it" method="POST" enctype="text/plain">
             <input type="text" name="name" placeholder="Il tuo nome" required>
             <input type="email" name="email" placeholder="La tua email" required>
@@ -31,7 +31,7 @@
     <!-- FORM 2 — FAQ & DOMANDE -->
     <div class="sidebar-box">
         <img src="/img/support.png" class="sidebar-icon" alt="FAQ e Domande">
-        <h3>FAQ & Domande</h3>
+        <h2 class="sidebar-title">FAQ & Domande</h2>
         <form action="#" method="POST">
             <input type="text" name="question" placeholder="La tua domanda" required>
             <textarea name="details" placeholder="Dettagli (opzionale)"></textarea>
@@ -42,7 +42,7 @@
     <!-- FORM 3 — REGISTRAZIONE UTENTE -->
     <div class="sidebar-box">
         <img src="/img/register.png" class="sidebar-icon" alt="Registrazione">
-        <h3>Registrazione Utente</h3>
+        <h2 class="sidebar-title">Registrazione Utente</h2>
         <form action="#" method="POST">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
@@ -52,46 +52,5 @@
 
     <!-- BOX ABOUT -->
     <div class="sidebar-box">
-        <h3>About</h3>
+        <h2 class="sidebar-title">About</h2>
         <a href="/about.html" class="about-link">Scopri di più su AnonLab</a>
-    </div>
-
-    <!-- SPEED TEST — LIBRESPEED -->
-    <div class="sidebar-box speedtest-box">
-        <h3>Speed Test</h3>
-
-        <div class="speedtest-gauges">
-            <div class="gauge">
-                <svg viewBox="0 0 36 36">
-                    <path class="bg" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-                    <path class="meter" id="gauge-download" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-                </svg>
-                <div class="gauge-label">Download</div>
-                <div class="gauge-value" id="speedtest-download">0 Mbps</div>
-            </div>
-
-            <div class="gauge">
-                <svg viewBox="0 0 36 36">
-                    <path class="bg" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-                    <path class="meter" id="gauge-upload" d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"/>
-                </svg>
-                <div class="gauge-label">Upload</div>
-                <div class="gauge-value" id="speedtest-upload">0 Mbps</div>
-            </div>
-        </div>
-
-        <div class="speedtest-info">
-            <p><strong>Ping:</strong> <span id="speedtest-ping">-</span> ms</p>
-            <p><strong>Jitter:</strong> <span id="speedtest-jitter">-</span> ms</p>
-        </div>
-
-        <div class="speedtest-progress">
-            <div class="speedtest-progress-bar" id="speedtest-progress-bar"></div>
-        </div>
-
-        <button id="speedtest-start" class="speedtest-btn">Avvia Test</button>
-        <div id="speedtest-status" class="speedtest-status">Pronto</div>
-        <div id="speedtest-quality" class="speedtest-quality"></div>
-    </div>
-
-</div>
