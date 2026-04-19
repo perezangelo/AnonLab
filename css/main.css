@@ -613,6 +613,27 @@ body {
 .news-thumb {
     transition: transform 0.3s ease;
 }
+/* === SVG ICONS FOR ALERT + FEED === */
+
+.alert-icon,
+.feed-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.alert-item,
+.feed-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-item span,
+.feed-item span {
+    line-height: 1.25;
+}
 
 .scrolled-header {
     background: rgba(255, 255, 255, 0.85);
