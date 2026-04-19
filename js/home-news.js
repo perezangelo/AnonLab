@@ -16,7 +16,7 @@ async function loadHomeNews() {
                 <article class="news-card">
                     <img src="${n.img}" class="news-thumb" alt="${n.title}">
                     <div class="news-content">
-                        <h2 class="news-title">${n.title}</h2>
+                        <h3 class="news-title">${n.title}</h3>
                         <div class="news-meta">
                             <span class="news-category">${n.category}</span>
                             <span class="news-time">${n.time}</span>
