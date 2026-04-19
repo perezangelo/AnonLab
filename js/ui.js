@@ -32,9 +32,9 @@ function loadMeteo() {
 ============================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadPartial("header", "/partials/header.html");
-    loadPartial("sidebar", "/partials/sidebar.html");
-    loadPartial("footer", "/partials/footer.html");
+    loadPartial("header", "partials/header.html");
+    loadPartial("sidebar", "partials/sidebar.html");
+    loadPartial("footer", "partials/footer.html");
 
     loadMeteo();
     loadWorldFeed();
@@ -55,7 +55,7 @@ async function loadCVEToday() {
         severity: "High",
         desc: "Vulnerabilità RCE in un componente molto diffuso.",
         link: "https://nvd.nist.gov/vuln/detail/CVE-2026-12345",
-        img: "/img/hero3.jpg"
+        img: "img/hero3.jpg"
     };
 
     box.innerHTML = `
@@ -79,10 +79,10 @@ async function loadCyberAlerts() {
     if (!list) return;
 
     const alerts = [
-        { text: "Attacco DDoS in corso su infrastrutture EU", img: "/img/ransomware.jpg" },
-        { text: "Nuova campagna phishing su larga scala", img: "/img/hero2.jpg" },
-        { text: "Exploit attivo su Apache ActiveMQ", img: "/img/hero3.jpg" },
-        { text: "Malware bancario in rapida diffusione", img: "/img/hero1.jpg" }
+        { text: "Attacco DDoS in corso su infrastrutture EU", img: "img/ransomware.jpg" },
+        { text: "Nuova campagna phishing su larga scala", img: "img/hero2.jpg" },
+        { text: "Exploit attivo su Apache ActiveMQ", img: "img/hero3.jpg" },
+        { text: "Malware bancario in rapida diffusione", img: "img/hero1.jpg" }
     ];
 
     list.innerHTML = alerts
@@ -104,10 +104,10 @@ async function loadWorldFeed() {
     if (!feed) return;
 
     const items = [
-        { text: "Aumentano gli attacchi supply-chain", img: "/img/hero1.jpg" },
-        { text: "Cresce l’adozione Zero Trust", img: "/img/hero2.jpg" },
-        { text: "Nuove normative EU sulla cybersicurezza", img: "/img/hero3.jpg" },
-        { text: "AI nei SOC di nuova generazione", img: "/img/hero1.jpg" }
+        { text: "Aumentano gli attacchi supply-chain", img: "img/hero1.jpg" },
+        { text: "Cresce l’adozione Zero Trust", img: "img/hero2.jpg" },
+        { text: "Nuove normative EU sulla cybersicurezza", img: "img/hero3.jpg" },
+        { text: "AI nei SOC di nuova generazione", img: "img/hero1.jpg" }
     ];
 
     feed.innerHTML = items
