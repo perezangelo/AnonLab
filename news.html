@@ -1,73 +1,65 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>News — AnonLab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO BASE -->
-    <meta name="description" content="News e aggiornamenti dal mondo della cybersecurity: AI, ransomware, Zero Trust, normative europee e threat intelligence.">
-    <meta name="keywords" content="cybersecurity news, sicurezza informatica, ransomware, AI security, zero trust, normative cyber, attacchi informatici, threat intelligence">
-    <meta name="author" content="AnonLab">
+  <!-- SEO BASE -->
+  <meta name="description" content="Ultime notizie dal mondo della cybersecurity: attacchi, ransomware, AI, Zero Trust, normative europee e threat intelligence.">
+  <meta name="keywords" content="news cybersecurity, sicurezza informatica, attacchi informatici, ransomware, AI security, zero trust, normative cyber, threat intelligence">
+  <meta name="author" content="AnonLab">
 
-    <!-- CANONICAL -->
-    <link rel="canonical" href="https://anonlab.it/news.html">
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://anonlab.it/news.html">
 
-    <!-- INDEXING -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="bingbot" content="index, follow">
+  <!-- INDEXING -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
 
-    <!-- OPEN GRAPH -->
-    <meta property="og:title" content="Ultime News Cyber — AnonLab">
-    <meta property="og:description" content="Le ultime notizie sulla cybersecurity: analisi, minacce, AI, normative e attacchi globali.">
-    <meta property="og:image" content="https://anonlab.it/img/eyes.png">
-    <meta property="og:url" content="https://anonlab.it/news.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="AnonLab">
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="News Cyber — AnonLab">
+  <meta property="og:description" content="Le ultime notizie sulla cybersecurity: analisi, minacce, AI, normative e attacchi globali.">
+  <meta property="og:image" content="https://anonlab.it/img/eyes.png">
+  <meta property="og:url" content="https://anonlab.it/news.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AnonLab">
 
-    <!-- TWITTER CARD -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ultime News Cyber — AnonLab">
-    <meta name="twitter:description" content="Le ultime notizie sulla cybersecurity: analisi, minacce, AI, normative e attacchi globali.">
-    <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="News Cyber — AnonLab">
+  <meta name="twitter:description" content="Le ultime notizie sulla cybersecurity: analisi, minacce, AI, normative e attacchi globali.">
+  <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <title>News Cyber — AnonLab</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <div id="header"></div>
+  <div id="header"></div>
+  <div id="ticker"></div>
 
-    <main class="main-layout">
+  <main class="page">
+    <section class="main-column">
 
-        <!-- COLONNA SINISTRA -->
-        <section class="main-column">
+      <!-- H1 PRINCIPALE DELLA PAGINA -->
+      <h1>News Cyber</h1>
 
-            <!-- H1 PRINCIPALE DELLA PAGINA -->
-            <h1>Ultime Notizie dal Mondo Cyber</h1>
+      <!-- CONTENITORE NEWS -->
+      <div id="news-container"></div>
 
-            <!-- SEZIONE NEWS -->
-            <h2>Articoli Recenti</h2>
+    </section>
 
-            <div id="news-container"></div>
+    <div id="sidebar"></div>
+  </main>
 
-        </section>
+  <div id="footer"></div>
 
-        <!-- SIDEBAR -->
-        <aside id="sidebar"></aside>
-
-    </main>
-
-    <!-- FOOTER -->
-    <div id="footer"></div>
-
-    <!-- JS -->
-    <script src="js/ui.js"></script>
-    <script src="js/news.js"></script>
+  <!-- SCRIPT -->
+  <script src="/js/news.js"></script>
+  <script src="/js/ui.js"></script>
 
 </body>
 </html>
