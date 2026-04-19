@@ -195,57 +195,36 @@ body {
   gap: 16px;
 }
 
-/* === HERO === */
-
-.hero-big {
-  text-align: center;
-  padding: 60px 20px;
-  background: #ffffff;
-  border: 2px solid var(--border-subtle);
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.08), var(--shadow-soft);
-  margin-bottom: 30px;
-}
-
-.hero-big h1 {
-  font-size: 4.2rem;
-  font-weight: 800;
-  margin: 0;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-main);
-  padding: 20px 0;
-}
-
-.hero-favicon {
-  width: 55%;
-  max-width: 480px;
-  height: auto;
-  display: block;
-  margin: 25px auto 20px;
-  opacity: 1;
-}
-
-.hero-sub {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-top: 10px;
-}
-
-/* === NEWS CARD — VERSIONE CORRETTA === */
+/* Card news */
 
 .news-card {
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
-  background: rgba(255,255,255,0.03);
-  padding: 12px;
-  border-radius: 8px;
-  align-items: flex-start;
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7), var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  align-items: flex-start;
 }
 
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(0, 255, 157, 0.12), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.news-card:hover::before {
+  opacity: 1;
+}
+
+/* Uniformità immagini news */
 .news-thumb {
   width: 120px;
   height: 80px;
@@ -255,7 +234,22 @@ body {
 }
 
 .news-content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.news-content h2,
+.news-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.news-content p,
+.news-excerpt {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 .news-meta {
@@ -269,30 +263,15 @@ body {
   margin-right: 10px;
 }
 
+.news-time {
+  color: var(--text-muted);
+}
+
 .news-link {
   display: inline-block;
   margin-top: 6px;
   color: #00eaff;
-}
-
-/* FEED + ALERT + CVE IMAGES */
-
-.feed-item,
-.alert-item,
-.box-img-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.feed-thumb,
-.alert-thumb,
-.box-thumb {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: 6px;
+  text-decoration: none;
 }
 
 /* Sidebar */
@@ -355,7 +334,89 @@ body {
   background: #222;
 }
 
-/* === SPEEDTEST === */
+/* === HERO POTENZIATO === */
+
+.hero-big {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.08), var(--shadow-soft);
+  margin-bottom: 30px;
+}
+
+.hero-big h1 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  padding: 20px 0;
+}
+
+.hero-favicon {
+  width: 55%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 25px auto 20px;
+  opacity: 1;
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+  .hero-big h1 {
+    font-size: 3.2rem;
+  }
+  .hero-favicon {
+    width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-big h1 {
+    font-size: 2.6rem;
+  }
+  .hero-favicon {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-big h1 {
+    font-size: 2.2rem;
+  }
+  .hero-favicon {
+    width: 80%;
+  }
+}
+
+/* === Link About === */
+.about-link {
+  display: block;
+  padding: 10px;
+  background: #1e88e5;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.about-link:hover {
+  background: #1565c0;
+}
+
+/* === SPEED TEST CYBER === */
 
 .speedtest-box {
     text-align: center;
@@ -436,6 +497,8 @@ body {
     color: var(--text-muted);
 }
 
+/* === SPEED TEST PROGRESS BAR === */
+
 .speedtest-progress {
     width: 100%;
     height: 10px;
@@ -452,9 +515,56 @@ body {
     box-shadow: 0 0 10px var(--accent);
     transition: width 0.3s ease;
 }
-.alert-item {
+
+/* === GOOGLE SEARCH FIX === */
+
+.google-search-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.google-search-wrapper form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-google {
+    width: 60%;
+    max-width: 420px;
+}
+
+.search-btn {
+    padding: 10px 18px;
+}
+
+/* === NEWS + FEED + ALERT IMMAGINI === */
+
+/* FEED + ALERT + CVE IMAGES */
+
+.feed-item,
+.alert-item,
+.box-img-row {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
+}
+
+.feed-thumb,
+.alert-thumb,
+.box-thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* Reset lista Cyber Alert Live per allineamento con Feed dal Mondo */
+#alert-live {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
