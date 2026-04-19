@@ -11,6 +11,7 @@ function loadPartial(id, file) {
     .then(html => {
       el.innerHTML = html;
 
+      // Attiva Speedtest solo dopo che la sidebar è caricata
       if (id === "sidebar") {
         const btn = document.getElementById("speedtest-start");
         if (btn) btn.addEventListener("click", startSpeedTest);
@@ -22,7 +23,9 @@ function loadPartial(id, file) {
    FUNZIONE METEO (placeholder)
 ============================ */
 
-function loadMeteo() {}
+function loadMeteo() {
+  // In futuro potrai collegare un'API meteo reale
+}
 
 /* ============================
    DOM READY
