@@ -79,7 +79,7 @@ async function loadCyberAlerts() {
     if (!list) return;
 
     const alerts = [
-        { text: "Attacco DDoS in corso su infrastrutture EU", img: "/img/hero1.jpg" },
+        { text: "Attacco DDoS in corso su infrastrutture EU", img: "/img/ransomware.jpg" },
         { text: "Nuova campagna phishing su larga scala", img: "/img/hero2.jpg" },
         { text: "Exploit attivo su Apache ActiveMQ", img: "/img/hero3.jpg" },
         { text: "Malware bancario in rapida diffusione", img: "/img/hero1.jpg" }
