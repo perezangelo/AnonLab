@@ -237,3 +237,10 @@ function startSpeedTest() {
 
     st.start();
 }
+window.addEventListener("scroll", () => {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+
+    if (window.scrollY > 20) header.classList.add("scrolled-header");
+    else header.classList.remove("scrolled-header");
+});
