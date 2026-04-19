@@ -597,6 +597,22 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.35);
     transition: background 0.25s ease, border-color 0.25s ease;
 }
+.news-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 234, 255, 0.25);
+}
+
+.news-card:hover .news-thumb {
+    transform: scale(1.05);
+}
+
+.news-thumb {
+    transition: transform 0.3s ease;
+}
 
 .scrolled-header {
     background: rgba(255, 255, 255, 0.85);
