@@ -43,6 +43,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ============================
+   SVG ICONS
+============================ */
+
+const alertIcon = `
+<svg class="alert-icon" viewBox="0 0 24 24">
+  <path fill="#ff4b6e" d="M12 2L2 22h20L12 2zm0 6l1 8h-2l1-8zm0 10a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
+</svg>
+`;
+
+const feedIcon = `
+<svg class="feed-icon" viewBox="0 0 24 24">
+  <path fill="#00eaff" d="M3 3v2c9.4 0 17 7.6 17 17h2C22 11.8 12.2 2 3 2zm0 6v2c5 0 9 4 9 9h2c0-6.1-4.9-11-11-11zm0 6v2c1.7 0 3 1.3 3 3h2c0-2.8-2.2-5-5-5z"/>
+</svg>
+`;
+
+/* ============================
    WIDGET CVE DEL GIORNO
 ============================ */
 
@@ -79,16 +95,16 @@ async function loadCyberAlerts() {
     if (!list) return;
 
     const alerts = [
-        { text: "Attacco DDoS in corso su infrastrutture EU", img: "img/ransomware.jpg" },
-        { text: "Nuova campagna phishing su larga scala", img: "img/hero2.jpg" },
-        { text: "Exploit attivo su Apache ActiveMQ", img: "img/hero3.jpg" },
-        { text: "Malware bancario in rapida diffusione", img: "img/hero1.jpg" }
+        { text: "Attacco DDoS in corso su infrastrutture EU" },
+        { text: "Nuova campagna phishing su larga scala" },
+        { text: "Exploit attivo su Apache ActiveMQ" },
+        { text: "Malware bancario in rapida diffusione" }
     ];
 
     list.innerHTML = alerts
         .map(a => `
             <li class="alert-item">
-                <img src="${a.img}" class="alert-thumb">
+                ${alertIcon}
                 <span>${a.text}</span>
             </li>
         `)
@@ -104,16 +120,16 @@ async function loadWorldFeed() {
     if (!feed) return;
 
     const items = [
-        { text: "Aumentano gli attacchi supply-chain", img: "img/hero1.jpg" },
-        { text: "Cresce l’adozione Zero Trust", img: "img/hero2.jpg" },
-        { text: "Nuove normative EU sulla cybersicurezza", img: "img/hero3.jpg" },
-        { text: "AI nei SOC di nuova generazione", img: "img/hero1.jpg" }
+        { text: "Aumentano gli attacchi supply-chain" },
+        { text: "Cresce l’adozione Zero Trust" },
+        { text: "Nuove normative EU sulla cybersicurezza" },
+        { text: "AI nei SOC di nuova generazione" }
     ];
 
     feed.innerHTML = items
         .map(i => `
             <div class="feed-item">
-                <img src="${i.img}" class="feed-thumb">
+                ${feedIcon}
                 <span>${i.text}</span>
             </div>
         `)
@@ -237,6 +253,11 @@ function startSpeedTest() {
 
     st.start();
 }
+
+/* ============================
+   HEADER GLASS SCROLL EFFECT
+============================ */
+
 window.addEventListener("scroll", () => {
     const header = document.querySelector(".site-header");
     if (!header) return;
