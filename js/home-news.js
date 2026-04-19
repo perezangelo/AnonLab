@@ -11,7 +11,7 @@ async function loadHomeNews() {
         const news = await res.json();
 
         container.innerHTML = news
-            .slice(0, 5) // Mostra solo le prime 5 news
+            .slice(0, 5)
             .map(n => `
                 <article class="news-card">
                     <img src="${n.img}" class="news-thumb" alt="${n.title}">
