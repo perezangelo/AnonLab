@@ -649,6 +649,6 @@ body {
 
 .feed-logos img {
     width: 100%;
-    max-width: 70px; /* tutte uguali */
+    max-width: 70px;
     border-radius: 6px;
 }
