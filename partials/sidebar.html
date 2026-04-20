@@ -56,7 +56,7 @@
     </div>
 </div>
 <!-- ============================
-     BLOCCO METEO — LIVE + 3 GIORNI
+     BLOCCO METEO — LIVE + 3 GIORNI (FUNZIONANTE)
 ============================= -->
 
 <div class="sidebar-box">
@@ -72,26 +72,40 @@
         Caricamento meteo...
     </div>
 </div>
+
 <script>
 async function loadWeatherBox() {
     const box = document.querySelector("#meteo-live");
 
     try {
-        const res = await fetch("https://wttr.in/Milano?format=j1");
+        // Milano (puoi cambiare città)
+        const lat = 45.4642;
+        const lon = 9.19;
+
+        const url = `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat}&lon=${lon}`;
+
+        const res = await fetch(url, {
+            headers: { "User-Agent": "AnonLab/1.0" }
+        });
+
         const data = await res.json();
 
-        const current = data.current_condition[0];
-        const forecast = data.weather;
+        // Temperatura attuale
+        const current = data.properties.timeseries[0].data.instant.details.air_temperature;
+
+        // Previsioni 3 giorni (ogni 24 ore)
+        const day1 = data.properties.timeseries[24].data.instant.details.air_temperature;
+        const day2 = data.properties.timeseries[48].data.instant.details.air_temperature;
+        const day3 = data.properties.timeseries[72].data.instant.details.air_temperature;
 
         box.innerHTML = `
-            <strong>Temperatura attuale:</strong> ${current.temp_C}°C<br>
-            <strong>Condizioni:</strong> ${current.weatherDesc[0].value}<br><br>
+            <strong>Temperatura attuale:</strong> ${current}°C<br><br>
 
             <strong>Previsioni 3 giorni:</strong><br>
             <div style="margin-top:6px;">
-                <strong>Oggi:</strong> ${forecast[0].avgtempC}°C — Max ${forecast[0].maxtempC}°C / Min ${forecast[0].mintempC}°C<br>
-                <strong>Domani:</strong> ${forecast[1].avgtempC}°C — Max ${forecast[1].maxtempC}°C / Min ${forecast[1].mintempC}°C<br>
-                <strong>Dopodomani:</strong> ${forecast[2].avgtempC}°C — Max ${forecast[2].maxtempC}°C / Min ${forecast[2].mintempC}°C
+                <strong>Oggi:</strong> ${day1}°C<br>
+                <strong>Domani:</strong> ${day2}°C<br>
+                <strong>Dopodomani:</strong> ${day3}°C
             </div>
         `;
     } catch (e) {
