@@ -643,12 +643,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 6px;
+    gap: 4px; /* ridotto per far entrare 5 loghi */
     margin-bottom: 12px;
 }
 
 .feed-logos img {
     width: 100%;
-    max-width: 70px;
+    max-width: 58px; /* valore ottimizzato per 5 loghi */
+    height: auto;
     border-radius: 6px;
+    flex-shrink: 0;
 }
