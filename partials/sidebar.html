@@ -56,18 +56,51 @@
     </div>
 </div>
 <!-- ============================
-     BLOCCO METEO — VERSIONE STATIC
+     BLOCCO METEO — LIVE + 3 GIORNI
 ============================= -->
 
 <div class="sidebar-box">
     <h3>Meteo</h3>
 
     <a href="https://www.meteo.it/" target="_blank" style="text-decoration:none; color:inherit;">
-        <div style="text-align:center;">
+        <div style="text-align:center; margin-bottom:10px;">
             <img src="/img/meteo.png" alt="Meteo Italia" style="width:100%; border-radius:6px;">
         </div>
     </a>
+
+    <div id="meteo-live" style="font-size:14px; line-height:1.4;">
+        Caricamento meteo...
+    </div>
 </div>
+<script>
+async function loadWeatherBox() {
+    const box = document.querySelector("#meteo-live");
+
+    try {
+        const res = await fetch("https://wttr.in/Milano?format=j1");
+        const data = await res.json();
+
+        const current = data.current_condition[0];
+        const forecast = data.weather;
+
+        box.innerHTML = `
+            <strong>Temperatura attuale:</strong> ${current.temp_C}°C<br>
+            <strong>Condizioni:</strong> ${current.weatherDesc[0].value}<br><br>
+
+            <strong>Previsioni 3 giorni:</strong><br>
+            <div style="margin-top:6px;">
+                <strong>Oggi:</strong> ${forecast[0].avgtempC}°C — Max ${forecast[0].maxtempC}°C / Min ${forecast[0].mintempC}°C<br>
+                <strong>Domani:</strong> ${forecast[1].avgtempC}°C — Max ${forecast[1].maxtempC}°C / Min ${forecast[1].mintempC}°C<br>
+                <strong>Dopodomani:</strong> ${forecast[2].avgtempC}°C — Max ${forecast[2].maxtempC}°C / Min ${forecast[2].mintempC}°C
+            </div>
+        `;
+    } catch (e) {
+        box.innerHTML = "Impossibile caricare il meteo.";
+    }
+}
+
+loadWeatherBox();
+</script>
 <!-- ============================
      BLOCCO 4 — SOCIAL + VIDEO
 ============================= -->
@@ -275,7 +308,7 @@
     <h3>Google Maps</h3>
 
     <div style="text-align:center; margin-bottom:10px;">
-        <img src="/img/Google maps.png" alt="Google Maps" style="width:100%; border-radius:6px;">
+        <img src="/img/google maps.png" alt="Google Maps" style="width:100%; border-radius:6px;">
     </div>
 
     <iframe
