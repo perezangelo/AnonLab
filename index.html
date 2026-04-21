@@ -40,7 +40,10 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body class="dark-mode">
+
+<!-- WRAPPER GPU -->
+<div id="app" class="gpu-boost">
 
   <div id="header"></div>
 
@@ -62,27 +65,42 @@
       <section class="hero-big">
         <h1>AnonLab</h1>
 
-        <img src="img/eyes.png" alt="AnonLab Eyes" class="hero-favicon">
+        <img 
+          src="img/eyes.png" 
+          alt="AnonLab Eyes" 
+          class="hero-favicon"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        >
+
         <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
         <a href="news.html" class="hero-button">Esplora le ultime news</a>
       </section>
 
       <div class="google-search-wrapper">
-    <form action="https://www.google.com/search" method="GET" target="_blank">
-        <input type="text" name="q" placeholder="Cerca su Google...">
-        <button type="submit">Cerca</button>
-    </form>
-</div>
-
+        <form action="https://www.google.com/search" method="GET" target="_blank">
+            <input type="text" name="q" placeholder="Cerca su Google...">
+            <button type="submit">Cerca</button>
+        </form>
+      </div>
       <!-- ULTIME NEWS -->
       <section class="widget-large">
         <h2>Ultime dal mondo cyber</h2>
         <div id="home-news"></div>
       </section>
+
       <!-- Immagine Anonymous sopra Cyber Threat Level -->
-<div style="width:100%; margin:0 0 16px 0;">
-    <img src="/img/anonymous.png" alt="Anonymous" style="width:100%; height:auto; border-radius:10px;">
-</div>
+      <div style="width:100%; margin:0 0 16px 0;">
+          <img 
+            src="/img/anonymous.png" 
+            alt="Anonymous" 
+            style="width:100%; height:auto; border-radius:10px;"
+            loading="lazy"
+            decoding="async"
+          >
+      </div>
+
       <!-- CYBER THREAT LEVEL -->
       <section class="widget-large">
         <h2>Cyber Threat Level</h2>
@@ -158,7 +176,6 @@
     <div id="sidebar"></div>
 
   </main>
-
   <div id="footer"></div>
 
   <!-- SCRIPT ORDINATI CORRETTAMENTE -->
@@ -171,6 +188,8 @@
 
   <!-- UI GENERALE -->
   <script src="js/ui.js"></script>
+
+</div> <!-- /#app GPU WRAPPER -->
 
 </body>
 </html>
