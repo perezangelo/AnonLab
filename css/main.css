@@ -681,3 +681,18 @@ footer {
 ::placeholder {
   color: #b5b5b5 !important;
 }
+/* FIX VISIBILITÀ NEWS TICKER */
+.ticker-content {
+  background: #111 !important;
+}
+
+.ticker-item {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+.ticker-track {
+  animation: ticker-loop 12s linear infinite !important;
+  display: inline-flex !important;
+  white-space: nowrap !important;
+}
