@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
   --bg-main: #0a0a0a;
   --bg-elevated: #111;
@@ -17,7 +19,7 @@
 
   --radius: 10px;
 
-  --font-main: "Inter", "Roboto", sans-serif;
+  --font-main: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", Menlo, monospace;
 }
 
