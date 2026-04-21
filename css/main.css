@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 :root {
   --bg-main: #f2f6fa;
   --bg-elevated: #ffffff;
@@ -17,7 +18,7 @@
 
   --radius: 10px;
 
-  --font-main: "Inter", "Roboto", sans-serif;
+  --font-main: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", Menlo, monospace;
 }
 
@@ -34,6 +35,7 @@ html, body {
   color: var(--text-main);
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
+  font-weight: 500;
 }
 
 body {
@@ -652,4 +654,30 @@ body {
     max-width: 60px;          /* limite massimo */
     height: auto;
     border-radius: 6px;
+}
+h1, h2, h3 {
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+body,
+.page,
+.hero-big {
+  background: #000 !important;
+}
+:root {
+  --text-main: #ffffff;
+  --text-muted: #e0e0e0;
+}
+
+.hero-big p,
+.hero-big span,
+.sidebar-box p,
+.news-excerpt,
+.news-meta,
+footer {
+  color: var(--text-main) !important;
+}
+
+::placeholder {
+  color: #b5b5b5 !important;
 }
