@@ -7,7 +7,7 @@ async function loadPartial(id, file) {
     if (!el) return;
 
     try {
-        const res = await fetch(file);
+        const res = await fetch(file, { cache: "no-store" });
         if (!res.ok) throw new Error(`Errore nel caricamento di ${file}`);
 
         const html = await res.text();
@@ -40,6 +40,10 @@ function loadMeteo() {
 ============================ */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Attiva dark-mode globale
+    document.body.classList.add("dark-mode");
+
     loadPartial("header", "partials/header.html");
     loadPartial("sidebar", "partials/sidebar.html");
     loadPartial("footer", "partials/footer.html");
@@ -84,7 +88,13 @@ async function loadCVEToday() {
 
     box.innerHTML = `
         <div class="box-img-row">
-            <img src="${cve.img}" class="box-thumb" alt="${cve.id}">
+            <img 
+                src="${cve.img}" 
+                class="box-thumb" 
+                alt="${cve.id}"
+                loading="lazy"
+                decoding="async"
+            >
             <div>
                 <strong>${cve.id}</strong> — <span style="color:#d32f2f">${cve.severity}</span><br>
                 ${cve.desc}<br>
@@ -143,7 +153,6 @@ async function loadWorldFeed() {
         `)
         .join("");
 }
-
 /* ============================
    LIBRESPEED – SPEED TEST PRO
 ============================ */
@@ -178,12 +187,18 @@ function animateGauge(id, value, max = 1000) {
     const pct = Math.min(100, (value / max) * 100);
     const offset = 100 - pct;
     const el = document.getElementById(id);
-    if (el) el.style.strokeDashoffset = offset;
+    if (el) {
+        el.style.transition = "stroke-dashoffset 0.25s ease-out";
+        el.style.strokeDashoffset = offset;
+    }
 }
 
 function setProgress(pct) {
     const bar = document.getElementById("speedtest-progress-bar");
-    if (bar) bar.style.width = pct + "%";
+    if (bar) {
+        bar.style.transition = "width 0.2s linear";
+        bar.style.width = pct + "%";
+    }
 }
 
 /* ============================
@@ -270,6 +285,9 @@ window.addEventListener("scroll", () => {
     const header = document.querySelector(".site-header");
     if (!header) return;
 
-    if (window.scrollY > 20) header.classList.add("scrolled-header");
-    else header.classList.remove("scrolled-header");
+    if (window.scrollY > 20) {
+        header.classList.add("scrolled-header");
+    } else {
+        header.classList.remove("scrolled-header");
+    }
 });
