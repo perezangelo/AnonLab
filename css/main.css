@@ -954,3 +954,49 @@ footer {
 .news-card {
   padding: 18px !important;
 }
+/* OVERLAY SCURO SEMPRE ATTIVO SULLE CARD */
+.news-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* intensità perfetta per il tuo tema */
+  z-index: 1;
+  opacity: 1 !important; /* sempre visibile */
+}
+
+/* Porta il contenuto sopra l’overlay */
+.news-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Testo più luminoso */
+.news-card h2,
+.news-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.news-excerpt {
+  color: #e8e8e8 !important;
+}
+
+.news-meta {
+  color: #b5b5b5 !important;
+}
+
+/* Bordo ciano leggero per separare i box */
+.news-card {
+  border: 1px solid rgba(0,170,255,0.25) !important;
+  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+}
+
+/* Padding più comodo */
+.news-card {
+  padding: 18px !important;
+}
