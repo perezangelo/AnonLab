@@ -915,3 +915,42 @@ footer {
   position: relative;
   z-index: 10;
 }
+/* OVERLAY SCURO PER LE CARD */
+.news-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* intensità regolabile */
+  z-index: 1;
+}
+
+/* Porta il contenuto sopra l’overlay */
+.news-card * {
+  position: relative;
+  z-index: 2;
+}
+.news-card h2,
+.news-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.news-excerpt {
+  color: #e8e8e8 !important;
+}
+
+.news-meta {
+  color: #b5b5b5 !important;
+}
+.news-card {
+  border: 1px solid rgba(0,170,255,0.25) !important;
+  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+}
+.news-card {
+  padding: 18px !important;
+}
