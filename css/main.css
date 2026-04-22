@@ -697,34 +697,46 @@ footer {
   white-space: nowrap !important;
 }
 /* ============================================================
-   VERSIONE COMPLETA — MATRIX RAIN + DIGITAL FLOW + NEON GLOW
+   MATRIX RAIN — BLU CYBER (CSS)
    ============================================================ */
 
-/* HERO — BACKGROUND ANIMATO (Matrix Rain + Digital Flow) */
 .hero-big {
   position: relative;
   overflow: hidden;
   background: #000 !important;
 }
 
-/* Layer Matrix Rain (GIF animata) */
+/* Pioggia di codice blu */
 .hero-big::before {
-  content: "";
+  content: "01010100110100101101001010100100110100101010010011010010";
   position: absolute;
   inset: 0;
-  background: url("/img/matrix-rain.gif") center/cover no-repeat;
-  opacity: 0.35; /* intensità */
+  font-family: "JetBrains Mono", monospace;
+  font-size: 22px;
+  line-height: 26px;
+  color: rgba(0, 170, 255, 0.25); /* BLU CYBER */
+  white-space: pre;
+  animation: matrixRain 18s linear infinite;
   z-index: 1;
+  opacity: 0.35;
 }
 
-/* Layer Digital Flow (movimento leggero) */
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ============================================================
+   DIGITAL FLOW — BLU CYBER
+   ============================================================ */
+
 .hero-big::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/img/digital-flow.png") center/cover no-repeat;
-  opacity: 0.20;
+  background: radial-gradient(circle at top, rgba(0,170,255,0.20), transparent 70%);
   animation: flowMove 18s linear infinite;
+  opacity: 0.25;
   z-index: 2;
 }
 
@@ -739,28 +751,29 @@ footer {
   z-index: 3;
 }
 
-/* TITOLO — NEON GLOW */
+/* ============================================================
+   GLOW NEON BLU CYBER SUL TITOLO
+   ============================================================ */
+
 .hero-big h1 {
-  color: #00eaff !important;
+  color: #00c8ff !important;
   font-weight: 600 !important;
   text-shadow:
-    0 0 8px rgba(0,238,255,0.8),
-    0 0 16px rgba(0,238,255,0.6),
-    0 0 32px rgba(0,238,255,0.4),
-    0 0 48px rgba(0,238,255,0.25);
+    0 0 8px rgba(0,200,255,0.8),
+    0 0 16px rgba(0,200,255,0.6),
+    0 0 32px rgba(0,200,255,0.4),
+    0 0 48px rgba(0,200,255,0.25);
 }
 
-/* SOTTOTITOLO PIÙ LEGGIBILE */
 .hero-sub {
   color: #e0e0e0 !important;
   font-weight: 500;
 }
 
 /* ============================================================
-   FIX VISIBILITÀ NEWS, BOX E TESTI
+   NEWS — TESTI PIÙ LEGGIBILI
    ============================================================ */
 
-/* Testi delle card più leggibili */
 .news-card h2,
 .news-title {
   color: #ffffff !important;
@@ -777,8 +790,8 @@ footer {
 
 /* Box più pieni e contrastati */
 .news-card {
-  border: 1px solid rgba(0,255,255,0.15) !important;
-  box-shadow: 0 0 12px rgba(0,255,255,0.08);
+  border: 1px solid rgba(0,170,255,0.20) !important;
+  box-shadow: 0 0 12px rgba(0,170,255,0.10);
 }
 
 /* Immagini più grandi */
@@ -813,7 +826,7 @@ footer {
 }
 
 /* ============================================================
-   PLACEHOLDER E FORM PIÙ LEGGIBILI
+   FORM & PLACEHOLDER — PIÙ LEGGIBILI
    ============================================================ */
 
 .sidebar-box input,
@@ -827,5 +840,5 @@ footer {
 }
 
 /* ============================================================
-   FINE VERSIONE COMPLETA
+   FINE VERSIONE COMPLETA BLU CYBER
    ============================================================ */
