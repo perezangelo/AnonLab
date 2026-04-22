@@ -696,3 +696,23 @@ footer {
   display: inline-flex !important;
   white-space: nowrap !important;
 }
+/* SFONDO DIETRO IL TITOLO ANONLAB */
+.hero-big {
+  background: url("/percorso/della/tua/immagine.jpg") center/cover no-repeat !important;
+  position: relative;
+}
+
+/* Oscuramento leggero per rendere leggibile il titolo */
+.hero-big::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* puoi aumentare o diminuire */
+  z-index: 1;
+}
+
+/* Porta il contenuto sopra lo sfondo */
+.hero-big * {
+  position: relative;
+  z-index: 2;
+}
