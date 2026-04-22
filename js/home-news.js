@@ -6,7 +6,7 @@ async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    const feedUrl = "https://rss.app/feeds/v1.1/bBAAJTToQT5pPIHj.json";
+    const feedUrl = "https://rss.app/feeds/v1.1/438ni62sumVqiCeO.json";
 
     try {
         const res = await fetch(feedUrl);
