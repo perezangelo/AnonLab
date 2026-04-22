@@ -698,7 +698,8 @@ footer {
 }
 /* SFONDO DIETRO IL TITOLO ANONLAB */
 .hero-big {
-  background: url("/percorso/della/tua/immagine.jpg") center/cover no-repeat !important;
+  background: url("/img/sfondo-matrix.jpg
+") center/cover no-repeat !important;
   position: relative;
 }
 
