@@ -16,7 +16,7 @@ async function loadHomeNews() {
 
         container.innerHTML = items
             .map((item, index) => {
-                
+
                 // Categoria dal feed
                 const category =
                     item.categories && item.categories.length > 0
@@ -34,8 +34,20 @@ async function loadHomeNews() {
                     ? item.description.replace(/<[^>]+>/g, "").slice(0, 140) + "..."
                     : "";
 
-                // Data formattata
-                const date = new Date(item.pubDate).toLocaleDateString("it-IT");
+                // FIX DATA — evita "Invalid Date"
+                let date = "Oggi";
+                if (item.pubDate) {
+                    const parsed = new Date(item.pubDate);
+                    if (!isNaN(parsed)) {
+                        date = parsed.toLocaleDateString("it-IT");
+                    }
+                }
+
+                // FIX LINK — evita link vuoti
+                const link =
+                    item.link ||
+                    (item.enclosure && item.enclosure.link) ||
+                    "#";
 
                 return `
                     <article class="news-card" id="news-${index + 1}">
@@ -50,7 +62,7 @@ async function loadHomeNews() {
 
                             <p class="news-excerpt">${excerpt}</p>
 
-                            <a href="${item.link}" class="news-link" target="_blank">
+                            <a href="${link}" class="news-link" target="_blank">
                                 Leggi di più →
                             </a>
                         </div>
