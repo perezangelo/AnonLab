@@ -418,106 +418,6 @@ body {
   background: #1565c0;
 }
 
-/* === SPEED TEST CYBER === */
-
-.speedtest-box {
-    text-align: center;
-}
-
-.speedtest-gauges {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.gauge {
-    width: 100px;
-    position: relative;
-}
-
-.gauge svg {
-    width: 100%;
-    transform: rotate(-90deg);
-}
-
-.gauge .bg {
-    fill: none;
-    stroke: #e0e0e0;
-    stroke-width: 3;
-}
-
-.gauge .meter {
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    transition: stroke-dashoffset 0.4s ease;
-    filter: drop-shadow(0 0 6px var(--accent));
-}
-
-.gauge-label {
-    margin-top: 6px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.gauge-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 4px;
-    color: var(--text-main);
-}
-
-.speedtest-info p {
-    margin: 4px 0;
-    font-size: 0.9rem;
-}
-
-.speedtest-btn {
-    width: 100%;
-    padding: 10px;
-    background: #1e88e5;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 10px;
-    transition: 0.2s ease;
-}
-
-.speedtest-btn:hover {
-    background: #1565c0;
-}
-
-.speedtest-status {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
-/* === SPEED TEST PROGRESS BAR === */
-
-.speedtest-progress {
-    width: 100%;
-    height: 10px;
-    background: #e0e0e0;
-    border-radius: 6px;
-    overflow: hidden;
-    margin: 12px 0;
-}
-
-.speedtest-progress-bar {
-    width: 0%;
-    height: 100%;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
-    transition: width 0.3s ease;
-}
-
 /* === GOOGLE SEARCH FIX === */
 
 .google-search-wrapper {
@@ -842,3 +742,176 @@ footer {
 /* ============================================================
    FINE VERSIONE COMPLETA BLU CYBER
    ============================================================ */
+/* ============================================================
+   CYBER MATRIX PRO — Effetti avanzati
+   ============================================================ */
+
+.hero-big {
+  position: relative;
+  overflow: hidden;
+  background: #000 !important;
+}
+
+/* ============================================================
+   1) COLONNE VERTICALI A VELOCITÀ DIVERSE
+   ============================================================ */
+
+.hero-big::before,
+.hero-big::after,
+.hero-big .matrix-layer {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Layer 1 — lento */
+.hero-big::before {
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 170, 255, 0.18) 0px,
+      rgba(0, 170, 255, 0.18) 2px,
+      transparent 2px,
+      transparent 6px
+  );
+  animation: matrixSlow 18s linear infinite;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+@keyframes matrixSlow {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Layer 2 — medio */
+.hero-big::after {
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 170, 255, 0.22) 0px,
+      rgba(0, 170, 255, 0.22) 2px,
+      transparent 2px,
+      transparent 4px
+  );
+  animation: matrixMid 12s linear infinite;
+  opacity: 0.30;
+  z-index: 2;
+}
+
+@keyframes matrixMid {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Layer 3 — veloce */
+.hero-big .matrix-layer {
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 170, 255, 0.28) 0px,
+      rgba(0, 170, 255, 0.28) 2px,
+      transparent 2px,
+      transparent 3px
+  );
+  animation: matrixFast 6s linear infinite;
+  opacity: 0.35;
+  z-index: 3;
+}
+
+@keyframes matrixFast {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ============================================================
+   2) EFFETTO “PIOGGIA DI CARATTERI” (VERA)
+   ============================================================ */
+
+.hero-big::before {
+  mask-image: linear-gradient(180deg, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.hero-big::after {
+  mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 90%, transparent 100%);
+}
+
+.hero-big .matrix-layer {
+  mask-image: linear-gradient(180deg, transparent 0%, black 40%, black 100%);
+}
+
+/* ============================================================
+   3) EFFETTO GLITCH BLU
+   ============================================================ */
+
+.hero-big h1 {
+  position: relative;
+  color: #00c8ff !important;
+  font-weight: 600 !important;
+  text-shadow:
+    0 0 8px rgba(0,200,255,0.8),
+    0 0 16px rgba(0,200,255,0.6),
+    0 0 32px rgba(0,200,255,0.4);
+}
+
+.hero-big h1::before,
+.hero-big h1::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+.hero-big h1::before {
+  color: #00aaff;
+  transform: translate(2px, 0);
+  animation: glitch1 1.8s infinite;
+}
+
+.hero-big h1::after {
+  color: #0088ff;
+  transform: translate(-2px, 0);
+  animation: glitch2 2.2s infinite;
+}
+
+@keyframes glitch1 {
+  0% { clip-path: inset(0 0 80% 0); }
+  50% { clip-path: inset(20% 0 40% 0); }
+  100% { clip-path: inset(60% 0 0 0); }
+}
+
+@keyframes glitch2 {
+  0% { clip-path: inset(60% 0 0 0); }
+  50% { clip-path: inset(10% 0 60% 0); }
+  100% { clip-path: inset(0 0 80% 0); }
+}
+
+/* ============================================================
+   4) EFFETTO SCANLINE CYBERPUNK
+   ============================================================ */
+
+.hero-big::after {
+  background-blend-mode: overlay;
+}
+
+.hero-big::before,
+.hero-big::after,
+.hero-big .matrix-layer {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0px,
+      rgba(0, 0, 0, 0.2) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+/* ============================================================
+   Porta il contenuto sopra tutti gli effetti
+   ============================================================ */
+
+.hero-big * {
+  position: relative;
+  z-index: 10;
+}
