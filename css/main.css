@@ -1087,3 +1087,18 @@ footer {
     width: 100%;
   }
 }
+.box-title-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.box-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
