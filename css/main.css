@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
-  --bg-main: #000;
-  --bg-elevated: #111;
-  --bg-card: #111;
+  --bg-main: #f2f6fa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
 
   --accent: #00eaff;
   --accent-soft: rgba(0, 234, 255, 0.18);
 
-  --text-main: #ffffff;
-  --text-muted: #e0e0e0;
+  --text-main: #0f0f0f;
+  --text-muted: #4a4a4a;
 
-  --border-subtle: rgba(0,170,255,0.25);
+  --border-subtle: #dce6ef;
+
+  --danger: #ff4b6e;
 
   --shadow-soft: 0 0 18px rgba(0, 234, 255, 0.25);
 
@@ -30,7 +31,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #000 !important;
+  background: #f2f6fa;
   color: var(--text-main);
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
@@ -42,6 +43,7 @@ body {
 }
 
 /* Layout generale */
+
 .page {
   max-width: 1200px;
   margin: 0 auto;
@@ -58,6 +60,7 @@ body {
 }
 
 /* Header */
+
 .site-header {
   display: flex;
   align-items: center;
@@ -65,14 +68,14 @@ body {
   padding: 14px 18px;
   margin: 12px auto 10px;
   max-width: 1200px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
   position: sticky;
   top: 8px;
   z-index: 50;
-  backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(14px);
 }
 
 .logo {
@@ -104,7 +107,19 @@ body {
   background: rgba(0, 255, 157, 0.06);
 }
 
-/* Ticker */
+/* Mobile fix */
+@media (max-width: 480px) {
+  .main-nav {
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+  .main-nav a {
+    padding: 4px 8px;
+  }
+}
+
+/* === TICKER === */
+
 .ticker {
   max-width: 1200px;
   margin: 0 auto 14px;
@@ -123,10 +138,13 @@ body {
   text-transform: uppercase;
   padding: 10px 14px;
   border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ticker-content {
-  background: #111 !important;
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   padding: 8px 14px;
@@ -141,19 +159,23 @@ body {
   color: var(--accent);
   margin-right: 8px;
   font-size: 0.7rem;
+  flex-shrink: 0;
 }
 
 .ticker-track {
-  display: inline-flex !important;
-  white-space: nowrap !important;
-  animation: ticker-loop 12s linear infinite !important;
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-loop 12s linear infinite;
+}
+
+.ticker-content:hover .ticker-track {
+  animation-play-state: paused;
 }
 
 .ticker-item {
-  margin-right: 40px !important;
+  margin-right: 40px;
   font-size: 0.85rem;
-  color: #ffffff !important;
-  font-weight: 500 !important;
+  color: var(--text-main);
 }
 
 @keyframes ticker-loop {
@@ -161,69 +183,101 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* Main column */
+@media (max-width: 768px) {
+  .ticker-track {
+    animation-duration: 9s;
+  }
+}
+
+/* Contenuto principale */
+
 .main-column {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* News card */
+/* Card news */
+
 .news-card {
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
-  background: #111;
-  border: 1px solid rgba(0,170,255,0.25) !important;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
-  padding: 18px !important;
-  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+  padding: 14px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7), var(--shadow-soft);
   position: relative;
   overflow: hidden;
+  align-items: flex-start;
 }
 
 .news-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-  opacity: 1 !important;
+  background: radial-gradient(circle at top left, rgba(0, 255, 157, 0.12), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.news-card * {
-  position: relative;
-  z-index: 2;
+.news-card:hover::before {
+  opacity: 1;
 }
 
+/* Uniformità immagini news */
 .news-thumb {
-  width: 140px !important;
-  height: 90px !important;
+  width: 120px;
+  height: 80px;
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
 }
 
-.news-card:hover .news-thumb {
-  transform: scale(1.05);
+.news-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.news-title,
-.news-card h2 {
-  color: #ffffff !important;
-  font-weight: 600 !important;
+.news-content h2,
+.news-title {
+  font-size: 1rem;
+  margin: 0;
 }
 
+.news-content p,
 .news-excerpt {
-  color: #e0e0e0 !important;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 .news-meta {
-  color: #b5b5b5 !important;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.news-category {
+  color: #00eaff;
+  margin-right: 10px;
+}
+
+.news-time {
+  color: var(--text-muted);
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #00eaff;
+  text-decoration: none;
 }
 
 /* Sidebar */
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -231,34 +285,67 @@ body {
 }
 
 .sidebar-box {
-  background: #111;
-  border: 1px solid rgba(0,170,255,0.25);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
   padding: 12px 14px;
   box-shadow: var(--shadow-soft);
 }
 
-.sidebar-box input,
-.sidebar-box textarea {
-  color: #ffffff !important;
+.sidebar-box h3 {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: var(--accent);
 }
 
-.sidebar-box input::placeholder,
-.sidebar-box textarea::placeholder {
-  color: #b5b5b5 !important;
+/* Sidebar Forms */
+
+.sidebar-icon {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  opacity: 1;
 }
 
-/* Hero */
+.sidebar-box form input,
+.sidebar-box form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.sidebar-box form button {
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s ease;
+}
+
+.sidebar-box form button:hover {
+  background: #222;
+}
+
+/* === HERO POTENZIATO === */
+
 .hero-big {
   text-align: center;
   padding: 60px 20px;
-  background: #000 !important;
-  border: 2px solid rgba(0,170,255,0.20);
+  background: #ffffff;
+  border: 2px solid var(--border-subtle);
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,170,255,0.10);
+  box-shadow: 0 0 25px rgba(0,0,0,0.08), var(--shadow-soft);
   margin-bottom: 30px;
-  position: relative;
-  overflow: hidden;
 }
 
 .hero-big h1 {
@@ -267,28 +354,250 @@ body {
   margin: 0;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #00c8ff !important;
+  color: var(--text-main);
   padding: 20px 0;
-  text-shadow:
-    0 0 8px rgba(0,200,255,0.8),
-    0 0 16px rgba(0,200,255,0.6),
-    0 0 32px rgba(0,200,255,0.4),
-    0 0 48px rgba(0,200,255,0.25);
-}
-
-.hero-sub {
-  color: #e0e0e0 !important;
-  font-weight: 500;
 }
 
 .hero-favicon {
   width: 55%;
   max-width: 480px;
-  margin: 25px auto 20px;
+  height: auto;
   display: block;
+  margin: 25px auto 20px;
+  opacity: 1;
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+  .hero-big h1 {
+    font-size: 3.2rem;
+  }
+  .hero-favicon {
+    width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-big h1 {
+    font-size: 2.6rem;
+  }
+  .hero-favicon {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-big h1 {
+    font-size: 2.2rem;
+  }
+  .hero-favicon {
+    width: 80%;
+  }
+}
+
+/* === Link About === */
+.about-link {
+  display: block;
+  padding: 10px;
+  background: #1e88e5;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.about-link:hover {
+  background: #1565c0;
+}
+
+/* === GOOGLE SEARCH FIX === */
+
+.google-search-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.google-search-wrapper form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-google {
+    width: 60%;
+    max-width: 420px;
+}
+
+.search-btn {
+    padding: 10px 18px;
+}
+
+/* === NEWS + FEED + ALERT IMMAGINI === */
+
+/* Reset lista Cyber Alert Live */
+#alert-live {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Struttura uniforme */
+.feed-item,
+.alert-item,
+.box-img-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* Immagini uniformi */
+.feed-thumb,
+.alert-thumb,
+.box-thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* Fix testo Cyber Alert Live */
+.alert-item span {
+    display: inline-block;
+    line-height: 1.25;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .feed-thumb,
+    .alert-thumb,
+    .box-thumb {
+        width: 42px;
+        height: 42px;
+    }
+
+    .feed-item,
+    .alert-item,
+    .box-img-row {
+        gap: 8px;
+    }
+}
+.site-header {
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+.news-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 234, 255, 0.25);
+}
+
+.news-card:hover .news-thumb {
+    transform: scale(1.05);
+}
+
+.news-thumb {
+    transition: transform 0.3s ease;
+}
+/* === SVG ICONS FOR ALERT + FEED === */
+
+.alert-icon,
+.feed-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.alert-item,
+.feed-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-item span,
+.feed-item span {
+    line-height: 1.25;
+}
+
+.scrolled-header {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.55);
+}
+.feed-logos {
+    display: flex;
+    flex-wrap: wrap;          /* permette di andare a capo su mobile */
+    justify-content: center;  /* centrati */
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.feed-logos img {
+    width: calc(20% - 6px);   /* 5 loghi per riga, responsive */
+    max-width: 60px;          /* limite massimo */
+    height: auto;
+    border-radius: 6px;
+}
+h1, h2, h3 {
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+body,
+.page,
+.hero-big {
+  background: #000 !important;
+}
+:root {
+  --text-main: #ffffff;
+  --text-muted: #e0e0e0;
+}
+
+.hero-big p,
+.hero-big span,
+.sidebar-box p,
+.news-excerpt,
+.news-meta,
+footer {
+  color: var(--text-main) !important;
+}
+
+::placeholder {
+  color: #b5b5b5 !important;
+}
+/* FIX VISIBILITÀ NEWS TICKER */
+.ticker-content {
+  background: #111 !important;
+}
+
+.ticker-item {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+.ticker-track {
+  animation: ticker-loop 12s linear infinite !important;
+  display: inline-flex !important;
+  white-space: nowrap !important;
 }
 /* ============================================================
-   MATRIX RAIN — EFFETTO A PIOGGIA (UNICO E FUNZIONANTE)
+   MATRIX RAIN — BLU CYBER (CSS)
    ============================================================ */
 
 .hero-big {
@@ -305,12 +614,11 @@ body {
   font-family: "JetBrains Mono", monospace;
   font-size: 22px;
   line-height: 26px;
-  color: rgba(0, 170, 255, 0.25);
+  color: rgba(0, 170, 255, 0.25); /* BLU CYBER */
   white-space: pre;
   animation: matrixRain 18s linear infinite;
   z-index: 1;
   opacity: 0.35;
-  pointer-events: none;
 }
 
 @keyframes matrixRain {
@@ -318,37 +626,409 @@ body {
   100% { transform: translateY(100%); }
 }
 
-/* Glow leggero sopra la pioggia */
+/* ============================================================
+   DIGITAL FLOW — BLU CYBER
+   ============================================================ */
+
 .hero-big::after {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at top, rgba(0,170,255,0.20), transparent 70%);
+  animation: flowMove 18s linear infinite;
   opacity: 0.25;
   z-index: 2;
+}
+
+@keyframes flowMove {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.2) translateY(-40px); }
+}
+
+/* Porta il contenuto sopra gli sfondi */
+.hero-big * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ============================================================
+   GLOW NEON BLU CYBER SUL TITOLO
+   ============================================================ */
+
+.hero-big h1 {
+  color: #00c8ff !important;
+  font-weight: 600 !important;
+  text-shadow:
+    0 0 8px rgba(0,200,255,0.8),
+    0 0 16px rgba(0,200,255,0.6),
+    0 0 32px rgba(0,200,255,0.4),
+    0 0 48px rgba(0,200,255,0.25);
+}
+
+.hero-sub {
+  color: #e0e0e0 !important;
+  font-weight: 500;
+}
+
+/* ============================================================
+   NEWS — TESTI PIÙ LEGGIBILI
+   ============================================================ */
+
+.news-card h2,
+.news-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.news-excerpt {
+  color: #e0e0e0 !important;
+}
+
+.news-meta {
+  color: #b5b5b5 !important;
+}
+
+/* Box più pieni e contrastati */
+.news-card {
+  border: 1px solid rgba(0,170,255,0.20) !important;
+  box-shadow: 0 0 12px rgba(0,170,255,0.10);
+}
+
+/* Immagini più grandi */
+.news-thumb {
+  width: 140px !important;
+  height: 90px !important;
+}
+
+/* ============================================================
+   TICKER — FIX COMPLETO
+   ============================================================ */
+
+.ticker-content {
+  background: #111 !important;
+}
+
+.ticker-item {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  margin-right: 40px !important;
+}
+
+.ticker-track {
+  display: inline-flex !important;
+  white-space: nowrap !important;
+  animation: ticker-loop 12s linear infinite !important;
+}
+
+@keyframes ticker-loop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   FORM & PLACEHOLDER — PIÙ LEGGIBILI
+   ============================================================ */
+
+.sidebar-box input,
+.sidebar-box textarea {
+  color: #ffffff !important;
+}
+
+.sidebar-box input::placeholder,
+.sidebar-box textarea::placeholder {
+  color: #b5b5b5 !important;
+}
+
+/* ============================================================
+   FINE VERSIONE COMPLETA BLU CYBER
+   ============================================================ */
+/* ============================================================
+   CYBER MATRIX PRO — Effetti avanzati
+   ============================================================ */
+
+.hero-big {
+  position: relative;
+  overflow: hidden;
+  background: #000 !important;
+}
+
+/* ============================================================
+   1) COLONNE VERTICALI A VELOCITÀ DIVERSE
+   ============================================================ */
+
+.hero-big::before,
+.hero-big::after,
+.hero-big .matrix-layer {
+  content: "";
+  position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 
-/* Porta il contenuto sopra gli effetti */
+/* Layer 1 — lento */
+.hero-big::before {
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 170, 255, 0.18) 0px,
+      rgba(0, 170, 255, 0.18) 2px,
+      transparent 2px,
+      transparent 6px
+  );
+  animation: matrixSlow 18s linear infinite;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+@keyframes matrixSlow {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Layer 2 — medio */
+.hero-big::after {
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 170, 255, 0.22) 0px,
+      rgba(0, 170, 255, 0.22) 2px,
+      transparent 2px,
+      transparent 4px
+  );
+  animation: matrixMid 12s linear infinite;
+  opacity: 0.30;
+  z-index: 2;
+}
+
+@keyframes matrixMid {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Layer 3 — veloce */
+.hero-big .matrix-layer {
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 170, 255, 0.28) 0px,
+      rgba(0, 170, 255, 0.28) 2px,
+      transparent 2px,
+      transparent 3px
+  );
+  animation: matrixFast 6s linear infinite;
+  opacity: 0.35;
+  z-index: 3;
+}
+
+@keyframes matrixFast {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ============================================================
+   2) EFFETTO “PIOGGIA DI CARATTERI” (VERA)
+   ============================================================ */
+
+.hero-big::before {
+  mask-image: linear-gradient(180deg, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.hero-big::after {
+  mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 90%, transparent 100%);
+}
+
+.hero-big .matrix-layer {
+  mask-image: linear-gradient(180deg, transparent 0%, black 40%, black 100%);
+}
+
+/* ============================================================
+   3) EFFETTO GLITCH BLU
+   ============================================================ */
+
+.hero-big h1 {
+  position: relative;
+  color: #00c8ff !important;
+  font-weight: 600 !important;
+  text-shadow:
+    0 0 8px rgba(0,200,255,0.8),
+    0 0 16px rgba(0,200,255,0.6),
+    0 0 32px rgba(0,200,255,0.4);
+}
+
+.hero-big h1::before,
+.hero-big h1::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+.hero-big h1::before {
+  color: #00aaff;
+  transform: translate(2px, 0);
+  animation: glitch1 1.8s infinite;
+}
+
+.hero-big h1::after {
+  color: #0088ff;
+  transform: translate(-2px, 0);
+  animation: glitch2 2.2s infinite;
+}
+
+@keyframes glitch1 {
+  0% { clip-path: inset(0 0 80% 0); }
+  50% { clip-path: inset(20% 0 40% 0); }
+  100% { clip-path: inset(60% 0 0 0); }
+}
+
+@keyframes glitch2 {
+  0% { clip-path: inset(60% 0 0 0); }
+  50% { clip-path: inset(10% 0 60% 0); }
+  100% { clip-path: inset(0 0 80% 0); }
+}
+
+/* ============================================================
+   4) EFFETTO SCANLINE CYBERPUNK
+   ============================================================ */
+
+.hero-big::after {
+  background-blend-mode: overlay;
+}
+
+.hero-big::before,
+.hero-big::after,
+.hero-big .matrix-layer {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0px,
+      rgba(0, 0, 0, 0.2) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+/* ============================================================
+   Porta il contenuto sopra tutti gli effetti
+   ============================================================ */
+
 .hero-big * {
   position: relative;
   z-index: 10;
 }
-/* ============================================================
-   CYBER CONTROL CENTER — LAYOUT NUOVO (GRIGLIA 2×2)
-   ============================================================ */
-/* Immagini compatte e uniformi */
-.cyber-img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  opacity: 0.9;
-  border: 1px solid rgba(0,170,255,0.25);
-  box-shadow: 0 0 10px rgba(0,170,255,0.25);
+/* OVERLAY SCURO PER LE CARD */
+.news-card {
+  position: relative;
+  overflow: hidden;
 }
 
-/* Progress bar */
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* intensità regolabile */
+  z-index: 1;
+}
+
+/* Porta il contenuto sopra l’overlay */
+.news-card * {
+  position: relative;
+  z-index: 2;
+}
+.news-card h2,
+.news-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.news-excerpt {
+  color: #e8e8e8 !important;
+}
+
+.news-meta {
+  color: #b5b5b5 !important;
+}
+.news-card {
+  border: 1px solid rgba(0,170,255,0.25) !important;
+  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+}
+.news-card {
+  padding: 18px !important;
+}
+/* OVERLAY SCURO SEMPRE ATTIVO SULLE CARD */
+.news-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* intensità perfetta per il tuo tema */
+  z-index: 1;
+  opacity: 1 !important; /* sempre visibile */
+}
+
+/* Porta il contenuto sopra l’overlay */
+.news-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Testo più luminoso */
+.news-card h2,
+.news-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.news-excerpt {
+  color: #e8e8e8 !important;
+}
+
+.news-meta {
+  color: #b5b5b5 !important;
+}
+
+/* Bordo ciano leggero per separare i box */
+.news-card {
+  border: 1px solid rgba(0,170,255,0.25) !important;
+  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+}
+
+/* Padding più comodo */
+.news-card {
+  padding: 18px !important;
+}
+/* LAYOUT A DUE COLONNE */
+.cyber-center {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* COLONNA SINISTRA */
+.cyber-left {
+  width: 65%;
+}
+
+/* COLONNA DESTRA (IMMAGINI) */
+.cyber-right {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cyber-img {
+  width: 100%;
+  border-radius: 10px;
+  opacity: 0.85;
+  border: 1px solid rgba(0,170,255,0.25);
+  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+}
+
+/* PROGRESS BAR */
 .monitor-box {
   margin-bottom: 18px;
 }
@@ -380,7 +1060,7 @@ body {
   to { opacity: 1; }
 }
 
-/* Liste */
+/* LISTE */
 .attack-list li,
 .security-tips li,
 .tools-download li {
@@ -398,168 +1078,12 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .cyber-right {
-    grid-template-columns: 1fr;
+  .cyber-center {
+    flex-direction: column;
+  }
+  .cyber-left, .cyber-right {
+    width: 100%;
   }
 }
-/* ============================================================
-   FIX VISIBILITÀ NEWS TICKER
-   ============================================================ */
-
-.ticker-content {
-  background: #111 !important;
-}
-
-.ticker-item {
-  color: #ffffff !important;
-  font-weight: 500 !important;
-  margin-right: 40px !important;
-}
-
-.ticker-track {
-  display: inline-flex !important;
-  white-space: nowrap !important;
-  animation: ticker-loop 12s linear infinite !important;
-}
-
-/* ============================================================
-   FORM & PLACEHOLDER — PIÙ LEGGIBILI
-   ============================================================ */
-
-.sidebar-box input,
-.sidebar-box textarea {
-  color: #ffffff !important;
-}
-
-.sidebar-box input::placeholder,
-.sidebar-box textarea::placeholder {
-  color: #b5b5b5 !important;
-}
-
-/* ============================================================
-   FEED / ALERT — IMMAGINI E TESTI
-   ============================================================ */
-
-#alert-live {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.feed-item,
-.alert-item,
-.box-img-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.feed-thumb,
-.alert-thumb,
-.box-thumb {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.alert-item span {
-  display: inline-block;
-  line-height: 1.25;
-}
-
-@media (max-width: 480px) {
-  .feed-thumb,
-  .alert-thumb,
-  .box-thumb {
-    width: 42px;
-    height: 42px;
-  }
-
-  .feed-item,
-  .alert-item,
-  .box-img-row {
-    gap: 8px;
-  }
-}
-
-/* ============================================================
-   LOGHI FEED — GRIGLIA RESPONSIVE
-   ============================================================ */
-
-.feed-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.feed-logos img {
-  width: calc(20% - 6px);
-  max-width: 60px;
-  height: auto;
-  border-radius: 6px;
-}
-
-/* ============================================================
-   HEADER SCROLL EFFECT
-   ============================================================ */
-
-.scrolled-header {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(255, 255, 255, 0.55);
-}
-
-/* ============================================================
-   TRANSIZIONI NEWS CARD
-   ============================================================ */
-
-.news-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.news-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 22px rgba(0, 234, 255, 0.25);
-}
-
-.news-thumb {
-  transition: transform 0.3s ease;
-}
-
-/* ============================================================
-   RESPONSIVE HERO
-   ============================================================ */
-
-@media (max-width: 992px) {
-  .hero-big h1 {
-    font-size: 3.2rem;
-  }
-  .hero-favicon {
-    width: 65%;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-big h1 {
-    font-size: 2.6rem;
-  }
-  .hero-favicon {
-    width: 70%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-big h1 {
-    font-size: 2.2rem;
-  }
-  .hero-favicon {
-    width: 80%;
-  }
-}
-
