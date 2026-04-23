@@ -492,54 +492,54 @@ body {
     font-size: 13px;
     opacity: 0.7;
 }
-/* BOX in stile card AnonLab */
-.misura-box {
-    width: 85%;
-    margin: 0 auto 25px auto;
-    padding: 15px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Stile personalizzato per il box MisuraInternet */
+.sidebar .misura-box {
+    width: 85% !important;
+    margin: 0 auto 25px auto !important;
+    padding: 15px !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-.misura-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+.sidebar .misura-box:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12) !important;
 }
 
-.misura-box h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: #222;
-    font-weight: 600;
+.sidebar .misura-box h3 {
+    margin-top: 0 !important;
+    font-size: 1.2rem !important;
+    color: #222 !important;
+    font-weight: 600 !important;
 }
 
-.misura-box img {
-    width: 100%;
-    border-radius: 10px;
-    display: block;
+.sidebar .misura-box img {
+    width: 100% !important;
+    border-radius: 10px !important;
+    display: block !important;
 }
 
-.misura-box .misura-desc {
-    font-size: 0.95rem;
-    color: #444;
-    margin: 12px 0 15px 0;
-    line-height: 1.4;
+.sidebar .misura-box .misura-desc {
+    font-size: 0.95rem !important;
+    color: #444 !important;
+    margin: 12px 0 15px 0 !important;
+    line-height: 1.4 !important;
 }
 
-.misura-box .misura-btn {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    background: #0057b8;
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.2s ease;
+.sidebar .misura-box .misura-btn {
+    display: block !important;
+    text-align: center !important;
+    padding: 10px !important;
+    background: #0057b8 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    transition: background 0.2s ease !important;
 }
 
-.misura-box .misura-btn:hover {
-    background: #004a9c;
+.sidebar .misura-box .misura-btn:hover {
+    background: #004a9c !important;
 }
