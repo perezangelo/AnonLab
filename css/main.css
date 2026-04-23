@@ -337,22 +337,6 @@ body {
 /* ============================================================
    CYBER CONTROL CENTER — LAYOUT NUOVO (GRIGLIA 2×2)
    ============================================================ */
-
-.cyber-center {
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px 0;
-  box-sizing: border-box;
-}
-
-/* Griglia immagini 2×2 */
-.cyber-right {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 15px;
-}
-
 /* Immagini compatte e uniformi */
 .cyber-img {
   width: 100%;
