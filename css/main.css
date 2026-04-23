@@ -743,6 +743,53 @@ footer {
    FINE VERSIONE COMPLETA BLU CYBER
    ============================================================ */
 /* ============================================================
+   MATRIX RAIN — EFFETTO A PIOGGIA VERO
+   ============================================================ */
+
+.hero-big {
+  position: relative;
+  overflow: hidden;
+  background: #000 !important;
+}
+
+/* Pioggia di codice blu */
+.hero-big::before {
+  content: "01010100110100101101001010100100110100101010010011010010";
+  position: absolute;
+  inset: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 22px;
+  line-height: 26px;
+  color: rgba(0, 170, 255, 0.25);
+  white-space: pre;
+  animation: matrixRain 18s linear infinite;
+  z-index: 1;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Glow leggero */
+.hero-big::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0,170,255,0.20), transparent 70%);
+  opacity: 0.25;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Porta il contenuto sopra gli effetti */
+.hero-big * {
+  position: relative;
+  z-index: 10;
+}
+/* ============================================================
    CYBER MATRIX PRO — Effetti avanzati
    ============================================================ */
 
