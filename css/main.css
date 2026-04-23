@@ -1000,24 +1000,28 @@ footer {
 .news-card {
   padding: 18px !important;
 }
-/* LAYOUT A DUE COLONNE */
 .cyber-center {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
-/* COLONNA SINISTRA */
-.cyber-left {
-  width: 65%;
-}
-
-/* COLONNA DESTRA (IMMAGINI) */
 .cyber-right {
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.cyber-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.9;
+  border: 1px solid rgba(0,170,255,0.25);
+  box-shadow: 0 0 10px rgba(0,170,255,0.25);
 }
 
 .cyber-img {
