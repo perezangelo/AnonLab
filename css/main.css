@@ -1,16 +1,23 @@
+/* ============================================================
+   SEZIONE 1 — VARIABILI GLOBALI + RESET + BASE
+   ============================================================ */
+
+/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Variabili tema CYBER DARK */
 :root {
-  --bg-main: #f2f6fa;
-  --bg-elevated: #ffffff;
-  --bg-card: #ffffff;
+  --bg-main: #000000;
+  --bg-elevated: #0d0d0d;
+  --bg-card: #111111;
 
   --accent: #00eaff;
   --accent-soft: rgba(0, 234, 255, 0.18);
 
-  --text-main: #0f0f0f;
-  --text-muted: #4a4a4a;
+  --text-main: #ffffff;
+  --text-muted: #cfcfcf;
 
-  --border-subtle: #dce6ef;
+  --border-subtle: rgba(0, 234, 255, 0.18);
 
   --danger: #ff4b6e;
 
@@ -22,28 +29,40 @@
   --font-mono: "JetBrains Mono", "Fira Code", Menlo, monospace;
 }
 
+/* Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html, body {
   margin: 0;
   padding: 0;
-  background: #f2f6fa;
+}
+
+/* Base */
+html, body {
+  background: var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
-}
-
-body {
   min-height: 100vh;
 }
 
-/* Layout generale */
+/* Titoli */
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--text-main);
+}
 
+/* Placeholder */
+::placeholder {
+  color: #b5b5b5;
+}
+/* ============================================================
+   SEZIONE 2 — LAYOUT + GRIGLIA + HEADER + TICKER
+   ============================================================ */
+
+/* Layout principale */
 .page {
   max-width: 1200px;
   margin: 0 auto;
@@ -59,8 +78,21 @@ body {
   }
 }
 
-/* Header */
+/* Colonna principale */
+.main-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Header */
 .site-header {
   display: flex;
   align-items: center;
@@ -68,8 +100,8 @@ body {
   padding: 14px 18px;
   margin: 12px auto 10px;
   max-width: 1200px;
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
   position: sticky;
@@ -107,7 +139,7 @@ body {
   background: rgba(0, 255, 157, 0.06);
 }
 
-/* Mobile fix */
+/* Mobile header */
 @media (max-width: 480px) {
   .main-nav {
     gap: 8px;
@@ -118,7 +150,9 @@ body {
   }
 }
 
-/* === TICKER === */
+/* ============================================================
+   TICKER BREAKING NEWS
+   ============================================================ */
 
 .ticker {
   max-width: 1200px;
@@ -144,7 +178,7 @@ body {
 }
 
 .ticker-content {
-  background: #ffffff;
+  background: #111;
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   padding: 8px 14px;
@@ -168,14 +202,11 @@ body {
   animation: ticker-loop 12s linear infinite;
 }
 
-.ticker-content:hover .ticker-track {
-  animation-play-state: paused;
-}
-
 .ticker-item {
   margin-right: 40px;
   font-size: 0.85rem;
-  color: var(--text-main);
+  color: #ffffff;
+  font-weight: 500;
 }
 
 @keyframes ticker-loop {
@@ -188,53 +219,111 @@ body {
     animation-duration: 9s;
   }
 }
+/* ============================================================
+   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT + TITOLI
+   ============================================================ */
 
-/* Contenuto principale */
-
-.main-column {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* Widget generici */
+.widget-large {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
 }
 
-/* Card news */
+/* Titoli con icona */
+.box-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.box-title-row h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.box-title-icon {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,170,255,0.25);
+  box-shadow: 0 0 10px rgba(0,170,255,0.25);
+  opacity: 0.95;
+}
+
+@media (max-width: 480px) {
+  .box-title-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .box-title-row h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================================
+   NEWS CARD — versione unica, pulita e stabile
+   ============================================================ */
 
 .news-card {
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
+  background: #0d0d0d;
+  border: 1px solid rgba(0,170,255,0.25);
   border-radius: var(--radius);
-  padding: 14px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7), var(--shadow-soft);
+  padding: 16px;
+  box-shadow: 0 0 12px rgba(0,170,255,0.15);
   position: relative;
   overflow: hidden;
   align-items: flex-start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Overlay scuro */
 .news-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left, rgba(0, 255, 157, 0.12), transparent 55%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
 
-.news-card:hover::before {
-  opacity: 1;
+/* Contenuto sopra overlay */
+.news-card * {
+  position: relative;
+  z-index: 2;
 }
 
-/* Uniformità immagini news */
+/* Hover */
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 234, 255, 0.25);
+}
+
+/* Immagine */
 .news-thumb {
-  width: 120px;
-  height: 80px;
+  width: 140px;
+  height: 90px;
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
+.news-card:hover .news-thumb {
+  transform: scale(1.05);
+}
+
+/* Testi */
 .news-content {
   display: flex;
   flex-direction: column;
@@ -245,380 +334,137 @@ body {
 .news-title {
   font-size: 1rem;
   margin: 0;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .news-content p,
 .news-excerpt {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: #e0e0e0;
 }
 
 .news-meta {
   font-size: 0.85rem;
-  opacity: 0.7;
+  color: #b5b5b5;
   margin-bottom: 6px;
-}
-
-.news-category {
-  color: #00eaff;
-  margin-right: 10px;
-}
-
-.news-time {
-  color: var(--text-muted);
 }
 
 .news-link {
   display: inline-block;
   margin-top: 6px;
-  color: #00eaff;
-  text-decoration: none;
-}
-
-/* Sidebar */
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.sidebar-box {
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-  box-shadow: var(--shadow-soft);
-}
-
-.sidebar-box h3 {
-  margin: 0 0 8px;
-  font-size: 0.9rem;
   color: var(--accent);
-}
-
-/* Sidebar Forms */
-
-.sidebar-icon {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  opacity: 1;
-}
-
-.sidebar-box form input,
-.sidebar-box form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  background: #fff;
-}
-
-.sidebar-box form button {
-  width: 100%;
-  padding: 10px;
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: 0.2s ease;
-}
-
-.sidebar-box form button:hover {
-  background: #222;
-}
-
-/* === HERO POTENZIATO === */
-
-.hero-big {
-  text-align: center;
-  padding: 60px 20px;
-  background: #ffffff;
-  border: 2px solid var(--border-subtle);
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.08), var(--shadow-soft);
-  margin-bottom: 30px;
-}
-
-.hero-big h1 {
-  font-size: 4.2rem;
-  font-weight: 800;
-  margin: 0;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-main);
-  padding: 20px 0;
-}
-
-.hero-favicon {
-  width: 55%;
-  max-width: 480px;
-  height: auto;
-  display: block;
-  margin: 25px auto 20px;
-  opacity: 1;
-}
-
-.hero-sub {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-top: 10px;
-}
-
-@media (max-width: 992px) {
-  .hero-big h1 {
-    font-size: 3.2rem;
-  }
-  .hero-favicon {
-    width: 65%;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-big h1 {
-    font-size: 2.6rem;
-  }
-  .hero-favicon {
-    width: 70%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-big h1 {
-    font-size: 2.2rem;
-  }
-  .hero-favicon {
-    width: 80%;
-  }
-}
-
-/* === Link About === */
-.about-link {
-  display: block;
-  padding: 10px;
-  background: #1e88e5;
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
   text-decoration: none;
-  margin-top: 10px;
-  font-size: 0.95rem;
-  transition: 0.2s ease;
 }
 
-.about-link:hover {
-  background: #1565c0;
-}
+/* ============================================================
+   FEED + ALERT — struttura uniforme
+   ============================================================ */
 
-/* === GOOGLE SEARCH FIX === */
-
-.google-search-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.google-search-wrapper form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.search-google {
-    width: 60%;
-    max-width: 420px;
-}
-
-.search-btn {
-    padding: 10px 18px;
-}
-
-/* === NEWS + FEED + ALERT IMMAGINI === */
-
-/* Reset lista Cyber Alert Live */
 #alert-live {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Struttura uniforme */
 .feed-item,
 .alert-item,
 .box-img-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
-/* Immagini uniformi */
 .feed-thumb,
 .alert-thumb,
 .box-thumb {
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-    border-radius: 6px;
-    flex-shrink: 0;
-}
-
-/* Fix testo Cyber Alert Live */
-.alert-item span {
-    display: inline-block;
-    line-height: 1.25;
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    .feed-thumb,
-    .alert-thumb,
-    .box-thumb {
-        width: 42px;
-        height: 42px;
-    }
-
-    .feed-item,
-    .alert-item,
-    .box-img-row {
-        gap: 8px;
-    }
-}
-.site-header {
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    transition: background 0.25s ease, border-color 0.25s ease;
-}
-.news-card {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.news-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 22px rgba(0, 234, 255, 0.25);
-}
-
-.news-card:hover .news-thumb {
-    transform: scale(1.05);
-}
-
-.news-thumb {
-    transition: transform 0.3s ease;
-}
-/* === SVG ICONS FOR ALERT + FEED === */
-
-.alert-icon,
-.feed-icon {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    display: inline-block;
-}
-
-.alert-item,
-.feed-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .alert-item span,
 .feed-item span {
-    line-height: 1.25;
+  line-height: 1.25;
 }
 
-.scrolled-header {
-    background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(255, 255, 255, 0.55);
+/* Icone SVG */
+.alert-icon,
+.feed-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: inline-block;
 }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .feed-thumb,
+  .alert-thumb,
+  .box-thumb {
+    width: 42px;
+    height: 42px;
+  }
+
+  .feed-item,
+  .alert-item,
+  .box-img-row {
+    gap: 8px;
+  }
+}
+
+/* Loghi feed */
 .feed-logos {
-    display: flex;
-    flex-wrap: wrap;          /* permette di andare a capo su mobile */
-    justify-content: center;  /* centrati */
-    gap: 6px;
-    margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .feed-logos img {
-    width: calc(20% - 6px);   /* 5 loghi per riga, responsive */
-    max-width: 60px;          /* limite massimo */
-    height: auto;
-    border-radius: 6px;
-}
-h1, h2, h3 {
-  font-weight: 600 !important;
-  color: #ffffff !important;
-}
-body,
-.page,
-.hero-big {
-  background: #000 !important;
-}
-:root {
-  --text-main: #ffffff;
-  --text-muted: #e0e0e0;
-}
-
-.hero-big p,
-.hero-big span,
-.sidebar-box p,
-.news-excerpt,
-.news-meta,
-footer {
-  color: var(--text-main) !important;
-}
-
-::placeholder {
-  color: #b5b5b5 !important;
-}
-/* FIX VISIBILITÀ NEWS TICKER */
-.ticker-content {
-  background: #111 !important;
-}
-
-.ticker-item {
-  color: #ffffff !important;
-  font-weight: 500 !important;
-}
-
-.ticker-track {
-  animation: ticker-loop 12s linear infinite !important;
-  display: inline-flex !important;
-  white-space: nowrap !important;
+  width: calc(20% - 6px);
+  max-width: 60px;
+  height: auto;
+  border-radius: 6px;
 }
 /* ============================================================
-   MATRIX RAIN — BLU CYBER (CSS)
+   SEZIONE 4 — HERO + MATRIX + GLOW + GLITCH
    ============================================================ */
 
+/* HERO container */
 .hero-big {
   position: relative;
   overflow: hidden;
-  background: #000 !important;
+  text-align: center;
+  padding: 60px 20px;
+  background: #000;
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.25), var(--shadow-soft);
+  margin-bottom: 30px;
 }
 
-/* Pioggia di codice blu */
+/* ============================================================
+   1) MATRIX RAIN — versione unica, ottimizzata
+   ============================================================ */
+
 .hero-big::before {
   content: "01010100110100101101001010100100110100101010010011010010";
   position: absolute;
   inset: 0;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 22px;
   line-height: 26px;
-  color: rgba(0, 170, 255, 0.25); /* BLU CYBER */
+  color: rgba(0, 170, 255, 0.22);
   white-space: pre;
   animation: matrixRain 18s linear infinite;
-  z-index: 1;
   opacity: 0.35;
+  z-index: 1;
 }
 
 @keyframes matrixRain {
@@ -627,7 +473,7 @@ footer {
 }
 
 /* ============================================================
-   DIGITAL FLOW — BLU CYBER
+   2) DIGITAL FLOW — effetto luce blu dinamica
    ============================================================ */
 
 .hero-big::after {
@@ -645,212 +491,25 @@ footer {
   100% { transform: scale(1.2) translateY(-40px); }
 }
 
-/* Porta il contenuto sopra gli sfondi */
-.hero-big * {
-  position: relative;
-  z-index: 3;
-}
-
 /* ============================================================
-   GLOW NEON BLU CYBER SUL TITOLO
+   3) GLOW NEON BLU CYBER SUL TITOLO
    ============================================================ */
 
 .hero-big h1 {
-  color: #00c8ff !important;
-  font-weight: 600 !important;
+  color: #00c8ff;
+  font-weight: 700;
   text-shadow:
     0 0 8px rgba(0,200,255,0.8),
     0 0 16px rgba(0,200,255,0.6),
     0 0 32px rgba(0,200,255,0.4),
     0 0 48px rgba(0,200,255,0.25);
-}
-
-.hero-sub {
-  color: #e0e0e0 !important;
-  font-weight: 500;
-}
-
-/* ============================================================
-   NEWS — TESTI PIÙ LEGGIBILI
-   ============================================================ */
-
-.news-card h2,
-.news-title {
-  color: #ffffff !important;
-  font-weight: 600 !important;
-}
-
-.news-excerpt {
-  color: #e0e0e0 !important;
-}
-
-.news-meta {
-  color: #b5b5b5 !important;
-}
-
-/* Box più pieni e contrastati */
-.news-card {
-  border: 1px solid rgba(0,170,255,0.20) !important;
-  box-shadow: 0 0 12px rgba(0,170,255,0.10);
-}
-
-/* Immagini più grandi */
-.news-thumb {
-  width: 140px !important;
-  height: 90px !important;
-}
-
-/* ============================================================
-   TICKER — FIX COMPLETO
-   ============================================================ */
-
-.ticker-content {
-  background: #111 !important;
-}
-
-.ticker-item {
-  color: #ffffff !important;
-  font-weight: 500 !important;
-  margin-right: 40px !important;
-}
-
-.ticker-track {
-  display: inline-flex !important;
-  white-space: nowrap !important;
-  animation: ticker-loop 12s linear infinite !important;
-}
-
-@keyframes ticker-loop {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ============================================================
-   FORM & PLACEHOLDER — PIÙ LEGGIBILI
-   ============================================================ */
-
-.sidebar-box input,
-.sidebar-box textarea {
-  color: #ffffff !important;
-}
-
-.sidebar-box input::placeholder,
-.sidebar-box textarea::placeholder {
-  color: #b5b5b5 !important;
-}
-
-/* ============================================================
-   FINE VERSIONE COMPLETA BLU CYBER
-   ============================================================ */
-/* ============================================================
-   CYBER MATRIX PRO — Effetti avanzati
-   ============================================================ */
-
-.hero-big {
   position: relative;
-  overflow: hidden;
-  background: #000 !important;
+  z-index: 5;
 }
 
 /* ============================================================
-   1) COLONNE VERTICALI A VELOCITÀ DIVERSE
+   4) GLITCH LEGGERO — versione unica, non invasiva
    ============================================================ */
-
-.hero-big::before,
-.hero-big::after,
-.hero-big .matrix-layer {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* Layer 1 — lento */
-.hero-big::before {
-  background: repeating-linear-gradient(
-      0deg,
-      rgba(0, 170, 255, 0.18) 0px,
-      rgba(0, 170, 255, 0.18) 2px,
-      transparent 2px,
-      transparent 6px
-  );
-  animation: matrixSlow 18s linear infinite;
-  opacity: 0.25;
-  z-index: 1;
-}
-
-@keyframes matrixSlow {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-/* Layer 2 — medio */
-.hero-big::after {
-  background: repeating-linear-gradient(
-      0deg,
-      rgba(0, 170, 255, 0.22) 0px,
-      rgba(0, 170, 255, 0.22) 2px,
-      transparent 2px,
-      transparent 4px
-  );
-  animation: matrixMid 12s linear infinite;
-  opacity: 0.30;
-  z-index: 2;
-}
-
-@keyframes matrixMid {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-/* Layer 3 — veloce */
-.hero-big .matrix-layer {
-  background: repeating-linear-gradient(
-      0deg,
-      rgba(0, 170, 255, 0.28) 0px,
-      rgba(0, 170, 255, 0.28) 2px,
-      transparent 2px,
-      transparent 3px
-  );
-  animation: matrixFast 6s linear infinite;
-  opacity: 0.35;
-  z-index: 3;
-}
-
-@keyframes matrixFast {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-/* ============================================================
-   2) EFFETTO “PIOGGIA DI CARATTERI” (VERA)
-   ============================================================ */
-
-.hero-big::before {
-  mask-image: linear-gradient(180deg, transparent 0%, black 20%, black 80%, transparent 100%);
-}
-
-.hero-big::after {
-  mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 90%, transparent 100%);
-}
-
-.hero-big .matrix-layer {
-  mask-image: linear-gradient(180deg, transparent 0%, black 40%, black 100%);
-}
-
-/* ============================================================
-   3) EFFETTO GLITCH BLU
-   ============================================================ */
-
-.hero-big h1 {
-  position: relative;
-  color: #00c8ff !important;
-  font-weight: 600 !important;
-  text-shadow:
-    0 0 8px rgba(0,200,255,0.8),
-    0 0 16px rgba(0,200,255,0.6),
-    0 0 32px rgba(0,200,255,0.4);
-}
 
 .hero-big h1::before,
 .hero-big h1::after {
@@ -858,20 +517,21 @@ footer {
   position: absolute;
   left: 0;
   top: 0;
-  opacity: 0.6;
+  opacity: 0.5;
   mix-blend-mode: screen;
+  z-index: 4;
 }
 
 .hero-big h1::before {
   color: #00aaff;
   transform: translate(2px, 0);
-  animation: glitch1 1.8s infinite;
+  animation: glitch1 2.2s infinite;
 }
 
 .hero-big h1::after {
   color: #0088ff;
   transform: translate(-2px, 0);
-  animation: glitch2 2.2s infinite;
+  animation: glitch2 2.8s infinite;
 }
 
 @keyframes glitch1 {
@@ -887,252 +547,206 @@ footer {
 }
 
 /* ============================================================
-   4) EFFETTO SCANLINE CYBERPUNK
+   5) SCANLINE CYBERPUNK — sottile e non invasivo
    ============================================================ */
 
-.hero-big::after {
-  background-blend-mode: overlay;
-}
-
-.hero-big::before,
-.hero-big::after,
-.hero-big .matrix-layer {
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2) 0px,
-      rgba(0, 0, 0, 0.2) 1px,
-      transparent 1px,
-      transparent 3px
-    );
+.hero-big .scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0px,
+    rgba(0, 0, 0, 0.25) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.25;
+  z-index: 3;
+  pointer-events: none;
 }
 
 /* ============================================================
-   Porta il contenuto sopra tutti gli effetti
+   6) Testi secondari
    ============================================================ */
 
-.hero-big * {
+.hero-sub {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-top: 10px;
   position: relative;
-  z-index: 10;
+  z-index: 5;
 }
-/* OVERLAY SCURO PER LE CARD */
-.news-card {
+
+/* Immagine centrale */
+.hero-favicon {
+  width: 55%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 25px auto 20px;
+  opacity: 1;
   position: relative;
-  overflow: hidden;
+  z-index: 5;
 }
 
-.news-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* intensità regolabile */
-  z-index: 1;
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-big h1 { font-size: 3.2rem; }
+  .hero-favicon { width: 65%; }
 }
 
-/* Porta il contenuto sopra l’overlay */
-.news-card * {
-  position: relative;
-  z-index: 2;
-}
-.news-card h2,
-.news-title {
-  color: #ffffff !important;
-  font-weight: 600 !important;
+@media (max-width: 768px) {
+  .hero-big h1 { font-size: 2.6rem; }
+  .hero-favicon { width: 70%; }
 }
 
-.news-excerpt {
-  color: #e8e8e8 !important;
+@media (max-width: 480px) {
+  .hero-big h1 { font-size: 2.2rem; }
+  .hero-favicon { width: 80%; }
 }
+/* ============================================================
+   SEZIONE 5 — SIDEBAR + FORM + UTILITY
+   ============================================================ */
 
-.news-meta {
-  color: #b5b5b5 !important;
-}
-.news-card {
-  border: 1px solid rgba(0,170,255,0.25) !important;
-  box-shadow: 0 0 12px rgba(0,170,255,0.15);
-}
-.news-card {
-  padding: 18px !important;
-}
-/* OVERLAY SCURO SEMPRE ATTIVO SULLE CARD */
-.news-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.news-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* intensità perfetta per il tuo tema */
-  z-index: 1;
-  opacity: 1 !important; /* sempre visibile */
-}
-
-/* Porta il contenuto sopra l’overlay */
-.news-card * {
-  position: relative;
-  z-index: 2;
-}
-
-/* Testo più luminoso */
-.news-card h2,
-.news-title {
-  color: #ffffff !important;
-  font-weight: 600 !important;
-}
-
-.news-excerpt {
-  color: #e8e8e8 !important;
-}
-
-.news-meta {
-  color: #b5b5b5 !important;
-}
-
-/* Bordo ciano leggero per separare i box */
-.news-card {
-  border: 1px solid rgba(0,170,255,0.25) !important;
-  box-shadow: 0 0 12px rgba(0,170,255,0.15);
-}
-
-/* Padding più comodo */
-.news-card {
-  padding: 18px !important;
-}
-/* LAYOUT A DUE COLONNE */
-.cyber-center {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-/* COLONNA SINISTRA */
-.cyber-left {
-  width: 65%;
-}
-
-/* COLONNA DESTRA (IMMAGINI) */
-.cyber-right {
-  width: 35%;
+/* Sidebar container */
+.sidebar {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.cyber-img {
-  width: 100%;
-  border-radius: 10px;
-  opacity: 0.85;
-  border: 1px solid rgba(0,170,255,0.25);
-  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+/* Box sidebar */
+.sidebar-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-soft);
 }
 
-/* PROGRESS BAR */
-.monitor-box {
-  margin-bottom: 18px;
-}
-
-.monitor-box span {
-  color: #00c8ff;
+.sidebar-box h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: var(--accent);
   font-weight: 600;
-  font-size: 15px;
 }
 
-.monitor-bar {
+/* Icone / immagini sidebar */
+.sidebar-icon {
   width: 100%;
-  height: 10px;
-  background: #111;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  opacity: 0.9;
   border: 1px solid rgba(0,170,255,0.25);
-  border-radius: 6px;
-  margin-top: 6px;
-  overflow: hidden;
 }
 
-.monitor-bar div {
-  height: 100%;
-  background: linear-gradient(90deg, #0077ff, #00eaff);
-  animation: pulse 2s infinite alternate;
-}
-
-@keyframes pulse {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
-}
-
-/* LISTE */
-.attack-list li,
-.security-tips li,
-.tools-download li {
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(0,170,255,0.15);
-  font-size: 15px;
-}
-
-.tools-download a {
-  color: #00c8ff;
-  text-decoration: none;
-}
-
-.tools-download a:hover {
-  text-decoration: underline;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .cyber-center {
-    flex-direction: column;
-  }
-  .cyber-left, .cyber-right {
-    width: 100%;
-  }
-}
-.box-title-icon {
-  width: 42px;
-  height: 42px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-right: 10px;
-  flex-shrink: 0;
-}
-
-.box-title-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Form */
+.sidebar-box form input,
+.sidebar-box form textarea {
+  width: 100%;
+  padding: 10px;
   margin-bottom: 10px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: #0d0d0d;
+  color: var(--text-main);
 }
+
+.sidebar-box form input::placeholder,
+.sidebar-box form textarea::placeholder {
+  color: #b5b5b5;
+}
+
+/* Pulsante form */
+.sidebar-box form button {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.sidebar-box form button:hover {
+  background: #00bcd4;
+}
+
+/* Utility */
+.text-muted {
+  color: var(--text-muted);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
 /* ============================================================
-   TITOLI CON ICONA — PER TUTTI I WIDGET
+   SEZIONE 6 — MEDIA QUERY + RESPONSIVE + FIX FINALI
    ============================================================ */
 
-.box-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+/* Layout mobile */
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
 }
 
-.box-title-row h2 {
-  margin: 0;
-  padding: 0;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #ffffff;
+/* Hero */
+@media (max-width: 992px) {
+  .hero-big h1 { font-size: 3.2rem; }
+  .hero-favicon { width: 65%; }
 }
 
-.box-title-icon {
-  width: 46px;
-  height: 46px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-  border: 1px solid rgba(0,170,255,0.25);
-  box-shadow: 0 0 10px rgba(0,170,255,0.25);
-  opacity: 0.95;
+@media (max-width: 768px) {
+  .hero-big h1 { font-size: 2.6rem; }
+  .hero-favicon { width: 70%; }
 }
 
-/* Riduzione su mobile */
+@media (max-width: 480px) {
+  .hero-big h1 { font-size: 2.2rem; }
+  .hero-favicon { width: 80%; }
+}
+
+/* News card mobile */
+@media (max-width: 600px) {
+  .news-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .news-thumb {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Feed + Alert mobile */
+@media (max-width: 480px) {
+  .feed-thumb,
+  .alert-thumb,
+  .box-thumb {
+    width: 42px;
+    height: 42px;
+  }
+
+  .feed-item,
+  .alert-item,
+  .box-img-row {
+    gap: 8px;
+  }
+}
+
+/* Box title icon mobile */
 @media (max-width: 480px) {
   .box-title-icon {
     width: 40px;
@@ -1142,22 +756,49 @@ footer {
     font-size: 1.2rem;
   }
 }
-/* === FIX: Mantieni sidebar attiva ma forza i widget in verticale === */
 
-.main-column {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 20px !important;
+/* Google search responsive */
+.google-search-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.widget-large {
-    width: 100% !important;
-    display: block !important;
+.google-search-wrapper form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
-.page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 16px;
-  display: block;              /* ← invece di grid */
+
+@media (max-width: 480px) {
+  .google-search-wrapper form {
+    flex-direction: column;
+    width: 100%;
+  }
 }
+
+/* Fix immagini feed */
+.feed-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.feed-logos img {
+  width: calc(20% - 6px);
+  max-width: 60px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Fix generale per evitare overflow */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix per evitare spazi indesiderati */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
