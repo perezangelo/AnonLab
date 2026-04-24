@@ -13,6 +13,14 @@ async function loadPartial(id, file) {
         const html = await res.text();
         el.innerHTML = html;
 
+        // Attiva Speedtest solo dopo che la sidebar è caricata
+        if (id === "sidebar") {
+            const btn = document.getElementById("speedtest-start");
+            if (btn && typeof startSpeedTest === "function") {
+                btn.addEventListener("click", startSpeedTest);
+            }
+        }
+
     } catch (err) {
         console.error(err);
         el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
