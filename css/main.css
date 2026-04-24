@@ -1161,3 +1161,18 @@ footer {
   padding: 16px;
   display: block;              /* ← invece di grid */
 }
+.speedtest-home-box {
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.speedtest-home-img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.speedtest-home-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.4);
+}
