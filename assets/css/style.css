@@ -1,545 +1,312 @@
-/* RESET DI BASE */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #050608;
-    color: #e5e5e5;
-    line-height: 1.5;
-}
-
-/* HEADER */
-.ts-header {
-    border-bottom: 1px solid #222;
-    background: #050608;
-    padding: 10px 5vw 0 5vw;
-}
-
-.ts-header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-}
-
-.ts-logo {
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.ts-logo span {
-    color: #00ff88;
-}
-
-.ts-header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.85rem;
-    color: #aaa;
-}
-
-.ts-live-badge {
-    background: #ff1744;
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-}
-
-.ts-nav {
-    display: flex;
-    gap: 20px;
-    padding: 10px 0 12px 0;
-    border-top: 1px solid #111;
-    border-bottom: 1px solid #111;
-    font-size: 0.9rem;
-}
-
-.ts-nav a {
-    text-decoration: none;
-    color: #bfbfbf;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 600;
-    font-size: 0.8rem;
-}
-
-.ts-nav a:hover {
-    color: #00ff88;
-}
-
-/* TICKER */
-.ts-ticker {
-    display: flex;
-    align-items: center;
-    background: #050608;
-    border-bottom: 1px solid #111;
-    padding: 8px 5vw;
-    gap: 10px;
-    overflow: hidden;
-}
-
-.ts-ticker-label {
-    background: #ff1744;
-    color: #fff;
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    flex-shrink: 0;
-}
-
-.ts-ticker-track {
-    overflow: hidden;
-    white-space: nowrap;
-    flex: 1;
-}
-
-.ts-ticker-content {
-    display: inline-block;
-    animation: ts-ticker-scroll 25s linear infinite;
-}
-
-.ts-ticker-content span {
-    margin-right: 60px;
-    font-size: 0.85rem;
-    color: #d0d0d0;
-}
-
-@keyframes ts-ticker-scroll {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
-
-/* MAIN LAYOUT */
-.ts-main {
-    display: grid;
-    grid-template-columns: 2.3fr 1fr;
-    gap: 30px;
-    padding: 25px 5vw 40px 5vw;
-}
-
-/* HERO */
-.ts-hero-card {
-    display: grid;
-    grid-template-columns: 1.4fr 1.6fr;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.ts-hero-image {
-    background: linear-gradient(135deg, #111 0%, #333 40%, #00ff88 100%);
-    border-radius: 10px;
-    min-height: 220px;
-}
-
-.ts-hero-content h1 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-}
-
-.ts-hero-content p {
-    font-size: 0.95rem;
-    color: #c0c0c0;
-    margin-bottom: 10px;
-}
-
-.ts-meta {
-    display: flex;
-    gap: 8px;
-    font-size: 0.8rem;
-    color: #999;
-}
-
-/* TAGS */
-.ts-tag {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 999px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-}
-
-.ts-tag-red {
-    background: rgba(255, 23, 68, 0.15);
-    color: #ff1744;
-}
-
-.ts-tag-green {
-    background: rgba(0, 255, 136, 0.12);
-    color: #00ff88;
-}
-
-.ts-tag-blue {
-    background: rgba(33, 150, 243, 0.15);
-    color: #2196f3;
-}
-
-.ts-tag-yellow {
-    background: rgba(255, 214, 0, 0.15);
-    color: #ffd600;
-}
-
-/* NEWS GRID */
-.ts-news-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-}
-
-.ts-news-card {
-    display: grid;
-    grid-template-columns: 1.1fr 2fr;
-    gap: 15px;
-    padding: 12px;
-    border-radius: 10px;
-    background: #080a0f;
-    border: 1px solid #111;
-}
-
-.ts-news-card:hover {
-    border-color: #222;
-    background: #0b0e16;
-}
-
-.ts-news-image {
-    border-radius: 8px;
-    min-height: 110px;
-    background-size: cover;
-    background-position: center;
-}
-
-/* Placeholder immagini */
-.img-1 {
-    background-image: linear-gradient(135deg, #111, #00ff88);
-}
-.img-2 {
-    background-image: linear-gradient(135deg, #111, #2196f3);
-}
-.img-3 {
-    background-image: linear-gradient(135deg, #111, #ff1744);
-}
-
-.ts-news-body h2 {
-    font-size: 1rem;
-    margin-bottom: 6px;
-}
-
-.ts-news-body p {
-    font-size: 0.9rem;
-    color: #b5b5b5;
-    margin-bottom: 8px;
-}
-
-/* SIDEBAR */
-.ts-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.ts-widget {
-    background: #080a0f;
-    border-radius: 10px;
-    border: 1px solid #111;
-    padding: 14px;
-}
-
-.ts-widget h3 {
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-}
-
-/* FEED LIST */
-.ts-feed-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 0.85rem;
-}
-
-.ts-feed-time {
-    display: inline-block;
-    min-width: 70px;
-    color: #888;
-    font-size: 0.75rem;
-}
-
-.ts-feed-text {
-    color: #d0d0d0;
-}
-
-/* METEO */
-.ts-meteo {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    font-size: 0.9rem;
-}
-
-.ts-meteo-city {
-    font-weight: 600;
-}
-
-.ts-meteo-temp {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #00ff88;
-}
-
-/* OROSCOPO */
-.ts-oroscopo p {
-    font-size: 0.85rem;
-    color: #c0c0c0;
-}
-
-/* FOOTER */
-.ts-footer {
-    border-top: 1px solid #111;
-    padding: 18px 5vw 25px 5vw;
-    font-size: 0.8rem;
-    color: #888;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-}
-
-.ts-footer-links {
-    display: flex;
-    gap: 15px;
-}
-
-.ts-footer-links a {
-    color: #aaa;
-    text-decoration: none;
-    font-size: 0.8rem;
-}
-
-.ts-footer-links a:hover {
-    color: #00ff88;
-}
-
-/* RESPONSIVE */
-@media (max-width: 960px) {
-    .ts-main {
-        grid-template-columns: 1fr;
-    }
-
-    .ts-hero-card {
-        grid-template-columns: 1fr;
-    }
-
-    .ts-news-card {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .ts-header-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
-
-    .ts-nav {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .ts-ticker {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-.news-ticker {
-    width: 100%;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.6);
-    border-top: 1px solid #0f0;
-    border-bottom: 1px solid #0f0;
-    padding: 8px 0;
-    position: relative;
-}
-
-.ticker-track {
-    display: inline-block;
-    white-space: nowrap;
-    animation: ticker 20s linear infinite;
-}
-
-.ticker-track a {
-    display: inline-block;
-    margin-right: 50px;
-    color: #0f0;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.ticker-track a:hover {
-    text-decoration: underline;
-}
-
-@keyframes ticker {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.news-card {
-    background: rgba(0,0,0,0.4);
-    border: 1px solid #0f0;
-    padding: 15px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-.news-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 12px #0f0;
-}
-
-.news-card img {
-    width: 100%;
-    border: 1px solid #0f0;
-    margin-bottom: 10px;
-}
-
-.news-card h2 a {
-    color: #0f0;
-    text-decoration: none;
-}
-
-.news-card h2 a:hover {
-    text-decoration: underline;
-}
-
-.tags {
-    margin: 8px 0;
-}
-
-.tags span {
-    display: inline-block;
-    border: 1px solid #0f0;
-    padding: 2px 6px;
-    margin-right: 6px;
-    font-size: 11px;
-    opacity: 0.8;
-}
-
-.site-footer {
-    margin-top: 40px;
-    padding: 30px 20px;
-    border-top: 1px solid #0f0;
-    background: rgba(0,0,0,0.7);
-}
-
-.footer-columns {
-    max-width: 1100px;
-    margin: 0 auto 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.footer-columns h3 {
-    color: #0f0;
-    margin-bottom: 10px;
-}
-
-.footer-columns ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-columns li {
-    margin-bottom: 6px;
-}
-
-.footer-columns a {
-    color: #0f0;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.footer-columns a:hover {
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    max-width: 1100px;
-    margin: 0 auto;
-    font-size: 13px;
-    opacity: 0.7;
-}
-/* Stile personalizzato per il box MisuraInternet */
-.sidebar .misura-box {
-    width: 85% !important;
-    margin: 0 auto 25px auto !important;
-    padding: 15px !important;
-    background: #ffffff !important;
-    border-radius: 12px !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-.sidebar .misura-box:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.12) !important;
-}
-
-.sidebar .misura-box h3 {
-    margin-top: 0 !important;
-    font-size: 1.2rem !important;
-    color: #222 !important;
-    font-weight: 600 !important;
-}
-
-.sidebar .misura-box img {
-    width: 100% !important;
-    border-radius: 10px !important;
-    display: block !important;
-}
-
-.sidebar .misura-box .misura-desc {
-    font-size: 0.95rem !important;
-    color: #444 !important;
-    margin: 12px 0 15px 0 !important;
-    line-height: 1.4 !important;
-}
-
-.sidebar .misura-box .misura-btn {
-    display: block !important;
-    text-align: center !important;
-    padding: 10px !important;
-    background: #0057b8 !important;
-    color: #fff !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-    transition: background 0.2s ease !important;
-}
-
-.sidebar .misura-box .misura-btn:hover {
-    background: #004a9c !important;
-}
+    <!-- ============================
+     BLOCCO 1 — ABOUT + FORM INFO
+============================= -->
+
+<!-- BOX ABOUT -->
+<div class="sidebar-box">
+    <h3>About</h3>
+    <a href="/about.html" class="about-link">Scopri di più su AnonLab</a>
+</div>
+
+<!-- FORM 1 — RICHIESTA INFO -->
+<div class="sidebar-box">
+    <img src="/img/envelope.png" class="sidebar-icon" alt="Richiesta informazioni">
+    <h3>Richiedi Informazioni</h3>
+    <form action="mailto:info@anonlab.it" method="POST" enctype="text/plain">
+        <input type="text" name="name" placeholder="Il tuo nome" required>
+        <input type="email" name="email" placeholder="La tua email" required>
+        <textarea name="message" placeholder="Scrivi la tua richiesta..." required></textarea>
+        <button type="submit">Invia</button>
+    </form>
+</div>
+<!-- ============================
+     BLOCCO 2 — FORM FAQ + REGISTRAZIONE
+============================= -->
+
+<!-- FORM 2 — FAQ & DOMANDE -->
+<div class="sidebar-box">
+    <img src="/img/support.png" class="sidebar-icon" alt="FAQ e Domande">
+    <h3>FAQ & Domande</h3>
+    <form action="#" method="POST">
+        <input type="text" name="question" placeholder="La tua domanda" required>
+        <textarea name="details" placeholder="Dettagli (opzionale)"></textarea>
+        <button type="submit">Invia</button>
+    </form>
+</div>
+
+<!-- FORM 3 — REGISTRAZIONE UTENTE -->
+<div class="sidebar-box">
+    <img src="/img/register.png" class="sidebar-icon" alt="Registrazione">
+    <h3>Registrazione Utente</h3>
+    <form action="#" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Registrati</button>
+    </form>
+</div>
+<!-- ============================
+     BLOCCO FEED DAL MONDO 
+============================= -->
+
+<div class="sidebar-box">
+
+    <!-- Immagini sopra al titolo -->
+<div class="feed-logos">
+    <img src="/img/skytg24.png" alt="Sky TG24">
+    <img src="/img/ansa.png" alt="ANSA">
+    <img src="/img/bbc.png" alt="BBC News">
+    <img src="/img/reuters.png" alt="Reuters">
+    <img src="/img/euronews.png" alt="Euronews">
+</div>
+
+    <h3>Feed Euronews</h3>
+
+    <ul style="font-size:14px; line-height:1.5; padding-left:18px; margin:0;">
+        <li><a href="https://www.euronews.com/news" target="_blank">Ultime notizie</a></li>
+        <li><a href="https://www.euronews.com/world" target="_blank">Mondo</a></li>
+        <li><a href="https://www.euronews.com/my-europe/europe-news" target="_blank">Europa</a></li>
+        <li><a href="https://www.euronews.com/business" target="_blank">Economia</a></li>
+        <li><a href="https://www.euronews.com/next" target="_blank">Tecnologia</a></li>
+    </ul>
+
+</div>
+<!-- ============================
+     BLOCCO METEO — YR.NO (STATICO)
+============================= -->
+
+<div class="sidebar-box">
+    <h3>Meteo</h3>
+
+    <a href="https://www.yr.no/en/forecast/daily-table/1-316385" target="_blank" style="text-decoration:none; color:inherit;">
+        <div style="text-align:center; margin-bottom:10px;">
+            <img src="/img/meteo.png" alt="Meteo Varese" style="width:100%; border-radius:6px;">
+        </div>
+    </a>
+
+    <div style="font-size:14px; line-height:1.4;">
+        <strong>Previsioni Varese (fonte: Yr.no)</strong><br><br>
+
+        <img src="https://www.yr.no/en/content/1-316385/meteogram.svg" 
+             alt="Meteogram Varese" 
+             style="width:100%; border-radius:6px;">
+    </div>
+</div>
+<!-- ============================
+     BLOCCO 4 — SOCIAL + VIDEO
+============================= -->
+
+<!-- SOCIAL NETWORK -->
+<div class="sidebar-box">
+    <h3>Social Network</h3>
+    <div class="social-icons">
+
+        <!-- Facebook -->
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#1877F2" d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0022 12"/>
+            </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#E4405F" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.3A4.7 4.7 0 1016.7 12 4.7 4.7 0 0012 7.3zm0 7.7A3 3 0 1115 12a3 3 0 01-3 3zm4.8-8.9a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"/>
+            </svg>
+        </a>
+
+        <!-- X / Twitter -->
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#000000" d="M18.2 2H21l-6.4 7 7.4 9H16l-4.7-6-5.3 6H3l6.8-7.7L2.8 2h4.3l4.2 5.6L18.2 2z"/>
+            </svg>
+        </a>
+
+    </div>
+</div>
+
+<!-- VIDEO & STREAMING -->
+<div class="sidebar-box">
+    <h3>Video & Streaming</h3>
+    <div class="social-icons">
+
+        <!-- YouTube -->
+        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#FF0000" d="M23 7.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C16.6 3.5 12 3.5 12 3.5h-.1s-4.6 0-8.1.4c-.4.1-1.3.1-2.1 1C1.2 5.6 1 7.2 1 7.2S.8 9.1.8 11v2c0 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.8.2 7.8.4 7.8.4s4.6 0 8.1-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.2-1.9.2-3.8v-2c0-1.9-.2-3.8-.2-3.8zM10 15.5V8.5l6 3.5-6 3.5z"/>
+            </svg>
+        </a>
+
+        <!-- Twitch -->
+        <a href="https://twitch.tv" target="_blank" aria-label="Twitch">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#9146FF" d="M4 2L2 6v14h6v2h2l2-2h4l4-4V2H4zm16 12l-2 2h-4l-2 2v-2H6V4h14v10z"/>
+            </svg>
+        </a>
+
+        <!-- Vimeo -->
+        <a href="https://vimeo.com" target="_blank" aria-label="Vimeo">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#1AB7EA" d="M22.3 7.3c-.1 3.1-2.3 7.3-6.5 12.5-4.3 5.3-7.9 5.7-10.7 1.2-.9-1.6-1.8-3.2-2.7-4.8-.9-1.6-.4-2.9 1.4-3.8 1.1-.5 2-.4 2.6.4.6.8 1.1 1.6 1.6 2.4.5.8.9 1.2 1.2 1.2.3 0 .8-.4 1.4-1.2.6-.8.9-1.5.9-2.1 0-.8-.3-1.5-.9-2.1-.6-.6-1.3-.9-2.1-.9-.8 0-1.4.2-1.9.6-.5.4-.9.6-1.2.6-.3 0-.6-.2-.9-.6-.3-.4-.4-.8-.4-1.2 0-.8.4-1.5 1.2-2.1.8-.6 1.8-.9 3-.9 1.8 0 3.3.6 4.5 1.8 1.2 1.2 1.8 2.7 1.8 4.5 0 1.2-.3 2.4-.9 3.6-.6 1.2-1.4 2.3-2.4 3.3 2.3-2.6 4.1-5.2 5.4-7.8 1.3-2.6 2-4.6 2-6.1 0-.8-.2-1.4-.6-1.8-.4-.4-.9-.6-1.5-.6-.6 0-1.1.2-1.5.6-.4.4-.6.9-.6 1.5z"/>
+            </svg>
+        </a>
+
+    </div>
+</div>
+<!-- ============================
+     BLOCCO 5 — MESSAGGISTICA + DEVELOPER/TECH/CREATIVE
+============================= -->
+
+<!-- MESSAGGISTICA & COMMUNITY -->
+<div class="sidebar-box">
+    <h3>Messaggistica & Community</h3>
+    <div class="social-icons">
+
+        <!-- WhatsApp -->
+        <a href="https://www.whatsapp.com" target="_blank" aria-label="WhatsApp">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#25D366" d="M12 2A10 10 0 002 12a9.9 9.9 0 001.5 5.3L2 22l4.9-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.2-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1112 20zm4.4-5.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.9 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.3.3-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.8 3.5 2.2 1 2.2.7 2.6.7.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z"/>
+            </svg>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://telegram.org" target="_blank" aria-label="Telegram">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#0088CC" d="M9.9 15.6l-.4 4c.6 0 .9-.3 1.2-.6l2.9-2.8 4.9 3.6c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.4-1.7-1.3-1.4L1.7 9.3c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 11.1-7c.5-.3.9-.1.5.2"/>
+            </svg>
+        </a>
+
+        <!-- Discord -->
+        <a href="https://discord.com" target="_blank" aria-label="Discord">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#5865F2" d="M20 4a16 16 0 00-4-.9l-.2.4a14 14 0 00-3.6 0L12 3a16 16 0 00-4 .9C5.2 5.3 4 8 4 8v8s1.2 2.7 4 4a16 16 0 004 .9l.2-.4a14 14 0 003.6 0l.2.4a16 16 0 004-.9c2.8-1.3 4-4 4-4V8s-1.2-2.7-4-4zm-9 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+            </svg>
+        </a>
+
+    </div>
+</div>
+
+<!-- DEVELOPER / TECH / CREATIVE -->
+<div class="sidebar-box">
+    <h3>Developer / Tech / Creative</h3>
+    <div class="social-icons">
+
+        <!-- GitHub -->
+        <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#000000" d="M12 .5A12 12 0 000 12.7c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 1.8 2.6 1.3 3.2 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.6-1.4-5.6-6.3 0-1.4.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.3 11.3 0 016.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.4 0 4.9-2.9 6-5.6 6.3.4.3.8 1 .8 2v3c0 .3.2.7.8.6A12.2 12.2 0 0024 12.7 12 12 0 0012 .5z"/>
+            </svg>
+        </a>
+
+        <!-- Stack Overflow -->
+        <a href="https://stackoverflow.com" target="_blank" aria-label="Stack Overflow">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#F48024" d="M17 20v-6h2v8H3v-8h2v6h12zM7 18h8v-2H7v2zm.2-4.3l8.1 1.7.4-2-8.1-1.7-.4 2zm1.3-4.7l7.5 3.5.8-1.8-7.5-3.5-.8 1.8zm2.6-4.5l6.4 5 .1-2.2-6.4-5-.1 2.2zm4.9-3.5l-1.4 1.4 4.9 4.9 1.4-1.4-4.9-4.9z"/>
+            </svg>
+        </a>
+
+        <!-- Dribbble -->
+        <a href="https://dribbble.com" target="_blank" aria-label="Dribbble">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#EA4C89" d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6.3c1 1.6 1.3 3.5.9 5.3-2.2-.4-4.3-.4-6.3-.1-.2-.5-.4-1-.7-1.5 2.4-1 4.3-2.4 6.1-3.7zM12 4c1.7 0 3.3.5 4.7 1.4-1.6 1.2-3.3 2.4-5.3 3.3A32 32 0 009.2 5c.9-.4 1.9-.7 2.8-.8zm-4.6 1.9c1.1 1.4 2.1 2.9 3 4.4-2.2.6-4.5.9-6.9.9a8 8 0 013.9-5.3zM4 12v-.3c2.8 0 5.4-.4 7.9-1.2.3.5.6 1.1.9 1.7-2.4.8-4.6 2.1-6.6 3.8A8 8 0 014 12zm3.4 6.3c1.7-1.7 3.7-3 5.9-3.8.2.5.4 1 .6 1.5-1.8.5-3.6 1.3-5.3 2.4-.4-.1-.8-.1-1.2-.1zm4.6 1.7c-.9 0-1.8-.1-2.6-.4 1.5-1 3.2-1.7 5-2.2.3.8.5 1.6.7 2.4A8 8 0 0112 20zm4.8-1.2c-.2-.9-.4-1.7-.7-2.5 1.7-.2 3.4-.1 5.2.2a8 8 0 01-4.5 2.3z"/>
+            </svg>
+        </a>
+
+    </div>
+</div>
+<!-- ============================
+     BLOCCO 6 — RSS + MISURAINTERNET
+============================= -->
+
+<!-- RSS & AGGREGATORI -->
+<div class="sidebar-box">
+    <h3>RSS & Aggregatori</h3>
+    <div class="social-icons">
+
+        <!-- Feedly -->
+        <a href="https://feedly.com" target="_blank" aria-label="Feedly">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#2BB24C" d="M12 2a10 10 0 00-7.1 17.1L12 22l7.1-2.9A10 10 0 0012 2zm0 18l-5.3-2.2A8 8 0 1112 20z"/>
+            </svg>
+        </a>
+
+        <!-- Inoreader -->
+        <a href="https://www.inoreader.com" target="_blank" aria-label="Inoreader">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#1F8DED" d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 14.5h-7v-2h7v2zm1-4h-9v-2h9v2zm0-4h-9v-2h9v2z"/>
+            </svg>
+        </a>
+
+        <!-- Flipboard -->
+        <a href="https://flipboard.com" target="_blank" aria-label="Flipboard">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#E12828" d="M3 3v18h18V3H3zm14 8h-4v4h-4V7h8v4z"/>
+            </svg>
+        </a>
+
+    </div>
+</div>
+
+<!-- MISURAINTERNET -->
+<div class="sidebar-box misura-box">
+    <h3>MisuraInternet</h3>
+
+    <div class="misura-img">
+        <img src="/img/misurainternet.png" alt="MisuraInternet AGCOM" style="width:100%; border-radius:6px;">
+    </div>
+
+    <p class="misura-desc">
+        Servizio ufficiale AGCOM per la misura certificata della qualità della tua connessione Internet.
+    </p>
+
+    <a href="https://www.misurainternet.it" target="_blank" class="misura-btn" style="
+        display:block;
+        text-align:center;
+        padding:10px;
+        background:#0057b8;
+        color:#fff;
+        border-radius:6px;
+        margin-top:10px;
+        text-decoration:none;
+        font-weight:bold;
+    ">
+        Vai al sito ufficiale
+    </a>
+</div>
+<!-- ============================
+     BLOCCO 7 — CALENDARIO (CON IMMAGINE)
+============================= -->
+
+<div class="sidebar-box">
+    <h3>Calendario</h3>
+
+    <div style="text-align:center; margin-bottom:10px;">
+        <img src="/img/calendar.png" alt="Calendario" style="width:100%; border-radius:6px;">
+    </div>
+
+    <iframe 
+        src="https://calendar.google.com/calendar/embed?src=c_classroom6b3d5b0b%40group.calendar.google.com&ctz=Europe%2FRome"
+        style="border:0; width:100%; height:300px; border-radius:6px;"
+        frameborder="0"
+        scrolling="no">
+    </iframe>
+</div>
+<!-- ============================
+     BLOCCO 8 — GOOGLE MAPS (CON IMMAGINE)
+============================= -->
+
+<div class="sidebar-box">
+    <h3>Google Maps</h3>
+
+    <div style="text-align:center; margin-bottom:10px;">
+        <img src="/img/google maps.png" alt="Google Maps" style="width:100%; border-radius:6px;">
+    </div>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10672.983!2d9.0!3d45.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v0000000000000"
+        width="100%"
+        height="250"
+        style="border:0; border-radius:6px;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+</div>
