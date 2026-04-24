@@ -1155,3 +1155,9 @@ footer {
     width: 100% !important;
     display: block !important;
 }
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: block;              /* ← invece di grid */
+}
