@@ -85,3 +85,15 @@
     .hero-favicon { width: 150px; }
     .hero-big h1 { font-size: 1.9rem; }
 }
+/* Link "Scopri di più su AnonLab" più visibile */
+.about-section a {
+    color: #00eaff !important;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    transition: 0.25s ease;
+}
+
+.about-section a:hover {
+    color: #7af2ff !important;
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
+}
