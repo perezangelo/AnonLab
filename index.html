@@ -218,7 +218,6 @@
           <span>Attacchi DDoS</span>
           <div class="monitor-bar"><div style="width: 81%;"></div></div>
         </div>
-        
       </section>
 
       <!-- HACKER ACTIVITY HEATMAP -->
@@ -235,7 +234,6 @@
           <li><strong>Sud America:</strong> crescita malware bancario e infostealer</li>
           <li><strong>Africa:</strong> attività ransomware in espansione</li>
         </ul>
-        
       </section>
 
     </section> <!-- /main-column -->
@@ -246,6 +244,9 @@
 
   <div id="footer"></div>
 
+  <!-- PULSANTE BACK TO TOP -->
+  <button id="backToTop">↑</button>
+
   <!-- SCRIPT ORDINATI CORRETTAMENTE -->
   <script src="js/news.js"></script>
   <script src="js/ticker.js"></script>
@@ -253,6 +254,23 @@
 
   <!-- UI GENERALE -->
   <script src="js/ui.js"></script>
+
+  <!-- SCRIPT BACK TO TOP -->
+  <script>
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 
 </div> <!-- /#app GPU WRAPPER -->
 
