@@ -42,6 +42,27 @@ function loadMeteo() {
 }
 
 /* ============================
+   FUNZIONE TICKER CONTINUO
+============================ */
+
+function initTicker() {
+    const track = document.querySelector(".ticker-track");
+    if (!track) return;
+
+    // Evita duplicazioni multiple
+    if (track.dataset.cloned === "true") return;
+
+    // Duplica il contenuto per scorrimento continuo
+    const clone = track.cloneNode(true);
+    clone.dataset.cloned = "true";
+    track.parentElement.appendChild(clone);
+
+    // Calcola larghezza dinamica
+    const totalWidth = track.scrollWidth;
+    track.style.setProperty("--ticker-width", totalWidth + "px");
+}
+
+/* ============================
    DOM READY
 ============================ */
 
@@ -54,6 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
     loadWorldFeed();
     loadCVEToday();
     loadCyberAlerts();
+
+    // Attiva ticker continuo dopo un piccolo delay
+    // (necessario perché il ticker arriva da un partial)
+    setTimeout(initTicker, 300);
 });
 
 /* ============================
