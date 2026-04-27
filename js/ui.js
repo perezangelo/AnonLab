@@ -19,12 +19,17 @@ async function loadPartial(id, file) {
 
         el.innerHTML = await res.text();
 
-        // Attiva Speedtest solo dopo che la sidebar è caricata
+        /* Sidebar: attiva Speedtest */
         if (id === "sidebar") {
             const btn = document.getElementById("speedtest-start");
             if (btn && typeof startSpeedTest === "function") {
                 btn.addEventListener("click", startSpeedTest);
             }
+        }
+
+        /* Header: attiva ticker continuo SUBITO dopo il caricamento */
+        if (id === "header") {
+            setTimeout(initTicker, 50);
         }
 
     } catch (err) {
@@ -75,10 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadWorldFeed();
     loadCVEToday();
     loadCyberAlerts();
-
-    // Attiva ticker continuo dopo un piccolo delay
-    // (necessario perché il ticker arriva da un partial)
-    setTimeout(initTicker, 300);
 });
 
 /* ============================
