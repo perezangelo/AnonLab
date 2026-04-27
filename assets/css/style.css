@@ -77,51 +77,6 @@ body {
     color: #00ff88;
 }
 
-/* TICKER */
-.ts-ticker {
-    display: flex;
-    align-items: center;
-    background: #050608;
-    border-bottom: 1px solid #111;
-    padding: 8px 5vw;
-    gap: 10px;
-    overflow: hidden;
-}
-
-.ts-ticker-label {
-    background: #ff1744;
-    color: #fff;
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    flex-shrink: 0;
-}
-
-.ts-ticker-track {
-    overflow: hidden;
-    white-space: nowrap;
-    flex: 1;
-}
-
-.ts-ticker-content {
-    display: inline-block;
-    animation: ts-ticker-scroll 25s linear infinite;
-}
-
-.ts-ticker-content span {
-    margin-right: 60px;
-    font-size: 0.85rem;
-    color: #d0d0d0;
-}
-
-@keyframes ts-ticker-scroll {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
-
 /* MAIN LAYOUT */
 .ts-main {
     display: grid;
