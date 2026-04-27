@@ -220,6 +220,21 @@ h1, h2, h3 {
   from { transform: translateX(100%); }
   to { transform: translateX(-100%); }
 }
+/* Ticker continuo */
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-loop 22s linear infinite;
+}
+
+.ticker-track + .ticker-track {
+  margin-left: 40px; /* distanza tra originale e duplicato */
+}
+
+@keyframes ticker-loop {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-1 * var(--ticker-width))); }
+}
 /* ============================================================
    SEZIONE 3 — WIDGET + NEWS + FEED + ALERT + TITOLI (VERSIONE PRO)
    ============================================================ */
