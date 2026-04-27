@@ -1,27 +1,28 @@
 /* ============================================================
-   SEZIONE 1 — VARIABILI GLOBALI + RESET + BASE
+   SEZIONE 1 — VARIABILI GLOBALI + RESET + BASE (VERSIONE PRO)
    ============================================================ */
 
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Variabili tema CYBER DARK */
+/* Variabili tema CYBER DARK — versione PRO */
 :root {
   --bg-main: #000000;
   --bg-elevated: #0d0d0d;
   --bg-card: #111111;
 
   --accent: #00eaff;
-  --accent-soft: rgba(0, 234, 255, 0.18);
+  --accent-soft: rgba(0, 234, 255, 0.22);
 
-  --text-main: #ffffff;
-  --text-muted: #cfcfcf;
+  --text-main: #f2f2f2;        /* Migliorato contrasto */
+  --text-muted: #d4d4d4;       /* Più leggibile */
+  --text-soft: #bcbcbc;        /* Nuovo livello intermedio */
 
-  --border-subtle: rgba(0, 234, 255, 0.18);
+  --border-subtle: rgba(0, 234, 255, 0.22);
 
   --danger: #ff4b6e;
 
-  --shadow-soft: 0 0 18px rgba(0, 234, 255, 0.25);
+  --shadow-soft: 0 0 18px rgba(0, 234, 255, 0.22); /* Ombra più pulita */
 
   --radius: 10px;
 
@@ -52,14 +53,16 @@ html, body {
 h1, h2, h3 {
   font-weight: 600;
   color: var(--text-main);
+  letter-spacing: 0.01em;
 }
 
-/* Placeholder */
+/* Placeholder più leggibile */
 ::placeholder {
-  color: #b5b5b5;
+  color: var(--text-soft);
 }
+
 /* ============================================================
-   SEZIONE 2 — LAYOUT + GRIGLIA + HEADER + TICKER
+   SEZIONE 2 — LAYOUT + GRIGLIA + HEADER + TICKER (VERSIONE PRO)
    ============================================================ */
 
 /* Layout principale */
@@ -89,10 +92,10 @@ h1, h2, h3 {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
-/* Header */
+/* Header — versione PRO */
 .site-header {
   display: flex;
   align-items: center;
@@ -100,10 +103,13 @@ h1, h2, h3 {
   padding: 14px 18px;
   margin: 12px auto 10px;
   max-width: 1200px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.06); /* più elegante */
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  box-shadow: var(--shadow-soft);
+
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18); /* glow più pulito */
+
   position: sticky;
   top: 8px;
   z-index: 50;
@@ -116,6 +122,7 @@ h1, h2, h3 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
+  text-shadow: 0 0 6px rgba(0, 234, 255, 0.4); /* leggero glow */
 }
 
 .main-nav {
@@ -151,7 +158,7 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   TICKER BREAKING NEWS
+   TICKER BREAKING NEWS — versione PRO
    ============================================================ */
 
 .ticker {
@@ -166,8 +173,8 @@ h1, h2, h3 {
 .ticker-title {
   background: linear-gradient(135deg, #ff4b6e, #ff9f43);
   color: #050308;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: 700;
+  font-size: 0.82rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 10px 14px;
@@ -196,31 +203,14 @@ h1, h2, h3 {
   flex-shrink: 0;
 }
 
-.ticker-track {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: ticker-loop 12s linear infinite;
-}
-
 .ticker-item {
   margin-right: 40px;
-  font-size: 0.85rem;
-  color: #ffffff;
+  font-size: 0.9rem; /* leggermente più leggibile */
+  color: var(--text-main);
   font-weight: 500;
 }
-
-@keyframes ticker-loop {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@media (max-width: 768px) {
-  .ticker-track {
-    animation-duration: 9s;
-  }
-}
 /* ============================================================
-   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT + TITOLI
+   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT + TITOLI (VERSIONE PRO)
    ============================================================ */
 
 /* Widget generici */
@@ -228,8 +218,8 @@ h1, h2, h3 {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: var(--shadow-soft);
+  padding: 20px;
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18); /* glow più pulito */
 }
 
 /* Titoli con icona */
@@ -243,9 +233,10 @@ h1, h2, h3 {
 .box-title-row h2 {
   margin: 0;
   padding: 0;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-main);
+  letter-spacing: 0.01em;
 }
 
 .box-title-icon {
@@ -254,8 +245,8 @@ h1, h2, h3 {
   object-fit: cover;
   border-radius: 8px;
   flex-shrink: 0;
-  border: 1px solid rgba(0,170,255,0.25);
-  box-shadow: 0 0 10px rgba(0,170,255,0.25);
+  border: 1px solid rgba(0,170,255,0.28);
+  box-shadow: 0 0 12px rgba(0,170,255,0.28);
   opacity: 0.95;
 }
 
@@ -265,12 +256,12 @@ h1, h2, h3 {
     height: 40px;
   }
   .box-title-row h2 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 }
 
 /* ============================================================
-   NEWS CARD — versione unica, pulita e stabile
+   NEWS CARD — versione PRO
    ============================================================ */
 
 .news-card {
@@ -278,10 +269,10 @@ h1, h2, h3 {
   gap: 15px;
   margin-bottom: 20px;
   background: #0d0d0d;
-  border: 1px solid rgba(0,170,255,0.25);
+  border: 1px solid rgba(0,170,255,0.28);
   border-radius: var(--radius);
-  padding: 16px;
-  box-shadow: 0 0 12px rgba(0,170,255,0.15);
+  padding: 18px;
+  box-shadow: 0 0 16px rgba(0,170,255,0.18);
   position: relative;
   overflow: hidden;
   align-items: flex-start;
@@ -293,7 +284,7 @@ h1, h2, h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.50); /* leggermente più trasparente */
   z-index: 1;
 }
 
@@ -306,7 +297,7 @@ h1, h2, h3 {
 /* Hover */
 .news-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 22px rgba(0, 234, 255, 0.25);
+  box-shadow: 0 8px 26px rgba(0, 234, 255, 0.25);
 }
 
 /* Immagine */
@@ -320,7 +311,7 @@ h1, h2, h3 {
 }
 
 .news-card:hover .news-thumb {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* Testi */
@@ -332,22 +323,22 @@ h1, h2, h3 {
 
 .news-content h2,
 .news-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin: 0;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 650; /* leggermente più leggibile */
 }
 
 .news-content p,
 .news-excerpt {
   margin: 0;
-  font-size: 0.9rem;
-  color: #e0e0e0;
+  font-size: 0.92rem;
+  color: #e6e6e6; /* contrasto migliorato */
 }
 
 .news-meta {
   font-size: 0.85rem;
-  color: #b5b5b5;
+  color: var(--text-soft);
   margin-bottom: 6px;
 }
 
@@ -356,10 +347,11 @@ h1, h2, h3 {
   margin-top: 6px;
   color: var(--accent);
   text-decoration: none;
+  font-weight: 600;
 }
 
 /* ============================================================
-   FEED + ALERT — struttura uniforme
+   FEED + ALERT — struttura PRO
    ============================================================ */
 
 #alert-live {
@@ -373,8 +365,8 @@ h1, h2, h3 {
 .box-img-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
 .feed-thumb,
@@ -385,11 +377,14 @@ h1, h2, h3 {
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
+  border: 1px solid rgba(0,170,255,0.22);
 }
 
 .alert-item span,
 .feed-item span {
-  line-height: 1.25;
+  line-height: 1.28;
+  color: var(--text-main);
+  font-size: 0.95rem;
 }
 
 /* Icone SVG */
@@ -399,6 +394,7 @@ h1, h2, h3 {
   height: 22px;
   flex-shrink: 0;
   display: inline-block;
+  opacity: 0.95;
 }
 
 /* Mobile */
@@ -431,12 +427,13 @@ h1, h2, h3 {
   max-width: 60px;
   height: auto;
   border-radius: 6px;
+  opacity: 0.95;
 }
 /* ============================================================
-   SEZIONE 4 — HERO + MATRIX + GLOW + GLITCH
+   SEZIONE 4 — HERO + MATRIX + GLOW + GLITCH + SCANLINES (PRO)
    ============================================================ */
 
-/* HERO container */
+/* HERO container — versione PRO */
 .hero-big {
   position: relative;
   overflow: hidden;
@@ -445,12 +442,17 @@ h1, h2, h3 {
   background: #000;
   border: 2px solid var(--border-subtle);
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.25), var(--shadow-soft);
+
+  /* Ombra più morbida e premium */
+  box-shadow:
+    0 0 25px rgba(0,0,0,0.25),
+    0 0 22px rgba(0, 234, 255, 0.18);
+
   margin-bottom: 30px;
 }
 
 /* ============================================================
-   1) MATRIX RAIN — versione unica, ottimizzata
+   1) MATRIX RAIN — versione PRO
    ============================================================ */
 
 .hero-big::before {
@@ -460,11 +462,17 @@ h1, h2, h3 {
   font-family: var(--font-mono);
   font-size: 22px;
   line-height: 26px;
-  color: rgba(0, 170, 255, 0.22);
+
+  /* Colore più elegante e meno invadente */
+  color: rgba(0, 170, 255, 0.20);
+
   white-space: pre;
   animation: matrixRain 18s linear infinite;
-  opacity: 0.35;
+  opacity: 0.32;
   z-index: 1;
+
+  /* GPU-friendly */
+  will-change: transform;
 }
 
 @keyframes matrixRain {
@@ -473,42 +481,53 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   2) DIGITAL FLOW — effetto luce blu dinamica
+   2) DIGITAL FLOW — effetto luce blu dinamica PRO
    ============================================================ */
 
 .hero-big::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top, rgba(0,170,255,0.20), transparent 70%);
+
+  /* Luce più morbida e premium */
+  background: radial-gradient(
+    circle at top,
+    rgba(0,170,255,0.18),
+    transparent 70%
+  );
+
   animation: flowMove 18s linear infinite;
-  opacity: 0.25;
+  opacity: 0.22;
   z-index: 2;
+  will-change: transform;
 }
 
 @keyframes flowMove {
   0% { transform: scale(1) translateY(0); }
-  100% { transform: scale(1.2) translateY(-40px); }
+  100% { transform: scale(1.18) translateY(-40px); }
 }
 
 /* ============================================================
-   3) GLOW NEON BLU CYBER SUL TITOLO
+   3) GLOW NEON BLU CYBER SUL TITOLO — versione PRO
    ============================================================ */
 
 .hero-big h1 {
-  color: #00c8ff;
+  color: #00d4ff;
   font-weight: 700;
+
+  /* Glow più pulito e meno “sporco” */
   text-shadow:
-    0 0 8px rgba(0,200,255,0.8),
-    0 0 16px rgba(0,200,255,0.6),
-    0 0 32px rgba(0,200,255,0.4),
-    0 0 48px rgba(0,200,255,0.25);
+    0 0 8px rgba(0,200,255,0.85),
+    0 0 18px rgba(0,200,255,0.55),
+    0 0 36px rgba(0,200,255,0.35),
+    0 0 52px rgba(0,200,255,0.22);
+
   position: relative;
   z-index: 5;
 }
 
 /* ============================================================
-   4) GLITCH LEGGERO — versione unica, non invasiva
+   4) GLITCH LEGGERO — versione PRO
    ============================================================ */
 
 .hero-big h1::before,
@@ -517,64 +536,70 @@ h1, h2, h3 {
   position: absolute;
   left: 0;
   top: 0;
-  opacity: 0.5;
+  opacity: 0.45;
   mix-blend-mode: screen;
   z-index: 4;
+  will-change: clip-path, transform;
 }
 
 .hero-big h1::before {
   color: #00aaff;
   transform: translate(2px, 0);
-  animation: glitch1 2.2s infinite;
+  animation: glitch1 2.4s infinite;
 }
 
 .hero-big h1::after {
   color: #0088ff;
   transform: translate(-2px, 0);
-  animation: glitch2 2.8s infinite;
+  animation: glitch2 2.9s infinite;
 }
 
+/* Glitch più morbido e meno “tagliato” */
 @keyframes glitch1 {
   0% { clip-path: inset(0 0 80% 0); }
-  50% { clip-path: inset(20% 0 40% 0); }
+  50% { clip-path: inset(18% 0 42% 0); }
   100% { clip-path: inset(60% 0 0 0); }
 }
 
 @keyframes glitch2 {
   0% { clip-path: inset(60% 0 0 0); }
-  50% { clip-path: inset(10% 0 60% 0); }
+  50% { clip-path: inset(12% 0 58% 0); }
   100% { clip-path: inset(0 0 80% 0); }
 }
 
 /* ============================================================
-   5) SCANLINE CYBERPUNK — sottile e non invasivo
+   5) SCANLINE CYBERPUNK — versione PRO
    ============================================================ */
 
 .hero-big .scanlines {
   position: absolute;
   inset: 0;
+
+  /* Scanlines più sottili e realistiche */
   background: repeating-linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.25) 0px,
-    rgba(0, 0, 0, 0.25) 1px,
+    rgba(0, 0, 0, 0.22) 0px,
+    rgba(0, 0, 0, 0.22) 1px,
     transparent 1px,
     transparent 3px
   );
-  opacity: 0.25;
+
+  opacity: 0.22;
   z-index: 3;
   pointer-events: none;
 }
 
 /* ============================================================
-   6) Testi secondari
+   6) Testi secondari — versione PRO
    ============================================================ */
 
 .hero-sub {
   color: var(--text-muted);
-  font-size: 1.2rem;
+  font-size: 1.22rem;
   margin-top: 10px;
   position: relative;
   z-index: 5;
+  letter-spacing: 0.01em;
 }
 
 /* Immagine centrale */
@@ -587,6 +612,9 @@ h1, h2, h3 {
   opacity: 1;
   position: relative;
   z-index: 5;
+
+  /* leggero glow premium */
+  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
 }
 
 /* Responsive */
@@ -605,7 +633,7 @@ h1, h2, h3 {
   .hero-favicon { width: 80%; }
 }
 /* ============================================================
-   SEZIONE 5 — SIDEBAR + FORM + UTILITY
+   SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
    ============================================================ */
 
 /* Sidebar container */
@@ -615,20 +643,23 @@ h1, h2, h3 {
   gap: 16px;
 }
 
-/* Box sidebar */
+/* Box sidebar — versione PRO */
 .sidebar-box {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
-  padding: 14px 16px;
-  box-shadow: var(--shadow-soft);
+  padding: 16px 18px;
+
+  /* Glow più pulito */
+  box-shadow: 0 0 18px rgba(0, 234, 255, 0.18);
 }
 
 .sidebar-box h3 {
-  margin: 0 0 10px;
-  font-size: 1rem;
+  margin: 0 0 12px;
+  font-size: 1.05rem;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 650;
+  letter-spacing: 0.02em;
 }
 
 /* Icone / immagini sidebar */
@@ -638,44 +669,60 @@ h1, h2, h3 {
   display: block;
   margin-bottom: 12px;
   border-radius: 6px;
-  opacity: 0.9;
-  border: 1px solid rgba(0,170,255,0.25);
+  opacity: 0.92;
+
+  border: 1px solid rgba(0,170,255,0.28);
+  box-shadow: 0 0 10px rgba(0,170,255,0.18);
 }
 
-/* Form */
+/* Form — versione PRO */
 .sidebar-box form input,
 .sidebar-box form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 11px 12px;
+  margin-bottom: 12px;
   font-size: 0.95rem;
+
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
+
   background: #0d0d0d;
   color: var(--text-main);
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Focus premium */
+.sidebar-box form input:focus,
+.sidebar-box form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.25);
+}
+
+/* Placeholder */
 .sidebar-box form input::placeholder,
 .sidebar-box form textarea::placeholder {
-  color: #b5b5b5;
+  color: var(--text-soft);
 }
 
-/* Pulsante form */
+/* Pulsante form — versione PRO */
 .sidebar-box form button {
   width: 100%;
-  padding: 10px;
+  padding: 11px;
   background: var(--accent);
   color: #000;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  font-weight: 600;
-  transition: 0.2s ease;
+  font-weight: 650;
+  transition: 0.22s ease;
 }
 
 .sidebar-box form button:hover {
-  background: #00bcd4;
+  background: #00c4e6;
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.35);
 }
 
 /* Utility */
@@ -689,8 +736,9 @@ h1, h2, h3 {
 
 .mt-10 { margin-top: 10px; }
 .mt-20 { margin-top: 20px; }
+
 /* ============================================================
-   SEZIONE 6 — MEDIA QUERY + RESPONSIVE + FIX FINALI
+   SEZIONE 6 — RESPONSIVE + FIX FINALI (VERSIONE PRO)
    ============================================================ */
 
 /* Layout mobile */
@@ -698,22 +746,6 @@ h1, h2, h3 {
   .page {
     grid-template-columns: 1fr;
   }
-}
-
-/* Hero */
-@media (max-width: 992px) {
-  .hero-big h1 { font-size: 3.2rem; }
-  .hero-favicon { width: 65%; }
-}
-
-@media (max-width: 768px) {
-  .hero-big h1 { font-size: 2.6rem; }
-  .hero-favicon { width: 70%; }
-}
-
-@media (max-width: 480px) {
-  .hero-big h1 { font-size: 2.2rem; }
-  .hero-favicon { width: 80%; }
 }
 
 /* News card mobile */
@@ -791,6 +823,7 @@ h1, h2, h3 {
   max-width: 60px;
   height: auto;
   border-radius: 6px;
+  opacity: 0.95;
 }
 
 /* Fix generale per evitare overflow */
