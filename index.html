@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>AnonLab — Cybersecurity & Digital Culture</title>
+  <title>AnonLab — Cybersecurity, Tecnologia e Cultura Digitale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO BASE -->
   <meta name="description" content="AnonLab — Cybersecurity, Tecnologia e Cultura Digitale. News, analisi, strumenti e risorse per la sicurezza informatica.">
-  <meta name="keywords" content="cybersecurity, tecnologia, digitale, hacking, sicurezza informatica, news cyber, ransomware, zero trust, threat intelligence">
   <meta name="author" content="AnonLab">
 
   <!-- CANONICAL -->
   <link rel="canonical" href="https://anonlab.it/">
 
-  <!-- INDEXING -->
-  <meta name="robots" content="index, follow">
+  <!-- INDEXING (SEO 2026) -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="bingbot" content="index, follow">
 
-  <!-- BING + YANDEX VERIFICATION -->
+  <!-- SITEMAP -->
+  <link rel="sitemap" type="application/xml" href="https://anonlab.it/sitemap.xml">
+
+  <!-- VERIFICHE MOTORI -->
   <meta name="msvalidate.01" content="INSERISCI_CODICE_BING">
   <meta name="yandex-verification" content="INSERISCI_CODICE_YANDEX">
+
+  <!-- PERFORMANCE -->
+  <link rel="preload" href="/css/main.css" as="style">
+  <link rel="preload" href="/css/custom.css" as="style">
+  <link rel="preload" href="/js/ui.js" as="script">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" href="/img/favicon.png">
 
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="AnonLab — Cybersecurity & Digitale">
@@ -35,6 +44,25 @@
   <meta name="twitter:title" content="AnonLab — Cybersecurity & Digitale">
   <meta name="twitter:description" content="News, analisi e strumenti sulla sicurezza informatica.">
   <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
+
+  <!-- JSON-LD (SCHEMA.ORG) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AnonLab",
+    "url": "https://anonlab.it/",
+    "description": "Cybersecurity, Tecnologia e Cultura Digitale. News, analisi e strumenti per la sicurezza informatica.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AnonLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://anonlab.it/img/eyes.png"
+      }
+    }
+  }
+  </script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
