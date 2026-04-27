@@ -7,11 +7,17 @@ async function loadPartial(id, file) {
     if (!el) return;
 
     try {
-        const res = await fetch(file);
-        if (!res.ok) throw new Error(`Errore nel caricamento di ${file}`);
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
 
-        const html = await res.text();
-        el.innerHTML = html;
+        const res = await fetch(file, { signal: controller.signal });
+        clearTimeout(timeout);
+
+        if (!res.ok || !res.headers.get("content-type")?.includes("text/html")) {
+            throw new Error(`Errore nel caricamento di ${file}`);
+        }
+
+        el.innerHTML = await res.text();
 
         // Attiva Speedtest solo dopo che la sidebar è caricata
         if (id === "sidebar") {
@@ -84,11 +90,12 @@ async function loadCVEToday() {
 
     box.innerHTML = `
         <div class="box-img-row">
-            <img src="${cve.img}" class="box-thumb" alt="${cve.id}">
+            <img src="${cve.img}" class="box-thumb" alt="Immagine ${cve.id}">
             <div>
-                <strong>${cve.id}</strong> — <span style="color:#d32f2f">${cve.severity}</span><br>
+                <strong>${cve.id}</strong> — 
+                <span style="color:#d32f2f">${cve.severity}</span><br>
                 ${cve.desc}<br>
-                <a href="${cve.link}" target="_blank" rel="noopener">Dettagli</a>
+                <a href="${cve.link}" target="_blank" rel="noopener noreferrer">Dettagli</a>
             </div>
         </div>
     `;
@@ -148,10 +155,19 @@ async function loadWorldFeed() {
    HEADER GLASS SCROLL EFFECT
 ============================ */
 
+let lastScroll = 0;
+
 window.addEventListener("scroll", () => {
     const header = document.querySelector(".site-header");
     if (!header) return;
 
-    if (window.scrollY > 20) header.classList.add("scrolled-header");
-    else header.classList.remove("scrolled-header");
+    const current = window.scrollY;
+
+    if (current > 20 && lastScroll <= 20) {
+        header.classList.add("scrolled-header");
+    } else if (current <= 20 && lastScroll > 20) {
+        header.classList.remove("scrolled-header");
+    }
+
+    lastScroll = current;
 });
