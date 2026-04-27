@@ -112,3 +112,25 @@
   transform: scale(1.15);
   box-shadow: 0 0 18px #0af;
 }
+/* Footer: spacing leggero */
+.site-footer {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Spazio tra copyright e nav */
+.footer-copy {
+    margin-bottom: 8px;
+}
+
+/* Link più leggibili */
+.footer-nav a {
+    margin: 0 8px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+/* Hover elegante */
+.footer-nav a:hover {
+    opacity: 1;
+}
