@@ -7,16 +7,38 @@
 
   <!-- SEO -->
   <meta name="description" content="Contatta AnonLab per informazioni, richieste, segnalazioni o collaborazioni.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://anonlab.it/contatti.html">
 
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Contatti — AnonLab">
+  <meta property="og:description" content="Contatta AnonLab per informazioni, richieste, segnalazioni o collaborazioni.">
+  <meta property="og:url" content="https://anonlab.it/contatti.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contatti",
+    "url": "https://anonlab.it/contatti.html",
+    "description": "Pagina di contatto ufficiale di AnonLab."
+  }
+  </script>
 </head>
 
 <body>
 
-  <div id="header"></div>
-  <div id="ticker"></div>
+  <div id="header" aria-label="Intestazione del sito"></div>
+  <div id="ticker" aria-label="Ticker informazioni"></div>
 
   <main class="page">
     <section class="main-column">
@@ -37,10 +59,10 @@
 
     </section>
 
-    <div id="sidebar"></div>
+    <div id="sidebar" aria-label="Barra laterale"></div>
   </main>
 
-  <div id="footer"></div>
+  <div id="footer" aria-label="Piè di pagina"></div>
 
   <script src="/js/ui.js"></script>
 </body>
