@@ -209,6 +209,17 @@ h1, h2, h3 {
   color: var(--text-main);
   font-weight: 500;
 }
+/* ANIMAZIONE TICKER */
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-loop 18s linear infinite;
+}
+
+@keyframes ticker-loop {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
 /* ============================================================
    SEZIONE 3 — WIDGET + NEWS + FEED + ALERT + TITOLI (VERSIONE PRO)
    ============================================================ */
