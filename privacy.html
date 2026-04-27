@@ -2,21 +2,43 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy — AnonLab</title>
+  <title>Privacy Policy — AnonLab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
   <meta name="description" content="Informativa sulla Privacy di AnonLab: nessuna raccolta dati personali, nessun tracciamento, nessun cookie di profilazione.">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://anonlab.it/privacy.html">
 
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Privacy Policy — AnonLab">
+  <meta property="og:description" content="Informativa sulla gestione dei dati e sulla privacy su AnonLab.">
+  <meta property="og:url" content="https://anonlab.it/privacy.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "url": "https://anonlab.it/privacy.html",
+    "description": "Informativa sulla gestione dei dati e sulla privacy su AnonLab."
+  }
+  </script>
 </head>
 
 <body>
 
-  <div id="header"></div>
-  <div id="ticker"></div>
+  <div id="header" aria-label="Intestazione del sito"></div>
+  <div id="ticker" aria-label="Ticker informazioni"></div>
 
   <main class="page">
     <section class="main-column">
@@ -56,10 +78,10 @@
 
     </section>
 
-    <div id="sidebar"></div>
+    <div id="sidebar" aria-label="Barra laterale"></div>
   </main>
 
-  <div id="footer"></div>
+  <div id="footer" aria-label="Piè di pagina"></div>
 
   <script src="/js/ui.js"></script>
 </body>
