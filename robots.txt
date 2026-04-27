@@ -1,10 +1,45 @@
+# =========================
+# REGOLA GENERALE
+# =========================
 User-agent: *
 Allow: /
 
-# Evita che i bot sprechino crawl budget su file inutili
+# Evita sprechi di crawl budget su file inutili
 Disallow: /js/*.map
 Disallow: /css/*.map
 Disallow: /img/*.svg
 
-# File importanti per i motori
+# =========================
+# GOOGLEBOT (WEB)
+# =========================
+User-agent: Googlebot
+Allow: /
+
+# =========================
+# GOOGLE NEWS
+# =========================
+User-agent: Googlebot-News
+Allow: /
+Allow: /news.html
+Allow: /cyber.html
+Allow: /tech.html
+
+# =========================
+# GOOGLE IMAGES
+# =========================
+User-agent: Googlebot-Image
+Allow: /img/
+
+# =========================
+# BING / YANDEX / ALTRI
+# =========================
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# =========================
+# SITEMAP
+# =========================
 Sitemap: https://anonlab.it/sitemap.xml
