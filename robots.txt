@@ -1,45 +1,44 @@
-# =========================
-# REGOLA GENERALE
-# =========================
+# ============================================================
+# REGOLA GENERALE — Tutto il sito è accessibile
+# ============================================================
 User-agent: *
 Allow: /
 
 # Evita sprechi di crawl budget su file inutili
-Disallow: /js/*.map
-Disallow: /css/*.map
-Disallow: /img/*.svg
+Disallow: /*.map$
+Disallow: /img/*.svg$
 
-# =========================
+# ============================================================
 # GOOGLEBOT (WEB)
-# =========================
+# ============================================================
 User-agent: Googlebot
 Allow: /
 
-# =========================
-# GOOGLE NEWS
-# =========================
+# ============================================================
+# GOOGLE NEWS — permette la scansione delle sezioni news
+# ============================================================
 User-agent: Googlebot-News
 Allow: /
 Allow: /news.html
 Allow: /cyber.html
 Allow: /tech.html
 
-# =========================
-# GOOGLE IMAGES
-# =========================
+# ============================================================
+# GOOGLE IMAGES — permette l’indicizzazione delle immagini
+# ============================================================
 User-agent: Googlebot-Image
 Allow: /img/
 
-# =========================
+# ============================================================
 # BING / YANDEX / ALTRI
-# =========================
+# ============================================================
 User-agent: Bingbot
 Allow: /
 
 User-agent: Yandex
 Allow: /
 
-# =========================
+# ============================================================
 # SITEMAP
-# =========================
+# ============================================================
 Sitemap: https://anonlab.it/sitemap.xml
