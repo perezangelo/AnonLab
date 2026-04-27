@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# Evita che i bot sprechino crawl budget su file inutili
+Disallow: /js/*.map
+Disallow: /css/*.map
+Disallow: /img/*.svg
+
+# File importanti per i motori
 Sitemap: https://anonlab.it/sitemap.xml
