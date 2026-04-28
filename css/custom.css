@@ -768,3 +768,22 @@ canvas {
     font-size: 0.9rem;
     text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
 }
+/* GOOGLE SEARCH BUTTON — NEON */
+.search-btn {
+    background: #00eaff;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-shadow: 0 0 6px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(0,255,255,0.7);
+    transition: 0.2s ease-in-out;
+}
+
+.search-btn:hover {
+    background: #00faff;
+    box-shadow: 0 0 18px rgba(0,255,255,1);
+    transform: translateY(-1px);
+}
