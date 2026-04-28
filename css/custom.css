@@ -134,3 +134,49 @@
 .footer-nav a:hover {
     opacity: 1;
 }
+/* ============================
+   ENHANCED VISIBILITY TEXT (CYBER NEON)
+   Non modifica layout, solo estetica
+============================ */
+
+/* Titolo ANONLAB in alto */
+.site-header .logo,
+.site-header h1,
+.site-header .site-title {
+    color: #00f0ff !important;
+    text-shadow: 0 0 6px #00f0ff, 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+/* Link hero "Scopri di più su AnonLab" */
+.hero-button,
+.hero-big a {
+    color: #00eaff !important;
+    text-shadow: 0 0 6px #00eaff, 0 0 12px rgba(0, 234, 255, 0.5);
+    font-weight: 600;
+}
+
+/* Menu categorie: Ultime notizie, Mondo, Europa, Economia, Tecnologia */
+.nav-menu a,
+.nav-categories a,
+.menu a {
+    color: #ffffff !important;
+    text-shadow: 0 0 5px #00eaff, 0 0 10px rgba(0, 234, 255, 0.4);
+    font-weight: 600;
+}
+
+/* Footer: Privacy, Cookies, Termini, Contatti */
+footer a,
+#footer a {
+    color: #00eaff !important;
+    text-shadow: 0 0 5px #00eaff, 0 0 10px rgba(0, 234, 255, 0.4);
+    font-weight: 600;
+}
+
+/* Hover effetto glow */
+.hero-button:hover,
+.nav-menu a:hover,
+.nav-categories a:hover,
+footer a:hover {
+    text-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.7);
+    color: #00f0ff !important;
+}
