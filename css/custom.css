@@ -691,3 +691,80 @@ canvas {
     color: #00eaff !important;
     text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
 }
+/* ============================
+   LOGO ANONLAB — NEON
+============================ */
+.logo {
+    color: #00eaff !important;
+    font-weight: 900 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: 1px !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.9) !important;
+}
+
+/* ============================
+   MENU HEADER — NEON
+============================ */
+.main-nav a {
+    color: #baf7ff !important;
+    font-weight: 500 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.4) !important;
+}
+
+.main-nav a:hover {
+    color: #00faff !important;
+    text-shadow: 0 0 12px rgba(0,255,255,1) !important;
+}
+
+/* ============================
+   ABOUT (HOME) — NEON
+============================ */
+.home-about h2 {
+    color: #00eaff !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+}
+
+.home-about p {
+    color: #baf7ff !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.about-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00eaff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+}
+
+.about-link:hover {
+    color: #00faff !important;
+    text-shadow: 0 0 14px rgba(0,255,255,1) !important;
+}
+
+/* ============================
+   FOOTER — NEON
+============================ */
+.site-footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #00eaff !important;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+}
+
+.footer-links a:hover {
+    color: #00faff !important;
+    text-shadow: 0 0 12px rgba(0,255,255,1) !important;
+}
+
+.footer-copy {
+    margin-top: 10px;
+    color: #baf7ff !important;
+    font-size: 0.9rem;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
