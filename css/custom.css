@@ -2,7 +2,6 @@
    HERO — STILE COMPLETO OTTIMIZZATO
 ============================ */
 
-/* Sfondo cyber AI */
 .hero-big {
     background: url('/img/cyber-bg.png') center/cover no-repeat;
     padding: 50px 20px;
@@ -11,7 +10,6 @@
     text-align: center;
 }
 
-/* Titolo ANONLAB */
 .hero-big h1 {
     color: #00f6ff;
     font-weight: 900;
@@ -23,7 +21,6 @@
     display: inline-block;
 }
 
-/* Sottotitolo */
 .hero-big .hero-sub {
     color: #b0eaff;
     font-weight: 600;
@@ -35,6 +32,38 @@
     border-radius: 6px;
     display: inline-block;
 }
+
+/* Pulsante */
+.hero-big .hero-button {
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg, #007bff, #00eaff);
+    border-radius: 6px;
+    padding: 12px 22px;
+    margin-top: 20px;
+    display: inline-block;
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.4);
+    transition: 0.25s ease;
+}
+
+.hero-big .hero-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(0, 200, 255, 0.7);
+}
+
+/* Eyes */
+.hero-favicon {
+    width: 240px;
+    margin: 30px auto 20px;
+    filter: drop-shadow(0 0 12px rgba(0,255,255,0.4));
+    animation: eyesPulse 3s infinite ease-in-out;
+}
+
+@keyframes eyesPulse {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)); }
+  50% { filter: drop-shadow(0 0 22px rgba(0,255,255,0.8)); }
+}
+
 /* ============================
    DROPDOWN NEWS — MENU A TENDINA
 ============================ */
@@ -68,7 +97,6 @@
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s ease;
 }
 
 .dropdown-menu a:hover {
@@ -76,66 +104,82 @@
   color: #00faff;
 }
 
-/* Mostra menu quando aperto */
 .dropdown-news.open .dropdown-menu {
   display: block;
 }
 
-/* Pulsante */
-.hero-big .hero-button {
+/* ============================
+   HEADER — LOGO FIX
+============================ */
+
+.site-header .logo a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent) !important;
     font-weight: 700;
-    color: #fff;
-    background: linear-gradient(90deg, #007bff, #00eaff);
-    border-radius: 6px;
-    padding: 12px 22px;
-    margin-top: 20px;
-    display: inline-block;
-    box-shadow: 0 0 12px rgba(0, 200, 255, 0.4);
-    transition: 0.25s ease;
 }
 
-.hero-big .hero-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 18px rgba(0, 200, 255, 0.7);
+.site-header .logo .logo-icon {
+    width: 26px !important;
+    height: 26px !important;
+    opacity: 1 !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important;
 }
 
-/* Eyes ingranditi */
-.hero-favicon {
-    width: 240px;
-    height: auto;
-    display: block;
-    margin: 30px auto 20px;
-    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.4));
-    animation: eyesPulse 3s infinite ease-in-out;
+/* Footer */
+.site-footer {
+    padding: 20px 0;
+    text-align: center;
 }
 
-/* Animazione glow */
-@keyframes eyesPulse {
-  0%, 100% { filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)); }
-  50% { filter: drop-shadow(0 0 22px rgba(0,255,255,0.8)); }
+.footer-nav a:hover {
+    opacity: 1;
+}
+/* ============================
+   ENHANCED VISIBILITY TEXT
+============================ */
+
+.site-header .logo,
+.site-header h1,
+.site-header .site-title {
+    color: #00f0ff !important;
+    text-shadow: 0 0 6px #00f0ff, 0 0 12px rgba(0,240,255,0.6);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .hero-favicon { width: 200px; }
-    .hero-big h1 { font-size: 2.6rem; }
+.hero-button,
+.hero-big a {
+    color: #00eaff !important;
+    text-shadow: 0 0 6px #00eaff, 0 0 12px rgba(0,234,255,0.5);
+    font-weight: 600;
 }
 
-@media (max-width: 768px) {
-    .hero-favicon { width: 170px; }
-    .hero-big h1 { font-size: 2.2rem; }
+/* ============================
+   FIX VISIBILITÀ TESTO ABOUT
+============================ */
+
+.about-section p,
+#about p {
+    color: #e8faff !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.45);
+    font-weight: 500;
 }
 
-@media (max-width: 480px) {
-    .hero-favicon { width: 150px; }
-    .hero-big h1 { font-size: 1.9rem; }
+.about-section a,
+#about a {
+    color: #00eaff !important;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
 }
 
-.about-section a:hover {
-    color: #7af2ff !important;
-    text-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
+.about-section a:hover,
+#about a:hover {
+    color: #00faff !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.9);
 }
 
+/* Back to top */
 #backToTop {
   position: fixed;
   bottom: 25px;
@@ -151,180 +195,11 @@
   cursor: pointer;
   display: none;
   box-shadow: 0 0 12px #0af;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: 0.3s ease;
   z-index: 9999;
 }
 
 #backToTop:hover {
   transform: scale(1.15);
   box-shadow: 0 0 18px #0af;
-}
-
-/* Footer */
-.site-footer {
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer-copy {
-    margin-bottom: 8px;
-}
-
-.footer-nav a {
-    margin: 0 8px;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
-}
-
-.footer-nav a:hover {
-    opacity: 1;
-}
-
-/* ============================
-   ENHANCED VISIBILITY TEXT
-============================ */
-
-.site-header .logo,
-.site-header h1,
-.site-header .site-title {
-    color: #00f0ff !important;
-    text-shadow: 0 0 6px #00f0ff, 0 0 12px rgba(0, 240, 255, 0.6);
-}
-
-.hero-button,
-.hero-big a {
-    color: #00eaff !important;
-    text-shadow: 0 0 6px #00eaff, 0 0 12px rgba(0, 234, 255, 0.5);
-    font-weight: 600;
-}
-
-.nav-menu a,
-.nav-categories a,
-.menu a {
-    color: #ffffff !important;
-    text-shadow: 0 0 5px #00eaff, 0 0 10px rgba(0, 234, 255, 0.4);
-    font-weight: 600;
-}
-
-footer a,
-#footer a {
-    color: #00eaff !important;
-    text-shadow: 0 0 5px #00eaff, 0 0 10px rgba(0, 234, 255, 0.4);
-    font-weight: 600;
-}
-
-.hero-button:hover,
-.nav-menu a:hover,
-.nav-categories a:hover,
-footer a:hover {
-    text-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.7);
-    color: #00f0ff !important;
-}
-
-/* Icona favicon accanto al logo */
-.logo-icon {
-    width: 22px;
-    height: 22px;
-    margin-right: 8px;
-    vertical-align: middle;
-    filter: drop-shadow(0 0 6px rgba(0,255,255,0.6));
-}
-
-.logo a {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* ============================================================
-   🔥 FIX DEFINITIVO VISIBILITÀ LOGO HEADER
-   (aggiunto in fondo come richiesto)
-============================================================ */
-
-.site-header .logo a {
-    color: var(--accent) !important;
-    font-weight: 700;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.site-header .logo .logo-icon {
-    width: 22px !important;
-    height: 22px !important;
-    opacity: 1 !important;
-    filter: drop-shadow(0 0 6px rgba(0,255,255,0.7));
-}
-/* Dropdown cyber neon */
-.dropdown-news {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-toggle {
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 48px;
-  left: 0;
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid var(--accent-soft);
-  border-radius: 8px;
-  padding: 10px 0;
-  min-width: 220px;
-  box-shadow: 0 0 14px rgba(0, 234, 255, 0.35);
-  z-index: 20;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 16px;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.dropdown-menu a:hover {
-  background: rgba(0, 234, 255, 0.12);
-  color: #00faff;
-}
-
-/* Mostra menu al click */
-.dropdown-news.open .dropdown-menu {
-  display: block;
-}
-.site-header .logo .logo-icon {
-    width: 26px !important;
-    height: 26px !important;
-    opacity: 1 !important;
-    display: inline-block !important;
-    filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important;
-}
-/* FIX VISIBILITÀ TESTO ABOUT */
-.about-section p,
-.about-section,
-#about,
-#about p {
-    color: #e8faff !important; /* colore più chiaro e leggibile */
-    text-shadow: 0 0 6px rgba(0,255,255,0.45); /* glow leggero */
-    font-weight: 500;
-}
-
-/* Pulsanti About */
-.about-section a,
-#about a {
-    color: #00eaff !important;
-    font-weight: 600;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6);
-}
-
-.about-section a:hover,
-#about a:hover {
-    color: #00faff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.9);
 }
