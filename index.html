@@ -340,32 +340,32 @@
   <div id="footer"></div>
 
   <!-- PULSANTE BACK TO TOP -->
-  <button id="backToTop">↑</button>
+<button id="backToTop">↑</button>
 
-  <!-- SCRIPT ORDINATI CORRETTAMENTE -->
-  <script src="js/news.js"></script>
-  <script src="js/ticker.js"></script>
-  <script src="js/home-news.js"></script>
+<!-- SCRIPT ORDINATI CORRETTAMENTE -->
+<script src="js/news.js"></script>
+<script src="js/ticker.js"></script>
+<script src="js/home-news.js"></script>
 
-  <!-- UI GENERALE -->
-  <script src="js/ui.js"></script>
+<!-- UI GENERALE -->
+<script src="js/ui.js"></script>
 
-  <!-- SCRIPT BACK TO TOP -->
-  <script>
-    const backToTop = document.getElementById("backToTop");
+<!-- SCRIPT BACK TO TOP -->
+<script>
+  const backToTop = document.getElementById("backToTop");
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
-      }
-    });
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
 
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
 
 </div> <!-- /#app GPU WRAPPER -->
 
