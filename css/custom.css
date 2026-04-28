@@ -225,3 +225,87 @@
     position: relative !important;
     z-index: 999 !important;
 }
+/* ============================
+   TICKER NEON — VERSIONE FINALE
+============================ */
+
+.ticker {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.55) !important;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.25) !important;
+    padding: 8px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    z-index: 9998 !important;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.18) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.ticker-title {
+    font-weight: 800 !important;
+    font-size: 0.95rem !important;
+    color: #00eaff !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    background: rgba(0, 255, 255, 0.12) !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.6) !important;
+    margin-left: 12px !important;
+    white-space: nowrap !important;
+}
+
+.ticker-content {
+    flex: 1 !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.ticker-track {
+    display: flex !important;
+    gap: 40px !important;
+    white-space: nowrap !important;
+    animation: tickerScroll 22s linear infinite !important;
+    will-change: transform !important;
+}
+
+.ticker-item {
+    color: #baf7ff !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.4) !important;
+    white-space: nowrap !important;
+    padding-right: 20px !important;
+}
+
+/* Effetto neon al passaggio */
+.ticker-item:hover {
+    color: #00faff !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.9) !important;
+}
+
+/* Animazione scorrimento */
+@keyframes tickerScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-1 * var(--ticker-width)));
+    }
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+@media (max-width: 480px) {
+    .ticker-title {
+        font-size: 0.8rem !important;
+        padding: 3px 8px !important;
+    }
+
+    .ticker-item {
+        font-size: 0.85rem !important;
+    }
+}
