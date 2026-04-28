@@ -260,3 +260,26 @@ footer a:hover {
     display: inline-block !important;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important;
 }
+/* FIX VISIBILITÀ TESTO ABOUT */
+.about-section p,
+.about-section,
+#about,
+#about p {
+    color: #e8faff !important; /* colore più chiaro e leggibile */
+    text-shadow: 0 0 6px rgba(0,255,255,0.45); /* glow leggero */
+    font-weight: 500;
+}
+
+/* Pulsanti About */
+.about-section a,
+#about a {
+    color: #00eaff !important;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+}
+
+.about-section a:hover,
+#about a:hover {
+    color: #00faff !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.9);
+}
