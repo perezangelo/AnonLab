@@ -1,28 +1,26 @@
 /* ============================================================
    SEZIONE 1 — VARIABILI GLOBALI + RESET + BASE (VERSIONE PRO)
-   ============================================================ */
+============================================================ */
 
-/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Variabili tema CYBER DARK — versione PRO */
 :root {
-  --bg-main: #000000;
+  --bg-main: #000;
   --bg-elevated: #0d0d0d;
-  --bg-card: #111111;
+  --bg-card: #111;
 
   --accent: #00eaff;
   --accent-soft: rgba(0, 234, 255, 0.22);
 
-  --text-main: #f2f2f2;        /* Migliorato contrasto */
-  --text-muted: #d4d4d4;       /* Più leggibile */
-  --text-soft: #bcbcbc;        /* Nuovo livello intermedio */
+  --text-main: #f2f2f2;
+  --text-muted: #d4d4d4;
+  --text-soft: #bcbcbc;
 
   --border-subtle: rgba(0, 234, 255, 0.22);
 
   --danger: #ff4b6e;
 
-  --shadow-soft: 0 0 18px rgba(0, 234, 255, 0.22); /* Ombra più pulita */
+  --shadow-soft: 0 0 18px rgba(0, 234, 255, 0.22);
 
   --radius: 10px;
 
@@ -30,7 +28,6 @@
   --font-mono: "JetBrains Mono", "Fira Code", Menlo, monospace;
 }
 
-/* Reset */
 *,
 *::before,
 *::after {
@@ -39,7 +36,6 @@
   padding: 0;
 }
 
-/* Base */
 html, body {
   background: var(--bg-main);
   color: var(--text-main);
@@ -49,23 +45,20 @@ html, body {
   min-height: 100vh;
 }
 
-/* Titoli */
 h1, h2, h3 {
   font-weight: 600;
   color: var(--text-main);
   letter-spacing: 0.01em;
 }
 
-/* Placeholder più leggibile */
 ::placeholder {
   color: var(--text-soft);
 }
 
 /* ============================================================
-   SEZIONE 2 — LAYOUT + GRIGLIA + HEADER + TICKER (VERSIONE PRO)
-   ============================================================ */
+   SEZIONE 2 — LAYOUT + HEADER + NAV + TICKER (VERSIONE PRO)
+============================================================ */
 
-/* Layout principale */
 .page {
   max-width: 1200px;
   margin: 0 auto;
@@ -76,26 +69,9 @@ h1, h2, h3 {
 }
 
 @media (max-width: 900px) {
-  .page {
-    grid-template-columns: 1fr;
-  }
+  .page { grid-template-columns: 1fr; }
 }
 
-/* Colonna principale */
-.main-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Sidebar */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Header — versione PRO */
 .site-header {
   display: flex;
   align-items: center;
@@ -103,13 +79,10 @@ h1, h2, h3 {
   padding: 14px 18px;
   margin: 12px auto 10px;
   max-width: 1200px;
-
-  background: rgba(255, 255, 255, 0.06); /* più elegante */
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-
-  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18); /* glow più pulito */
-
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18);
   position: sticky;
   top: 8px;
   z-index: 50;
@@ -122,7 +95,7 @@ h1, h2, h3 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
-  text-shadow: 0 0 6px rgba(0, 234, 255, 0.4); /* leggero glow */
+  text-shadow: 0 0 6px rgba(0, 234, 255, 0.4);
 }
 
 .main-nav {
@@ -146,21 +119,13 @@ h1, h2, h3 {
   background: rgba(0, 255, 157, 0.06);
 }
 
-/* Mobile header */
+/* Mobile */
 @media (max-width: 480px) {
-  .main-nav {
-    gap: 8px;
-    font-size: 0.8rem;
-  }
-  .main-nav a {
-    padding: 4px 8px;
-  }
+  .main-nav { gap: 8px; font-size: 0.8rem; }
+  .main-nav a { padding: 4px 8px; }
 }
 
-/* ============================================================
-   TICKER BREAKING NEWS — versione PRO
-   ============================================================ */
-
+/* Ticker */
 .ticker {
   max-width: 1200px;
   margin: 0 auto 14px;
@@ -200,55 +165,30 @@ h1, h2, h3 {
   color: var(--accent);
   margin-right: 8px;
   font-size: 0.7rem;
-  flex-shrink: 0;
 }
 
-.ticker-item {
-  margin-right: 40px;
-  font-size: 0.9rem; /* leggermente più leggibile */
-  color: var(--text-main);
-  font-weight: 500;
-}
-/* ANIMAZIONE TICKER */
-.ticker-track {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: ticker-loop 18s linear infinite;
-}
-
-@keyframes ticker-loop {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
-}
-/* Ticker continuo */
 .ticker-track {
   display: inline-flex;
   white-space: nowrap;
   animation: ticker-loop 22s linear infinite;
 }
 
-.ticker-track + .ticker-track {
-  margin-left: 40px; /* distanza tra originale e duplicato */
-}
-
 @keyframes ticker-loop {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-1 * var(--ticker-width))); }
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
 }
 /* ============================================================
-   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT + TITOLI (VERSIONE PRO)
-   ============================================================ */
+   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT (VERSIONE PRO)
+============================================================ */
 
-/* Widget generici */
 .widget-large {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
   padding: 20px;
-  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18); /* glow più pulito */
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18);
 }
 
-/* Titoli con icona */
 .box-title-row {
   display: flex;
   align-items: center;
@@ -258,11 +198,9 @@ h1, h2, h3 {
 
 .box-title-row h2 {
   margin: 0;
-  padding: 0;
   font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-main);
-  letter-spacing: 0.01em;
 }
 
 .box-title-icon {
@@ -270,25 +208,19 @@ h1, h2, h3 {
   height: 46px;
   object-fit: cover;
   border-radius: 8px;
-  flex-shrink: 0;
   border: 1px solid rgba(0,170,255,0.28);
   box-shadow: 0 0 12px rgba(0,170,255,0.28);
   opacity: 0.95;
 }
 
 @media (max-width: 480px) {
-  .box-title-icon {
-    width: 40px;
-    height: 40px;
-  }
-  .box-title-row h2 {
-    font-size: 1.25rem;
-  }
+  .box-title-icon { width: 40px; height: 40px; }
+  .box-title-row h2 { font-size: 1.25rem; }
 }
 
 /* ============================================================
    NEWS CARD — versione PRO
-   ============================================================ */
+============================================================ */
 
 .news-card {
   display: flex;
@@ -305,28 +237,24 @@ h1, h2, h3 {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Overlay scuro */
 .news-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.50); /* leggermente più trasparente */
+  background: rgba(0, 0, 0, 0.50);
   z-index: 1;
 }
 
-/* Contenuto sopra overlay */
 .news-card * {
   position: relative;
   z-index: 2;
 }
 
-/* Hover */
 .news-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 26px rgba(0, 234, 255, 0.25);
 }
 
-/* Immagine */
 .news-thumb {
   width: 140px;
   height: 90px;
@@ -340,26 +268,23 @@ h1, h2, h3 {
   transform: scale(1.06);
 }
 
-/* Testi */
 .news-content {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.news-content h2,
 .news-title {
   font-size: 1.05rem;
   margin: 0;
-  color: #ffffff;
-  font-weight: 650; /* leggermente più leggibile */
+  color: #fff;
+  font-weight: 650;
 }
 
-.news-content p,
 .news-excerpt {
   margin: 0;
   font-size: 0.92rem;
-  color: #e6e6e6; /* contrasto migliorato */
+  color: #e6e6e6;
 }
 
 .news-meta {
@@ -377,8 +302,8 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   FEED + ALERT — struttura PRO
-   ============================================================ */
+   FEED + ALERT — versione PRO
+============================================================ */
 
 #alert-live {
   list-style: none;
@@ -402,7 +327,6 @@ h1, h2, h3 {
   height: 48px;
   object-fit: cover;
   border-radius: 6px;
-  flex-shrink: 0;
   border: 1px solid rgba(0,170,255,0.22);
 }
 
@@ -413,17 +337,14 @@ h1, h2, h3 {
   font-size: 0.95rem;
 }
 
-/* Icone SVG */
 .alert-icon,
 .feed-icon {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
-  display: inline-block;
   opacity: 0.95;
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .feed-thumb,
   .alert-thumb,
@@ -431,7 +352,6 @@ h1, h2, h3 {
     width: 42px;
     height: 42px;
   }
-
   .feed-item,
   .alert-item,
   .box-img-row {
@@ -455,32 +375,26 @@ h1, h2, h3 {
   border-radius: 6px;
   opacity: 0.95;
 }
-/* ============================================================
-   SEZIONE 4 — HERO + MATRIX + GLOW + GLITCH + SCANLINES (PRO)
-   ============================================================ */
 
-/* HERO container — versione PRO */
+/* ============================================================
+   SEZIONE 4 — HERO (VERSIONE PRO OTTIMIZZATA)
+============================================================ */
+
 .hero-big {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* FIX: permette al dropdown di uscire */
   text-align: center;
   padding: 60px 20px;
   background: #000;
   border: 2px solid var(--border-subtle);
   border-radius: 20px;
-
-  /* Ombra più morbida e premium */
   box-shadow:
     0 0 25px rgba(0,0,0,0.25),
     0 0 22px rgba(0, 234, 255, 0.18);
-
   margin-bottom: 30px;
 }
 
-/* ============================================================
-   1) MATRIX RAIN — versione PRO
-   ============================================================ */
-
+/* MATRIX */
 .hero-big::before {
   content: "01010100110100101101001010100100110100101010010011010010";
   position: absolute;
@@ -488,17 +402,11 @@ h1, h2, h3 {
   font-family: var(--font-mono);
   font-size: 22px;
   line-height: 26px;
-
-  /* Colore più elegante e meno invadente */
   color: rgba(0, 170, 255, 0.20);
-
   white-space: pre;
   animation: matrixRain 18s linear infinite;
   opacity: 0.32;
   z-index: 1;
-
-  /* GPU-friendly */
-  will-change: transform;
 }
 
 @keyframes matrixRain {
@@ -506,26 +414,15 @@ h1, h2, h3 {
   100% { transform: translateY(100%); }
 }
 
-/* ============================================================
-   2) DIGITAL FLOW — effetto luce blu dinamica PRO
-   ============================================================ */
-
+/* DIGITAL FLOW */
 .hero-big::after {
   content: "";
   position: absolute;
   inset: 0;
-
-  /* Luce più morbida e premium */
-  background: radial-gradient(
-    circle at top,
-    rgba(0,170,255,0.18),
-    transparent 70%
-  );
-
+  background: radial-gradient(circle at top, rgba(0,170,255,0.18), transparent 70%);
   animation: flowMove 18s linear infinite;
   opacity: 0.22;
   z-index: 2;
-  will-change: transform;
 }
 
 @keyframes flowMove {
@@ -533,29 +430,20 @@ h1, h2, h3 {
   100% { transform: scale(1.18) translateY(-40px); }
 }
 
-/* ============================================================
-   3) GLOW NEON BLU CYBER SUL TITOLO — versione PRO
-   ============================================================ */
-
+/* TITOLO */
 .hero-big h1 {
   color: #00d4ff;
   font-weight: 700;
-
-  /* Glow più pulito e meno “sporco” */
   text-shadow:
     0 0 8px rgba(0,200,255,0.85),
     0 0 18px rgba(0,200,255,0.55),
     0 0 36px rgba(0,200,255,0.35),
     0 0 52px rgba(0,200,255,0.22);
-
   position: relative;
   z-index: 5;
 }
 
-/* ============================================================
-   4) GLITCH LEGGERO — versione PRO
-   ============================================================ */
-
+/* GLITCH */
 .hero-big h1::before,
 .hero-big h1::after {
   content: attr(data-text);
@@ -565,7 +453,6 @@ h1, h2, h3 {
   opacity: 0.45;
   mix-blend-mode: screen;
   z-index: 4;
-  will-change: clip-path, transform;
 }
 
 .hero-big h1::before {
@@ -580,7 +467,6 @@ h1, h2, h3 {
   animation: glitch2 2.9s infinite;
 }
 
-/* Glitch più morbido e meno “tagliato” */
 @keyframes glitch1 {
   0% { clip-path: inset(0 0 80% 0); }
   50% { clip-path: inset(18% 0 42% 0); }
@@ -593,15 +479,10 @@ h1, h2, h3 {
   100% { clip-path: inset(0 0 80% 0); }
 }
 
-/* ============================================================
-   5) SCANLINE CYBERPUNK — versione PRO
-   ============================================================ */
-
+/* SCANLINES */
 .hero-big .scanlines {
   position: absolute;
   inset: 0;
-
-  /* Scanlines più sottili e realistiche */
   background: repeating-linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.22) 0px,
@@ -609,41 +490,30 @@ h1, h2, h3 {
     transparent 1px,
     transparent 3px
   );
-
   opacity: 0.22;
   z-index: 3;
   pointer-events: none;
 }
 
-/* ============================================================
-   6) Testi secondari — versione PRO
-   ============================================================ */
-
+/* SOTTOTITOLO */
 .hero-sub {
   color: var(--text-muted);
   font-size: 1.22rem;
   margin-top: 10px;
   position: relative;
   z-index: 5;
-  letter-spacing: 0.01em;
 }
 
-/* Immagine centrale */
+/* IMMAGINE */
 .hero-favicon {
   width: 55%;
   max-width: 480px;
-  height: auto;
-  display: block;
   margin: 25px auto 20px;
-  opacity: 1;
+  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
   position: relative;
   z-index: 5;
-
-  /* leggero glow premium */
-  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
 }
 
-/* Responsive */
 @media (max-width: 992px) {
   .hero-big h1 { font-size: 3.2rem; }
   .hero-favicon { width: 65%; }
@@ -660,23 +530,19 @@ h1, h2, h3 {
 }
 /* ============================================================
    SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
-   ============================================================ */
+============================================================ */
 
-/* Sidebar container */
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* Box sidebar — versione PRO */
 .sidebar-box {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
   padding: 16px 18px;
-
-  /* Glow più pulito */
   box-shadow: 0 0 18px rgba(0, 234, 255, 0.18);
 }
 
@@ -688,7 +554,6 @@ h1, h2, h3 {
   letter-spacing: 0.02em;
 }
 
-/* Icone / immagini sidebar */
 .sidebar-icon {
   width: 100%;
   height: auto;
@@ -696,29 +561,24 @@ h1, h2, h3 {
   margin-bottom: 12px;
   border-radius: 6px;
   opacity: 0.92;
-
   border: 1px solid rgba(0,170,255,0.28);
   box-shadow: 0 0 10px rgba(0,170,255,0.18);
 }
 
-/* Form — versione PRO */
+/* FORM */
 .sidebar-box form input,
 .sidebar-box form textarea {
   width: 100%;
   padding: 11px 12px;
   margin-bottom: 12px;
   font-size: 0.95rem;
-
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-
   background: #0d0d0d;
   color: var(--text-main);
-
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Focus premium */
 .sidebar-box form input:focus,
 .sidebar-box form textarea:focus {
   outline: none;
@@ -726,13 +586,11 @@ h1, h2, h3 {
   box-shadow: 0 0 10px rgba(0, 234, 255, 0.25);
 }
 
-/* Placeholder */
 .sidebar-box form input::placeholder,
 .sidebar-box form textarea::placeholder {
   color: var(--text-soft);
 }
 
-/* Pulsante form — versione PRO */
 .sidebar-box form button {
   width: 100%;
   padding: 11px;
@@ -751,44 +609,32 @@ h1, h2, h3 {
   box-shadow: 0 0 12px rgba(0, 234, 255, 0.35);
 }
 
-/* Utility */
-.text-muted {
-  color: var(--text-muted);
-}
-
-.full-width {
-  width: 100%;
-}
-
+/* UTILITY */
+.text-muted { color: var(--text-muted); }
+.full-width { width: 100%; }
 .mt-10 { margin-top: 10px; }
 .mt-20 { margin-top: 20px; }
 
 /* ============================================================
    SEZIONE 6 — RESPONSIVE + FIX FINALI (VERSIONE PRO)
-   ============================================================ */
+============================================================ */
 
-/* Layout mobile */
 @media (max-width: 900px) {
-  .page {
-    grid-template-columns: 1fr;
-  }
+  .page { grid-template-columns: 1fr; }
 }
 
-/* News card mobile */
 @media (max-width: 600px) {
   .news-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .news-thumb {
     width: 100%;
     height: auto;
   }
 }
 
-/* Feed + Alert mobile */
 @media (max-width: 480px) {
   .feed-thumb,
   .alert-thumb,
@@ -796,22 +642,10 @@ h1, h2, h3 {
     width: 42px;
     height: 42px;
   }
-
   .feed-item,
   .alert-item,
   .box-img-row {
     gap: 8px;
-  }
-}
-
-/* Box title icon mobile */
-@media (max-width: 480px) {
-  .box-title-icon {
-    width: 40px;
-    height: 40px;
-  }
-  .box-title-row h2 {
-    font-size: 1.2rem;
   }
 }
 
@@ -835,34 +669,15 @@ h1, h2, h3 {
   }
 }
 
-/* Fix immagini feed */
-.feed-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.feed-logos img {
-  width: calc(20% - 6px);
-  max-width: 60px;
-  height: auto;
-  border-radius: 6px;
-  opacity: 0.95;
-}
-
-/* Fix generale per evitare overflow */
+/* Fix immagini */
 img, video {
   max-width: 100%;
   height: auto;
 }
 
-/* Fix per evitare spazi indesiderati */
-.mt-10 { margin-top: 10px; }
-.mt-20 { margin-top: 20px; }
-/* ============================
+/* ============================================================
    OVERRIDE FINALE — CUSTOM.CSS
    Garantisce che custom.css vinca sempre
-============================ */
+============================================================ */
 @import url("custom.css");
+
