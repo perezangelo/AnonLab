@@ -70,8 +70,9 @@ function initTicker() {
 
 document.addEventListener("DOMContentLoaded", () => {
     loadPartial("header", "partials/header.html");
-    loadPartial("sidebar", "partials/sidebar.html");
-    loadPartial("footer", "partials/footer.html");
+loadPartial("ticker", "partials/ticker.html");   // AGGIUNTO
+loadPartial("sidebar", "partials/sidebar.html");
+loadPartial("footer", "partials/footer.html");
 
     loadMeteo();
     loadWorldFeed();
