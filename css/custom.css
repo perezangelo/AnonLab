@@ -309,3 +309,57 @@
         font-size: 0.85rem !important;
     }
 }
+/* ============================
+   SOC DASHBOARD — NEON STYLE
+============================ */
+
+.soc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.soc-card {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.soc-card h2 {
+    color: #00eaff;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+    margin-bottom: 12px;
+}
+
+.dash-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00faff;
+    text-shadow: 0 0 10px rgba(0,255,255,0.9);
+}
+
+.event-log {
+    height: 220px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.event-log::-webkit-scrollbar {
+    width: 6px;
+}
+
+.event-log::-webkit-scrollbar-thumb {
+    background: #00eaff;
+    border-radius: 4px;
+}
+/* ============================
+   CHART.JS — NEON STYLE
+============================ */
+
+canvas {
+    filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));
+}
