@@ -861,3 +861,8 @@ img, video {
 /* Fix per evitare spazi indesiderati */
 .mt-10 { margin-top: 10px; }
 .mt-20 { margin-top: 20px; }
+/* ============================
+   OVERRIDE FINALE — CUSTOM.CSS
+   Garantisce che custom.css vinca sempre
+============================ */
+@import url("custom.css");
