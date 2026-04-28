@@ -180,3 +180,18 @@ footer a:hover {
     text-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.7);
     color: #00f0ff !important;
 }
+/* Icona favicon accanto al logo */
+.logo-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.6));
+}
+
+/* Allineamento perfetto del link */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
