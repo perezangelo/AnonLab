@@ -77,6 +77,11 @@
 <div id="app" class="gpu-boost">
 
   <div id="header"></div>
+<script>
+    fetch("/partials/header.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("header").innerHTML = data);
+</script>
 
   <!-- TICKER BREAKING NEWS -->
   <div class="ticker" aria-label="Ultime notizie in scorrimento" role="marquee">
