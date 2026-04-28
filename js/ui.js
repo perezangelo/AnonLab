@@ -19,13 +19,10 @@ async function loadPartial(id, file) {
 
         el.innerHTML = await res.text();
 
-        /* Sidebar: attiva Speedtest */
-        if (id === "sidebar") {
-            const btn = document.getElementById("speedtest-start");
-            if (btn && typeof startSpeedTest === "function") {
-                btn.addEventListener("click", startSpeedTest);
-            }
-        }
+        /* Sidebar: nessuna azione speciale */
+if (id === "sidebar") {
+    // Speedtest interno rimosso
+}
 
         /* Header: attiva ticker continuo SUBITO dopo il caricamento */
         if (id === "header") {
