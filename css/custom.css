@@ -211,3 +211,45 @@ footer a:hover {
     opacity: 1 !important;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.7));
 }
+/* Dropdown cyber neon */
+.dropdown-news {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid var(--accent-soft);
+  border-radius: 8px;
+  padding: 10px 0;
+  min-width: 220px;
+  box-shadow: 0 0 14px rgba(0, 234, 255, 0.35);
+  z-index: 20;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(0, 234, 255, 0.12);
+  color: #00faff;
+}
+
+/* Mostra menu al click */
+.dropdown-news.open .dropdown-menu {
+  display: block;
+}
