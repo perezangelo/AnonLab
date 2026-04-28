@@ -197,3 +197,19 @@ window.addEventListener("scroll", () => {
 
     lastScroll = current;
 });
+/* ============================
+   DROPDOWN NEWS — MENU A TENDINA
+============================ */
+
+document.addEventListener("click", function (e) {
+    const dropdown = document.querySelector(".dropdown-news");
+    if (!dropdown) return;
+
+    // Se clicchi sul bottone → toggle
+    if (dropdown.contains(e.target)) {
+        dropdown.classList.toggle("open");
+    } else {
+        // Se clicchi fuori → chiudi
+        dropdown.classList.remove("open");
+    }
+});
