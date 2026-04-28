@@ -171,32 +171,28 @@
     text-shadow: 0 0 12px rgba(0,255,255,0.9) !important;
 }
 
-/* ============================
-   BACK TO TOP — BOTTONE
-============================ */
-
 #backToTop {
-  position: fixed !important;
-  bottom: 25px !important;
-  right: 25px !important;
-  width: 45px !important;
-  height: 45px !important;
-  border-radius: 50% !important;
-  background: #0af !important;
-  color: #000 !important;
-  font-size: 22px !important;
-  font-weight: bold !important;
-  border: none !important;
-  cursor: pointer !important;
-  display: none !important;
-  box-shadow: 0 0 12px #0af !important;
-  transition: 0.3s ease !important;
-  z-index: 9999 !important;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #00eaff;
+  color: #000;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 0 12px #00eaff;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
 }
 
 #backToTop:hover {
-  transform: scale(1.15) !important;
-  box-shadow: 0 0 18px #0af !important;
+  transform: scale(1.15);
+  box-shadow: 0 0 18px #00eaff;
 }
 
 /* ============================
