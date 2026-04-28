@@ -641,3 +641,47 @@ canvas {
     color: #00eaff !important;
     text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
 }
+/* ============================
+   PAGINA TERMINI — NEON STYLE
+============================ */
+
+.main-column h1 {
+    color: #00eaff !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+
+.main-column h2 {
+    color: #00eaff !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    margin-top: 25px !important;
+    margin-bottom: 12px !important;
+}
+
+.terms-box {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.terms-box p,
+.terms-box li {
+    color: #baf7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.terms-box ul {
+    margin-left: 18px !important;
+    margin-bottom: 12px !important;
+}
+
+.terms-box a {
+    color: #00eaff !important;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+}
