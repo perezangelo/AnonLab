@@ -363,3 +363,49 @@
 canvas {
     filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));
 }
+/* ============================
+   PAGINA CYBER — NEON STYLE
+============================ */
+
+.page-title,
+.main-column h1 {
+    color: #00eaff !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.8) !important;
+    font-size: 2.2rem !important;
+    margin-bottom: 18px !important;
+}
+
+.cyber-intro {
+    color: #baf7ff !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+    margin-bottom: 25px !important;
+}
+
+.cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.cyber-card {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.cyber-card h3 {
+    color: #00eaff;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+    margin-bottom: 10px;
+}
+
+.cyber-card p {
+    color: #baf7ff;
+    line-height: 1.5;
+}
