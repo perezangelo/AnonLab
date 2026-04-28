@@ -180,3 +180,42 @@ footer a:hover {
     text-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.7);
     color: #00f0ff !important;
 }
+/* ============================
+   AUMENTO IMMAGINI NEI BOX
+   (solo immagini interne, nessun impatto sul layout)
+============================ */
+
+/* Immagini nei box principali (es. CVE del Giorno) */
+.box-thumb {
+    width: 150px !important;   /* aumento controllato */
+    height: auto !important;
+    border-radius: 10px;
+    transition: transform 0.25s ease;
+}
+
+/* Effetto leggero al passaggio del mouse */
+.box-thumb:hover {
+    transform: scale(1.05);
+}
+
+/* Immagine Anonymous sopra Cyber Threat Level */
+.main-column > div img {
+    width: 105% !important;   /* leggero aumento */
+    max-width: 105% !important;
+    height: auto !important;
+    border-radius: 12px;
+}
+
+/* Immagini nei box della sidebar */
+.sidebar-box img {
+    width: 115% !important;
+    max-width: 115% !important;
+    height: auto !important;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.sidebar-box img:hover {
+    transform: scale(1.04);
+}
