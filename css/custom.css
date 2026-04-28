@@ -455,3 +455,62 @@ canvas {
     color: #baf7ff;
     line-height: 1.5;
 }
+/* ============================
+   PAGINA ABOUT — NEON STYLE
+============================ */
+
+.main-column h1 {
+    color: #00eaff !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+
+.main-column h2 {
+    color: #00eaff !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    margin-bottom: 12px !important;
+}
+
+.widget-large {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.widget-large p {
+    color: #baf7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.tools-list li {
+    color: #baf7ff !important;
+    margin-bottom: 6px;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+/* TIMELINE ABOUT */
+.cyber-feed-list {
+    display: grid;
+    gap: 18px;
+    margin-top: 12px;
+}
+
+.cyber-feed-list div {
+    background: rgba(0, 0, 0, 0.45);
+    border-left: 3px solid #00eaff;
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: #baf7ff;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35);
+}
+
+.cyber-feed-list strong {
+    color: #00eaff;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+}
