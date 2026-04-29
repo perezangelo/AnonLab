@@ -798,12 +798,16 @@ canvas {
 }
 /* HERO — override sfondo */
 .hero-big {
-    background: none !important;
     background-image: url('/img/hero-bg.png') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 420px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
+
+/* Titolo */
 .hero-big h1 {
     position: absolute;
     top: 20px;
@@ -812,69 +816,27 @@ canvas {
     font-size: 3.2rem;
     z-index: 3;
 }
+
+/* Occhi */
 .hero-favicon {
     position: absolute;
-    top: 140px;   /* REGOLA QUESTA VALORE PER CENTRARLO PERFETTAMENTE */
+    top: 150px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 260px;   /* puoi aumentare o ridurre */
-    z-index: 3;
-}
-.hero-big {
-    min-height: 420px; /* aumenta l’altezza del box */
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-.hero-favicon {
-    position: absolute;
-    top: 150px; /* regola verticale */
-    left: 38%;  /* PRIMA ERA 50% — ora li spostiamo a sinistra */
     transform: translateX(-50%);
     width: 260px;
     z-index: 3;
 }
-/* Sposta in basso il sottotitolo e il menu */
-.hero-big .hero-subtitle,
-.hero-big .hero-menu {
-    margin-top: 40px; /* aumenta lo spazio sopra */
-    display: block;
-}
-.hero-big .hero-button {
-    margin-top: 20px; /* abbassa il menu */
-}
-/* Sposta in basso il sottotitolo */
-.hero-big p {
-    margin-top: 40px !important;
-}
 
-/* Sposta in basso il menu a tendina */
-.hero-big a {
-    margin-top: 20px !important;
-    display: inline-block;
-}
-.hero-big h2,
-.hero-big .subtitle,
-.hero-big > span,
-.hero-big > div:not(:first-child) {
-    margin-top: 40px !important;
-    display: block;
-}
-.hero-big > *:nth-child(3) {
-    margin-top: 40px !important;
-    display: block;
-}
-.hero-big .hero-dropdown {
-    margin-top: 25px !important;
-    display: inline-block;
-}
-/* Sposta in basso il sottotitolo */
+/* Sottotitolo */
 .hero-big .hero-sub {
-    margin-top: 40px !important;
+    margin-top: 260px !important;
+    text-align: center;
     display: block;
 }
 
-/* Sposta in basso il blocco dropdown */
+/* Dropdown */
 .hero-big .dropdown-news {
-    margin-top: 25px !important;
+    margin-top: 20px !important;
+    text-align: center;
     display: block;
 }
