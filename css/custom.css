@@ -843,12 +843,11 @@ canvas {
 @media (max-width: 768px) {
     .hero-big .hero-favicon {
         left: 50% !important;
-        transform: translateX(-55%) !important;
+        transform: translateX(-50%) !important;
         top: 180px !important;
         width: 200px !important;
     }
 }
-
 .google-search-wrapper {
     display: flex;
     align-items: center;
