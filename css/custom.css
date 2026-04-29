@@ -820,3 +820,16 @@ canvas {
     width: 260px;   /* puoi aumentare o ridurre */
     z-index: 3;
 }
+.hero-big {
+    min-height: 420px; /* aumenta l’altezza del box */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.hero-favicon {
+    position: absolute;
+    top: 150px; /* regola verticale */
+    left: 46%;  /* PRIMA ERA 50% — ora li spostiamo a sinistra */
+    transform: translateX(-50%);
+    width: 260px;
+    z-index: 3;
+}
