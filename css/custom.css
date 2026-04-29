@@ -821,7 +821,7 @@ canvas {
 .hero-favicon {
     position: absolute;
     top: 150px;
-    left: 50%;
+    left: 38%;
     transform: translateX(-50%);
     width: 260px;
     z-index: 3;
@@ -829,14 +829,13 @@ canvas {
 
 /* Sottotitolo */
 .hero-big .hero-sub {
-    margin-top: 260px !important;
+    margin-top: 300px !important; /* prima 260px */
     text-align: center;
     display: block;
 }
 
-/* Dropdown */
 .hero-big .dropdown-news {
-    margin-top: 20px !important;
+    margin-top: 40px !important; /* prima 20px */
     text-align: center;
     display: block;
 }
