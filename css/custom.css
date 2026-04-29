@@ -852,3 +852,10 @@ canvas {
     margin-top: 20px !important;
     display: inline-block;
 }
+.hero-big h2,
+.hero-big .subtitle,
+.hero-big > span,
+.hero-big > div:not(:first-child) {
+    margin-top: 40px !important;
+    display: block;
+}
