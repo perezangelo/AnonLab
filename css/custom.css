@@ -894,3 +894,12 @@ canvas {
         width: 36px !important;
     }
 }
+.site-header .logo img.logo-icon {
+    width: 48px !important;
+    height: auto;
+}
+@media (max-width: 768px) {
+    .site-header .logo img.logo-icon {
+        width: 36px !important;
+    }
+}
