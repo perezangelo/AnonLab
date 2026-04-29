@@ -804,3 +804,19 @@ canvas {
     background-position: center;
     background-repeat: no-repeat;
 }
+.hero-big h1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    font-size: 3.2rem;
+    z-index: 3;
+}
+.hero-favicon {
+    position: absolute;
+    top: 140px;   /* REGOLA QUESTA VALORE PER CENTRARLO PERFETTAMENTE */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;   /* puoi aumentare o ridurre */
+    z-index: 3;
+}
