@@ -796,3 +796,11 @@ canvas {
     box-shadow: 0 0 18px rgba(0,255,255,1);
     transform: translateY(-1px);
 }
+/* HERO — override sfondo */
+.hero-big {
+    background: none !important;
+    background-image: url('/img/hero-bg.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
