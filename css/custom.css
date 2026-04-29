@@ -860,3 +860,14 @@ canvas {
     height: auto;
     flex-shrink: 0;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
+   .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 28px;
+    height: auto;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.5));
+}
