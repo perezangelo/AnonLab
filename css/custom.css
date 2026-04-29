@@ -839,15 +839,16 @@ canvas {
     text-align: center;
     display: block;
 }
-/* MOBILE FIX — centra gli occhi su smartphone */
+/* MOBILE FIX — centra gli occhi su smartphone (correzione ottica) */
 @media (max-width: 768px) {
     .hero-favicon {
-        left: 50% !important;          /* centro perfetto */
-        transform: translateX(-50%) !important;
-        top: 180px !important;         /* regola verticale */
-        width: 200px !important;       /* dimensione mobile */
+        left: 50% !important;
+        transform: translateX(-55%) !important; /* prima -50% */
+        top: 180px !important;
+        width: 200px !important;
     }
 }
+
 .google-search-wrapper {
     display: flex;
     align-items: center;
