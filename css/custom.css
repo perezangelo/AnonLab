@@ -796,3 +796,38 @@ canvas {
     box-shadow: 0 0 18px rgba(0,255,255,1);
     transform: translateY(-1px);
 }
+/* --- UNIFORMITÀ IMMAGINI SIDEBAR (OPZIONE 3) --- */
+
+/* Dimensioni e allineamento immagini nella sidebar */
+#sidebar img {
+    max-width: 110px;
+    height: auto;
+    float: right;
+    margin-left: 12px;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 6px #0ff);
+}
+
+/* Testo della sidebar allineato a sinistra con spazio per l’immagine */
+#sidebar h3,
+#sidebar p,
+#sidebar ul,
+#sidebar form {
+    margin-right: 130px;
+    text-align: left;
+}
+
+/* Evita che i blocchi centrino tutto */
+#sidebar .side-block,
+#sidebar .widget,
+#sidebar .box {
+    text-align: left !important;
+}
+
+/* Protezione contro immagini troppo grandi da feed esterni */
+#sidebar img:not(.icon) {
+    max-height: 110px;
+    object-fit: contain;
+}
