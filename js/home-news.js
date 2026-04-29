@@ -1,5 +1,5 @@
 /* ============================
-   HOME NEWS — CARICAMENTO NEWS DA RSS
+   HOME NEWS — CARICAMENTO NEWS DA RSS (con fallback + sorting)
 ============================ */
 
 async function loadHomeNews() {
@@ -8,46 +8,80 @@ async function loadHomeNews() {
 
     const feedUrl = "https://rss.app/feeds/v1.1/438ni62sumVqiCeO.json";
 
+    // Link esterni personalizzati (in ordine)
+    const externalLinks = [
+        "https://www.ctm360.com/blog/govtrap-campaign",
+        "https://www.netskope.com/blog/work-moved-into-the-browser-security-didnt",
+        "https://www.rubrik.com/blog/why-your-backups-might-not-save-you",
+        "https://www.securityweek.com/anthropic-mcp-design-flaw-rce-risk",
+        "https://www.gartner.com/en/articles/threat-intelligence-missing-link-ctem"
+    ];
+
     try {
         const res = await fetch(feedUrl);
         const data = await res.json();
 
-        const items = data.items.slice(0, 5); // Prime 5 notizie
+        let items = data.items || [];
 
+        /* ============================
+           FALLBACK 1 — se il feed cambia struttura
+        ============================ */
+        if (!Array.isArray(items) || items.length === 0) {
+            console.warn("Feed vuoto o struttura cambiata. Uso fallback locale.");
+            items = [
+                {
+                    title: "CTM360 Exposes Global GovTrap Campaign...",
+                    description: "Analisi della campagna GovTrap...",
+                    pubDate: new Date().toISOString(),
+                    categories: ["Cyber"],
+                    image: "/img/default-news.jpg"
+                },
+                {
+                    title: "Work Moved Into the Browser...",
+                    description: "La sicurezza del browser è la nuova frontiera...",
+                    pubDate: new Date().toISOString(),
+                    categories: ["Security"],
+                    image: "/img/default-news.jpg"
+                }
+            ];
+        }
+
+        /* ============================
+           ORDINAMENTO PER DATA REALE
+        ============================ */
+        items = items
+            .map(item => ({
+                ...item,
+                parsedDate: item.pubDate ? new Date(item.pubDate) : new Date(0)
+            }))
+            .sort((a, b) => b.parsedDate - a.parsedDate)
+            .slice(0, 5);
+
+        /* ============================
+           RENDERING NEWS
+        ============================ */
         container.innerHTML = items
             .map((item, index) => {
-
-                // Categoria dal feed
                 const category =
                     item.categories && item.categories.length > 0
                         ? item.categories[0]
                         : "News";
 
-                // Immagine dal feed
                 const image =
                     item.image ||
                     (item.enclosure && item.enclosure.link) ||
                     "img/default-news.jpg";
 
-                // Excerpt pulito
                 const excerpt = item.description
                     ? item.description.replace(/<[^>]+>/g, "").slice(0, 140) + "..."
                     : "";
 
-                // FIX DATA — evita "Invalid Date"
-                let date = "Oggi";
-                if (item.pubDate) {
-                    const parsed = new Date(item.pubDate);
-                    if (!isNaN(parsed)) {
-                        date = parsed.toLocaleDateString("it-IT");
-                    }
-                }
+                const date = item.parsedDate
+                    ? item.parsedDate.toLocaleDateString("it-IT")
+                    : "Oggi";
 
-                // FIX LINK — evita link vuoti
-                const link =
-                    item.link ||
-                    (item.enclosure && item.enclosure.link) ||
-                    "#";
+                // Link esterno personalizzato
+                const link = externalLinks[index] || item.link || "#";
 
                 return `
                     <article class="news-card" id="news-${index + 1}">
@@ -72,8 +106,20 @@ async function loadHomeNews() {
             .join("");
 
     } catch (err) {
-        container.innerHTML = "<p>Errore nel caricamento delle news.</p>";
         console.error("Errore nel caricamento RSS:", err);
+
+        /* ============================
+           FALLBACK 2 — errore totale
+        ============================ */
+        container.innerHTML = `
+            <article class="news-card">
+                <img src="/img/default-news.jpg" class="news-thumb">
+                <div class="news-content">
+                    <h3 class="news-title">Impossibile caricare le news</h3>
+                    <p class="news-excerpt">Il feed esterno non risponde. Riprova più tardi.</p>
+                </div>
+            </article>
+        `;
     }
 }
 
