@@ -842,9 +842,21 @@ canvas {
 /* MOBILE FIX — centra gli occhi su smartphone */
 @media (max-width: 768px) {
     .hero-favicon {
-        left: 30% !important;
+        left: 25% !important;
         transform: translateX(-50%) !important;
         top: 180px !important; /* puoi regolarlo */
         width: 200px !important; /* leggermente più piccolo per mobile */
     }
+}
+.google-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.google-icon {
+    width: 48px;
+    height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
 }
