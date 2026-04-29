@@ -842,7 +842,7 @@ canvas {
 /* MOBILE FIX — centra gli occhi su smartphone */
 @media (max-width: 768px) {
     .hero-favicon {
-        left: 40% !important;
+        left: 30% !important;
         transform: translateX(-50%) !important;
         top: 180px !important; /* puoi regolarlo */
         width: 200px !important; /* leggermente più piccolo per mobile */
