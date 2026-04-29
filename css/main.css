@@ -695,3 +695,11 @@ img, video {
     background-position: center;
     background-repeat: no-repeat;
 }
+/* HERO — override sfondo */
+.hero-big {
+    background: none !important;
+    background-image: url('/img/hero-bg.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
