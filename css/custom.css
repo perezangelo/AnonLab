@@ -892,3 +892,12 @@ canvas {
         width: 36px !important;
     }
 }
+.logo-icon {
+    width: 48px !important;
+    height: auto;
+}
+@media (max-width: 768px) {
+    .logo-icon {
+        width: 36px !important;
+    }
+}
