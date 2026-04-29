@@ -882,19 +882,12 @@ canvas {
         width: 36px !important;   /* Perfetto per mobile */
     }
 }
-/* Logo grande nella navbar */
+/* Logo navbar più grande */
 .logo-icon {
     width: 48px !important;
     height: auto;
-}
-@media (max-width: 768px) {
-    .logo-icon {
-        width: 36px !important;
-    }
-}
-.logo-icon {
-    width: 48px !important;
-    height: auto;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 @media (max-width: 768px) {
     .logo-icon {
