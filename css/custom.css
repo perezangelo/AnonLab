@@ -859,3 +859,7 @@ canvas {
     margin-top: 40px !important;
     display: block;
 }
+.hero-big > *:nth-child(3) {
+    margin-top: 40px !important;
+    display: block;
+}
