@@ -840,14 +840,6 @@ canvas {
     display: block;
 }
 /* MOBILE FIX — centra gli occhi su smartphone (correzione ottica) */
-/* --- DESKTOP --- */
-.hero-big .hero-favicon {
-    left: 44%;
-    top: 200px;
-    width: 260px;
-}
-
-/* --- MOBILE --- */
 @media (max-width: 768px) {
     .hero-big .hero-favicon {
         left: 50% !important;
@@ -856,6 +848,12 @@ canvas {
         width: 200px !important;
     }
 }
+.google-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .google-icon {
     width: 48px;
     height: auto;
@@ -883,12 +881,4 @@ canvas {
     .site-header .logo img.logo-icon {
         width: 36px !important;   /* Perfetto per mobile */
     }
-}
-/* Favicon nel menu — visibilità massima */
-.site-header .logo img.logo-icon {
-    width: 48px !important;          /* Dimensione ideale */
-    height: auto;
-    opacity: 1 !important;           /* Forza la visibilità */
-    filter: drop-shadow(0 0 10px rgba(0,255,255,1)) !important; /* Glow forte */
-    mix-blend-mode: normal !important; /* Evita che il vetro la schiari */
 }
