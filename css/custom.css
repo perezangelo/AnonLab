@@ -867,3 +867,14 @@ canvas {
     margin-top: 25px !important;
     display: inline-block;
 }
+/* Sposta in basso il sottotitolo */
+.hero-big .hero-sub {
+    margin-top: 40px !important;
+    display: block;
+}
+
+/* Sposta in basso il blocco dropdown */
+.hero-big .dropdown-news {
+    margin-top: 25px !important;
+    display: block;
+}
