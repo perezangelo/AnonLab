@@ -865,35 +865,6 @@ canvas {
     gap: 10px;
 }
 
-.logo-icon {
-    width: 50px;
-    height: auto;
-    filter: drop-shadow(0 0 6px rgba(0,255,255,0.5));
-}
-   /* LOGO — dimensioni ottimizzate */
-.site-header .logo img.logo-icon {
-    width: 46px !important;   /* Desktop ideale */
-    height: auto;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .site-header .logo img.logo-icon {
-        width: 36px !important;   /* Perfetto per mobile */
-    }
-}
-/* Logo navbar più grande */
-.logo-icon {
-    width: 48px !important;
-    height: auto;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-@media (max-width: 768px) {
-    .logo-icon {
-        width: 36px !important;
-    }
-}
 .site-header .logo img.logo-icon {
     width: 48px !important;
     height: auto;
