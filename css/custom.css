@@ -852,18 +852,8 @@ canvas {
     .hero-big .hero-favicon {
         left: 50% !important;
         transform: translateX(-50%) !important;
-        top: 158px !important;
-        width: 188px !important;
-    }
-}
-
-/* --- TABLET --- */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .hero-big .hero-favicon {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        top: 175px !important;
-        width: 230px !important;
+        top: 180px !important;
+        width: 200px !important;
     }
 }
 .google-icon {
