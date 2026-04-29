@@ -833,3 +833,12 @@ canvas {
     width: 260px;
     z-index: 3;
 }
+/* Sposta in basso il sottotitolo e il menu */
+.hero-big .hero-subtitle,
+.hero-big .hero-menu {
+    margin-top: 40px; /* aumenta lo spazio sopra */
+    display: block;
+}
+.hero-big .hero-button {
+    margin-top: 20px; /* abbassa il menu */
+}
