@@ -844,8 +844,8 @@ canvas {
     .hero-big .hero-favicon {
         left: 50% !important;
         transform: translateX(-50%) !important;
-        top: 180px !important;
-        width: 200px !important;
+        top: 165px !important;
+        width: 190px !important;
     }
 }
 .google-search-wrapper {
