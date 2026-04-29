@@ -9,50 +9,6 @@
   <meta name="description" content="SOC Dashboard di AnonLab: Threat Level, Attacchi rilevati, Event Log, System Status e monitoraggio cyber in tempo reale.">
   <meta name="author" content="AnonLab">
 
-  <!-- CANONICAL -->
-  <link rel="canonical" href="https://anonlab.it/dashboard.html">
-
-  <!-- INDEXING (SEO 2026) -->
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
-
-  <!-- SITEMAP -->
-  <link rel="sitemap" type="application/xml" href="https://anonlab.it/sitemap.xml">
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content="SOC Dashboard — Monitoraggio Cyber in Tempo Reale">
-  <meta property="og:description" content="Threat Level, attacchi rilevati, log eventi e stato dei sistemi in tempo reale.">
-  <meta property="og:image" content="https://anonlab.it/img/eyes.png">
-  <meta property="og:url" content="https://anonlab.it/dashboard.html">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="AnonLab">
-
-  <!-- TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SOC Dashboard — Monitoraggio Cyber in Tempo Reale">
-  <meta name="twitter:description" content="Threat Level, attacchi rilevati, log eventi e stato dei sistemi in tempo reale.">
-  <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
-
-  <!-- JSON-LD (DASHBOARD PAGE) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "SOC Dashboard",
-    "url": "https://anonlab.it/dashboard.html",
-    "description": "Dashboard SOC con monitoraggio cyber in tempo reale: threat level, attacchi, log eventi e stato dei sistemi.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "AnonLab",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://anonlab.it/img/eyes.png"
-      }
-    }
-  }
-  </script>
-
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
@@ -66,48 +22,60 @@
   <!-- TICKER -->
   <div id="ticker"></div>
 
-  <!-- CONTENUTO PRINCIPALE -->
+  <!-- STRUTTURA IDENTICA ALLE ALTRE SCHEDE -->
   <main class="page">
 
-    <section class="soc-grid">
+    <!-- COLONNA PRINCIPALE -->
+    <section class="main-column">
 
-      <!-- H1 PRINCIPALE DELLA PAGINA -->
+      <!-- TITOLO PAGINA -->
       <h1 class="page-title">SOC Dashboard</h1>
 
-      <!-- THREAT LEVEL -->
-      <div class="soc-card threat-card">
-        <h2>Threat Level</h2>
-        <div id="threat-level" class="threat-level dash-number">--</div>
-      </div>
+      <!-- INTRO (FACOLTATIVA, COME NELLE ALTRE SCHEDE) -->
+      <p class="cyber-intro">
+        Monitoraggio in tempo reale dello stato dei sistemi, livello di minaccia,
+        log eventi e attività di rete.
+      </p>
 
-      <!-- GRAFICO ATTACCHI -->
-      <div class="soc-card">
-        <h2>Attacchi rilevati (ultime 24h)</h2>
-        <canvas id="attacksChart"></canvas>
-      </div>
+      <!-- LE TUE CARD SOC ORIGINALI -->
+      <div class="soc-grid">
 
-      <!-- EVENT LOG -->
-      <div class="soc-card log-card">
-        <h2>Event Log</h2>
-        <div id="event-log" class="event-log"></div>
-      </div>
+        <!-- THREAT LEVEL -->
+        <div class="soc-card threat-card">
+          <h2>Threat Level</h2>
+          <div id="threat-level" class="threat-level dash-number">--</div>
+        </div>
 
-      <!-- SYSTEM STATUS -->
-      <div class="soc-card">
-        <h2>System Status</h2>
-        <ul class="system-status">
-          <li>CPU Load: <span id="cpu-load" class="dash-number">--%</span></li>
-          <li>Network Activity: <span id="net-activity" class="dash-number">-- kb/s</span></li>
-          <li>Firewall Status: <span id="fw-status" class="dash-number">--</span></li>
-        </ul>
+        <!-- GRAFICO ATTACCHI -->
+        <div class="soc-card">
+          <h2>Attacchi rilevati (ultime 24h)</h2>
+          <canvas id="attacksChart"></canvas>
+        </div>
+
+        <!-- EVENT LOG -->
+        <div class="soc-card log-card">
+          <h2>Event Log</h2>
+          <div id="event-log" class="event-log"></div>
+        </div>
+
+        <!-- SYSTEM STATUS -->
+        <div class="soc-card">
+          <h2>System Status</h2>
+          <ul class="system-status">
+            <li>CPU Load: <span id="cpu-load" class="dash-number">--%</span></li>
+            <li>Network Activity: <span id="net-activity" class="dash-number">-- kb/s</span></li>
+            <li>Firewall Status: <span id="fw-status" class="dash-number">--</span></li>
+          </ul>
+        </div>
+
       </div>
 
     </section>
 
-  </main>
+    <!-- SIDEBAR IDENTICA ALLE ALTRE SCHEDE -->
+    <div id="sidebar"></div>
 
-  <!-- SIDEBAR -->
-  <div id="sidebar"></div>
+  </main>
 
   <!-- FOOTER -->
   <div id="footer"></div>
@@ -121,7 +89,7 @@
   <!-- CHART.JS -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- DASHBOARD JS COMPLETO -->
+  <!-- DASHBOARD JS -->
   <script src="/js/dashboard.js"></script>
 
 </body>
