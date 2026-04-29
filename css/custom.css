@@ -840,20 +840,32 @@ canvas {
     display: block;
 }
 /* MOBILE FIX — centra gli occhi su smartphone (correzione ottica) */
+/* --- DESKTOP --- */
+.hero-big .hero-favicon {
+    left: 44%;
+    top: 200px;
+    width: 260px;
+}
+
+/* --- MOBILE --- */
 @media (max-width: 768px) {
     .hero-big .hero-favicon {
         left: 50% !important;
         transform: translateX(-50%) !important;
-        top: 165px !important;
-        width: 190px !important;
+        top: 158px !important;
+        width: 188px !important;
     }
 }
-.google-search-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
 
+/* --- TABLET --- */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero-big .hero-favicon {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: 175px !important;
+        width: 230px !important;
+    }
+}
 .google-icon {
     width: 48px;
     height: auto;
