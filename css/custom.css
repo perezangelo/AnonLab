@@ -871,3 +871,15 @@ canvas {
     height: auto;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.5));
 }
+   /* LOGO — dimensioni ottimizzate */
+.site-header .logo img.logo-icon {
+    width: 46px !important;   /* Desktop ideale */
+    height: auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .site-header .logo img.logo-icon {
+        width: 36px !important;   /* Perfetto per mobile */
+    }
+}
