@@ -842,3 +842,13 @@ canvas {
 .hero-big .hero-button {
     margin-top: 20px; /* abbassa il menu */
 }
+/* Sposta in basso il sottotitolo */
+.hero-big p {
+    margin-top: 40px !important;
+}
+
+/* Sposta in basso il menu a tendina */
+.hero-big a {
+    margin-top: 20px !important;
+    display: inline-block;
+}
