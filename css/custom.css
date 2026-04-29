@@ -863,3 +863,7 @@ canvas {
     margin-top: 40px !important;
     display: block;
 }
+.hero-big .hero-dropdown {
+    margin-top: 25px !important;
+    display: inline-block;
+}
