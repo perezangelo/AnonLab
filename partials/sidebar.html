@@ -69,23 +69,38 @@
 
 </div>
 
-<!-- METEO -->
-<div class="sidebar-box" aria-label="Previsioni meteo Varese">
-    <h3>Meteo</h3>
+<!-- METEO (WeatherWidget.io – Cyber Neon) -->
+<div class="sidebar-box" aria-label="Previsioni meteo Varese" style="border:1px solid #0ff3; box-shadow:0 0 12px #0ff5; border-radius:8px; padding:12px;">
+    <h3 style="color:#4fc3f7; text-shadow:0 0 6px #4fc3f7;">Meteo</h3>
 
-    <a href="https://www.yr.no/en/forecast/daily-table/1-316385" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-        <div style="text-align:center; margin-bottom:10px;">
-            <img src="/img/meteo.png" alt="Anteprima meteo Varese" style="width:100%; border-radius:6px;">
-        </div>
+    <a class="weatherwidget-io"
+       href="https://forecast7.com/en/45d828d83/varese/"
+       data-label_1="VARESE"
+       data-label_2="WEATHER"
+       data-icons="Climacons Animated"
+       data-theme="dark"
+       data-basecolor="#050a18"
+       data-textcolor="#8be9ff"
+       data-highcolor="#00eaff"
+       data-lowcolor="#7f9db0"
+       data-suncolor="#ffe066"
+       data-cloudcolor="#6c7a89"
+       data-mooncolor="#b0c4de"
+       data-raincolor="#00bcd4"
+       data-snowcolor="#e0f7fa">
+       VARESE WEATHER
     </a>
 
-    <div style="font-size:14px; line-height:1.4;">
-        <strong>Previsioni Varese (fonte: Yr.no)</strong><br><br>
-
-        <img src="https://www.yr.no/en/content/1-316385/meteogram.svg" 
-             alt="Meteogramma meteo Varese" 
-             style="width:100%; border-radius:6px;">
-    </div>
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+                js=d.createElement(s);js.id=id;
+                js.src='https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document,'script','weatherwidget-io-js');
+    </script>
 </div>
 <!-- ============================
      BLOCCO 3 — SOCIAL NETWORK + VIDEO & STREAMING
