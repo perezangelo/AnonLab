@@ -25,7 +25,7 @@ async function loadHomeNews() {
         "https://www.gartner.com/en/articles/threat-intelligence-missing-link-ctem"
     ];
 
-    // Loader semplice (opzionale)
+    // Loader iniziale
     container.innerHTML = `
         <article class="news-card">
             <div class="news-content">
@@ -94,10 +94,11 @@ async function loadHomeNews() {
                         ? item.categories[0]
                         : "News";
 
+                // FIX IMMAGINI MANCANTI / NON VALIDE / BLOCCATE
                 const image =
-                    item.thumbnail ||
-                    item.image ||
-                    (item.enclosure && item.enclosure.link) ||
+                    (item.thumbnail && item.thumbnail.startsWith("http")) ? item.thumbnail :
+                    (item.image && item.image.startsWith("http")) ? item.image :
+                    (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http")) ? item.enclosure.link :
                     "/img/default-news.jpg";
 
                 const excerpt = item.description
