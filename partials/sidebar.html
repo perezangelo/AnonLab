@@ -111,6 +111,48 @@
         }(document,'script','weatherwidget-io-js');
     </script>
 </div>
+<!-- CALCOLATRICE CYBER NEON -->
+<div class="sidebar-box" aria-label="Calcolatrice"
+     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:12px; margin-top:20px;">
+
+    <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Calcolatrice</h3>
+
+    <!-- ICONA CALCOLATRICE NEON -->
+    <div style="text-align:center; margin-bottom:12px;">
+        <img src="/img/calc-neon.png"
+             alt="Calcolatrice Neon"
+             style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
+    </div>
+
+    <!-- DISPLAY -->
+    <div id="calc-display"
+         style="background:#050a18; color:#8be9ff; font-size:1.4rem; text-align:right;
+                padding:10px; border-radius:6px; margin-bottom:10px;">0</div>
+
+    <!-- PULSANTI -->
+    <div id="calc-buttons" style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+        <button class="btn">7</button><button class="btn">8</button><button class="btn">9</button><button class="btn">/</button>
+        <button class="btn">4</button><button class="btn">5</button><button class="btn">6</button><button class="btn">*</button>
+        <button class="btn">1</button><button class="btn">2</button><button class="btn">3</button><button class="btn">-</button>
+        <button class="btn">0</button><button class="btn">.</button><button class="btn">=</button><button class="btn">+</button>
+    </div>
+
+    <script>
+        const display = document.getElementById('calc-display');
+        document.querySelectorAll('#calc-buttons .btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.textContent === '=') {
+                    try { display.textContent = eval(display.textContent); }
+                    catch { display.textContent = 'Errore'; }
+                } else if (display.textContent === '0') {
+                    display.textContent = btn.textContent;
+                } else {
+                    display.textContent += btn.textContent;
+                }
+            });
+        });
+    </script>
+</div>
 <!-- ============================
      BLOCCO 3 — SOCIAL NETWORK + VIDEO & STREAMING
 ============================= -->
