@@ -212,36 +212,3 @@ document.addEventListener("click", function (e) {
         dropdown.classList.remove("open");
     }
 });
-<!-- SCRIPT DEFINITIVO CALCOLATRICE -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const calcDisplay = document.getElementById('calc-display');
-    const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
-
-    calcButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const value = btn.textContent;
-
-            if (value === 'C') {
-                calcDisplay.textContent = '0';
-                return;
-            }
-
-            if (value === '=') {
-                try {
-                    calcDisplay.textContent = eval(calcDisplay.textContent);
-                } catch {
-                    calcDisplay.textContent = 'Errore';
-                }
-                return;
-            }
-
-            if (calcDisplay.textContent === '0') {
-                calcDisplay.textContent = value;
-            } else {
-                calcDisplay.textContent += value;
-            }
-        });
-    });
-});
-</script>
