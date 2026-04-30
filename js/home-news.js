@@ -1,13 +1,20 @@
 /* ============================
-   HOME NEWS — CARICAMENTO NEWS DA RSS (con fallback + sorting)
+   HOME NEWS — FEED MULTIPLO CYBER (versione migliore)
+   - The Hacker News
+   - HackRead
+   - DarkReading
 ============================ */
 
 async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    // FEED CYBER SICURO E COMPATIBILE
-    const feedUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews";
+    // FEED MULTIPLI (via rss2json)
+    const feeds = [
+        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.hackread.com/feed/",
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
+    ];
 
     // Link esterni personalizzati (in ordine)
     const externalLinks = [
@@ -18,50 +25,69 @@ async function loadHomeNews() {
         "https://www.gartner.com/en/articles/threat-intelligence-missing-link-ctem"
     ];
 
+    // Loader semplice (opzionale)
+    container.innerHTML = `
+        <article class="news-card">
+            <div class="news-content">
+                <h3 class="news-title">Caricamento delle ultime news...</h3>
+                <p class="news-excerpt">Recupero delle notizie dal mondo cyber in corso.</p>
+            </div>
+        </article>
+    `;
+
     try {
-        const res = await fetch(feedUrl);
-        const data = await res.json();
+        let allItems = [];
 
-        let items = data.items || [];
+        // CARICAMENTO MULTI-FEED
+        for (const url of feeds) {
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
 
-        /* ============================
-           FALLBACK 1 — se il feed cambia struttura
-        ============================ */
-        if (!Array.isArray(items) || items.length === 0) {
-            console.warn("Feed vuoto o struttura cambiata. Uso fallback locale.");
-            items = [
+                if (data.items && Array.isArray(data.items)) {
+                    allItems = allItems.concat(data.items);
+                }
+            } catch (err) {
+                console.warn("Errore nel feed:", url, err);
+            }
+        }
+
+        // FALLBACK — nessun feed disponibile
+        if (allItems.length === 0) {
+            console.warn("Nessun feed disponibile. Uso fallback locale.");
+            allItems = [
                 {
                     title: "CTM360 Exposes Global GovTrap Campaign...",
-                    description: "Analisi della campagna GovTrap...",
+                    description: "Analisi della campagna GovTrap e delle sue implicazioni sulla sicurezza globale.",
                     pubDate: new Date().toISOString(),
                     categories: ["Cyber"],
-                    image: "/img/default-news.jpg"
+                    thumbnail: "/img/default-news.jpg",
+                    link: "https://www.ctm360.com/blog/govtrap-campaign"
                 },
                 {
                     title: "Work Moved Into the Browser...",
-                    description: "La sicurezza del browser è la nuova frontiera...",
+                    description: "Perché la sicurezza del browser è la nuova frontiera della difesa aziendale.",
                     pubDate: new Date().toISOString(),
                     categories: ["Security"],
-                    image: "/img/default-news.jpg"
+                    thumbnail: "/img/default-news.jpg",
+                    link: "https://www.netskope.com/blog/work-moved-into-the-browser-security-didnt"
                 }
             ];
         }
 
-        /* ============================
-           ORDINAMENTO PER DATA REALE
-        ============================ */
-        items = items
+        // ORDINAMENTO PER DATA E LIMITE NEWS
+        const maxNews = 8;
+
+        allItems = allItems
             .map(item => ({
                 ...item,
                 parsedDate: item.pubDate ? new Date(item.pubDate) : new Date(0)
             }))
             .sort((a, b) => b.parsedDate - a.parsedDate)
-            .slice(0, 5);
+            .slice(0, maxNews);
 
-        /* ============================
-           RENDERING NEWS
-        ============================ */
-        container.innerHTML = items
+        // RENDERING NEWS
+        container.innerHTML = allItems
             .map((item, index) => {
                 const category =
                     item.categories && item.categories.length > 0
@@ -75,14 +101,13 @@ async function loadHomeNews() {
                     "/img/default-news.jpg";
 
                 const excerpt = item.description
-                    ? item.description.replace(/<[^>]+>/g, "").slice(0, 140) + "..."
+                    ? item.description.replace(/<[^>]+>/g, "").slice(0, 160) + "..."
                     : "";
 
                 const date = item.parsedDate
                     ? item.parsedDate.toLocaleDateString("it-IT")
                     : "Oggi";
 
-                // Link esterno personalizzato
                 const link = externalLinks[index] || item.link || "#";
 
                 return `
@@ -98,7 +123,7 @@ async function loadHomeNews() {
 
                             <p class="news-excerpt">${excerpt}</p>
 
-                            <a href="${link}" class="news-link" target="_blank">
+                            <a href="${link}" class="news-link" target="_blank" rel="noopener noreferrer">
                                 Leggi di più →
                             </a>
                         </div>
@@ -110,9 +135,6 @@ async function loadHomeNews() {
     } catch (err) {
         console.error("Errore nel caricamento RSS:", err);
 
-        /* ============================
-           FALLBACK 2 — errore totale
-        ============================ */
         container.innerHTML = `
             <article class="news-card">
                 <img src="/img/default-news.jpg" class="news-thumb">
@@ -122,10 +144,6 @@ async function loadHomeNews() {
                 </div>
             </article>
         `;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", loadHomeNews);
     }
 }
 
