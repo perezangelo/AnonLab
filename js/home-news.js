@@ -6,7 +6,8 @@ async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    const feedUrl = "https://rss.app/feeds/v1.1/438ni62sumVqiCeO.json";
+    // FEED CYBER SICURO E COMPATIBILE
+    const feedUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews";
 
     // Link esterni personalizzati (in ordine)
     const externalLinks = [
@@ -68,9 +69,10 @@ async function loadHomeNews() {
                         : "News";
 
                 const image =
+                    item.thumbnail ||
                     item.image ||
                     (item.enclosure && item.enclosure.link) ||
-                    "img/default-news.jpg";
+                    "/img/default-news.jpg";
 
                 const excerpt = item.description
                     ? item.description.replace(/<[^>]+>/g, "").slice(0, 140) + "..."
@@ -120,6 +122,10 @@ async function loadHomeNews() {
                 </div>
             </article>
         `;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadHomeNews);
     }
 }
 
