@@ -131,23 +131,39 @@
 
     <!-- PULSANTI -->
     <div id="calc-buttons" style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
-        <button class="btn">7</button><button class="btn">8</button><button class="btn">9</button><button class="btn">/</button>
-        <button class="btn">4</button><button class="btn">5</button><button class="btn">6</button><button class="btn">*</button>
-        <button class="btn">1</button><button class="btn">2</button><button class="btn">3</button><button class="btn">-</button>
-        <button class="btn">0</button><button class="btn">.</button><button class="btn">=</button><button class="btn">+</button>
+        <button class="calc-btn">7</button><button class="calc-btn">8</button><button class="calc-btn">9</button><button class="calc-btn">/</button>
+        <button class="calc-btn">4</button><button class="calc-btn">5</button><button class="calc-btn">6</button><button class="calc-btn">*</button>
+        <button class="calc-btn">1</button><button class="calc-btn">2</button><button class="calc-btn">3</button><button class="calc-btn">-</button>
+        <button class="calc-btn">0</button><button class="calc-btn">.</button><button class="calc-btn">=</button><button class="calc-btn">+</button>
+        <button class="calc-btn" style="grid-column: span 4; background:#ff0040; color:white; font-weight:bold;">C</button>
     </div>
 
     <script>
-        const display = document.getElementById('calc-display');
-        document.querySelectorAll('#calc-buttons .btn').forEach(btn => {
+        const calcDisplay = document.getElementById('calc-display');
+        const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
+
+        calcButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                if (btn.textContent === '=') {
-                    try { display.textContent = eval(display.textContent); }
-                    catch { display.textContent = 'Errore'; }
-                } else if (display.textContent === '0') {
-                    display.textContent = btn.textContent;
+                const value = btn.textContent;
+
+                if (value === 'C') {
+                    calcDisplay.textContent = '0';
+                    return;
+                }
+
+                if (value === '=') {
+                    try {
+                        calcDisplay.textContent = eval(calcDisplay.textContent);
+                    } catch {
+                        calcDisplay.textContent = 'Errore';
+                    }
+                    return;
+                }
+
+                if (calcDisplay.textContent === '0') {
+                    calcDisplay.textContent = value;
                 } else {
-                    display.textContent += btn.textContent;
+                    calcDisplay.textContent += value;
                 }
             });
         });
