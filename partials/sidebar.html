@@ -135,40 +135,46 @@
         <button class="calc-btn">4</button><button class="calc-btn">5</button><button class="calc-btn">6</button><button class="calc-btn">*</button>
         <button class="calc-btn">1</button><button class="calc-btn">2</button><button class="calc-btn">3</button><button class="calc-btn">-</button>
         <button class="calc-btn">0</button><button class="calc-btn">.</button><button class="calc-btn">=</button><button class="calc-btn">+</button>
+
+        <!-- TASTO CLEAR -->
         <button class="calc-btn" style="grid-column: span 4; background:#ff0040; color:white; font-weight:bold;">C</button>
     </div>
 
-    <script>
-        const calcDisplay = document.getElementById('calc-display');
-        const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
-
-        calcButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const value = btn.textContent;
-
-                if (value === 'C') {
-                    calcDisplay.textContent = '0';
-                    return;
-                }
-
-                if (value === '=') {
-                    try {
-                        calcDisplay.textContent = eval(calcDisplay.textContent);
-                    } catch {
-                        calcDisplay.textContent = 'Errore';
-                    }
-                    return;
-                }
-
-                if (calcDisplay.textContent === '0') {
-                    calcDisplay.textContent = value;
-                } else {
-                    calcDisplay.textContent += value;
-                }
-            });
-        });
-    </script>
 </div>
+
+<!-- SCRIPT DEFINITIVO (FUNZIONA SEMPRE) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const calcDisplay = document.getElementById('calc-display');
+    const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
+
+    calcButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const value = btn.textContent;
+
+            if (value === 'C') {
+                calcDisplay.textContent = '0';
+                return;
+            }
+
+            if (value === '=') {
+                try {
+                    calcDisplay.textContent = eval(calcDisplay.textContent);
+                } catch {
+                    calcDisplay.textContent = 'Errore';
+                }
+                return;
+            }
+
+            if (calcDisplay.textContent === '0') {
+                calcDisplay.textContent = value;
+            } else {
+                calcDisplay.textContent += value;
+            }
+        });
+    });
+});
+</script>
 <!-- ============================
      BLOCCO 3 — SOCIAL NETWORK + VIDEO & STREAMING
 ============================= -->
