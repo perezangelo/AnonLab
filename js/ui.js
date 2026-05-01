@@ -19,12 +19,6 @@ async function loadPartial(id, file) {
 
         el.innerHTML = await res.text();
 
-        /* Sidebar: nessuna azione speciale */
-        if (id === "sidebar") {
-            // Speedtest interno rimosso
-        }
-
-        /* Header: attiva ticker continuo SUBITO dopo il caricamento */
         if (id === "header") {
             setTimeout(initTicker, 50);
         }
@@ -51,15 +45,12 @@ function initTicker() {
     const track = document.querySelector(".ticker-track");
     if (!track) return;
 
-    // Evita duplicazioni multiple
     if (track.dataset.cloned === "true") return;
 
-    // Duplica il contenuto per scorrimento continuo
     const clone = track.cloneNode(true);
     clone.dataset.cloned = "true";
     track.parentElement.appendChild(clone);
 
-    // Calcola larghezza dinamica
     const totalWidth = track.scrollWidth;
     track.style.setProperty("--ticker-width", totalWidth + "px");
 }
@@ -70,7 +61,7 @@ function initTicker() {
 
 document.addEventListener("DOMContentLoaded", () => {
     loadPartial("header", "partials/header.html");
-    loadPartial("ticker", "partials/ticker.html");   // AGGIUNTO
+    loadPartial("ticker", "partials/ticker.html");
     loadPartial("sidebar", "partials/sidebar.html");
     loadPartial("footer", "partials/footer.html");
 
@@ -204,36 +195,32 @@ document.addEventListener("click", function (e) {
     const dropdown = document.querySelector(".dropdown-news");
     if (!dropdown) return;
 
-    // Se clicchi sul bottone → toggle
     if (dropdown.contains(e.target)) {
         dropdown.classList.toggle("open");
     } else {
-        // Se clicchi fuori → chiudi
         dropdown.classList.remove("open");
     }
 });
-// --- CONTROLLO AUTOMATICO CALCOLATRICE ---
-// Garantisce che main.js venga caricato anche se dimenticato in una pagina
+
+/* ============================
+   CONTROLLO AUTOMATICO CALCOLATRICE
+============================ */
 
 (function ensureCalculatorLoaded() {
-    // Se la sidebar non è ancora nel DOM, riprova tra 200ms
     if (!document.getElementById("sidebar")) {
         setTimeout(ensureCalculatorLoaded, 200);
         return;
     }
 
-    // Se la calcolatrice non è nella sidebar, non serve fare nulla
     if (!document.getElementById("calc-display")) {
         return;
     }
 
-    // Controlla se main.js è già stato caricato
     const scripts = Array.from(document.querySelectorAll("script"))
         .map(s => s.src || "");
 
     const mainLoaded = scripts.some(src => src.includes("/assets/js/main.js"));
 
-    // Se non è caricato → lo carichiamo ora
     if (!mainLoaded) {
         const script = document.createElement("script");
         script.src = "/assets/js/main.js";
@@ -245,7 +232,6 @@ document.addEventListener("click", function (e) {
         };
         document.body.appendChild(script);
     } else {
-        // Se è già caricato → inizializziamo la calcolatrice
         if (typeof initCalculator === "function") {
             initCalculator();
         }
