@@ -60,19 +60,14 @@ function initCalculator() {
 
 function initRadio() {
     const selector = document.getElementById("radioSelector");
-    const frame = document.getElementById("radioFrame");
 
-    if (!selector || !frame) return;
+    if (!selector) return;
 
     selector.addEventListener("change", () => {
         const url = selector.value;
-
-        if (!url) {
-            frame.src = "";
-            return;
+        if (url) {
+            window.open(url, "_blank");
         }
-
-        frame.src = url;
     });
 }
 
@@ -88,13 +83,9 @@ function initYouTubePlayer() {
 
     selector.addEventListener("change", () => {
         const id = selector.value;
-
-        if (!id) {
-            iframe.src = "https://www.youtube.com/embed/?playlist=&autoplay=0";
-            return;
+        if (id) {
+            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
         }
-
-        iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
     });
 }
 
