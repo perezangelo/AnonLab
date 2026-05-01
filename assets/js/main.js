@@ -1,20 +1,31 @@
-// Script base per AnonLab
-// Qui in futuro potrai gestire:
-// - caricamento dinamico delle news
-// - meteo tramite API
-// - oroscopo tramite API
-// - aggiornamento automatico della data LIVE
+// ===============================
+// MAIN SCRIPT — ANONLAB
+// ===============================
 
+// Log di conferma caricamento
 console.log("AnonLab UI loaded");
+
+// ===============================
+// CALCOLATRICE — INIZIALIZZAZIONE
+// ===============================
+
 function initCalculator() {
     const calcDisplay = document.getElementById('calc-display');
     const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
+    // Se la calcolatrice non è presente nella pagina, esci
     if (!calcDisplay || calcButtons.length === 0) {
         console.warn("Calcolatrice non trovata nella pagina.");
         return;
     }
 
+    // Evita doppi event listener
+    if (calcDisplay.dataset.ready === "true") {
+        return;
+    }
+    calcDisplay.dataset.ready = "true";
+
+    // Eventi pulsanti
     calcButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const value = btn.textContent;
@@ -40,4 +51,6 @@ function initCalculator() {
             }
         });
     });
+
+    console.log("Calcolatrice inizializzata correttamente");
 }
