@@ -207,20 +207,26 @@ document.addEventListener("click", function (e) {
 ============================ */
 
 (function ensureCalculatorLoaded() {
+
+    // 1️⃣ Aspetta che la sidebar sia caricata
     if (!document.getElementById("sidebar")) {
         setTimeout(ensureCalculatorLoaded, 200);
         return;
     }
 
+    // 2️⃣ Aspetta che la calcolatrice sia nel DOM
     if (!document.getElementById("calc-display")) {
+        setTimeout(ensureCalculatorLoaded, 200);
         return;
     }
 
+    // 3️⃣ Controlla se main.js è già stato caricato
     const scripts = Array.from(document.querySelectorAll("script"))
         .map(s => s.src || "");
 
     const mainLoaded = scripts.some(src => src.includes("/assets/js/main.js"));
 
+    // 4️⃣ Se non è caricato → caricalo ora
     if (!mainLoaded) {
         const script = document.createElement("script");
         script.src = "/assets/js/main.js";
@@ -231,9 +237,12 @@ document.addEventListener("click", function (e) {
             }
         };
         document.body.appendChild(script);
-    } else {
-        if (typeof initCalculator === "function") {
-            initCalculator();
-        }
+        return;
     }
+
+    // 5️⃣ Se è già caricato → inizializza la calcolatrice
+    if (typeof initCalculator === "function") {
+        initCalculator();
+    }
+
 })();
