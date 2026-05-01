@@ -293,6 +293,59 @@
 
     </div>
 </div>
+<!-- RADIO MULTI-EMITTENTE -->
+<div class="sidebar-box radio-box">
+  <h3>AnonLab Radio</h3>
+
+  <select id="radioSelector" class="radio-select">
+    <option value="">Seleziona una stazione…</option>
+
+    <!-- PRINCIPALI EMITTENTI ITALIANE -->
+    <option value="URL_RTL_1025">RTL 102.5</option>
+    <option value="URL_RADIO_ITALIA">Radio Italia SoloMusicaItaliana</option>
+    <option value="URL_RDS">RDS 100% Grandi Successi</option>
+    <option value="URL_RADIO_DEEJAY">Radio Deejay</option>
+    <option value="URL_RADIO_105">Radio 105</option>
+    <option value="URL_KISS_KISS">Radio Kiss Kiss</option>
+    <option value="URL_VIRGIN">Virgin Radio</option>
+    <option value="URL_RAI_1">Rai Radio 1</option>
+    <option value="URL_RAI_2">Rai Radio 2</option>
+    <option value="URL_RAI_3">Rai Radio 3</option>
+    <option value="URL_RADIO_24">Radio 24</option>
+    <option value="URL_CAPITAL">Radio Capital</option>
+    <option value="URL_RMC">Radio Monte Carlo</option>
+    <option value="URL_M2O">m2o</option>
+    <option value="URL_RADIO_SPORTIVA">Radio Sportiva</option>
+    <option value="URL_RADIO_ZETA">Radio Zeta</option>
+  </select>
+
+  <audio id="radioPlayer" controls preload="none" class="radio-player">
+    Il tuo browser non supporta l'audio HTML5.
+  </audio>
+</div>
+<!-- PLAYER YOUTUBE -->
+<div class="sidebar-box yt-box">
+  <h3>Video Musicali</h3>
+
+  <iframe
+    id="ytPlayer"
+    width="100%"
+    height="180"
+    src="https://www.youtube.com/embed/?playlist=&autoplay=0"
+    title="YouTube player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+  <select id="ytSelector" class="yt-select">
+    <option value="">Seleziona un video…</option>
+    <option value="ID_VIDEO_1">Video 1</option>
+    <option value="ID_VIDEO_2">Video 2</option>
+    <option value="ID_VIDEO_3">Video 3</option>
+  </select>
+</div>
+
 
 <!-- MISURAINTERNET -->
 <div class="sidebar-box misura-box" aria-label="MisuraInternet AGCOM">
