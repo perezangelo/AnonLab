@@ -874,3 +874,57 @@ canvas {
         width: 36px !important;
     }
 }
+/* RADIO */
+.radio-box {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #00eaff;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.radio-box h3 {
+  color: #00eaff;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.radio-select {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+  background: #000;
+  color: #00eaff;
+  border: 1px solid #00eaff;
+  border-radius: 4px;
+}
+
+.radio-player {
+  width: 100%;
+  filter: drop-shadow(0 0 4px #00eaff);
+}
+
+/* YOUTUBE */
+.yt-box {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #ff4b6e;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.yt-box h3 {
+  color: #ff4b6e;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.yt-select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 10px;
+  background: #000;
+  color: #ff4b6e;
+  border: 1px solid #ff4b6e;
+  border-radius: 4px;
+}
