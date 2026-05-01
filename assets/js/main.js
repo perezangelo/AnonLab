@@ -55,28 +55,24 @@ function initCalculator() {
     console.log("Calcolatrice inizializzata correttamente");
 }
 /* ============================
-   RADIO MULTI-EMITTENTE
+   RADIO (PLAYER UFFICIALI)
 ============================ */
 
 function initRadio() {
     const selector = document.getElementById("radioSelector");
-    const player = document.getElementById("radioPlayer");
+    const frame = document.getElementById("radioFrame");
 
-    if (!selector || !player) return;
+    if (!selector || !frame) return;
 
     selector.addEventListener("change", () => {
         const url = selector.value;
 
         if (!url) {
-            player.pause();
-            player.src = "";
+            frame.src = "";
             return;
         }
 
-        player.src = url;
-        player.play().catch(() => {
-            console.warn("Autoplay bloccato dal browser.");
-        });
+        frame.src = url;
     });
 }
 
