@@ -212,3 +212,42 @@ document.addEventListener("click", function (e) {
         dropdown.classList.remove("open");
     }
 });
+// --- CONTROLLO AUTOMATICO CALCOLATRICE ---
+// Garantisce che main.js venga caricato anche se dimenticato in una pagina
+
+(function ensureCalculatorLoaded() {
+    // Se la sidebar non è ancora nel DOM, riprova tra 200ms
+    if (!document.getElementById("sidebar")) {
+        setTimeout(ensureCalculatorLoaded, 200);
+        return;
+    }
+
+    // Se la calcolatrice non è nella sidebar, non serve fare nulla
+    if (!document.getElementById("calc-display")) {
+        return;
+    }
+
+    // Controlla se main.js è già stato caricato
+    const scripts = Array.from(document.querySelectorAll("script"))
+        .map(s => s.src || "");
+
+    const mainLoaded = scripts.some(src => src.includes("/assets/js/main.js"));
+
+    // Se non è caricato → lo carichiamo ora
+    if (!mainLoaded) {
+        const script = document.createElement("script");
+        script.src = "/assets/js/main.js";
+        script.onload = () => {
+            console.log("main.js caricato automaticamente");
+            if (typeof initCalculator === "function") {
+                initCalculator();
+            }
+        };
+        document.body.appendChild(script);
+    } else {
+        // Se è già caricato → inizializziamo la calcolatrice
+        if (typeof initCalculator === "function") {
+            initCalculator();
+        }
+    }
+})();
