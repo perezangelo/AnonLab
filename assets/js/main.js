@@ -54,3 +54,57 @@ function initCalculator() {
 
     console.log("Calcolatrice inizializzata correttamente");
 }
+/* ============================
+   RADIO MULTI-EMITTENTE
+============================ */
+
+function initRadio() {
+    const selector = document.getElementById("radioSelector");
+    const player = document.getElementById("radioPlayer");
+
+    if (!selector || !player) return;
+
+    selector.addEventListener("change", () => {
+        const url = selector.value;
+
+        if (!url) {
+            player.pause();
+            player.src = "";
+            return;
+        }
+
+        player.src = url;
+        player.play().catch(() => {
+            console.warn("Autoplay bloccato dal browser.");
+        });
+    });
+}
+
+/* ============================
+   PLAYER YOUTUBE
+============================ */
+
+function initYouTubePlayer() {
+    const selector = document.getElementById("ytSelector");
+    const iframe = document.getElementById("ytPlayer");
+
+    if (!selector || !iframe) return;
+
+    selector.addEventListener("change", () => {
+        const id = selector.value;
+
+        if (!id) {
+            iframe.src = "https://www.youtube.com/embed/?playlist=&autoplay=0";
+            return;
+        }
+
+        iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    });
+}
+
+/* ============================
+   INIZIALIZZAZIONE WIDGET
+============================ */
+
+initRadio();
+initYouTubePlayer();
