@@ -877,12 +877,14 @@ canvas {
 /* RADIO */
 .radio-logo {
   width: 100%;
+  max-height: 120px;
+  object-fit: contain;
   margin-bottom: 10px;
   border-radius: 6px;
   box-shadow: 0 0 15px #00eaff;
 }
 
-.radio-select, .yt-select {
+.radio-select {
   width: 100%;
   background: rgba(0,0,0,0.6);
   color: #00eaff;
