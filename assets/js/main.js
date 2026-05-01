@@ -2,30 +2,24 @@
 // MAIN SCRIPT — ANONLAB
 // ===============================
 
-// Log di conferma caricamento
 console.log("AnonLab UI loaded");
 
 // ===============================
-// CALCOLATRICE — INIZIALIZZAZIONE
+// CALCOLATRICE
 // ===============================
 
 function initCalculator() {
     const calcDisplay = document.getElementById('calc-display');
     const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
-    // Se la calcolatrice non è presente nella pagina, esci
     if (!calcDisplay || calcButtons.length === 0) {
         console.warn("Calcolatrice non trovata nella pagina.");
         return;
     }
 
-    // Evita doppi event listener
-    if (calcDisplay.dataset.ready === "true") {
-        return;
-    }
+    if (calcDisplay.dataset.ready === "true") return;
     calcDisplay.dataset.ready = "true";
 
-    // Eventi pulsanti
     calcButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const value = btn.textContent;
@@ -54,26 +48,11 @@ function initCalculator() {
 
     console.log("Calcolatrice inizializzata correttamente");
 }
-/* ============================
-   RADIO (PLAYER UFFICIALI)
-============================ */
 
-function initRadio() {
-    const selector = document.getElementById("radioSelector");
-    const player = document.getElementById("radioPlayer");
-    const source = document.getElementById("radioSource");
+// ===============================
+// RADIO — APERTURA PAGINA ON AIR
+// ===============================
 
-    if (!selector || !player || !source) return;
-
-    selector.addEventListener("change", () => {
-        const url = selector.value;
-        if (url) {
-            source.src = url;
-            player.load();
-            player.play();
-        }
-    });
-}
 function initRadio() {
     const selector = document.getElementById("radioSelector");
 
@@ -87,9 +66,9 @@ function initRadio() {
     });
 }
 
-/* ============================
-   PLAYER YOUTUBE
-============================ */
+// ===============================
+// PLAYER YOUTUBE
+// ===============================
 
 function initYouTubePlayer() {
     const selector = document.getElementById("ytSelector");
@@ -104,9 +83,11 @@ function initYouTubePlayer() {
         }
     });
 }
-/* ============================
-   Contatore + Saluto + Data/Ora
-============================ */
+
+// ===============================
+// CONTATORE + SALUTO + DATA/ORA
+// ===============================
+
 function initVisitCounter() {
     const counterEl = document.getElementById("visitCounter");
     const pageEl = document.getElementById("pageCounter");
@@ -158,9 +139,9 @@ function initVisitCounter() {
     setInterval(updateTime, 1000);
 }
 
-/* ============================
-   INIZIALIZZAZIONE WIDGET
-============================ */
+// ===============================
+// INIZIALIZZAZIONE
+// ===============================
 
 initVisitCounter();
 initRadio();
