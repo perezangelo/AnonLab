@@ -293,36 +293,41 @@
 
     </div>
 </div>
-<!-- RADIO MULTI-EMITTENTE -->
+<!-- RADIO MULTI-EMITTENTE (PLAYER UFFICIALI) -->
 <div class="sidebar-box radio-box">
   <h3>AnonLab Radio</h3>
 
   <select id="radioSelector" class="radio-select">
     <option value="">Seleziona una stazione…</option>
 
-    <!-- PRINCIPALI EMITTENTI ITALIANE -->
-    <option value="URL_RTL_1025">RTL 102.5</option>
-    <option value="URL_RADIO_ITALIA">Radio Italia SoloMusicaItaliana</option>
-    <option value="URL_RDS">RDS 100% Grandi Successi</option>
-    <option value="URL_RADIO_DEEJAY">Radio Deejay</option>
-    <option value="URL_RADIO_105">Radio 105</option>
-    <option value="URL_KISS_KISS">Radio Kiss Kiss</option>
-    <option value="URL_VIRGIN">Virgin Radio</option>
-    <option value="URL_RAI_1">Rai Radio 1</option>
-    <option value="URL_RAI_2">Rai Radio 2</option>
-    <option value="URL_RAI_3">Rai Radio 3</option>
-    <option value="URL_RADIO_24">Radio 24</option>
-    <option value="URL_CAPITAL">Radio Capital</option>
-    <option value="URL_RMC">Radio Monte Carlo</option>
-    <option value="URL_M2O">m2o</option>
-    <option value="URL_RADIO_SPORTIVA">Radio Sportiva</option>
-    <option value="URL_RADIO_ZETA">Radio Zeta</option>
+    <option value="https://www.rtl.it/player/">RTL 102.5</option>
+    <option value="https://www.radioitalia.it/player/">Radio Italia SoloMusicaItaliana</option>
+    <option value="https://www.rds.it/player/">RDS 100% Grandi Successi</option>
+    <option value="https://www.deejay.it/player/">Radio Deejay</option>
+    <option value="https://www.105.net/player/">Radio 105</option>
+    <option value="https://www.kisskiss.it/player/">Radio Kiss Kiss</option>
+    <option value="https://www.virginradio.it/player/">Virgin Radio</option>
+
+    <option value="https://www.raiplaysound.it/radio1">Rai Radio 1</option>
+    <option value="https://www.raiplaysound.it/radio2">Rai Radio 2</option>
+    <option value="https://www.raiplaysound.it/radio3">Rai Radio 3</option>
+
+    <option value="https://www.radio24.ilsole24ore.com/player/">Radio 24</option>
+    <option value="https://www.capital.it/player/">Radio Capital</option>
+    <option value="https://www.radiomontecarlo.net/player/">Radio Monte Carlo</option>
+    <option value="https://www.m2o.it/player/">m2o</option>
+    <option value="https://www.radiosportiva.it/player/">Radio Sportiva</option>
+    <option value="https://www.radiozeta.it/player/">Radio Zeta</option>
   </select>
 
-  <audio id="radioPlayer" controls preload="none" class="radio-player">
-    Il tuo browser non supporta l'audio HTML5.
-  </audio>
+  <iframe id="radioFrame" class="radio-frame"
+    src=""
+    width="100%" height="180"
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
 </div>
+
 <!-- PLAYER YOUTUBE -->
 <div class="sidebar-box yt-box">
   <h3>Video Musicali</h3>
@@ -340,12 +345,11 @@
 
   <select id="ytSelector" class="yt-select">
     <option value="">Seleziona un video…</option>
-    <option value="ID_VIDEO_1">Video 1</option>
-    <option value="ID_VIDEO_2">Video 2</option>
-    <option value="ID_VIDEO_3">Video 3</option>
+    <option value="dQw4w9WgXcQ">Video 1</option>
+    <option value="3JZ_D3ELwOQ">Video 2</option>
+    <option value="hTWKbfoikeg">Video 3</option>
   </select>
 </div>
-
 
 <!-- MISURAINTERNET -->
 <div class="sidebar-box misura-box" aria-label="MisuraInternet AGCOM">
