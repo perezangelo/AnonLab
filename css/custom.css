@@ -874,10 +874,3 @@ canvas {
         width: 36px !important;
     }
 }
-.icon-visits {
-  width: 26px;
-  height: 26px;
-  margin-right: 6px;
-  vertical-align: middle;
-  filter: drop-shadow(0 0 4px #00ffff);
-}
