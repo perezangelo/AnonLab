@@ -74,6 +74,18 @@ function initRadio() {
         }
     });
 }
+function initRadio() {
+    const selector = document.getElementById("radioSelector");
+
+    if (!selector) return;
+
+    selector.addEventListener("change", () => {
+        const url = selector.value;
+        if (url) {
+            window.open(url, "_blank");
+        }
+    });
+}
 
 /* ============================
    PLAYER YOUTUBE
