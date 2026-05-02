@@ -78,9 +78,19 @@
 
   <div id="header"></div>
 <script>
-    fetch("/partials/header.html")
+    fetch("/partials/sidebar.html")
         .then(response => response.text())
-        .then(data => document.getElementById("header").innerHTML = data);
+        .then(data => {
+            document.getElementById("sidebar").innerHTML = data;
+
+            // Sidebar caricata → ora inizializziamo i widget
+            initCalculator();
+            initRadio();
+            initYouTubePlayer();
+            initVisitCounter();
+
+            console.log("Sidebar caricata — Widget inizializzati");
+        });
 </script>
 
   <!-- TICKER BREAKING NEWS -->
