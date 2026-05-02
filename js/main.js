@@ -64,6 +64,8 @@ function initRadio() {
             window.open(url, "_blank");
         }
     });
+
+    console.log("Radio inizializzata");
 }
 
 // ===============================
@@ -82,6 +84,8 @@ function initYouTubePlayer() {
             iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
         }
     });
+
+    console.log("YouTube Player inizializzato");
 }
 
 // ===============================
@@ -137,12 +141,29 @@ function initVisitCounter() {
     updateDate();
     updateTime();
     setInterval(updateTime, 1000);
+
+    console.log("Contatore visite inizializzato");
 }
 
 // ===============================
-// INIZIALIZZAZIONE
+// INIZIALIZZAZIONE DOPO CARICAMENTO SIDEBAR
 // ===============================
 
-initVisitCounter();
-initRadio();
-initYouTubePlayer();
+document.addEventListener("DOMContentLoaded", () => {
+    const sidebarCheck = setInterval(() => {
+        const sidebarLoaded =
+            document.getElementById("radioSelector") &&
+            document.getElementById("visitCounter");
+
+        if (sidebarLoaded) {
+            clearInterval(sidebarCheck);
+
+            initCalculator();
+            initRadio();
+            initYouTubePlayer();
+            initVisitCounter();
+
+            console.log("Sidebar caricata — Widget inizializzati");
+        }
+    }, 200);
+});
