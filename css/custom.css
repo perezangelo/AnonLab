@@ -817,26 +817,23 @@ canvas {
     z-index: 3;
 }
 
-/* Occhi — DESKTOP */
-.hero-favicon {
-    position: absolute;
-    top: 150px;
-    left: 38%;
-    transform: translateX(-50%);
-    width: 260px;
-    z-index: 3;
+.hero-eyes {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0 0 0;
 }
 
-/* Occhi — MOBILE (UNICA VERSIONE CORRETTA) */
+.hero-eyes img {
+    max-width: 260px;
+    height: auto;
+}
+
 @media (max-width: 768px) {
-    .hero-favicon {
-        left: 50% !important;
-        transform: translateX(-75%) !important;
-        top: 165px !important;   /* centratura verticale perfetta */
-        width: 190px !important; /* proporzione ideale */
+    .hero-eyes img {
+        max-width: 180px;
     }
 }
-
 /* Sottotitolo */
 .hero-big .hero-sub {
     margin-top: 300px !important;
