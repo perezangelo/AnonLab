@@ -817,21 +817,31 @@ canvas {
     z-index: 3;
 }
 
+/* EYES DENTRO IL CAPPUCCIO */
 .hero-eyes {
+    position: absolute;
+    top: 115px; /* REGOLA QUESTA PER METTERLI DENTRO IL CAPPUCCIO */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
-    margin: 10px 0 0 0;
+    z-index: 6; /* sopra il cappuccio, sotto glitch e flow */
 }
 
 .hero-eyes img {
-    max-width: 260px;
+    width: 260px;
     height: auto;
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
+    .hero-eyes {
+        top: 125px; /* REGOLA MOBILE */
+    }
+
     .hero-eyes img {
-        max-width: 180px;
+        width: 180px;
     }
 }
 /* Sottotitolo */
