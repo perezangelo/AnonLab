@@ -831,7 +831,7 @@ canvas {
 @media (max-width: 768px) {
     .hero-favicon {
         left: 50% !important;
-        transform: translateX(-50%) !important;
+        transform: translateX(-55%) !important;
         top: 165px !important;   /* centratura verticale perfetta */
         width: 190px !important; /* proporzione ideale */
     }
