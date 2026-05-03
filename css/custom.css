@@ -817,32 +817,50 @@ canvas {
     z-index: 3;
 }
 
-/* EYES DENTRO IL CAPPUCCIO — VERSIONE DEFINITIVA */
+/* ============================================================
+   EYES — POSIZIONAMENTO DENTRO IL CAPPUCCIO (VERSIONE DEFINITIVA)
+============================================================ */
+
 .hero-eyes {
     position: absolute;
-    top: 118px; /* VALORE PERFETTO PER IL TUO CAPPUCCIO */
+    top: 118px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     display: flex;
     justify-content: center;
-    z-index: 6; /* sopra il cappuccio, sotto glitch */
+    z-index: 6;
 }
 
 .hero-eyes img {
     width: 260px;
     height: auto;
+    filter: drop-shadow(0 0 12px rgba(0,255,255,0.4));
+    animation: eyesPulse 3s infinite ease-in-out;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
     .hero-eyes {
-        top: 128px; /* centratura perfetta su mobile */
+        top: 128px;
     }
 
     .hero-eyes img {
         width: 180px;
     }
+}
+/* ============================================================
+   FIX FINALI — OVERRIDE SICURI
+============================================================ */
+
+.hero-big .hero-sub {
+    margin-top: 240px !important;
+}
+
+.hero-big {
+    background-image: url('/img/hero-bg.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 /* Sottotitolo */
 .hero-big .hero-sub {
