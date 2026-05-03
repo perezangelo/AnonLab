@@ -817,7 +817,7 @@ canvas {
     z-index: 3;
 }
 
-/* Occhi */
+/* Occhi — DESKTOP */
 .hero-favicon {
     position: absolute;
     top: 150px;
@@ -826,43 +826,31 @@ canvas {
     width: 260px;
     z-index: 3;
 }
+
+/* Occhi — MOBILE (UNICA VERSIONE CORRETTA) */
 @media (max-width: 768px) {
     .hero-favicon {
-        left: 50% !important;              /* centratura perfetta */
+        left: 50% !important;
         transform: translateX(-50%) !important;
-        top: 130px !important;             /* regola verticale */
-        width: 180px !important;           /* più proporzionato al cappuccio mobile */
+        top: 165px !important;   /* centratura verticale perfetta */
+        width: 190px !important; /* proporzione ideale */
     }
 }
+
 /* Sottotitolo */
 .hero-big .hero-sub {
-    margin-top: 300px !important; /* prima 260px */
+    margin-top: 300px !important;
     text-align: center;
     display: block;
 }
 
 .hero-big .dropdown-news {
-    margin-top: 40px !important; /* prima 20px */
+    margin-top: 40px !important;
     text-align: center;
     display: block;
 }
-/* MOBILE FIX — centra gli occhi su smartphone (correzione ottica) */
-@media (max-width: 768px) {
-    .hero-big .hero-favicon {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        top: 180px !important;
-        width: 200px !important;
-    }
-}
-@media (max-width: 768px) {
-    .hero-favicon {
-        left: 50% !important;              /* centratura perfetta */
-        transform: translateX(-50%) !important;
-        top: 130px !important;             /* regola verticale */
-        width: 180px !important;           /* più proporzionato al cappuccio mobile */
-    }
-}
+
+/* GOOGLE SEARCH */
 .google-search-wrapper {
     display: flex;
     align-items: center;
@@ -874,7 +862,9 @@ canvas {
     height: auto;
     flex-shrink: 0;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
-   .logo {
+}
+
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -884,11 +874,13 @@ canvas {
     width: 48px !important;
     height: auto;
 }
+
 @media (max-width: 768px) {
     .site-header .logo img.logo-icon {
         width: 36px !important;
     }
 }
+
 /* RADIO */
 .radio-logo {
   width: 100%;
@@ -909,6 +901,7 @@ canvas {
   font-size: 14px;
 }
 
+/* VISIT BOX */
 .visit-box {
   background: rgba(0,0,0,0.6);
   border: 1px solid #00eaff;
