@@ -817,65 +817,44 @@ canvas {
     z-index: 3;
 }
 
-/* ============================================================
-   EYES — POSIZIONAMENTO DENTRO IL CAPPUCCIO (VERSIONE DEFINITIVA)
-============================================================ */
-
-.hero-eyes {
+/* Occhi */
+.hero-favicon {
     position: absolute;
-    top: 118px;
-    left: 50%;
+    top: 150px;
+    left: 38%;
     transform: translateX(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 6;
-}
-
-.hero-eyes img {
     width: 260px;
-    height: auto;
-    filter: drop-shadow(0 0 12px rgba(0,255,255,0.4));
-    animation: eyesPulse 3s infinite ease-in-out;
+    z-index: 3;
 }
-
 @media (max-width: 768px) {
-    .hero-eyes {
-        top: 128px;
+    .hero-favicon {
+        left: 50% !important;              /* centratura perfetta */
+        transform: translateX(-50%) !important;
+        top: 130px !important;             /* regola verticale */
+        width: 180px !important;           /* più proporzionato al cappuccio mobile */
     }
-
-    .hero-eyes img {
-        width: 180px;
-    }
-}
-/* ============================================================
-   FIX FINALI — OVERRIDE SICURI
-============================================================ */
-
-.hero-big .hero-sub {
-    margin-top: 240px !important;
-}
-
-.hero-big {
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 /* Sottotitolo */
 .hero-big .hero-sub {
-    margin-top: 300px !important;
+    margin-top: 300px !important; /* prima 260px */
     text-align: center;
     display: block;
 }
 
 .hero-big .dropdown-news {
-    margin-top: 40px !important;
+    margin-top: 40px !important; /* prima 20px */
     text-align: center;
     display: block;
 }
-
-/* GOOGLE SEARCH */
+/* MOBILE FIX — centra gli occhi su smartphone (correzione ottica) */
+@media (max-width: 768px) {
+    .hero-big .hero-favicon {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: 180px !important;
+        width: 200px !important;
+    }
+}
 .google-search-wrapper {
     display: flex;
     align-items: center;
@@ -887,9 +866,7 @@ canvas {
     height: auto;
     flex-shrink: 0;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
-}
-
-.logo {
+   .logo {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -899,13 +876,11 @@ canvas {
     width: 48px !important;
     height: auto;
 }
-
 @media (max-width: 768px) {
     .site-header .logo img.logo-icon {
         width: 36px !important;
     }
 }
-
 /* RADIO */
 .radio-logo {
   width: 100%;
@@ -926,7 +901,6 @@ canvas {
   font-size: 14px;
 }
 
-/* VISIT BOX */
 .visit-box {
   background: rgba(0,0,0,0.6);
   border: 1px solid #00eaff;
