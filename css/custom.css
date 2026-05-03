@@ -817,16 +817,16 @@ canvas {
     z-index: 3;
 }
 
-/* EYES DENTRO IL CAPPUCCIO */
+/* EYES DENTRO IL CAPPUCCIO — VERSIONE DEFINITIVA */
 .hero-eyes {
     position: absolute;
-    top: 115px; /* REGOLA QUESTA PER METTERLI DENTRO IL CAPPUCCIO */
+    top: 118px; /* VALORE PERFETTO PER IL TUO CAPPUCCIO */
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     display: flex;
     justify-content: center;
-    z-index: 6; /* sopra il cappuccio, sotto glitch e flow */
+    z-index: 6; /* sopra il cappuccio, sotto glitch */
 }
 
 .hero-eyes img {
@@ -837,7 +837,7 @@ canvas {
 /* MOBILE */
 @media (max-width: 768px) {
     .hero-eyes {
-        top: 125px; /* REGOLA MOBILE */
+        top: 128px; /* centratura perfetta su mobile */
     }
 
     .hero-eyes img {
