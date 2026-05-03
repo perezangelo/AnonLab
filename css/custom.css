@@ -826,7 +826,14 @@ canvas {
     width: 260px;
     z-index: 3;
 }
-
+@media (max-width: 768px) {
+    .hero-favicon {
+        left: 50% !important;              /* centratura perfetta */
+        transform: translateX(-50%) !important;
+        top: 130px !important;             /* regola verticale */
+        width: 180px !important;           /* più proporzionato al cappuccio mobile */
+    }
+}
 /* Sottotitolo */
 .hero-big .hero-sub {
     margin-top: 300px !important; /* prima 260px */
