@@ -855,6 +855,14 @@ canvas {
         width: 200px !important;
     }
 }
+@media (max-width: 768px) {
+    .hero-favicon {
+        left: 50% !important;              /* centratura perfetta */
+        transform: translateX(-50%) !important;
+        top: 130px !important;             /* regola verticale */
+        width: 180px !important;           /* più proporzionato al cappuccio mobile */
+    }
+}
 .google-search-wrapper {
     display: flex;
     align-items: center;
