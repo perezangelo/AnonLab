@@ -54,7 +54,6 @@ h1, h2, h3 {
 ::placeholder {
   color: var(--text-soft);
 }
-
 /* ============================================================
    SEZIONE 2 — LAYOUT + HEADER + NAV + TICKER (VERSIONE PRO)
 ============================================================ */
@@ -117,6 +116,7 @@ h1, h2, h3 {
   color: var(--accent);
   border-color: var(--accent-soft);
   background: rgba(0, 255, 157, 0.06);
+}
 }
 
 /* Mobile */
@@ -500,16 +500,6 @@ h1, h2, h3 {
   color: var(--text-muted);
   font-size: 1.22rem;
   margin-top: 10px;
-  position: relative;
-  z-index: 5;
-}
-
-/* IMMAGINE */
-.hero-favicon {
-  width: 55%;
-  max-width: 480px;
-  margin: 25px auto 20px;
-  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
   position: relative;
   z-index: 5;
 }
