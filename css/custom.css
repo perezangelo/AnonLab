@@ -89,9 +89,12 @@
 .hero-favicon {
     position: absolute !important;
     top: 150px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: 260px !important;
+    transform: none !important;
     z-index: 999 !important;
 }
 
