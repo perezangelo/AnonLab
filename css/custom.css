@@ -1,8 +1,8 @@
 /* ============================================================
-   CUSTOM.CSS — OVERRIDE PERSONALI DEFINITIVI
+   CUSTOM.CSS — VERSIONE DEFINITIVA
 ============================================================ */
 
-/* HERO — SFONDO OVERRIDE */
+/* HERO — SFONDO */
 .hero-big {
     background-image: url('/img/hero-bg.png') !important;
     background-size: cover !important;
@@ -11,7 +11,7 @@
     position: relative !important;
 }
 
-/* TITOLO HERO — POSIZIONE PERSONALIZZATA */
+/* TITOLO HERO */
 .hero-big h1 {
     position: absolute !important;
     top: 20px !important;
@@ -20,21 +20,19 @@
     z-index: 5 !important;
 }
 
-/* SOTTOTITOLO HERO — DISTANZA DAL TITOLO */
+/* SOTTOTITOLO */
 .hero-big .hero-sub {
     margin-top: 300px !important;
     text-align: center !important;
-    display: block !important;
 }
 
-/* DROPDOWN HERO — DISTANZA */
+/* DROPDOWN */
 .hero-big .dropdown-news {
     margin-top: 40px !important;
     text-align: center !important;
-    display: block !important;
 }
 
-/* GOOGLE SEARCH WRAPPER */
+/* GOOGLE SEARCH */
 .google-search-wrapper {
     display: flex !important;
     align-items: center !important;
@@ -43,15 +41,12 @@
 
 .google-icon {
     width: 48px !important;
-    height: auto !important;
-    flex-shrink: 0 !important;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.4)) !important;
 }
 
-/* LOGO HEADER — DIMENSIONI */
+/* LOGO HEADER */
 .site-header .logo img.logo-icon {
     width: 48px !important;
-    height: auto !important;
 }
 
 @media (max-width: 768px) {
@@ -61,7 +56,7 @@
 }
 
 /* ============================================================
-   FIX EYES — CENTRATURA A PROVA DI TEMA
+   FIX EYES — CENTRATURA ASSOLUTA
 ============================================================ */
 
 .hero-favicon {
@@ -71,10 +66,9 @@
     right: 0 !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    transform: none !important;
     width: 260px !important;
+    transform: none !important;
     z-index: 999 !important;
-    filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)) !important;
 }
 
 @media (max-width: 768px) {
@@ -92,7 +86,7 @@
 }
 
 /* ============================================================
-   DISATTIVA EFFETTI HERO DI SFONDO
+   DISATTIVA EFFETTI HERO
 ============================================================ */
 
 .hero-big::before,
@@ -101,51 +95,36 @@
     display: none !important;
 }
 
-/* Dropdown sempre sopra */
-.dropdown-menu {
-    z-index: 99999 !important;
-}
-
-/* Logo sempre visibile */
-.site-header .logo a,
-.site-header .logo .logo-icon {
-    position: relative !important;
-    z-index: 999 !important;
-}
-
 /* ============================================================
-   COLORI LINK NEON NEI BOX / FEED / NEWS
+   LINK NEON — TUTTI I BOX, FEED, NEWS, CTA
 ============================================================ */
 
-/* Link generali nei box, feed, alert, news */
 .widget-large a,
 .sidebar a,
 .sidebar-box a,
 .feed-item a,
 .alert-item a,
 .news-link,
-.hero-big a {
+.hero-big a,
+.widget a,
+.footer-links a,
+.site-footer a {
     color: #00faff !important;
     text-shadow: 0 0 6px rgba(0,255,255,0.45) !important;
     text-decoration: none !important;
 }
 
-/* Hover neon più intenso */
 .widget-large a:hover,
 .sidebar a:hover,
 .sidebar-box a:hover,
 .feed-item a:hover,
 .alert-item a:hover,
 .news-link:hover,
-.hero-big a:hover {
+.hero-big a:hover,
+.widget a:hover,
+.footer-links a:hover,
+.site-footer a:hover {
     color: #baf7ff !important;
-}
-
-/* Testo “Esplora le ultime news” */
-.hero-big .hero-cta,
-.hero-big .hero-cta a {
-    color: #00faff !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.45) !important;
 }
 
 /* ============================================================
