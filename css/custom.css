@@ -179,3 +179,14 @@
     background: #00faff !important;
     color: #000 !important;
 }
+.main-column .widget-large iframe {
+    height: 205px !important;
+}
+
+.main-column .widget-large {
+    margin-bottom: 14px !important;
+}
+
+.main-column .widget-large .widget-content {
+    padding: 6px 0 !important;
+}
