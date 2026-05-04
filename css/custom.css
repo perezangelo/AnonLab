@@ -829,7 +829,7 @@ canvas {
 @media (max-width: 768px) {
     .hero-favicon {
         left: 50% !important;              /* centratura perfetta */
-        transform: translateX(-60%) !important;
+        transform: translateX(-65%) !important;
         top: 130px !important;             /* regola verticale */
         width: 180px !important;           /* più proporzionato al cappuccio mobile */
     }
@@ -845,15 +845,6 @@ canvas {
     margin-top: 40px !important; /* prima 20px */
     text-align: center;
     display: block;
-}
-/* MOBILE FIX — centra gli occhi su smartphone (correzione ottica) */
-@media (max-width: 768px) {
-    .hero-big .hero-favicon {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        top: 180px !important;
-        width: 200px !important;
-    }
 }
 .google-search-wrapper {
     display: flex;
