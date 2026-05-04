@@ -190,3 +190,30 @@
 .main-column .widget-large .widget-content {
     padding: 6px 0 !important;
 }
+/* Altezza perfetta per allineamento con Google Maps */
+.main-column .widget-large img {
+    height: 180px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+/* Riduce spazio interno */
+.main-column .widget-large .widget-content {
+    padding: 4px 0 !important;
+}
+
+/* Riduce spazio sotto i titoli */
+.main-column .widget-large .box-title-row h2 {
+    margin-bottom: 4px !important;
+}
+
+/* Riduce spazio tra i box */
+.main-column .widget-large {
+    margin-bottom: 12px !important;
+}
+
+/* Riduzione speciale per Hacker Activity Heatmap */
+.main-column .attack-list {
+    max-height: 120px !important;
+    overflow-y: auto !important;
+}
