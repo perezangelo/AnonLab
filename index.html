@@ -112,12 +112,11 @@
 
   <main class="page">
 
-    <!-- COLONNA PRINCIPALE -->
     <section class="main-column">
 
       <!-- HERO PRINCIPALE -->
       <section class="hero-big">
-        <h1 data-text="ANONLAB">ANONLAB</h1>
+<h1 data-text="ANONLAB">ANONLAB</h1>
 
         <img 
           src="img/eyes.png" 
@@ -130,43 +129,52 @@
 
         <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 
-        <div class="dropdown-news">
-          <button class="hero-button dropdown-toggle">
-            Esplora le ultime news ▾
-          </button>
+        <!-- 🔗 LINK ESTERNO INSERITO -->
+       <div class="dropdown-news">
+  <button class="hero-button dropdown-toggle">
+    Esplora le ultime news ▾
+  </button>
 
-          <div class="dropdown-menu">
-            <a href="https://thehackernews.com" target="_blank">TheHackerNews</a>
-            <a href="https://www.bleepingcomputer.com" target="_blank">BleepingComputer</a>
-            <a href="https://www.darkreading.com" target="_blank">DarkReading</a>
-            <a href="https://www.securityweek.com" target="_blank">SecurityWeek</a>
-          </div>
-        </div>
+  <div class="dropdown-menu">
+    <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer">TheHackerNews</a>
+    <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener noreferrer">BleepingComputer</a>
+    <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer">DarkReading</a>
+    <a href="https://www.securityweek.com" target="_blank" rel="noopener noreferrer">SecurityWeek</a>
+  </div>
+</div>
       </section>
 
       <div class="google-search-wrapper">
-        <img src="img/gears.png" alt="Gears Icon" class="google-icon">
-        <form action="https://www.google.com/search" method="GET" target="_blank">
-            <input type="text" name="q" placeholder="Cerca su Google..." class="search-input">
-            <button type="submit" class="search-btn">Cerca</button>
-        </form>
-      </div>
 
+    <img src="img/gears.png" alt="Gears Icon" class="google-icon">
+
+    <form action="https://www.google.com/search" method="GET" target="_blank">
+        <input type="text" name="q" placeholder="Cerca su Google..." class="search-input">
+        <button type="submit" class="search-btn">Cerca</button>
+    </form>
+
+</div>
       <!-- ULTIME NEWS -->
       <section class="widget-large">
         <h2>Ultime dal mondo cyber</h2>
         <div id="home-news"></div>
       </section>
 
-      <!-- Immagine Anonymous -->
+      <!-- Immagine Anonymous sopra Cyber Threat Level -->
       <div style="width:100%; margin:0 0 16px 0;">
-        <img src="/img/anonymous.png" alt="Anonymous" style="width:100%; border-radius:10px;">
+          <img 
+            src="/img/anonymous.png" 
+            alt="Anonymous" 
+            style="width:100%; height:auto; border-radius:10px;"
+            loading="lazy"
+            decoding="async"
+          >
       </div>
 
       <!-- CYBER THREAT LEVEL -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/cyber-shield.png" class="box-title-icon">
+          <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
           <h2>Cyber Threat Level</h2>
         </div>
         <div class="threat-box">
@@ -178,9 +186,13 @@
       <!-- VULNERABILITÀ DEL GIORNO -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/cyber-grid.png" class="box-title-icon">
+          <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid">
           <h2>Vulnerabilità del Giorno</h2>
-          <a href="https://nvd.nist.gov" target="_blank" class="external-link">Database NVD →</a>
+
+          <!-- 🔗 LINK ESTERNO NVD -->
+          <a href="https://nvd.nist.gov" target="_blank" rel="noopener noreferrer" class="external-link">
+            Database NVD →
+          </a>
         </div>
         <div id="cve-today">Caricamento...</div>
       </section>
@@ -188,9 +200,14 @@
       <!-- CYBER ALERT LIVE -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/cyber-circuit.png" class="box-title-icon">
+          <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
           <h2>Cyber Alert Live</h2>
-          <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" class="external-link">Advisory CISA →</a>
+
+          <!-- 🔗 LINK ESTERNO CISA -->
+          <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
+             target="_blank" rel="noopener noreferrer" class="external-link">
+             Advisory CISA →
+          </a>
         </div>
         <ul class="alert-list" id="alert-live"></ul>
       </section>
@@ -198,16 +215,26 @@
       <!-- FEED DAL MONDO -->
       <section class="widget-large">
         <h2>Feed dal Mondo</h2>
-        <a href="https://www.darkreading.com" target="_blank" class="external-link">Approfondisci su DarkReading →</a>
+
+        <!-- 🔗 LINK ESTERNO DARKREADING -->
+        <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" class="external-link">
+          Approfondisci su DarkReading →
+        </a>
+
         <div id="world-feed"></div>
       </section>
 
       <!-- TECH RADAR -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/Cybersecurity.png" class="box-title-icon">
+          <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
           <h2>Tech Radar</h2>
-          <a href="https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends" target="_blank" class="external-link">ENISA Threat Landscape →</a>
+
+          <!-- 🔗 LINK ESTERNO ENISA -->
+          <a href="https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends" 
+             target="_blank" rel="noopener noreferrer" class="external-link">
+             ENISA Threat Landscape →
+          </a>
         </div>
         <ul class="tech-radar">
           <li>AI generativa in crescita</li>
@@ -220,9 +247,14 @@
       <!-- AI TRENDS -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/OIP.webp.png" class="box-title-icon">
+          <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
           <h2>AI Trends</h2>
-          <a href="https://www.wired.com/category/security" target="_blank" class="external-link">Approfondisci AI & Security →</a>
+
+          <!-- 🔗 LINK ESTERNO WIRED SECURITY -->
+          <a href="https://www.wired.com/category/security" 
+             target="_blank" rel="noopener noreferrer" class="external-link">
+             Approfondisci AI & Security →
+          </a>
         </div>
         <ul class="ai-trends">
           <li>Modelli multimodali</li>
@@ -235,10 +267,16 @@
       <!-- STRUMENTI CYBER -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/OIP2.png" class="box-title-icon">
+          <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
           <h2>Strumenti Cyber</h2>
-          <a href="https://osintframework.com" target="_blank" class="external-link">OSINT Framework →</a>
+
+          <!-- 🔗 LINK ESTERNO OSINT FRAMEWORK -->
+          <a href="https://osintframework.com" 
+             target="_blank" rel="noopener noreferrer" class="external-link">
+             OSINT Framework →
+          </a>
         </div>
+
         <ul class="tools-list">
           <li>Port Scanner</li>
           <li>Hash Analyzer</li>
@@ -250,9 +288,10 @@
       <!-- SYSTEM STATUS -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/OIP3.png" class="box-title-icon">
+          <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
           <h2>System Status</h2>
         </div>
+
         <div class="status-box">
           <p>Server: <span class="ok">Online</span></p>
           <p>API: <span class="ok">Operative</span></p>
@@ -263,17 +302,20 @@
       <!-- CYBER THREAT MONITOR -->
       <section class="widget-large">
         <div class="box-title-row">
-          <img src="/img/threat-1.png" class="box-title-icon">
+          <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
           <h2>Cyber Threat Monitor</h2>
         </div>
+
         <div class="monitor-box">
           <span>Attività Globale</span>
           <div class="monitor-bar"><div style="width: 72%;"></div></div>
         </div>
+
         <div class="monitor-box">
           <span>Rischio Ransomware</span>
           <div class="monitor-bar"><div style="width: 58%;"></div></div>
         </div>
+
         <div class="monitor-box">
           <span>Attacchi DDoS</span>
           <div class="monitor-bar"><div style="width: 81%;"></div></div>
@@ -281,73 +323,86 @@
       </section>
 
       <!-- HACKER ACTIVITY HEATMAP -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/threat-2.png" class="box-title-icon">
-          <h2>Hacker Activity Heatmap</h2>
-          <a href="https://www.darkreading.com/threat-intelligence" target="_blank" class="external-link">Threat Intelligence su DarkReading →</a>
-        </div>
-        <ul class="attack-list">
-          <li><strong>Europa:</strong> aumento exploit su VPN e Active Directory</li>
-          <li><strong>USA:</strong> intensificazione attacchi DDoS</li>
-          <li><strong>Asia:</strong> campagne phishing fintech</li>
-          <li><strong>Sud America:</strong> malware bancario</li>
-          <li><strong>Africa:</strong> ransomware in espansione</li>
-        </ul>
-      </section>
+<section class="widget-large">
+  <div class="box-title-row">
+    <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
+    <h2>Hacker Activity Heatmap</h2>
 
-      <!-- 🌐 B — CYBER THREAT MAP -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/threat-1.png" class="box-title-icon">
-          <h2>Cyber Threat Map (Live)</h2>
-        </div>
-        <div class="widget-content">
-          <iframe src="https://threatmap.checkpoint.com/" width="100%" height="360" style="border:0;"></iframe>
-        </div>
-      </section>
+    <!-- 🔗 LINK ESTERNO DARKREADING THREAT INTELLIGENCE -->
+    <a href="https://www.darkreading.com/threat-intelligence" 
+       target="_blank" rel="noopener noreferrer" class="external-link">
+       Threat Intelligence su DarkReading →
+    </a>
+  </div>
 
-      <!-- 📊 C — CVE RADAR -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/threat-3.png" class="box-title-icon">
-          <h2>CVE Radar — Vulnerabilità Critiche</h2>
-        </div>
-        <div class="widget-content">
-          <iframe src="https://cvetrends.com/api/widget" width="100%" height="360" style="border:0;"></iframe>
-        </div>
-      </section>
-
-      <!-- 🛠️ D — OSINT TOOLS PANEL -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/threat-4.png" class="box-title-icon">
-          <h2>OSINT Tools Panel</h2>
-        </div>
-        <div class="widget-content">
-          <ul style="list-style:none; padding:0;">
-            <li><a href="https://www.shodan.io" target="_blank">Shodan Quick Search</a></li>
-            <li><a href="https://www.virustotal.com" target="_blank">VirusTotal Hash Analyzer</a></li>
-            <li><a href="https://ipinfo.io" target="_blank">IP Lookup</a></li>
-            <li><a href="https://who.is" target="_blank">Whois Lookup</a></li>
-            <li><a href="https://dnschecker.org/all-dns-records-of-domain.php" target="_blank">DNS Records Inspector</a></li>
-            <li><a href="https://securityheaders.com" target="_blank">Security Headers Scanner</a></li>
-          </ul>
-        </div>
-      </section>
-
-    </section> <!-- /main-column -->
+  <ul class="attack-list">
+    <li><strong>Europa:</strong> aumento exploit su VPN e Active Directory</li>
+    <li><strong>USA:</strong> intensificazione attacchi DDoS su infrastrutture cloud</li>
+    <li><strong>Asia:</strong> campagne phishing su larga scala verso aziende fintech</li>
+    <li><strong>Sud America:</strong> crescita malware bancario e infostealer</li>
+    <li><strong>Africa:</strong> attività ransomware in espansione</li>
+  </ul>
+</section>
 
 
-    <!-- SIDEBAR A DESTRA -->
-    <aside class="sidebar">
+<!-- 🌐 B — CYBER THREAT MAP -->
+<section class="widget-large">
+  <div class="box-title-row">
+    <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map">
+    <h2>Cyber Threat Map (Live)</h2>
+  </div>
 
-      <!-- QUI devi reinserire la tua sidebar originale -->
-      <!-- Se vuoi, te la ricostruisco completa -->
+  <div class="widget-content">
+    <iframe 
+      src="https://threatmap.checkpoint.com/" 
+      width="100%" 
+      height="360" 
+      style="border:0; filter: drop-shadow(0 0 8px rgba(0,255,255,0.35));"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
 
-    </aside>
 
-</main>
+<!-- 📊 C — CVE RADAR -->
+<section class="widget-large">
+  <div class="box-title-row">
+    <img src="/img/threat-3.png" class="box-title-icon" alt="CVE Radar">
+    <h2>CVE Radar — Vulnerabilità Critiche</h2>
+  </div>
+
+  <div class="widget-content">
+    <iframe 
+      src="https://cvetrends.com/api/widget" 
+      width="100%" 
+      height="360" 
+      style="border:0; background: rgba(0,0,0,0.35); filter: drop-shadow(0 0 8px rgba(0,255,255,0.35));"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+
+<!-- 🛠️ D — OSINT TOOLS PANEL -->
+<section class="widget-large">
+  <div class="box-title-row">
+    <img src="/img/threat-4.png" class="box-title-icon" alt="OSINT Tools">
+    <h2>OSINT Tools Panel</h2>
+  </div>
+
+  <div class="widget-content">
+    <ul style="list-style:none; padding:0; margin:0;">
+      <li><a href="https://www.shodan.io" target="_blank">Shodan Quick Search</a></li>
+      <li><a href="https://www.virustotal.com" target="_blank">VirusTotal Hash Analyzer</a></li>
+      <li><a href="https://ipinfo.io" target="_blank">IP Lookup</a></li>
+      <li><a href="https://who.is" target="_blank">Whois Lookup</a></li>
+      <li><a href="https://dnschecker.org/all-dns-records-of-domain.php" target="_blank">DNS Records Inspector</a></li>
+      <li><a href="https://securityheaders.com" target="_blank">Security Headers Scanner</a></li>
+    </ul>
+  </div>
+</section>
+<!-- /main-column -->
+
     <div id="sidebar"></div>
 
   </main>
@@ -369,22 +424,21 @@
 <script src="js/ui.js"></script>
 
 <!-- BACK TO TOP BUTTON -->
-<button id="backToTop" aria-label="Torna all'inizio">↑</button>
+<button id="backToTop">↑</button>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const backToTop = document.getElementById('backToTop');
-    if (!backToTop) return;
+  const backToTop = document.getElementById("backToTop");
 
-    backToTop.style.display = 'none';
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
 
-    window.addEventListener('scroll', function () {
-      backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
-    });
-
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 </script>
 
