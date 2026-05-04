@@ -400,8 +400,7 @@
       <li><a href="https://securityheaders.com" target="_blank">Security Headers Scanner</a></li>
     </ul>
   </div>
-</section>
-<!-- /main-column -->
+</section><!-- /main-column -->
 
     <div id="sidebar"></div>
 
@@ -424,21 +423,22 @@
 <script src="js/ui.js"></script>
 
 <!-- BACK TO TOP BUTTON -->
-<button id="backToTop">↑</button>
+<button id="backToTop" aria-label="Torna all'inizio">↑</button>
 
 <script>
-  const backToTop = document.getElementById("backToTop");
+  document.addEventListener('DOMContentLoaded', function () {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      backToTop.style.display = "block";
-    } else {
-      backToTop.style.display = "none";
-    }
-  });
+    backToTop.style.display = 'none';
 
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.addEventListener('scroll', function () {
+      backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   });
 </script>
 
