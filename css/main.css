@@ -54,7 +54,6 @@ h1, h2, h3 {
 ::placeholder {
   color: var(--text-soft);
 }
-
 /* ============================================================
    SEZIONE 2 — LAYOUT + HEADER + NAV + TICKER (VERSIONE PRO)
 ============================================================ */
@@ -382,7 +381,7 @@ h1, h2, h3 {
 
 .hero-big {
   position: relative;
-  overflow: visible; /* FIX: permette al dropdown di uscire */
+  overflow: visible;
   text-align: center;
   padding: 60px 20px;
   background: #000;
@@ -504,30 +503,6 @@ h1, h2, h3 {
   z-index: 5;
 }
 
-/* IMMAGINE */
-.hero-favicon {
-  width: 55%;
-  max-width: 480px;
-  margin: 25px auto 20px;
-  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
-  position: relative;
-  z-index: 5;
-}
-
-@media (max-width: 992px) {
-  .hero-big h1 { font-size: 3.2rem; }
-  .hero-favicon { width: 65%; }
-}
-
-@media (max-width: 768px) {
-  .hero-big h1 { font-size: 2.6rem; }
-  .hero-favicon { width: 70%; }
-}
-
-@media (max-width: 480px) {
-  .hero-big h1 { font-size: 2.2rem; }
-  .hero-favicon { width: 80%; }
-}
 /* ============================================================
    SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
 ============================================================ */
@@ -649,26 +624,6 @@ h1, h2, h3 {
   }
 }
 
-/* Google search responsive */
-.google-search-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.google-search-wrapper form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-@media (max-width: 480px) {
-  .google-search-wrapper form {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
 /* Fix immagini */
 img, video {
   max-width: 100%;
@@ -676,30 +631,7 @@ img, video {
 }
 
 /* ============================================================
-   OVERRIDE FINALE — CUSTOM.CSS
-   Garantisce che custom.css vinca sempre
+   IMPORT FINALE — CUSTOM.CSS
 ============================================================ */
+
 @import url("custom.css");
-.hero-big {
-    background: none !important;
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/* HERO — override sfondo */
-.hero-big {
-    background: none !important;
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/* HERO — override sfondo */
-.hero-big {
-    background: none !important;
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
