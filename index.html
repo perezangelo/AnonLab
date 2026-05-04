@@ -441,6 +441,20 @@
 </div> <!-- /#app GPU WRAPPER -->
  <!-- CALCOLATRICE -->
 <script src="js/main.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".dropdown-news");
+    if (!dropdown) return;
+
+    document.addEventListener("click", function (e) {
+        if (dropdown.contains(e.target)) {
+            dropdown.classList.toggle("open");
+        } else {
+            dropdown.classList.remove("open");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
