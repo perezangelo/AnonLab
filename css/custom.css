@@ -828,10 +828,11 @@ canvas {
 }
 @media (max-width: 768px) {
     .hero-favicon {
-        left: 50% !important;              /* centratura perfetta */
-        transform: translateX(-65%) !important;
-        top: 130px !important;             /* regola verticale */
-        width: 180px !important;           /* più proporzionato al cappuccio mobile */
+        left: 10% !important;
+        transform: translateX(0%) !important;
+        top: 50px !important;
+        width: 100px !important;
+        border: 5px solid red !important;
     }
 }
 /* Sottotitolo */
