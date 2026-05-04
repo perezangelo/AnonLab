@@ -190,3 +190,25 @@
 .main-column .widget-large .widget-content {
     padding: 6px 0 !important;
 }
+/* MENU A TENDINA HERO */
+.dropdown-news {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid var(--accent-soft);
+    border-radius: 8px;
+    padding: 10px 0;
+    min-width: 220px;
+    z-index: 9999;
+}
+
+.dropdown-news.open .dropdown-menu {
+    display: block !important;
+}
