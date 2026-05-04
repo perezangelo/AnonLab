@@ -1,6 +1,6 @@
 /* ============================================================
-   CUSTOM.CSS — OVERRIDE PERSONALI (VERSIONE PULITA)
-   Mantiene layout attuale, elimina conflitti, controlla gli eyes
+   CUSTOM.CSS — OVERRIDE PERSONALI (VERSIONE DEFINITIVA)
+   Compatibile al 100% con main.css PRO pulito
 ============================================================ */
 
 /* HERO — SFONDO OVERRIDE */
@@ -9,6 +9,7 @@
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    position: relative !important;
 }
 
 /* TITOLO HERO — POSIZIONE PERSONALIZZATA */
@@ -59,32 +60,28 @@
         width: 36px !important;
     }
 }
+
 /* ============================================================
    FIX DEFINITIVO — POSIZIONE EYES (HERO-FAVICON)
-   Questa versione vince SEMPRE sul main.css PRO
 ============================================================ */
 
 .hero-favicon {
     position: absolute !important;
     top: 150px !important;
     left: 50% !important;
-    transform: translateX(-60%) !important;
+    transform: translateX(-50%) !important;
     width: 260px !important;
     z-index: 999 !important;
     filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)) !important;
 }
 
-/* MOBILE — CORREZIONE CENTRATURA */
 @media (max-width: 768px) {
     .hero-favicon {
         top: 110px !important;
-        left: 50% !important;
-        transform: translateX(-60%) !important;
         width: 180px !important;
     }
 }
 
-/* MOBILE SMALL — ULTERIORE ADATTAMENTO */
 @media (max-width: 480px) {
     .hero-favicon {
         top: 100px !important;
@@ -93,10 +90,9 @@
 }
 
 /* ============================================================
-   FIX FINALI — SICUREZZA E PRIORITÀ
+   FIX FINALI — RIMOZIONE EFFETTI HERO
 ============================================================ */
 
-/* Assicura che nessun effetto del main.css sovrascriva custom.css */
 .hero-big::before,
 .hero-big::after,
 .hero-big .scanlines {
@@ -113,4 +109,35 @@
 .site-header .logo .logo-icon {
     position: relative !important;
     z-index: 999 !important;
+}
+
+/* ============================================================
+   FIX COLORI FONTI NEWS (TheHackerNews, BleepingComputer, ecc.)
+============================================================ */
+
+.sidebar a,
+.sidebar-box a,
+.feed-item a,
+.alert-item a {
+    color: #baf7ff !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.sidebar a:hover,
+.sidebar-box a:hover,
+.feed-item a:hover,
+.alert-item a:hover {
+    color: #00faff !important;
+}
+
+/* ============================================================
+   FIX CENTRATURA FOOTER
+============================================================ */
+
+.site-footer,
+.footer-links,
+.footer-copy {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
