@@ -1,6 +1,5 @@
 /* ============================================================
-   CUSTOM.CSS — OVERRIDE PERSONALI (VERSIONE DEFINITIVA)
-   Compatibile al 100% con main.css PRO pulito
+   CUSTOM.CSS — OVERRIDE PERSONALI DEFINITIVI
 ============================================================ */
 
 /* HERO — SFONDO OVERRIDE */
@@ -62,14 +61,17 @@
 }
 
 /* ============================================================
-   FIX DEFINITIVO — POSIZIONE EYES (HERO-FAVICON)
+   FIX EYES — CENTRATURA A PROVA DI TEMA
 ============================================================ */
 
 .hero-favicon {
     position: absolute !important;
     top: 150px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
     width: 260px !important;
     z-index: 999 !important;
     filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)) !important;
@@ -90,7 +92,7 @@
 }
 
 /* ============================================================
-   FIX FINALI — RIMOZIONE EFFETTI HERO
+   DISATTIVA EFFETTI HERO DI SFONDO
 ============================================================ */
 
 .hero-big::before,
@@ -112,26 +114,42 @@
 }
 
 /* ============================================================
-   FIX COLORI FONTI NEWS (TheHackerNews, BleepingComputer, ecc.)
+   COLORI LINK NEON NEI BOX / FEED / NEWS
 ============================================================ */
 
+/* Link generali nei box, feed, alert, news */
+.widget-large a,
 .sidebar a,
 .sidebar-box a,
 .feed-item a,
-.alert-item a {
-    color: #baf7ff !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+.alert-item a,
+.news-link,
+.hero-big a {
+    color: #00faff !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.45) !important;
+    text-decoration: none !important;
 }
 
+/* Hover neon più intenso */
+.widget-large a:hover,
 .sidebar a:hover,
 .sidebar-box a:hover,
 .feed-item a:hover,
-.alert-item a:hover {
+.alert-item a:hover,
+.news-link:hover,
+.hero-big a:hover {
+    color: #baf7ff !important;
+}
+
+/* Testo “Esplora le ultime news” */
+.hero-big .hero-cta,
+.hero-big .hero-cta a {
     color: #00faff !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.45) !important;
 }
 
 /* ============================================================
-   FIX CENTRATURA FOOTER
+   FOOTER CENTRATO
 ============================================================ */
 
 .site-footer,
