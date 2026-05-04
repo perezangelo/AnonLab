@@ -1,916 +1,116 @@
-/* ============================
-   HERO — STILE NEON DOMINANTE
-============================ */
+/* ============================================================
+   CUSTOM.CSS — OVERRIDE PERSONALI (VERSIONE PULITA)
+   Mantiene layout attuale, elimina conflitti, controlla gli eyes
+============================================================ */
 
+/* HERO — SFONDO OVERRIDE */
 .hero-big {
-    background: url('/img/cyber-bg.png') center/cover no-repeat !important;
-    padding: 50px 20px !important;
-    border-radius: 12px !important;
-    box-shadow: inset 0 0 40px rgba(0, 200, 255, 0.15) !important;
-    text-align: center !important;
-    overflow: visible !important; /* necessario per dropdown */
+    background-image: url('/img/hero-bg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
+/* TITOLO HERO — POSIZIONE PERSONALIZZATA */
 .hero-big h1 {
-    color: #00f6ff !important;
-    font-weight: 900 !important;
-    font-size: 3.2rem !important;
-    text-shadow: 0 0 14px rgba(0, 255, 255, 0.7) !important;
-    background: rgba(0, 0, 0, 0.35) !important;
-    padding: 6px 14px !important;
-    border-radius: 6px !important;
-    display: inline-block !important;
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    margin: 0 !important;
+    z-index: 5 !important;
 }
 
+/* SOTTOTITOLO HERO — DISTANZA DAL TITOLO */
 .hero-big .hero-sub {
-    color: #b0eaff !important;
-    font-weight: 600 !important;
-    font-size: 1.2rem !important;
-    margin-top: 14px !important;
-    text-shadow: 0 0 10px rgba(0, 200, 255, 0.5) !important;
-    background: rgba(0, 0, 0, 0.35) !important;
-    padding: 6px 12px !important;
-    border-radius: 6px !important;
-    display: inline-block !important;
+    margin-top: 300px !important;
+    text-align: center !important;
+    display: block !important;
 }
 
-/* Pulsante */
-.hero-big .hero-button {
-    font-weight: 700 !important;
-    color: #fff !important;
-    background: linear-gradient(90deg, #007bff, #00eaff) !important;
-    border-radius: 6px !important;
-    padding: 12px 22px !important;
-    margin-top: 20px !important;
-    display: inline-block !important;
-    box-shadow: 0 0 12px rgba(0, 200, 255, 0.4) !important;
-    transition: 0.25s ease !important;
+/* DROPDOWN HERO — DISTANZA */
+.hero-big .dropdown-news {
+    margin-top: 40px !important;
+    text-align: center !important;
+    display: block !important;
 }
 
-.hero-big .hero-button:hover {
-    transform: scale(1.05) !important;
-    box-shadow: 0 0 18px rgba(0, 200, 255, 0.7) !important;
-}
-
-/* Eyes */
-.hero-favicon {
-    width: 240px !important;
-    margin: 30px auto 20px !important;
-    filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)) !important;
-    animation: eyesPulse 3s infinite ease-in-out !important;
-}
-
-@keyframes eyesPulse {
-  0%, 100% { filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)); }
-  50% { filter: drop-shadow(0 0 22px rgba(0,255,255,0.8)); }
-}
-/* ============================
-   DROPDOWN NEWS — MENU A TENDINA
-============================ */
-
-.dropdown-news {
-  position: relative !important;
-  display: inline-block !important;
-  z-index: 9999 !important;
-}
-
-.dropdown-toggle {
-  cursor: pointer !important;
-}
-
-.dropdown-menu {
-  display: none !important;
-  position: absolute !important;
-  top: 48px !important;
-  left: 0 !important;
-  background: rgba(0, 0, 0, 0.85) !important;
-  border: 1px solid var(--accent-soft) !important;
-  border-radius: 8px !important;
-  padding: 10px 0 !important;
-  min-width: 220px !important;
-  box-shadow: 0 0 14px rgba(0, 234, 255, 0.35) !important;
-  z-index: 99999 !important;
-}
-
-.dropdown-menu a {
-  display: block !important;
-  padding: 10px 16px !important;
-  color: var(--accent) !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-}
-
-.dropdown-menu a:hover {
-  background: rgba(0, 234, 255, 0.12) !important;
-  color: #00faff !important;
-}
-
-.dropdown-news.open .dropdown-menu {
-  display: block !important;
-}
-
-/* ============================
-   HEADER — LOGO FIX
-============================ */
-
-.site-header .logo a {
+/* GOOGLE SEARCH WRAPPER */
+.google-search-wrapper {
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    color: var(--accent) !important;
-    font-weight: 700 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.6) !important;
+    gap: 12px !important;
 }
 
-.site-header .logo .logo-icon {
-    width: 26px !important;
-    height: 26px !important;
-    opacity: 1 !important;
-    display: inline-block !important;
-    filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important;
+.google-icon {
+    width: 48px !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.4)) !important;
 }
 
-/* ============================
-   HEADER — VISIBILITÀ TESTO
-============================ */
-
-.site-header .logo,
-.site-header h1,
-.site-header .site-title {
-    color: #00f0ff !important;
-    text-shadow: 0 0 6px #00f0ff, 0 0 12px rgba(0,240,255,0.6) !important;
+/* LOGO HEADER — DIMENSIONI */
+.site-header .logo img.logo-icon {
+    width: 48px !important;
+    height: auto !important;
 }
 
-.hero-button,
-.hero-big a {
-    color: #00eaff !important;
-    text-shadow: 0 0 6px #00eaff, 0 0 12px rgba(0,234,255,0.5) !important;
-    font-weight: 600 !important;
+@media (max-width: 768px) {
+    .site-header .logo img.logo-icon {
+        width: 36px !important;
+    }
 }
-/* ============================
-   FIX VISIBILITÀ TESTO ABOUT
-============================ */
+/* ============================================================
+   FIX DEFINITIVO — POSIZIONE EYES (HERO-FAVICON)
+   Questa versione vince SEMPRE sul main.css PRO
+============================================================ */
 
-.about-section p,
-#about p {
-    color: #e8faff !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.45) !important;
-    font-weight: 500 !important;
-}
-
-.about-section a,
-#about a {
-    color: #00eaff !important;
-    font-weight: 600 !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+.hero-favicon {
+    position: absolute !important;
+    top: 150px !important;
+    left: 50% !important;
+    transform: translateX(-60%) !important;
+    width: 260px !important;
+    z-index: 999 !important;
+    filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)) !important;
 }
 
-.about-section a:hover,
-#about a:hover {
-    color: #00faff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.9) !important;
+/* MOBILE — CORREZIONE CENTRATURA */
+@media (max-width: 768px) {
+    .hero-favicon {
+        top: 110px !important;
+        left: 50% !important;
+        transform: translateX(-60%) !important;
+        width: 180px !important;
+    }
 }
 
-#backToTop {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: #00eaff;
-  color: #000;
-  font-size: 22px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 0 12px #00eaff;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 9999;
+/* MOBILE SMALL — ULTERIORE ADATTAMENTO */
+@media (max-width: 480px) {
+    .hero-favicon {
+        top: 100px !important;
+        width: 170px !important;
+    }
 }
 
-#backToTop:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 18px #00eaff;
-}
+/* ============================================================
+   FIX FINALI — SICUREZZA E PRIORITÀ
+============================================================ */
 
-/* ============================
-   CLEANUP FINALE — PRIORITÀ
-============================ */
-
-/* Rimuove interferenze del main.css */
+/* Assicura che nessun effetto del main.css sovrascriva custom.css */
 .hero-big::before,
 .hero-big::after,
 .hero-big .scanlines {
     display: none !important;
 }
 
-.hero-big {
-    overflow: visible !important;
-}
-
-/* Assicura che il dropdown sia sempre sopra */
+/* Dropdown sempre sopra */
 .dropdown-menu {
     z-index: 99999 !important;
 }
 
-/* Assicura che il logo non venga sovrascritto */
+/* Logo sempre visibile */
 .site-header .logo a,
 .site-header .logo .logo-icon {
     position: relative !important;
     z-index: 999 !important;
-}
-/* ============================
-   TICKER NEON — VERSIONE FINALE
-============================ */
-
-.ticker {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.55) !important;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.25) !important;
-    padding: 8px 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    overflow: hidden !important;
-    position: relative !important;
-    z-index: 9998 !important;
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.18) !important;
-    backdrop-filter: blur(4px) !important;
-}
-
-.ticker-title {
-    font-weight: 800 !important;
-    font-size: 0.95rem !important;
-    color: #00eaff !important;
-    padding: 4px 10px !important;
-    border-radius: 4px !important;
-    background: rgba(0, 255, 255, 0.12) !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.6) !important;
-    margin-left: 12px !important;
-    white-space: nowrap !important;
-}
-
-.ticker-content {
-    flex: 1 !important;
-    overflow: hidden !important;
-    position: relative !important;
-}
-
-.ticker-track {
-    display: flex !important;
-    gap: 40px !important;
-    white-space: nowrap !important;
-    animation: tickerScroll 22s linear infinite !important;
-    will-change: transform !important;
-}
-
-.ticker-item {
-    color: #baf7ff !important;
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.4) !important;
-    white-space: nowrap !important;
-    padding-right: 20px !important;
-}
-
-/* Effetto neon al passaggio */
-.ticker-item:hover {
-    color: #00faff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.9) !important;
-}
-
-/* Animazione scorrimento */
-@keyframes tickerScroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(calc(-1 * var(--ticker-width)));
-    }
-}
-
-/* ============================
-   RESPONSIVE
-============================ */
-
-@media (max-width: 480px) {
-    .ticker-title {
-        font-size: 0.8rem !important;
-        padding: 3px 8px !important;
-    }
-
-    .ticker-item {
-        font-size: 0.85rem !important;
-    }
-}
-/* ============================
-   SOC DASHBOARD — NEON STYLE
-============================ */
-
-.soc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
-}
-
-.soc-card {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 18px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.soc-card h2 {
-    color: #00eaff;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6);
-    margin-bottom: 12px;
-}
-
-.dash-number {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #00faff;
-    text-shadow: 0 0 10px rgba(0,255,255,0.9);
-}
-
-.event-log {
-    height: 220px;
-    overflow-y: auto;
-    padding-right: 6px;
-}
-
-.event-log::-webkit-scrollbar {
-    width: 6px;
-}
-
-.event-log::-webkit-scrollbar-thumb {
-    background: #00eaff;
-    border-radius: 4px;
-}
-/* ============================
-   CHART.JS — NEON STYLE
-============================ */
-
-canvas {
-    filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));
-}
-.page-title {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-/* ============================
-   PAGINA CYBER — NEON STYLE
-============================ */
-
-.page-title,
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.8) !important;
-    font-size: 2.2rem !important;
-    margin-bottom: 18px !important;
-}
-
-.cyber-intro {
-    color: #baf7ff !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-    margin-bottom: 25px !important;
-}
-
-.cyber-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
-}
-
-.cyber-card {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 18px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.cyber-card h3 {
-    color: #00eaff;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6);
-    margin-bottom: 10px;
-}
-
-.cyber-card p {
-    color: #baf7ff;
-    line-height: 1.5;
-}
-/* ============================
-   PAGINA TECH — NEON STYLE
-============================ */
-
-.page-title,
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.8) !important;
-    font-size: 2.2rem !important;
-    margin-bottom: 18px !important;
-}
-
-.tech-intro {
-    color: #baf7ff !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-    margin-bottom: 25px !important;
-}
-
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
-}
-
-.tech-card {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 18px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.tech-card h3 {
-    color: #00eaff;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6);
-    margin-bottom: 10px;
-}
-
-.tech-card p {
-    color: #baf7ff;
-    line-height: 1.5;
-}
-/* ============================
-   PAGINA ABOUT — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-bottom: 12px !important;
-}
-
-.widget-large {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.widget-large p {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.tools-list li {
-    color: #baf7ff !important;
-    margin-bottom: 6px;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-/* TIMELINE ABOUT */
-.cyber-feed-list {
-    display: grid;
-    gap: 18px;
-    margin-top: 12px;
-}
-
-.cyber-feed-list div {
-    background: rgba(0, 0, 0, 0.45);
-    border-left: 3px solid #00eaff;
-    padding: 12px 14px;
-    border-radius: 6px;
-    color: #baf7ff;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35);
-}
-
-.cyber-feed-list strong {
-    color: #00eaff;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6);
-}
-/* ============================
-   PAGINA CONTATTI — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
-.contact-box {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.contact-box p,
-.contact-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.contact-box strong {
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-/* ============================
-   PAGINA PRIVACY — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
-.privacy-box {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.privacy-box p,
-.privacy-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.privacy-box ul {
-    margin-left: 18px !important;
-    margin-bottom: 12px !important;
-}
-
-.privacy-box a {
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-/* ============================
-   PAGINA COOKIE POLICY — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
-.cookie-box {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.cookie-box p,
-.cookie-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.cookie-box ul {
-    margin-left: 18px !important;
-    margin-bottom: 12px !important;
-}
-
-.cookie-box a {
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-/* ============================
-   PAGINA TERMINI — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
-.terms-box {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.terms-box p,
-.terms-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.terms-box ul {
-    margin-left: 18px !important;
-    margin-bottom: 12px !important;
-}
-
-.terms-box a {
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-/* ============================
-   LOGO ANONLAB — NEON
-============================ */
-.logo {
-    color: #00eaff !important;
-    font-weight: 900 !important;
-    font-size: 1.4rem !important;
-    letter-spacing: 1px !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.9) !important;
-}
-
-/* ============================
-   MENU HEADER — NEON
-============================ */
-.main-nav a {
-    color: #baf7ff !important;
-    font-weight: 500 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.4) !important;
-}
-
-.main-nav a:hover {
-    color: #00faff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,1) !important;
-}
-
-/* ============================
-   ABOUT (HOME) — NEON
-============================ */
-.home-about h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-}
-
-.home-about p {
-    color: #baf7ff !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.about-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #00eaff !important;
-    font-weight: 600 !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-}
-
-.about-link:hover {
-    color: #00faff !important;
-    text-shadow: 0 0 14px rgba(0,255,255,1) !important;
-}
-
-/* ============================
-   FOOTER — NEON
-============================ */
-.site-footer {
-    margin-top: 40px;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer-links a {
-    margin: 0 10px;
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-
-.footer-links a:hover {
-    color: #00faff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,1) !important;
-}
-
-.footer-copy {
-    margin-top: 10px;
-    color: #baf7ff !important;
-    font-size: 0.9rem;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-/* GOOGLE SEARCH — INPUT */
-.search-input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(0,255,255,0.3);
-    background: rgba(0,0,0,0.4);
-    color: #baf7ff;
-    margin-bottom: 10px;
-    box-shadow: 0 0 8px rgba(0,255,255,0.25);
-}
-
-/* GOOGLE SEARCH — BUTTON NEON */
-.search-btn {
-    width: 100%;
-    background: #00eaff;
-    color: #000;
-    font-weight: 700;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    text-shadow: 0 0 6px rgba(0,0,0,0.4);
-    box-shadow: 0 0 12px rgba(0,255,255,0.7);
-    transition: 0.2s ease-in-out;
-}
-
-.search-btn:hover {
-    background: #00faff;
-    box-shadow: 0 0 18px rgba(0,255,255,1);
-    transform: translateY(-1px);
-}
-/* HERO — override sfondo */
-.hero-big {
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 420px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-/* Titolo */
-.hero-big h1 {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    margin: 0;
-    font-size: 3.2rem;
-    z-index: 3;
-}
-
-/* Occhi */
-.hero-favicon {
-    position: absolute;
-    top: 150px;
-    left: 38%;
-    transform: translateX(-50%);
-    width: 260px;
-    z-index: 3;
-}
-@media (max-width: 768px) {
-    .hero-favicon {
-        left: 10% !important;
-        transform: translateX(0%) !important;
-        top: 50px !important;
-        width: 100px !important;
-        border: 5px solid red !important;
-    }
-}
-/* Sottotitolo */
-.hero-big .hero-sub {
-    margin-top: 300px !important; /* prima 260px */
-    text-align: center;
-    display: block;
-}
-
-.hero-big .dropdown-news {
-    margin-top: 40px !important; /* prima 20px */
-    text-align: center;
-    display: block;
-}
-.google-search-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.google-icon {
-    width: 48px;
-    height: auto;
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
-   .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.site-header .logo img.logo-icon {
-    width: 48px !important;
-    height: auto;
-}
-@media (max-width: 768px) {
-    .site-header .logo img.logo-icon {
-        width: 36px !important;
-    }
-}
-/* RADIO */
-.radio-logo {
-  width: 100%;
-  max-height: 120px;
-  object-fit: contain;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  box-shadow: 0 0 15px #00eaff;
-}
-
-.radio-select {
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  color: #00eaff;
-  border: 1px solid #00eaff;
-  border-radius: 4px;
-  padding: 6px;
-  font-size: 14px;
-}
-
-.visit-box {
-  background: rgba(0,0,0,0.6);
-  border: 1px solid #00eaff;
-  border-radius: 6px;
-  box-shadow: 0 0 15px #00eaff;
-  padding: 10px;
-  margin-bottom: 15px;
-  color: #00eaff;
-}
-
-.visit-info {
-  margin: 4px 0;
-  font-size: 14px;
-}
-
-.visit-greeting {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #00eaff;
 }
