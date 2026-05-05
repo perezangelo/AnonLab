@@ -922,3 +922,54 @@ canvas {
   margin-bottom: 8px;
   color: #00eaff;
 }
+/* ----------------------------------------------------
+   LINK ARANCIONE LASER (Cyber Threat Level & widget)
+---------------------------------------------------- */
+.widget-large a,
+.widget-large a:visited {
+    color: #ff5e00; /* arancione laser */
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.widget-large a:hover {
+    color: #ff8a33; /* glow arancione */
+    text-shadow: 0 0 6px #ff8a33;
+}
+
+
+/* ----------------------------------------------------
+   BREAKING — BOTTONE ARANCIONE LASER
+---------------------------------------------------- */
+.ticker-title {
+    background: linear-gradient(135deg, #ff5e00, #ff8a33);
+    color: #050308;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 8px #ff5e00;
+}
+
+.ticker-title:hover {
+    box-shadow: 0 0 12px #ff8a33;
+    filter: brightness(1.15);
+}
+
+
+/* ----------------------------------------------------
+   BREAKING — PALLINA LUMINOSA ARANCIONE
+---------------------------------------------------- */
+.ticker-content::before {
+    content: "●";
+    color: #ff5e00; /* arancione laser */
+    margin-right: 8px;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    text-shadow: 0 0 6px #ff8a33;
+}
