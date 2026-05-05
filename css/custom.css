@@ -922,3 +922,17 @@ canvas {
   margin-bottom: 8px;
   color: #00eaff;
 }
+.sidebar-widget {
+    background: rgba(0,0,0,0.45);
+    border: 1px solid var(--accent-soft);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    box-shadow: 0 0 8px rgba(0,255,255,0.25);
+}
+
+.sidebar-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--accent);
+}
