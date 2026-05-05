@@ -923,55 +923,55 @@ canvas {
   color: #00eaff;
 }
 /* ----------------------------------------------------
-   LINK ARANCIONE LASER (Cyber Threat Level & widget)
+   LINK ARANCIONE LASER (FORZATO)
 ---------------------------------------------------- */
 .widget-large a,
 .widget-large a:visited,
 .external-link {
-    color: #ff5e00; /* arancione laser */
-    font-weight: 600;
-    text-decoration: none;
+    color: #ff5e00 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
 }
 
 .widget-large a:hover,
 .external-link:hover {
-    color: #ff8a33; /* glow arancione */
-    text-shadow: 0 0 6px #ff8a33;
+    color: #ff8a33 !important;
+    text-shadow: 0 0 6px #ff8a33 !important;
 }
 
 
 /* ----------------------------------------------------
-   BREAKING — BOTTONE ARANCIONE LASER
+   BREAKING — BOTTONE ARANCIONE LASER (FORZATO)
 ---------------------------------------------------- */
 .ticker-title {
-    background: linear-gradient(135deg, #ff5e00, #ff8a33);
-    color: #050308;
-    font-weight: 700;
-    font-size: 0.82rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 10px 14px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 8px #ff5e00;
+    background: linear-gradient(135deg, #ff5e00, #ff8a33) !important;
+    color: #050308 !important;
+    font-weight: 700 !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    padding: 10px 14px !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 8px #ff5e00 !important;
 }
 
 .ticker-title:hover {
-    box-shadow: 0 0 12px #ff8a33;
-    filter: brightness(1.15);
+    box-shadow: 0 0 12px #ff8a33 !important;
+    filter: brightness(1.15) !important;
 }
 
 
 /* ----------------------------------------------------
-   BREAKING — PALLINA LUMINOSA ARANCIONE
+   BREAKING — PALLINA LUMINOSA ARANCIONE (FORZATO)
 ---------------------------------------------------- */
 .ticker-content::before {
-    content: "●";
-    color: #ff5e00; /* arancione laser */
-    margin-right: 8px;
-    font-size: 0.7rem;
-    flex-shrink: 0;
-    text-shadow: 0 0 6px #ff8a33;
+    content: "●" !important;
+    color: #ff5e00 !important;
+    margin-right: 8px !important;
+    font-size: 0.7rem !important;
+    flex-shrink: 0 !important;
+    text-shadow: 0 0 6px #ff8a33 !important;
 }
