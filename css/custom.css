@@ -925,30 +925,16 @@ canvas {
 /* ----------------------------------------------------
    LINK ARANCIONE LASER (Cyber Threat Level & widget)
 ---------------------------------------------------- */
-.widget a,
-.widget a:visited {
+.widget-large a,
+.widget-large a:visited,
+.external-link {
     color: #ff5e00; /* arancione laser */
     font-weight: 600;
     text-decoration: none;
 }
 
-.widget a:hover {
-    color: #ff8a33; /* glow arancione */
-    text-shadow: 0 0 6px #ff8a33;
-}
-
-
-/* ----------------------------------------------------
-   LINK ARANCIONE LASER (Cyber Threat Level & widget)
----------------------------------------------------- */
-.widget a,
-.widget a:visited {
-    color: #ff5e00; /* arancione laser */
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.widget a:hover {
+.widget-large a:hover,
+.external-link:hover {
     color: #ff8a33; /* glow arancione */
     text-shadow: 0 0 6px #ff8a33;
 }
