@@ -271,4 +271,32 @@
     border-radius: 6px;
     box-shadow: 0 0 12px #00eaff55;
 }
+.oroscopo-icon img {
+    width: 100%;
+    max-width: 120px;
+    display: block;
+    margin: 0 auto 10px;
+    filter: drop-shadow(0 0 8px #00eaff);
+}
 
+.oroscopo-select {
+    width: 100%;
+    padding: 8px;
+    background: #0a1224;
+    border: 1px solid #00eaff55;
+    border-radius: 6px;
+    color: #cfefff;
+    margin-bottom: 12px;
+}
+
+.oroscopo-text {
+    background: #050a18;
+    border: 1px solid #00eaff33;
+    padding: 10px;
+    border-radius: 6px;
+    color: #8be9ff;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-shadow: 0 0 6px #00eaff55;
+    min-height: 60px;
+}
