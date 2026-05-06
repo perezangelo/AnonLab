@@ -1,1 +1,274 @@
+/* ============================
+   STRUTTURA BASE SIDEBAR
+============================ */
+
+.sidebar-box {
+    background: #050a18;
+    border: 1px solid #00eaff55;
+    box-shadow: 0 0 12px #00eaff55;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 22px;
+    color: #cfefff;
+}
+
+.sidebar-box h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #00eaff;
+    text-shadow: 0 0 6px #00eaff;
+    font-size: 1.2rem;
+}
+
+/* ============================
+   VISIT COUNTER
+============================ */
+
+.visit-box {
+    text-align: left;
+}
+
+.visit-greeting {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #8be9ff;
+    text-shadow: 0 0 8px #00eaff;
+    margin-bottom: 10px;
+}
+
+.visit-info {
+    margin: 4px 0;
+    font-size: 0.95rem;
+}
+
+/* ============================
+   ABOUT + FORM
+============================ */
+
+.sidebar-icon {
+    width: 42px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 6px #00eaff);
+}
+
+.sidebar-box form input,
+.sidebar-box form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: #0a1224;
+    border: 1px solid #00eaff55;
+    border-radius: 6px;
+    color: #cfefff;
+}
+
+.sidebar-box form button {
+    width: 100%;
+    padding: 10px;
+    background: #00eaff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.sidebar-box form button:hover {
+    background: #8be9ff;
+}
+
+/* ============================
+   FEED DAL MONDO
+============================ */
+
+.feed-logos {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.feed-logos img {
+    width: 40px;
+    filter: drop-shadow(0 0 6px #00eaff);
+}
+
+/* Link Euronews */
+.sidebar-box h3 + ul li a {
+    color: #00eaff !important;
+    text-shadow: 0 0 6px #00eaff;
+    font-weight: 600;
+}
+
+.sidebar-box h3 + ul li a:hover {
+    color: #8be9ff !important;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+/* ============================
+   METEO
+============================ */
+
+.meteo-box img {
+    width: 100%;
+    max-width: 180px;
+    filter: drop-shadow(0 0 8px #00eaff);
+    margin: 0 auto;
+}
+
+/* Weather widget link */
+.weatherwidget-io {
+    color: #00eaff !important;
+    text-shadow: 0 0 6px #00eaff;
+    font-weight: 600;
+}
+
+.weatherwidget-io:hover {
+    color: #8be9ff !important;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+/* ============================
+   CALCOLATRICE
+============================ */
+
+#calc-display {
+    background: #050a18;
+    color: #8be9ff;
+    font-size: 1.4rem;
+    text-align: right;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #00eaff55;
+}
+
+#calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.calc-btn {
+    padding: 10px;
+    background: #0a1224;
+    border: 1px solid #00eaff55;
+    border-radius: 6px;
+    color: #cfefff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.calc-btn:hover {
+    background: #00eaff;
+    color: #000;
+}
+
+/* ============================
+   SOCIAL ICONS
+============================ */
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-icons svg {
+    filter: drop-shadow(0 0 6px #00eaff);
+}
+
+/* ============================
+   RADIO
+============================ */
+
+.radio-logo {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.radio-select {
+    width: 100%;
+    padding: 8px;
+    background: #0a1224;
+    border: 1px solid #00eaff55;
+    border-radius: 6px;
+    color: #cfefff;
+}
+
+/* ============================
+   YOUTUBE PLAYER
+============================ */
+
+.yt-select {
+    width: 100%;
+    padding: 8px;
+    background: #0a1224;
+    border: 1px solid #00eaff55;
+    border-radius: 6px;
+    color: #cfefff;
+    margin-top: 10px;
+}
+
+/* ============================
+   MISURAINTERNET
+============================ */
+
+.misura-desc {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.misura-btn {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #0057b8;
+    color: #fff;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.misura-btn:hover {
+    background: #0070ff;
+}
+
+/* ============================
+   CALENDARIO (NEON COMPLETO)
+============================ */
+
+.calendar-box img {
+    width: 100%;
+    border-radius: 6px;
+    filter: drop-shadow(0 0 8px #00eaff);
+}
+
+.calendar-box iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 0 12px #00eaff55;
+}
+
+/* ============================
+   GOOGLE MAPS
+============================ */
+
+.maps-box img {
+    width: 100%;
+    border-radius: 6px;
+    filter: drop-shadow(0 0 8px #00eaff);
+}
+
+.maps-box iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 0 12px #00eaff55;
+}
 
