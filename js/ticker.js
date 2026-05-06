@@ -13,8 +13,6 @@ fetch("/data/news.json")
     // Inserisce gli elementi una sola volta
     track.innerHTML = items;
 
-    // Duplica automaticamente per loop infinito fluido
-    const clone = track.cloneNode(true);
-    track.parentElement.appendChild(clone);
+    // La duplicazione ora è gestita da initTicker() in ui.js
   })
   .catch(err => console.error("Errore nel caricamento delle news:", err));
