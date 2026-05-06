@@ -28,7 +28,9 @@ async function loadOroscopo(sign = "ariete") {
 
 document.addEventListener("DOMContentLoaded", () => {
     const select = document.getElementById("oroscopo-select");
-    if (!select) return;
+    const linkBox = document.getElementById("oroscopo-link");
+
+    if (!select || !linkBox) return;
 
     // Carica il primo segno
     loadOroscopo(select.value);
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const sign = select.value;
         loadOroscopo(sign);
 
-        // Se vuoi che APRA SUBITO la pagina del segno:
-        // window.location.href = `/oroscopo/${sign}.html`;
+        // 🔥 APERTURA AUTOMATICA SENZA USARE window.location.href
+        linkBox.click();
     });
 });
