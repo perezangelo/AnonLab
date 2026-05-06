@@ -1,0 +1,13 @@
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="#00eaff" stroke-width="4" stroke-linecap="round">
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <g filter="url(#glow)">
+    <circle cx="40" cy="40" r="15"/>
+    <path d="M55 40 C70 40, 70 70, 50 80" />
+  </g>
+</svg>
