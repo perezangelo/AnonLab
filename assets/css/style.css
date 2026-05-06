@@ -309,58 +309,97 @@
     text-shadow: 0 0 10px #00eaffaa;
     margin-bottom: 25px;
 }
+.oroscopo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.oroscopo-mini {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 6px #00eaffaa);
+}
+
+.oroscopo-label {
+    color: #cfefff;
+    font-size: 0.95rem;
+    text-shadow: 0 0 6px #00eaff55;
+}
 /* ============================
-   RESPONSIVE — PAGINE OROSCOPO
+   RESPONSIVE — SIDEBAR OROSCOPO
 ============================ */
 
 @media (max-width: 768px) {
 
-    .oroscopo-page {
-        padding: 15px;
-        margin: 0 10px;
-        border-radius: 8px;
+    #oroscopo-box {
+        padding: 12px;
     }
 
-    .oroscopo-page-img {
-        width: 110px;
-        height: 110px;
-        margin-bottom: 15px;
-        filter: drop-shadow(0 0 8px #00eaff55);
+    .oroscopo-row {
+        gap: 8px;
     }
 
-    .oroscopo-page-text {
-        font-size: 1.05rem;
-        line-height: 1.55;
-        padding: 5px 0;
+    .oroscopo-mini {
+        width: 32px;
+        height: 32px;
+        filter: drop-shadow(0 0 5px #00eaff88);
     }
 
-    .page-title {
-        font-size: 1.6rem;
-        margin-bottom: 20px;
+    .oroscopo-label {
+        font-size: 0.9rem;
+    }
+
+    .oroscopo-select {
+        font-size: 0.9rem;
+        padding: 7px;
+    }
+
+    .oroscopo-text {
+        font-size: 0.9rem;
+        padding: 8px;
+        line-height: 1.45;
+    }
+
+    .oroscopo-more {
+        font-size: 0.85rem;
+        margin-top: 8px;
     }
 }
 
 @media (max-width: 480px) {
 
-    .oroscopo-page {
-        padding: 12px;
-        margin: 0 5px;
-        border-radius: 6px;
+    #oroscopo-box {
+        padding: 10px;
     }
 
-    .oroscopo-page-img {
-        width: 95px;
-        height: 95px;
-        margin-bottom: 12px;
+    .oroscopo-row {
+        gap: 6px;
     }
 
-    .oroscopo-page-text {
-        font-size: 1rem;
-        line-height: 1.5;
+    .oroscopo-mini {
+        width: 28px;
+        height: 28px;
+        filter: drop-shadow(0 0 4px #00eaff66);
     }
 
-    .page-title {
-        font-size: 1.4rem;
-        margin-bottom: 18px;
+    .oroscopo-label {
+        font-size: 0.85rem;
+    }
+
+    .oroscopo-select {
+        font-size: 0.85rem;
+        padding: 6px;
+    }
+
+    .oroscopo-text {
+        font-size: 0.85rem;
+        padding: 7px;
+        line-height: 1.4;
+    }
+
+    .oroscopo-more {
+        font-size: 0.8rem;
     }
 }
