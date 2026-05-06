@@ -309,3 +309,58 @@
     text-shadow: 0 0 10px #00eaffaa;
     margin-bottom: 25px;
 }
+/* ============================
+   RESPONSIVE — PAGINE OROSCOPO
+============================ */
+
+@media (max-width: 768px) {
+
+    .oroscopo-page {
+        padding: 15px;
+        margin: 0 10px;
+        border-radius: 8px;
+    }
+
+    .oroscopo-page-img {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 0 8px #00eaff55);
+    }
+
+    .oroscopo-page-text {
+        font-size: 1.05rem;
+        line-height: 1.55;
+        padding: 5px 0;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .oroscopo-page {
+        padding: 12px;
+        margin: 0 5px;
+        border-radius: 6px;
+    }
+
+    .oroscopo-page-img {
+        width: 95px;
+        height: 95px;
+        margin-bottom: 12px;
+    }
+
+    .oroscopo-page-text {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .page-title {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
+}
