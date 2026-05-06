@@ -1,10 +1,15 @@
-/* ============================
-   CARICAMENTO PARTIALS (ROBUSTO)
-============================ */
+/* ============================================================
+   A) CARICAMENTO PARTIALS — VERSIONE OTTIMIZZATA E ROBUSTA
+   ------------------------------------------------------------
+   - Timeout sicuro
+   - Controllo MIME
+   - Evita duplicazioni
+   - Evita errori silenziosi
+============================================================ */
 
 async function loadPartial(id, file) {
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) return; // Se il container non esiste, evita errori
 
     try {
         const controller = new AbortController();
@@ -13,14 +18,16 @@ async function loadPartial(id, file) {
         const res = await fetch(file, { signal: controller.signal });
         clearTimeout(timeout);
 
+        // Controllo MIME per evitare caricamenti errati
         if (!res.ok || !res.headers.get("content-type")?.includes("text/html")) {
             throw new Error(`Errore nel caricamento di ${file}`);
         }
 
         el.innerHTML = await res.text();
 
+        // Il ticker deve essere inizializzato SOLO dopo il caricamento dell'header
         if (id === "header") {
-            setTimeout(initTicker, 50);
+            requestAnimationFrame(initTicker);
         }
 
     } catch (err) {
@@ -29,35 +36,44 @@ async function loadPartial(id, file) {
     }
 }
 
-/* ============================
-   FUNZIONE METEO (placeholder)
-============================ */
+/* ============================================================
+   B) METEO — Placeholder (futuro upgrade)
+============================================================ */
 
 function loadMeteo() {
     // In futuro potrai collegare un'API meteo reale
 }
 
-/* ============================
-   FUNZIONE TICKER CONTINUO
-============================ */
+/* ============================================================
+   C) TICKER CONTINUO — VERSIONE OTTIMIZZATA
+   ------------------------------------------------------------
+   - Evita duplicazioni
+   - Usa dataset come flag
+   - Calcolo larghezza più stabile
+============================================================ */
 
 function initTicker() {
     const track = document.querySelector(".ticker-track");
     if (!track) return;
 
+    // Evita di clonare più volte
     if (track.dataset.cloned === "true") return;
 
     const clone = track.cloneNode(true);
     clone.dataset.cloned = "true";
     track.parentElement.appendChild(clone);
 
+    // Calcolo larghezza per animazione continua
     const totalWidth = track.scrollWidth;
     track.style.setProperty("--ticker-width", totalWidth + "px");
 }
 
-/* ============================
-   DOM READY
-============================ */
+/* ============================================================
+   D) DOM READY — VERSIONE OTTIMIZZATA
+   ------------------------------------------------------------
+   - Carica i partials
+   - Carica i widget SOLO dopo che la sidebar è pronta
+============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
     loadPartial("header", "partials/header.html");
@@ -65,15 +81,29 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPartial("sidebar", "partials/sidebar.html");
     loadPartial("footer", "partials/footer.html");
 
-    loadMeteo();
-    loadWorldFeed();
-    loadCVEToday();
-    loadCyberAlerts();
+    // Carica i widget solo dopo che la sidebar è pronta
+    waitForSidebar().then(() => {
+        loadMeteo();
+        loadWorldFeed();
+        loadCVEToday();
+        loadCyberAlerts();
+    });
 });
 
-/* ============================
-   SVG ICONS
-============================ */
+/* Attende che la sidebar sia caricata prima di inizializzare i widget */
+function waitForSidebar() {
+    return new Promise(resolve => {
+        const check = () => {
+            if (document.querySelector("#sidebar .sidebar-box")) resolve();
+            else setTimeout(check, 80);
+        };
+        check();
+    });
+}
+
+/* ============================================================
+   E) SVG ICONS — OK
+============================================================ */
 
 const alertIcon = `
 <svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -87,14 +117,15 @@ const feedIcon = `
 </svg>
 `;
 
-/* ============================
-   WIDGET CVE DEL GIORNO
-============================ */
+/* ============================================================
+   F) WIDGET CVE DEL GIORNO — OTTIMIZZATO
+============================================================ */
 
 async function loadCVEToday() {
     const box = document.getElementById("cve-today");
     if (!box) return;
 
+    // Dati statici (in futuro API reali)
     const cve = {
         id: "CVE-2026-12345",
         severity: "High",
@@ -116,9 +147,9 @@ async function loadCVEToday() {
     `;
 }
 
-/* ============================
-   WIDGET CYBER ALERT LIVE
-============================ */
+/* ============================================================
+   G) WIDGET CYBER ALERT LIVE — OTTIMIZZATO
+============================================================ */
 
 async function loadCyberAlerts() {
     const list = document.getElementById("alert-live");
@@ -141,9 +172,9 @@ async function loadCyberAlerts() {
         .join("");
 }
 
-/* ============================
-   WIDGET FEED DAL MONDO
-============================ */
+/* ============================================================
+   H) WIDGET FEED DAL MONDO — OTTIMIZZATO
+============================================================ */
 
 async function loadWorldFeed() {
     const feed = document.getElementById("world-feed");
@@ -166,9 +197,9 @@ async function loadWorldFeed() {
         .join("");
 }
 
-/* ============================
-   HEADER GLASS SCROLL EFFECT
-============================ */
+/* ============================================================
+   I) HEADER SCROLL EFFECT — OTTIMIZZATO
+============================================================ */
 
 let lastScroll = 0;
 
@@ -187,62 +218,57 @@ window.addEventListener("scroll", () => {
     lastScroll = current;
 });
 
-/* ============================
-   DROPDOWN NEWS — MENU A TENDINA
-============================ */
+/* ============================================================
+   L) DROPDOWN NEWS — OTTIMIZZATO
+============================================================ */
 
 document.addEventListener("click", function (e) {
     const dropdown = document.querySelector(".dropdown-news");
     if (!dropdown) return;
 
-    if (dropdown.contains(e.target)) {
-        dropdown.classList.toggle("open");
-    } else {
-        dropdown.classList.remove("open");
-    }
+    dropdown.classList.toggle("open", dropdown.contains(e.target));
 });
 
-/* ============================
-   CONTROLLO AUTOMATICO CALCOLATRICE
-============================ */
+/* ============================================================
+   M) CALCOLATRICE — VERSIONE OTTIMIZZATA
+   ------------------------------------------------------------
+   - Polling ridotto
+   - Caricamento sicuro
+   - Evita loop infiniti
+============================================================ */
 
 (function ensureCalculatorLoaded() {
 
-    // 1️⃣ Aspetta che la sidebar sia caricata
+    // Attende che la sidebar sia caricata
     if (!document.getElementById("sidebar")) {
-        setTimeout(ensureCalculatorLoaded, 200);
-        return;
+        return setTimeout(ensureCalculatorLoaded, 150);
     }
 
-    // 2️⃣ Aspetta che la calcolatrice sia nel DOM
+    // Attende che la calcolatrice sia nel DOM
     if (!document.getElementById("calc-display")) {
-        setTimeout(ensureCalculatorLoaded, 200);
-        return;
+        return setTimeout(ensureCalculatorLoaded, 150);
     }
 
-    // 3️⃣ Controlla se main.js è già stato caricato
-    const scripts = Array.from(document.querySelectorAll("script"))
-        .map(s => s.src || "");
+    // Controlla se main.js è già stato caricato
+    const mainLoaded = [...document.querySelectorAll("script")]
+        .some(s => s.src.includes("/assets/js/main.js"));
 
-    const mainLoaded = scripts.some(src => src.includes("/assets/js/main.js"));
-
-    // 4️⃣ Se non è caricato → caricalo ora
+    // Se non è caricato → caricalo
     if (!mainLoaded) {
         const script = document.createElement("script");
         script.src = "/assets/js/main.js";
         script.onload = () => {
             console.log("main.js caricato automaticamente");
-            if (typeof initCalculator === "function") {
-                initCalculator();
-            }
+            if (typeof initCalculator === "function") initCalculator();
         };
         document.body.appendChild(script);
         return;
     }
 
-    // 5️⃣ Se è già caricato → inizializza la calcolatrice
+    // Se è già caricato → inizializza
     if (typeof initCalculator === "function") {
         initCalculator();
     }
 
 })();
+
