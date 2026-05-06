@@ -968,3 +968,7 @@ canvas {
     font-size: 0.9rem !important;
     text-shadow: 0 0 10px #ff8a33 !important;
 }
+body.dark-mode .widget-large a,
+body.dark-mode .external-link {
+    color: red !important;
+}
