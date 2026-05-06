@@ -9,11 +9,14 @@ async function loadOroscopo(sign = "ariete") {
 
         if (!textBox || !imgBox || !linkBox) return;
 
+        // Testo
         textBox.innerHTML = data[sign] || "Oroscopo non disponibile.";
 
+        // Immagine
         imgBox.src = `/img/oroscopo/${sign}.svg`;
         imgBox.alt = sign;
 
+        // Link alla pagina del segno
         linkBox.href = `/oroscopo/${sign}.html`;
 
     } catch (err) {
@@ -27,9 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const select = document.getElementById("oroscopo-select");
     if (!select) return;
 
+    // Carica il primo segno
     loadOroscopo(select.value);
 
+    // Cambia segno
     select.addEventListener("change", () => {
-        loadOroscopo(select.value);
+        const sign = select.value;
+        loadOroscopo(sign);
+
+        // Se vuoi che APRA SUBITO la pagina del segno:
+        // window.location.href = `/oroscopo/${sign}.html`;
     });
 });
