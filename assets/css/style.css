@@ -271,32 +271,41 @@
     border-radius: 6px;
     box-shadow: 0 0 12px #00eaff55;
 }
-.oroscopo-icon img {
-    width: 100%;
-    max-width: 120px;
-    display: block;
-    margin: 0 auto 10px;
-    filter: drop-shadow(0 0 8px #00eaff);
-}
+/* ============================
+   PAGINE OROSCOPO — ANONLAB
+============================ */
 
-.oroscopo-select {
-    width: 100%;
-    padding: 8px;
-    background: #0a1224;
-    border: 1px solid #00eaff55;
-    border-radius: 6px;
-    color: #cfefff;
-    margin-bottom: 12px;
-}
-
-.oroscopo-text {
+.oroscopo-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
     background: #050a18;
     border: 1px solid #00eaff33;
-    padding: 10px;
-    border-radius: 6px;
-    color: #8be9ff;
-    font-size: 0.95rem;
-    line-height: 1.4;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #00eaff22;
+}
+
+.oroscopo-page-img {
+    width: 140px;
+    height: 140px;
+    display: block;
+    margin: 0 auto 20px;
+    filter: drop-shadow(0 0 10px #00eaff55);
+}
+
+.oroscopo-page-text {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #cfefff;
     text-shadow: 0 0 6px #00eaff55;
-    min-height: 60px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Titolo pagina */
+.page-title {
+    text-align: center;
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaffaa;
+    margin-bottom: 25px;
 }
