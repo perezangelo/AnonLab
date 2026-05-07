@@ -443,21 +443,24 @@ h3 {
 ============================================================ */
 
 .hero-big {
-  position: relative;
+  position: relative; /* fondamentale per centrare gli eyes */
   overflow: visible;
   text-align: center;
   padding: 60px 20px;
-  background: none;
+
   background-image: url("/img/hero-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   border: 2px solid var(--border-subtle);
   border-radius: 20px;
   box-shadow:
     0 0 25px rgba(0,0,0,0.25),
     0 0 22px rgba(0, 234, 255, 0.18);
+
   margin-bottom: 30px;
+  z-index: 0; /* importantissimo */
 }
 
 /* MATRIX */
