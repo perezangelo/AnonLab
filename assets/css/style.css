@@ -94,14 +94,14 @@
 }
 
 /* LINK NEON ARANCIONE SOLO PER I LINK “→” */
-.sidebar-box p > a {
+.sidebar-box > a {
     color: #ff5e00 !important;
     text-shadow: 0 0 6px #ff5e00;
     font-weight: 600;
     transition: 0.25s ease;
 }
 
-.sidebar-box p > a:hover {
+.sidebar-box > a:hover {
     color: #ff8a33 !important;
     text-shadow: 0 0 12px #ff8a33;
 }
