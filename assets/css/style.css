@@ -93,17 +93,15 @@
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* LINK NEON ARANCIONE SOLO PER I LINK CHE TERMINANO CON "→" */
-.sidebar-box a[href$="→"],
-.sidebar-box a:contains("→") {
+/* LINK NEON ARANCIONE SOLO PER I LINK “→” */
+.sidebar-box p > a {
     color: #ff5e00 !important;
     text-shadow: 0 0 6px #ff5e00;
     font-weight: 600;
     transition: 0.25s ease;
 }
 
-.sidebar-box a[href$="→"]:hover,
-.sidebar-box a:contains("→"):hover {
+.sidebar-box p > a:hover {
     color: #ff8a33 !important;
     text-shadow: 0 0 12px #ff8a33;
 }
