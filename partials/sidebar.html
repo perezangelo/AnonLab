@@ -26,17 +26,18 @@
     <span id="visitTime">--:--:--</span>
   </div>
 </div>
-
 <!-- ============================
      BLOCCO 1 — ABOUT + FORM INFO + FAQ + REGISTRAZIONE
 ============================= -->
 
+<!-- BOX ABOUT -->
 <div class="sidebar-box" aria-label="Informazioni su AnonLab">
   <h3>About</h3>
   <p>Scopri di più su AnonLab, il progetto dedicato alla cybersecurity, alla tecnologia e alla cultura digitale.</p>
   <a href="/about.html" class="about-link">Scopri di più su AnonLab →</a>
 </div>
 
+<!-- FORM 1 — RICHIESTA INFO -->
 <div class="sidebar-box" aria-label="Richiesta informazioni">
     <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
     <h3>Richiedi Informazioni</h3>
@@ -48,6 +49,7 @@
     </form>
 </div>
 
+<!-- FORM 2 — FAQ & DOMANDE -->
 <div class="sidebar-box" aria-label="FAQ e domande">
     <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
     <h3>FAQ & Domande</h3>
@@ -58,6 +60,7 @@
     </form>
 </div>
 
+<!-- FORM 3 — REGISTRAZIONE UTENTE -->
 <div class="sidebar-box" aria-label="Registrazione utente">
     <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
     <h3>Registrazione Utente</h3>
@@ -67,86 +70,8 @@
         <button type="submit">Registrati</button>
     </form>
 </div>
-
 <!-- ============================
-     BLOCCO 2 — FEED DAL MONDO + METEO + CALCOLATRICE
-============================= -->
-
-<div class="sidebar-box" aria-label="Feed dal mondo">
-    <div class="feed-logos">
-        <img src="/img/skytg24.png" alt="Logo Sky TG24">
-        <img src="/img/ansa.png" alt="Logo ANSA">
-        <img src="/img/bbc.png" alt="Logo BBC News">
-        <img src="/img/reuters.png" alt="Logo Reuters">
-        <img src="/img/euronews.png" alt="Logo Euronews">
-    </div>
-
-    <h3>Feed Euronews</h3>
-
-    <ul style="font-size:14px; line-height:1.5; padding-left:18px; margin:0;">
-        <li><a href="https://www.euronews.com/news" target="_blank">Ultime notizie</a></li>
-        <li><a href="https://www.euronews.com/world" target="_blank">Mondo</a></li>
-        <li><a href="https://www.euronews.com/my-europe/europe-news" target="_blank">Europa</a></li>
-        <li><a href="https://www.euronews.com/business" target="_blank">Economia</a></li>
-        <li><a href="https://www.euronews.com/next" target="_blank">Tecnologia</a></li>
-    </ul>
-</div>
-
-<div class="sidebar-box" aria-label="Previsioni meteo Varese"
-     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:12px;">
-
-    <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Meteo</h3>
-
-    <div style="text-align:center; margin-bottom:12px;">
-        <img src="/img/meteo-neon.png" alt="Meteo Varese"
-             style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
-    </div>
-
-    <a class="weatherwidget-io"
-       href="https://forecast7.com/en/45d828d83/varese/"
-       data-label_1="VARESE"
-       data-label_2="WEATHER"
-       data-icons="Climacons Animated"
-       data-theme="dark">
-       VARESE WEATHER
-    </a>
-
-    <script>
-        !function(d,s,id){
-            var js,fjs=d.getElementsByTagName(s)[0];
-            if(!d.getElementById(id)){
-                js=d.createElement(s);js.id=id;
-                js.src='https://weatherwidget.io/js/widget.min.js';
-                fjs.parentNode.insertBefore(js,fjs);
-            }
-        }(document,'script','weatherwidget-io-js');
-    </script>
-</div>
-
-<div class="sidebar-box" aria-label="Calcolatrice"
-     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:12px; margin-top:20px;">
-
-    <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Calcolatrice</h3>
-
-    <div style="text-align:center; margin-bottom:12px;">
-        <img src="/img/calc-neon.png" alt="Calcolatrice Neon"
-             style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
-    </div>
-
-    <div id="calc-display"
-         style="background:#050a18; color:#8be9ff; font-size:1.4rem; text-align:right;
-                padding:10px; border-radius:6px; margin-bottom:10px;">0</div>
-
-    <div id="calc-buttons" style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
-        <button class="calc-btn">7</button><button class="calc-btn">8</button><button class="calc-btn">9</button><button class="calc-btn">/</button>
-        <button class="calc-btn">4</button><button class="calc-btn">5</button><button class="calc-btn">6</button><button class="calc-btn">*</button>
-        <button class="calc-btn">1</button><button class="calc-btn">2</button><button class="calc-btn">3</button><button class="calc-btn">-</button>
-        <button class="calc-btn">0</button><button class="calc-btn">.</button><button class="calc-btn">=</button><button class="calc-btn">+</button>
-        <button class="calc-btn" style="grid-column: span 4; background:#ff0040; color:white; font-weight:bold;">C</button>
-    </div>
-</div>
-<!-- ============================
-     BLOCCO 2 — FEED DAL MONDO + METEO + CALCOLATRICE
+     BLOCCO 2 — FEED DAL MONDO + METEO
 ============================= -->
 
 <!-- FEED DAL MONDO -->
@@ -178,12 +103,13 @@
 
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Meteo</h3>
 
+    <!-- ICONA METEO NEON -->
     <div style="text-align:center; margin-bottom:12px;">
         <img src="/img/meteo-neon.png"
              alt="Meteo Varese"
              style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
     </div>
-
+    <!-- WIDGET METEO -->
     <a class="weatherwidget-io"
        href="https://forecast7.com/en/45d828d83/varese/"
        data-label_1="VARESE"
@@ -213,33 +139,78 @@
         }(document,'script','weatherwidget-io-js');
     </script>
 </div>
-
 <!-- CALCOLATRICE CYBER NEON -->
 <div class="sidebar-box" aria-label="Calcolatrice"
      style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:12px; margin-top:20px;">
 
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Calcolatrice</h3>
 
+    <!-- ICONA CALCOLATRICE NEON -->
     <div style="text-align:center; margin-bottom:12px;">
         <img src="/img/calc-neon.png"
              alt="Calcolatrice Neon"
              style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
     </div>
 
+    <!-- DISPLAY -->
     <div id="calc-display"
          style="background:#050a18; color:#8be9ff; font-size:1.4rem; text-align:right;
                 padding:10px; border-radius:6px; margin-bottom:10px;">0</div>
 
+    <!-- PULSANTI -->
     <div id="calc-buttons" style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
         <button class="calc-btn">7</button><button class="calc-btn">8</button><button class="calc-btn">9</button><button class="calc-btn">/</button>
         <button class="calc-btn">4</button><button class="calc-btn">5</button><button class="calc-btn">6</button><button class="calc-btn">*</button>
         <button class="calc-btn">1</button><button class="calc-btn">2</button><button class="calc-btn">3</button><button class="calc-btn">-</button>
         <button class="calc-btn">0</button><button class="calc-btn">.</button><button class="calc-btn">=</button><button class="calc-btn">+</button>
 
+        <!-- TASTO CLEAR -->
         <button class="calc-btn" style="grid-column: span 4; background:#ff0040; color:white; font-weight:bold;">C</button>
     </div>
 
 </div>
+<!-- OROSCOPO DEL GIORNO -->
+<div class="sidebar-box" id="oroscopo-box" aria-label="Oroscopo del giorno">
+    <h3>Oroscopo del Giorno</h3>
+
+    <!-- ICONA + LABEL -->
+    <div class="oroscopo-row">
+        <img id="oroscopo-img" src="/img/oroscopo/ariete.svg" alt="Segno zodiacale" class="oroscopo-mini">
+        <label for="oroscopo-select" class="oroscopo-label">Segno zodiacale</label>
+    </div>
+
+    <!-- SELECT (UNA SOLA, CORRETTA) -->
+    <select id="oroscopo-select" class="oroscopo-select">
+        <option value="ariete">Ariete</option>
+        <option value="toro">Toro</option>
+        <option value="gemelli">Gemelli</option>
+        <option value="cancro">Cancro</option>
+        <option value="leone">Leone</option>
+        <option value="vergine">Vergine</option>
+        <option value="bilancia">Bilancia</option>
+        <option value="scorpione">Scorpione</option>
+        <option value="sagittario">Sagittario</option>
+        <option value="capricorno">Capricorno</option>
+        <option value="acquario">Acquario</option>
+        <option value="pesci">Pesci</option>
+    </select>
+
+    <!-- TESTO DELL'OROSCOPO -->
+    <div id="oroscopo-text" class="oroscopo-text">
+        Caricamento oroscopo...
+    </div>
+
+    <!-- LINK ALLA PAGINA DEL SEGNO -->
+    <a id="oroscopo-link" class="oroscopo-more" href="#" target="_blank">
+        Leggi di più →
+    </a>
+</div>
+</div>
+
+<!-- ============================
+     BLOCCO 3 — SOCIAL NETWORK + VIDEO & STREAMING
+============================= -->
+
 <!-- SOCIAL NETWORK -->
 <div class="sidebar-box" aria-label="Social network">
     <h3>Social Network</h3>
@@ -268,6 +239,7 @@
 
     </div>
 </div>
+
 <!-- VIDEO & STREAMING -->
 <div class="sidebar-box" aria-label="Video e streaming">
     <h3>Video & Streaming</h3>
@@ -296,6 +268,10 @@
 
     </div>
 </div>
+<!-- ============================
+     BLOCCO 4 — MESSAGGISTICA + DEVELOPER/TECH/CREATIVE + RSS + MISURAINTERNET + CALENDARIO + GOOGLE MAPS
+============================= -->
+
 <!-- MESSAGGISTICA & COMMUNITY -->
 <div class="sidebar-box" aria-label="Messaggistica e community">
     <h3>Messaggistica & Community</h3>
@@ -324,107 +300,197 @@
 
     </div>
 </div>
+
 <!-- DEVELOPER / TECH / CREATIVE -->
 <div class="sidebar-box" aria-label="Developer, Tech e Creative">
     <h3>Developer / Tech / Creative</h3>
-
     <div class="social-icons">
 
         <!-- GitHub -->
-        <a href="https://github.com" target="_blank" aria-label="GitHub">
-            <img src="/img/icons/github.png" width="32" height="32" alt="GitHub">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#000000" d="M12 .5A12 12 0 000 12.7c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 1.8 2.6 1.3 3.2 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.6-1.4-5.6-6.3 0-1.4.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.3 11.3 0 016.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.4 0 4.9-2.9 6-5.6 6.3.4.3.8 1 .8 2v3c0 .3.2.7.8.6A12.2 12.2 0 0024 12.7 12 12 0 0012 .5z"/>
+            </svg>
         </a>
 
         <!-- Stack Overflow -->
-        <a href="https://stackoverflow.com" target="_blank" aria-label="Stack Overflow">
-            <img src="/img/icons/stackoverflow.png" width="32" height="32" alt="Stack Overflow">
+        <a href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#F48024" d="M17 20v-6h2v8H3v-8h2v6h12zM7 18h8v-2H7v2zm.2-4.3l8.1 1.7.4-2-8.1-1.7-.4 2zm1.3-4.7l7.5 3.5.8-1.8-7.5-3.5-.8 1.8zm2.6-4.5l6.4 5 .1-2.2-6.4-5-.1 2.2zm4.9-3.5l-1.4 1.4 4.9 4.9 1.4-1.4-4.9-4.9z"/>
+            </svg>
         </a>
 
         <!-- Dribbble -->
-        <a href="https://dribbble.com" target="_blank" aria-label="Dribbble">
-            <img src="/img/icons/dribbble.png" width="32" height="32" alt="Dribbble">
-        </a>
-
-        <!-- GitLab -->
-        <a href="https://gitlab.com" target="_blank" aria-label="GitLab">
-            <img src="/img/icons/gitlab.png" width="32" height="32" alt="GitLab">
-        </a>
-
-        <!-- CodePen -->
-        <a href="https://codepen.io" target="_blank" aria-label="CodePen">
-            <img src="/img/icons/codepen.png" width="32" height="32" alt="CodePen">
-        </a>
-
-        <!-- Behance -->
-        <a href="https://behance.net" target="_blank" aria-label="Behance">
-            <img src="/img/icons/behance.png" width="32" height="32" alt="Behance">
+        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" aria-label="Dribbble">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#EA4C89" d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6.3c1 1.6 1.3 3.5.9 5.3-2.2-.4-4.3-.4-6.3-.1-.2-.5-.4-1-.7-1.5 2.4-1 4.3-2.4 6.1-3.7zM12 4c1.7 0 3.3.5 4.7 1.4-1.6 1.2-3.3 2.4-5.3 3.3A32 32 0 009.2 5c.9-.4 1.9-.7 2.8-.8zm-4.6 1.9c1.1 1.4 2.1 2.9 3 4.4-2.2.6-4.5.9-6.9.9a8 8 0 013.9-5.3zM4 12v-.3c2.8 0 5.4-.4 7.9-1.2.3.5.6 1.1.9 1.7-2.4.8-4.6 2.1-6.6 3.8A8 8 0 014 12zm3.4 6.3c1.7-1.7 3.7-3 5.9-3.8.2.5.4 1 .6 1.5-1.8.5-3.6 1.3-5.3 2.4-.4-.1-.8-.1-1.2-.1zm4.6 1.7c-.9 0-1.8-.1-2.6-.4 1.5-1 3.2-1.7 5-2.2.3.8.5 1.6.7 2.4A8 8 0 0112 20zm4.8-1.2c-.2-.9-.4-1.7-.7-2.5 1.7-.2 3.4-.1 5.2.2a8 8 0 01-4.5 2.3z"/>
+            </svg>
         </a>
 
     </div>
 </div>
+
 <!-- RSS & AGGREGATORI -->
 <div class="sidebar-box" aria-label="RSS e aggregatori">
     <h3>RSS & Aggregatori</h3>
+    <div class="social-icons">
 
-    <ul class="rss-list">
-        <li><a href="https://www.ansa.it/sito/ansait_rss.xml" target="_blank">ANSA – Ultime Notizie</a></li>
-        <li><a href="https://www.repubblica.it/rss/homepage/rss2.0.xml" target="_blank">Repubblica – Home</a></li>
-        <li><a href="https://feeds.bbci.co.uk/news/rss.xml" target="_blank">BBC News – World</a></li>
-        <li><a href="https://www.ilsole24ore.com/rss/italia--attualita.xml" target="_blank">Il Sole 24 Ore – Attualità</a></li>
-        <li><a href="https://hnrss.org/frontpage" target="_blank">Hacker News – Front Page</a></li>
-    </ul>
-</div>
-<!-- RADIO PLAYER -->
-<div class="sidebar-box" aria-label="Radio Online">
-    <h3>Radio</h3>
+        <!-- Feedly -->
+        <a href="https://feedly.com" target="_blank" rel="noopener noreferrer" aria-label="Feedly">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#2BB24C" d="M12 2a10 10 0 00-7.1 17.1L12 22l7.1-2.9A10 10 0 0012 2zm0 18l-5.3-2.2A8 8 0 1112 20z"/>
+            </svg>
+        </a>
 
-    <audio controls style="width:100%; margin-top:10px;">
-        <source src="https://icestreaming.rai.it/1.mp3" type="audio/mpeg">
-        Il tuo browser non supporta l'audio HTML5.
-    </audio>
+        <!-- Inoreader -->
+        <a href="https://www.inoreader.com" target="_blank" rel="noopener noreferrer" aria-label="Inoreader">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#1F8DED" d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 14.5h-7v-2h7v2zm1-4h-9v-2h9v2zm0-4h-9v-2h9v2z"/>
+            </svg>
+        </a>
 
-    <ul class="radio-list">
-        <li><a href="https://www.radio24.ilsole24ore.com/" target="_blank">Radio 24</a></li>
-        <li><a href="https://www.rtl.it/" target="_blank">RTL 102.5</a></li>
-        <li><a href="https://www.105.net/" target="_blank">Radio 105</a></li>
-        <li><a href="https://www.virginradio.it/" target="_blank">Virgin Radio</a></li>
-    </ul>
-</div>
-<!-- YOUTUBE MINI PLAYER -->
-<div class="sidebar-box" aria-label="YouTube Mini Player">
-    <h3>YouTube</h3>
+        <!-- Flipboard -->
+        <a href="https://flipboard.com" target="_blank" rel="noopener noreferrer" aria-label="Flipboard">
+            <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#E12828" d="M3 3v18h18V3H3zm14 8h-4v4h-4V7h8v4z"/>
+            </svg>
+        </a>
 
-    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px;">
-        <iframe 
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="YouTube video"
-            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-            allowfullscreen>
-        </iframe>
     </div>
 </div>
+<!-- RADIO MULTI-EMITTENTE (APERTURA PAGINA ON AIR) -->
+<div class="sidebar-box radio-box">
+  <h3>AnonLab Radio</h3>
+
+  <img src="/img/anonlab-radio.png" class="radio-logo" alt="AnonLab Radio">
+
+  <select id="radioSelector" class="radio-select">
+    <option value="">Seleziona una stazione…</option>
+
+    <option value="https://www.rtl.it/player/">RTL 102.5</option>
+    <option value="https://www.radioitalia.it/player/">Radio Italia SoloMusicaItaliana</option>
+    <option value="https://www.rds.it/player/">RDS 100% Grandi Successi</option>
+    <option value="https://www.deejay.it/player/">Radio Deejay</option>
+    <option value="https://www.105.net/player/">Radio 105</option>
+    <option value="https://www.kisskiss.it/player/">Radio Kiss Kiss</option>
+    <option value="https://www.virginradio.it/player/">Virgin Radio</option>
+
+    <option value="https://www.raiplaysound.it/radio1">Rai Radio 1</option>
+    <option value="https://www.raiplaysound.it/radio2">Rai Radio 2</option>
+    <option value="https://www.raiplaysound.it/radio3">Rai Radio 3</option>
+
+    <option value="https://www.radio24.ilsole24ore.com/player/">Radio 24</option>
+    <option value="https://www.capital.it/player/">Radio Capital</option>
+    <option value="https://www.radiomontecarlo.net/player/">Radio Monte Carlo</option>
+    <option value="https://www.m2o.it/player/">m2o</option>
+    <option value="https://www.radiosportiva.it/player/">Radio Sportiva</option>
+    <option value="https://www.radiozeta.it/player/">Radio Zeta</option>
+  </select>
+</div>
+<!-- PLAYER YOUTUBE -->
+<div class="sidebar-box yt-box">
+  <h3>Video Musicali</h3>
+
+  <iframe
+    id="ytPlayer"
+    width="100%"
+    height="180"
+    src="https://www.youtube.com/embed/iYVEik7Lvc4"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+  <select id="ytSelector" class="yt-select">
+    <option value="">Seleziona un video…</option>
+    <option value="iYVEik7Lvc4">U2 – Every Breaking Wave</option>
+  </select>
+</div>
+
+<!-- MISURAINTERNET -->
+<div class="sidebar-box misura-box" aria-label="MisuraInternet AGCOM">
+    <h3>MisuraInternet</h3>
+
+    <div class="misura-img">
+        <img src="/img/misurainternet.png" alt="Logo MisuraInternet AGCOM" style="width:100%; border-radius:6px;">
+    </div>
+
+    <p class="misura-desc">
+        Servizio ufficiale AGCOM per la misura certificata della qualità della tua connessione Internet.
+    </p>
+
+    <a href="https://www.misurainternet.it" target="_blank" rel="noopener noreferrer" class="misura-btn" style="
+        display:block;
+        text-align:center;
+        padding:10px;
+        background:#0057b8;
+        color:#fff;
+        border-radius:6px;
+        margin-top:10px;
+        text-decoration:none;
+        font-weight:bold;
+    ">
+        Vai al sito ufficiale
+    </a>
+</div>
+
 <!-- CALENDARIO -->
-<div class="sidebar-box" aria-label="Calendario">
+<div class="sidebar-box" aria-label="Calendario eventi">
     <h3>Calendario</h3>
 
+    <div style="text-align:center; margin-bottom:10px;">
+        <img src="/img/calendar.png" alt="Icona calendario" style="width:100%; border-radius:6px;">
+    </div>
+
     <iframe 
-        src="https://calendar.google.com/calendar/embed?src=it.italian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FRome"
-        style="border:0; width:100%; height:300px; border-radius:8px;"
+        src="https://calendar.google.com/calendar/embed?src=c_classroom6b3d5b0b%40group.calendar.google.com&ctz=Europe%2FRome"
+        style="border:0; width:100%; height:300px; border-radius:6px;"
         frameborder="0"
-        scrolling="no">
+        scrolling="no"
+        loading="lazy">
     </iframe>
 </div>
+
 <!-- GOOGLE MAPS -->
-<div class="sidebar-box" aria-label="Google Maps">
+<div class="sidebar-box" aria-label="Mappa geografica">
     <h3>Google Maps</h3>
 
+    <div style="text-align:center; margin-bottom:10px;">
+        <img src="/img/google maps.png" alt="Anteprima Google Maps" style="width:100%; border-radius:6px;">
+    </div>
+
     <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10672.983!2d9.0!3d45.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v0000000000000"
         width="100%"
         height="250"
-        style="border:0; border-radius:8px;"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-FAKE-KEY-REPLACE&q=Varese,Italy">
+        style="border:0; border-radius:6px;"
+        allowfullscreen=""
+        loading="lazy">
     </iframe>
+     <style>
+/* SOLO i link del box Euronews */
+.sidebar-box h3 + ul li a {
+    color: #00eaff !important;
+    text-shadow: 0 0 6px #00eaff;
+    font-weight: 600;
+}
+
+/* Hover neon */
+.sidebar-box h3 + ul li a:hover {
+    color: #8be9ff !important;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+/* SOLO il link VARESE WEATHER */
+.sidebar-box .weatherwidget-io {
+    color: #00eaff !important;
+    text-shadow: 0 0 6px #00eaff;
+    font-weight: 600;
+}
+
+.sidebar-box .weatherwidget-io:hover {
+    color: #8be9ff !important;
+    text-shadow: 0 0 12px #00eaff;
+}
+</style>
 </div>
