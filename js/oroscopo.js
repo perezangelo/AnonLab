@@ -88,19 +88,45 @@ document.addEventListener("DOMContentLoaded", () => {
    INIZIALIZZAZIONE DEL WIDGET
 ============================================================ */
 
-function initOroscopo(select, linkBox) {
+function initOroscopo() {
+    const select = document.getElementById("oroscopo-select");
+    const textBox = document.getElementById("oroscopo-text");
+    const imgBox = document.getElementById("oroscopo-img");
+    const linkBox = document.getElementById("oroscopo-link");
 
-    // Carica il primo segno
-    loadOroscopo(select.value);
+    if (!select || !textBox || !imgBox || !linkBox) {
+        console.warn("Oroscopo: widget non trovato nella pagina.");
+        return;
+    }
 
-    // Cambio segno
+    fetch("/data/oroscopo.json")
+        .then(res => res.json())
+        .then(data => {
+            const sign = select.value;
+            const text = data[sign] || "Oroscopo non disponibile.";
+
+            textBox.innerHTML = text;
+            imgBox.src = `/img/oroscopo/${sign}.svg`;
+            imgBox.alt = sign;
+            linkBox.href = `/oroscopo/${sign}.html`;
+        })
+        .catch(err => {
+            console.error("Errore oroscopo:", err);
+            textBox.innerHTML = "Impossibile caricare l’oroscopo.";
+        });
+
     select.addEventListener("change", () => {
         const sign = select.value;
 
-        // Aggiorna contenuto
-        loadOroscopo(sign);
+        imgBox.src = `/img/oroscopo/${sign}.svg`;
+        imgBox.alt = sign;
+        linkBox.href = `/oroscopo/${sign}.html`;
 
-        // Apre automaticamente la pagina del segno
-        linkBox.click();
+        fetch("/data/oroscopo.json")
+            .then(res => res.json())
+            .then(data => {
+                textBox.innerHTML = data[sign] || "Oroscopo non disponibile.";
+                linkBox.click();
+            });
     });
 }
