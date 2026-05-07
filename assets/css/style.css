@@ -93,16 +93,17 @@
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* Link Euronews */
-.sidebar-box h3 + ul li a {
-    color: #00eaff !important;
-    text-shadow: 0 0 6px #00eaff;
+/* LINK NEON ARANCIONE SOLO PER I LINK "→" */
+.more-link {
+    color: #ff5e00 !important; /* arancione laser */
+    text-shadow: 0 0 6px #ff5e00;
     font-weight: 600;
+    transition: 0.25s ease;
 }
 
-.sidebar-box h3 + ul li a:hover {
-    color: #8be9ff !important;
-    text-shadow: 0 0 12px #00eaff;
+.more-link:hover {
+    color: #ff8a33 !important; /* glow arancione */
+    text-shadow: 0 0 12px #ff8a33;
 }
 
 /* ============================
