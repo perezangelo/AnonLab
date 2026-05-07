@@ -2,7 +2,7 @@
    SEZIONE 1 — VARIABILI GLOBALI + RESET + BASE (VERSIONE PRO)
 ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
   --bg-main: #000;
@@ -36,7 +36,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   background: var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-main);
@@ -45,7 +46,9 @@ html, body {
   min-height: 100vh;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 600;
   color: var(--text-main);
   letter-spacing: 0.01em;
@@ -69,7 +72,9 @@ h1, h2, h3 {
 }
 
 @media (max-width: 900px) {
-  .page { grid-template-columns: 1fr; }
+  .page {
+    grid-template-columns: 1fr;
+  }
 }
 
 .site-header {
@@ -119,13 +124,19 @@ h1, h2, h3 {
   background: rgba(0, 255, 157, 0.06);
 }
 
-/* Mobile */
 @media (max-width: 480px) {
-  .main-nav { gap: 8px; font-size: 0.8rem; }
-  .main-nav a { padding: 4px 8px; }
+  .main-nav {
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+
+  .main-nav a {
+    padding: 4px 8px;
+  }
 }
 
 /* Ticker */
+
 .ticker {
   max-width: 1200px;
   margin: 0 auto 14px;
@@ -174,8 +185,59 @@ h1, h2, h3 {
 }
 
 @keyframes ticker-loop {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* ============================================================
+   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT (VERSIONE PRO)
+============================================================ */
+
+.widget-large {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18);
+}
+
+.box-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.box-title-row h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.box-title-icon {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 170, 255, 0.28);
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.28);
+  opacity: 0.95;
+}
+
+@media (max-width: 480px) {
+  .box-title-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .box-title-row h2 {
+    font-size: 1.25rem;
+  }
 }
 /* ============================================================
    SEZIONE 3 — WIDGET + NEWS + FEED + ALERT (VERSIONE PRO)
@@ -382,10 +444,14 @@ h1, h2, h3 {
 
 .hero-big {
   position: relative;
-  overflow: visible; /* FIX: permette al dropdown di uscire */
+  overflow: visible;
   text-align: center;
   padding: 60px 20px;
-  background: #000;
+  background: none;
+  background-image: url("/img/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 2px solid var(--border-subtle);
   border-radius: 20px;
   box-shadow:
@@ -504,7 +570,7 @@ h1, h2, h3 {
   z-index: 5;
 }
 
-/* IMMAGINE */
+/* IMMAGINE EYES */
 .hero-favicon {
   width: 55%;
   max-width: 480px;
@@ -635,20 +701,6 @@ h1, h2, h3 {
   }
 }
 
-@media (max-width: 480px) {
-  .feed-thumb,
-  .alert-thumb,
-  .box-thumb {
-    width: 42px;
-    height: 42px;
-  }
-  .feed-item,
-  .alert-item,
-  .box-img-row {
-    gap: 8px;
-  }
-}
-
 /* Google search responsive */
 .google-search-wrapper {
   display: flex;
@@ -673,33 +725,4 @@ h1, h2, h3 {
 img, video {
   max-width: 100%;
   height: auto;
-}
-
-/* ============================================================
-   OVERRIDE FINALE — CUSTOM.CSS
-   Garantisce che custom.css vinca sempre
-============================================================ */
-@import url("custom.css");
-.hero-big {
-    background: none !important;
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/* HERO — override sfondo */
-.hero-big {
-    background: none !important;
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/* HERO — override sfondo */
-.hero-big {
-    background: none !important;
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
