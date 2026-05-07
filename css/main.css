@@ -571,13 +571,24 @@ h3 {
 }
 
 /* IMMAGINE EYES */
+./* HERO — centratura occhi nel cappuccio */
 .hero-favicon {
-  width: 55%;
-  max-width: 480px;
-  margin: 25px auto 20px;
+  position: absolute;
+  left: 50%;
+  top: 42%; /* da calibrare dopo screenshot */
+  transform: translateX(-50%);
+  width: 38%;
+  max-width: 260px;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
-  position: relative;
-  z-index: 5;
+  z-index: 6;
+}
+
+/* MOBILE FIX */
+@media (max-width: 480px) {
+  .hero-favicon {
+    top: 46%;
+    width: 50%;
+  }
 }
 
 @media (max-width: 992px) {
