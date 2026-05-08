@@ -188,8 +188,8 @@ function initVisitCounter() {
 document.addEventListener("DOMContentLoaded", () => {
     const sidebarCheck = setInterval(() => {
         const sidebarLoaded =
-    document.getElementById("radioSelector") &&
-    document.getElementById("visit-counter");
+            document.getElementById("radioSelector") &&
+            document.getElementById("visit-counter");
 
         if (sidebarLoaded) {
             clearInterval(sidebarCheck);
