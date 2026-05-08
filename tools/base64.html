@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encode/Decode | AnonLab Tools</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="../js/ui.js" defer></script>
+</head>
+
+<body>
+
+<div id="header"></div>
+
+<main class="page">
+    <section class="main-column">
+
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="../img/icons/base64.png" class="box-title-icon">
+                <h2>Base64 Encode / Decode</h2>
+            </div>
+
+            <div class="tool-content">
+                <textarea id="b64-input" class="tool-input" placeholder="testo"></textarea>
+
+                <button onclick="encodeB64()" class="tool-button">Encode</button>
+                <button onclick="decodeB64()" class="tool-button">Decode</button>
+
+                <pre id="b64-output" class="tool-output"></pre>
+            </div>
+        </div>
+
+    </section>
+
+    <aside id="sidebar"></aside>
+</main>
+
+<div id="footer"></div>
+
+<script>
+document.getElementById("header").innerHTML =
+  '<object type="text/html" data="../partials/header.html"></object>';
+document.getElementById("sidebar").innerHTML =
+  '<object type="text/html" data="../partials/sidebar.html"></object>';
+document.getElementById("footer").innerHTML =
+  '<object type="text/html" data="../partials/footer.html"></object>';
+
+function encodeB64() {
+    document.getElementById("b64-output").innerText =
+        btoa(document.getElementById("b64-input").value);
+}
+
+function decodeB64() {
+    try {
+        document.getElementById("b64-output").innerText =
+            atob(document.getElementById("b64-input").value);
+    } catch {
+        document.getElementById("b64-output").innerText = "Errore: stringa non valida.";
+    }
+}
+</script>
+
+</body>
+</html>
