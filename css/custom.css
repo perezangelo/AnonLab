@@ -1357,6 +1357,7 @@ canvas {
 .tools-hero-img {
     width: 180px;
     height: auto;
+    display: block;
 }
 
 .tools-hero-text h1 {
