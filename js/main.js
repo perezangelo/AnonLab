@@ -93,12 +93,11 @@ function initYouTubePlayer() {
 // ===============================
 
 function initVisitCounter() {
-    const counterEl = document.getElementById("visit-counter");
+const counterEl = document.getElementById("visit-counter");
 const pageEl = document.getElementById("page-counter");
 const dateEl = document.getElementById("visit-date");
 const timeEl = document.getElementById("visit-time");
 const greetEl = document.getElementById("visit-greeting");
-
     if (!counterEl || !pageEl || !dateEl || !timeEl || !greetEl) return;
 
     let visits = localStorage.getItem("anonlab_visits");
