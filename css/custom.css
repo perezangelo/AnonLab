@@ -1043,15 +1043,28 @@ body.dark-mode .external-link {
    LINK ARANCIONE LASER — MAIN COLUMN
    (Vulnerabilità, Feed, News, Alert, Tools)
 ============================================ */
+/* ============================================
+   LINK ARANCIONE LASER — MAIN COLUMN (FIX FINALE)
+============================================ */
 .main-column a,
-.main-column a:visited {
+.main-column a:visited,
+.box-img-row a,
+.widget-small a,
+.feed-item a,
+.alert-item a,
+.news-item a {
     color: #ff5e00 !important;
     font-weight: 700 !important;
     text-decoration: none !important;
     text-shadow: 0 0 6px #ff5e00 !important;
 }
 
-.main-column a:hover {
+.main-column a:hover,
+.box-img-row a:hover,
+.widget-small a:hover,
+.feed-item a:hover,
+.alert-item a:hover,
+.news-item a:hover {
     color: #ff8a33 !important;
     text-shadow: 0 0 10px #ff8a33 !important;
 }
