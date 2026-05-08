@@ -3,51 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Diff | AnonLab Tools</title>
+    <title>Text Diff</title>
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/custom.css">
-    <script src="../js/ui.js" defer></script>
 </head>
 
 <body>
 
-<div id="header"></div>
+<div class="tool-content">
+    <h2>Text Diff</h2>
 
-<main class="page">
-    <section class="main-column">
+    <textarea id="diff-a" class="tool-input" placeholder="Testo A"></textarea>
+    <textarea id="diff-b" class="tool-input" placeholder="Testo B"></textarea>
 
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="../img/icons/diff.png" class="box-title-icon">
-                <h2>Text Diff</h2>
-            </div>
+    <button onclick="runDiff()" class="tool-button">Confronta</button>
 
-            <div class="tool-content">
-                <textarea id="diff-a" class="tool-input" placeholder="Testo A"></textarea>
-                <textarea id="diff-b" class="tool-input" placeholder="Testo B"></textarea>
-
-                <button onclick="runDiff()" class="tool-button">Confronta</button>
-
-                <pre id="diff-output" class="tool-output"></pre>
-            </div>
-        </div>
-
-    </section>
-
-    <aside id="sidebar"></aside>
-</main>
-
-<div id="footer"></div>
+    <pre id="diff-output" class="tool-output"></pre>
+</div>
 
 <script>
-document.getElementById("header").innerHTML =
-  '<object type="text/html" data="../partials/header.html"></object>';
-document.getElementById("sidebar").innerHTML =
-  '<object type="text/html" data="../partials/sidebar.html"></object>';
-document.getElementById("footer").innerHTML =
-  '<object type="text/html" data="../partials/footer.html"></object>';
-
 function runDiff() {
     const a = document.getElementById("diff-a").value.split("\n");
     const b = document.getElementById("diff-b").value.split("\n");
@@ -59,7 +34,8 @@ function runDiff() {
         }
     }
 
-    document.getElementById("diff-output").innerText = out || "Nessuna differenza.";
+    document.getElementById("diff-output").innerText =
+        out || "Nessuna differenza.";
 }
 </script>
 
