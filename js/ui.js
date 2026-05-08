@@ -76,10 +76,13 @@ function initTicker() {
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadPartial("header", "partials/header.html");
-    loadPartial("ticker", "partials/ticker.html");
-    loadPartial("sidebar", "partials/sidebar.html");
-    loadPartial("footer", "partials/footer.html");
+    // Percorso dinamico per funzionare in tutte le cartelle
+const base = window.location.pathname.includes("/") ? "../" : "";
+
+loadPartial("header", base + "partials/header.html");
+loadPartial("ticker", base + "partials/ticker.html");
+loadPartial("sidebar", base + "partials/sidebar.html");
+loadPartial("footer", base + "partials/footer.html");
 
     // Carica i widget solo dopo che la sidebar è pronta
     waitForSidebar().then(() => {
