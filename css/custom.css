@@ -1039,6 +1039,22 @@ body.dark-mode .widget-large a,
 body.dark-mode .external-link {
     color: red !important;
 }
+   /* ============================================
+   LINK ARANCIONE LASER — MAIN COLUMN
+   (Vulnerabilità, Feed, News, Alert, Tools)
+============================================ */
+.main-column a,
+.main-column a:visited {
+    color: #ff5e00 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    text-shadow: 0 0 6px #ff5e00 !important;
+}
+
+.main-column a:hover {
+    color: #ff8a33 !important;
+    text-shadow: 0 0 10px #ff8a33 !important;
+}
 /* ============================================================
    PAGINA CYBER — ANALISI AVANZATA
    ============================================================ */
