@@ -1384,3 +1384,44 @@ canvas {
         width: 60%;
     }
 }
+/* BOX TOOLS MODERNI */
+details {
+    background: #0d0f14;
+    border: 1px solid #1a2333;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    transition: 0.25s ease;
+}
+
+details:hover {
+    border-color: #00eaff;
+    box-shadow: 0 0 12px #00eaff33;
+}
+
+summary {
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e8f7ff;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] {
+    background: #0f141d;
+    border-color: #00eaff;
+    box-shadow: 0 0 18px #00eaff44;
+}
+
+details pre,
+details textarea,
+details input {
+    margin-top: 15px;
+}
