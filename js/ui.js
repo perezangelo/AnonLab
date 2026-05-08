@@ -83,11 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Carica i widget solo dopo che la sidebar è pronta
     waitForSidebar().then(() => {
-        loadMeteo();
-        loadWorldFeed();
-        loadCVEToday();
-        loadCyberAlerts();
-    });
+    // Inizializza il counter visite
+    if (typeof initVisitCounter === "function") {
+        initVisitCounter();
+    }
+
+    // Inizializza i widget
+    loadMeteo();
+    loadWorldFeed();
+    loadCVEToday();
+    loadCyberAlerts();
+});
 });
 
 /* Attende che la sidebar sia caricata prima di inizializzare i widget */
