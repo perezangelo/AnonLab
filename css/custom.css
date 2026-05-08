@@ -1476,3 +1476,5 @@ body.dark-mode .external-link {
     color: #ff8a33 !important;
     text-shadow: 0 0 10px #ff8a33 !important;
 }
+.page {
+  display: grid !important;
