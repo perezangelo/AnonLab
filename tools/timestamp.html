@@ -3,56 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timestamp Converter | AnonLab Tools</title>
+    <title>Timestamp Converter</title>
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/custom.css">
-    <script src="../js/ui.js" defer></script>
 </head>
 
 <body>
 
-<div id="header"></div>
+<div class="tool-content">
+    <h2>Timestamp Converter</h2>
 
-<main class="page">
-    <section class="main-column">
+    <input id="ts-input" type="text" placeholder="Timestamp UNIX" class="tool-input">
+    <button onclick="convertTS()" class="tool-button">Converti</button>
 
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="../img/icons/time.png" class="box-title-icon">
-                <h2>Timestamp Converter</h2>
-            </div>
-
-            <div class="tool-content">
-                <input id="ts-input" type="text" placeholder="Timestamp UNIX" class="tool-input">
-                <button onclick="convertTS()" class="tool-button">Converti</button>
-
-                <pre id="ts-output" class="tool-output"></pre>
-            </div>
-        </div>
-
-    </section>
-
-    <aside id="sidebar"></aside>
-</main>
-
-<div id="footer"></div>
+    <pre id="ts-output" class="tool-output"></pre>
+</div>
 
 <script>
-document.getElementById("header").innerHTML =
-  '<object type="text/html" data="../partials/header.html"></object>';
-document.getElementById("sidebar").innerHTML =
-  '<object type="text/html" data="../partials/sidebar.html"></object>';
-document.getElementById("footer").innerHTML =
-  '<object type="text/html" data="../partials/footer.html"></object>';
-
 function convertTS() {
     const ts = parseInt(document.getElementById("ts-input").value);
     if (isNaN(ts)) {
         document.getElementById("ts-output").innerText = "Timestamp non valido.";
         return;
     }
-    document.getElementById("ts-output").innerText = new Date(ts * 1000).toString();
+    document.getElementById("ts-output").innerText =
+        new Date(ts * 1000).toString();
 }
 </script>
 
