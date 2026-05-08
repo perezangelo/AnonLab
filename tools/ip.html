@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Information | AnonLab Tools</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="../js/ui.js" defer></script>
+</head>
+
+<body>
+
+<div id="header"></div>
+
+<main class="page">
+    <section class="main-column">
+
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="../img/icons/ip.png" class="box-title-icon">
+                <h2>IP Information</h2>
+            </div>
+
+            <div class="tool-content">
+                <p>Inserisci un indirizzo IP per ottenere informazioni.</p>
+
+                <input id="ip-input" type="text" placeholder="esempio: 8.8.8.8" class="tool-input">
+                <button onclick="runIP()" class="tool-button">Cerca</button>
+
+                <pre id="ip-output" class="tool-output"></pre>
+            </div>
+        </div>
+
+    </section>
+
+    <aside id="sidebar"></aside>
+</main>
+
+<div id="footer"></div>
+
+<script>
+document.getElementById("header").innerHTML =
+  '<object type="text/html" data="../partials/header.html"></object>';
+document.getElementById("sidebar").innerHTML =
+  '<object type="text/html" data="../partials/sidebar.html"></object>';
+document.getElementById("footer").innerHTML =
+  '<object type="text/html" data="../partials/footer.html"></object>';
+
+function runIP() {
+    const ip = document.getElementById("ip-input").value;
+    document.getElementById("ip-output").innerText =
+        "IP lookup non implementato lato server.\nIP richiesto: " + ip;
+}
+</script>
+
+</body>
+</html>
