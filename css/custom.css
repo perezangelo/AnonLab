@@ -1380,3 +1380,40 @@ canvas {
         width: 60%;
     }
 }
+details {
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    transition: 0.2s ease;
+}
+
+details:hover {
+    border-color: #444;
+}
+
+summary {
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] {
+    background: #111;
+    border-color: #555;
+}
+
+details pre,
+details textarea,
+details input {
+    margin-top: 15px;
+}
