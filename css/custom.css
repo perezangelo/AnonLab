@@ -1343,3 +1343,39 @@ canvas {
     50%  { text-shadow: 0 0 12px rgba(0,255,255,1); }
     100% { text-shadow: 0 0 4px rgba(0,255,255,0.4); }
 }
+.tools-hero {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #0a0a0a;
+    border: 1px solid #111;
+    padding: 25px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}
+
+.tools-hero-img {
+    width: 180px;
+    height: auto;
+}
+
+.tools-hero-text h1 {
+    font-size: 32px;
+    margin: 0 0 10px 0;
+}
+
+.tools-hero-text p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .tools-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tools-hero-img {
+        width: 60%;
+    }
+}
