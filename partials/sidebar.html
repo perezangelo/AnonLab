@@ -1,82 +1,156 @@
 <!-- ============================
-     SIDEBAR — VERSIONE DEFINITIVA
+    SIDEBAR COMPLETA — BLOCCO 1/4
+    CONTATORE + ABOUT + FORM + FAQ + REGISTRAZIONE + FEED + METEO
 ============================= -->
 
-<!-- COUNTER -->
+<!-- CONTATORE VISITE + SALUTO + DATA/ORA -->
 <div class="sidebar-box visit-box">
   <h3>Benvenuto su AnonLab</h3>
 
-  <div class="visit-greeting" id="visit-greeting">Ciao!</div>
+  <div class="visit-greeting" id="visitGreeting">Ciao!</div>
 
   <div class="visit-info">
     <strong>Visite totali:</strong>
-    <span id="visit-counter">0</span>
+    <span id="visitCounter">0</span>
   </div>
 
   <div class="visit-info">
     <strong>Pagine viste:</strong>
-    <span id="page-counter">0</span>
+    <span id="pageCounter">0</span>
   </div>
 
   <div class="visit-info">
     <strong>Data:</strong>
-    <span id="visit-date">--/--/----</span>
+    <span id="visitDate">--/--/----</span>
   </div>
 
   <div class="visit-info">
     <strong>Ora:</strong>
-    <span id="visit-time">--:--:--</span>
+    <span id="visitTime">--:--:--</span>
   </div>
 </div>
 
-<!-- RADIO -->
-<div class="sidebar-box">
-  <h3>Radio Live</h3>
-  <select id="radioSelector">
-    <option value="">Seleziona una radio</option>
-    <option value="https://www.radio24.ilsole24ore.com/player/">Radio 24</option>
-    <option value="https://www.rtl.it/live/">RTL 102.5</option>
-    <option value="https://www.105.net/sezioni/il-player/">Radio 105</option>
-  </select>
+<!-- ABOUT -->
+<div class="sidebar-box" aria-label="Informazioni su AnonLab">
+  <h3>About</h3>
+  <p>Scopri di più su AnonLab, il progetto dedicato alla cybersecurity, alla tecnologia e alla cultura digitale.</p>
+  <a href="/about.html" class="about-link">Scopri di più su AnonLab →</a>
 </div>
 
-<!-- YOUTUBE PLAYER -->
-<div class="sidebar-box">
-  <h3>YouTube Player</h3>
-  <select id="ytSelector">
-    <option value="">Seleziona un video</option>
-    <option value="dQw4w9WgXcQ">Cybersecurity Basics</option>
-    <option value="9bZkp7q19f0">Tech Trends</option>
-  </select>
-  <iframe id="ytPlayer" width="100%" height="180" style="border:0; margin-top:10px;"></iframe>
+<!-- FORM — RICHIESTA INFO -->
+<div class="sidebar-box" aria-label="Richiesta informazioni">
+  <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
+  <h3>Richiedi Informazioni</h3>
+  <form action="mailto:info@anonlab.it" method="POST" enctype="text/plain">
+    <input type="text" name="name" placeholder="Il tuo nome" required>
+    <input type="email" name="email" placeholder="La tua email" required>
+    <textarea name="message" placeholder="Scrivi la tua richiesta..." required></textarea>
+    <button type="submit">Invia</button>
+  </form>
 </div>
 
-<!-- CALCOLATRICE -->
-<div class="sidebar-box">
-  <h3>Calcolatrice</h3>
-  <div id="calc-display" class="calc-display">0</div>
-  <div id="calc-buttons" class="calc-buttons">
-    <button class="calc-btn">7</button>
-    <button class="calc-btn">8</button>
-    <button class="calc-btn">9</button>
-    <button class="calc-btn">/</button>
-    <button class="calc-btn">4</button>
-    <button class="calc-btn">5</button>
-    <button class="calc-btn">6</button>
-    <button class="calc-btn">*</button>
-    <button class="calc-btn">1</button>
-    <button class="calc-btn">2</button>
-    <button class="calc-btn">3</button>
-    <button class="calc-btn">-</button>
-    <button class="calc-btn">0</button>
-    <button class="calc-btn">C</button>
-    <button class="calc-btn">=</button>
-    <button class="calc-btn">+</button>
+<!-- FORM — FAQ & DOMANDE -->
+<div class="sidebar-box" aria-label="FAQ e domande">
+  <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
+  <h3>FAQ & Domande</h3>
+  <form action="#" method="POST">
+    <input type="text" name="question" placeholder="La tua domanda" required>
+    <textarea name="details" placeholder="Dettagli (opzionale)"></textarea>
+    <button type="submit">Invia</button>
+  </form>
+</div>
+
+<!-- FORM — REGISTRAZIONE UTENTE -->
+<div class="sidebar-box" aria-label="Registrazione utente">
+  <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
+  <h3>Registrazione Utente</h3>
+  <form action="#" method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Registrati</button>
+  </form>
+</div>
+
+<!-- FEED DAL MONDO -->
+<div class="sidebar-box" aria-label="Feed dal mondo">
+  <div class="feed-logos">
+    <img src="/img/skytg24.png" alt="Logo Sky TG24">
+    <img src="/img/ansa.png" alt="Logo ANSA">
+    <img src="/img/bbc.png" alt="Logo BBC News">
+    <img src="/img/reuters.png" alt="Logo Reuters">
+    <img src="/img/euronews.png" alt="Logo Euronews">
+  </div>
+
+  <h3>Feed Euronews</h3>
+
+  <ul class="feed-links">
+    <li><a href="https://www.euronews.com/news" target="_blank" rel="noopener noreferrer">Ultime notizie</a></li>
+    <li><a href="https://www.euronews.com/world" target="_blank" rel="noopener noreferrer">Mondo</a></li>
+    <li><a href="https://www.euronews.com/my-europe/europe-news" target="_blank" rel="noopener noreferrer">Europa</a></li>
+    <li><a href="https://www.euronews.com/business" target="_blank" rel="noopener noreferrer">Economia</a></li>
+    <li><a href="https://www.euronews.com/next" target="_blank" rel="noopener noreferrer">Tecnologia</a></li>
+  </ul>
+</div>
+
+<!-- METEO NEON -->
+<div class="sidebar-box" aria-label="Previsioni meteo Varese" style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:12px;">
+  <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Meteo</h3>
+
+  <div style="text-align:center; margin-bottom:12px;">
+    <img src="/img/meteo-neon.png" alt="Meteo Varese" style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
+  </div>
+
+  <a class="weatherwidget-io"
+     href="https://forecast7.com/en/45d828d83/varese/"
+     data-label_1="VARESE"
+     data-label_2="WEATHER"
+     data-icons="Climacons Animated"
+     data-theme="dark"
+     data-basecolor="#050a18"
+     data-textcolor="#8be9ff"
+     data-highcolor="#00eaff"
+     data-lowcolor="#7f9db0"
+     data-suncolor="#ffe066"
+     data-cloudcolor="#6c7a89"
+     data-mooncolor="#b0c4de"
+     data-raincolor="#00bcd4"
+     data-snowcolor="#e0f7fa">
+     VARESE WEATHER
+  </a>
+</div>
+<!-- ============================
+    SIDEBAR COMPLETA — BLOCCO 2/4
+    CALCOLATRICE + OROSCOPO + SOCIAL + VIDEO
+============================= -->
+
+<!-- CALCOLATRICE CYBER NEON -->
+<div class="sidebar-box" aria-label="Calcolatrice"
+     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:12px; margin-top:20px;">
+
+  <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Calcolatrice</h3>
+
+  <div style="text-align:center; margin-bottom:12px;">
+    <img src="/img/calc-neon.png"
+         alt="Calcolatrice Neon"
+         style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
+  </div>
+
+  <div id="calc-display"
+       style="background:#050a18; color:#8be9ff; font-size:1.4rem; text-align:right;
+              padding:10px; border-radius:6px; margin-bottom:10px;">0</div>
+
+  <div id="calc-buttons" style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+    <button class="calc-btn">7</button><button class="calc-btn">8</button><button class="calc-btn">9</button><button class="calc-btn">/</button>
+    <button class="calc-btn">4</button><button class="calc-btn">5</button><button class="calc-btn">6</button><button class="calc-btn">*</button>
+    <button class="calc-btn">1</button><button class="calc-btn">2</button><button class="calc-btn">3</button><button class="calc-btn">-</button>
+    <button class="calc-btn">0</button><button class="calc-btn">.</button><button class="calc-btn">=</button><button class="calc-btn">+</button>
+
+    <button class="calc-btn" style="grid-column: span 4; background:#ff0040; color:white; font-weight:bold;">C</button>
   </div>
 </div>
 
-<!-- OROSCOPO -->
-<div class="sidebar-box" id="oroscopo-box">
+<!-- OROSCOPO DEL GIORNO -->
+<div class="sidebar-box" id="oroscopo-box" aria-label="Oroscopo del giorno">
   <h3>Oroscopo del Giorno</h3>
 
   <div class="oroscopo-row">
@@ -99,9 +173,274 @@
     <option value="pesci">Pesci</option>
   </select>
 
-  <div id="oroscopo-text" class="oroscopo-text">Caricamento oroscopo...</div>
+  <div id="oroscopo-text" class="oroscopo-text">
+    Caricamento oroscopo...
+  </div>
 
   <a id="oroscopo-link" class="oroscopo-more" href="#" target="_blank">
     Leggi di più →
   </a>
 </div>
+
+<!-- SOCIAL NETWORK -->
+<div class="sidebar-box" aria-label="Social network">
+  <h3>Social Network</h3>
+  <div class="social-icons">
+
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#1877F2" d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0022 12"/>
+      </svg>
+    </a>
+
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#E4405F" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.3A4.7 4.7 0 1016.7 12 4.7 4.7 0 0012 7.3zm0 7.7A3 3 0 1115 12a3 3 0 01-3 3zm4.8-8.9a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"/>
+      </svg>
+    </a>
+
+    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#000000" d="M18.2 2H21l-6.4 7 7.4 9H16l-4.7-6-5.3 6H3l6.8-7.7L2.8 2h4.3l4.2 5.6L18.2 2z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+<!-- VIDEO & STREAMING -->
+<div class="sidebar-box" aria-label="Video e streaming">
+  <h3>Video & Streaming</h3>
+  <div class="social-icons">
+
+    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#FF0000" d="M23 7.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C16.6 3.5 12 3.5 12 3.5h-.1s-4.6 0-8.1.4c-.4.1-1.3.1-2.1 1C1.2 5.6 1 7.2 1 7.2S.8 9.1.8 11v2c0 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.8.2 7.8.4 7.8.4s4.6 0 8.1-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.2-1.9.2-3.8v-2c0-1.9-.2-3.8-.2-3.8zM10 15.5V8.5l6 3.5-6 3.5z"/>
+      </svg>
+    </a>
+
+    <a href="https://twitch.tv" target="_blank" rel="noopener noreferrer" aria-label="Twitch">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#9146FF" d="M4 2L2 6v14h6v2h2l2-2h4l4-4V2H4zm16 12l-2 2h-4l-2 2v-2H6V4h14v10z"/>
+      </svg>
+    </a>
+
+    <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#1AB7EA" d="M22.3 7.3c-.1 3.1-2.3 7.3-6.5 12.5-4.3 5.3-7.9 5.7-10.7 1.2-.9-1.6-1.8-3.2-2.7-4.8-.9-1.6-.4-2.9 1.4-3.8 1.1-.5 2-.4 2.6.4.6.8 1.1 1.6 1.6 2.4.5.8.9 1.2 1.2 1.2.3 0 .8-.4 1.4-1.2.6-.8.9-1.5.9-2.1 0-.8-.3-1.5-.9-2.1-.6-.6-1.3-.9-2.1-.9-.8 0-1.4.2-1.9.6-.5.4-.9.6-1.2.6-.3 0-.6-.2-.9-.6-.3-.4-.4-.8-.4-1.2 0-.8.4-1.5 1.2-2.1.8-.6 1.8-.9 3-.9 1.8 0 3.3.6 4.5 1.8 1.2 1.2 1.8 2.7 1.8 4.5 0 1.2-.3 2.4-.9 3.6-.6 1.2-1.4 2.3-2.4 3.3 2.3-2.6 4.1-5.2 5.4-7.8 1.3-2.6 2-4.6 2-6.1 0-.8-.2-1.4-.6-1.8-.4-.4-.9-.6-1.5-.6-.6 0-1.1.2-1.5.6-.4.4-.6.9-.6 1.5z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+<!-- ============================
+    SIDEBAR COMPLETA — BLOCCO 3/4
+    MESSAGGISTICA + DEVELOPER + RSS
+============================= -->
+
+<!-- MESSAGGISTICA & COMMUNITY -->
+<div class="sidebar-box" aria-label="Messaggistica e community">
+  <h3>Messaggistica & Community</h3>
+  <div class="social-icons">
+
+    <!-- WhatsApp -->
+    <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#25D366" d="M12 2A10 10 0 002 12a9.9 9.9 0 001.5 5.3L2 22l4.9-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.2-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1112 20zm4.4-5.6c-.2-.1-1.3-.7-1.5-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.9 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.3.3-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.8 3.5 2.2 1 2.2.7 2.6.7.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z"/>
+      </svg>
+    </a>
+
+    <!-- Telegram -->
+    <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#0088CC" d="M9.9 15.6l-.4 4c.6 0 .9-.3 1.2-.6l2.9-2.8 4.9 3.6c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.4-1.7-1.3-1.4L1.7 9.3c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 11.1-7c.5-.3.9-.1.5.2"/>
+      </svg>
+    </a>
+
+    <!-- Discord -->
+    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#5865F2" d="M20 4a16 16 0 00-4-.9l-.2.4a14 14 0 00-3.6 0L12 3a16 16 0 00-4 .9C5.2 5.3 4 8 4 8v8s1.2 2.7 4 4a16 16 0 004 .9l.2-.4a14 14 0 003.6 0l.2.4a16 16 0 004-.9c2.8-1.3 4-4 4-4V8s-1.2-2.7-4-4zm-9 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+<!-- DEVELOPER / TECH / CREATIVE -->
+<div class="sidebar-box" aria-label="Developer, Tech e Creative">
+  <h3>Developer / Tech / Creative</h3>
+  <div class="social-icons">
+
+    <!-- GitHub -->
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12 .5A12 12 0 000 12.7c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 1.8 2.6 1.3 3.2 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.6-1.4-5.6-6.3 0-1.4.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.3 11.3 0 016.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.4 0 4.9-2.9 6-5.6 6.3.4.3.8 1 .8 2v3c0 .3.2.7.8.6A12.2 12.2 0 0024 12.7 12 12 0 0012 .5z"/>
+      </svg>
+    </a>
+
+    <!-- Stack Overflow -->
+    <a href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#F48024" d="M17 20v-6h2v8H3v-8h2v6h12zM7 18h8v-2H7v2zm.2-4.3l8.1 1.7.4-2-8.1-1.7-.4 2zm1.3-4.7l7.5 3.5.8-1.8-7.5-3.5-.8 1.8zm2.6-4.5l6.4 5 .1-2.2-6.4-5-.1 2.2zm4.9-3.5l-1.4 1.4 4.9 4.9 1.4-1.4-4.9-4.9z"/>
+      </svg>
+    </a>
+
+    <!-- Dribbble -->
+    <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" aria-label="Dribbble">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#EA4C89" d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6.3c1 1.6 1.3 3.5.9 5.3-2.2-.4-4.3-.4-6.3-.1-.2-.5-.4-1-.7-1.5 2.4-1 4.3-2.4 6.1-3.7zM12 4c1.7 0 3.3.5 4.7 1.4-1.6 1.2-3.3 2.4-5.3 3.3A32 32 0 009.2 5c.9-.4 1.9-.7 2.8-.8zm-4.6 1.9c1.1 1.4 2.1 2.9 3 4.4-2.2.6-4.5.9-6.9.9a8 8 0 013.9-5.3zM4 12v-.3c2.8 0 5.4-.4 7.9-1.2.3.5.6 1.1.9 1.7-2.4.8-4.6 2.1-6.6 3.8A8 8 0 014 12zm3.4 6.3c1.7-1.7 3.7-3 5.9-3.8.2.5.4 1 .6 1.5-1.8.5-3.6 1.3-5.3 2.4-.4-.1-.8-.1-1.2-.1zm4.6 1.7c-.9 0-1.8-.1-2.6-.4 1.5-1 3.2-1.7 5-2.2.3.8.5 1.6.7 2.4A8 8 0 0112 20zm4.8-1.2c-.2-.9-.4-1.7-.7-2.5 1.7-.2 3.4-.1 5.2.2a8 8 0 01-4.5 2.3z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+<!-- RSS & AGGREGATORI -->
+<div class="sidebar-box" aria-label="RSS e aggregatori">
+  <h3>RSS & Aggregatori</h3>
+  <div class="social-icons">
+
+    <!-- Feedly -->
+    <a href="https://feedly.com" target="_blank" rel="noopener noreferrer" aria-label="Feedly">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#2BB24C" d="M12 2a10 10 0 00-7.1 17.1L12 22l7.1-2.9A10 10 0 0012 2zm0 18l-5.3-2.2A8 8 0 1112 20z"/>
+      </svg>
+    </a>
+
+    <!-- Inoreader -->
+    <a href="https://www.inoreader.com" target="_blank" rel="noopener noreferrer" aria-label="Inoreader">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#1F8DED" d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 14.5h-7v-2h7v2zm1-4h-9v-2h9v2zm0-4h-9v-2h9v2z"/>
+      </svg>
+    </a>
+
+    <!-- Flipboard -->
+    <a href="https://flipboard.com" target="_blank" rel="noopener noreferrer" aria-label="Flipboard">
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="#E12828" d="M3 3v18h18V3H3zm14 8h-4v4h-4V7h8v4z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+<!-- ============================
+    SIDEBAR COMPLETA — BLOCCO 4/4
+    RADIO + YOUTUBE + MISURAINTERNET + CALENDARIO + MAPS
+============================= -->
+
+<!-- RADIO MULTI-EMITTENTE -->
+<div class="sidebar-box radio-box">
+  <h3>AnonLab Radio</h3>
+
+  <img src="/img/anonlab-radio.png" class="radio-logo" alt="AnonLab Radio">
+
+  <select id="radioSelector" class="radio-select">
+    <option value="">Seleziona una stazione…</option>
+
+    <option value="https://www.rtl.it/player/">RTL 102.5</option>
+    <option value="https://www.radioitalia.it/player/">Radio Italia SoloMusicaItaliana</option>
+    <option value="https://www.rds.it/player/">RDS 100% Grandi Successi</option>
+    <option value="https://www.deejay.it/player/">Radio Deejay</option>
+    <option value="https://www.105.net/player/">Radio 105</option>
+    <option value="https://www.kisskiss.it/player/">Radio Kiss Kiss</option>
+    <option value="https://www.virginradio.it/player/">Virgin Radio</option>
+
+    <option value="https://www.raiplaysound.it/radio1">Rai Radio 1</option>
+    <option value="https://www.raiplaysound.it/radio2">Rai Radio 2</option>
+    <option value="https://www.raiplaysound.it/radio3">Rai Radio 3</option>
+
+    <option value="https://www.radio24.ilsole24ore.com/player/">Radio 24</option>
+    <option value="https://www.capital.it/player/">Radio Capital</option>
+    <option value="https://www.radiomontecarlo.net/player/">Radio Monte Carlo</option>
+    <option value="https://www.m2o.it/player/">m2o</option>
+    <option value="https://www.radiosportiva.it/player/">Radio Sportiva</option>
+    <option value="https://www.radiozeta.it/player/">Radio Zeta</option>
+  </select>
+</div>
+
+<!-- PLAYER YOUTUBE MUSICALE -->
+<div class="sidebar-box yt-box">
+  <h3>Video Musicali</h3>
+
+  <iframe
+    id="ytPlayer"
+    width="100%"
+    height="180"
+    src="https://www.youtube.com/embed/iYVEik7Lvc4"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+
+  <select id="ytSelector" class="yt-select">
+    <option value="">Seleziona un video…</option>
+    <option value="iYVEik7Lvc4">U2 – Every Breaking Wave</option>
+  </select>
+</div>
+
+<!-- MISURAINTERNET -->
+<div class="sidebar-box misura-box" aria-label="MisuraInternet AGCOM">
+  <h3>MisuraInternet</h3>
+
+  <div class="misura-img">
+    <img src="/img/misurainternet.png" alt="Logo MisuraInternet AGCOM" style="width:100%; border-radius:6px;">
+  </div>
+
+  <p class="misura-desc">
+    Servizio ufficiale AGCOM per la misura certificata della qualità della tua connessione Internet.
+  </p>
+
+  <a href="https://www.misurainternet.it" target="_blank" rel="noopener noreferrer" class="misura-btn" style="
+      display:block;
+      text-align:center;
+      padding:10px;
+      background:#0057b8;
+      color:#fff;
+      border-radius:6px;
+      margin-top:10px;
+      text-decoration:none;
+      font-weight:bold;
+  ">
+    Vai al sito ufficiale
+  </a>
+</div>
+
+<!-- CALENDARIO GOOGLE -->
+<div class="sidebar-box" aria-label="Calendario eventi">
+  <h3>Calendario</h3>
+
+  <div style="text-align:center; margin-bottom:10px;">
+    <img src="/img/calendar.png" alt="Icona calendario" style="width:100%; border-radius:6px;">
+  </div>
+
+  <iframe 
+    src="https://calendar.google.com/calendar/embed?src=c_classroom6b3d5b0b%40group.calendar.google.com&ctz=Europe%2FRome"
+    style="border:0; width:100%; height:300px; border-radius:6px;"
+    frameborder="0"
+    scrolling="no"
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- GOOGLE MAPS -->
+<div class="sidebar-box" aria-label="Mappa geografica">
+  <h3>Google Maps</h3>
+
+  <div style="text-align:center; margin-bottom:10px;">
+    <img src="/img/google-maps.png" alt="Anteprima Google Maps" style="width:100%; border-radius:6px;">
+  </div>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10672.983!2d9.0!3d45.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v0000000000000"
+    width="100%"
+    height="250"
+    style="border:0; border-radius:6px;"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- ============================
+    FINE SIDEBAR COMPLETA
+============================= -->
