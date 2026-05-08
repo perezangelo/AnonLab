@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tester | AnonLab Tools</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="../js/ui.js" defer></script>
+</head>
+
+<body>
+
+<div id="header"></div>
+
+<main class="page">
+    <section class="main-column">
+
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="../img/icons/regex.png" class="box-title-icon">
+                <h2>Regex Tester</h2>
+            </div>
+
+            <div class="tool-content">
+                <input id="regex-pattern" type="text" placeholder="Pattern regex" class="tool-input">
+                <textarea id="regex-text" class="tool-input" placeholder="Testo da analizzare"></textarea>
+
+                <button onclick="runRegex()" class="tool-button">Testa</button>
+
+                <pre id="regex-output" class="tool-output"></pre>
+            </div>
+        </div>
+
+    </section>
+
+    <aside id="sidebar"></aside>
+</main>
+
+<div id="footer"></div>
+
+<script>
+document.getElementById("header").innerHTML =
+  '<object type="text/html" data="../partials/header.html"></object>';
+document.getElementById("sidebar").innerHTML =
+  '<object type="text/html" data="../partials/sidebar.html"></object>';
+document.getElementById("footer").innerHTML =
+  '<object type="text/html" data="../partials/footer.html"></object>';
+
+function runRegex() {
+    try {
+        const pattern = new RegExp(document.getElementById("regex-pattern").value, "g");
+        const text = document.getElementById("regex-text").value;
+        const matches = text.match(pattern);
+        document.getElementById("regex-output").innerText = matches ? matches.join("\n") : "Nessuna corrispondenza.";
+    } catch {
+        document.getElementById("regex-output").innerText = "Regex non valida.";
+    }
+}
+</script>
+
+</body>
+</html>
