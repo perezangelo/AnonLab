@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Lookup | AnonLab Tools</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="../js/ui.js" defer></script>
+</head>
+
+<body>
+
+<div id="header"></div>
+
+<main class="page">
+    <section class="main-column">
+
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="../img/icons/dns.png" class="box-title-icon">
+                <h2>DNS Lookup</h2>
+            </div>
+
+            <div class="tool-content">
+                <p>Inserisci un dominio per risolvere i record DNS.</p>
+
+                <input id="dns-input" type="text" placeholder="esempio: google.com" class="tool-input">
+                <button onclick="runDNS()" class="tool-button">Cerca</button>
+
+                <pre id="dns-output" class="tool-output"></pre>
+            </div>
+        </div>
+
+    </section>
+
+    <aside id="sidebar"></aside>
+</main>
+
+<div id="footer"></div>
+
+<script>
+document.getElementById("header").innerHTML =
+  '<object type="text/html" data="../partials/header.html"></object>';
+document.getElementById("sidebar").innerHTML =
+  '<object type="text/html" data="../partials/sidebar.html"></object>';
+document.getElementById("footer").innerHTML =
+  '<object type="text/html" data="../partials/footer.html"></object>';
+
+function runDNS() {
+    const domain = document.getElementById("dns-input").value;
+    document.getElementById("dns-output").innerText =
+        "DNS lookup non implementato lato server.\nDominio richiesto: " + domain;
+}
+</script>
+
+</body>
+</html>
