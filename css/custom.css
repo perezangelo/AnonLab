@@ -1170,3 +1170,55 @@ body.dark-mode .external-link {
   color: #ccc;
   font-size: 0.9rem;
 }
+/* ================================
+   PAGINA NEWS — SEZIONI AVANZATE
+   ================================ */
+
+.news-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.news-title {
+  font-size: 1.6rem;
+  color: #00eaff;
+  margin-bottom: 16px;
+}
+
+.news-panel {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+.news-list,
+.timeline-list,
+.vuln-list,
+.ransom-list,
+.law-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.news-list li,
+.timeline-list li,
+.vuln-list li,
+.ransom-list li,
+.law-list li {
+  color: #ccc;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.time-tag {
+  display: inline-block;
+  min-width: 80px;
+  font-size: 0.8rem;
+  color: #00eaff;
+  border: 1px solid rgba(0, 170, 255, 0.5);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-right: 6px;
+}
