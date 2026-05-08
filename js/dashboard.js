@@ -1,132 +1,119 @@
 /* ============================================================
-   DASHBOARD — VERSIONE OTTIMIZZATA E STABILE
-   ------------------------------------------------------------
-   - Evita errori se non siamo in dashboard.html
-   - Evita ricreazione continua del grafico
-   - Aggiornamenti più leggeri
-   - Controlli DOM sicuri
+   THREAT LEVEL — Simulazione dinamica
 ============================================================ */
+function updateThreatLevel() {
+    const el = document.getElementById("threat-level");
+    if (!el) return;
 
-/* ============================================================
-   1) CONTROLLO PAGINA
-   Evita che il JS giri su TUTTO il sito inutilmente
-============================================================ */
+    const levels = ["LOW", "MEDIUM", "HIGH", "CRITICAL"];
+    const level = levels[Math.floor(Math.random() * levels.length)];
 
-if (!document.querySelector(".dashboard-container")) {
-    // Non siamo nella pagina dashboard → interrompi tutto
-    console.log("Dashboard.js: pagina non rilevata, script disattivato.");
-    return;
+    el.textContent = level;
+
+    el.style.color =
+        level === "LOW" ? "#00ff99" :
+        level === "MEDIUM" ? "#ffee55" :
+        level === "HIGH" ? "#ff9933" :
+        "#ff3355";
 }
+setInterval(updateThreatLevel, 5000);
+updateThreatLevel();
 
 /* ============================================================
-   2) ELEMENTI DOM (con controlli)
+   GRAFICO ATTACCHI — Chart.js
 ============================================================ */
+function initAttacksChart() {
+    const ctx = document.getElementById("attacksChart");
+    if (!ctx) return;
 
-const threatNumber = document.getElementById("threat-number");
-const eventLog = document.getElementById("event-log");
-const systemStatus = document.getElementById("system-status");
-const ctx = document.getElementById("trafficChart");
-
-if (!threatNumber || !eventLog || !systemStatus || !ctx) {
-    console.warn("Dashboard.js: elementi mancanti nel DOM.");
-    return;
-}
-
-/* ============================================================
-   3) GRAFICO — INIZIALIZZAZIONE UNA SOLA VOLTA
-============================================================ */
-
-let trafficChart = new Chart(ctx, {
-    type: "line",
-    data: {
-        labels: ["00:00", "01:00", "02:00", "03:00", "04:00"],
-        datasets: [{
-            label: "Traffico (Gbps)",
-            data: [12, 19, 8, 15, 22],
-            borderColor: "#00eaff",
-            backgroundColor: "rgba(0, 234, 255, 0.15)",
-            tension: 0.3
-        }]
-    },
-    options: {
-        responsive: true,
-        animation: false,
-        scales: {
-            y: { beginAtZero: true }
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: Array.from({ length: 24 }, (_, i) => `${i}:00`),
+            datasets: [{
+                label: "Attacchi",
+                data: Array.from({ length: 24 }, () => Math.floor(Math.random() * 50)),
+                borderColor: "#00eaff",
+                backgroundColor: "rgba(0, 234, 255, 0.15)",
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: "#ccc" } },
+                y: { ticks: { color: "#ccc" } }
+            }
         }
-    }
-});
-
-/* ============================================================
-   4) FUNZIONE: AGGIORNA NUMERO MINACCE
-============================================================ */
-
-function updateThreatNumber() {
-    const newValue = Math.floor(Math.random() * 999);
-
-    threatNumber.classList.add("blink");
-    threatNumber.textContent = newValue;
-
-    setTimeout(() => threatNumber.classList.remove("blink"), 300);
+    });
 }
+initAttacksChart();
 
 /* ============================================================
-   5) FUNZIONE: AGGIORNA LOG EVENTI
+   EVENT LOG — Generazione dinamica
 ============================================================ */
+function addEventLog() {
+    const log = document.getElementById("event-log");
+    if (!log) return;
 
-function updateEventLog() {
     const events = [
-        "Nuovo tentativo di intrusione bloccato",
+        "Tentativo di accesso non autorizzato",
         "Connessione sospetta rilevata",
-        "Traffico anomalo mitigato",
-        "Richiesta API non autorizzata"
+        "Traffico anomalo su porta 443",
+        "Richiesta API non valida",
+        "Login fallito da IP esterno"
+    ];
+
+    const item = document.createElement("div");
+    item.className = "log-item";
+    item.textContent = events[Math.floor(Math.random() * events.length)];
+
+    log.prepend(item);
+
+    if (log.children.length > 20) log.removeChild(log.lastChild);
+}
+setInterval(addEventLog, 4000);
+
+/* ============================================================
+   SYSTEM STATUS — Simulazione dinamica
+============================================================ */
+function updateSystemStatus() {
+    const cpu = document.getElementById("cpu-load");
+    const net = document.getElementById("net-activity");
+    const fw = document.getElementById("fw-status");
+
+    if (!cpu) return;
+
+    cpu.textContent = Math.floor(Math.random() * 80 + 10) + "%";
+    net.textContent = Math.floor(Math.random() * 900 + 100) + " kb/s";
+
+    const fwStatus = ["OK", "WARN", "BLOCK"];
+    fw.textContent = fwStatus[Math.floor(Math.random() * fwStatus.length)];
+}
+setInterval(updateSystemStatus, 3000);
+updateSystemStatus();
+
+/* ============================================================
+   ATTIVITÀ SOSPETTE — Lista dinamica
+============================================================ */
+function updateSuspicious() {
+    const list = document.getElementById("suspicious-list");
+    if (!list) return;
+
+    const items = [
+        "Accesso da IP non riconosciuto",
+        "Download anomalo rilevato",
+        "Processo sconosciuto in esecuzione",
+        "Connessione esterna persistente",
+        "Tentativo di escalation privilegi"
     ];
 
     const li = document.createElement("li");
-    li.textContent = events[Math.floor(Math.random() * events.length)];
+    li.textContent = items[Math.floor(Math.random() * items.length)];
 
-    eventLog.prepend(li);
+    list.prepend(li);
 
-    // Mantieni massimo 10 righe
-    if (eventLog.children.length > 10) {
-        eventLog.removeChild(eventLog.lastChild);
-    }
+    if (list.children.length > 10) list.removeChild(list.lastChild);
 }
-
-/* ============================================================
-   6) FUNZIONE: AGGIORNA STATO SISTEMA
-============================================================ */
-
-function updateSystemStatus() {
-    const states = ["OK", "ATTENZIONE", "CRITICO"];
-    const state = states[Math.floor(Math.random() * states.length)];
-
-    systemStatus.textContent = state;
-
-    systemStatus.className = ""; // reset classi
-    systemStatus.classList.add("status", state.toLowerCase());
-}
-
-/* ============================================================
-   7) FUNZIONE: AGGIORNA GRAFICO (LEGGERO)
-============================================================ */
-
-function updateChart() {
-    const dataset = trafficChart.data.datasets[0].data;
-
-    dataset.shift();
-    dataset.push(Math.floor(Math.random() * 25));
-
-    trafficChart.update("none"); // nessuna animazione → più veloce
-}
-
-/* ============================================================
-   8) LOOP DI AGGIORNAMENTO (OTTIMIZZATO)
-============================================================ */
-
-setInterval(() => {
-    updateThreatNumber();
-    updateEventLog();
-    updateSystemStatus();
-    updateChart();
-}, 4000); // da 3000 → 4000ms per ridurre carico CPU
+setInterval(updateSuspicious, 6000);
