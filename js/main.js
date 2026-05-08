@@ -93,23 +93,49 @@ function initYouTubePlayer() {
 // ===============================
 
 function initVisitCounter() {
-const counterEl = document.getElementById("visit-counter");
-const pageEl = document.getElementById("page-counter");
-const dateEl = document.getElementById("visit-date");
-const timeEl = document.getElementById("visit-time");
-const greetEl = document.getElementById("visit-greeting");
+    const counterEl = document.getElementById("visit-counter");
+    const pageEl = document.getElementById("page-counter");
+    const dateEl = document.getElementById("visit-date");
+    const timeEl = document.getElementById("visit-time");
+    const greetEl = document.getElementById("visit-greeting");
+    const iconEl = document.querySelector(".counter-icon");
+
     if (!counterEl || !pageEl || !dateEl || !timeEl || !greetEl) return;
 
-    let visits = localStorage.getItem("anonlab_visits");
-    visits = visits ? parseInt(visits) + 1 : 1;
+    /* -----------------------------
+       ANIMAZIONE NUMERICA
+    ----------------------------- */
+    function animateValue(el, start, end, duration = 600) {
+        const range = end - start;
+        let startTime = null;
+
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            const progress = Math.min((ts - startTime) / duration, 1);
+            el.textContent = Math.floor(start + range * progress);
+            if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    /* -----------------------------
+       VISITE TOTALI
+    ----------------------------- */
+    let visits = parseInt(localStorage.getItem("anonlab_visits") || "0") + 1;
     localStorage.setItem("anonlab_visits", visits);
-    counterEl.textContent = visits;
+    animateValue(counterEl, visits - 1, visits);
 
-    let pages = localStorage.getItem("anonlab_pages");
-    pages = pages ? parseInt(pages) + 1 : 1;
+    /* -----------------------------
+       PAGINE VISITATE
+    ----------------------------- */
+    let pages = parseInt(localStorage.getItem("anonlab_pages") || "0") + 1;
     localStorage.setItem("anonlab_pages", pages);
-    pageEl.textContent = pages;
+    animateValue(pageEl, pages - 1, pages);
 
+    /* -----------------------------
+       SALUTO DINAMICO
+    ----------------------------- */
     function updateGreeting() {
         const hour = new Date().getHours();
         let greeting = "Ciao!";
@@ -120,20 +146,32 @@ const greetEl = document.getElementById("visit-greeting");
         greetEl.textContent = greeting;
     }
 
+    /* -----------------------------
+       DATA
+    ----------------------------- */
     function updateDate() {
         const now = new Date();
-        const d = now.getDate().toString().padStart(2, "0");
-        const m = (now.getMonth() + 1).toString().padStart(2, "0");
-        const y = now.getFullYear();
-        dateEl.textContent = `${d}/${m}/${y}`;
+        dateEl.textContent =
+            `${String(now.getDate()).padStart(2, "0")}/` +
+            `${String(now.getMonth() + 1).padStart(2, "0")}/` +
+            now.getFullYear();
     }
 
+    /* -----------------------------
+       ORA + EFFETTO PULSE
+    ----------------------------- */
     function updateTime() {
         const now = new Date();
-        const h = now.getHours().toString().padStart(2, "0");
-        const m = now.getMinutes().toString().padStart(2, "0");
-        const s = now.getSeconds().toString().padStart(2, "0");
-        timeEl.textContent = `${h}:${m}:${s}`;
+        timeEl.textContent =
+            `${String(now.getHours()).padStart(2, "0")}:` +
+            `${String(now.getMinutes()).padStart(2, "0")}:` +
+            `${String(now.getSeconds()).padStart(2, "0")}`;
+
+        timeEl.classList.add("neon-pulse");
+        setTimeout(() => timeEl.classList.remove("neon-pulse"), 300);
+
+        iconEl.classList.add("spin-once");
+        setTimeout(() => iconEl.classList.remove("spin-once"), 600);
     }
 
     updateGreeting();
@@ -141,9 +179,8 @@ const greetEl = document.getElementById("visit-greeting");
     updateTime();
     setInterval(updateTime, 1000);
 
-    console.log("Contatore visite inizializzato");
+    console.log("Contatore visite — versione premium attivo");
 }
-
 // ===============================
 // INIZIALIZZAZIONE DOPO CARICAMENTO SIDEBAR
 // ===============================
