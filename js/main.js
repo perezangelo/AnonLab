@@ -188,7 +188,8 @@ function initVisitCounter() {
 document.addEventListener("DOMContentLoaded", () => {
     const sidebarCheck = setInterval(() => {
         const sidebarLoaded =
-            document.getElementById("visit-counter");
+            document.getElementById("visit-counter") ||
+            document.getElementById("visitCounter");
 
         if (sidebarLoaded) {
             clearInterval(sidebarCheck);
