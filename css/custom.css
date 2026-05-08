@@ -1092,3 +1092,11 @@ body.dark-mode .external-link {
   padding: 2px 8px;
   margin-right: 6px;
 }
+.map-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 170, 255, 0.35);
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
