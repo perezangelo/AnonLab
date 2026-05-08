@@ -3,51 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator | AnonLab Tools</title>
-
+    <title>QR Code Generator</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/custom.css">
-    <script src="../js/ui.js" defer></script>
 </head>
 
 <body>
 
-<div id="header"></div>
+<div class="tool-content">
+    <h2>QR Code Generator</h2>
+    <p>Inserisci un testo per generare un QR Code.</p>
 
-<main class="page">
-    <section class="main-column">
+    <input id="qr-input" type="text" placeholder="testo" class="tool-input">
+    <button onclick="runQR()" class="tool-button">Genera</button>
 
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="../img/icons/qr.png" class="box-title-icon">
-                <h2>QR Code Generator</h2>
-            </div>
-
-            <div class="tool-content">
-                <p>Inserisci un testo per generare un QR Code (placeholder).</p>
-
-                <input id="qr-input" type="text" placeholder="testo" class="tool-input">
-                <button onclick="runQR()" class="tool-button">Genera</button>
-
-                <pre id="qr-output" class="tool-output"></pre>
-            </div>
-        </div>
-
-    </section>
-
-    <aside id="sidebar"></aside>
-</main>
-
-<div id="footer"></div>
+    <pre id="qr-output" class="tool-output"></pre>
+</div>
 
 <script>
-document.getElementById("header").innerHTML =
-  '<object type="text/html" data="../partials/header.html"></object>';
-document.getElementById("sidebar").innerHTML =
-  '<object type="text/html" data="../partials/sidebar.html"></object>';
-document.getElementById("footer").innerHTML =
-  '<object type="text/html" data="../partials/footer.html"></object>';
-
 function runQR() {
     const text = document.getElementById("qr-input").value;
     document.getElementById("qr-output").innerText =
