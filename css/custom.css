@@ -1478,3 +1478,16 @@ body.dark-mode .external-link {
 }
 .page {
   display: grid !important;
+.page {
+  display: grid !important;
+  grid-template-columns: minmax(0, 2.3fr) minmax(280px, 1fr) !important;
+  gap: 20px !important;
+}
+
+.main-column {
+  width: 100% !important;
+}
+
+#sidebar {
+  width: 100% !important;
+}
