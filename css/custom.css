@@ -1100,3 +1100,73 @@ body.dark-mode .external-link {
   border: 1px solid rgba(0, 170, 255, 0.35);
   box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
 }
+/* ================================
+   PAGINA TECH — SEZIONI AVANZATE
+   ================================ */
+
+.tech-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.tech-section-title {
+  font-size: 1.6rem;
+  color: #00eaff;
+  margin-bottom: 16px;
+}
+
+.tech-panel {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+.panel-desc {
+  color: #bfbfbf;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.radar-list,
+.zero-list,
+.quantum-list,
+.devsecops-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.radar-list li,
+.zero-list li,
+.quantum-list li,
+.devsecops-list li {
+  color: #ccc;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.tech-grid-mini {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.tech-mini-card {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.12);
+}
+
+.tech-mini-card h3 {
+  color: #00eaff;
+  margin-bottom: 6px;
+}
+
+.tech-mini-card p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
