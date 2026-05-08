@@ -15,46 +15,25 @@
   <!-- INDEXING -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-  <!-- SITEMAP -->
-  <link rel="sitemap" type="application/xml" href="https://anonlab.it/sitemap.xml">
-
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="Cyber News — Ultime Notizie sulla Sicurezza Informatica">
   <meta property="og:description" content="Aggiornamenti quotidiani su attacchi, ransomware, vulnerabilità, AI e threat intelligence.">
   <meta property="og:image" content="https://anonlab.it/img/eyes.png">
   <meta property="og:url" content="https://anonlab.it/news.html">
-  <meta property="og:type" content="article">
-
-  <!-- TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Cyber News",
-    "description": "Ultime notizie sulla sicurezza informatica e sul mondo digitale.",
-    "url": "https://anonlab.it/news.html",
-    "publisher": {
-      "@type": "Organization",
-      "name": "AnonLab",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://anonlab.it/img/eyes.png"
-      }
-    }
-  }
-  </script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
 </head>
 
-<body>
+<body class="dark-mode">
 
+<div id="app" class="gpu-boost">
+
+  <!-- HEADER -->
   <div id="header"></div>
+
+  <!-- TICKER -->
   <div id="ticker"></div>
 
   <main class="page">
@@ -64,77 +43,77 @@
 
       <!-- CONTENITORE NEWS DINAMICHE -->
       <div id="news-container"></div>
-
-      <!-- BLOCCHI AVANZATI NEWS (STATICI) -->
-      <!-- Verranno aggiunti qui sotto -->
-     <section class="news-section">
-  <h2 class="news-title">Trending Topics</h2>
-
-  <ul class="news-list">
-    <li><strong>Ransomware 2026:</strong> aumento del 40% degli attacchi alle PMI.</li>
-    <li><strong>AI Security:</strong> modelli compromessi tramite prompt injection.</li>
-    <li><strong>Zero Trust:</strong> nuove linee guida europee per infrastrutture critiche.</li>
-    <li><strong>Cloud Security:</strong> escalation di attacchi su container e Kubernetes.</li>
-  </ul>
-</section>
+      <!-- SEZIONI STATICHE AVANZATE -->
       <section class="news-section">
-  <h2 class="news-title">Cyber Timeline</h2>
+        <h2 class="news-title">Trending Topics</h2>
+        <ul class="news-list">
+          <li><strong>Ransomware 2026:</strong> aumento del 40% degli attacchi alle PMI.</li>
+          <li><strong>AI Security:</strong> modelli compromessi tramite prompt injection.</li>
+          <li><strong>Zero Trust:</strong> nuove linee guida europee per infrastrutture critiche.</li>
+          <li><strong>Cloud Security:</strong> escalation di attacchi su container e Kubernetes.</li>
+        </ul>
+      </section>
 
-  <ul class="timeline-list">
-    <li><span class="time-tag">Oggi</span> Nuova vulnerabilità critica su VPN aziendali.</li>
-    <li><span class="time-tag">Ieri</span> Attacco ransomware a infrastruttura sanitaria europea.</li>
-    <li><span class="time-tag">3 giorni fa</span> Campagna phishing contro utenti bancari.</li>
-    <li><span class="time-tag">1 settimana fa</span> Scoperta botnet IoT con 200k dispositivi.</li>
-  </ul>
-</section>
-<section class="news-section">
-  <h2 class="news-title">Vulnerability Spotlight</h2>
+      <section class="news-section">
+        <h2 class="news-title">Cyber Timeline</h2>
+        <ul class="timeline-list">
+          <li><span class="time-tag">Oggi</span> Nuova vulnerabilità critica su VPN aziendali.</li>
+          <li><span class="time-tag">Ieri</span> Attacco ransomware a infrastruttura sanitaria europea.</li>
+          <li><span class="time-tag">3 giorni fa</span> Campagna phishing contro utenti bancari.</li>
+          <li><span class="time-tag">1 settimana fa</span> Scoperta botnet IoT con 200k dispositivi.</li>
+        </ul>
+      </section>
 
-  <div class="news-panel">
-    <p class="panel-desc">
-      Focus sulle vulnerabilità più critiche rilevate negli ultimi giorni.
-    </p>
+      <section class="news-section">
+        <h2 class="news-title">Vulnerability Spotlight</h2>
+        <div class="news-panel">
+          <p class="panel-desc">Focus sulle vulnerabilità più critiche rilevate negli ultimi giorni.</p>
+          <ul class="vuln-list">
+            <li><strong>CVE-2026-1123:</strong> RCE su appliance VPN — exploit attivo.</li>
+            <li><strong>CVE-2026-0891:</strong> Privilege escalation su Windows Server.</li>
+            <li><strong>CVE-2026-0744:</strong> SQL injection su CMS open-source.</li>
+          </ul>
+        </div>
+      </section>
 
-    <ul class="vuln-list">
-      <li><strong>CVE-2026-1123:</strong> RCE su appliance VPN — exploit attivo.</li>
-      <li><strong>CVE-2026-0891:</strong> Privilege escalation su Windows Server.</li>
-      <li><strong>CVE-2026-0744:</strong> SQL injection su CMS open-source.</li>
-    </ul>
-  </div>
-</section>
-<section class="news-section">
-  <h2 class="news-title">Ransomware Tracker</h2>
+      <section class="news-section">
+        <h2 class="news-title">Ransomware Tracker</h2>
+        <div class="news-panel">
+          <ul class="ransom-list">
+            <li><strong>BlackStorm:</strong> attacchi a enti pubblici in UE.</li>
+            <li><strong>RedLock:</strong> campagne contro aziende fintech.</li>
+            <li><strong>ShadowHive:</strong> data leak su infrastrutture cloud.</li>
+          </ul>
+        </div>
+      </section>
 
-  <div class="news-panel">
-    <ul class="ransom-list">
-      <li><strong>BlackStorm:</strong> attacchi a enti pubblici in UE.</li>
-      <li><strong>RedLock:</strong> campagne contro aziende fintech.</li>
-      <li><strong>ShadowHive:</strong> data leak su infrastrutture cloud.</li>
-    </ul>
-  </div>
-</section>
-<section class="news-section">
-  <h2 class="news-title">Normative UE</h2>
+      <section class="news-section">
+        <h2 class="news-title">Normative UE</h2>
+        <div class="news-panel">
+          <ul class="law-list">
+            <li><strong>NIS2:</strong> obblighi di sicurezza per aziende critiche.</li>
+            <li><strong>DORA:</strong> resilienza operativa per il settore finanziario.</li>
+            <li><strong>GDPR:</strong> nuove linee guida su data breach e notifica.</li>
+          </ul>
+        </div>
+      </section>
 
-  <div class="news-panel">
-    <ul class="law-list">
-      <li><strong>NIS2:</strong> obblighi di sicurezza per aziende critiche.</li>
-      <li><strong>DORA:</strong> resilienza operativa per il settore finanziario.</li>
-      <li><strong>GDPR:</strong> nuove linee guida su data breach e notifica.</li>
-    </ul>
-  </div>
-</section>
- 
     </section>
 
+    <!-- SIDEBAR -->
     <div id="sidebar"></div>
+
   </main>
 
+  <!-- FOOTER -->
   <div id="footer"></div>
 
   <!-- SCRIPT -->
   <script src="/js/news.js"></script>
   <script src="/js/ui.js"></script>
+  <script src="/js/main.js"></script>
+
+</div>
 
 </body>
 </html>
