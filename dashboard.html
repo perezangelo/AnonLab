@@ -5,9 +5,8 @@
   <title>SOC Dashboard — Monitoraggio Cyber in Tempo Reale | AnonLab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO BASE -->
+  <!-- SEO -->
   <meta name="description" content="SOC Dashboard di AnonLab: Threat Level, Attacchi rilevati, Event Log, System Status e monitoraggio cyber in tempo reale.">
-  <meta name="author" content="AnonLab">
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
@@ -16,34 +15,25 @@
 
 <body>
 
-  <!-- HEADER -->
   <div id="header"></div>
-
-  <!-- TICKER -->
   <div id="ticker"></div>
 
-  <!-- STRUTTURA IDENTICA ALLE ALTRE SCHEDE -->
   <main class="page">
-
-    <!-- COLONNA PRINCIPALE -->
     <section class="main-column">
 
-      <!-- TITOLO PAGINA -->
       <h1 class="page-title">SOC Dashboard</h1>
 
-      <!-- INTRO (FACOLTATIVA, COME NELLE ALTRE SCHEDE) -->
       <p class="cyber-intro">
         Monitoraggio in tempo reale dello stato dei sistemi, livello di minaccia,
         log eventi e attività di rete.
       </p>
 
-      <!-- LE TUE CARD SOC ORIGINALI -->
       <div class="soc-grid">
 
         <!-- THREAT LEVEL -->
         <div class="soc-card threat-card">
           <h2>Threat Level</h2>
-          <div id="threat-level" class="threat-level dash-number">--</div>
+          <div id="threat-level" class="dash-number">--</div>
         </div>
 
         <!-- GRAFICO ATTACCHI -->
@@ -68,28 +58,30 @@
           </ul>
         </div>
 
+        <!-- MINI THREAT MAP -->
+        <div class="soc-card">
+          <h2>Threat Map</h2>
+          <img src="/img/threat-map-placeholder.png" alt="Threat Map" class="map-img">
+        </div>
+
+        <!-- ATTIVITÀ SOSPETTE -->
+        <div class="soc-card">
+          <h2>Attività sospette</h2>
+          <ul id="suspicious-list" class="suspicious-list"></ul>
+        </div>
+
       </div>
 
     </section>
 
-    <!-- SIDEBAR IDENTICA ALLE ALTRE SCHEDE -->
     <div id="sidebar"></div>
-
   </main>
 
-  <!-- FOOTER -->
   <div id="footer"></div>
 
-  <!-- SCRIPT GLOBALI -->
+  <!-- SCRIPT -->
   <script src="/js/ui.js"></script>
-  <script src="/js/feed.js"></script>
-  <script src="/js/meteo.js"></script>
-  <script src="/js/oroscopo.js"></script>
-
-  <!-- CHART.JS -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- DASHBOARD JS -->
   <script src="/js/dashboard.js"></script>
 
 </body>
