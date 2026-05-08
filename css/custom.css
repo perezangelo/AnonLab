@@ -1422,3 +1422,42 @@ body.dark-mode .external-link {
     color: #ff8a33 !important;
     text-shadow: 0 0 10px #ff8a33 !important;
 }
+/* ============================================
+   LINK ARANCIONE LASER — ULTRA SPECIFICO
+   (Vulnerabilità, Feed, News, Alert, Tools)
+============================================ */
+
+/* Link principali nella colonna centrale */
+.page .main-column a,
+.page .main-column a:visited {
+    color: #ff5e00 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    text-shadow: 0 0 6px #ff5e00 !important;
+}
+
+.page .main-column a:hover {
+    color: #ff8a33 !important;
+    text-shadow: 0 0 10px #ff8a33 !important;
+}
+
+/* Link dentro i box specifici */
+.page .main-column .box-img-row a,
+.page .main-column .widget-small a,
+.page .main-column .feed-item a,
+.page .main-column .alert-item a,
+.page .main-column .news-item a {
+    color: #ff5e00 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    text-shadow: 0 0 6px #ff5e00 !important;
+}
+
+.page .main-column .box-img-row a:hover,
+.page .main-column .widget-small a:hover,
+.page .main-column .feed-item a:hover,
+.page .main-column .alert-item a:hover,
+.page .main-column .news-item a:hover {
+    color: #ff8a33 !important;
+    text-shadow: 0 0 10px #ff8a33 !important;
+}
