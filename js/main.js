@@ -93,14 +93,17 @@ function initYouTubePlayer() {
 // ===============================
 
 function initVisitCounter() {
-    const counterEl = document.getElementById("visitCounter");
-    const pageEl    = document.getElementById("pageCounter");
-    const dateEl    = document.getElementById("visitDate");
-    const timeEl    = document.getElementById("visitTime");
-    const greetEl   = document.getElementById("visitGreeting");
+    const counterEl = document.getElementById("visit-counter");
+    const pageEl    = document.getElementById("page-counter");
+    const dateEl    = document.getElementById("visit-date");
+    const timeEl    = document.getElementById("visit-time");
+    const greetEl   = document.getElementById("visit-greeting");
     const iconEl    = document.querySelector(".counter-icon");
 
-    if (!counterEl || !pageEl || !dateEl || !timeEl || !greetEl) return;
+    if (!counterEl || !pageEl || !dateEl || !timeEl || !greetEl) {
+        console.warn("Counter: elementi non trovati, sidebar non pronta");
+        return;
+    }
 
     /* -----------------------------
        ANIMAZIONE NUMERICA
@@ -181,27 +184,5 @@ function initVisitCounter() {
     updateTime();
     setInterval(updateTime, 1000);
 
-    console.log("Contatore visite — versione premium attivo");
+    console.log("Contatore visite — versione corretta attiva");
 }
-// ===============================
-// INIZIALIZZAZIONE DOPO CARICAMENTO SIDEBAR
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-    const sidebarCheck = setInterval(() => {
-        const sidebarLoaded =
-            document.getElementById("visit-counter") ||
-            document.getElementById("visitCounter");
-
-        if (sidebarLoaded) {
-            clearInterval(sidebarCheck);
-
-            initCalculator();
-            initRadio();
-            initYouTubePlayer();
-            initVisitCounter();
-
-            console.log("Sidebar caricata — Widget inizializzati");
-        }
-    }, 200);
-});
