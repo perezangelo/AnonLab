@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Headers</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body>
+
+<div class="tool-content">
+    <h2>HTTP Headers</h2>
+    <p>Inserisci un URL per visualizzare gli header HTTP (placeholder).</p>
+
+    <input id="headers-input" type="text" placeholder="https://example.com" class="tool-input">
+    <button onclick="runHeaders()" class="tool-button">Analizza</button>
+
+    <pre id="headers-output" class="tool-output"></pre>
+</div>
+
+<script>
+function runHeaders() {
+    const url = document.getElementById("headers-input").value;
+    document.getElementById("headers-output").innerText =
+        "Analisi header non implementata lato server.\nURL richiesto: " + url;
+}
+</script>
+
+</body>
+</html>
