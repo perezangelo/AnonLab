@@ -3,21 +3,32 @@
 
         <!-- LOGO -->
         <a href="/index.html" class="logo">
-    <img src="/favicon.png" class="logo-icon">
-    ANONLAB
-</a>
+            <img src="/favicon.png" class="logo-icon" alt="AnonLab">
+            ANONLAB
+        </a>
+
+        <!-- HAMBURGER (mobile) -->
+        <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
+            ☰
+        </button>
 
         <!-- MENU -->
-        <nav class="main-nav">
+        <nav class="main-nav" id="mainNav">
             <a href="/index.html">Home</a>
             <a href="/news.html">News</a>
             <a href="/cyber.html">Cyber</a>
             <a href="/tech.html">Tech</a>
             <a href="/dashboard.html">Dashboard</a>
-            <a href="/tools.html">tools</a>
+            <a href="/tools.html">Tools</a>
             <a href="/about.html">About</a>
             <a href="/contatti.html">Contatti</a>
         </nav>
 
     </div>
 </header>
+
+<script>
+document.getElementById("navToggle").addEventListener("click", () => {
+    document.getElementById("mainNav").classList.toggle("open");
+});
+</script>
