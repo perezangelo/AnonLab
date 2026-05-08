@@ -12,165 +12,132 @@
   <!-- CANONICAL -->
   <link rel="canonical" href="https://anonlab.it/cyber.html">
 
-  <!-- INDEXING (SEO 2026) -->
+  <!-- INDEXING -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
-
-  <!-- SITEMAP -->
-  <link rel="sitemap" type="application/xml" href="https://anonlab.it/sitemap.xml">
 
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="Cybersecurity — Analisi e Cultura Cyber">
   <meta property="og:description" content="Approfondimenti su attacchi, difesa, threat intelligence e cultura cyber.">
   <meta property="og:image" content="https://anonlab.it/img/eyes.png">
   <meta property="og:url" content="https://anonlab.it/cyber.html">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="AnonLab">
-
-  <!-- TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cybersecurity — Analisi e Cultura Cyber">
-  <meta name="twitter:description" content="Approfondimenti su attacchi, difesa, threat intelligence e cultura cyber.">
-  <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
-
-  <!-- JSON-LD (TOPIC PAGE) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Cybersecurity",
-    "description": "Analisi, articoli e approfondimenti sulla sicurezza informatica e sulla cultura cyber.",
-    "url": "https://anonlab.it/cyber.html",
-    "publisher": {
-      "@type": "Organization",
-      "name": "AnonLab",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://anonlab.it/img/eyes.png"
-      }
-    }
-  }
-  </script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
 </head>
 
-<body>
+<body class="dark-mode">
 
+<div id="app" class="gpu-boost">
+
+  <!-- HEADER -->
   <div id="header"></div>
+
+  <!-- TICKER -->
   <div id="ticker"></div>
 
   <main class="page">
     <section class="main-column">
 
-      <!-- H1 PRINCIPALE DELLA PAGINA -->
       <h1 class="page-title">Cybersecurity</h1>
 
-<p class="cyber-intro">
-  Analisi, articoli e approfondimenti dedicati alla sicurezza informatica, 
-  threat intelligence, attacchi, difesa e cultura cyber.
-</p>
-
-<div class="cyber-grid">
-  <section class="cyber-analytics">
-
-  <h2 class="cyber-section-title">Analisi avanzata delle minacce</h2>
-
-  <div class="cyber-row">
-    <div class="cyber-panel">
-      <h3>Mappa globale degli attacchi</h3>
-      <p class="panel-desc">
-        Visualizzazione simulata del flusso di attacchi a livello globale. 
-        Ideale per mostrare l’impatto delle minacce in tempo reale.
+      <p class="cyber-intro">
+        Analisi, articoli e approfondimenti dedicati alla sicurezza informatica, 
+        threat intelligence, attacchi, difesa e cultura cyber.
       </p>
-      <div class="map-frame">
-  <img src="/img/threat-map-placeholder.png" alt="Mappa globale degli attacchi" class="map-img">
+      <div class="cyber-grid">
 
-  <p class="map-note">
-    Placeholder mappa attacchi globali — integrabile con provider esterni (Check Point, Kaspersky, ecc.).
-  </p>
-</div>
-    </div>
+        <!-- ANALYTICS -->
+        <section class="cyber-analytics">
 
-    <div class="cyber-panel">
-      <h3>Ransomware Trends 2026</h3>
-      <p class="panel-desc">
-        Panoramica sintetica delle principali tendenze ransomware osservate nel 2026.
-      </p>
-      <ul class="trend-list">
-        <li><strong>Target:</strong> PMI, sanità, enti locali e supply-chain.</li>
-        <li><strong>Tattiche:</strong> doppia estorsione, data leak, pressione mediatica.</li>
-        <li><strong>Accesso iniziale:</strong> phishing mirato, RDP esposto, vulnerabilità VPN.</li>
-        <li><strong>Monetizzazione:</strong> pagamenti in criptovalute e broker di accesso.</li>
-      </ul>
-    </div>
-  </div>
+          <h2 class="cyber-section-title">Analisi avanzata delle minacce</h2>
 
-  <div class="cyber-row">
-    <div class="cyber-panel">
-      <h3>Hacker Activity Heatmap</h3>
-      <p class="panel-desc">
-        Sintesi qualitativa delle aree geografiche con maggiore attività malevola.
-      </p>
-      <ul class="heatmap-list">
-        <li><strong>Europa:</strong> aumento exploit su VPN, Active Directory e infrastrutture OT.</li>
-        <li><strong>Nord America:</strong> intensificazione attacchi DDoS su servizi cloud e CDN.</li>
-        <li><strong>Asia:</strong> campagne phishing su larga scala verso fintech e e-commerce.</li>
-        <li><strong>Sud America:</strong> crescita di malware bancario e infostealer.</li>
-        <li><strong>Africa:</strong> espansione di gruppi ransomware emergenti.</li>
-      </ul>
-    </div>
+          <div class="cyber-row">
+            <div class="cyber-panel">
+              <h3>Mappa globale degli attacchi</h3>
+              <p class="panel-desc">
+                Visualizzazione simulata del flusso di attacchi a livello globale.
+              </p>
+              <div class="map-frame">
+                <img src="/img/threat-map-placeholder.png" alt="Mappa globale degli attacchi" class="map-img">
+                <p class="map-note">Placeholder mappa attacchi globali.</p>
+              </div>
+            </div>
 
-    <div class="cyber-panel">
-      <h3>Timeline attacchi recenti</h3>
-      <p class="panel-desc">
-        Esempio di cronologia di incidenti significativi, utile per formazione e consapevolezza.
-      </p>
-      <ul class="timeline-list">
-        <li><span class="time-tag">Gen 2026</span> Compromissione supply-chain di un fornitore software europeo.</li>
-        <li><span class="time-tag">Feb 2026</span> Campagna phishing mirata contro settore sanitario.</li>
-        <li><span class="time-tag">Mar 2026</span> Attacco ransomware a infrastrutture critiche locali.</li>
-        <li><span class="time-tag">Apr 2026</span> Exploit zero-day su componente VPN ampiamente diffuso.</li>
-      </ul>
-    </div>
-  </div>
+            <div class="cyber-panel">
+              <h3>Ransomware Trends 2026</h3>
+              <ul class="trend-list">
+                <li><strong>Target:</strong> PMI, sanità, enti locali.</li>
+                <li><strong>Tattiche:</strong> doppia estorsione, data leak.</li>
+                <li><strong>Accesso iniziale:</strong> phishing, RDP esposto.</li>
+                <li><strong>Monetizzazione:</strong> criptovalute.</li>
+              </ul>
+            </div>
+          </div>
 
-</section>
+          <div class="cyber-row">
+            <div class="cyber-panel">
+              <h3>Hacker Activity Heatmap</h3>
+              <ul class="heatmap-list">
+                <li><strong>Europa:</strong> exploit su VPN e AD.</li>
+                <li><strong>Nord America:</strong> DDoS su cloud.</li>
+                <li><strong>Asia:</strong> phishing su larga scala.</li>
+                <li><strong>Sud America:</strong> malware bancario.</li>
+                <li><strong>Africa:</strong> gruppi ransomware emergenti.</li>
+              </ul>
+            </div>
 
-  <div class="cyber-card">
-    <h3>Threat Intelligence</h3>
-    <p>Analisi delle minacce emergenti, indicatori di compromissione e trend globali.</p>
-  </div>
+            <div class="cyber-panel">
+              <h3>Timeline attacchi recenti</h3>
+              <ul class="timeline-list">
+                <li><span class="time-tag">Gen 2026</span> Supply-chain compromessa.</li>
+                <li><span class="time-tag">Feb 2026</span> Phishing mirato.</li>
+                <li><span class="time-tag">Mar 2026</span> Attacco ransomware.</li>
+                <li><span class="time-tag">Apr 2026</span> Zero-day VPN.</li>
+              </ul>
+            </div>
+          </div>
 
-  <div class="cyber-card">
-    <h3>Attacchi Informatici</h3>
-    <p>Ransomware, phishing, supply-chain attacks e campagne attive nel 2026.</p>
-  </div>
+        </section>
 
-  <div class="cyber-card">
-    <h3>Difesa & Sicurezza</h3>
-    <p>Zero Trust, hardening, SOC, SIEM, EDR e strategie di protezione.</p>
-  </div>
+        <!-- CARDS -->
+        <div class="cyber-card">
+          <h3>Threat Intelligence</h3>
+          <p>Analisi delle minacce emergenti e trend globali.</p>
+        </div>
 
-  <div class="cyber-card">
-    <h3>Cultura Cyber</h3>
-    <p>Consapevolezza digitale, privacy, OSINT, social engineering e formazione.</p>
-  </div>
+        <div class="cyber-card">
+          <h3>Attacchi Informatici</h3>
+          <p>Ransomware, phishing, supply-chain attacks.</p>
+        </div>
 
-</div>
+        <div class="cyber-card">
+          <h3>Difesa & Sicurezza</h3>
+          <p>Zero Trust, SOC, SIEM, EDR.</p>
+        </div>
+
+        <div class="cyber-card">
+          <h3>Cultura Cyber</h3>
+          <p>Consapevolezza digitale, privacy, OSINT.</p>
+        </div>
+
+      </div>
 
     </section>
 
+    <!-- SIDEBAR -->
     <div id="sidebar"></div>
+
   </main>
 
+  <!-- FOOTER -->
   <div id="footer"></div>
 
   <!-- SCRIPT -->
   <script src="/js/ui.js"></script>
+  <script src="/js/main.js"></script>
+
+</div>
 
 </body>
 </html>
