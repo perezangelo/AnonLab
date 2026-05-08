@@ -93,11 +93,11 @@ function initYouTubePlayer() {
 // ===============================
 
 function initVisitCounter() {
-    const counterEl = document.getElementById("visitCounter");
-    const pageEl = document.getElementById("pageCounter");
-    const dateEl = document.getElementById("visitDate");
-    const timeEl = document.getElementById("visitTime");
-    const greetEl = document.getElementById("visitGreeting");
+    const counterEl = document.getElementById("visit-counter");
+const pageEl = document.getElementById("page-counter");
+const dateEl = document.getElementById("visit-date");
+const timeEl = document.getElementById("visit-time");
+const greetEl = document.getElementById("visit-greeting");
 
     if (!counterEl || !pageEl || !dateEl || !timeEl || !greetEl) return;
 
