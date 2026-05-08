@@ -3,51 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Expander | AnonLab Tools</title>
-
+    <title>URL Expander</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/custom.css">
-    <script src="../js/ui.js" defer></script>
 </head>
 
 <body>
 
-<div id="header"></div>
+<div class="tool-content">
+    <h2>URL Expander</h2>
+    <p>Inserisci un URL accorciato per espanderlo.</p>
 
-<main class="page">
-    <section class="main-column">
+    <input id="expand-input" type="text" placeholder="https://bit.ly/..." class="tool-input">
+    <button onclick="runExpand()" class="tool-button">Espandi</button>
 
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="../img/icons/url.png" class="box-title-icon">
-                <h2>URL Expander</h2>
-            </div>
-
-            <div class="tool-content">
-                <p>Inserisci un URL accorciato per espanderlo (placeholder).</p>
-
-                <input id="expand-input" type="text" placeholder="https://bit.ly/..." class="tool-input">
-                <button onclick="runExpand()" class="tool-button">Espandi</button>
-
-                <pre id="expand-output" class="tool-output"></pre>
-            </div>
-        </div>
-
-    </section>
-
-    <aside id="sidebar"></aside>
-</main>
-
-<div id="footer"></div>
+    <pre id="expand-output" class="tool-output"></pre>
+</div>
 
 <script>
-document.getElementById("header").innerHTML =
-  '<object type="text/html" data="../partials/header.html"></object>';
-document.getElementById("sidebar").innerHTML =
-  '<object type="text/html" data="../partials/sidebar.html"></object>';
-document.getElementById("footer").innerHTML =
-  '<object type="text/html" data="../partials/footer.html"></object>';
-
 function runExpand() {
     const url = document.getElementById("expand-input").value;
     document.getElementById("expand-output").innerText =
