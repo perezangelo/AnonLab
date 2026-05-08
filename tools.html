@@ -1,400 +1,203 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Tools — Cyber Operations Center | AnonLab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools — Cyber Operations Center | AnonLab</title>
 
-  <!-- SEO -->
-  <meta name="description" content="AnonLab Tools — Cyber Operations Center. Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://anonlab.it/tools.html">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
 
-  <link rel="stylesheet" href="/css/main.css">
+    <!-- JS -->
+    <script src="/js/ui.js" defer></script>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <div id="header"></div>
+<!-- HEADER -->
+<div id="header"></div>
 
-  <main class="page">
+<!-- TICKER -->
+<div id="ticker"></div>
 
-    <!-- ============================
-         HERO GRANDE — CYBER DASHBOARD
-    ============================= -->
-   <section class="tools-hero">
-  <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
-
-  <div class="tools-hero-text">
-    <h1>Cyber Tools Center</h1>
-    <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
-  </div>
-</section>
+<!-- PAGE LAYOUT -->
+<main class="page">
 
     <!-- ============================
-         LAYOUT A DUE COLONNE
+         COLONNA PRINCIPALE
     ============================= -->
     <section class="main-column">
 
-      <!-- ============================
-           CONTENITORE ACCORDION TOOLS
-      ============================= -->
-      <div id="tools-container" class="tools-container">
+        <!-- HERO COMPATTA -->
+        <section class="tools-hero">
+            <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-        <!-- Qui inseriremo i widget (BLOCCO 2/4, 3/4, 4/4) -->
+            <div class="tools-hero-text">
+                <h1>Cyber Tools Center</h1>
+                <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
+            </div>
+        </section>
+
         <!-- ============================
-     ACCORDION — STRUMENTI CYBER
-============================= -->
-
-<div class="tool-accordion">
-
-  <!-- ============================
-       1) WHOIS LOOKUP
-  ============================= -->
-  <div class="tool-box">
-    <button class="tool-toggle">
-      <span>WHOIS Lookup</span>
-      <span class="arrow">▼</span>
-    </button>
-
-    <div class="tool-content">
-      <p>Inserisci un dominio per ottenere informazioni WHOIS.</p>
-
-      <input type="text" id="whois-input" placeholder="es. example.com">
-      <button class="tool-btn" onclick="runWhois()">Esegui WHOIS</button>
-
-      <pre id="whois-output" class="tool-output"></pre>
-    </div>
-  </div>
-
-  <!-- ============================
-       2) DNS LOOKUP
-  ============================= -->
-  <div class="tool-box">
-    <button class="tool-toggle">
-      <span>DNS Lookup</span>
-      <span class="arrow">▼</span>
-    </button>
-
-    <div class="tool-content">
-      <p>Risolvi record DNS (A, AAAA, MX, TXT).</p>
-
-      <input type="text" id="dns-input" placeholder="es. example.com">
-      <select id="dns-type">
-        <option value="A">A</option>
-        <option value="AAAA">AAAA</option>
-        <option value="MX">MX</option>
-        <option value="TXT">TXT</option>
-      </select>
-
-      <button class="tool-btn" onclick="runDNS()">Risolvi DNS</button>
-
-      <pre id="dns-output" class="tool-output"></pre>
-    </div>
-  </div>
-
-  <!-- ============================
-       3) IP GEOLOCATION
-  ============================= -->
-  <div class="tool-box">
-    <button class="tool-toggle">
-      <span>IP Geolocation</span>
-      <span class="arrow">▼</span>
-    </button>
-
-    <div class="tool-content">
-      <p>Ottieni informazioni geografiche su un indirizzo IP.</p>
-
-      <input type="text" id="geo-input" placeholder="es. 8.8.8.8">
-      <button class="tool-btn" onclick="runGeo()">Localizza IP</button>
-
-      <pre id="geo-output" class="tool-output"></pre>
-    </div>
-  </div>
-
-  <!-- ============================
-       4) PASSWORD STRENGTH CHECKER
-  ============================= -->
-  <div class="tool-box">
-    <button class="tool-toggle">
-      <span>Password Strength Checker</span>
-      <span class="arrow">▼</span>
-    </button>
-
-    <div class="tool-content">
-      <p>Valuta la robustezza di una password.</p>
-
-      <input type="password" id="pwd-input" placeholder="Inserisci password">
-      <button class="tool-btn" onclick="checkPassword()">Analizza</button>
-
-      <div id="pwd-output" class="tool-output"></div>
-    </div>
-  </div>
-
-  <!-- ============================
-       5) HASH GENERATOR
-  ============================= -->
-  <div class="tool-box">
-    <button class="tool-toggle">
-      <span>Hash Generator (MD5 / SHA1 / SHA256)</span>
-      <span class="arrow">▼</span>
-    </button>
-
-    <div class="tool-content">
-      <p>Genera hash da una stringa.</p>
-
-      <input type="text" id="hash-input" placeholder="Testo da convertire">
-      <select id="hash-type">
-        <option value="MD5">MD5</option>
-        <option value="SHA-1">SHA1</option>
-        <option value="SHA-256">SHA256</option>
-      </select>
-
-      <button class="tool-btn" onclick="runHash()">Genera Hash</button>
-
-      <pre id="hash-output" class="tool-output"></pre>
-    </div>
-  </div>
-
-  <!-- ============================
-       6) BASE64 ENCODE / DECODE
-  ============================= -->
-  <div class="tool-box">
-    <button class="tool-toggle">
-      <span>Base64 Encode / Decode</span>
-      <span class="arrow">▼</span>
-    </button>
-
-    <div class="tool-content">
-      <textarea id="b64-input" placeholder="Inserisci testo..."></textarea>
-
-      <div class="b64-buttons">
-        <button class="tool-btn" onclick="runB64Encode()">Encode</button>
-        <button class="tool-btn" onclick="runB64Decode()">Decode</button>
-      </div>
-
-      <pre id="b64-output" class="tool-output"></pre>
-    </div>
-  </div>
-
-</div>
-<!-- ============================
-     7) PORT SCANNER (MOCK SICURO)
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>Port Scanner (Mock)</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Simulazione sicura di scansione porte (nessuna connessione reale).</p>
-
-    <input type="text" id="portscan-input" placeholder="es. 192.168.1.1">
-    <button class="tool-btn" onclick="runPortScan()">Scansiona</button>
-
-    <pre id="portscan-output" class="tool-output"></pre>
-  </div>
-</div>
-
-<!-- ============================
-     8) HTTP HEADER ANALYZER
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>HTTP Header Analyzer</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Analizza gli header HTTP di un URL.</p>
-
-    <input type="text" id="header-input" placeholder="https://example.com">
-    <button class="tool-btn" onclick="runHeaderAnalyzer()">Analizza</button>
-
-    <pre id="header-output" class="tool-output"></pre>
-  </div>
-</div>
-
-<!-- ============================
-     9) URL EXPANDER
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>URL Expander</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Espandi URL accorciati (bit.ly, tinyurl, ecc.).</p>
-
-    <input type="text" id="expand-input" placeholder="es. https://bit.ly/...">
-    <button class="tool-btn" onclick="runURLExpand()">Espandi</button>
-
-    <pre id="expand-output" class="tool-output"></pre>
-  </div>
-</div>
-
-<!-- ============================
-     10) QR CODE GENERATOR
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>QR Code Generator</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Genera un QR Code da un testo o URL.</p>
-
-    <input type="text" id="qr-input" placeholder="Testo o URL">
-    <button class="tool-btn" onclick="runQR()">Genera QR</button>
-
-    <div id="qr-output" class="tool-output" style="text-align:center;"></div>
-  </div>
-</div>
-
-<!-- ============================
-     11) JSON FORMATTER
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>JSON Formatter</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Formatta e valida JSON.</p>
-
-    <textarea id="json-input" placeholder='{"chiave":"valore"}'></textarea>
-
-    <div class="b64-buttons">
-      <button class="tool-btn" onclick="formatJSON()">Formatta</button>
-      <button class="tool-btn" onclick="minifyJSON()">Minify</button>
-    </div>
-
-    <pre id="json-output" class="tool-output"></pre>
-  </div>
-</div>
-
-<!-- ============================
-     12) REGEX TESTER
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>Regex Tester</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Testa espressioni regolari.</p>
-
-    <input type="text" id="regex-pattern" placeholder="Pattern (es. ^[a-z]+$)">
-    <textarea id="regex-text" placeholder="Testo da analizzare"></textarea>
-
-    <button class="tool-btn" onclick="runRegex()">Testa Regex</button>
-
-    <pre id="regex-output" class="tool-output"></pre>
-  </div>
-</div>
-        <!-- ============================
-     13) UUID GENERATOR
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>UUID Generator</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Genera UUID v4 casuali.</p>
-
-    <button class="tool-btn" onclick="runUUID()">Genera UUID</button>
-
-    <pre id="uuid-output" class="tool-output"></pre>
-  </div>
-</div>
-
-<!-- ============================
-     14) LOREM IPSUM GENERATOR
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>Lorem Ipsum Generator</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Genera testo casuale per mockup e layout.</p>
-
-    <select id="lorem-type">
-      <option value="short">Breve</option>
-      <option value="medium">Medio</option>
-      <option value="long">Lungo</option>
-    </select>
-
-    <button class="tool-btn" onclick="runLorem()">Genera</button>
-
-    <pre id="lorem-output" class="tool-output"></pre>
-  </div>
-</div>
-
-<!-- ============================
-     15) TIMESTAMP CONVERTER
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>Timestamp Converter</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Converti timestamp UNIX ↔ data leggibile.</p>
-
-    <input type="text" id="ts-input" placeholder="es. 1715172000">
-    <button class="tool-btn" onclick="runTimestamp()">Converti</button>
-
-    <pre id="ts-output" class="tool-output"></pre>
-  </div>
-</div>
-
-<!-- ============================
-     16) TEXT DIFF TOOL
-============================= -->
-<div class="tool-box">
-  <button class="tool-toggle">
-    <span>Text Diff Tool</span>
-    <span class="arrow">▼</span>
-  </button>
-
-  <div class="tool-content">
-    <p>Confronta due testi e mostra le differenze.</p>
-
-    <textarea id="diff-a" placeholder="Testo A..."></textarea>
-    <textarea id="diff-b" placeholder="Testo B..."></textarea>
-
-    <button class="tool-btn" onclick="runDiff()">Confronta</button>
-
-    <pre id="diff-output" class="tool-output"></pre>
-  </div>
-</div>
-        
-
-      </div>
+             WIDGET TOOLS
+        ============================= -->
+
+        <!-- WHOIS -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/whois.png" class="box-title-icon">
+                <h2>WHOIS Lookup</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/whois/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- DNS Lookup -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/dns.png" class="box-title-icon">
+                <h2>DNS Lookup</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/dns/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- IP Info -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/ip.png" class="box-title-icon">
+                <h2>IP Information</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/ip/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Password Generator -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/password.png" class="box-title-icon">
+                <h2>Password Generator</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/password/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Hash Generator -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/hash.png" class="box-title-icon">
+                <h2>Hash Generator</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/hash/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Base64 -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/base64.png" class="box-title-icon">
+                <h2>Base64 Encode / Decode</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/base64/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Port Scanner -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/port.png" class="box-title-icon">
+                <h2>Port Scanner</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/portscan/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- HTTP Headers -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/http.png" class="box-title-icon">
+                <h2>HTTP Headers</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/headers/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- URL Expander -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/url.png" class="box-title-icon">
+                <h2>URL Expander</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/urlexpand/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- QR Code -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/qr.png" class="box-title-icon">
+                <h2>QR Code Generator</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/qrcode/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- JSON Formatter -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/json.png" class="box-title-icon">
+                <h2>JSON Formatter</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/json/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Regex Tester -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/regex.png" class="box-title-icon">
+                <h2>Regex Tester</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/regex/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- UUID -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/uuid.png" class="box-title-icon">
+                <h2>UUID Generator</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/uuid/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Lorem Ipsum -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/lorem.png" class="box-title-icon">
+                <h2>Lorem Ipsum Generator</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/lorem/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Timestamp -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/time.png" class="box-title-icon">
+                <h2>Timestamp Converter</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/timestamp/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
+
+        <!-- Text Diff -->
+        <div class="widget-large tools-box">
+            <div class="box-title-row">
+                <img src="/img/icons/diff.png" class="box-title-icon">
+                <h2>Text Diff</h2>
+            </div>
+            <iframe src="https://anonlab.it/tools/diff/" width="100%" height="320" frameborder="0"></iframe>
+        </div>
 
     </section>
 
-    <!-- SIDEBAR -->
-    <div id="sidebar"></div>
+    <!-- ============================
+         SIDEBAR
+    ============================= -->
+    <aside id="sidebar"></aside>
 
-  </main>
+</main>
 
-  <!-- FOOTER -->
-  <div id="footer"></div>
-
-  <script src="/js/ui.js"></script>
-  <script src="/js/tools.js"></script>
+<!-- FOOTER -->
+<div id="footer"></div>
 
 </body>
 </html>
