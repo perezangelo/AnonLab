@@ -13,9 +13,14 @@
   <link rel="stylesheet" href="/css/custom.css">
 </head>
 
-<body>
+<body class="dark-mode">
 
+<div id="app" class="gpu-boost">
+
+  <!-- HEADER -->
   <div id="header"></div>
+
+  <!-- TICKER -->
   <div id="ticker"></div>
 
   <main class="page">
@@ -29,7 +34,6 @@
       </p>
 
       <div class="soc-grid">
-
         <!-- THREAT LEVEL -->
         <div class="soc-card threat-card">
           <h2>Threat Level</h2>
@@ -70,19 +74,24 @@
           <ul id="suspicious-list" class="suspicious-list"></ul>
         </div>
 
-      </div>
+      </div> <!-- /soc-grid -->
 
     </section>
 
+    <!-- SIDEBAR -->
     <div id="sidebar"></div>
+
   </main>
 
+  <!-- FOOTER -->
   <div id="footer"></div>
 
   <!-- SCRIPT -->
   <script src="/js/ui.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/js/dashboard.js"></script>
+
+</div>
 
 </body>
 </html>
