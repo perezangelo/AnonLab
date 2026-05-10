@@ -134,7 +134,6 @@ async function loadCVEToday() {
     const box = document.getElementById("cve-today");
     if (!box) return;
 
-    // Dati statici (in futuro API reali)
     const cve = {
         id: "CVE-2026-12345",
         severity: "High",
@@ -150,12 +149,18 @@ async function loadCVEToday() {
                 <strong>${cve.id}</strong> — 
                 <span style="color:#d32f2f">${cve.severity}</span><br>
                 ${cve.desc}<br>
-                <a href="${cve.link}" target="_blank" rel="noopener noreferrer">Dettagli</a>
+                <a href="${cve.link}" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   style="color:#ff7b00 !important; text-decoration:none;"
+                   onmouseover="this.style.color='#ff9a40'"
+                   onmouseout="this.style.color='#ff7b00'">
+                   Dettagli →
+                </a>
             </div>
         </div>
     `;
 }
-
 /* ============================================================
    G) WIDGET CYBER ALERT LIVE — OTTIMIZZATO
 ============================================================ */
