@@ -1,12 +1,28 @@
-<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="60" cy="60" r="28" stroke="#00eaff" stroke-width="4" filter="url(#glow)"/>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-<feMerge>
-<feMergeNode in="coloredBlur"/>
-<feMergeNode in="SourceGraphic"/>
-</feMerge>
-</filter>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="4" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 </defs>
+
+<circle cx="60" cy="60" r="22" stroke="#00eaff" stroke-width="3" fill="none" filter="url(#glow)">
+  <animate attributeName="r" values="20;23;20" dur="3s" repeatCount="indefinite"/>
+</circle>
+
+<g stroke="#00eaff" stroke-width="3" filter="url(#glow)">
+  <line x1="60" y1="18" x2="60" y2="6">
+    <animate attributeName="y2" values="6;2;6" dur="3s" repeatCount="indefinite"/>
+  </line>
+  <line x1="60" y1="102" x2="60" y2="114"/>
+  <line x1="18" y1="60" x2="6" y2="60"/>
+  <line x1="102" y1="60" x2="114" y2="60"/>
+  <line x1="28" y1="28" x2="18" y2="18"/>
+  <line x1="92" y1="92" x2="102" y2="102"/>
+  <line x1="28" y1="92" x2="18" y2="102"/>
+  <line x1="92" y1="28" x2="102" y2="18"/>
+</g>
 </svg>
