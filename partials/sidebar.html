@@ -173,12 +173,69 @@
 </div>
 
 <!-- OROSCOPO -->
-<div class="sidebar-box" id="oroscopo-box">
-    <h3>Oroscopo del Giorno</h3>
+<div class="sidebar-box" id="oroscopo-box"
+     style="
+        padding:14px;
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        box-sizing:border-box;
+     ">
 
-    <img id="oroscopo-img" src="/img/img/oroscopo/default.svg" alt="Segno Zodiacale" class="oroscopo-icon">
+    <!-- TITOLO + ICONA NEON -->
+    <div style="
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin-bottom:2px;
+        line-height:1;
+    ">
+        <img src="/img/img/oroscopo/icon-neon.svg"
+             alt="Icona Segno Zodiacale"
+             style="
+                width:24px;
+                height:24px;
+                display:block;
+                filter:drop-shadow(0 0 6px #00eaff);
+                margin-top:1px;
+             ">
+        <h3 style="
+            margin:0;
+            padding:0;
+            font-size:17px;
+            line-height:1;
+            display:flex;
+            align-items:center;
+        ">
+            Segno zodiacale
+        </h3>
+    </div>
 
-    <select id="oroscopo-select">
+    <!-- IMMAGINE DEL SEGNO -->
+    <div style="display:flex; justify-content:center; margin-top:0;">
+        <img id="oroscopo-img"
+             src="/img/img/oroscopo/default.svg"
+             alt="Segno Zodiacale"
+             style="
+                width:64px;
+                height:64px;
+                filter:drop-shadow(0 0 6px #00eaff);
+             ">
+    </div>
+
+    <!-- SELECT -->
+    <select id="oroscopo-select"
+            style="
+                width:100%;
+                padding:6px 8px;
+                background:#0a0a0a;
+                color:#fff;
+                border:1px solid #00eaff;
+                border-radius:4px;
+                outline:none;
+                font-size:14px;
+                box-sizing:border-box;
+            ">
         <option value="ariete">Ariete</option>
         <option value="toro">Toro</option>
         <option value="gemelli">Gemelli</option>
@@ -193,9 +250,41 @@
         <option value="pesci">Pesci</option>
     </select>
 
-    <p id="oroscopo-text">Caricamento oroscopo...</p>
+    <!-- TESTO -->
+    <p id="oroscopo-text"
+       style="
+            margin:0;
+            font-size:14px;
+            line-height:1.35;
+            text-align:left;
+       ">
+       Caricamento oroscopo...
+    </p>
 
-    <a id="oroscopo-link" href="#" target="_blank" class="oroscopo-more">Leggi di più →</a>
+    <!-- LINK CON FRECCIA ARANCIONE LASER -->
+    <a id="oroscopo-link"
+       href="#"
+       target="_blank"
+       style="
+            color:#ff7b00;
+            font-weight:600;
+            text-decoration:none;
+            display:inline-flex;
+            align-items:center;
+            margin-top:2px;
+       ">
+        Leggi di più
+        <svg width="14" height="14" viewBox="0 0 24 24" style="margin-left:4px;">
+            <path d="M5 12h14M13 5l7 7-7 7"
+                  fill="none"
+                  stroke="#ff7b00"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="filter: drop-shadow(0 0 4px #ff7b00);" />
+        </svg>
+    </a>
+
 </div>
 
 <!-- SOCIAL NETWORK -->
