@@ -155,28 +155,72 @@ function waitForSidebar() {
 }
 /* ============================================================
    D) DOM READY — VERSIONE OTTIMIZZATA
-   ------------------------------------------------------------
-   - Carica i partials
-   - Carica i widget SOLO dopo che la sidebar è pronta
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Percorso dinamico per funzionare in tutte le cartelle
-const base = window.location.pathname.includes("/") ? "../" : "";
 
-loadPartial("header", "/partials/header.html");
-loadPartial("ticker", "/partials/ticker.html");
-loadPartial("sidebar", "/partials/sidebar.html");
-loadPartial("footer", "/partials/footer.html");
+    // Caricamento partials
+    loadPartial("header", "/partials/header.html");
+    loadPartial("ticker", "/partials/ticker.html");
+    loadPartial("sidebar", "/partials/sidebar.html");
+    loadPartial("footer", "/partials/footer.html");
 
-    // Carica i widget solo dopo che la sidebar è pronta
+    // Carica i widget SOLO dopo che la sidebar è pronta
     waitForSidebar().then(() => {
-    if (typeof initVisitCounter === "function") {
-        initVisitCounter();
-    }
 
-    loadMeteo();
+        // Contatore visite
+        if (typeof initVisitCounter === "function") {
+            initVisitCounter();
+        }
 
+        // METEO REALE (NEON + ANIMAZIONI)
+        loadMeteo();
+
+        /* ============================================================
+           FIX METEO — (puoi rimuoverlo se non usi più weatherwidget.io)
+        ============================================================ */
+        setTimeout(() => {
+            const loader = document.getElementById("meteo-loader");
+            if (loader) loader.textContent = "Inizializzazione widget meteo...";
+
+            document.querySelectorAll('script[src*="weatherwidget.io"]').forEach(s => s.remove());
+            document.querySelectorAll('.weatherwidget-io iframe').forEach(i => i.remove());
+
+            const script = document.createElement("script");
+            script.src = "https://weatherwidget.io/js/widget.min.js";
+            script.async = true;
+
+            script.onload = () => {
+                setTimeout(() => {
+                    const iframe = document.querySelector('.weatherwidget-io iframe');
+                    if (!iframe) {
+                        console.warn("⚠️ Meteo non inizializzato, retry...");
+                        if (window.__weatherwidget_init) {
+                            window.__weatherwidget_init();
+                        }
+                    } else if (loader) {
+                        loader.textContent = "Meteo aggiornato";
+                        setTimeout(() => loader.remove(), 1500);
+                    }
+                }, 900);
+            };
+
+            document.body.appendChild(script);
+
+            setTimeout(() => {
+                const iframe = document.querySelector('.weatherwidget-io iframe');
+                if (!iframe && loader) {
+                    loader.textContent = "Meteo non disponibile";
+                    loader.style.color = "#ff4b6e";
+                    loader.style.textShadow = "0 0 6px #ff4b6e";
+                }
+            }, 4000);
+
+        }, 450);
+
+    }); // fine waitForSidebar
+
+}); // fine DOMContentLoaded
         /* ============================================================
        FIX METEO — VERSIONE COMPLETA, STABILE E OTTIMIZZATA
     ============================================================ */
