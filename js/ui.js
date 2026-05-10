@@ -19,12 +19,13 @@ async function loadPartial(id, file) {
 
         el.innerHTML = await res.text();
 
-        // Sidebar caricata → avvia meteo
         if (id === "sidebar") {
-            requestAnimationFrame(() => loadMeteo());
+            requestAnimationFrame(() => {
+                loadMeteo();
+                initOroscopo();
+            });
         }
 
-        // Header → ticker
         if (id === "header") {
             requestAnimationFrame(initTicker);
         }
@@ -34,7 +35,6 @@ async function loadPartial(id, file) {
         el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
     }
 }
-
 /* ============================================================
    METEO REALE — Open‑Meteo + Icone Neon (PATH CORRETTO)
 ============================================================ */
@@ -105,7 +105,6 @@ async function loadMeteo() {
         tempEl.textContent = `${temp}°C`;
         descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
 
-        // ⭐ PATH CORRETTO
         iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
 
     } catch (e) {
@@ -115,7 +114,38 @@ async function loadMeteo() {
         iconEl.src = "/img/img/meteo/default.svg";
     }
 }
+/* ============================================================
+   OROSCOPO — VERSIONE DEFINITIVA
+============================================================ */
 
+async function initOroscopo() {
+    const select = document.getElementById("oroscopo-select");
+    const img = document.getElementById("oroscopo-img");
+    const text = document.getElementById("oroscopo-text");
+    const link = document.getElementById("oroscopo-link");
+
+    if (!select || !img || !text || !link) return;
+
+    try {
+        const res = await fetch("/data/oroscopo.json");
+        const data = await res.json();
+
+        function updateOroscopo() {
+            const sign = select.value;
+
+            img.src = `/img/img/oroscopo/${sign}.svg`;
+            text.textContent = data[sign] || "Oroscopo non disponibile";
+            link.href = `https://www.google.com/search?q=oroscopo+${sign}`;
+        }
+
+        updateOroscopo();
+        select.addEventListener("change", updateOroscopo);
+
+    } catch (e) {
+        console.error("Errore oroscopo:", e);
+        text.textContent = "Oroscopo non disponibile";
+    }
+}
 /* ============================================================
    C) TICKER CONTINUO
 ============================================================ */
@@ -168,64 +198,11 @@ document.addEventListener("DOMContentLoaded", () => {
             initVisitCounter();
         }
 
-        // Fallback meteo
-        loadMeteo();
+        loadMeteo(); // fallback
 
     });
 
 });
-/* ============================================================
-   E) SVG ICONS
-============================================================ */
-
-const alertIcon = `
-<svg class="alert-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <path fill="#ff4b6e" d="M12 2L2 22h20L12 2zm0 6l1 8h-2l1-8zm0 10a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
-</svg>
-`;
-
-const feedIcon = `
-<svg class="feed-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <path fill="#00eaff" d="M3 3v2c9.4 0 17 7.6 17 17h2C22 11.8 12.2 2 3 2zm0 6v2c5 0 9 4 9 9h2c0-6.1-4.9-11-11-11zm0 6v2c1.7 0 3 1.3 3 3h2c0-2.8-2.2-5-5-5z"/>
-</svg>
-`;
-
-/* ============================================================
-   F) WIDGET CVE DEL GIORNO
-============================================================ */
-
-async function loadCVEToday() {
-    const box = document.getElementById("cve-today");
-    if (!box) return;
-
-    const cve = {
-        id: "CVE-2026-12345",
-        severity: "High",
-        desc: "Vulnerabilità RCE in un componente molto diffuso.",
-        link: "https://nvd.nist.gov/vuln/detail/CVE-2026-12345",
-        img: "/img/img/hero3.jpg"   // ⭐ percorso corretto
-    };
-
-    box.innerHTML = `
-        <div class="box-img-row">
-            <img src="${cve.img}" class="box-thumb" alt="Immagine ${cve.id}">
-            <div>
-                <strong>${cve.id}</strong> — 
-                <span style="color:#d32f2f">${cve.severity}</span><br>
-                ${cve.desc}<br>
-                <a href="${cve.link}" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   style="color:#ff7b00 !important; text-decoration:none;"
-                   onmouseover="this.style.color='#ff9a40'"
-                   onmouseout="this.style.color='#ff7b00'">
-                   Dettagli →
-                </a>
-            </div>
-        </div>
-    `;
-}
-
 /* ============================================================
    G) WIDGET CYBER ALERT LIVE
 ============================================================ */
@@ -250,7 +227,6 @@ async function loadCyberAlerts() {
         `)
         .join("");
 }
-
 /* ============================================================
    H) WIDGET FEED DAL MONDO
 ============================================================ */
@@ -275,7 +251,6 @@ async function loadWorldFeed() {
         `)
         .join("");
 }
-
 /* ============================================================
    I) HEADER SCROLL EFFECT
 ============================================================ */
@@ -307,7 +282,6 @@ document.addEventListener("click", function (e) {
 
     dropdown.classList.toggle("open", dropdown.contains(e.target));
 });
-
 /* ============================================================
    M) CALCOLATRICE
 ============================================================ */
