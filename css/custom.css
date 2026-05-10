@@ -1428,15 +1428,3 @@ details textarea,
 details input {
     margin-top: 15px;
 }
-/* LINK NEON ORANGE / RED LASER PER LE SEZIONI CYBER */
-.cyber-section a.external-link {
-    color: #ff4500 !important;
-    text-shadow: 0 0 6px #ff4500, 0 0 12px #ff2200;
-    font-weight: 600;
-    transition: 0.2s ease-in-out;
-}
-
-.cyber-section a.external-link:hover {
-    color: #ff2200 !important;
-    text-shadow: 0 0 8px #ff2200, 0 0 16px #ff0000;
-}
