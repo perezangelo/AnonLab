@@ -118,9 +118,7 @@
 
 /* Weather widget link */
 .weatherwidget-io {
-    color: #00eaff !important;
-    text-shadow: 0 0 6px #00eaff;
-    font-weight: 600;
+    all: unset;
 }
 
 .weatherwidget-io:hover {
