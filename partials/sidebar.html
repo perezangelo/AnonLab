@@ -174,54 +174,29 @@
 
 <!-- OROSCOPO -->
 <div class="sidebar-box" id="oroscopo-box"
-     style="
-        padding:14px;
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-        box-sizing:border-box;
-     ">
+     style="padding:14px; display:flex; flex-direction:column; gap:12px; text-align:center;">
 
-    <!-- TITOLO + ICONA NEON -->
-    <div style="
-        display:flex;
-        align-items:center;
-        gap:10px;
-        margin-bottom:2px;
-        line-height:1;
+    <!-- TITOLO CENTRATO -->
+    <h3 style="
+        margin:0;
+        padding:0;
+        font-size:18px;
+        line-height:1.2;
+        text-align:center;
     ">
-        <img src="/img/img/oroscopo/icon-neon.svg"
-             alt="Icona Segno Zodiacale"
-             style="
-                width:24px;
-                height:24px;
-                display:block;
-                filter:drop-shadow(0 0 6px #00eaff);
-                margin-top:1px;
-             ">
-        <h3 style="
-            margin:0;
-            padding:0;
-            font-size:17px;
-            line-height:1;
-            display:flex;
-            align-items:center;
-        ">
-            Segno zodiacale
-        </h3>
-    </div>
+        Oroscopo — Segno zodiacale
+    </h3>
 
-    <!-- IMMAGINE DEL SEGNO -->
-    <div style="display:flex; justify-content:center; margin-top:0;">
-        <img id="oroscopo-img"
-             src="/img/img/oroscopo/default.svg"
-             alt="Segno Zodiacale"
-             style="
-                width:64px;
-                height:64px;
-                filter:drop-shadow(0 0 6px #00eaff);
-             ">
-    </div>
+    <!-- IMMAGINE DEL SEGNO (CARICATA DINAMICAMENTE) -->
+    <img id="oroscopo-img"
+         src="/img/oroscopo/default.svg"
+         alt="Segno Zodiacale"
+         style="
+            width:70px;
+            height:70px;
+            margin:0 auto;
+            filter:drop-shadow(0 0 6px #00eaff);
+         ">
 
     <!-- SELECT -->
     <select id="oroscopo-select"
@@ -252,12 +227,7 @@
 
     <!-- TESTO -->
     <p id="oroscopo-text"
-       style="
-            margin:0;
-            font-size:14px;
-            line-height:1.35;
-            text-align:left;
-       ">
+       style="margin:0; font-size:14px; line-height:1.35;">
        Caricamento oroscopo...
     </p>
 
@@ -271,7 +241,8 @@
             text-decoration:none;
             display:inline-flex;
             align-items:center;
-            margin-top:2px;
+            justify-content:center;
+            margin-top:4px;
        ">
         Leggi di più
         <svg width="14" height="14" viewBox="0 0 24 24" style="margin-left:4px;">
