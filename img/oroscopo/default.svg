@@ -7,15 +7,16 @@
           stroke-linecap="round"
           style="filter: drop-shadow(0 0 6px #00eaff);" />
 
-  <!-- Simbolo generico “zodiac” -->
-  <path d="M8 9c1.5-2 6.5-2 8 0M8 15c1.5 2 6.5 2 8 0"
+  <!-- Simbolo zodiacale generico -->
+  <path d="M7.5 9c2-3 7-3 9 0M7.5 15c2 3 7 3 9 0"
         stroke="#00eaff" stroke-width="2.2"
         stroke-linecap="round" stroke-linejoin="round"
         style="filter: drop-shadow(0 0 6px #00eaff);" />
 
   <!-- Punto centrale neon -->
-  <circle cx="12" cy="12" r="1.6"
+  <circle cx="12" cy="12" r="1.7"
           fill="#00eaff"
           style="filter: drop-shadow(0 0 4px #00eaff);" />
 
 </svg>
+
