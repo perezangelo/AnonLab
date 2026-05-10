@@ -93,10 +93,17 @@ loadPartial("footer", "/partials/footer.html");
 
     // Inizializza i widget
     loadMeteo();
+
+    // FIX: reinizializza il widget meteo dopo il caricamento dinamico
+    setTimeout(() => {
+        if (window.__weatherwidget_init) {
+            window.__weatherwidget_init();
+        }
+    }, 300);
+
     loadWorldFeed();
     loadCVEToday();
     loadCyberAlerts();
-});
 });
 
 /* Attende che la sidebar sia caricata prima di inizializzare i widget */
