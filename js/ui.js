@@ -37,18 +37,18 @@ async function loadPartial(id, file) {
 }
 
 /* ============================================================
-   B) METEO REALE — Open‑Meteo (senza API key)
+   METEO REALE — Open‑Meteo + Icone Neon
 ============================================================ */
 
 async function loadMeteo() {
     const cityEl = document.getElementById("meteo-city");
     const tempEl = document.getElementById("meteo-temp");
     const descEl = document.getElementById("meteo-desc");
+    const iconEl = document.getElementById("meteo-icon");
 
-    if (!cityEl || !tempEl || !descEl) return;
+    if (!cityEl || !tempEl || !descEl || !iconEl) return;
 
     try {
-        // Coordinate di Varese
         const lat = 45.8206;
         const lon = 8.8251;
 
@@ -60,7 +60,6 @@ async function loadMeteo() {
         const temp = data.current.temperature_2m;
         const code = data.current.weather_code;
 
-        // Mappa codici → descrizioni
         const meteoDesc = {
             0: "Sereno",
             1: "Prevalentemente sereno",
@@ -82,14 +81,37 @@ async function loadMeteo() {
             99: "Temporale forte con grandine"
         };
 
+        const meteoIcon = {
+            0: "clear.svg",
+            1: "clear.svg",
+            2: "cloud.svg",
+            3: "cloud.svg",
+            45: "fog.svg",
+            48: "fog.svg",
+            51: "rain.svg",
+            53: "rain.svg",
+            55: "rain.svg",
+            61: "rain.svg",
+            63: "rain.svg",
+            65: "rain.svg",
+            71: "snow.svg",
+            73: "snow.svg",
+            75: "snow.svg",
+            95: "storm.svg",
+            96: "storm.svg",
+            99: "storm.svg"
+        };
+
         cityEl.textContent = "Varese";
         tempEl.textContent = `${temp}°C`;
         descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
+        iconEl.src = `/img/meteo/${meteoIcon[code] || "default.svg"}`;
 
     } catch (e) {
         console.error(e);
         descEl.textContent = "Meteo non disponibile";
         descEl.style.color = "#ff4b6e";
+        iconEl.src = "/img/meteo/default.svg";
     }
 }
 /* ============================================================
