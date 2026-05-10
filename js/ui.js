@@ -37,15 +37,32 @@ async function loadPartial(id, file) {
 }
 
 /* ============================================================
-   B) METEO — Placeholder evoluto (pronto per API)
+   B) METEO — usa data/meteo.json (custom neon)
 ============================================================ */
 
-function loadMeteo() {
-    const box = document.querySelector('.sidebar-box[aria-label="Previsioni meteo Varese"]');
-    if (!box) return;
+async function loadMeteo() {
+    const cityEl = document.getElementById("meteo-city");
+    const tempEl = document.getElementById("meteo-temp");
+    const descEl = document.getElementById("meteo-desc");
 
-    // Aggiunge una classe per eventuali stili futuri
-    box.classList.add("meteo-ready");
+    // Se gli elementi non esistono, esci
+    if (!cityEl || !tempEl || !descEl) return;
+
+    try {
+        const res = await fetch("/data/data/meteo.json");
+        if (!res.ok) throw new Error("Errore meteo.json");
+
+        const data = await res.json();
+
+        cityEl.textContent = data.city || "Varese";
+        tempEl.textContent = data.temp || "--°C";
+        descEl.textContent = data.desc || "Dati non disponibili";
+
+    } catch (e) {
+        console.error(e);
+        descEl.textContent = "Meteo non disponibile";
+        descEl.style.color = "#ff4b6e";
+    }
 }
 /* ============================================================
    C) TICKER CONTINUO — VERSIONE OTTIMIZZATA
