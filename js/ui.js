@@ -133,7 +133,7 @@ async function initOroscopo() {
         function updateOroscopo() {
             const sign = select.value;
 
-            img.src = `/img/img/oroscopo/${sign}.svg`;
+            img.src = `/img/oroscopo/${sign}.svg`;
             text.textContent = data[sign] || "Oroscopo non disponibile";
             link.href = `https://www.google.com/search?q=oroscopo+${sign}`;
         }
