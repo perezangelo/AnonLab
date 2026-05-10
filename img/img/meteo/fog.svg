@@ -1,16 +1,27 @@
-<svg width="140" height="100" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g stroke="#00eaff" stroke-width="4" filter="url(#glow)">
-<line x1="20" y1="40" x2="120" y2="40"/>
-<line x1="30" y1="60" x2="110" y2="60"/>
-<line x1="40" y1="80" x2="100" y2="80"/>
-</g>
+<svg width="140" height="100" viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<filter id="glow">
-<feGaussianBlur stdDeviation="4" result="blur"/>
-<feMerge>
-<feMergeNode in="blur"/>
-<feMergeNode in="SourceGraphic"/>
-</feMerge>
-</filter>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="4" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 </defs>
+
+<g stroke="#00eaff" stroke-width="3" filter="url(#glow)">
+  <line x1="20" y1="40" x2="120" y2="40">
+    <animateTransform attributeName="transform" type="translate"
+                      values="-5 0; 5 0; -5 0" dur="5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="30" y1="60" x2="110" y2="60">
+    <animateTransform attributeName="transform" type="translate"
+                      values="5 0; -5 0; 5 0" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <line x1="40" y1="80" x2="100" y2="80">
+    <animateTransform attributeName="transform" type="translate"
+                      values="-3 0; 3 0; -3 0" dur="4s" repeatCount="indefinite"/>
+  </line>
+</g>
 </svg>
+
