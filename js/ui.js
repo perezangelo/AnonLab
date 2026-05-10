@@ -94,12 +94,14 @@ loadPartial("footer", "/partials/footer.html");
     // Inizializza i widget
     loadMeteo();
 
-    // FIX: reinizializza il widget meteo dopo il caricamento dinamico
+    // FIX METEO — reinizializzazione forzata
     setTimeout(() => {
-        if (window.__weatherwidget_init) {
-            window.__weatherwidget_init();
-        }
-    }, 300);
+        document.querySelectorAll('script[src*="weatherwidget.io"]').forEach(s => s.remove());
+        const script = document.createElement("script");
+        script.src = "https://weatherwidget.io/js/widget.min.js";
+        script.async = true;
+        document.body.appendChild(script);
+    }, 400);
 
     loadWorldFeed();
     loadCVEToday();
