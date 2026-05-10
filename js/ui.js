@@ -37,13 +37,16 @@ async function loadPartial(id, file) {
 }
 
 /* ============================================================
-   B) METEO — Placeholder (futuro upgrade)
+   B) METEO — Placeholder evoluto (pronto per API)
 ============================================================ */
 
 function loadMeteo() {
-    // In futuro potrai collegare un'API meteo reale
-}
+    const box = document.querySelector('.sidebar-box[aria-label="Previsioni meteo Varese"]');
+    if (!box) return;
 
+    // Aggiunge una classe per eventuali stili futuri
+    box.classList.add("meteo-ready");
+}
 /* ============================================================
    C) TICKER CONTINUO — VERSIONE OTTIMIZZATA
    ------------------------------------------------------------
@@ -86,39 +89,60 @@ loadPartial("footer", "/partials/footer.html");
 
     // Carica i widget solo dopo che la sidebar è pronta
     waitForSidebar().then(() => {
-    // Inizializza il counter visite
     if (typeof initVisitCounter === "function") {
         initVisitCounter();
     }
 
-    // Inizializza i widget
     loadMeteo();
 
-    // FIX METEO — reinizializzazione forzata
+        /* ============================================================
+       FIX METEO — VERSIONE COMPLETA, STABILE E OTTIMIZZATA
+    ============================================================ */
     setTimeout(() => {
+        const loader = document.getElementById("meteo-loader");
+        if (loader) loader.textContent = "Inizializzazione widget meteo...";
+
+        // 1) Rimuove eventuali script esistenti del widget
         document.querySelectorAll('script[src*="weatherwidget.io"]').forEach(s => s.remove());
+
+        // 2) Rimuove eventuali iframe generati male
+        document.querySelectorAll('.weatherwidget-io iframe').forEach(i => i.remove());
+
+        // 3) Ricrea lo script originale
         const script = document.createElement("script");
         script.src = "https://weatherwidget.io/js/widget.min.js";
         script.async = true;
-        document.body.appendChild(script);
-    }, 400);
 
-    loadWorldFeed();
-    loadCVEToday();
-    loadCyberAlerts();
-});
-
-/* Attende che la sidebar sia caricata prima di inizializzare i widget */
-function waitForSidebar() {
-    return new Promise(resolve => {
-        const check = () => {
-            if (document.querySelector("#sidebar .sidebar-box")) resolve();
-            else setTimeout(check, 80);
+        // 4) Fallback automatico se il widget non parte
+        script.onload = () => {
+            setTimeout(() => {
+                const iframe = document.querySelector('.weatherwidget-io iframe');
+                if (!iframe) {
+                    console.warn("⚠️ Meteo non inizializzato, retry...");
+                    if (window.__weatherwidget_init) {
+                        window.__weatherwidget_init();
+                    }
+                } else if (loader) {
+                    loader.textContent = "Meteo aggiornato";
+                    setTimeout(() => loader.remove(), 1500);
+                }
+            }, 900);
         };
-        check();
-    });
-}
 
+        // 5) Inserisce lo script nel body
+        document.body.appendChild(script);
+
+        // 6) Fallback finale se proprio non parte
+        setTimeout(() => {
+            const iframe = document.querySelector('.weatherwidget-io iframe');
+            if (!iframe && loader) {
+                loader.textContent = "Meteo non disponibile";
+                loader.style.color = "#ff4b6e";
+                loader.style.textShadow = "0 0 6px #ff4b6e";
+            }
+        }, 4000);
+
+    }, 450);
 /* ============================================================
    E) SVG ICONS — OK
 ============================================================ */
