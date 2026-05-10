@@ -14,16 +14,15 @@ async function loadPartial(id, file) {
         clearTimeout(timeout);
 
         if (!res.ok || !res.headers.get("content-type")?.includes("text/html")) {
-            throw new Error(Errore nel caricamento di ${file});
+            throw new Error(`Errore nel caricamento di ${file}`);
         }
 
         el.innerHTML = await res.text();
-       // Se abbiamo appena caricato la sidebar → avvia il meteo
-if (id === "sidebar") {
-    requestAnimationFrame(() => {
-        loadMeteo();
-    });
-}
+
+        // Se abbiamo appena caricato la sidebar → avvia il meteo
+        if (id === "sidebar") {
+            requestAnimationFrame(() => loadMeteo());
+        }
 
         if (id === "header") {
             requestAnimationFrame(initTicker);
@@ -31,7 +30,7 @@ if (id === "sidebar") {
 
     } catch (err) {
         console.error(err);
-        el.innerHTML = <p class="error">Impossibile caricare ${file}</p>;
+        el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
     }
 }
 
@@ -51,7 +50,7 @@ async function loadMeteo() {
         const lat = 45.8206;
         const lon = 8.8251;
 
-        const url = https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
 
         const res = await fetch(url);
         const data = await res.json();
@@ -102,9 +101,9 @@ async function loadMeteo() {
         };
 
         cityEl.textContent = "Varese";
-        tempEl.textContent = ${temp}°C;
+        tempEl.textContent = `${temp}°C`;
         descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
-        iconEl.src = /img/meteo/${meteoIcon[code] || "default.svg"};
+        iconEl.src = `/img/meteo/${meteoIcon[code] || "default.svg"}`;
 
     } catch (e) {
         console.error(e);
@@ -126,7 +125,7 @@ function initTicker() {
 
     const clone = track.cloneNode(true);
     clone.dataset.cloned = "true";
-   [18:25, 10/05/2026] Angelo:  track.parentElement.appendChild(clone);
+    track.parentElement.appendChild(clone);
 
     const totalWidth = track.scrollWidth;
     track.style.setProperty("--ticker-width", totalWidth + "px");
@@ -135,6 +134,7 @@ function initTicker() {
 /* ============================================================
    WAIT FOR SIDEBAR — NECESSARIO PER I WIDGET
 ============================================================ */
+
 function waitForSidebar() {
     return new Promise(resolve => {
         const check = () => {
@@ -148,82 +148,32 @@ function waitForSidebar() {
         check();
     });
 }
-[18:26, 10/05/2026] Angelo: /*
-============================================================
+/* ============================================================
    D) DOM READY — VERSIONE OTTIMIZZATA
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Caricamento partials
     loadPartial("header", "/partials/header.html");
     loadPartial("ticker", "/partials/ticker.html");
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
 
-    // Carica i widget SOLO dopo che la sidebar è pronta
     waitForSidebar().then(() => {
 
-        // Contatore visite
         if (typeof initVisitCounter === "function") {
             initVisitCounter();
         }
 
-        // METEO REALE (NEON + ANIMAZIONI)
+        // loadMeteo() ora parte anche da loadPartial()
+        // qui rimane come fallback
         loadMeteo();
-[18:26, 10/05/2026] Angelo:  /* ============================================================
-           FIX METEO — (solo se usi ancora weatherwidget.io)
-        ============================================================ */
-        setTimeout(() => {
-            const loader = document.getElementById("meteo-loader");
-            if (loader) loader.textContent = "Inizializzazione widget meteo...";
 
-            // Rimuove eventuali script esistenti
-            document.querySelectorAll('script[src*="weatherwidget.io"]').forEach(s => s.remove());
+    });
 
-            // Rimuove eventuali iframe generati male
-            document.querySelectorAll('.weatherwidget-io iframe').forEach(i => i.remove());
-
-            // Ricrea lo script originale
-            const script = document.createElement("script");
-            script.src = "https://weatherwidget.io/js/widget.min.js";
-            script.async = true;
-
-            script.onload = () => {
-                setTimeout(() => {
-                    const iframe = document.querySelector('.weatherwidget-io iframe');
-                    if (!iframe) {
-                        console.warn("⚠️ Meteo non inizializzato, retry...");
-                        if (window.__weatherwidget_init) {
-                            window.__weatherwidget_init();
-                        }
-                    } else if (loader) {
-                        loader.textContent = "Meteo aggiornato";
-                        setTimeout(() => loader.remove(), 1500);
-                    }
-                }, 900);
-            };
-
-            document.body.appendChild(script);
-
-            // Fallback finale
-            setTimeout(() => {
-                const iframe = document.querySelector('.weatherwidget-io iframe');
-                if (!iframe && loader) {
-                    loader.textContent = "Meteo non disponibile";
-                    loader.style.color = "#ff4b6e";
-                    loader.style.textShadow = "0 0 6px #ff4b6e";
-                }
-            }, 4000);
-
-        }, 450);
-
-    }); // fine waitForSidebar
-
-}); // fine DOMContentLoaded
-[18:28, 10/05/2026] Angelo: 
+});
 /* ============================================================
-   E) SVG ICONS — OK
+   E) SVG ICONS
 ============================================================ */
 
 const alertIcon = `
@@ -239,7 +189,7 @@ const feedIcon = `
 `;
 
 /* ============================================================
-   F) WIDGET CVE DEL GIORNO — OTTIMIZZATO
+   F) WIDGET CVE DEL GIORNO
 ============================================================ */
 
 async function loadCVEToday() {
@@ -275,7 +225,7 @@ async function loadCVEToday() {
 }
 
 /* ============================================================
-   G) WIDGET CYBER ALERT LIVE — OTTIMIZZATO
+   G) WIDGET CYBER ALERT LIVE
 ============================================================ */
 
 async function loadCyberAlerts() {
@@ -300,7 +250,7 @@ async function loadCyberAlerts() {
 }
 
 /* ============================================================
-   H) WIDGET FEED DAL MONDO — OTTIMIZZATO
+   H) WIDGET FEED DAL MONDO
 ============================================================ */
 
 async function loadWorldFeed() {
@@ -325,7 +275,7 @@ async function loadWorldFeed() {
 }
 
 /* ============================================================
-   I) HEADER SCROLL EFFECT — OTTIMIZZATO
+   I) HEADER SCROLL EFFECT
 ============================================================ */
 
 let lastScroll = 0;
@@ -346,7 +296,7 @@ window.addEventListener("scroll", () => {
 });
 
 /* ============================================================
-   L) DROPDOWN NEWS — OTTIMIZZATO
+   L) DROPDOWN NEWS
 ============================================================ */
 
 document.addEventListener("click", function (e) {
@@ -357,7 +307,7 @@ document.addEventListener("click", function (e) {
 });
 
 /* ============================================================
-   M) CALCOLATRICE — VERSIONE OTTIMIZZATA
+   M) CALCOLATRICE
 ============================================================ */
 
 (function ensureCalculatorLoaded() {
@@ -389,87 +339,4 @@ document.addEventListener("click", function (e) {
     }
 
 })();
-[18:29, 10/05/2026] Angelo: 
-============================================================
-BLOCCO 4 — NOTE FINALI E ORDINE CORRETTO DEL FILE
-============================================================
-
-Il tuo ui.js deve essere strutturato ESATTAMENTE così:
-
-1) BLOCCO 1
-   - loadPartial()
-   - loadMeteo()
-   - initTicker()
-   - waitForSidebar()
-
-2) BLOCCO 2
-   - DOMContentLoaded
-   - Caricamento partials
-   - Attesa sidebar
-   - loadMeteo()
-   - Fix meteo (solo quello interno)
-
-3) BLOCCO 3
-   - Icone SVG
-   - Widget CVE
-   - Widget Cyber Alerts
-   - Widget Feed
-   - Header scroll effect
-   - Dropdown news
-   - Calcolatrice
-
-============================================================
-REGOLE IMPORTANTI
-============================================================
-   ✔️ NON deve esistere nessun altro "FIX METEO" fuori dal DOMContentLoaded  
-✔️ NON devono esserci altri setTimeout() duplicati  
-✔️ NON devono esserci altri DOMContentLoaded  
-✔️ NON devono esserci altri loadMeteo() fuori posto  
-✔️ NON devono esserci altri loadPartial() fuori dal blocco principale  
-✔️ NON devono esserci altri script che manipolano la sidebar
-
-============================================================
-VERIFICA FINALE
-============================================================
-
-Se il file è corretto:
-
-- La sidebar viene caricata
-- waitForSidebar() rileva il contenuto
-- loadMeteo() parte nel momento giusto
-- Gli elementi #meteo-temp, #meteo-desc, #meteo-icon ESISTONO
-- Il meteo neon funziona
-- Le icone animate vengono caricate
-- Nessun errore in console
-- Nessun blocco duplicato
-- Nessun conflitto tra widget
-
-============================================================
-DOPO IL DEPLOY
-============================================================
-
-1) Attendi che GitHub Pages completi il deploy
-2) Apri anonlab.it
-3) Premi *CTRL + SHIFT + R*
-4) Verifica:
-
-   - Temperatura reale
-   - Icona animata corretta
-   - Descrizione meteo
-   - Nessun "--°C"
-   - Nessun "Caricamento meteo..."
-
-============================================================
-FILE COMPLETO
-============================================================
-
-Il tuo ui.js è ora:
-- Pulito
-- Ordinato
-- Stabile
-- Ottimizzato
-- Senza duplicati
-- Senza race conditions
-- Compatibile con GitHub Pages
-- Pronto per espansioni future
 
