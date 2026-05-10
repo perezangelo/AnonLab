@@ -19,11 +19,12 @@ async function loadPartial(id, file) {
 
         el.innerHTML = await res.text();
 
-        // Se abbiamo appena caricato la sidebar → avvia il meteo
+        // Sidebar caricata → avvia meteo
         if (id === "sidebar") {
             requestAnimationFrame(() => loadMeteo());
         }
 
+        // Header → ticker
         if (id === "header") {
             requestAnimationFrame(initTicker);
         }
@@ -35,7 +36,7 @@ async function loadPartial(id, file) {
 }
 
 /* ============================================================
-   METEO REALE — Open‑Meteo + Icone Neon
+   METEO REALE — Open‑Meteo + Icone Neon (PATH CORRETTO)
 ============================================================ */
 
 async function loadMeteo() {
@@ -103,18 +104,20 @@ async function loadMeteo() {
         cityEl.textContent = "Varese";
         tempEl.textContent = `${temp}°C`;
         descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
-        iconEl.src = `/img/meteo/${meteoIcon[code] || "default.svg"}`;
+
+        // ⭐ PATH CORRETTO
+        iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
 
     } catch (e) {
         console.error(e);
         descEl.textContent = "Meteo non disponibile";
         descEl.style.color = "#ff4b6e";
-        iconEl.src = "/img/meteo/default.svg";
+        iconEl.src = "/img/img/meteo/default.svg";
     }
 }
 
 /* ============================================================
-   C) TICKER CONTINUO — VERSIONE OTTIMIZZATA
+   C) TICKER CONTINUO
 ============================================================ */
 
 function initTicker() {
@@ -132,7 +135,7 @@ function initTicker() {
 }
 
 /* ============================================================
-   WAIT FOR SIDEBAR — NECESSARIO PER I WIDGET
+   WAIT FOR SIDEBAR
 ============================================================ */
 
 function waitForSidebar() {
@@ -165,8 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
             initVisitCounter();
         }
 
-        // loadMeteo() ora parte anche da loadPartial()
-        // qui rimane come fallback
+        // Fallback meteo
         loadMeteo();
 
     });
@@ -201,7 +203,7 @@ async function loadCVEToday() {
         severity: "High",
         desc: "Vulnerabilità RCE in un componente molto diffuso.",
         link: "https://nvd.nist.gov/vuln/detail/CVE-2026-12345",
-        img: "img/hero3.jpg"
+        img: "/img/img/hero3.jpg"   // ⭐ percorso corretto
     };
 
     box.innerHTML = `
