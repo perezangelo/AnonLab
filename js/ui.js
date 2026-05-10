@@ -18,6 +18,12 @@ async function loadPartial(id, file) {
         }
 
         el.innerHTML = await res.text();
+       // Se abbiamo appena caricato la sidebar → avvia il meteo
+if (id === "sidebar") {
+    requestAnimationFrame(() => {
+        loadMeteo();
+    });
+}
 
         if (id === "header") {
             requestAnimationFrame(initTicker);
