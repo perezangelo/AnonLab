@@ -37,7 +37,7 @@ async function loadPartial(id, file) {
 }
 
 /* ============================================================
-   B) METEO — usa data/meteo.json (custom neon)
+   B) METEO REALE — Open‑Meteo (senza API key)
 ============================================================ */
 
 async function loadMeteo() {
@@ -45,18 +45,46 @@ async function loadMeteo() {
     const tempEl = document.getElementById("meteo-temp");
     const descEl = document.getElementById("meteo-desc");
 
-    // Se gli elementi non esistono, esci
     if (!cityEl || !tempEl || !descEl) return;
 
     try {
-        const res = await fetch("/data/data/meteo.json");
-        if (!res.ok) throw new Error("Errore meteo.json");
+        // Coordinate di Varese
+        const lat = 45.8206;
+        const lon = 8.8251;
 
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
+
+        const res = await fetch(url);
         const data = await res.json();
 
-        cityEl.textContent = data.city || "Varese";
-        tempEl.textContent = data.temp || "--°C";
-        descEl.textContent = data.desc || "Dati non disponibili";
+        const temp = data.current.temperature_2m;
+        const code = data.current.weather_code;
+
+        // Mappa codici → descrizioni
+        const meteoDesc = {
+            0: "Sereno",
+            1: "Prevalentemente sereno",
+            2: "Parzialmente nuvoloso",
+            3: "Nuvoloso",
+            45: "Nebbia",
+            48: "Nebbia ghiacciata",
+            51: "Pioviggine leggera",
+            53: "Pioviggine",
+            55: "Pioviggine intensa",
+            61: "Pioggia leggera",
+            63: "Pioggia",
+            65: "Pioggia intensa",
+            71: "Neve leggera",
+            73: "Neve",
+            75: "Neve intensa",
+            95: "Temporale",
+            96: "Temporale con grandine",
+            99: "Temporale forte con grandine"
+        };
+
+        cityEl.textContent = "Varese";
+        tempEl.textContent = `${temp}°C`;
+        descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
 
     } catch (e) {
         console.error(e);
