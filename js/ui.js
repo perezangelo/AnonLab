@@ -137,7 +137,22 @@ function initTicker() {
     const totalWidth = track.scrollWidth;
     track.style.setProperty("--ticker-width", totalWidth + "px");
 }
-
+/* ============================================================
+   WAIT FOR SIDEBAR — NECESSARIO PER I WIDGET
+============================================================ */
+function waitForSidebar() {
+    return new Promise(resolve => {
+        const check = () => {
+            const sidebar = document.getElementById("sidebar");
+            if (sidebar && sidebar.innerHTML.trim() !== "") {
+                resolve();
+            } else {
+                setTimeout(check, 100);
+            }
+        };
+        check();
+    });
+}
 /* ============================================================
    D) DOM READY — VERSIONE OTTIMIZZATA
    ------------------------------------------------------------
