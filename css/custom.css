@@ -1432,11 +1432,3 @@ details textarea,
 details input {
     margin-top: 15px;
 }
-/* FIX METEO — evita il taglio del glow neon */
-.sidebar-box[aria-label="Previsioni meteo Varese"] {
-    overflow: visible !important;
-}
-
-.sidebar-box[aria-label="Previsioni meteo Varese"] img {
-    overflow: visible !important;
-}
