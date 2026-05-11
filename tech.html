@@ -187,8 +187,419 @@
 
         </div>
       </section>
+     <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Convertitore di Valuta</h3>
 
-    </section>
+  <p style="color:#ccc; margin-bottom:15px;">
+    Converti rapidamente tra EUR, USD e GBP.
+  </p>
+
+  <input id="valInput" type="number" placeholder="Importo" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+
+  <div style="display:flex; gap:10px; margin-bottom:10px;">
+    <select id="valFrom" style="flex:1; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+      <option value="EUR">EUR</option>
+      <option value="USD">USD</option>
+      <option value="GBP">GBP</option>
+    </select>
+
+    <select id="valTo" style="flex:1; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+  </div>
+
+  <button onclick="convertValuta()" style="
+      width:100%; padding:12px; background:#ffaa00; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Converti</button>
+
+  <p id="valResult" style="color:#fff; margin-top:15px; font-size:20px; font-weight:bold;"></p>
+
+  <script>
+    function convertValuta() {
+      const rates = { EUR:1, USD:1.08, GBP:0.86 };
+      let amount = parseFloat(document.getElementById('valInput').value);
+      let from = document.getElementById('valFrom').value;
+      let to = document.getElementById('valTo').value;
+      let result = (amount / rates[from]) * rates[to];
+      document.getElementById('valResult').innerText = result.toFixed(2) + " " + to;
+    }
+  </script>
+</div>
+      <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Calcolatore Età</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Inserisci la tua data di nascita per calcolare l’età attuale.
+  </p>
+
+  <input id="etaData" type="date" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <button onclick="calcEta()" style="
+      width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="etaResult" style="color:#fff; margin-top:15px; font-size:20px; font-weight:bold;"></p>
+
+  <script>
+    function calcEta() {
+      let data = document.getElementById('etaData').value;
+      if (!data) {
+        document.getElementById('etaResult').innerText = "Inserisci una data valida.";
+        return;
+      }
+      let nascita = new Date(data);
+      let oggi = new Date();
+      let anni = oggi.getFullYear() - nascita.getFullYear();
+      let m = oggi.getMonth() - nascita.getMonth();
+      if (m < 0 || (m === 0 && oggi.getDate() < nascita.getDate())) anni--;
+      document.getElementById('etaResult').innerText = anni + " anni";
+    }
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Calcolatore Tempo (Ore / Minuti)</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Somma o converti ore e minuti in modo rapido.
+  </p>
+
+  <input id="timeHours" type="number" placeholder="Ore" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <input id="timeMinutes" type="number" placeholder="Minuti" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <button onclick="calcTime()" style="
+      width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="timeResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function calcTime() {
+      let h = parseInt(document.getElementById('timeHours').value) || 0;
+      let m = parseInt(document.getElementById('timeMinutes').value) || 0;
+
+      let totalMin = h * 60 + m;
+      let convH = Math.floor(totalMin / 60);
+      let convM = totalMin % 60;
+
+      document.getElementById('timeResult').innerHTML =
+        "Totale: " + totalMin + " minuti<br>" +
+        "Equivalente: " + convH + "h " + convM + "m";
+    }
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff0044aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff0044aa;
+">
+  <h3 style="color:#ff0044;">Calcolatore IP / Subnet</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Calcola rete, broadcast e numero host da un indirizzo IP e subnet mask.
+  </p>
+
+  <input id="ipAddr" type="text" placeholder="IP (es: 192.168.1.10)" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ff0044;">
+
+  <input id="ipMask" type="number" placeholder="CIDR (es: 24)" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ff0044;">
+
+  <button onclick="calcIP()" style="
+      width:100%; padding:12px; background:#ff0044; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="ipResult" style="color:#fff; margin-top:15px; font-size:16px; font-weight:bold;"></p>
+
+  <script>
+    function calcIP() {
+      let ip = document.getElementById('ipAddr').value.split('.');
+      let mask = parseInt(document.getElementById('ipMask').value);
+
+      if (ip.length !== 4 || mask < 1 || mask > 32) {
+        document.getElementById('ipResult').innerText = "Dati non validi.";
+        return;
+      }
+
+      let ipNum = (ip[0]<<24) | (ip[1]<<16) | (ip[2]<<8) | (ip[3]<<0);
+      let maskNum = 0xFFFFFFFF << (32 - mask);
+
+      let net = ipNum & maskNum;
+      let bc = net | (~maskNum);
+
+      function conv(n) {
+        return [(n>>>24)&255, (n>>>16)&255, (n>>>8)&255, n&255].join('.');
+      }
+
+      document.getElementById('ipResult').innerHTML =
+        "Rete: " + conv(net) + "<br>" +
+        "Broadcast: " + conv(bc) + "<br>" +
+        "Host disponibili: " + (Math.pow(2, 32-mask) - 2);
+    }
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00ff99aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00ff99aa;
+">
+  <h3 style="color:#00ff99;">Generatore di Stringhe Random</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Genera stringhe casuali per test, sviluppo o sicurezza.
+  </p>
+
+  <input id="randLen" type="number" placeholder="Lunghezza (es: 16)" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00ff99;">
+
+  <button onclick="genRandomStr()" style="
+      width:100%; padding:12px; background:#00ff99; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Genera</button>
+
+  <p id="randResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold; word-break:break-all;"></p>
+
+  <script>
+    function genRandomStr() {
+      let len = parseInt(document.getElementById('randLen').value);
+      if (!len || len < 1) {
+        document.getElementById('randResult').innerText = "Lunghezza non valida.";
+        return;
+      }
+
+      let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+      let out = "";
+      for (let i = 0; i < len; i++) {
+        out += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+
+      document.getElementById('randResult').innerText = out;
+    }
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Convertitore Byte / KB / MB / GB</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Converti rapidamente tra unità di misura digitali.
+  </p>
+
+  <input id="byteInput" type="number" placeholder="Valore" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+
+  <select id="byteFrom" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+    <option value="1">Byte</option>
+    <option value="1024">KB</option>
+    <option value="1048576">MB</option>
+    <option value="1073741824">GB</option>
+  </select>
+
+  <button onclick="convertByte()" style="
+      width:100%; padding:12px; background:#ffaa00; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Converti</button>
+
+  <p id="byteResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function convertByte() {
+      let val = parseFloat(document.getElementById('byteInput').value);
+      let from = parseFloat(document.getElementById('byteFrom').value);
+
+      if (!val) {
+        document.getElementById('byteResult').innerText = "Inserisci un valore valido.";
+        return;
+      }
+
+      let bytes = val * from;
+
+      document.getElementById('byteResult').innerHTML =
+        "Byte: " + bytes + "<br>" +
+        "KB: " + (bytes / 1024).toFixed(4) + "<br>" +
+        "MB: " + (bytes / 1048576).toFixed(4) + "<br>" +
+        "GB: " + (bytes / 1073741824).toFixed(6);
+    }
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00ff99aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00ff99aa;
+">
+  <h3 style="color:#00ff99;">Calcolatore Percentuali</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Calcola percentuali, aumenti e diminuzioni.
+  </p>
+
+  <input id="percVal" type="number" placeholder="Valore" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00ff99;">
+
+  <input id="percPerc" type="number" placeholder="Percentuale (%)" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00ff99;">
+
+  <button onclick="calcPerc()" style="
+      width:100%; padding:12px; background:#00ff99; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="percResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function calcPerc() {
+      let val = parseFloat(document.getElementById('percVal').value);
+      let perc = parseFloat(document.getElementById('percPerc').value);
+
+      if (!val || !perc) {
+        document.getElementById('percResult').innerText = "Inserisci valori validi.";
+        return;
+      }
+
+      let risultato = val * perc / 100;
+
+      document.getElementById('percResult').innerHTML =
+        perc + "% di " + val + " = <strong>" + risultato.toFixed(2) + "</strong>";
+    }
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Generatore Codice Fiscale</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Genera un codice fiscale valido a partire dai dati anagrafici.
+  </p>
+
+  <input id="cfNome" type="text" placeholder="Nome" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+  <input id="cfCognome" type="text" placeholder="Cognome" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+  <input id="cfData" type="date" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <select id="cfSesso" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+    <option value="M">Maschio</option>
+    <option value="F">Femmina</option>
+  </select>
+
+  <input id="cfComune" type="text" placeholder="Comune di nascita" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <button onclick="generaCF()" style="
+      width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Genera</button>
+
+  <p id="cfResult" style="color:#fff; margin-top:15px; font-size:20px; font-weight:bold;"></p>
+
+  <script>
+    function generaCF() {
+      let nome = document.getElementById('cfNome').value.toUpperCase();
+      let cognome = document.getElementById('cfCognome').value.toUpperCase();
+      let data = document.getElementById('cfData').value;
+      let sesso = document.getElementById('cfSesso').value;
+      let comune = document.getElementById('cfComune').value.toUpperCase();
+
+      if (!nome || !cognome || !data || !comune) {
+        document.getElementById('cfResult').innerText = "Compila tutti i campi.";
+        return;
+      }
+
+      let anno = data.substring(2,4);
+      let mese = "ABCDEHLMPRST".charAt(parseInt(data.substring(5,7))-1);
+      let giorno = parseInt(data.substring(8,10));
+      if (sesso === "F") giorno += 40;
+
+      let cf = cognome.substring(0,3) + nome.substring(0,3) + anno + mese + (giorno < 10 ? "0"+giorno : giorno) + comune.substring(0,4);
+      document.getElementById('cfResult').innerText = cf;
+    }
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Calcolatore IVA</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Calcola prezzo con IVA, senza IVA e importo IVA.
+  </p>
+
+  <input id="ivaImporto" type="number" placeholder="Importo" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+
+  <select id="ivaPerc" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+    <option value="22">IVA 22%</option>
+    <option value="10">IVA 10%</option>
+    <option value="5">IVA 5%</option>
+    <option value="4">IVA 4%</option>
+  </select>
+
+  <button onclick="calcIVA()" style="
+      width:100%; padding:12px; background:#ffaa00; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="ivaResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function calcIVA() {
+      let imp = parseFloat(document.getElementById('ivaImporto').value);
+      let perc = parseFloat(document.getElementById('ivaPerc').value);
+      let iva = imp * perc / 100;
+      let totale = imp + iva;
+      document.getElementById('ivaResult').innerHTML =
+        "IVA: " + iva.toFixed(2) + " €<br>Totale: " + totale.toFixed(2) + " €";
+    }
+  </script>
+</div>
+
+
+        </section>
 
     <!-- SIDEBAR -->
     <div id="sidebar"></div>
