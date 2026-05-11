@@ -130,12 +130,15 @@
 
   <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Meteo</h3>
 
+  <!-- ICONA METEO — FUORI DA .meteo-box -->
   <div style="text-align:center; margin-bottom:12px; padding-top:16px;">
     <img id="meteo-icon" src="/img/meteo/default.svg"
          style="width:100px; filter:drop-shadow(0 0 8px #00eaff);" alt="Icona Meteo">
   </div>
 
-  <div id="meteo-box" style="font-size:13px; color:#8be9ff; text-align:center;">
+  <!-- QUESTO È IL BLOCCO CHE PRIMA TAGLIAVA L’ICONA -->
+  <div id="meteo-box" class="meteo-box"
+       style="font-size:13px; color:#8be9ff; text-align:center;">
     <div style="margin-bottom:4px;">
       <span id="meteo-city" style="color:#ff7b00; font-weight:bold;">Varese</span>
     </div>
@@ -144,6 +147,7 @@
       <span id="meteo-desc">Caricamento meteo...</span>
     </div>
   </div>
+
 </div>
 
 <!-- CALCOLATRICE CYBER NEON -->
