@@ -127,15 +127,17 @@ async function initOroscopo() {
     if (!select || !img || !text || !link) return;
 
     try {
-        const res = await fetch("/data/oroscopo.json");
+        const res = await fetch("data/oroscopo.json");
         const data = await res.json();
+
+        const base = "img/oroscopo/"; // PERCORSO CORRETTO
 
         function updateOroscopo() {
             const sign = select.value;
 
-            img.src = `/img/oroscopo/${sign}.svg`;
+            img.src = base + sign + ".svg";   // ← FUNZIONA SEMPRE
             text.textContent = data[sign] || "Oroscopo non disponibile";
-            link.href = `https://www.google.com/search?q=oroscopo+${sign}`;
+            link.href = "https://www.google.com/search?q=oroscopo+" + sign;
         }
 
         updateOroscopo();
