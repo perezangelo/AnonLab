@@ -1,14 +1,23 @@
-<svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="#00eaff" stroke-width="4" stroke-linecap="round">
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-    <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg"
+     stroke="#00eaff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
   <g filter="url(#glow)">
-    <circle cx="35" cy="40" r="15"/>
-    <circle cx="65" cy="60" r="15"/>
-    <path d="M20 60 C40 40, 60 40, 80 60" />
+    <!-- Primo ricciolo -->
+    <path d="M30 45 C20 35, 20 25, 35 25 C50 25, 55 40, 45 50 C40 55, 30 55, 30 45" />
+
+    <!-- Secondo ricciolo -->
+    <path d="M70 55 C80 65, 80 75, 65 75 C50 75, 45 60, 55 50 C60 45, 70 45, 70 55" />
   </g>
+
 </svg>
