@@ -243,42 +243,42 @@ document.addEventListener("click", (e) => {
          ">
 
     <form action="https://www.google.com/search" method="GET"
-          style="
-            display:flex;
-            gap:10px;
-            width:100%;
-            max-width:420px;
-            justify-content:flex-end;
-          ">
+      class="google-wrapper"
+      style="
+        display:flex;
+        gap:10px;
+        width:100%;
+        max-width:240px;   /* 🔥 restringe il box */
+        justify-content:flex-end;
+      ">
 
-        <input type="text" name="q"
-               placeholder="Cerca su Google..."
-               style="
-                 flex:1;
-                 padding:12px 15px;
-                 font-size:1.1rem;
-                 border-radius:8px;
-                 border:1px solid #00eaff;
-                 background:#000814;
-                 color:#e0faff;
-                 box-shadow:0 0 10px #00eaff55;
-               ">
+    <input type="text" name="q"
+           placeholder="Cerca su Google..."
+           style="
+             flex:1;
+             padding:12px 15px;
+             font-size:1.1rem;
+             border-radius:8px;
+             border:1px solid #00eaff;
+             background:#000814;
+             color:#e0faff;
+             box-shadow:0 0 10px #00eaff55;
+           ">
 
-        <button type="submit"
-                style="
-                  padding:12px 18px;
-                  background:#00eaff;
-                  color:#000;
-                  font-weight:bold;
-                  border:none;
-                  border-radius:8px;
-                  cursor:pointer;
-                  box-shadow:0 0 10px #00eaffaa;
-                ">
-          Cerca
-        </button>
-    </form>
-
+    <button type="submit"
+            style="
+              padding:12px 18px;
+              background:#00eaff;
+              color:#000;
+              font-weight:bold;
+              border:none;
+              border-radius:8px;
+              cursor:pointer;
+              box-shadow:0 0 10px #00eaffaa;
+            ">
+      Cerca
+    </button>
+</form>
 </div>
 
 <!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
