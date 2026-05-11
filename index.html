@@ -207,41 +207,62 @@ document.addEventListener("click", (e) => {
 });
 </script>
 
-      <div class="google-search-wrapper">
+     <!-- WRAPPER ALLINEATO A DESTRA -->
+<div style="
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:15px;
+    margin-top:40px;
+    margin-bottom:40px;
+">
 
-    <img src="img/<img src="img/gears.png"
-     style="width:42px; height:42px; filter:drop-shadow(0 0 10px #00eaff);">
-
-<form action="https://www.google.com/search" method="GET"
-      style="display:flex; gap:10px; margin:0 auto; max-width:600px;">
-
-  <input type="text" name="q"
-         placeholder="Cerca su Google..."
+    <!-- GEARS ICON A DESTRA -->
+    <img src="img/gears.png"
+         alt="Gears Icon"
          style="
-           flex:1;
-           padding:12px 15px;
-           font-size:1.1rem;
-           border-radius:8px;
-           border:1px solid #00eaff;
-           background:#000814;
-           color:#e0faff;
-           box-shadow:0 0 10px #00eaff55;
+            width:48px;
+            height:48px;
+            filter:drop-shadow(0 0 10px #00eaff);
          ">
 
-  <button type="submit"
+    <!-- GOOGLE SEARCH A DESTRA -->
+    <form action="https://www.google.com/search" method="GET"
           style="
-            padding:12px 18px;
-            background:#00eaff;
-            color:#000;
-            font-weight:bold;
-            border:none;
-            border-radius:8px;
-            cursor:pointer;
-            box-shadow:0 0 10px #00eaffaa;
+            display:flex;
+            gap:10px;
+            max-width:420px;
+            width:100%;
+            justify-content:flex-end;
           ">
-    Cerca
-  </button>
-</form>
+
+        <input type="text" name="q"
+               placeholder="Cerca su Google..."
+               style="
+                 flex:1;
+                 padding:12px 15px;
+                 font-size:1.1rem;
+                 border-radius:8px;
+                 border:1px solid #00eaff;
+                 background:#000814;
+                 color:#e0faff;
+                 box-shadow:0 0 10px #00eaff55;
+               ">
+
+        <button type="submit"
+                style="
+                  padding:12px 18px;
+                  background:#00eaff;
+                  color:#000;
+                  font-weight:bold;
+                  border:none;
+                  border-radius:8px;
+                  cursor:pointer;
+                  box-shadow:0 0 10px #00eaffaa;
+                ">
+          Cerca
+        </button>
+    </form>
 
 </div>
       <div style="margin-top:60px;"></div>
