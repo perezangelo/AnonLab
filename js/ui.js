@@ -93,35 +93,35 @@ async function loadMeteo() {
             99: "Temporale forte con grandine"
         };
 
-        /* ============================
-           ICONE METEO
-        ============================ */
-        const meteoIcon = {
-            0: "clear.svg",
-            1: "partly.svg",
-            2: "cloudy.svg",
-            3: "overcast.svg",
+       /* ============================
+   ICONE METEO (VERSIONE CORRETTA)
+============================ */
 
-            45: "fog.svg",
-            48: "fog.svg",
+const meteoIcon = {
+    0: "clear.svg",
+    1: "cloud.svg",
+    2: "cloud.svg",
+    3: "cloud.svg",
 
-            51: "drizzle.svg",
-            53: "drizzle.svg",
-            55: "drizzle.svg",
+    45: "fog.svg",
+    48: "fog.svg",
 
-            61: "rain.svg",
-            63: "rain.svg",
-            65: "rain.svg",
+    51: "rain.svg",
+    53: "rain.svg",
+    55: "rain.svg",
 
-            80: "rain.svg",
-            81: "rain.svg",
-            82: "rain.svg",
+    61: "rain.svg",
+    63: "rain.svg",
+    65: "rain.svg",
 
-            95: "storm.svg",
-            96: "storm.svg",
-            99: "storm.svg"
-        };
+    80: "rain.svg",
+    81: "rain.svg",
+    82: "rain.svg",
 
+    95: "storm.svg",
+    96: "storm.svg",
+    99: "storm.svg"
+};
         /* ============================
            AGGIORNAMENTO UI
         ============================ */
