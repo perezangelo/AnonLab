@@ -115,34 +115,63 @@
     <section class="main-column">
 
       <!-- HERO PRINCIPALE -->
-      <section class="hero-big">
-<h1 data-text="ANONLAB">ANONLAB</h1>
+<section class="hero-big">
+  <h1 data-text="ANONLAB">ANONLAB</h1>
 
-        <img 
-          src="img/eyes.png" 
-          alt="AnonLab Eyes" 
-          class="hero-favicon"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        >
+  <img 
+    src="img/eyes.png" 
+    alt="AnonLab Eyes" 
+    class="hero-favicon"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  >
 
-        <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
+  <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
+</section>
 
-        <!-- 🔗 LINK ESTERNO INSERITO -->
-       <div class="dropdown-news">
-  <button class="hero-button dropdown-toggle">
+        <!-- PANNELLO NEWS SOTTO HERO -->
+<div class="dropdown-news" style="margin-top:20px;">
+
+  <button id="newsToggle"
+          class="hero-button"
+          style="cursor:pointer;">
     Esplora le ultime news ▾
   </button>
 
-  <div class="dropdown-menu">
-    <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer">TheHackerNews</a>
-    <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener noreferrer">BleepingComputer</a>
-    <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer">DarkReading</a>
-    <a href="https://www.securityweek.com" target="_blank" rel="noopener noreferrer">SecurityWeek</a>
+  <div id="newsPanel"
+       style="display:none; padding:12px; border:1px solid #00eaff55;
+              border-radius:8px; box-shadow:0 0 12px #00eaff55; margin-top:10px;">
+
+    <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer"
+       style="display:block; margin-bottom:10px; color:#8be9ff;">
+       TheHackerNews
+    </a>
+
+    <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener noreferrer"
+       style="display:block; margin-bottom:10px; color:#8be9ff;">
+       BleepingComputer
+    </a>
+
+    <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer"
+       style="display:block; margin-bottom:10px; color:#8be9ff;">
+       DarkReading
+    </a>
+
+    <a href="https://www.securityweek.com" target="_blank" rel="noopener noreferrer"
+       style="display:block; margin-bottom:10px; color:#8be9ff;">
+       SecurityWeek
+    </a>
+
   </div>
 </div>
-      </section>
+
+<script>
+document.getElementById("newsToggle").addEventListener("click", () => {
+  const panel = document.getElementById("newsPanel");
+  panel.style.display = panel.style.display === "none" ? "block" : "none";
+});
+</script>
 
       <div class="google-search-wrapper">
 
