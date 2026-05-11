@@ -689,6 +689,46 @@
     }
   </script>
 </div>
+ <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #7a00ffaa;
+    padding:25px;
+    margin-top:40px;
+    margin-bottom:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #7a00ffaa;
+">
+  <h3 style="color:#b366ff;">Calcolatore FPS / Frame Time</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Converti rapidamente tra FPS e tempo per frame (ms). Utile per gaming, grafica e benchmark.
+  </p>
+
+  <input id="fpsInput" type="number" placeholder="FPS (es: 60)" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #7a00ff;">
+
+  <button onclick="calcFPS()" style="
+      width:100%; padding:12px; background:#b366ff; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="fpsResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function calcFPS() {
+      let fps = parseFloat(document.getElementById('fpsInput').value);
+
+      if (!fps || fps <= 0) {
+        document.getElementById('fpsResult').innerText = "Inserisci un valore FPS valido.";
+        return;
+      }
+
+      let ms = 1000 / fps;
+
+      document.getElementById('fpsResult').innerHTML =
+        fps + " FPS = <strong>" + ms.toFixed(2) + " ms</strong> per frame";
+    }
+  </script>
+</div>     
 
 
         </section>
