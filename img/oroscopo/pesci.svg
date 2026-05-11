@@ -1,14 +1,24 @@
-<svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="#00eaff" stroke-width="4" stroke-linecap="round">
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-    <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg"
+     stroke="#00eaff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
   <g filter="url(#glow)">
-    <path d="M20 40 C40 20, 60 20, 80 40" />
-    <path d="M20 60 C40 80, 60 80, 80 60" />
-    <path d="M50 20 L50 80" />
+    <!-- Primo pesce -->
+    <path d="M30 50 C20 40, 20 60, 30 50 C40 40, 50 40, 55 50 C50 60, 40 60, 30 50" />
+
+    <!-- Secondo pesce -->
+    <path d="M70 50 C80 40, 80 60, 70 50 C60 40, 50 40, 45 50 C50 60, 60 60, 70 50" />
   </g>
+
 </svg>
+
