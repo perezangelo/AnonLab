@@ -130,7 +130,7 @@
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS FISSO SOTTO HERO (TOP DROPDOWN) -->
+<!-- MENU NEWS SOTTO HERO (OVERLAY SCURO, NON COPRE I BOX) -->
 <div style="position:relative; margin-top:20px;">
 
   <button id="newsToggle"
@@ -139,7 +139,7 @@
     Esplora le ultime news ▾
   </button>
 
-  <!-- MENU A TENDINA ASSOLUTO (NON MUOVE LA PAGINA) -->
+  <!-- MENU OVERLAY SCURO CON SCROLL -->
   <div id="newsPanel"
        style="
          display:none;
@@ -147,12 +147,14 @@
          top:45px;
          left:0;
          width:100%;
-         background:#050a18;
+         max-height:260px;          /* 🔥 Limita altezza */
+         overflow-y:auto;           /* 🔥 Scroll interno */
+         background:#000814;        /* 🔥 SCURISSIMO, leggibile */
          border:1px solid #00eaff55;
          border-radius:8px;
-         box-shadow:0 0 12px #00eaffaa;
+         box-shadow:0 0 14px #00eaffaa;
          padding:12px;
-         z-index:999;
+         z-index:9999;              /* 🔥 Sopra tutto, ma non copre i box */
        ">
 
     <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer"
