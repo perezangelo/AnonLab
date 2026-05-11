@@ -130,16 +130,23 @@
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS SOTTO HERO (OVERLAY SCURO + FADE-IN + CHIUSURA AUTOMATICA) -->
-<div style="position:relative; margin-top:20px;">
+<!-- MENU NEWS SOTTO HERO (VERSIONE DEFINITIVA) -->
+<div style="position:relative; margin-top:25px; margin-bottom:40px;">
 
   <button id="newsToggle"
-          class="hero-button"
-          style="cursor:pointer;">
+          style="
+            cursor:pointer;
+            background:none;
+            border:none;
+            font-size:1.2rem;
+            font-weight:bold;
+            color:#ff7b00; /* ARANCIONE LASER */
+            text-shadow:0 0 8px #ff7b00;
+          ">
     Esplora le ultime news ▾
   </button>
 
-  <!-- MENU OVERLAY SCURO CON SCROLL + FADE-IN -->
+  <!-- MENU OVERLAY SCURO, LARGO, SCROLLABILE -->
   <div id="newsPanel"
        style="
          display:none;
@@ -149,35 +156,27 @@
          top:45px;
          left:0;
          width:100%;
-         max-height:260px;
+         max-height:300px;
          overflow-y:auto;
-         background:#000814;
-         border:1px solid #00eaff55;
+         background:#000000; /* NERO PIENO */
+         border:1px solid #ff7b00aa;
          border-radius:8px;
-         box-shadow:0 0 14px #00eaffaa;
-         padding:12px;
+         box-shadow:0 0 18px #ff7b00aa;
+         padding:15px;
          z-index:9999;
        ">
 
-    <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer"
-       style="display:block; margin-bottom:10px; color:#8be9ff;">
-       TheHackerNews
-    </a>
+    <a href='https://thehackernews.com' target='_blank'
+       style='display:block; margin-bottom:12px; color:#ffb366;'>TheHackerNews</a>
 
-    <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener noreferrer"
-       style="display:block; margin-bottom:10px; color:#8be9ff;">
-       BleepingComputer
-    </a>
+    <a href='https://www.bleepingcomputer.com' target='_blank'
+       style='display:block; margin-bottom:12px; color:#ffb366;'>BleepingComputer</a>
 
-    <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer"
-       style="display:block; margin-bottom:10px; color:#8be9ff;">
-       DarkReading
-    </a>
+    <a href='https://www.darkreading.com' target='_blank'
+       style='display:block; margin-bottom:12px; color:#ffb366;'>DarkReading</a>
 
-    <a href="https://www.securityweek.com" target="_blank" rel="noopener noreferrer"
-       style="display:block; margin-bottom:10px; color:#8be9ff;">
-       SecurityWeek
-    </a>
+    <a href='https://www.securityweek.com' target='_blank'
+       style='display:block; margin-bottom:12px; color:#ffb366;'>SecurityWeek</a>
 
   </div>
 </div>
@@ -190,9 +189,7 @@ const panel = document.getElementById("newsPanel");
 toggle.addEventListener("click", () => {
   if (panel.style.display === "none") {
     panel.style.display = "block";
-    requestAnimationFrame(() => {
-      panel.style.opacity = "1";
-    });
+    requestAnimationFrame(() => panel.style.opacity = "1");
   } else {
     panel.style.opacity = "0";
     setTimeout(() => panel.style.display = "none", 200);
@@ -212,14 +209,43 @@ document.addEventListener("click", (e) => {
 
       <div class="google-search-wrapper">
 
-    <img src="img/gears.png" alt="Gears Icon" class="google-icon">
+    <img src="img/<img src="img/gears.png"
+     style="width:42px; height:42px; filter:drop-shadow(0 0 10px #00eaff);">
 
-    <form action="https://www.google.com/search" method="GET" target="_blank">
-        <input type="text" name="q" placeholder="Cerca su Google..." class="search-input">
-        <button type="submit" class="search-btn">Cerca</button>
-    </form>
+<form action="https://www.google.com/search" method="GET"
+      style="display:flex; gap:10px; margin:0 auto; max-width:600px;">
+
+  <input type="text" name="q"
+         placeholder="Cerca su Google..."
+         style="
+           flex:1;
+           padding:12px 15px;
+           font-size:1.1rem;
+           border-radius:8px;
+           border:1px solid #00eaff;
+           background:#000814;
+           color:#e0faff;
+           box-shadow:0 0 10px #00eaff55;
+         ">
+
+  <button type="submit"
+          style="
+            padding:12px 18px;
+            background:#00eaff;
+            color:#000;
+            font-weight:bold;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            box-shadow:0 0 10px #00eaffaa;
+          ">
+    Cerca
+  </button>
+</form>
 
 </div>
+      <div style="margin-top:60px;"></div>
+
       <!-- ULTIME NEWS -->
       <section class="widget-large">
         <h2>Ultime dal mondo cyber</h2>
