@@ -36,7 +36,7 @@ async function loadPartial(id, file) {
     }
 }
 /* ============================================================
-   METEO REALE — Open‑Meteo + Icone Neon (PATH CORRETTO)
+   METEO REALE — Open‑Meteo + Icone Neon (VERSIONE CORRETTA)
 ============================================================ */
 
 async function loadMeteo() {
@@ -59,58 +59,82 @@ async function loadMeteo() {
         const temp = data.current.temperature_2m;
         const code = data.current.weather_code;
 
+        /* ============================
+           DESCRIZIONI COMPLETE
+        ============================ */
         const meteoDesc = {
             0: "Sereno",
             1: "Prevalentemente sereno",
             2: "Parzialmente nuvoloso",
             3: "Nuvoloso",
+
             45: "Nebbia",
             48: "Nebbia ghiacciata",
+
             51: "Pioviggine leggera",
             53: "Pioviggine",
             55: "Pioviggine intensa",
+
             61: "Pioggia leggera",
             63: "Pioggia",
             65: "Pioggia intensa",
+
             71: "Neve leggera",
             73: "Neve",
             75: "Neve intensa",
+
+            /* ⭐ MANCAVANO QUESTI → CAUSA “Condizioni sconosciute” */
+            80: "Rovesci leggeri",
+            81: "Rovesci",
+            82: "Rovesci intensi",
+
             95: "Temporale",
             96: "Temporale con grandine",
             99: "Temporale forte con grandine"
         };
 
+        /* ============================
+           ICONE METEO
+        ============================ */
         const meteoIcon = {
-  0: "clear.svg",
-  1: "partly.svg",
-  2: "cloudy.svg",
-  3: "overcast.svg",
+            0: "clear.svg",
+            1: "partly.svg",
+            2: "cloudy.svg",
+            3: "overcast.svg",
 
-  45: "fog.svg",
-  48: "fog.svg",
+            45: "fog.svg",
+            48: "fog.svg",
 
-  51: "drizzle.svg",
-  53: "drizzle.svg",
-  55: "drizzle.svg",
+            51: "drizzle.svg",
+            53: "drizzle.svg",
+            55: "drizzle.svg",
 
-  61: "rain.svg",   // ⭐ PIoggia leggera
-  63: "rain.svg",
-  65: "rain.svg",
+            61: "rain.svg",
+            63: "rain.svg",
+            65: "rain.svg",
 
-  80: "rain.svg",
-  81: "rain.svg",
-  82: "rain.svg",
+            80: "rain.svg",
+            81: "rain.svg",
+            82: "rain.svg",
 
-  95: "storm.svg",
-  96: "storm.svg",
-  99: "storm.svg"
-};
+            95: "storm.svg",
+            96: "storm.svg",
+            99: "storm.svg"
+        };
 
+        /* ============================
+           AGGIORNAMENTO UI
+        ============================ */
         cityEl.textContent = "Varese";
         tempEl.textContent = `${temp}°C`;
         descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
 
         iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
+
+        /* ⭐ FIX SENZA TOCCARE CSS — evita taglio icona */
+        iconEl.style.width = "auto";
+        iconEl.style.maxWidth = "100px";
+        iconEl.style.height = "auto";
 
     } catch (e) {
         console.error(e);
