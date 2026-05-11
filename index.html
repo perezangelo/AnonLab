@@ -130,9 +130,10 @@
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS SOTTO HERO -->
-<div style="position:relative; margin-top:25px;">
+<!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA CON IMMAGINE -->
+<div style="position:relative; margin-top:25px; display:inline-block;">
 
+  <!-- BOTTONE -->
   <button id="newsToggle"
           style="
             cursor:pointer;
@@ -142,24 +143,27 @@
             font-weight:bold;
             color:#ff7b00; /* ARANCIONE LASER */
             text-shadow:0 0 8px #ff7b00;
+            white-space:nowrap;
           ">
     Esplora le ultime news ▾
   </button>
 
-  <!-- MENU CHE RESTA SOTTO LA SCRITTA E NON SI ESPANDE A DESTRA -->
+  <!-- MENU A TENDINA -->
   <div id="newsPanel"
        style="
          display:none;
          opacity:0;
-         transition:opacity 0.25s ease;
+         transform:translateY(-10px);
+         transition:opacity 0.25s ease, transform 0.25s ease;
+
          position:absolute;
          top:40px;
          left:0;
 
-         /* 🔥 QUESTA È LA PARTE CHE RISOLVE IL PROBLEMA */
+         /* 🔥 NON SI ESPANDE A DESTRA */
          width:fit-content;
-         max-width:100%;
-         min-width:260px;
+         max-width:260px;
+         min-width:200px;
 
          background:#000;
          border:1px solid #ff7b00aa;
@@ -169,6 +173,17 @@
          z-index:9999;
        ">
 
+    <!-- 🔥 IMMAGINE AI-SOC SOTTO LA SCRITTA -->
+    <img src="img/ai-soc.png"
+         alt="AI SOC"
+         style="
+           width:100%;
+           border-radius:6px;
+           margin-bottom:12px;
+           box-shadow:0 0 12px #ff7b00aa;
+         ">
+
+    <!-- LINK NEWS -->
     <a href='https://thehackernews.com' target='_blank'
        style='display:block; margin-bottom:12px; color:#ffb366;'>TheHackerNews</a>
 
@@ -188,23 +203,30 @@
 const toggle = document.getElementById("newsToggle");
 const panel = document.getElementById("newsPanel");
 
-// Apertura/chiusura con fade-in
+// Apertura con fade-in + slide-down
 toggle.addEventListener("click", () => {
   if (panel.style.display === "none") {
     panel.style.display = "block";
-    requestAnimationFrame(() => panel.style.opacity = "1");
+
+    requestAnimationFrame(() => {
+      panel.style.opacity = "1";
+      panel.style.transform = "translateY(0)";
+    });
+
   } else {
     panel.style.opacity = "0";
-    setTimeout(() => panel.style.display = "none", 200);
+    panel.style.transform = "translateY(-10px)";
+    setTimeout(() => panel.style.display = "none", 250);
   }
 });
 
-// Chiusura automatica cliccando fuori
+// Chiusura cliccando fuori
 document.addEventListener("click", (e) => {
   if (!panel.contains(e.target) && !toggle.contains(e.target)) {
     if (panel.style.display === "block") {
       panel.style.opacity = "0";
-      setTimeout(() => panel.style.display = "none", 200);
+      panel.style.transform = "translateY(-10px)";
+      setTimeout(() => panel.style.display = "none", 250);
     }
   }
 });
