@@ -160,10 +160,7 @@
          top:40px;
          left:0;
 
-         width:fit-content;
-         max-width:260px;
-         min-width:200px;
-
+         width:260px; /* LARGHEZZA FISSA */
          background:#000;
          border:1px solid #ff7b00aa;
          border-radius:8px;
@@ -187,7 +184,7 @@
   </div>
 </div>
 
-<!-- 🔥 IMMAGINE SOTTO IL MENU (PUÒ ESSERE COPERTA, VA BENISSIMO) -->
+<!-- IMMAGINE SOTTO IL MENU (STESSA LARGHEZZA) -->
 <img src="img/ai-soc.jpg"
      alt="AI SOC"
      style="
@@ -230,8 +227,8 @@ document.addEventListener("click", (e) => {
   }
 });
 </script>
-      
-     <!-- WRAPPER ALLINEATO A DESTRA -->
+
+<!-- WRAPPER ALLINEATO A DESTRA (RISTRETTO PER MOBILE) -->
 <div style="
     display:flex;
     justify-content:flex-end;
@@ -239,14 +236,15 @@ document.addEventListener("click", (e) => {
     gap:15px;
     margin-top:40px;
     margin-bottom:40px;
+    max-width:260px; /* 🔥 LIMITA LA LARGHEZZA COME MENU + IMMAGINE */
 ">
 
     <!-- GEARS ICON A DESTRA -->
     <img src="img/gears.png"
          alt="Gears Icon"
          style="
-            width:48px;
-            height:48px;
+            width:42px;
+            height:42px;
             filter:drop-shadow(0 0 10px #00eaff);
          ">
 
@@ -255,7 +253,6 @@ document.addEventListener("click", (e) => {
           style="
             display:flex;
             gap:10px;
-            max-width:420px;
             width:100%;
             justify-content:flex-end;
           ">
@@ -264,8 +261,8 @@ document.addEventListener("click", (e) => {
                placeholder="Cerca su Google..."
                style="
                  flex:1;
-                 padding:12px 15px;
-                 font-size:1.1rem;
+                 padding:10px 12px;
+                 font-size:1rem;
                  border-radius:8px;
                  border:1px solid #00eaff;
                  background:#000814;
@@ -275,7 +272,7 @@ document.addEventListener("click", (e) => {
 
         <button type="submit"
                 style="
-                  padding:12px 18px;
+                  padding:10px 14px;
                   background:#00eaff;
                   color:#000;
                   font-weight:bold;
