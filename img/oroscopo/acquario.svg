@@ -1,13 +1,21 @@
-<svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="#00eaff" stroke-width="4" stroke-linecap="round">
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-    <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg"
+     stroke="#00eaff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
   <g filter="url(#glow)">
-    <path d="M20 40 L40 30 L60 40 L80 30" />
-    <path d="M20 60 L40 50 L60 60 L80 50" />
+    <!-- Onde Acquario -->
+    <path d="M20 40 C30 30, 40 50, 50 40 C60 30, 70 50, 80 40" />
+    <path d="M20 60 C30 50, 40 70, 50 60 C60 50, 70 70, 80 60" />
   </g>
+
 </svg>
