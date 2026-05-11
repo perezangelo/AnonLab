@@ -81,25 +81,30 @@ async function loadMeteo() {
         };
 
         const meteoIcon = {
-            0: "clear.svg",
-            1: "clear.svg",
-            2: "cloud.svg",
-            3: "cloud.svg",
-            45: "fog.svg",
-            48: "fog.svg",
-            51: "rain.svg",
-            53: "rain.svg",
-            55: "rain.svg",
-            61: "rain.svg",
-            63: "rain.svg",
-            65: "rain.svg",
-            71: "snow.svg",
-            73: "snow.svg",
-            75: "snow.svg",
-            95: "storm.svg",
-            96: "storm.svg",
-            99: "storm.svg"
-        };
+  0: "clear.svg",
+  1: "partly.svg",
+  2: "cloudy.svg",
+  3: "overcast.svg",
+
+  45: "fog.svg",
+  48: "fog.svg",
+
+  51: "drizzle.svg",
+  53: "drizzle.svg",
+  55: "drizzle.svg",
+
+  61: "rain.svg",   // ⭐ PIoggia leggera
+  63: "rain.svg",
+  65: "rain.svg",
+
+  80: "rain.svg",
+  81: "rain.svg",
+  82: "rain.svg",
+
+  95: "storm.svg",
+  96: "storm.svg",
+  99: "storm.svg"
+};
 
         cityEl.textContent = "Varese";
         tempEl.textContent = `${temp}°C`;
