@@ -130,7 +130,7 @@
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA CON IMMAGINE -->
+<!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
 <div style="position:relative; margin-top:25px; display:inline-block;">
 
   <!-- BOTTONE -->
@@ -141,7 +141,7 @@
             border:none;
             font-size:1.2rem;
             font-weight:bold;
-            color:#ff7b00; /* ARANCIONE LASER */
+            color:#ff7b00;
             text-shadow:0 0 8px #ff7b00;
             white-space:nowrap;
           ">
@@ -160,7 +160,6 @@
          top:40px;
          left:0;
 
-         /* 🔥 NON SI ESPANDE A DESTRA */
          width:fit-content;
          max-width:260px;
          min-width:200px;
@@ -173,17 +172,6 @@
          z-index:9999;
        ">
 
-    <!-- 🔥 IMMAGINE AI-SOC SOTTO LA SCRITTA -->
-    <img src="img/ai-soc.png"
-         alt="AI SOC"
-         style="
-           width:100%;
-           border-radius:6px;
-           margin-bottom:12px;
-           box-shadow:0 0 12px #ff7b00aa;
-         ">
-
-    <!-- LINK NEWS -->
     <a href='https://thehackernews.com' target='_blank'
        style='display:block; margin-bottom:12px; color:#ffb366;'>TheHackerNews</a>
 
@@ -198,6 +186,17 @@
 
   </div>
 </div>
+
+<!-- 🔥 IMMAGINE SOTTO IL MENU, SEMPRE VISIBILE -->
+<img src="img/ai-soc.png"
+     alt="AI SOC"
+     style="
+       width:260px;
+       margin-top:15px;
+       border-radius:6px;
+       box-shadow:0 0 12px #ff7b00aa;
+       display:block;
+     ">
 
 <script>
 const toggle = document.getElementById("newsToggle");
