@@ -127,16 +127,17 @@ async function initOroscopo() {
     if (!select || !img || !text || !link) return;
 
     try {
-        const res = await fetch("data/oroscopo.json");
+        // JSON con percorso ASSOLUTO
+        const res = await fetch("https://anonlab.it/data/oroscopo.json");
         const data = await res.json();
 
-        // PERCORSO ASSOLUTO — L’UNICO CHE FUNZIONA
+        // Immagini con percorso ASSOLUTO
         const base = "https://anonlab.it/img/oroscopo/";
 
         function updateOroscopo() {
             const sign = select.value;
 
-            img.src = base + sign + ".svg";   // ORA FUNZIONA SEMPRE
+            img.src = base + sign + ".svg";
             text.textContent = data[sign] || "Oroscopo non disponibile";
             link.href = "https://www.google.com/search?q=oroscopo+" + sign;
         }
