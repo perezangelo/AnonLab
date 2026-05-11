@@ -1,15 +1,25 @@
-<svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="#00eaff" stroke-width="4" stroke-linecap="round">
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-    <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg"
+     stroke="#00eaff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
   <g filter="url(#glow)">
-    <path d="M30 20 L70 20" />
-    <path d="M30 80 L70 80" />
-    <path d="M40 20 L40 80" />
-    <path d="M60 20 L60 80" />
+    <!-- Colonne dei Gemelli -->
+    <line x1="35" y1="20" x2="35" y2="80" />
+    <line x1="65" y1="20" x2="65" y2="80" />
+
+    <!-- Archi superiore e inferiore -->
+    <path d="M35 20 C50 10, 65 10, 65 20" />
+    <path d="M35 80 C50 90, 65 90, 65 80" />
   </g>
+
 </svg>
