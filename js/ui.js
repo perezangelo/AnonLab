@@ -115,7 +115,7 @@ async function loadMeteo() {
     }
 }
 /* ============================================================
-   OROSCOPO — VERSIONE DEFINITIVA
+   OROSCOPO — VERSIONE DEFINITIVA CORRETTA
 ============================================================ */
 
 async function initOroscopo() {
@@ -130,12 +130,13 @@ async function initOroscopo() {
         const res = await fetch("data/oroscopo.json");
         const data = await res.json();
 
-        const base = "img/oroscopo/"; // PERCORSO CORRETTO
+        // PERCORSO ASSOLUTO — L’UNICO CHE FUNZIONA
+        const base = "https://anonlab.it/img/oroscopo/";
 
         function updateOroscopo() {
             const sign = select.value;
 
-            img.src = base + sign + ".svg";   // ← FUNZIONA SEMPRE
+            img.src = base + sign + ".svg";   // ORA FUNZIONA SEMPRE
             text.textContent = data[sign] || "Oroscopo non disponibile";
             link.href = "https://www.google.com/search?q=oroscopo+" + sign;
         }
