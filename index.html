@@ -130,8 +130,8 @@
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS SOTTO HERO (VERSIONE DEFINITIVA) -->
-<div style="position:relative; margin-top:25px; margin-bottom:40px;">
+<!-- MENU NEWS SOTTO HERO -->
+<div style="position:relative; margin-top:25px;">
 
   <button id="newsToggle"
           style="
@@ -146,19 +146,22 @@
     Esplora le ultime news ▾
   </button>
 
-  <!-- MENU OVERLAY SCURO, LARGO, SCROLLABILE -->
+  <!-- MENU CHE RESTA SOTTO LA SCRITTA E NON SI ESPANDE A DESTRA -->
   <div id="newsPanel"
        style="
          display:none;
          opacity:0;
          transition:opacity 0.25s ease;
          position:absolute;
-         top:45px;
+         top:40px;
          left:0;
-         width:100%;
-         max-height:300px;
-         overflow-y:auto;
-         background:#000000; /* NERO PIENO */
+
+         /* 🔥 QUESTA È LA PARTE CHE RISOLVE IL PROBLEMA */
+         width:fit-content;
+         max-width:100%;
+         min-width:260px;
+
+         background:#000;
          border:1px solid #ff7b00aa;
          border-radius:8px;
          box-shadow:0 0 18px #ff7b00aa;
@@ -206,7 +209,6 @@ document.addEventListener("click", (e) => {
   }
 });
 </script>
-
      <!-- WRAPPER ALLINEATO A DESTRA -->
 <div style="
     display:flex;
