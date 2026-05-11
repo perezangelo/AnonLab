@@ -317,6 +317,98 @@
 </div>
 <div class="cyber-box" style="
     background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Calcolatore Velocità Internet</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Converti tra Mbps e MB/s per capire la reale velocità di download.
+  </p>
+
+  <input id="netVal" type="number" placeholder="Valore" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+
+  <select id="netType" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+    <option value="mbps">Mbps → MB/s</option>
+    <option value="mbs">MB/s → Mbps</option>
+  </select>
+
+  <button onclick="calcNet()" style="
+      width:100%; padding:12px; background:#ffaa00; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="netResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function calcNet() {
+      let v = parseFloat(document.getElementById('netVal').value);
+      let t = document.getElementById('netType').value;
+
+      if (!v) {
+        document.getElementById('netResult').innerText = "Inserisci un valore valido.";
+        return;
+      }
+
+      if (t === "mbps") {
+        document.getElementById('netResult').innerText = (v / 8).toFixed(2) + " MB/s";
+      } else {
+        document.getElementById('netResult').innerText = (v * 8).toFixed(2) + " Mbps";
+      }
+    }
+  </script>
+</div>
+ <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Calcolatore Risoluzione / DPI / PPI</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Calcola la densità di pixel (PPI) di uno schermo o immagine.
+  </p>
+
+  <input id="ppiWidth" type="number" placeholder="Larghezza in pixel" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <input id="ppiHeight" type="number" placeholder="Altezza in pixel" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <input id="ppiDiag" type="number" placeholder="Diagonale in pollici" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+  <button onclick="calcPPI()" style="
+      width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
+  ">Calcola</button>
+
+  <p id="ppiResult" style="color:#fff; margin-top:15px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function calcPPI() {
+      let w = parseFloat(document.getElementById('ppiWidth').value);
+      let h = parseFloat(document.getElementById('ppiHeight').value);
+      let d = parseFloat(document.getElementById('ppiDiag').value);
+
+      if (!w || !h || !d) {
+        document.getElementById('ppiResult').innerText = "Inserisci valori validi.";
+        return;
+      }
+
+      let ppi = Math.sqrt(w*w + h*h) / d;
+
+      document.getElementById('ppiResult').innerText = ppi.toFixed(2) + " PPI";
+    }
+  </script>
+</div>     
+<div class="cyber-box" style="
+    background:#000814;
     border:1px solid #ff0044aa;
     padding:25px;
     margin-top:40px;
