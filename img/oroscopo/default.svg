@@ -1,0 +1,50 @@
+<svg width="140" height="140" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Glow -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="50" cy="50" r="42"
+          stroke="#00eaff" stroke-width="3"
+          style="filter:url(#glow);" />
+
+  <!-- Middle ring (dashed) -->
+  <circle cx="50" cy="50" r="30"
+          stroke="#00eaff" stroke-width="2"
+          stroke-dasharray="6 6"
+          style="filter:url(#glow);" />
+
+  <!-- Inner ring -->
+  <circle cx="50" cy="50" r="18"
+          stroke="#00eaff" stroke-width="1.5"
+          style="filter:url(#glow);" />
+
+  <!-- Crosshair lines -->
+  <line x1="50" y1="8" x2="50" y2="20"
+        stroke="#00eaff" stroke-width="2"
+        style="filter:url(#glow);" />
+  <line x1="50" y1="80" x2="50" y2="92"
+        stroke="#00eaff" stroke-width="2"
+        style="filter:url(#glow);" />
+  <line x1="8" y1="50" x2="20" y2="50"
+        stroke="#00eaff" stroke-width="2"
+        style="filter:url(#glow);" />
+  <line x1="80" y1="50" x2="92" y2="50"
+        stroke="#00eaff" stroke-width="2"
+        style="filter:url(#glow);" />
+
+  <!-- Center dot -->
+  <circle cx="50" cy="50" r="5"
+          fill="#00eaff"
+          style="filter:url(#glow);" />
+
+</svg>
