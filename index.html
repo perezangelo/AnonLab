@@ -160,7 +160,7 @@
          top:40px;
          left:0;
 
-         width:260px; /* LARGHEZZA FISSA */
+         width:260px;
          background:#000;
          border:1px solid #ff7b00aa;
          border-radius:8px;
@@ -184,7 +184,7 @@
   </div>
 </div>
 
-<!-- IMMAGINE SOTTO IL MENU (STESSA LARGHEZZA) -->
+<!-- IMMAGINE SOTTO IL MENU -->
 <img src="img/ai-soc.jpg"
      alt="AI SOC"
      style="
@@ -199,16 +199,13 @@
 const toggle = document.getElementById("newsToggle");
 const panel = document.getElementById("newsPanel");
 
-// Apertura con fade-in + slide-down
 toggle.addEventListener("click", () => {
   if (panel.style.display === "none") {
     panel.style.display = "block";
-
     requestAnimationFrame(() => {
       panel.style.opacity = "1";
       panel.style.transform = "translateY(0)";
     });
-
   } else {
     panel.style.opacity = "0";
     panel.style.transform = "translateY(-10px)";
@@ -216,7 +213,6 @@ toggle.addEventListener("click", () => {
   }
 });
 
-// Chiusura cliccando fuori
 document.addEventListener("click", (e) => {
   if (!panel.contains(e.target) && !toggle.contains(e.target)) {
     if (panel.style.display === "block") {
@@ -228,32 +224,30 @@ document.addEventListener("click", (e) => {
 });
 </script>
 
-<!-- WRAPPER ALLINEATO A DESTRA (RISTRETTO PER MOBILE) -->
-<div style="
+<!-- WRAPPER GEARS + GOOGLE SEARCH (VERSIONE CORRETTA) -->
+<div class="google-wrapper" style="
     display:flex;
     justify-content:flex-end;
     align-items:center;
     gap:15px;
     margin-top:40px;
     margin-bottom:40px;
-    max-width:260px; /* 🔥 LIMITA LA LARGHEZZA COME MENU + IMMAGINE */
 ">
 
-    <!-- GEARS ICON A DESTRA -->
     <img src="img/gears.png"
          alt="Gears Icon"
          style="
-            width:42px;
-            height:42px;
+            width:48px;
+            height:48px;
             filter:drop-shadow(0 0 10px #00eaff);
          ">
 
-    <!-- GOOGLE SEARCH A DESTRA -->
     <form action="https://www.google.com/search" method="GET"
           style="
             display:flex;
             gap:10px;
             width:100%;
+            max-width:420px;
             justify-content:flex-end;
           ">
 
@@ -261,8 +255,8 @@ document.addEventListener("click", (e) => {
                placeholder="Cerca su Google..."
                style="
                  flex:1;
-                 padding:10px 12px;
-                 font-size:1rem;
+                 padding:12px 15px;
+                 font-size:1.1rem;
                  border-radius:8px;
                  border:1px solid #00eaff;
                  background:#000814;
@@ -272,7 +266,7 @@ document.addEventListener("click", (e) => {
 
         <button type="submit"
                 style="
-                  padding:10px 14px;
+                  padding:12px 18px;
                   background:#00eaff;
                   color:#000;
                   font-weight:bold;
@@ -286,6 +280,22 @@ document.addEventListener("click", (e) => {
     </form>
 
 </div>
+
+<!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
+<style>
+@media (max-width: 480px) {
+  .google-wrapper {
+    max-width: 260px !important; /* allinea tutto alla colonna */
+  }
+  .google-wrapper input {
+    padding: 10px !important;
+    font-size: 0.95rem !important;
+  }
+  .google-wrapper button {
+    padding: 10px 14px !important;
+  }
+}
+</style>
       <div style="margin-top:60px;"></div>
 
       <!-- ULTIME NEWS -->
