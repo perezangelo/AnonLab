@@ -129,6 +129,15 @@
 
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
+      
+      <!-- DIVISORIO NEON SOTTO LA HERO -->
+<div style="
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg, #00eaff00, #00eaffaa, #00eaff00);
+    margin:25px 0 35px 0;
+    box-shadow:0 0 12px #00eaffaa;
+"></div>
 
 <!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
 <div style="position:relative; margin-top:25px; display:inline-block;">
@@ -229,56 +238,57 @@ document.addEventListener("click", (e) => {
     display:flex;
     justify-content:flex-end;
     align-items:center;
-    gap:15px;
-    margin-top:-40px;   /* 🔥 molto più sicuro su mobile */
+    gap:12px;
+    margin-top:-80px;   /* 🔥 sale sotto la HERO come prima */
     margin-bottom:40px;
 ">
 
     <img src="img/gears.png"
          alt="Gears Icon"
          style="
-            width:48px;
-            height:48px;
+            width:42px;
+            height:42px;
             filter:drop-shadow(0 0 10px #00eaff);
          ">
 
     <form action="https://www.google.com/search" method="GET"
-      class="google-wrapper"
-      style="
-        display:flex;
-        gap:10px;
-        width:100%;
-        max-width:240px;   /* 🔥 restringe il box */
-        justify-content:flex-end;
-      ">
+          class="google-wrapper"
+          style="
+            display:flex;
+            gap:8px;
+            width:100%;
+            max-width:200px;   /* 🔥 più stretto, non invade AI‑SOC */
+            justify-content:flex-end;
+          ">
 
-    <input type="text" name="q"
-           placeholder="Cerca su Google..."
-           style="
-             flex:1;
-             padding:12px 15px;
-             font-size:1.1rem;
-             border-radius:8px;
-             border:1px solid #00eaff;
-             background:#000814;
-             color:#e0faff;
-             box-shadow:0 0 10px #00eaff55;
-           ">
+        <input type="text" name="q"
+               placeholder="Cerca su Google..."
+               style="
+                 width:100%;
+                 padding:10px 12px;
+                 font-size:1rem;
+                 border-radius:8px;
+                 border:1px solid #00eaff;
+                 background:#000814;
+                 color:#e0faff;
+                 box-shadow:0 0 10px #00eaff55;
+               ">
 
-    <button type="submit"
-            style="
-              padding:12px 18px;
-              background:#00eaff;
-              color:#000;
-              font-weight:bold;
-              border:none;
-              border-radius:8px;
-              cursor:pointer;
-              box-shadow:0 0 10px #00eaffaa;
-            ">
-      Cerca
-    </button>
-</form>
+        <button type="submit"
+                style="
+                  padding:10px 14px;
+                  background:#00eaff;
+                  color:#000;
+                  font-weight:bold;
+                  border:none;
+                  border-radius:8px;
+                  cursor:pointer;
+                  box-shadow:0 0 10px #00eaffaa;
+                ">
+          Cerca
+        </button>
+    </form>
+
 </div>
 
 <!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
