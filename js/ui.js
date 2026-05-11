@@ -129,7 +129,7 @@ async function loadMeteo() {
         tempEl.textContent = `${temp}°C`;
         descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
 
-        iconEl.src = `img/img/meteo/${meteoIcon[code] || "default.svg"}`;
+ iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
 
         /* ⭐ FIX SENZA TOCCARE CSS — evita taglio icona */
         iconEl.style.width = "auto";
