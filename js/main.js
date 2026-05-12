@@ -186,3 +186,25 @@ function initVisitCounter() {
 
     console.log("Contatore visite — versione corretta attiva");
 }
+// ===============================
+// NAVBAR MOBILE — HAMBURGER MENU
+// ===============================
+
+function initMobileMenu() {
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".main-nav");
+
+    if (!toggle || !nav) {
+        console.warn("Navbar mobile: elementi non trovati");
+        return;
+    }
+
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
+
+    console.log("Navbar mobile inizializzata");
+}
+
+// Avvio menu mobile
+initMobileMenu();
