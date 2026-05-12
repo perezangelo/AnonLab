@@ -1434,56 +1434,39 @@ details textarea,
 details input {
     margin-top: 15px;
 }
-/* ============================================================
-   FIX DEFINITIVO MENU MOBILE — PRIORITÀ ASSOLUTA
-============================================================ */
-
+/* MENU MOBILE — NASCONDI DI BASE */
 @media (max-width: 820px) {
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #050816;
+    border: 1px solid #00eaff;
+    padding: 10px;
+    gap: 8px;
+    z-index: 9999;
+  }
 
-    /* Mostra il pulsante hamburger */
-    .nav-toggle {
-        display: block !important;
-        position: relative !important;
-        z-index: 999999 !important;
-    }
+  .main-nav.open {
+    display: flex;
+  }
 
-    /* Navbar chiusa di default */
-    .main-nav {
-        display: none !important;
-        flex-direction: column !important;
-        gap: 14px !important;
-        background: rgba(0,0,0,0.92) !important;
-        padding: 20px !important;
-        border-radius: 10px !important;
-        position: absolute !important;
-        right: 20px !important;
-        top: 70px !important;
-        width: 220px !important;
-        z-index: 999998 !important;
-    }
+  .nav-toggle {
+    display: block;
+    z-index: 10000;
+  }
+}
 
-    /* Navbar aperta */
-    .main-nav.open {
-        display: flex !important;
-    }
+/* DESKTOP — MENU SEMPRE VISIBILE, HAMBURGER NASCOSTO */
+@media (min-width: 821px) {
+  .main-nav {
+    display: flex;
+    position: static;
+  }
 
-    /* HERO NON deve coprire il menu */
-    .hero-big,
-    .hero-big * {
-        z-index: 1 !important;
-    }
-
-    /* Header e menu SEMPRE sopra */
-    .site-header,
-    .nav-toggle,
-    .main-nav {
-        position: relative !important;
-        z-index: 999999 !important;
-    }
-
-    /* Dropdown news NON deve coprire il menu */
-    .dropdown-news,
-    .dropdown-menu {
-        z-index: 999 !important;
-    }
+  .nav-toggle {
+    display: none;
+  }
 }
