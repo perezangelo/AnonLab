@@ -4,8 +4,8 @@
         <!-- LOGO -->
         <a href="/index.html" class="logo">
            <img src="/favicon.png" class="logo-icon" alt="AnonLab"
-     style="width:42px !important; height:42px !important; object-fit:contain;
-            margin-right:8px; filter:drop-shadow(0 0 6px #00eaff);">
+                style="width:42px !important; height:42px !important; object-fit:contain;
+                margin-right:8px; filter:drop-shadow(0 0 6px #00eaff);">
             ANONLAB
         </a>
 
@@ -30,7 +30,23 @@
 </header>
 
 <script>
-document.getElementById("navToggle").addEventListener("click", () => {
-    document.getElementById("mainNav").classList.toggle("open");
+const toggle = document.getElementById("navToggle");
+const nav = document.getElementById("mainNav");
+
+// Nasconde il menu solo su mobile
+function adjustMenu() {
+    if (window.innerWidth > 768) {
+        nav.style.display = "flex";   // Desktop → visibile
+    } else {
+        nav.style.display = "none";   // Mobile → nascosto
+    }
+}
+
+toggle.addEventListener("click", () => {
+    nav.style.display = nav.style.display === "none" ? "block" : "none";
 });
+
+adjustMenu();
+window.addEventListener("resize", adjustMenu);
 </script>
+
