@@ -103,10 +103,12 @@ h3 {
   text-shadow: 0 0 6px rgba(0, 234, 255, 0.4);
 }
 
-.main-nav {
-  display: flex;
-  gap: 14px;
-  font-size: 0.9rem;
+@media (min-width: 821px) {
+  .main-nav {
+    display: flex;
+    gap: 14px;
+    font-size: 0.9rem;
+  }
 }
 
 .main-nav a {
