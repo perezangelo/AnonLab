@@ -1439,26 +1439,3 @@ details textarea,
 details input {
     margin-top: 15px;
 }
-/* ============================
-   HERO — POSIZIONAMENTO EYES DEFINITIVO
-============================ */
-
-/* DESKTOP */
-.hero-favicon {
-    position: absolute;
-    top: 42%;               /* centratura verticale ottica */
-    left: 50%;              /* centratura matematica */
-    transform: translateX(-50%);
-    width: 260px;
-    z-index: 3;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .hero-favicon {
-        top: 46%;           /* leggermente più in basso */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 180px;       /* proporzione corretta */
-    }
-}
