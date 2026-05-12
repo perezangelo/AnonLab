@@ -206,5 +206,7 @@ function initMobileMenu() {
     console.log("Navbar mobile inizializzata");
 }
 
-// Avvio menu mobile
-initMobileMenu();
+// Aspetta che il partial sia caricato
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(initMobileMenu, 300);
+});
