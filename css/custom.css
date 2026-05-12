@@ -708,10 +708,12 @@ canvas {
 /* ============================
    NAVBAR ORIZZONTALE
 ============================ */
-.main-nav {
-    display: flex;
-    gap: 22px;
-    align-items: center;
+@media (min-width: 821px) {
+    .main-nav {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+    }
 }
 
 .main-nav a {
