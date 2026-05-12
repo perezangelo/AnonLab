@@ -882,23 +882,6 @@ canvas {
     z-index: 3;
 }
 
-/* Occhi */
-.hero-favicon {
-    position: absolute;
-    top: 150px;
-    left: 38%;
-    transform: translateX(-50%);
-    width: 260px;
-    z-index: 3;
-}
-@media (max-width: 768px) {
-    .hero-favicon {
-        left: 50% !important;              /* centratura perfetta */
-        transform: translateX(-50%) !important;
-        top: 130px !important;             /* regola verticale */
-        width: 180px !important;           /* più proporzionato al cappuccio mobile */
-    }
-}
 /* Sottotitolo */
 .hero-big .hero-sub {
     margin-top: 300px !important; /* prima 260px */
@@ -910,15 +893,6 @@ canvas {
     margin-top: 40px !important; /* prima 20px */
     text-align: center;
     display: block;
-}
-/* MOBILE FIX — centra gli occhi su smartphone (correzione ottica) */
-@media (max-width: 768px) {
-    .hero-big .hero-favicon {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        top: 180px !important;
-        width: 200px !important;
-    }
 }
 .google-search-wrapper {
     display: flex;
