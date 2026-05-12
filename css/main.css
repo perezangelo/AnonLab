@@ -241,46 +241,6 @@ h3 {
     font-size: 1.25rem;
   }
 }
-/* ============================================================
-   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT (VERSIONE PRO)
-============================================================ */
-
-.widget-large {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18);
-}
-
-.box-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.box-title-row h2 {
-  margin: 0;
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.box-title-icon {
-  width: 46px;
-  height: 46px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(0,170,255,0.28);
-  box-shadow: 0 0 12px rgba(0,170,255,0.28);
-  opacity: 0.95;
-}
-
-@media (max-width: 480px) {
-  .box-title-icon { width: 40px; height: 40px; }
-  .box-title-row h2 { font-size: 1.25rem; }
-}
 
 /* ============================================================
    NEWS CARD — versione PRO
