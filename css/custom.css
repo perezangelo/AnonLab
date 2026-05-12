@@ -51,19 +51,6 @@
     transform: scale(1.05) !important;
     box-shadow: 0 0 18px rgba(0, 200, 255, 0.7) !important;
 }
-
-/* Eyes */
-.hero-favicon {
-    width: 240px !important;
-    margin: 30px auto 20px !important;
-    filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)) !important;
-    animation: eyesPulse 3s infinite ease-in-out !important;
-}
-
-@keyframes eyesPulse {
-  0%, 100% { filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)); }
-  50% { filter: drop-shadow(0 0 22px rgba(0,255,255,0.8)); }
-}
 /* ============================
    DROPDOWN NEWS — MENU A TENDINA
 ============================ */
