@@ -72,15 +72,14 @@
 </head>
 
 <body class="dark-mode">
-
-<!-- WRAPPER GPU -->
+  
 <!-- WRAPPER GPU -->
 <div id="app" class="gpu-boost">
 
   <!-- HEADER (caricato dal partial) -->
   <div id="header"></div>
 
-  <!-- 🔥 TICKER SPOSTATO QUI (SOTTO L’HEADER) -->
+  <!-- 🔥 TICKER SPOSTATO QUI (SUBITO SOTTO L’HEADER) -->
   <div class="ticker" aria-label="Ultime notizie in scorrimento" role="marquee">
 
     <div class="ticker-title">Breaking</div>
@@ -97,26 +96,27 @@
 
   </div>
 
-<script>
-    fetch("/partials/sidebar.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("sidebar").innerHTML = data;
+  <!-- SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
+  <script>
+      fetch("/partials/sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById("sidebar").innerHTML = data;
 
-        initCalculator();
-        initRadio();
-        initYouTubePlayer();
-        initVisitCounter();
-        initOroscopo();  // ← RIGA FONDAMENTALE
+          initCalculator();
+          initRadio();
+          initYouTubePlayer();
+          initVisitCounter();
+          initOroscopo();  // ← RIGA FONDAMENTALE
 
-        console.log("Sidebar caricata — Widget inizializzati");
-    });
-</script>
+          console.log("Sidebar caricata — Widget inizializzati");
+      });
+  </script>
 
   <main class="page">
 
     <section class="main-column">
-
+      
       <!-- HERO PRINCIPALE -->
 <section class="hero-big">
   <h1 data-text="ANONLAB">ANONLAB</h1>
