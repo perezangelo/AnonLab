@@ -1409,7 +1409,7 @@ details input {
     top: 42% !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 260px !important;   /* sovrascrive il maledetto width:80% */
+    width: 260px !important;   /* sovrascrive width:80% di main.css */
     z-index: 3 !important;
 }
 
