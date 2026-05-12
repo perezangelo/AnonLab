@@ -33,20 +33,8 @@
 const toggle = document.getElementById("navToggle");
 const nav = document.getElementById("mainNav");
 
-// Nasconde il menu solo su mobile
-function adjustMenu() {
-    if (window.innerWidth > 768) {
-        nav.style.display = "flex";   // Desktop → visibile
-    } else {
-        nav.style.display = "none";   // Mobile → nascosto
-    }
-}
-
+// Apertura/chiusura menu mobile
 toggle.addEventListener("click", () => {
-    nav.style.display = nav.style.display === "none" ? "block" : "none";
+    nav.classList.toggle("open");
 });
-
-adjustMenu();
-window.addEventListener("resize", adjustMenu);
 </script>
-
