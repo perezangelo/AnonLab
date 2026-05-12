@@ -1401,16 +1401,17 @@ details input {
     margin-top: 15px;
 }
 /* ============================
-   HERO — POSIZIONAMENTO EYES (FIX FINALE)
+   HERO — POSIZIONAMENTO EYES (REGOLAZIONE 2)
 ============================ */
 
 .hero-big {
     position: relative !important;
 }
 
+/* DESKTOP */
 .hero-big .hero-favicon {
     position: absolute !important;
-    top: 180px !important;       /* posizione desktop */
+    top: 240px !important;       /* prima 180px — ora più basso */
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 150px !important;
@@ -1420,7 +1421,7 @@ details input {
 /* MOBILE */
 @media (max-width: 768px) {
     .hero-big .hero-favicon {
-        top: 260px !important;   /* posizione mobile */
+        top: 300px !important;   /* prima 260px — ora più basso */
         width: 135px !important;
     }
 }
