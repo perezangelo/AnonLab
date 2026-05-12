@@ -1415,7 +1415,7 @@ details input {
 /* MOBILE */
 @media (max-width: 768px) {
     .hero-big .hero-favicon {
-        top: 220px !important;   /* abbassati nel cappuccio */
+        top: 230px !important;   /* abbassati nel cappuccio */
         width: 150px !important; /* proporzione perfetta */
     }
 }
