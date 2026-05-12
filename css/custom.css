@@ -1401,23 +1401,26 @@ details input {
     margin-top: 15px;
 }
 /* ============================
-   HERO — POSIZIONAMENTO EYES DEFINITIVO
+   HERO — POSIZIONAMENTO EYES (FIX FINALE)
 ============================ */
+
+.hero-big {
+    position: relative !important;
+}
 
 .hero-big .hero-favicon {
     position: absolute !important;
+    top: 180px !important;       /* posizione desktop */
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 150px !important;     /* sovrascrive width:80% di main.css */
+    width: 150px !important;
     z-index: 3 !important;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
     .hero-big .hero-favicon {
-        top: 300px !important;   /* abbassati nel cappuccio */
+        top: 260px !important;   /* posizione mobile */
         width: 135px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
     }
 }
