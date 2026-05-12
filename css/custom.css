@@ -762,7 +762,6 @@ canvas {
    RESPONSIVE
 ============================ */
 @media (max-width: 820px) {
-
     .main-nav {
         display: none;
         flex-direction: column;
@@ -770,22 +769,12 @@ canvas {
         background: rgba(0,0,0,0.85);
         padding: 20px;
         border-radius: 8px;
-
-        /* FIX: menu sotto l’hamburger */
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-
-        width: 100%;
+        right: 20px;
+        top: 70px;
         z-index: 999;
     }
-
-    .main-nav.open {
-        display: flex;
-    }
 }
-
 /* ============================
    ABOUT (HOME) — NEON
 ============================ */
