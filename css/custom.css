@@ -1434,39 +1434,36 @@ details textarea,
 details input {
     margin-top: 15px;
 }
-/* MENU MOBILE — NASCONDI DI BASE */
+/* MENU MOBILE — POSIZIONAMENTO SOTTO L'HAMBURGER */
 @media (max-width: 820px) {
+
+  .site-header {
+      position: relative;
+      z-index: 9999;
+  }
+
+  .nav-toggle {
+      position: relative;
+      z-index: 10000;
+  }
+
   .main-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background: #050816;
-    border: 1px solid #00eaff;
-    padding: 10px;
-    gap: 8px;
-    z-index: 9999;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+
+      position: absolute;
+      top: 60px;          /* sotto l’hamburger */
+      left: 0;            /* allineato a sinistra */
+      width: 100%;        /* dropdown largo */
+      padding: 15px;
+
+      background: #050816;
+      border: 1px solid #00eaff;
+      box-shadow: 0 0 10px #00eaff;
   }
 
   .main-nav.open {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-    z-index: 10000;
-  }
-}
-
-/* DESKTOP — MENU SEMPRE VISIBILE, HAMBURGER NASCOSTO */
-@media (min-width: 821px) {
-  .main-nav {
-    display: flex;
-    position: static;
-  }
-
-  .nav-toggle {
-    display: none;
+      display: flex;
   }
 }
