@@ -1401,25 +1401,23 @@ details input {
     margin-top: 15px;
 }
 /* ============================
-   HERO — POSIZIONAMENTO EYES DEFINITIVO
+   HERO — FIX FINALE EYES
 ============================ */
 
-/* DESKTOP */
 .hero-favicon {
-    position: absolute;
-    top: 42%;               /* centratura verticale ottica */
-    left: 50%;              /* centratura matematica */
-    transform: translateX(-50%);
-    width: 260px;
-    z-index: 3;
+    position: absolute !important;
+    top: 42% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 260px !important;   /* sovrascrive il maledetto width:80% */
+    z-index: 3 !important;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
     .hero-favicon {
-        top: 46%;           /* leggermente più in basso */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 180px;       /* proporzione corretta */
+        top: 46% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 180px !important;
     }
 }
