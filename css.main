@@ -1,0 +1,711 @@
+/* ============================================================
+   SEZIONE 1 — VARIABILI GLOBALI + RESET + BASE (VERSIONE PRO)
+============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bg-main: #000;
+  --bg-elevated: #0d0d0d;
+  --bg-card: #111;
+
+  --accent: #00eaff;
+  --accent-soft: rgba(0, 234, 255, 0.22);
+
+  --text-main: #f2f2f2;
+  --text-muted: #d4d4d4;
+  --text-soft: #bcbcbc;
+
+  --border-subtle: rgba(0, 234, 255, 0.22);
+
+  --danger: #ff4b6e;
+
+  --shadow-soft: 0 0 18px rgba(0, 234, 255, 0.22);
+
+  --radius: 10px;
+
+  --font-main: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.01em;
+}
+
+::placeholder {
+  color: var(--text-soft);
+}
+
+/* ============================================================
+   SEZIONE 2 — LAYOUT + HEADER + NAV + TICKER (VERSIONE PRO)
+============================================================ */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(280px, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  margin: 12px auto 10px;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18);
+  position: sticky;
+  top: 8px;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(0, 234, 255, 0.4);
+}
+
+@media (min-width: 821px) {
+  .main-nav {
+    display: flex;
+    gap: 14px;
+    font-size: 0.9rem;
+  }
+}
+
+.main-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: 0.18s ease;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+  background: rgba(0, 255, 157, 0.06);
+}
+
+@media (max-width: 480px) {
+  .main-nav {
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+
+  .main-nav a {
+    padding: 4px 8px;
+  }
+}
+
+/* Ticker */
+
+.ticker {
+  max-width: 1200px;
+  margin: 0 auto 14px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.ticker-title {
+  background: linear-gradient(135deg, #ff4b6e, #ff9f43);
+  color: #050308;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticker-content {
+  background: #111;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 8px 14px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-content::before {
+  content: "●";
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 0.7rem;
+}
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-loop 22s linear infinite;
+}
+
+@keyframes ticker-loop {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* ============================================================
+   SEZIONE 3 — WIDGET + NEWS + FEED + ALERT (VERSIONE PRO)
+============================================================ */
+
+.widget-large {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18);
+}
+
+.box-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.box-title-row h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.box-title-icon {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 170, 255, 0.28);
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.28);
+  opacity: 0.95;
+}
+
+@media (max-width: 480px) {
+  .box-title-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .box-title-row h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ============================================================
+   NEWS CARD — versione PRO
+============================================================ */
+
+.news-card {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  background: #0d0d0d;
+  border: 1px solid rgba(0,170,255,0.28);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: 0 0 16px rgba(0,170,255,0.18);
+  position: relative;
+  overflow: hidden;
+  align-items: flex-start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50);
+  z-index: 1;
+}
+
+.news-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 26px rgba(0, 234, 255, 0.25);
+}
+
+.news-thumb {
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-thumb {
+  transform: scale(1.06);
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.news-title {
+  font-size: 1.05rem;
+  margin: 0;
+  color: #fff;
+  font-weight: 650;
+}
+
+.news-excerpt {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #e6e6e6;
+}
+
+.news-meta {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ============================================================
+   FEED + ALERT — versione PRO
+============================================================ */
+
+#alert-live {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feed-item,
+.alert-item,
+.box-img-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.feed-thumb,
+.alert-thumb,
+.box-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(0,170,255,0.22);
+}
+
+.alert-item span,
+.feed-item span {
+  line-height: 1.28;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.alert-icon,
+.feed-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+@media (max-width: 480px) {
+  .feed-thumb,
+  .alert-thumb,
+  .box-thumb {
+    width: 42px;
+    height: 42px;
+  }
+  .feed-item,
+  .alert-item,
+  .box-img-row {
+    gap: 8px;
+  }
+}
+
+/* Loghi feed */
+.feed-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.feed-logos img {
+  width: calc(20% - 6px);
+  max-width: 60px;
+  height: auto;
+  border-radius: 6px;
+  opacity: 0.95;
+}
+
+/* ============================================================
+   SEZIONE 4 — HERO (VERSIONE PRO OTTIMIZZATA)
+============================================================ */
+
+.hero-big {
+  position: relative; /* fondamentale per centrare gli eyes */
+  overflow: visible;
+  text-align: center;
+  padding: 60px 20px;
+
+  background-image: url("/img/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow:
+    0 0 25px rgba(0,0,0,0.25),
+    0 0 22px rgba(0, 234, 255, 0.18);
+
+  margin-bottom: 30px;
+  z-index: 0; /* importantissimo */
+}
+
+/* MATRIX */
+.hero-big::before {
+  content: "01010100110100101101001010100100110100101010010011010010";
+  position: absolute;
+  inset: 0;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  line-height: 26px;
+  color: rgba(0, 170, 255, 0.20);
+  white-space: pre;
+  animation: matrixRain 18s linear infinite;
+  opacity: 0.32;
+  z-index: 1;
+}
+
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* DIGITAL FLOW */
+.hero-big::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0,170,255,0.18), transparent 70%);
+  animation: flowMove 18s linear infinite;
+  opacity: 0.22;
+  z-index: 2;
+}
+
+@keyframes flowMove {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.18) translateY(-40px); }
+}
+
+/* TITOLO */
+.hero-big {
+  position: relative;
+  overflow: visible;
+  padding: 60px 20px;
+
+  background-image: url("/img/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow:
+    0 0 25px rgba(0,0,0,0.25),
+    0 0 22px rgba(0, 234, 255, 0.18);
+
+  margin-bottom: 30px;
+}
+
+/* GLITCH */
+.hero-big h1::before,
+.hero-big h1::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  z-index: 4;
+}
+
+.hero-big h1::before {
+  color: #00aaff;
+  transform: translate(2px, 0);
+  animation: glitch1 2.4s infinite;
+}
+
+.hero-big h1::after {
+  color: #0088ff;
+  transform: translate(-2px, 0);
+  animation: glitch2 2.9s infinite;
+}
+
+@keyframes glitch1 {
+  0% { clip-path: inset(0 0 80% 0); }
+  50% { clip-path: inset(18% 0 42% 0); }
+  100% { clip-path: inset(60% 0 0 0); }
+}
+
+@keyframes glitch2 {
+  0% { clip-path: inset(60% 0 0 0); }
+  50% { clip-path: inset(12% 0 58% 0); }
+  100% { clip-path: inset(0 0 80% 0); }
+}
+
+/* SCANLINES */
+.hero-big .scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.22) 0px,
+    rgba(0, 0, 0, 0.22) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.22;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* SOTTOTITOLO */
+.hero-sub {
+  color: var(--text-muted);
+  font-size: 1.22rem;
+  margin-top: 10px;
+  position: relative;
+  z-index: 5;
+}
+
+/* IMMAGINE EYES */
+./* HERO — centratura occhi nel cappuccio */
+.hero-favicon {
+  position: absolute;
+  left: 50%;
+  top: 42%; /* da calibrare dopo screenshot */
+  transform: translateX(-50%);
+  width: 38%;
+  max-width: 260px;
+  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
+  z-index: 6;
+}
+
+/* MOBILE FIX */
+@media (max-width: 480px) {
+  .hero-favicon {
+    top: 46%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-big h1 { font-size: 3.2rem; }
+  .hero-favicon { width: 65%; }
+}
+
+@media (max-width: 768px) {
+  .hero-big h1 { font-size: 2.6rem; }
+  .hero-favicon { width: 70%; }
+}
+
+@media (max-width: 480px) {
+  .hero-big h1 { font-size: 2.2rem; }
+  .hero-favicon { width: 80%; }
+}
+/* ============================================================
+   SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
+============================================================ */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: 0 0 18px rgba(0, 234, 255, 0.18);
+}
+
+.sidebar-box h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  color: var(--accent);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-icon {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  opacity: 0.92;
+  border: 1px solid rgba(0,170,255,0.28);
+  box-shadow: 0 0 10px rgba(0,170,255,0.18);
+}
+
+/* FORM */
+.sidebar-box form input,
+.sidebar-box form textarea {
+  width: 100%;
+  padding: 11px 12px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: #0d0d0d;
+  color: var(--text-main);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-box form input:focus,
+.sidebar-box form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.25);
+}
+
+.sidebar-box form input::placeholder,
+.sidebar-box form textarea::placeholder {
+  color: var(--text-soft);
+}
+
+.sidebar-box form button {
+  width: 100%;
+  padding: 11px;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 650;
+  transition: 0.22s ease;
+}
+
+.sidebar-box form button:hover {
+  background: #00c4e6;
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.35);
+}
+
+/* UTILITY */
+.text-muted { color: var(--text-muted); }
+.full-width { width: 100%; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+
+/* ============================================================
+   SEZIONE 6 — RESPONSIVE + FIX FINALI (VERSIONE PRO)
+============================================================ */
+
+@media (max-width: 900px) {
+  .page { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .news-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .news-thumb {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Google search responsive */
+.google-search-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.google-search-wrapper form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .google-search-wrapper form {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Fix immagini */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
