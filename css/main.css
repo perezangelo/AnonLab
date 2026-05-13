@@ -673,43 +673,41 @@ img, video {
   max-width: 100%;
   height: auto;
 }
-/* ============================================================
-   HERO EYES — VERSIONE DEFINITIVA (DESKTOP + TABLET + MOBILE)
-   ============================================================ */
-
-/* DESKTOP — regola principale */
+/* IMMAGINE EYES */
+/* HERO — centratura occhi nel cappuccio */
 .hero-favicon {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-115%) !important;
-  width: 300px !important;
-  top: 115px !important;
-  z-index: 6 !important;
+  position: absolute;
+  left: 50%;
+  top: 42%; /* centratura verticale fluida */
+  transform: translateX(-50%); /* centratura orizzontale perfetta */
+  width: 38%; /* proporzione ideale desktop */
+  max-width: 260px;
+  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
+  z-index: 6;
 }
 
-/* TABLET (max 992px) */
-@media (max-width: 992px) {
-  .hero-favicon {
-    transform: translateX(-105%) !important;
-    top: 140px !important;
-    width: 260px !important;
-  }
-}
-
-/* MOBILE GRANDE (max 768px) */
-@media (max-width: 768px) {
-  .hero-favicon {
-    transform: translateX(-118%) !important;
-    top: 120px !important;
-    width: 220px !important;
-  }
-}
-
-/* MOBILE PICCOLO (max 480px) */
+/* MOBILE PICCOLO (correzione centratura) */
 @media (max-width: 480px) {
   .hero-favicon {
-    transform: translateX(-110%) !important;
-    top: 110px !important;
-    width: 180px !important;
+    top: 46%;
+    width: 42%; /* NON più 50% → era questo che li spingeva a destra */
   }
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+  .hero-big h1 { font-size: 3.2rem; }
+  .hero-favicon { width: 50%; } /* NON 65% → troppo largo */
+}
+
+/* MOBILE GRANDE */
+@media (max-width: 768px) {
+  .hero-big h1 { font-size: 2.6rem; }
+  .hero-favicon { width: 55%; } /* NON 70% → spingeva a destra */
+}
+
+/* MOBILE PICCOLO (seconda fase) */
+@media (max-width: 480px) {
+  .hero-big h1 { font-size: 2.2rem; }
+  .hero-favicon { width: 60%; } /* NON 80% → completamente fuori centro */
 }
