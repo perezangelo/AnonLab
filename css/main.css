@@ -554,9 +554,9 @@ h3 {
 .hero-favicon {
   position: absolute;
   left: 50%;
-  transform: translateX(-85%);   /* molto più a sinistra */
-  width: 300px;                  /* più grandi */
-  top: 240px;                    /* più in basso */
+  transform: translateX(-115%);   /* molto più a sinistra */
+  width: 400px;                  /* più grandi */
+  top: 250px;                    /* più in basso */
   z-index: 6;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
 }
