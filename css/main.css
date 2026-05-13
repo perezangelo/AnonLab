@@ -543,15 +543,12 @@ h3 {
 }
 
 /* IMMAGINE EYES */
-./* HERO — centratura occhi nel cappuccio */
-/* === HERO EYES — versione stabile e corretta === */
-
 .hero-favicon {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;      /* più grandi su desktop */
-  top: 240px;        /* più alti su desktop */
+  width: 150px;      /* più grandi */
+  top: 200px;        /* più alti → non entrano nella colonna sinistra */
   z-index: 6;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
 }
@@ -560,7 +557,7 @@ h3 {
 @media (max-width: 992px) {
   .hero-favicon {
     width: 130px;
-    top: 260px;
+    top: 220px;
   }
 }
 
@@ -568,7 +565,7 @@ h3 {
 @media (max-width: 768px) {
   .hero-favicon {
     width: 120px;
-    top: 300px;
+    top: 250px;
   }
 }
 
@@ -576,10 +573,9 @@ h3 {
 @media (max-width: 480px) {
   .hero-favicon {
     width: 110px;
-    top: 320px;
+    top: 270px;
   }
-}
-/* ============================================================
+} ============================================================
    SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
 ============================================================ */
 
