@@ -679,9 +679,9 @@ img, video {
   position: absolute;
   left: 50%;
   top: 40%; /* centratura verticale fluida */
-  transform: translateX(-90%); /* centratura orizzontale perfetta */
-  width: 15%; /* proporzione ideale desktop */
-  max-width: 240px;
+  transform: translateX(-85%); /* centratura orizzontale perfetta */
+  width: 20%; /* proporzione ideale desktop */
+  max-width: 250px;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
   z-index: 6;
 }
