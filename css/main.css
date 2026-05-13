@@ -678,7 +678,7 @@ img, video {
 .hero-favicon {
   position: absolute;
   left: 50%;
-  top: 35%; /* centratura verticale fluida */
+  top: 38%; /* centratura verticale fluida */
   transform: translateX(-85%); /* centratura orizzontale perfetta */
   width: 30%; /* proporzione ideale desktop */
   max-width: 260px;
