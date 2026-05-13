@@ -548,8 +548,8 @@ h3 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;        /* valore fisso, stabile */
-  top: 240px;          /* regolabile al pixel */
+  width: 150px;
+  top: 240px;
   z-index: 6;
 }
 
