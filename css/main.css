@@ -689,9 +689,9 @@ img, video {
 .hero-favicon {
   position: absolute !important;
   left: 50% !important;
-  transform: translateX(-120%) !important;
+  transform: translateX(-115%) !important;
   width: 300px !important;
-  top: 150px !important;
+  top: 115px !important;
   z-index: 6 !important;
 }
 
@@ -707,9 +707,9 @@ img, video {
 /* Mobile grande */
 @media (max-width: 768px) {
   .hero-favicon {
-    transform: translateX(-90%) !important;
+    transform: translateX(-65%) !important;
     width: 220px !important;
-    top: 120px !important;
+    top: 100px !important;
   }
 }
 
