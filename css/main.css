@@ -693,7 +693,7 @@ img, video {
 /* MOBILE PICCOLO (correzione centratura) */
 @media (max-width: 480px) {
   .hero-favicon {
-    top: 40%;
+    top: 35%;
     width: 42%; /* NON più 50% → era questo che li spingeva a destra */
   }
 }
