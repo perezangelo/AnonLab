@@ -679,7 +679,7 @@ img, video {
   position: absolute;
   left: 50%;
   top: 42%; /* centratura verticale fluida */
-  transform: translateX(-50%); /* centratura orizzontale perfetta */
+  transform: translateX(-70%); /* centratura orizzontale perfetta */
   width: 38%; /* proporzione ideale desktop */
   max-width: 260px;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
