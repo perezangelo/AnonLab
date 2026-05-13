@@ -548,23 +548,22 @@ h3 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  top: 240px;
+  width: 130px;   /* più piccoli */
+  top: 280px;     /* più bassi */
   z-index: 6;
 }
 
 @media (max-width: 992px) {
-  .hero-favicon { width: 150px; top: 260px; }
+  .hero-favicon { width: 120px; top: 300px; }
 }
 
 @media (max-width: 768px) {
-  .hero-favicon { width: 135px; top: 300px; }
+  .hero-favicon { width: 110px; top: 330px; }
 }
 
-@media (max-width: 480px) {
-  .hero-favicon { width: 120px; top: 330px; }
+@media (max-width: 576px) {
+  .hero-favicon { width: 100px; top: 360px; }
 }
-
 /* ============================================================
    SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
 ============================================================ */
