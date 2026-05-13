@@ -686,8 +686,8 @@ img, video {
   z-index: 6;
 }
 .hero-favicon {
-  mask-image: radial-gradient(circle, black 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+  mask-image: radial-gradient(circle, black 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, black 55%, transparent 100%);
 }
 
 /* MOBILE PICCOLO (correzione centratura) */
