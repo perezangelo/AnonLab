@@ -673,19 +673,11 @@ img, video {
   max-width: 100%;
   height: auto;
 }
-/* IMMAGINE EYES */
-/* === HERO EYES — più alti, più grandi e centrati === */
+/* ============================================================
+   HERO EYES — VERSIONE DEFINITIVA (DESKTOP + TABLET + MOBILE)
+   ============================================================ */
 
-/* === HERO EYES — versione potenziata === */
-
-/* === HERO EYES — versione calibrata al pixel === */
-
-/* === HERO EYES — versione calibrata al pixel === */
-
-/* === HERO EYES — OVERRIDE TOTALE === */
-
-/* === HERO EYES — OVERRIDE TOTALE === */
-
+/* DESKTOP — regola principale */
 .hero-favicon {
   position: absolute !important;
   left: 50% !important;
@@ -695,29 +687,29 @@ img, video {
   z-index: 6 !important;
 }
 
-/* Tablet */
+/* TABLET (max 992px) */
 @media (max-width: 992px) {
   .hero-favicon {
-    transform: translateX(-80%) !important;
-    width: 240px !important;
-    top: 210px !important;
+    transform: translateX(-105%) !important;
+    top: 140px !important;
+    width: 260px !important;
   }
 }
 
-/* Mobile grande */
+/* MOBILE GRANDE (max 768px) */
 @media (max-width: 768px) {
   .hero-favicon {
-    transform: translateX(-65%) !important;
+    transform: translateX(-118%) !important;
+    top: 120px !important;
     width: 220px !important;
-    top: 100px !important;
   }
 }
 
-/* Mobile piccolo */
+/* MOBILE PICCOLO (max 480px) */
 @media (max-width: 480px) {
   .hero-favicon {
-    transform: translateX(-90%) !important;
+    transform: translateX(-110%) !important;
+    top: 110px !important;
     width: 180px !important;
-    top: 170px !important;
   }
 }
