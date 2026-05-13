@@ -704,9 +704,9 @@ img, video {
 /* Mobile grande */
 @media (max-width: 768px) {
   .hero-favicon {
-    transform: translateX(-60%);
-    width: 180px;
-    top: 165px;
+    transform: translateX(-95%);
+    width: 220px;
+    top: 190px;
   }
 }
 
