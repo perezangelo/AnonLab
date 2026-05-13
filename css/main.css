@@ -684,6 +684,8 @@ img, video {
 
 /* === HERO EYES — OVERRIDE TOTALE === */
 
+/* === HERO EYES — OVERRIDE TOTALE === */
+
 .hero-favicon {
   position: absolute !important;
   left: 50% !important;
@@ -691,7 +693,6 @@ img, video {
   width: 300px !important;
   top: 240px !important;
   z-index: 6 !important;
-  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18)) !important;
 }
 
 /* Tablet */
