@@ -554,9 +554,9 @@ h3 {
 .hero-favicon {
   position: absolute;
   left: 50%;
-  transform: translateX(-65%);   /* più a sinistra */
-  width: 220px;                  /* più grandi */
-  top: 10px !important;           /* più in basso */
+  transform: translateX(-68%);   /* ancora più a sinistra */
+  width: 240px;                  /* ancora più grandi */
+  top: 205px;                    /* ancora più in basso */
   z-index: 6;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
 }
@@ -564,27 +564,27 @@ h3 {
 /* Tablet */
 @media (max-width: 992px) {
   .hero-favicon {
-    transform: translateX(-62%);
-    width: 200px;
-    top: 170px;
+    transform: translateX(-64%);
+    width: 210px;
+    top: 185px;
   }
 }
 
 /* Mobile grande */
 @media (max-width: 768px) {
   .hero-favicon {
-    transform: translateX(-58%);
-    width: 170px;
-    top: 150px;
+    transform: translateX(-60%);
+    width: 180px;
+    top: 165px;
   }
 }
 
 /* Mobile piccolo */
 @media (max-width: 480px) {
   .hero-favicon {
-    transform: translateX(-55%);
-    width: 150px;
-    top: 135px;
+    transform: translateX(-56%);
+    width: 160px;
+    top: 150px;
   }
 }
 ============================================================
