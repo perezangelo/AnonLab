@@ -562,19 +562,16 @@ h3 {
 }
 
 @media (max-width: 992px) {
-  .hero-big h1 { font-size: 3.2rem; }
-  .hero-favicon { width: 65%; }
+  .hero-favicon { width: 150px; top: 260px; }
 }
 
 @media (max-width: 768px) {
-  .hero-big h1 { font-size: 2.6rem; }
-  .hero-favicon { width: 70%; }
+  .hero-favicon { width: 135px; top: 300px; }
 }
 
 @media (max-width: 480px) {
-  .hero-big h1 { font-size: 2.2rem; }
-  .hero-favicon { width: 80%; }
-} 
+  .hero-favicon { width: 120px; top: 330px; }
+}
 
 /* ============================================================
    SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
