@@ -549,12 +549,14 @@ h3 {
 
 /* === HERO EYES — versione calibrata al pixel === */
 
+/* === HERO EYES — versione calibrata al pixel === */
+
 .hero-favicon {
   position: absolute;
   left: 50%;
-  transform: translateX(-58%);   /* più a sinistra */
-  width: 200px;                  /* più grandi */
-  top: 165px;                    /* più in basso */
+  transform: translateX(-65%);   /* più a sinistra */
+  width: 220px;                  /* più grandi */
+  top: 185px;                    /* più in basso */
   z-index: 6;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
 }
@@ -562,27 +564,27 @@ h3 {
 /* Tablet */
 @media (max-width: 992px) {
   .hero-favicon {
-    transform: translateX(-56%);
-    width: 180px;
-    top: 150px;
+    transform: translateX(-62%);
+    width: 200px;
+    top: 170px;
   }
 }
 
 /* Mobile grande */
 @media (max-width: 768px) {
   .hero-favicon {
-    transform: translateX(-54%);
-    width: 160px;
-    top: 135px;
+    transform: translateX(-58%);
+    width: 170px;
+    top: 150px;
   }
 }
 
 /* Mobile piccolo */
 @media (max-width: 480px) {
   .hero-favicon {
-    transform: translateX(-52%);
-    width: 145px;
-    top: 120px;
+    transform: translateX(-55%);
+    width: 150px;
+    top: 135px;
   }
 }
 ============================================================
