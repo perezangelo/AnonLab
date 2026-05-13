@@ -682,39 +682,41 @@ img, video {
 
 /* === HERO EYES — versione calibrata al pixel === */
 
+/* === HERO EYES — OVERRIDE TOTALE === */
+
 .hero-favicon {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-95%);   /* molto più a sinistra */
-  width: 300px;                  /* più grandi */
-  top: 240px;                    /* più in basso */
-  z-index: 6;
-  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-95%) !important;
+  width: 300px !important;
+  top: 240px !important;
+  z-index: 6 !important;
+  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18)) !important;
 }
 
 /* Tablet */
 @media (max-width: 992px) {
   .hero-favicon {
-    transform: translateX(-64%);
-    width: 210px;
-    top: 185px;
+    transform: translateX(-80%) !important;
+    width: 240px !important;
+    top: 210px !important;
   }
 }
 
 /* Mobile grande */
 @media (max-width: 768px) {
   .hero-favicon {
-    transform: translateX(-95%);
-    width: 220px;
-    top: 190px;
+    transform: translateX(-95%) !important;
+    width: 220px !important;
+    top: 190px !important;
   }
 }
 
 /* Mobile piccolo */
 @media (max-width: 480px) {
   .hero-favicon {
-    transform: translateX(-56%);
-    width: 160px;
-    top: 150px;
+    transform: translateX(-90%) !important;
+    width: 180px !important;
+    top: 170px !important;
   }
 }
