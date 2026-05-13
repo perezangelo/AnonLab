@@ -556,7 +556,7 @@ h3 {
   left: 50%;
   transform: translateX(-65%);   /* più a sinistra */
   width: 220px;                  /* più grandi */
-  top: 185px;                    /* più in basso */
+  top: 10px !important;           /* più in basso */
   z-index: 6;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
 }
