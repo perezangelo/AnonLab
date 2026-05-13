@@ -1400,28 +1400,3 @@ details textarea,
 details input {
     margin-top: 15px;
 }
-/* ============================
-   HERO — POSIZIONAMENTO EYES (FIX FINALE)
-============================ */
-
-.hero-big {
-    position: relative !important;
-}
-
-/* DESKTOP */
-.hero-big .hero-favicon {
-    position: absolute !important;
-    top: 240px !important;       /* regola la posizione verticale */
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 150px !important;
-    z-index: 10 !important;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .hero-big .hero-favicon {
-        top: 330px !important;
-        width: 135px !important;
-    }
-}
