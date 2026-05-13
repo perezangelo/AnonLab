@@ -541,52 +541,6 @@ h3 {
   position: relative;
   z-index: 5;
 }
-
-/* IMMAGINE EYES */
-/* === HERO EYES — più alti, più grandi e centrati === */
-
-/* === HERO EYES — versione potenziata === */
-
-/* === HERO EYES — versione calibrata al pixel === */
-
-/* === HERO EYES — versione calibrata al pixel === */
-
-.hero-favicon {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-200%);   /* molto più a sinistra */
-  width: 400px;                  /* più grandi */
-  top: 250px;                    /* più in basso */
-  z-index: 6;
-  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  .hero-favicon {
-    transform: translateX(-64%);
-    width: 210px;
-    top: 185px;
-  }
-}
-
-/* Mobile grande */
-@media (max-width: 768px) {
-  .hero-favicon {
-    transform: translateX(-60%);
-    width: 180px;
-    top: 165px;
-  }
-}
-
-/* Mobile piccolo */
-@media (max-width: 480px) {
-  .hero-favicon {
-    transform: translateX(-56%);
-    width: 160px;
-    top: 150px;
-  }
-}
 ============================================================
    SEZIONE 5 — SIDEBAR + FORM + UTILITY (VERSIONE PRO)
 ============================================================ */
@@ -718,4 +672,49 @@ h3 {
 img, video {
   max-width: 100%;
   height: auto;
+}
+/* IMMAGINE EYES */
+/* === HERO EYES — più alti, più grandi e centrati === */
+
+/* === HERO EYES — versione potenziata === */
+
+/* === HERO EYES — versione calibrata al pixel === */
+
+/* === HERO EYES — versione calibrata al pixel === */
+
+.hero-favicon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-200%);   /* molto più a sinistra */
+  width: 400px;                  /* più grandi */
+  top: 250px;                    /* più in basso */
+  z-index: 6;
+  filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero-favicon {
+    transform: translateX(-64%);
+    width: 210px;
+    top: 185px;
+  }
+}
+
+/* Mobile grande */
+@media (max-width: 768px) {
+  .hero-favicon {
+    transform: translateX(-60%);
+    width: 180px;
+    top: 165px;
+  }
+}
+
+/* Mobile piccolo */
+@media (max-width: 480px) {
+  .hero-favicon {
+    transform: translateX(-56%);
+    width: 160px;
+    top: 150px;
+  }
 }
