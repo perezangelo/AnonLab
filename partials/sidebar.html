@@ -143,31 +143,27 @@
     CALCOLATRICE + OROSCOPO + SOCIAL + VIDEO
 ============================= -->
 
-<!-- METEO NEON HUD (REALTIME) -->
-<div class="sidebar-box" aria-label="Previsioni meteo Varese"
-     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:34px 12px 26px 12px;">
+<!-- METEO ANONLAB 2.0 -->
+<section class="sidebar-box meteo-widget" aria-label="Previsioni meteo">
+    <h3 class="meteo-title">Meteo</h3>
 
-  <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Meteo</h3>
-
-  <!-- ICONA METEO — FUORI DA .meteo-box -->
-  <div style="text-align:center; margin-bottom:14px; padding-top:26px; margin-top:12px;">
-    <img id="meteo-icon" src="/img/meteo/default.svg"
-         style="width:100px; filter:drop-shadow(0 0 10px #00eaff);" alt="Icona Meteo">
-  </div>
-
-  <!-- TESTO METEO -->
-  <div id="meteo-box" class="meteo-box"
-       style="font-size:13px; color:#8be9ff; text-align:center;">
-    <div style="margin-bottom:4px;">
-      <span id="meteo-city" style="color:#ff7b00; font-weight:bold;">Varese</span>
+    <!-- Località -->
+    <div class="meteo-location">
+        <select id="meteo-select"></select>
     </div>
-    <div>
-      <span id="meteo-temp">--°C</span> —
-      <span id="meteo-desc">Caricamento meteo...</span>
-    </div>
-  </div>
 
-</div>
+    <!-- Meteo attuale -->
+    <div class="meteo-current">
+        <img id="meteo-icon" src="/img/meteo/default.svg" alt="Icona Meteo">
+        <div class="meteo-current-info">
+            <div id="meteo-temp" class="meteo-temp">--°C</div>
+            <div id="meteo-desc" class="meteo-desc">Caricamento...</div>
+        </div>
+    </div>
+
+    <!-- Meteo settimanale -->
+    <div id="meteo-week" class="meteo-week"></div>
+</section>
 
 <!-- CALCOLATRICE CYBER NEON -->
 <div class="sidebar-box" aria-label="Calcolatrice"
