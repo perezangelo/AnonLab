@@ -118,23 +118,29 @@ function waitForSidebar() {
     });
 }
 /* ============================================================
-   D) DOM READY — VERSIONE OTTIMIZZATA
+   D) DOM READY — VERSIONE OTTIMIZZATA E STABILE
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Caricamento partials principali
     loadPartial("header", "/partials/header.html");
     loadPartial("ticker", "/partials/ticker.html");
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
 
+    // Attendi che la sidebar sia completamente caricata
     waitForSidebar().then(() => {
 
+        // Avvia contatore visite se presente
         if (typeof initVisitCounter === "function") {
             initVisitCounter();
         }
 
-        loadMeteo(); // fallback
+        // Fallback meteo (nel caso il trigger in loadPartial non parta)
+        if (typeof loadMeteo === "function") {
+            loadMeteo();
+        }
 
     });
 
