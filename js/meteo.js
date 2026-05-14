@@ -67,7 +67,7 @@ function updateCurrent(current, city) {
     document.getElementById("meteo-desc").textContent = weatherDescription(current.weathercode);
 
     const icon = METEO_ICONS[current.weathercode] || "default.svg";
-    document.getElementById("meteo-icon").src = `/img/img/meteo/${icon}`;
+    document.getElementById("meteo-icon").src = `img/img/meteo/${icon}`;
 }
 
 function updateWeek(daily) {
@@ -82,7 +82,7 @@ function updateWeek(daily) {
         day.className = "meteo-day";
 
         day.innerHTML = `
-            <img src="/img/img/meteo/${icon}">
+            <img src="img/img/meteo/${icon}">
             <span>${daily.temperature_2m_max[i]}°</span>
         `;
 
