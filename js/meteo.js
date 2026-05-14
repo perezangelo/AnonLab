@@ -1,4 +1,6 @@
-/* METEO ANONLAB 2.0 */
+/* ============================================================
+   METEO ANONLAB 2.0 — VERSIONE DEFINITIVA
+============================================================ */
 
 const METEO_ICONS = {
     0: "clear.svg",
@@ -29,9 +31,16 @@ const LOCATIONS = {
     "Napoli": { lat: 40.8518, lon: 14.2681 }
 };
 
-function initMeteo() {
-    const select = document.getElementById("meteo-select");
+/* ============================================================
+   INIZIALIZZAZIONE METEO
+============================================================ */
 
+function initMeteo() {
+
+    const select = document.getElementById("meteo-select");
+    if (!select) return; // ← evita crash se sidebar non pronta
+
+    // Popola il menu città
     Object.keys(LOCATIONS).forEach(city => {
         const opt = document.createElement("option");
         opt.value = city;
@@ -39,38 +48,74 @@ function initMeteo() {
         select.appendChild(opt);
     });
 
+    // Città salvata
     const saved = localStorage.getItem("meteo-city") || "Varese";
     select.value = saved;
 
+    // Carica meteo iniziale
     loadMeteo(saved);
 
+    // Cambio città
     select.addEventListener("change", () => {
         localStorage.setItem("meteo-city", select.value);
         loadMeteo(select.value);
     });
 }
 
+/* ============================================================
+   CARICAMENTO DATI METEO
+============================================================ */
+
 async function loadMeteo(city) {
+
+    const select = document.getElementById("meteo-select");
+    if (!select) return; // sicurezza
+
     const { lat, lon } = LOCATIONS[city];
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`;
+    const url =
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+        `&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`;
 
-    const res = await fetch(url);
-    const data = await res.json();
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
 
-    updateCurrent(data.current_weather, city);
-    updateWeek(data.daily);
+        updateCurrent(data.current_weather);
+        updateWeek(data.daily);
+
+    } catch (e) {
+        console.error("Errore meteo:", e);
+    }
 }
 
-function updateCurrent(current, city) {
-    document.getElementById("meteo-temp").textContent = `${current.temperature}°C`;
-    document.getElementById("meteo-desc").textContent = weatherDescription(current.weathercode);
+/* ============================================================
+   METEO ATTUALE
+============================================================ */
+
+function updateCurrent(current) {
+
+    const tempEl = document.getElementById("meteo-temp");
+    const descEl = document.getElementById("meteo-desc");
+    const iconEl = document.getElementById("meteo-icon");
+
+    if (!tempEl || !descEl || !iconEl) return;
+
+    tempEl.textContent = `${current.temperature}°C`;
+    descEl.textContent = weatherDescription(current.weathercode);
 
     const icon = METEO_ICONS[current.weathercode] || "default.svg";
-    document.getElementById("meteo-icon").src = `img/img/meteo/${icon}`;
+    iconEl.src = `img/img/meteo/${icon}`;
 }
 
+/* ============================================================
+   METEO SETTIMANALE
+============================================================ */
+
 function updateWeek(daily) {
+
     const container = document.getElementById("meteo-week");
+    if (!container) return;
+
     container.innerHTML = "";
 
     for (let i = 0; i < 5; i++) {
@@ -88,6 +133,10 @@ function updateWeek(daily) {
         container.appendChild(day);
     }
 }
+
+/* ============================================================
+   DESCRIZIONI METEO
+============================================================ */
 
 function weatherDescription(code) {
     const map = {
@@ -112,5 +161,3 @@ function weatherDescription(code) {
     };
     return map[code] || "N/D";
 }
-
-document.addEventListener("DOMContentLoaded", initMeteo);
