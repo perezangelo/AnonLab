@@ -363,14 +363,11 @@ async function loadMeteo(city) {
 }
 
 function updateCurrent(current, city) {
-    document.getElementById("meteo-city").textContent = city;
     document.getElementById("meteo-temp").textContent = `${current.temperature}°C`;
-
-    const desc = weatherDescription(current.weathercode);
-    document.getElementById("meteo-desc").textContent = desc;
+    document.getElementById("meteo-desc").textContent = weatherDescription(current.weathercode);
 
     const icon = METEO_ICONS[current.weathercode] || "default.svg";
-    document.getElementById("meteo-icon").src = `/img/meteo/${icon}`;
+    document.getElementById("meteo-icon").src = `/img/img/meteo/${icon}`;
 }
 
 function updateWeek(daily) {
@@ -385,7 +382,7 @@ function updateWeek(daily) {
         day.className = "meteo-day";
 
         day.innerHTML = `
-            <img src="/img/meteo/${icon}">
+            <img src="/img/img/meteo/${icon}">
             <span>${daily.temperature_2m_max[i]}°</span>
         `;
 
