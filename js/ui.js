@@ -93,56 +93,6 @@ async function loadMeteo() {
             99: "Temporale forte con grandine"
         };
 
-       /* ============================
-   ICONE METEO (VERSIONE CORRETTA)
-============================ */
-
-const meteoIcon = {
-    0: "clear.svg",
-    1: "cloud.svg",
-    2: "cloud.svg",
-    3: "cloud.svg",
-
-    45: "fog.svg",
-    48: "fog.svg",
-
-    51: "rain.svg",
-    53: "rain.svg",
-    55: "rain.svg",
-
-    61: "rain.svg",
-    63: "rain.svg",
-    65: "rain.svg",
-
-    80: "rain.svg",
-    81: "rain.svg",
-    82: "rain.svg",
-
-    95: "storm.svg",
-    96: "storm.svg",
-    99: "storm.svg"
-};
-        /* ============================
-           AGGIORNAMENTO UI
-        ============================ */
-        cityEl.textContent = "Varese";
-        tempEl.textContent = `${temp}°C`;
-        descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
-
- iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
-
-        /* ⭐ FIX SENZA TOCCARE CSS — evita taglio icona */
-        iconEl.style.width = "auto";
-        iconEl.style.maxWidth = "100px";
-        iconEl.style.height = "auto";
-
-    } catch (e) {
-        console.error(e);
-        descEl.textContent = "Meteo non disponibile";
-        descEl.style.color = "#ff4b6e";
-        iconEl.src = "/img/img/meteo/default.svg";
-    }
-}
 /* ============================================================
    OROSCOPO — VERSIONE DEFINITIVA CORRETTA
 ============================================================ */
