@@ -7,27 +7,38 @@ async function loadPartial(id, file) {
     if (!el) return;
 
     try {
-        const controll8er = new AbortController();
+        // Controller corretto (prima era "controll8er")
+        const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 5000);
 
         const res = await fetch(file, { signal: controller.signal });
         clearTimeout(timeout);
 
+        // Controllo contenuto valido
         if (!res.ok || !res.headers.get("content-type")?.includes("text/html")) {
             throw new Error(`Errore nel caricamento di ${file}`);
         }
 
+        // Inserimento HTML
         el.innerHTML = await res.text();
 
+        /* ============================================================
+           AVVIO WIDGET DOPO CARICAMENTO PARTIAL
+        ============================================================ */
+
+        // Sidebar caricata → avvia Meteo + Oroscopo
         if (id === "sidebar") {
             requestAnimationFrame(() => {
-                loadMeteo();
-                initOroscopo();
+                if (typeof loadMeteo === "function") loadMeteo();
+                if (typeof initOroscopo === "function") initOroscopo();
             });
         }
 
+        // Header caricato → avvia ticker
         if (id === "header") {
-            requestAnimationFrame(initTicker);
+            requestAnimationFrame(() => {
+                if (typeof initTicker === "function") initTicker();
+            });
         }
 
     } catch (err) {
