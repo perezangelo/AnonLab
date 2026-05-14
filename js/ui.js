@@ -27,11 +27,12 @@ async function loadPartial(id, file) {
         ============================================================ */
 
         // Sidebar caricata → avvia Meteo + Oroscopo
-        if (id === "sidebar") {
-            requestAnimationFrame(() => {
-                if (typeof loadMeteo === "function") loadMeteo();
-                if (typeof initOroscopo === "function") initOroscopo();
-            });
+if (id === "sidebar") {
+    requestAnimationFrame(() => {
+        if (typeof initMeteo === "function") initMeteo();
+        if (typeof initOroscopo === "function") initOroscopo();
+    });
+}
         }
 
         // Header caricato → avvia ticker
