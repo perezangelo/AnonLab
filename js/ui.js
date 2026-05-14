@@ -23,29 +23,20 @@ async function loadPartial(id, file) {
         el.innerHTML = await res.text();
 
         /* ============================================================
-           AVVIO WIDGET DOPO CARICAMENTO PARTIAL
-        ============================================================ */
+   AVVIO WIDGET DOPO CARICAMENTO PARTIAL
+============================================================ */
 
-        // Sidebar caricata → avvia Meteo + Oroscopo
 if (id === "sidebar") {
     requestAnimationFrame(() => {
         if (typeof initMeteo === "function") initMeteo();
         if (typeof initOroscopo === "function") initOroscopo();
     });
 }
-        }
 
-        // Header caricato → avvia ticker
-        if (id === "header") {
-            requestAnimationFrame(() => {
-                if (typeof initTicker === "function") initTicker();
-            });
-        }
-
-    } catch (err) {
-        console.error(err);
-        el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
-    }
+if (id === "header") {
+    requestAnimationFrame(() => {
+        if (typeof initTicker === "function") initTicker();
+    });
 }
 /* ============================================================
    OROSCOPO — VERSIONE DEFINITIVA CORRETTA
