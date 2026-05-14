@@ -1,27 +1,14 @@
-<svg width="140" height="100" viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="4" result="blur"/>
-    <feMerge>
-      <feMergeNode in="blur"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <filter id="neon" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#00eaff" flood-opacity="0.9"/>
+    </filter>
+  </defs>
 
-<g stroke="#00eaff" stroke-width="3" filter="url(#glow)">
-  <line x1="20" y1="40" x2="120" y2="40">
-    <animateTransform attributeName="transform" type="translate"
-                      values="-5 0; 5 0; -5 0" dur="5s" repeatCount="indefinite"/>
-  </line>
-  <line x1="30" y1="60" x2="110" y2="60">
-    <animateTransform attributeName="transform" type="translate"
-                      values="5 0; -5 0; 5 0" dur="6s" repeatCount="indefinite"/>
-  </line>
-  <line x1="40" y1="80" x2="100" y2="80">
-    <animateTransform attributeName="transform" type="translate"
-                      values="-3 0; 3 0; -3 0" dur="4s" repeatCount="indefinite"/>
-  </line>
-</g>
+  <!-- Nebbia HYBRID: linee luminose -->
+  <g stroke="#00eaff" stroke-width="3" stroke-linecap="round" filter="url(#neon)">
+    <line x1="20" y1="40" x2="80" y2="40"/>
+    <line x1="15" y1="50" x2="85" y2="50"/>
+    <line x1="25" y1="60" x2="75" y2="60"/>
+  </g>
 </svg>
-
