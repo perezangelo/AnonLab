@@ -7,7 +7,7 @@ async function loadPartial(id, file) {
     if (!el) return;
 
     try {
-        const controller = new AbortController();
+        const controll8er = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 5000);
 
         const res = await fetch(file, { signal: controller.signal });
@@ -35,64 +35,6 @@ async function loadPartial(id, file) {
         el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
     }
 }
-/* ============================================================
-   METEO REALE — Open‑Meteo + Icone Neon (VERSIONE CORRETTA)
-============================================================ */
-
-async function loadMeteo() {
-    const cityEl = document.getElementById("meteo-city");
-    const tempEl = document.getElementById("meteo-temp");
-    const descEl = document.getElementById("meteo-desc");
-    const iconEl = document.getElementById("meteo-icon");
-
-    if (!cityEl || !tempEl || !descEl || !iconEl) return;
-
-    try {
-        const lat = 45.8206;
-        const lon = 8.8251;
-
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
-
-        const res = await fetch(url);
-        const data = await res.json();
-
-        const temp = data.current.temperature_2m;
-        const code = data.current.weather_code;
-
-        /* ============================
-           DESCRIZIONI COMPLETE
-        ============================ */
-        const meteoDesc = {
-            0: "Sereno",
-            1: "Prevalentemente sereno",
-            2: "Parzialmente nuvoloso",
-            3: "Nuvoloso",
-
-            45: "Nebbia",
-            48: "Nebbia ghiacciata",
-
-            51: "Pioviggine leggera",
-            53: "Pioviggine",
-            55: "Pioviggine intensa",
-
-            61: "Pioggia leggera",
-            63: "Pioggia",
-            65: "Pioggia intensa",
-
-            71: "Neve leggera",
-            73: "Neve",
-            75: "Neve intensa",
-
-            /* ⭐ MANCAVANO QUESTI → CAUSA “Condizioni sconosciute” */
-            80: "Rovesci leggeri",
-            81: "Rovesci",
-            82: "Rovesci intensi",
-
-            95: "Temporale",
-            96: "Temporale con grandine",
-            99: "Temporale forte con grandine"
-        };
-
 /* ============================================================
    OROSCOPO — VERSIONE DEFINITIVA CORRETTA
 ============================================================ */
