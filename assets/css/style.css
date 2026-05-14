@@ -106,27 +106,6 @@
     text-shadow: 0 0 12px #ff8a33;
 }
 /* ============================
-   METEO
-============================ */
-
-.meteo-box img {
-    width: 100%;
-    max-width: 180px;
-    filter: drop-shadow(0 0 8px #00eaff);
-    margin: 0 auto;
-}
-
-/* Weather widget link */
-.weatherwidget-io {
-    all: unset;
-}
-
-.weatherwidget-io:hover {
-    color: #8be9ff !important;
-    text-shadow: 0 0 12px #00eaff;
-}
-
-/* ============================
    CALCOLATRICE
 ============================ */
 
