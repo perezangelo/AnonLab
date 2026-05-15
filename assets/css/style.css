@@ -1,382 +1,350 @@
-/* ============================
-   STRUTTURA BASE SIDEBAR
+/* ============================================================
+   A) CARICAMENTO PARTIALS — VERSIONE OTTIMIZZATA E ROBUSTA
+============================================================ */
+
+async function loadPartial(id, file) {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
+
+        const res = await fetch(file, { signal: controller.signal });
+        clearTimeout(timeout);
+
+        if (!res.ok || !res.headers.get("content-type")?.includes("text/html")) {
+            throw new Error(`Errore nel caricamento di ${file}`);
+        }
+
+        el.innerHTML = await res.text();
+
+        if (id === "sidebar") {
+            requestAnimationFrame(() => {
+                loadMeteo();
+                initOroscopo();
+            });
+        }
+
+        if (id === "header") {
+            requestAnimationFrame(initTicker);
+        }
+
+    } catch (err) {
+        console.error(err);
+        el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
+    }
+}
+/* ============================================================
+   METEO REALE — Open‑Meteo + Icone Neon (VERSIONE CORRETTA)
+============================================================ */
+
+async function loadMeteo() {
+    const cityEl = document.getElementById("meteo-city");
+    const tempEl = document.getElementById("meteo-temp");
+    const descEl = document.getElementById("meteo-desc");
+    const iconEl = document.getElementById("meteo-icon");
+
+    if (!cityEl || !tempEl || !descEl || !iconEl) return;
+
+    try {
+        const lat = 45.8206;
+        const lon = 8.8251;
+
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        const temp = data.current.temperature_2m;
+        const code = data.current.weather_code;
+
+        /* ============================
+           DESCRIZIONI COMPLETE
+        ============================ */
+        const meteoDesc = {
+            0: "Sereno",
+            1: "Prevalentemente sereno",
+            2: "Parzialmente nuvoloso",
+            3: "Nuvoloso",
+
+            45: "Nebbia",
+            48: "Nebbia ghiacciata",
+
+            51: "Pioviggine leggera",
+            53: "Pioviggine",
+            55: "Pioviggine intensa",
+
+            61: "Pioggia leggera",
+            63: "Pioggia",
+            65: "Pioggia intensa",
+
+            71: "Neve leggera",
+            73: "Neve",
+            75: "Neve intensa",
+
+            /* ⭐ MANCAVANO QUESTI → CAUSA “Condizioni sconosciute” */
+            80: "Rovesci leggeri",
+            81: "Rovesci",
+            82: "Rovesci intensi",
+
+            95: "Temporale",
+            96: "Temporale con grandine",
+            99: "Temporale forte con grandine"
+        };
+
+       /* ============================
+   ICONE METEO (VERSIONE CORRETTA)
 ============================ */
 
-.sidebar-box {
-    background: #050a18;
-    border: 1px solid #00eaff55;
-    box-shadow: 0 0 12px #00eaff55;
-    border-radius: 8px;
-    padding: 14px;
-    margin-bottom: 22px;
-    color: #cfefff;
-}
+const meteoIcon = {
+    0: "clear.svg",
+    1: "cloud.svg",
+    2: "cloud.svg",
+    3: "cloud.svg",
 
-.sidebar-box h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    color: #00eaff;
-    text-shadow: 0 0 6px #00eaff;
-    font-size: 1.2rem;
-}
+    45: "fog.svg",
+    48: "fog.svg",
 
-/* ============================
-   VISIT COUNTER
-============================ */
+    51: "rain.svg",
+    53: "rain.svg",
+    55: "rain.svg",
 
-.visit-box {
-    text-align: left;
-}
+    61: "rain.svg",
+    63: "rain.svg",
+    65: "rain.svg",
 
-.visit-greeting {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #8be9ff;
-    text-shadow: 0 0 8px #00eaff;
-    margin-bottom: 10px;
-}
+    80: "rain.svg",
+    81: "rain.svg",
+    82: "rain.svg",
 
-.visit-info {
-    margin: 4px 0;
-    font-size: 0.95rem;
-}
+    95: "storm.svg",
+    96: "storm.svg",
+    99: "storm.svg"
+};
+        /* ============================
+           AGGIORNAMENTO UI
+        ============================ */
+        cityEl.textContent = "Varese";
+        tempEl.textContent = `${temp}°C`;
+        descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
 
-/* ============================
-   ABOUT + FORM
-============================ */
+ iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
 
-.sidebar-icon {
-    width: 42px;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 0 6px #00eaff);
-}
+        /* ⭐ FIX SENZA TOCCARE CSS — evita taglio icona */
+        iconEl.style.width = "auto";
+        iconEl.style.maxWidth = "100px";
+        iconEl.style.height = "auto";
 
-.sidebar-box form input,
-.sidebar-box form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 8px;
-    background: #0a1224;
-    border: 1px solid #00eaff55;
-    border-radius: 6px;
-    color: #cfefff;
-}
-
-.sidebar-box form button {
-    width: 100%;
-    padding: 10px;
-    background: #00eaff;
-    color: #000;
-    font-weight: bold;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.sidebar-box form button:hover {
-    background: #8be9ff;
-}
-
-/* ============================
-   FEED DAL MONDO
-============================ */
-
-.feed-logos {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.feed-logos img {
-    width: 40px;
-    filter: drop-shadow(0 0 6px #00eaff);
-}
-
-/* LINK NEON ARANCIONE SOLO PER I LINK “→” */
-.sidebar-box h3 + a {
-    color: #ff5e00 !important;
-    text-shadow: 0 0 6px #ff5e00;
-    font-weight: 600;
-    transition: 0.25s ease;
-}
-
-.sidebar-box h3 + a:hover {
-    color: #ff8a33 !important;
-    text-shadow: 0 0 12px #ff8a33;
-}
-/* ============================
-   CALCOLATRICE
-============================ */
-
-#calc-display {
-    background: #050a18;
-    color: #8be9ff;
-    font-size: 1.4rem;
-    text-align: right;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    border: 1px solid #00eaff55;
-}
-
-#calc-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-}
-
-.calc-btn {
-    padding: 10px;
-    background: #0a1224;
-    border: 1px solid #00eaff55;
-    border-radius: 6px;
-    color: #cfefff;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.calc-btn:hover {
-    background: #00eaff;
-    color: #000;
-}
-
-/* ============================
-   SOCIAL ICONS
-============================ */
-
-.social-icons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.social-icons svg {
-    filter: drop-shadow(0 0 6px #00eaff);
-}
-
-/* ============================
-   RADIO
-============================ */
-
-.radio-logo {
-    width: 100%;
-    border-radius: 6px;
-    margin-bottom: 10px;
-}
-
-.radio-select {
-    width: 100%;
-    padding: 8px;
-    background: #0a1224;
-    border: 1px solid #00eaff55;
-    border-radius: 6px;
-    color: #cfefff;
-}
-
-/* ============================
-   YOUTUBE PLAYER
-============================ */
-
-.yt-select {
-    width: 100%;
-    padding: 8px;
-    background: #0a1224;
-    border: 1px solid #00eaff55;
-    border-radius: 6px;
-    color: #cfefff;
-    margin-top: 10px;
-}
-
-/* ============================
-   MISURAINTERNET
-============================ */
-
-.misura-desc {
-    font-size: 0.9rem;
-    margin-top: 10px;
-}
-
-.misura-btn {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    background: #0057b8;
-    color: #fff;
-    border-radius: 6px;
-    margin-top: 10px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.misura-btn:hover {
-    background: #0070ff;
-}
-
-/* ============================
-   CALENDARIO (NEON COMPLETO)
-============================ */
-
-.calendar-box img {
-    width: 100%;
-    border-radius: 6px;
-    filter: drop-shadow(0 0 8px #00eaff);
-}
-
-.calendar-box iframe {
-    width: 100%;
-    height: 300px;
-    border: 0;
-    border-radius: 6px;
-    box-shadow: 0 0 12px #00eaff55;
-}
-
-/* ============================
-   GOOGLE MAPS
-============================ */
-
-.maps-box img {
-    width: 100%;
-    border-radius: 6px;
-    filter: drop-shadow(0 0 8px #00eaff);
-}
-
-.maps-box iframe {
-    width: 100%;
-    height: 250px;
-    border: 0;
-    border-radius: 6px;
-    box-shadow: 0 0 12px #00eaff55;
-}
-/* ============================
-   PAGINE OROSCOPO — ANONLAB
-============================ */
-
-.oroscopo-page {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #050a18;
-    border: 1px solid #00eaff33;
-    border-radius: 10px;
-    box-shadow: 0 0 12px #00eaff22;
-}
-
-.oroscopo-page-img {
-    width: 140px;
-    height: 140px;
-    display: block;
-    margin: 0 auto 20px;
-    filter: drop-shadow(0 0 10px #00eaff55);
-}
-
-.oroscopo-page-text {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: #cfefff;
-    text-shadow: 0 0 6px #00eaff55;
-    text-align: center;
-    padding: 10px 0;
-}
-
-/* Titolo pagina */
-.page-title {
-    text-align: center;
-    color: #00eaff;
-    text-shadow: 0 0 10px #00eaffaa;
-    margin-bottom: 25px;
-}
-.oroscopo-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.oroscopo-mini {
-    width: 40px;
-    height: 40px;
-    filter: drop-shadow(0 0 6px #00eaffaa);
-}
-
-.oroscopo-label {
-    color: #cfefff;
-    font-size: 0.95rem;
-    text-shadow: 0 0 6px #00eaff55;
-}
-/* ============================
-   RESPONSIVE — SIDEBAR OROSCOPO
-============================ */
-
-@media (max-width: 768px) {
-
-    #oroscopo-box {
-        padding: 12px;
-    }
-
-    .oroscopo-row {
-        gap: 8px;
-    }
-
-    .oroscopo-mini {
-        width: 32px;
-        height: 32px;
-        filter: drop-shadow(0 0 5px #00eaff88);
-    }
-
-    .oroscopo-label {
-        font-size: 0.9rem;
-    }
-
-    .oroscopo-select {
-        font-size: 0.9rem;
-        padding: 7px;
-    }
-
-    .oroscopo-text {
-        font-size: 0.9rem;
-        padding: 8px;
-        line-height: 1.45;
-    }
-
-    .oroscopo-more {
-        font-size: 0.85rem;
-        margin-top: 8px;
+    } catch (e) {
+        console.error(e);
+        descEl.textContent = "Meteo non disponibile";
+        descEl.style.color = "#ff4b6e";
+        iconEl.src = "/img/img/meteo/default.svg";
     }
 }
+/* ============================================================
+   OROSCOPO — VERSIONE DEFINITIVA CORRETTA
+============================================================ */
 
-@media (max-width: 480px) {
+async function initOroscopo() {
+    const select = document.getElementById("oroscopo-select");
+    const img = document.getElementById("oroscopo-img");
+    const text = document.getElementById("oroscopo-text");
+    const link = document.getElementById("oroscopo-link");
 
-    #oroscopo-box {
-        padding: 10px;
-    }
+    if (!select || !img || !text || !link) return;
 
-    .oroscopo-row {
-        gap: 6px;
-    }
+    try {
+        // JSON con percorso ASSOLUTO
+        const res = await fetch("https://anonlab.it/data/oroscopo.json");
+        const data = await res.json();
 
-    .oroscopo-mini {
-        width: 28px;
-        height: 28px;
-        filter: drop-shadow(0 0 4px #00eaff66);
-    }
+        // Immagini con percorso ASSOLUTO
+        const base = "https://anonlab.it/img/oroscopo/";
 
-    .oroscopo-label {
-        font-size: 0.85rem;
-    }
+        function updateOroscopo() {
+            const sign = select.value;
 
-    .oroscopo-select {
-        font-size: 0.85rem;
-        padding: 6px;
-    }
+            img.src = base + sign + ".svg";
+            text.textContent = data[sign] || "Oroscopo non disponibile";
+            link.href = "https://www.google.com/search?q=oroscopo+" + sign;
+        }
 
-    .oroscopo-text {
-        font-size: 0.85rem;
-        padding: 7px;
-        line-height: 1.4;
-    }
+        updateOroscopo();
+        select.addEventListener("change", updateOroscopo);
 
-    .oroscopo-more {
-        font-size: 0.8rem;
+    } catch (e) {
+        console.error("Errore oroscopo:", e);
+        text.textContent = "Oroscopo non disponibile";
     }
 }
+/* ============================================================
+   C) TICKER CONTINUO
+============================================================ */
+
+function initTicker() {
+    const track = document.querySelector(".ticker-track");
+    if (!track) return;
+
+    if (track.dataset.cloned === "true") return;
+
+    const clone = track.cloneNode(true);
+    clone.dataset.cloned = "true";
+    track.parentElement.appendChild(clone);
+
+    const totalWidth = track.scrollWidth;
+    track.style.setProperty("--ticker-width", totalWidth + "px");
+}
+
+/* ============================================================
+   WAIT FOR SIDEBAR
+============================================================ */
+
+function waitForSidebar() {
+    return new Promise(resolve => {
+        const check = () => {
+            const sidebar = document.getElementById("sidebar");
+            if (sidebar && sidebar.innerHTML.trim() !== "") {
+                resolve();
+            } else {
+                setTimeout(check, 100);
+            }
+        };
+        check();
+    });
+}
+/* ============================================================
+   D) DOM READY — VERSIONE OTTIMIZZATA
+============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    loadPartial("header", "/partials/header.html");
+    loadPartial("ticker", "/partials/ticker.html");
+    loadPartial("sidebar", "/partials/sidebar.html");
+    loadPartial("footer", "/partials/footer.html");
+
+    waitForSidebar().then(() => {
+
+        if (typeof initVisitCounter === "function") {
+            initVisitCounter();
+        }
+
+        loadMeteo(); // fallback
+
+    });
+
+});
+/* ============================================================
+   G) WIDGET CYBER ALERT LIVE
+============================================================ */
+
+async function loadCyberAlerts() {
+    const list = document.getElementById("alert-live");
+    if (!list) return;
+
+    const alerts = [
+        { text: "Attacco DDoS in corso su infrastrutture EU" },
+        { text: "Nuova campagna phishing su larga scala" },
+        { text: "Exploit attivo su Apache ActiveMQ" },
+        { text: "Malware bancario in rapida diffusione" }
+    ];
+
+    list.innerHTML = alerts
+        .map(a => `
+            <li class="alert-item">
+                ${alertIcon}
+                <span>${a.text}</span>
+            </li>
+        `)
+        .join("");
+}
+/* ============================================================
+   H) WIDGET FEED DAL MONDO
+============================================================ */
+
+async function loadWorldFeed() {
+    const feed = document.getElementById("world-feed");
+    if (!feed) return;
+
+    const items = [
+        { text: "Aumentano gli attacchi supply-chain" },
+        { text: "Cresce l’adozione Zero Trust" },
+        { text: "Nuove normative EU sulla cybersicurezza" },
+        { text: "AI nei SOC di nuova generazione" }
+    ];
+
+    feed.innerHTML = items
+        .map(i => `
+            <div class="feed-item">
+                ${feedIcon}
+                <span>${i.text}</span>
+            </div>
+        `)
+        .join("");
+}
+/* ============================================================
+   I) HEADER SCROLL EFFECT
+============================================================ */
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+
+    const current = window.scrollY;
+
+    if (current > 20 && lastScroll <= 20) {
+        header.classList.add("scrolled-header");
+    } else if (current <= 20 && lastScroll > 20) {
+        header.classList.remove("scrolled-header");
+    }
+
+    lastScroll = current;
+});
+
+/* ============================================================
+   L) DROPDOWN NEWS
+============================================================ */
+
+document.addEventListener("click", function (e) {
+    const dropdown = document.querySelector(".dropdown-news");
+    if (!dropdown) return;
+
+    dropdown.classList.toggle("open", dropdown.contains(e.target));
+});
+/* ============================================================
+   M) CALCOLATRICE
+============================================================ */
+
+(function ensureCalculatorLoaded() {
+
+    if (!document.getElementById("sidebar")) {
+        return setTimeout(ensureCalculatorLoaded, 150);
+    }
+
+    if (!document.getElementById("calc-display")) {
+        return setTimeout(ensureCalculatorLoaded, 150);
+    }
+
+    const mainLoaded = [...document.querySelectorAll("script")]
+        .some(s => s.src.includes("/assets/js/main.js"));
+
+    if (!mainLoaded) {
+        const script = document.createElement("script");
+        script.src = "/assets/js/main.js";
+        script.onload = () => {
+            console.log("main.js caricato automaticamente");
+            if (typeof initCalculator === "function") initCalculator();
+        };
+        document.body.appendChild(script);
+        return;
+    }
+
+    if (typeof initCalculator === "function") {
+        initCalculator();
+    }
+
+})();
