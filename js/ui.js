@@ -7,36 +7,141 @@ async function loadPartial(id, file) {
     if (!el) return;
 
     try {
-        // Controller corretto (prima era "controll8er")
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 5000);
 
         const res = await fetch(file, { signal: controller.signal });
         clearTimeout(timeout);
 
-        // Controllo contenuto valido
         if (!res.ok || !res.headers.get("content-type")?.includes("text/html")) {
             throw new Error(`Errore nel caricamento di ${file}`);
         }
 
-        // Inserimento HTML
         el.innerHTML = await res.text();
 
-        /* ============================================================
-   AVVIO WIDGET DOPO CARICAMENTO PARTIAL
+        if (id === "sidebar") {
+            requestAnimationFrame(() => {
+                loadMeteo();
+                initOroscopo();
+            });
+        }
+
+        if (id === "header") {
+            requestAnimationFrame(initTicker);
+        }
+
+    } catch (err) {
+        console.error(err);
+        el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
+    }
+}
+/* ============================================================
+   METEO REALE — Open‑Meteo + Icone Neon (VERSIONE CORRETTA)
 ============================================================ */
 
-if (id === "sidebar") {
-    requestAnimationFrame(() => {
-        if (typeof initMeteo === "function") initMeteo();
-        if (typeof initOroscopo === "function") initOroscopo();
-    });
-}
+async function loadMeteo() {
+    const cityEl = document.getElementById("meteo-city");
+    const tempEl = document.getElementById("meteo-temp");
+    const descEl = document.getElementById("meteo-desc");
+    const iconEl = document.getElementById("meteo-icon");
 
-if (id === "header") {
-    requestAnimationFrame(() => {
-        if (typeof initTicker === "function") initTicker();
-    });
+    if (!cityEl || !tempEl || !descEl || !iconEl) return;
+
+    try {
+        const lat = 45.8206;
+        const lon = 8.8251;
+
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        const temp = data.current.temperature_2m;
+        const code = data.current.weather_code;
+
+        /* ============================
+           DESCRIZIONI COMPLETE
+        ============================ */
+        const meteoDesc = {
+            0: "Sereno",
+            1: "Prevalentemente sereno",
+            2: "Parzialmente nuvoloso",
+            3: "Nuvoloso",
+
+            45: "Nebbia",
+            48: "Nebbia ghiacciata",
+
+            51: "Pioviggine leggera",
+            53: "Pioviggine",
+            55: "Pioviggine intensa",
+
+            61: "Pioggia leggera",
+            63: "Pioggia",
+            65: "Pioggia intensa",
+
+            71: "Neve leggera",
+            73: "Neve",
+            75: "Neve intensa",
+
+            /* ⭐ MANCAVANO QUESTI → CAUSA “Condizioni sconosciute” */
+            80: "Rovesci leggeri",
+            81: "Rovesci",
+            82: "Rovesci intensi",
+
+            95: "Temporale",
+            96: "Temporale con grandine",
+            99: "Temporale forte con grandine"
+        };
+
+       /* ============================
+   ICONE METEO (VERSIONE CORRETTA)
+============================ */
+
+const meteoIcon = {
+    0: "clear.svg",
+    1: "cloud.svg",
+    2: "cloud.svg",
+    3: "cloud.svg",
+
+    45: "fog.svg",
+    48: "fog.svg",
+
+    51: "rain.svg",
+    53: "rain.svg",
+    55: "rain.svg",
+
+    61: "rain.svg",
+    63: "rain.svg",
+    65: "rain.svg",
+
+    80: "rain.svg",
+    81: "rain.svg",
+    82: "rain.svg",
+
+    95: "storm.svg",
+    96: "storm.svg",
+    99: "storm.svg"
+};
+        /* ============================
+           AGGIORNAMENTO UI
+        ============================ */
+        cityEl.textContent = "Varese";
+        tempEl.textContent = `${temp}°C`;
+        descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
+
+ iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
+
+        /* ⭐ FIX SENZA TOCCARE CSS — evita taglio icona */
+        iconEl.style.width = "auto";
+        iconEl.style.maxWidth = "100px";
+        iconEl.style.height = "auto";
+
+    } catch (e) {
+        console.error(e);
+        descEl.textContent = "Meteo non disponibile";
+        descEl.style.color = "#ff4b6e";
+        iconEl.src = "/img/img/meteo/default.svg";
+    }
 }
 /* ============================================================
    OROSCOPO — VERSIONE DEFINITIVA CORRETTA
@@ -110,29 +215,23 @@ function waitForSidebar() {
     });
 }
 /* ============================================================
-   D) DOM READY — VERSIONE OTTIMIZZATA E STABILE
+   D) DOM READY — VERSIONE OTTIMIZZATA
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Caricamento partials principali
     loadPartial("header", "/partials/header.html");
     loadPartial("ticker", "/partials/ticker.html");
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
 
-    // Attendi che la sidebar sia completamente caricata
     waitForSidebar().then(() => {
 
-        // Avvia contatore visite se presente
         if (typeof initVisitCounter === "function") {
             initVisitCounter();
         }
 
-        // Fallback meteo (nel caso il trigger in loadPartial non parta)
-        if (typeof loadMeteo === "function") {
-            loadMeteo();
-        }
+        loadMeteo(); // fallback
 
     });
 
