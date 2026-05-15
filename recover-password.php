@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/db.php';
+require __DIR__ . '/config.php';
 
-$adminEmail = "perez.angelo@alice.it";
 $email = trim($_POST['email']);
 
 $stmt = $db->prepare("SELECT id, username FROM users WHERE email = :e LIMIT 1");
@@ -9,7 +9,7 @@ $stmt->execute([':e' => $email]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    header("Location: /grazie.html?msg=utente_non_trovato");
+    header("Location: grazie.html?msg=utente_non_trovato");
     exit;
 }
 
@@ -25,18 +25,12 @@ $upd->execute([':p' => $newHash, ':id' => $user['id']]);
 
 $username = $user['username'];
 
-// Email all’utente
-$subjectUser = "Recupero Password AnonLab";
-$bodyUser  = "Ciao $username,\n\n";
-$bodyUser .= "La tua nuova password è:\n\n";
-$bodyUser .= "Password: $newPass\n\n";
-$bodyUser .= "AnonLab — Cybersecurity & Cultura Digitale";
-
+$subject = "Recupero Password AnonLab";
+$body = "Ciao $username,\n\nLa tua nuova password è:\n$newPass\n\nAnonLab";
 $headers = "From: noreply@anonlab.it\r\n";
-@mail($email, $subjectUser, $bodyUser, $headers);
 
-// Email a te
-@mail($adminEmail, "Recupero password richiesto", "Email: $email\nUsername: $username\nNuova password: $newPass", $headers);
+@mail($email, $subject, $body, $headers);
+@mail($ADMIN_EMAIL, "Recupero password richiesto", "Email: $email\nUsername: $username\nNuova password: $newPass", $headers);
 
-header("Location: /grazie.html?msg=password_ok");
+header("Location: grazie.html?msg=password_ok");
 exit;
