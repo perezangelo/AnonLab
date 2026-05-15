@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/db.php';
-
-// Email admin
-$adminEmail = "perez.angelo@alice.it";
+require __DIR__ . '/config.php'; // contiene $ADMIN_EMAIL
 
 // Dati form
 $username = isset($_POST['username']) ? trim($_POST['username']) : '';
@@ -34,7 +32,7 @@ try {
     die("Errore: username o email già registrati.");
 }
 
-// 1) Email a te
+// 1) Email all’amministratore (presa da config.php)
 $subjectAdmin = "Nuova registrazione utente su AnonLab";
 $bodyAdmin  = "Nuovo utente registrato:\n\n";
 $bodyAdmin .= "Username: $username\n";
@@ -44,7 +42,7 @@ $bodyAdmin .= "Password generata: $passwordPlain\n";
 $headersAdmin  = "From: noreply@anonlab.it\r\n";
 $headersAdmin .= "Reply-To: noreply@anonlab.it\r\n";
 
-@mail($adminEmail, $subjectAdmin, $bodyAdmin, $headersAdmin);
+@mail($ADMIN_EMAIL, $subjectAdmin, $bodyAdmin, $headersAdmin);
 
 // 2) Email all’utente
 $subjectUser = "Benvenuto su AnonLab — Le tue credenziali";
@@ -61,4 +59,6 @@ $headersUser .= "Reply-To: noreply@anonlab.it\r\n";
 
 @mail($email, $subjectUser, $bodyUser, $headersUser);
 
-echo "Registrazione completata. Controlla la tua email.";
+// Redirect finale
+header("Location: grazie.html?msg=registrazione_ok");
+exit;
