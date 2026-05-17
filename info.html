@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta Informazioni | AnonLab</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Richiedi Informazioni</h1>
+</header>
+
+<main>
+    <form action="/api/send-info.php" method="POST" class="contact-form">
+        <label>Nome</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Messaggio</label>
+        <textarea name="message" required></textarea>
+
+        <button type="submit">Invia Richiesta</button>
+    </form>
+</main>
+
+</body>
+</html>
