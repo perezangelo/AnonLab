@@ -20,11 +20,15 @@ async function loadPartial(id, file) {
         el.innerHTML = await res.text();
 
         if (id === "sidebar") {
-            requestAnimationFrame(() => {
-                loadMeteo();
-                initOroscopo();
-            });
+    requestAnimationFrame(() => {
+        loadMeteo();
+        initOroscopo();
+
+        if (typeof initVisitCounter === "function") {
+            initVisitCounter();
         }
+    });
+}
 
         if (id === "header") {
             requestAnimationFrame(initTicker);
