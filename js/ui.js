@@ -227,10 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     waitForSidebar().then(() => {
 
-        if (typeof initVisitCounter === "function") {
-            initVisitCounter();
-        }
-
         loadMeteo(); // fallback
 
     });
