@@ -104,7 +104,9 @@ function initVisitCounter() {
         console.warn("Counter: elementi non trovati, sidebar non pronta");
         return;
     }
-
+document.addEventListener("DOMContentLoaded", () => {
+    initVisitCounter();
+});
     /* -----------------------------
        ANIMAZIONE NUMERICA
     ----------------------------- */
