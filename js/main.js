@@ -93,6 +93,7 @@ function initYouTubePlayer() {
 // ===============================
 
 function initVisitCounter() {
+
     const counterEl = document.getElementById("visit-counter");
     const pageEl    = document.getElementById("page-counter");
     const dateEl    = document.getElementById("visit-date");
@@ -100,16 +101,17 @@ function initVisitCounter() {
     const greetEl   = document.getElementById("visit-greeting");
     const iconEl    = document.querySelector(".counter-icon");
 
+    const currentPageEl = document.getElementById("current-page-count");
+    const listContainerEl = document.getElementById("pages-list");
+
     if (!counterEl || !pageEl || !dateEl || !timeEl || !greetEl) {
         console.warn("Counter: elementi non trovati, sidebar non pronta");
         return;
     }
-document.addEventListener("DOMContentLoaded", () => {
-    initVisitCounter();
-});
-    /* -----------------------------
-       ANIMAZIONE NUMERICA
-    ----------------------------- */
+
+    // -----------------------------
+    // ANIMAZIONE NUMERICA
+    // -----------------------------
     function animateValue(el, start, end, duration = 600) {
         const range = end - start;
         let startTime = null;
@@ -124,23 +126,46 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(step);
     }
 
-    /* -----------------------------
-       VISITE TOTALI
-    ----------------------------- */
+    // -----------------------------
+    // VISITE TOTALI
+    // -----------------------------
     let visits = parseInt(localStorage.getItem("anonlab_visits") || "0") + 1;
     localStorage.setItem("anonlab_visits", visits);
     animateValue(counterEl, visits - 1, visits);
 
-    /* -----------------------------
-       PAGINE VISITATE
-    ----------------------------- */
-    let pages = parseInt(localStorage.getItem("anonlab_pages") || "0") + 1;
-    localStorage.setItem("anonlab_pages", pages);
-    animateValue(pageEl, pages - 1, pages);
+    // -----------------------------
+    // PAGINE TOTALI
+    // -----------------------------
+    let pagesTotal = parseInt(localStorage.getItem("anonlab_pages") || "0") + 1;
+    localStorage.setItem("anonlab_pages", pagesTotal);
+    animateValue(pageEl, pagesTotal - 1, pagesTotal);
 
-    /* -----------------------------
-       SALUTO DINAMICO
-    ----------------------------- */
+    // -----------------------------
+    // PAGINA CORRENTE + ELENCO COMPLETO
+    // -----------------------------
+    const pageName = window.location.pathname.replace("/", "") || "home";
+
+    let pages = JSON.parse(localStorage.getItem("pagesViewed")) || {};
+
+    if (!pages[pageName]) pages[pageName] = 0;
+    pages[pageName]++;
+
+    localStorage.setItem("pagesViewed", JSON.stringify(pages));
+
+    if (currentPageEl) currentPageEl.textContent = pages[pageName];
+
+    if (listContainerEl) {
+        listContainerEl.innerHTML = "";
+        Object.keys(pages).forEach(page => {
+            const li = document.createElement("li");
+            li.textContent = `${page}: ${pages[page]}`;
+            listContainerEl.appendChild(li);
+        });
+    }
+
+    // -----------------------------
+    // SALUTO DINAMICO
+    // -----------------------------
     function updateGreeting() {
         const hour = new Date().getHours();
         let greeting = "Ciao!";
@@ -151,9 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
         greetEl.textContent = greeting;
     }
 
-    /* -----------------------------
-       DATA
-    ----------------------------- */
+    // -----------------------------
+    // DATA
+    // -----------------------------
     function updateDate() {
         const now = new Date();
         dateEl.textContent =
@@ -162,9 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
             now.getFullYear();
     }
 
-    /* -----------------------------
-       ORA + EFFETTO PULSE
-    ----------------------------- */
+    // -----------------------------
+    // ORA + EFFETTO PULSE
+    // -----------------------------
     function updateTime() {
         const now = new Date();
         timeEl.textContent =
@@ -186,8 +211,13 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTime();
     setInterval(updateTime, 1000);
 
-    console.log("Contatore visite — versione corretta attiva");
+    console.log("Contatore visite — versione completa attiva");
 }
+
+// ===============================
+// INIZIALIZZAZIONE SICURA
+// ===============================
+document.addEventListener("DOMContentLoaded", initVisitCounter);
 // ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
 // ===============================
