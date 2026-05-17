@@ -213,11 +213,6 @@ function initVisitCounter() {
 
     console.log("Contatore visite — versione completa attiva");
 }
-
-// ===============================
-// INIZIALIZZAZIONE SICURA
-// ===============================
-document.addEventListener("DOMContentLoaded", initVisitCounter);
 // ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
 // ===============================
