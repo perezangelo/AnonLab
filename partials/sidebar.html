@@ -65,13 +65,15 @@
   <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
   <h3>Richiedi Informazioni</h3>
 
-  <form action="/api/send-info.php"
-        method="POST"
-        enctype="application/x-www-form-urlencoded">
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Richiesta Informazioni - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-    <input type="text" name="name" placeholder="Il tuo nome" required>
-    <input type="email" name="email" placeholder="La tua email" required>
-    <textarea name="message" placeholder="Scrivi la tua richiesta..." required></textarea>
+    <input type="text" name="Nome" placeholder="Il tuo nome" required>
+    <input type="email" name="Email" placeholder="La tua email" required>
+    <textarea name="Messaggio" placeholder="Scrivi la tua richiesta..." required></textarea>
 
     <button type="submit">Invia</button>
   </form>
@@ -82,28 +84,33 @@
   <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
   <h3>FAQ & Domande</h3>
 
-  <form action="/api/send-faq.php"
-        method="POST"
-        enctype="application/x-www-form-urlencoded">
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Nuova Domanda FAQ - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-    <input type="email" name="email" placeholder="La tua email" required>
-
-    <textarea name="question" placeholder="La tua domanda" required></textarea>
+    <input type="email" name="Email" placeholder="La tua email" required>
+    <textarea name="Domanda" placeholder="La tua domanda" required></textarea>
 
     <button type="submit">Invia</button>
   </form>
 </div>
+
 <!-- FORM — REGISTRAZIONE UTENTE -->
 <div class="sidebar-box" aria-label="Registrazione utente">
   <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
   <h3>Registrazione Utente</h3>
 
-  <form action="/api/register.php"
-        method="POST"
-        enctype="application/x-www-form-urlencoded">
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="Username" placeholder="Username" required>
+    <input type="email" name="Email" placeholder="Email" required>
+
     <button type="submit">Registrati</button>
 
     <div class="recover-links">
@@ -111,7 +118,6 @@
       <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
       <p><a href="/recupera-credenziali.html">Hai dimenticato entrambi?</a></p>
     </div>
-
   </form>
 </div>
 
