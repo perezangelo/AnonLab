@@ -65,18 +65,21 @@
   <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
   <h3>Richiedi Informazioni</h3>
 
-  <form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-    <input type="hidden" name="subject" value="Richiesta Informazioni - AnonLab">
-    <input type="hidden" name="from_name" value="AnonLab">
-    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+<form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+  <input type="hidden" name="subject" value="Richiesta Informazioni - AnonLab">
+  <input type="hidden" name="from_name" value="AnonLab">
+  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-    <input type="text" name="Nome" placeholder="Il tuo nome" required>
-    <input type="email" name="Email" placeholder="La tua email" required>
-    <textarea name="Messaggio" placeholder="Scrivi la tua richiesta..." required></textarea>
+  <!-- Honeypot -->
+  <input type="checkbox" name="botcheck" style="display:none;">
 
-    <button type="submit">Invia</button>
-  </form>
+  <input type="text" name="Nome" placeholder="Il tuo nome" required>
+  <input type="email" name="Email" placeholder="La tua email" required>
+  <textarea name="Messaggio" placeholder="Scrivi la tua richiesta..." required></textarea>
+
+  <button type="submit">Invia</button>
+</form>
 </div>
 
 <!-- FORM — FAQ & DOMANDE -->
@@ -85,16 +88,19 @@
   <h3>FAQ & Domande</h3>
 
   <form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-    <input type="hidden" name="subject" value="Nuova Domanda FAQ - AnonLab">
-    <input type="hidden" name="from_name" value="AnonLab">
-    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+  <input type="hidden" name="subject" value="Nuova Domanda FAQ - AnonLab">
+  <input type="hidden" name="from_name" value="AnonLab">
+  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-    <input type="email" name="Email" placeholder="La tua email" required>
-    <textarea name="Domanda" placeholder="La tua domanda" required></textarea>
+  <!-- Honeypot -->
+  <input type="checkbox" name="botcheck" style="display:none;">
 
-    <button type="submit">Invia</button>
-  </form>
+  <input type="email" name="Email" placeholder="La tua email" required>
+  <textarea name="Domanda" placeholder="La tua domanda" required></textarea>
+
+  <button type="submit">Invia</button>
+</form>
 </div>
 
 <!-- FORM — REGISTRAZIONE UTENTE -->
@@ -103,22 +109,25 @@
   <h3>Registrazione Utente</h3>
 
   <form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-    <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
-    <input type="hidden" name="from_name" value="AnonLab">
-    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+  <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
+  <input type="hidden" name="from_name" value="AnonLab">
+  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-    <input type="text" name="Username" placeholder="Username" required>
-    <input type="email" name="Email" placeholder="Email" required>
+  <!-- Honeypot -->
+  <input type="checkbox" name="botcheck" style="display:none;">
 
-    <button type="submit">Registrati</button>
+  <input type="text" name="Username" placeholder="Username" required>
+  <input type="email" name="Email" placeholder="Email" required>
 
-    <div class="recover-links">
-      <p><a href="/recupera-username.html">Hai dimenticato la username?</a></p>
-      <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
-      <p><a href="/recupera-credenziali.html">Hai dimenticato entrambi?</a></p>
-    </div>
-  </form>
+  <button type="submit">Registrati</button>
+
+  <div class="recover-links">
+    <p><a href="/recupera-username.html">Hai dimenticato la username?</a></p>
+    <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
+    <p><a href="/recupera-credenziali.html">Hai dimenticato entrambi?</a></p>
+  </div>
+</form>
 </div>
 
 <!-- FEED DAL MONDO -->
