@@ -97,15 +97,21 @@
 <div class="sidebar-box" aria-label="Registrazione utente">
   <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
   <h3>Registrazione Utente</h3>
-  <form action="/register.php" method="POST">
+
+  <form action="/api/register.php"
+        method="POST"
+        enctype="application/x-www-form-urlencoded">
+
     <input type="text" name="username" placeholder="Username" required>
     <input type="email" name="email" placeholder="Email" required>
     <button type="submit">Registrati</button>
+
     <div class="recover-links">
-  <p><a href="/recupera-username.html">Hai dimenticato la username?</a></p>
-  <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
-  <p><a href="/recupera-credenziali.html">Hai dimenticato entrambi?</a></p>
-</div>
+      <p><a href="/recupera-username.html">Hai dimenticato la username?</a></p>
+      <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
+      <p><a href="/recupera-credenziali.html">Hai dimenticato entrambi?</a></p>
+    </div>
+
   </form>
 </div>
 
