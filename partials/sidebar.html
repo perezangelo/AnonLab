@@ -65,13 +65,18 @@
   <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
   <h3>Richiedi Informazioni</h3>
 
-  <form action="/send-info.php" method="POST">
+  <form action="/api/send-info.php"
+        method="POST"
+        enctype="application/x-www-form-urlencoded">
+
     <input type="text" name="name" placeholder="Il tuo nome" required>
     <input type="email" name="email" placeholder="La tua email" required>
     <textarea name="message" placeholder="Scrivi la tua richiesta..." required></textarea>
+
     <button type="submit">Invia</button>
   </form>
 </div>
+
 <!-- FORM — FAQ & DOMANDE -->
 <div class="sidebar-box" aria-label="FAQ e domande">
   <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
