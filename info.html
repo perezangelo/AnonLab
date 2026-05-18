@@ -1,16 +1,35 @@
-<form action="/api/send-info.php" 
-      method="POST" 
-      enctype="application/x-www-form-urlencoded"
-      class="contact-form">
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta Informazioni | AnonLab</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <label>Nome</label>
-    <input type="text" name="name" required>
+<header>
+    <h1>Richiedi Informazioni</h1>
+</header>
 
-    <label>Email</label>
-    <input type="email" name="email" required>
+<main>
+    <form action="/api/send-info.php"
+          method="POST"
+          enctype="application/x-www-form-urlencoded"
+          class="contact-form">
 
-    <label>Messaggio</label>
-    <textarea name="message" required></textarea>
+        <label>Nome</label>
+        <input type="text" name="name" required>
 
-    <button type="submit">Invia Richiesta</button>
-</form>
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Messaggio</label>
+        <textarea name="message" required></textarea>
+
+        <button type="submit">Invia Richiesta</button>
+    </form>
+</main>
+
+</body>
+</html>
