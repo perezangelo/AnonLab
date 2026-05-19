@@ -279,6 +279,33 @@ document.addEventListener("click", (e) => {
     </form>
 
 </div>
+      
+ <!-- BOX NEWSLETTER -->
+<div class="sidebar-box" aria-label="Newsletter" style="margin-top:25px;">
+  <img src="img/newsletter.png" class="sidebar-icon" alt="Icona newsletter">
+  <h3>Iscriviti alla Newsletter</h3>
+
+  <form action="https://api.web3forms.com/submit" method="POST">
+
+    <!-- Web3Forms -->
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Nuova iscrizione Newsletter - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab Newsletter">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+
+    <!-- Honeypot anti-spam -->
+    <input type="checkbox" name="botcheck" style="display:none;">
+
+    <!-- Campo email -->
+    <input type="email" name="Email" placeholder="La tua email" required
+           style="width:100%; padding:12px; border-radius:8px; border:1px solid #00eaff; background:#000814; color:#e0faff;">
+
+    <button type="submit"
+            style="margin-top:10px; padding:12px; width:100%; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:8px; cursor:pointer; box-shadow:0 0 10px #00eaffaa;">
+      Iscriviti
+    </button>
+  </form>
+</div>     
 
 <!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
 <style>
