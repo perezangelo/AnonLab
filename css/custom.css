@@ -894,27 +894,34 @@ canvas {
     text-align: center;
     display: block;
 }
+/* Google Search wrapper */
 .google-search-wrapper {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
+/* Icona Google */
 .google-icon {
     width: 48px;
     height: auto;
     flex-shrink: 0;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
-   .logo {
+}
+
+/* Logo header */
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+/* Logo ANONLAB nella navbar */
 .site-header .logo img.logo-icon {
     width: 48px !important;
     height: auto;
 }
+
 @media (max-width: 768px) {
     .site-header .logo img.logo-icon {
         width: 36px !important;
