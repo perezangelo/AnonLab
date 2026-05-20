@@ -1,0 +1,46 @@
+name: New Ticket
+
+on:
+  repository_dispatch:
+    types: [new_ticket]
+
+jobs:
+  new-ticket:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup jq
+        run: sudo apt-get install jq -y
+
+      - name: Aggiungi ticket
+        run: |
+          FILE="data/tickets.json"
+          TYPE="${{ github.event.client_payload.type }}"
+          NAME="${{ github.event.client_payload.name }}"
+          EMAIL="${{ github.event.client_payload.email }}"
+          MESSAGE="${{ github.event.client_payload.message }}"
+          ID="TCK-$(date +%Y%m%d%H%M%S)"
+
+          if [ ! -f "$FILE" ]; then
+            echo "[]" > "$FILE"
+          fi
+
+          TMP=$(mktemp)
+          jq ". += [{\"id\":\"$ID\",\"type\":\"$TYPE\",\"name\":\"$NAME\",\"email\":\"$EMAIL\",\"message\":\"$MESSAGE\",\"status\":\"open\",\"created\":$(date +%s)}]" "$FILE" > "$TMP"
+          mv "$TMP" "$FILE"
+
+      - name: Commit & Push
+        env:
+          TOKEN: ${{ secrets.USER_DB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tickets.json
+          git commit -m "Nuovo ticket: $ID" || echo "Nessuna modifica"
+          git push https://x-access-token:${TOKEN}@github.com/perezangelo/AnonLab.git main
