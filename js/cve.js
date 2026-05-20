@@ -16,6 +16,8 @@ async function loadCVEToday() {
     container.textContent = "Caricamento...";
 
     try {
+        console.log("[CVE] script attivo"); // 🔍 per verificare che questo file sia davvero caricato
+
         const res = await fetch("/data/cve-today.json", { cache: "no-store" });
         if (!res.ok) throw new Error("Impossibile leggere cve-today.json");
 
@@ -55,6 +57,7 @@ async function loadCVEToday() {
                          color:#ffb366;
                          text-shadow:0 0 8px #ff7b00;
                          font-weight:bold;
+                         text-decoration:none;
                        ">
                        Scheda NVD →
                     </a>
