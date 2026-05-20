@@ -1,43 +1,18 @@
-document.getElementById("register-form").addEventListener("submit", async function (e) {
-    e.preventDefault();
+<form id="register-form" action="https://api.web3forms.com/submit" method="POST">
 
-    const status = document.getElementById("register-status");
+  <!-- Web3Forms -->
+  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+  <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
+  <input type="hidden" name="from_name" value="AnonLab">
+  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-    const username = document.getElementById("reg-username").value.trim();
-    const email = document.getElementById("reg-email").value.trim();
-    const password = document.getElementById("reg-password").value;
+  <!-- Honeypot -->
+  <input type="checkbox" name="botcheck" style="display:none;">
 
-    if (!username || !email || !password) {
-        status.textContent = "Compila tutti i campi.";
-        return;
-    }
+  <!-- Campi utente -->
+  <input type="text" id="reg-username" name="Username" placeholder="Username" required>
+  <input type="email" id="reg-email" name="Email" placeholder="Email" required>
+  <input type="password" id="reg-password" name="Password" placeholder="Password" required>
 
-    // HASH PASSWORD (SHA-256)
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const password_hash = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-
-    // INVIO A GITHUB (SENZA TOKEN)
-    const response = await fetch("https://api.github.com/repos/perezangelo/AnonLab/dispatches", {
-        method: "POST",
-        headers: {
-            "Accept": "application/vnd.github+json"
-        },
-        body: JSON.stringify({
-            event_type: "register_user",
-            client_payload: {
-                username,
-                email,
-                password_hash
-            }
-        })
-    });
-
-    if (response.ok) {
-        status.textContent = "Registrazione inviata. Controlla la tua email.";
-    } else {
-        status.textContent = "Errore durante la registrazione.";
-    }
-});
+  <button type="submit">Registrati</button>
+</form>
