@@ -16,17 +16,26 @@ async function loadCVEToday() {
     container.textContent = "Caricamento...";
 
     try {
-        const res = await fetch("/data/cve-today.json");
+        const res = await fetch("/data/cve-today.json", { cache: "no-store" });
         if (!res.ok) throw new Error("Impossibile leggere cve-today.json");
 
         const data = await res.json();
 
-        const id = data.id || "CVE non disponibile";
+        // Fallback se il file è vuoto o non valido
+        if (!data || !data.id) {
+            container.innerHTML = `
+                <strong>Nessuna CVE disponibile</strong>
+                <p>Il servizio NVD non ha restituito dati aggiornati.</p>
+            `;
+            return;
+        }
+
+        const id = data.id;
         const description = data.description || "Descrizione non disponibile.";
         const score = data.score;
         const severity = data.severity;
         const published = data.published;
-        const url = data.url || (id.startsWith("CVE-") ? `https://nvd.nist.gov/vuln/detail/${id}` : "#");
+        const url = data.url || `https://nvd.nist.gov/vuln/detail/${id}`;
 
         let header = id;
         if (severity) header += ` — ${severity}`;
@@ -44,8 +53,8 @@ async function loadCVEToday() {
                        target="_blank" 
                        rel="noopener"
                        style="
-                         color:#ffb366;
-                         text-shadow:0 0 8px #ff7b00;
+                         color:#ff7b00;
+                         text-shadow:0 0 6px #ff7b00;
                          font-weight:bold;
                        ">
                        Scheda NVD →
@@ -55,7 +64,13 @@ async function loadCVEToday() {
         `;
     } catch (e) {
         console.error(e);
-        container.textContent = "Errore nel caricamento della vulnerabilità.";
+
+        // Fallback elegante in caso di errore
+        container.innerHTML = `
+            <strong>Servizio temporaneamente non disponibile</strong>
+            <p>Impossibile recuperare la vulnerabilità del giorno.</p>
+            <small style="opacity:0.7;">Riprova più tardi.</small>
+        `;
     }
 }
 
