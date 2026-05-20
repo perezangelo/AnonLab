@@ -1,624 +1,81 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <title>AnonLab — Cybersecurity, Tecnologia e Cultura Digitale</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO BASE -->
-  <meta name="description" content="AnonLab — Cybersecurity, Tecnologia e Cultura Digitale. News, analisi, strumenti e risorse per la sicurezza informatica.">
-  <meta name="author" content="AnonLab">
-
-  <!-- CANONICAL -->
-  <link rel="canonical" href="https://anonlab.it/">
-
-  <!-- INDEXING (SEO 2026) -->
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
-
-  <!-- SITEMAP -->
-  <link rel="sitemap" type="application/xml" href="https://anonlab.it/sitemap.xml">
-
-  <!-- VERIFICHE MOTORI -->
-  <meta name="msvalidate.01" content="INSERISCI_CODICE_BING">
-  <meta name="yandex-verification" content="INSERISCI_CODICE_YANDEX">
-
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <link rel="apple-touch-icon" href="/img/favicon.png">
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content="AnonLab — Cybersecurity & Digitale">
-  <meta property="og:description" content="News, analisi e strumenti sulla sicurezza informatica.">
-  <meta property="og:image" content="https://anonlab.it/img/eyes.png">
-  <meta property="og:url" content="https://anonlab.it/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="AnonLab">
-
-  <!-- TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AnonLab — Cybersecurity & Digitale">
-  <meta name="twitter:description" content="News, analisi e strumenti sulla sicurezza informatica.">
-  <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
-
-  <!-- JSON-LD (SCHEMA.ORG) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AnonLab",
-    "url": "https://anonlab.it/",
-    "description": "Cybersecurity, Tecnologia e Cultura Digitale. News, analisi e strumenti per la sicurezza informatica.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "AnonLab",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://anonlab.it/img/eyes.png"
-      }
-    }
-  }
-  </script>
-
-  <!-- CSS (ORDINE CORRETTO) -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-</head>
-<body class="dark-mode">
-  
-<!-- WRAPPER GPU -->
-<div id="app" class="gpu-boost">
-
-  <!-- HEADER (caricato dal partial) -->
-  <div id="header"></div>
-
-  <!-- 🔥 TICKER SPOSTATO QUI (SUBITO SOTTO L’HEADER) -->
-  <div class="ticker" aria-label="Ultime notizie in scorrimento" role="marquee">
-
-    <div class="ticker-title">Breaking</div>
-
-    <div class="ticker-content">
-        <div class="ticker-track" id="ticker-text">
-            <div class="ticker-item">AI nei SOC: la nuova frontiera della difesa digitale</div>
-            <div class="ticker-item">Ransomware 2026: crescita del 40% negli attacchi globali</div>
-            <div class="ticker-item">Zero Trust: perché nel 2026 è diventato indispensabile</div>
-            <div class="ticker-item">Nuove normative europee sulla cybersicurezza</div>
-            <div class="ticker-item">Supply-chain attacks: come proteggersi nel 2026</div>
-        </div>
-    </div>
-
-  </div>
-
-  <!-- SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
-  <script>
-      fetch("/partials/sidebar.html")
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById("sidebar").innerHTML = data;
-
-          initCalculator();
-          initRadio();
-          initYouTubePlayer();
-          initOroscopo();  // ← RIGA FONDAMENTALE
-
-          console.log("Sidebar caricata — Widget inizializzati");
-      });
-  </script>
-
-  <main class="page">
-
-    <section class="main-column">
-      
-      <!-- HERO PRINCIPALE -->
-<section class="hero-big">
-  <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
-
-  <img 
-    src="img/eyes.png" 
-    alt="AnonLab Eyes" 
-    class="hero-favicon"
-    loading="eager"
-    decoding="async"
-    fetchpriority="high"
-  >
-
-  <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
-</section>
-
-<!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
-<div style="position:relative; margin-top:25px; display:inline-block;">
-
-  <!-- BOTTONE -->
-  <button id="newsToggle"
-          style="
-            cursor:pointer;
-            background:none;
-            border:none;
-            font-size:1.2rem;
-            font-weight:bold;
-            color:#ff7b00;
-            text-shadow:0 0 8px #ff7b00;
-            white-space:nowrap;
-          ">
-    Esplora le ultime news ▾
-  </button>
-
-  <!-- MENU A TENDINA -->
-  <div id="newsPanel"
-       style="
-         display:none;
-         opacity:0;
-         transform:translateY(-10px);
-         transition:opacity 0.25s ease, transform 0.25s ease;
-
-         position:absolute;
-         top:40px;
-         left:0;
-
-         width:260px;
-         background:#000;
-         border:1px solid #ff7b00aa;
-         border-radius:8px;
-         box-shadow:0 0 18px #ff7b00aa;
-         padding:15px;
-         z-index:9999;
-       ">
-
-    <a href='https://thehackernews.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>TheHackerNews</a>
-
-    <a href='https://www.bleepingcomputer.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>BleepingComputer</a>
-
-    <a href='https://www.darkreading.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>DarkReading</a>
-
-    <a href='https://www.securityweek.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>SecurityWeek</a>
-
-  </div>
-</div>
-
-<!-- IMMAGINE SOTTO IL MENU -->
-<img src="img/ai-soc.jpg"
-     alt="AI SOC"
-     style="
-       width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
-       height:auto;
-       margin-top:0px;   /* leggero rialzo */
-       margin-bottom:25px; /* 🔥 stacco dal box sottostante */
-       border-radius:6px;
-       box-shadow:0 0 12px #ff7b00aa;
-       display:block;
-     ">
-
-<script>
-const toggle = document.getElementById("newsToggle");
-const panel = document.getElementById("newsPanel");
-
-toggle.addEventListener("click", () => {
-  if (panel.style.display === "none") {
-    panel.style.display = "block";
-    requestAnimationFrame(() => {
-      panel.style.opacity = "1";
-      panel.style.transform = "translateY(0)";
-    });
-  } else {
-    panel.style.opacity = "0";
-    panel.style.transform = "translateY(-10px)";
-    setTimeout(() => panel.style.display = "none", 250);
-  }
-});
-
-document.addEventListener("click", (e) => {
-  if (!panel.contains(e.target) && !toggle.contains(e.target)) {
-    if (panel.style.display === "block") {
-      panel.style.opacity = "0";
-      panel.style.transform = "translateY(-10px)";
-      setTimeout(() => panel.style.display = "none", 250);
-    }
-  }
-});
-</script>
-
-<!-- WRAPPER ALLINEATO A DESTRA (GOOGLE SEARCH + NEWSLETTER) -->
-<div style="
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    gap:18px;
-    margin-top:-120px;
-    margin-bottom:80px;
-    width:100%;
-">
-
-    <!-- GOOGLE SEARCH -->
-    <div style="
-        display:flex;
-        justify-content:flex-end;
-        align-items:center;
-        gap:15px;
-        width:100%;
-    ">
-        <img src="img/gears.png"
-             alt="Gears Icon"
-             style="
-                width:42px;
-                height:42px;
-                filter:drop-shadow(0 0 10px #00eaff);
-             ">
-
-        <form action="https://www.google.com/search" method="GET"
-              style="
-                display:flex;
-                gap:8px;
-                width:100%;
-                max-width:300px;
-                justify-content:flex-end;
-              ">
-            <input type="text" name="q"
-                   placeholder="Cerca su Google..."
-                   style="
-                     width:100%;
-                     padding:10px 12px;
-                     font-size:1rem;
-                     border-radius:8px;
-                     border:1px solid #00eaff;
-                     background:#000814;
-                     color:#e0faff;
-                     box-shadow:0 0 10px #00eaff55;
-                   ">
-
-            <button type="submit"
-                    style="
-                      padding:10px 14px;
-                      background:#00eaff;
-                      color:#000;
-                      font-weight:bold;
-                      border:none;
-                      border-radius:8px;
-                      cursor:pointer;
-                      box-shadow:0 0 10px #00eaffaa;
-                    ">
-              Cerca
-            </button>
-        </form>
-    </div>
-
-    <!-- NEWSLETTER -->
-    <div style="
-        display:flex;
-        justify-content:flex-end;
-        align-items:center;
-        gap:15px;
-        width:100%;
-    ">
-        <img src="img/newsletter.png"
-             alt="Newsletter Icon"
-             style="
-                width:42px;
-                height:42px;
-                filter:drop-shadow(0 0 10px #00eaff);
-             ">
-
-        <form action="https://api.web3forms.com/submit" method="POST"
-              style="
-                display:flex;
-                gap:8px;
-                width:100%;
-                max-width:300px;
-                justify-content:flex-end;
-              ">
-
-            <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-            <input type="hidden" name="subject" value="Nuova iscrizione Newsletter - AnonLab">
-            <input type="hidden" name="from_name" value="AnonLab Newsletter">
-            <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
-            <input type="checkbox" name="botcheck" style="display:none;">
-
-            <input type="email" name="Email"
-                   placeholder="La tua email"
-                   required
-                   style="
-                     width:100%;
-                     padding:10px 12px;
-                     font-size:1rem;
-                     border-radius:8px;
-                     border:1px solid #00eaff;
-                     background:#000814;
-                     color:#e0faff;
-                     box-shadow:0 0 10px #00eaff55;
-                   ">
-
-            <button type="submit"
-                    style="
-                      padding:10px 14px;
-                      background:#00eaff;
-                      color:#000;
-                      font-weight:bold;
-                      border:none;
-                      border-radius:8px;
-                      cursor:pointer;
-                      box-shadow:0 0 10px #00eaffaa;
-                    ">
-              Iscriviti gratuitamente
-            </button>
-        </form>
-    </div>
-
-</div>
-      
-<!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
-<style>
-@media (max-width: 480px) {
-  .google-wrapper {
-    max-width: 260px !important; /* allinea tutto alla colonna */
-  }
-  .google-wrapper input {
-    padding: 10px !important;
-    font-size: 0.95rem !important;
-  }
-  .google-wrapper button {
-    padding: 10px 14px !important;
-  }
-}
-</style>
-      <style>
-@media (max-width: 480px) {
-  .ai-soc-img {
-    width: 200px !important;
-    margin-top: 10px !important;
-  }
-}
-</style>
-      <div style="margin-top:60px;"></div>
-
-      <!-- ULTIME NEWS -->
-      <section class="widget-large">
-        <h2>Ultime dal mondo cyber</h2>
-        <div id="home-news"></div>
-      </section>
-
-      <!-- Immagine Anonymous sopra Cyber Threat Level -->
-      <div style="width:100%; margin:0 0 16px 0;">
-          <img 
-            src="/img/anonymous.png" 
-            alt="Anonymous" 
-            style="width:100%; height:auto; border-radius:10px;"
-            loading="lazy"
-            decoding="async"
-          >
-      </div>
-      <section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map">
-    <h2>Cyber Threat Map (Live)</h2>
-  </div>
-
-  <div class="widget-content">
-    <iframe 
-      src="https://threatmap.checkpoint.com/" 
-      width="100%" 
-      height="230" 
-      style="border:0; filter: drop-shadow(0 0 8px rgba(0,255,255,0.35));"
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-      <!-- CYBER THREAT LEVEL -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
-          <h2>Cyber Threat Level</h2>
-        </div>
-        <div class="threat-box">
-          <span class="threat-level">Moderato</span>
-          <p>Aggiornato quotidianamente</p>
-        </div>
-      </section>
-
-  <!-- VULNERABILITÀ DEL GIORNO -->
-  <section class="widget-large">
-    <div class="box-title-row">
-      <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid">
-      <h2>Vulnerabilità del Giorno</h2>
-    </div>
-
-    <div id="cve-today">Caricamento...</div>
-  </section>
-
-      <!-- CYBER ALERT LIVE -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
-          <h2>Cyber Alert Live</h2>
-
-          <!-- 🔗 LINK ESTERNO CISA -->
-          <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
-             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-             Advisory CISA →
-          </a>
-        </div>
-        <ul class="alert-list" id="alert-live"></ul>
-      </section>
-
-      <!-- FEED DAL MONDO -->
-      <section class="widget-large">
-        <h2>Feed dal Mondo</h2>
-
-        <!-- 🔗 LINK ESTERNO DARKREADING -->
-        <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-          Approfondisci su DarkReading →
-        </a>
-
-        <div id="world-feed"></div>
-      </section>
-
-      <!-- TECH RADAR -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
-          <h2>Tech Radar</h2>
-
-          <!-- 🔗 LINK ESTERNO ENISA -->
-          <a href="https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends" 
-             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-             ENISA Threat Landscape →
-          </a>
-        </div>
-        <ul class="tech-radar">
-          <li>AI generativa in crescita</li>
-          <li>Zero Trust nei SOC</li>
-          <li>Quantum Security</li>
-          <li>Automazione DevSecOps</li>
-        </ul>
-      </section>
-
-      <!-- AI TRENDS -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
-          <h2>AI Trends</h2>
-
-          <!-- 🔗 LINK ESTERNO WIRED SECURITY -->
-          <a href="https://www.wired.com/category/security" 
-             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-             Approfondisci AI & Security →
-          </a>
-        </div>
-        <ul class="ai-trends">
-          <li>Modelli multimodali</li>
-          <li>AI nei SOC</li>
-          <li>AI per la difesa</li>
-          <li>AI per la produttività</li>
-        </ul>
-      </section>
-
-      <!-- STRUMENTI CYBER -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
-          <h2>Strumenti Cyber</h2>
-
-          <!-- 🔗 LINK ESTERNO OSINT FRAMEWORK -->
-          <a href="https://osintframework.com" 
-             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-             OSINT Framework →
-          </a>
-        </div>
-
-        <ul class="tools-list">
-          <li>Port Scanner</li>
-          <li>Hash Analyzer</li>
-          <li>IP Lookup</li>
-          <li>Header Inspector</li>
-        </ul>
-      </section>
-
-      <!-- SYSTEM STATUS -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
-          <h2>System Status</h2>
-        </div>
-
-        <div class="status-box">
-          <p>Server: <span class="ok">Online</span></p>
-          <p>API: <span class="ok">Operative</span></p>
-          <p>News Feed: <span class="ok">Attivo</span></p>
-        </div>
-      </section>
-
-      <!-- CYBER THREAT MONITOR -->
-      <section class="widget-large">
-        <div class="box-title-row">
-          <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
-          <h2>Cyber Threat Monitor</h2>
-        </div>
-
-        <div class="monitor-box">
-          <span>Attività Globale</span>
-          <div class="monitor-bar"><div style="width: 72%;"></div></div>
-        </div>
-
-        <div class="monitor-box">
-          <span>Rischio Ransomware</span>
-          <div class="monitor-bar"><div style="width: 58%;"></div></div>
-        </div>
-
-        <div class="monitor-box">
-          <span>Attacchi DDoS</span>
-          <div class="monitor-bar"><div style="width: 81%;"></div></div>
-        </div>
-      </section>
-
-     <!-- HACKER ACTIVITY HEATMAP -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
-    <h2>Hacker Activity Heatmap</h2>
-
-    <!-- 🔗 LINK ESTERNO DARKREADING THREAT INTELLIGENCE -->
-    <a href="https://www.darkreading.com/threat-intelligence" 
-       target="_blank" rel="noopener noreferrer"
-       style="color:#ff7b00 !important; text-decoration:none;"
-       onmouseover="this.style.color='#ff9a40'"
-       onmouseout="this.style.color='#ff7b00'">
-       Threat Intelligence su DarkReading →
-    </a>
-  </div>
-
-  <ul class="attack-list">
-    <li><strong>Europa:</strong> aumento exploit su VPN e Active Directory</li>
-    <li><strong>USA:</strong> intensificazione attacchi DDoS su infrastrutture cloud</li>
-    <li><strong>Asia:</strong> campagne phishing su larga scala verso aziende fintech</li>
-    <li><strong>Sud America:</strong> crescita malware bancario e infostealer</li>
-    <li><strong>Africa:</strong> attività ransomware in espansione</li>
-  </ul>
-</section>
-    </section> <!-- /main-column -->
-
-    <div id="sidebar"></div>
-
-  </main>
-
-  <div id="footer"></div>
-
-  <!-- PULSANTE BACK TO TOP -->
-<button id="backToTop">↑</button>
-
-<!-- SCRIPT ORDINATI CORRETTAMENTE -->
-<script src="js/news.js"></script>
-<script src="js/ticker.js"></script>
-<script src="js/home-news.js"></script>
-
-<!-- UI GENERALE -->
-<script src="js/ui.js?v=3"></script>
-
-<!-- SCRIPT BACK TO TOP -->
-<script>
-  const backToTop = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      backToTop.style.display = "block";
-    } else {
-      backToTop.style.display = "none";
-    }
-  });
-
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
-</div> <!-- /#app GPU WRAPPER -->
- <!-- CALCOLATRICE -->
-<script src="js/main.js"></script>
-<script src="js/meteo.js" defer></script>
-  <script src="/js/cve.js"></script>
-
-</body>
-</html>
+name: Aggiorna CVE del giorno
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-cve:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Imposta branch main locale
+        run: |
+          git checkout -B main
+          git pull origin main
+
+      - name: Scarica ultima CVE da NVD
+        run: |
+          curl "https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=1" -o cve-api.json
+
+      - name: Estrai CVE e crea data/cve-today.json
+        run: |
+          node - << 'EOF'
+          const fs = require('fs');
+
+          const raw = fs.readFileSync('cve-api.json', 'utf8');
+          const data = JSON.parse(raw);
+
+          const v = data.vulnerabilities?.[0];
+          const cve = v?.cve;
+          if (!cve) {
+            console.error("Nessuna CVE trovata");
+            process.exit(1);
+          }
+
+          const id = cve.id;
+          const desc = cve.descriptions?.[0]?.value || "Descrizione non disponibile";
+
+          const metrics =
+            cve.metrics?.cvssMetricV31?.[0]?.cvssData ||
+            cve.metrics?.cvssMetricV30?.[0]?.cvssData ||
+            cve.metrics?.cvssMetricV2?.[0]?.cvssData ||
+            {};
+
+          const score = metrics.baseScore || null;
+          const severity = (metrics.baseSeverity || "").toUpperCase() || null;
+
+          const published =
+            cve.published ||
+            v?.published ||
+            null;
+
+          const url = `https://nvd.nist.gov/vuln/detail/${id}`;
+
+          const out = {
+            id,
+            description: desc,
+            score,
+            severity,
+            published,
+            url
+          };
+
+          fs.writeFileSync('data/cve-today.json', JSON.stringify(out, null, 2), 'utf8');
+          console.log("Aggiornato:", id);
+          EOF
+
+      - name: Commit e push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/cve-today.json
+          git commit -m "Update CVE of the day" || echo "Nessuna modifica"
+          git push origin main
