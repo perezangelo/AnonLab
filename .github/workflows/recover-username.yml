@@ -1,0 +1,57 @@
+name: Recover Username
+
+on:
+  repository_dispatch:
+    types: [recover_username]
+
+jobs:
+  recover-username:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup jq
+        run: sudo apt-get install jq -y
+
+      - name: Cerca username
+        id: search
+        run: |
+          EMAIL="${{ github.event.client_payload.email }}"
+          FILE="data/users.json"
+
+          if jq -e ".[] | select(.email == \"$EMAIL\")" "$FILE" > /dev/null; then
+            USERNAME=$(jq -r ".[] | select(.email == \"$EMAIL\") | .username" "$FILE")
+            echo "found=true" >> $GITHUB_OUTPUT
+            echo "username=$USERNAME" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Invia email con Web3Forms
+        env:
+          TOKEN: ${{ secrets.USER_DB_TOKEN }}
+        run: |
+          EMAIL="${{ github.event.client_payload.email }}"
+          FOUND="${{ steps.search.outputs.found }}"
+          USERNAME="${{ steps.search.outputs.username }}"
+
+          if [ "$FOUND" = "true" ]; then
+            MESSAGE="La tua username registrata su AnonLab è: $USERNAME"
+          else
+            MESSAGE="L'email inserita non risulta registrata su AnonLab."
+          fi
+
+          curl -X POST https://api.web3forms.com/submit \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"access_key\": \"9d55bc37-731e-405c-b3c2-b24c3feffb8c\",
+              \"from_name\": \"AnonLab\",
+              \"subject\": \"Recupero Username\",
+              \"email\": \"$EMAIL\",
+              \"message\": \"$MESSAGE\"
+            }"
