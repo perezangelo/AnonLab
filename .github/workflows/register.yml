@@ -1,0 +1,45 @@
+name: Register User
+
+on:
+  repository_dispatch:
+    types: [register_user]
+
+jobs:
+  update-users:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Aggiorna users.json
+        run: |
+          echo "Aggiornamento database utenti..."
+
+          USERNAME="${{ github.event.client_payload.username }}"
+          EMAIL="${{ github.event.client_payload.email }}"
+          HASH="${{ github.event.client_payload.password_hash }}"
+
+          FILE="data/users.json"
+
+          # Se l'utente esiste già, esci
+          if grep -q "\"email\": \"$EMAIL\"" "$FILE"; then
+            echo "Utente già registrato"
+            exit 0
+          fi
+
+          # Aggiungi nuovo utente
+          TMP=$(mktemp)
+          jq ". += [{\"email\":\"$EMAIL\",\"username\":\"$USERNAME\",\"password_hash\":\"$HASH\",\"reset_token\":null,\"reset_expire\":null}]" "$FILE" > "$TMP"
+          mv "$TMP" "$FILE"
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/users.json
+          git commit -m "Nuovo utente registrato: $USERNAME" || echo "Nessuna modifica"
+          git push origin main
