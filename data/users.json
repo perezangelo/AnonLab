@@ -1,1 +1,17 @@
-[]
+[[
+  {
+    "email": "utente1@example.com",
+    "username": "utente1",
+    "password_hash": "abc123...",
+    "reset_token": null,
+    "reset_expire": null
+  },
+  {
+    "email": "utente2@example.com",
+    "username": "utente2",
+    "password_hash": "def456...",
+    "reset_token": null,
+    "reset_expire": null
+  }
+]
+]
