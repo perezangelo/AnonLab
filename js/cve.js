@@ -21,7 +21,6 @@ async function loadCVEToday() {
 
         const data = await res.json();
 
-        // Fallback se il file è vuoto o non valido
         if (!data || !data.id) {
             container.innerHTML = `
                 <strong>Nessuna CVE disponibile</strong>
@@ -53,8 +52,8 @@ async function loadCVEToday() {
                        target="_blank" 
                        rel="noopener"
                        style="
-                         color:#ff7b00;
-                         text-shadow:0 0 6px #ff7b00;
+                         color:#ffb366;
+                         text-shadow:0 0 8px #ff7b00;
                          font-weight:bold;
                        ">
                        Scheda NVD →
@@ -65,7 +64,6 @@ async function loadCVEToday() {
     } catch (e) {
         console.error(e);
 
-        // Fallback elegante in caso di errore
         container.innerHTML = `
             <strong>Servizio temporaneamente non disponibile</strong>
             <p>Impossibile recuperare la vulnerabilità del giorno.</p>
