@@ -65,22 +65,19 @@
   <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
   <h3>Richiedi Informazioni</h3>
 
-<form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">  
-  <input type="hidden" name="subject" value="Richiesta Informazioni - AnonLab">
-  <input type="hidden" name="from_name" value="AnonLab">
-  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <form id="info-form">
 
-  <!-- Honeypot -->
-  <input type="checkbox" name="botcheck" style="display:none;">
+    <input type="text" id="info-name" placeholder="Il tuo nome" required>
+    <input type="email" id="info-email" placeholder="La tua email" required>
+    <textarea id="info-message" placeholder="Scrivi la tua richiesta..." required></textarea>
 
-  <input type="text" name="Nome" placeholder="Il tuo nome" required>
-  <input type="email" name="Email" placeholder="La tua email" required>
-  <textarea name="Messaggio" placeholder="Scrivi la tua richiesta..." required></textarea>
+    <button type="submit">Invia</button>
+  </form>
 
-  <button type="submit">Invia</button>
-</form>
+  <p id="info-status"></p>
 </div>
+
+<script src="/js/new-ticket.js"></script>
 
 <!-- FORM — FAQ & DOMANDE -->
 <div class="sidebar-box" aria-label="FAQ e domande">
