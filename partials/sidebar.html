@@ -103,32 +103,40 @@
 </form>
 </div>
 
-<!-- FORM — REGISTRAZIONE UTENTE -->
+<!-- 🔐 FORM — REGISTRAZIONE UTENTE -->
 <div class="sidebar-box" aria-label="Registrazione utente">
   <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
   <h3>Registrazione Utente</h3>
 
-  <form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-  <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
-  <input type="hidden" name="from_name" value="AnonLab">
-  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <form id="register-form" action="https://api.web3forms.com/submit" method="POST">
 
-  <!-- Honeypot -->
-  <input type="checkbox" name="botcheck" style="display:none;">
+    <!-- Web3Forms -->
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-  <input type="text" name="Username" placeholder="Username" required>
-  <input type="email" name="Email" placeholder="Email" required>
+    <!-- Honeypot -->
+    <input type="checkbox" name="botcheck" style="display:none;">
 
-  <button type="submit">Registrati</button>
+    <!-- Campi utente -->
+    <input type="text" name="Username" id="username" placeholder="Username" required>
+    <input type="email" name="Email" id="email" placeholder="Email" required>
+    <input type="password" name="Password" id="password" placeholder="Password" required>
 
-  <div class="recover-links">
-    <p><a href="/recupera-username.html">Hai dimenticato la username?</a></p>
-    <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
-    <p><a href="/recupera-credenziali.html">Hai dimenticato entrambi?</a></p>
-  </div>
-</form>
+    <button type="submit">Registrati</button>
+
+    <div class="recover-links">
+      <p><a href="/recupera-username.html">Hai dimenticato la username?</a></p>
+      <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
+      <p><a href="/recupera-credenziali.html">Hai dimenticato entrambi?</a></p>
+    </div>
+
+  </form>
 </div>
+
+<!-- JS -->
+<script src="/js/register.js"></script>
 
 <!-- FEED DAL MONDO -->
 <div class="sidebar-box" aria-label="Feed dal mondo">
