@@ -1,8 +1,16 @@
 document.getElementById("register-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-    const username = document.getElementById("username").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+    const status = document.getElementById("register-status");
+
+    const username = document.getElementById("reg-username").value.trim();
+    const email = document.getElementById("reg-email").value.trim();
+    const password = document.getElementById("reg-password").value;
+
+    if (!username || !email || !password) {
+        status.textContent = "Compila tutti i campi.";
+        return;
+    }
 
     // HASH PASSWORD (SHA-256)
     const encoder = new TextEncoder();
@@ -11,12 +19,11 @@ document.getElementById("register-form").addEventListener("submit", async functi
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const password_hash = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 
-    // INVIO A GITHUB (DATABASE)
-    await fetch("https://api.github.com/repos/perezangelo/AnonLab/dispatches", {
+    // INVIO A GITHUB (SENZA TOKEN)
+    const response = await fetch("https://api.github.com/repos/perezangelo/AnonLab/dispatches", {
         method: "POST",
         headers: {
-            "Accept": "application/vnd.github+json",
-            "Authorization": "Bearer GITHUB_TOKEN_DA_INSERIRE"
+            "Accept": "application/vnd.github+json"
         },
         body: JSON.stringify({
             event_type: "register_user",
@@ -28,5 +35,9 @@ document.getElementById("register-form").addEventListener("submit", async functi
         })
     });
 
-    // Web3Forms prosegue normalmente
+    if (response.ok) {
+        status.textContent = "Registrazione inviata. Controlla la tua email.";
+    } else {
+        status.textContent = "Errore durante la registrazione.";
+    }
 });
