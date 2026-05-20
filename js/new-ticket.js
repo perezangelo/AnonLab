@@ -1,18 +1,39 @@
-document.getElementById("info-form").addEventListener("submit", async function (e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
 
-    const status = document.getElementById("info-status");
+    // FORM INFO
+    const infoForm = document.getElementById("info-form");
+    if (infoForm) {
+        infoForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            await sendTicket("info", "info-name", "info-email", "info-message", "info-status");
+        });
+    }
 
-    const name = document.getElementById("info-name").value.trim();
-    const email = document.getElementById("info-email").value.trim();
-    const message = document.getElementById("info-message").value.trim();
+    // FORM FAQ
+    const faqForm = document.getElementById("faq-form");
+    if (faqForm) {
+        faqForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            await sendTicket("faq", null, "faq-email", "faq-question", "faq-status");
+        });
+    }
 
-    if (!name || !email || !message) {
+});
+
+// FUNZIONE GENERICA PER INVIARE TICKET
+async function sendTicket(type, nameField, emailField, messageField, statusField) {
+
+    const status = document.getElementById(statusField);
+
+    const name = nameField ? document.getElementById(nameField).value.trim() : "";
+    const email = document.getElementById(emailField).value.trim();
+    const message = document.getElementById(messageField).value.trim();
+
+    if (!email || !message) {
         status.textContent = "Compila tutti i campi.";
         return;
     }
 
-    // INVIO A GITHUB ACTIONS
     const response = await fetch("https://api.github.com/repos/perezangelo/AnonLab/dispatches", {
         method: "POST",
         headers: {
@@ -21,7 +42,7 @@ document.getElementById("info-form").addEventListener("submit", async function (
         body: JSON.stringify({
             event_type: "new_ticket",
             client_payload: {
-                type: "info",
+                type,
                 name,
                 email,
                 message
@@ -34,4 +55,4 @@ document.getElementById("info-form").addEventListener("submit", async function (
     } else {
         status.textContent = "Errore durante l'invio.";
     }
-});
+}
