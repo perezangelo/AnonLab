@@ -27,12 +27,7 @@ async function loadCVEToday() {
             <strong>${id}</strong>
             <p>${desc}</p>
             <a href="${url}" target="_blank" rel="noopener"
-               style="
-                 color:#ffb366;
-                 text-shadow:0 0 8px #ff7b00;
-                 font-weight:bold;
-                 text-decoration:none;
-               ">
+               style="color:#ff7b00;">
                Scheda NVD →
             </a>
         `;
