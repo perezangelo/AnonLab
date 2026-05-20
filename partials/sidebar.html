@@ -84,21 +84,18 @@
   <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
   <h3>FAQ & Domande</h3>
 
-  <form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-  <input type="hidden" name="subject" value="Nuova Domanda FAQ - AnonLab">
-  <input type="hidden" name="from_name" value="AnonLab">
-  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <form id="faq-form">
 
-  <!-- Honeypot -->
-  <input type="checkbox" name="botcheck" style="display:none;">
+    <input type="email" id="faq-email" placeholder="La tua email" required>
+    <textarea id="faq-question" placeholder="La tua domanda" required></textarea>
 
-  <input type="email" name="Email" placeholder="La tua email" required>
-  <textarea name="Domanda" placeholder="La tua domanda" required></textarea>
+    <button type="submit">Invia</button>
+  </form>
 
-  <button type="submit">Invia</button>
-</form>
+  <p id="faq-status"></p>
 </div>
+
+<script src="/js/new-ticket.js"></script>
 
 <!-- 🔐 FORM — REGISTRAZIONE UTENTE -->
 <div class="sidebar-box" aria-label="Registrazione utente">
