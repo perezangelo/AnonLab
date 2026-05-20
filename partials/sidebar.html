@@ -60,61 +60,97 @@
   </ul>
 </div>
 
-<form id="info-form">
+<!-- FORM — RICHIESTA INFO -->
+<div class="sidebar-box" aria-label="Richiesta informazioni">
+  <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
+  <h3>Richiedi Informazioni</h3>
 
-  <!-- Web3Forms -->
-  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-  <input type="hidden" name="subject" value="Richiesta Informazioni - AnonLab">
-  <input type="hidden" name="from_name" value="AnonLab">
-  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <form id="info-form" action="https://api.web3forms.com/submit" method="POST">
 
-  <!-- Honeypot -->
-  <input type="checkbox" name="botcheck" style="display:none;">
+    <!-- Web3Forms -->
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Richiesta Informazioni - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-  <input type="text" id="info-name" name="Nome" placeholder="Il tuo nome" required>
-  <input type="email" id="info-email" name="Email" placeholder="La tua email" required>
-  <textarea id="info-message" name="Messaggio" placeholder="Scrivi la tua richiesta..." required></textarea>
+    <!-- Honeypot -->
+    <input type="checkbox" name="botcheck" style="display:none;">
 
-  <button type="submit">Invia</button>
-</form>
+    <!-- Campi -->
+    <input type="text" id="info-name" name="Nome" placeholder="Il tuo nome" required>
+    <input type="email" id="info-email" name="Email" placeholder="La tua email" required>
+    <textarea id="info-message" name="Messaggio" placeholder="Scrivi la tua richiesta..." required></textarea>
+
+    <button type="submit">Invia</button>
+  </form>
+
+  <p id="info-status"></p>
+</div>
+
 <script src="/js/new-ticket.js"></script>
 
-<form id="faq-form">
+<!-- FORM — FAQ & DOMANDE -->
+<div class="sidebar-box" aria-label="FAQ e domande">
+  <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
+  <h3>FAQ & Domande</h3>
 
-  <!-- Web3Forms -->
-  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-  <input type="hidden" name="subject" value="Nuova Domanda FAQ - AnonLab">
-  <input type="hidden" name="from_name" value="AnonLab">
-  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <form id="faq-form" action="https://api/web3forms.com/submit" method="POST">
 
-  <!-- Honeypot -->
-  <input type="checkbox" name="botcheck" style="display:none;">
+    <!-- Web3Forms -->
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Nuova Domanda FAQ - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-  <input type="email" id="faq-email" name="Email" placeholder="La tua email" required>
-  <textarea id="faq-question" name="Domanda" placeholder="La tua domanda" required></textarea>
+    <!-- Honeypot -->
+    <input type="checkbox" name="botcheck" style="display:none;">
 
-  <button type="submit">Invia</button>
-</form>
+    <!-- Campi -->
+    <input type="email" id="faq-email" name="Email" placeholder="La tua email" required>
+    <textarea id="faq-question" name="Domanda" placeholder="La tua domanda..." required></textarea>
+
+    <button type="submit">Invia</button>
+  </form>
+
+  <p id="faq-status"></p>
+</div>
+
 <script src="/js/new-ticket.js"></script>
 
-<form id="register-form" action="https://api.web3forms.com/submit" method="POST">
+<!-- 🔐 FORM — REGISTRAZIONE UTENTE -->
+<div class="sidebar-box" aria-label="Registrazione utente">
+  <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
+  <h3>Registrazione Utente</h3>
 
-  <!-- Web3Forms -->
-  <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-  <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
-  <input type="hidden" name="from_name" value="AnonLab">
-  <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+  <form id="register-form" action="https://api/web3forms.com/submit" method="POST">
 
-  <!-- Honeypot -->
-  <input type="checkbox" name="botcheck" style="display:none;">
+    <!-- Web3Forms -->
+    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+    <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
+    <input type="hidden" name="from_name" value="AnonLab">
+    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
 
-  <!-- Campi utente -->
-  <input type="text" id="reg-username" name="Username" placeholder="Username" required>
-  <input type="email" id="reg-email" name="Email" placeholder="Email" required>
-  <input type="password" id="reg-password" name="Password" placeholder="Password" required>
+    <!-- Honeypot -->
+    <input type="checkbox" name="botcheck" style="display:none;">
 
-  <button type="submit">Registrati</button>
-</form>
+    <!-- Campi utente -->
+    <input type="text" id="reg-username" name="Username" placeholder="Username" required>
+    <input type="email" id="reg-email" name="Email" placeholder="Email" required>
+    <input type="password" id="reg-password" name="Password" placeholder="Password" required>
+
+    <button type="submit">Registrati</button>
+
+    <div class="recover-links">
+      <p><a href="/recupera-username.html">Hai dimenticato la username?</a></p>
+      <p><a href="/recupera-password.html">Hai dimenticato la password?</a></p>
+      <p>Hai dimenticato entrambi? Prima recupera la username, poi reimposta la password.</p>
+    </div>
+
+  </form>
+
+  <p id="register-status"></p>
+</div>
+
 <script src="/js/register.js"></script>
 
 <!-- FEED DAL MONDO -->
