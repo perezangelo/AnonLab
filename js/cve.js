@@ -13,9 +13,6 @@ async function loadCVEToday() {
     const container = document.getElementById("cve-today");
     if (!container) return;
 
-    // Applico la classe che già colora i link in arancione laser
-    container.classList.add("cyber-section");
-
     container.textContent = "Caricamento...";
 
     try {
@@ -43,7 +40,16 @@ async function loadCVEToday() {
             <div>
                 <small>
                     ${dateLabel ? `Pubblicata: ${dateLabel} — ` : ""}
-                    <a href="${url}" target="_blank" rel="noopener">Scheda NVD →</a>
+                    <a href="${url}" 
+                       target="_blank" 
+                       rel="noopener"
+                       style="
+                         color:#ffb366;
+                         text-shadow:0 0 8px #ff7b00;
+                         font-weight:bold;
+                       ">
+                       Scheda NVD →
+                    </a>
                 </small>
             </div>
         `;
