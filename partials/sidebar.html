@@ -65,21 +65,12 @@
   <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
   <h3>Richiedi Informazioni</h3>
 
-  <form id="info-form" action="https://api.web3forms.com/submit" method="POST">
-
-    <!-- Web3Forms -->
-    <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-    <input type="hidden" name="subject" value="Richiesta Informazioni - AnonLab">
-    <input type="hidden" name="from_name" value="AnonLab">
-    <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
-
-    <!-- Honeypot -->
-    <input type="checkbox" name="botcheck" style="display:none;">
+  <form id="info-form" action="https://angelonline.altervista.org/send-info.php" method="POST">
 
     <!-- Campi -->
-    <input type="text" id="info-name" name="Nome" placeholder="Il tuo nome" required>
-    <input type="email" id="info-email" name="Email" placeholder="La tua email" required>
-    <textarea id="info-message" name="Messaggio" placeholder="Scrivi la tua richiesta..." required></textarea>
+    <input type="text" id="info-name" name="name" placeholder="Il tuo nome" required>
+    <input type="email" id="info-email" name="email" placeholder="La tua email" required>
+    <textarea id="info-message" name="message" placeholder="Scrivi la tua richiesta..." required></textarea>
 
     <button type="submit">Invia</button>
   </form>
