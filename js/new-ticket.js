@@ -1,5 +1,4 @@
-<form id="register-form" action="https://api.web3forms.com/submit" method="POST">
-
+<form id="register-form" action="https://angelonline.altervista.org/send-ticket.php" method="POST">
   <!-- Web3Forms -->
   <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
   <input type="hidden" name="subject" value="Nuova Registrazione Utente - AnonLab">
