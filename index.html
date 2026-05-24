@@ -246,19 +246,19 @@ document.addEventListener("click", (e) => {
 const realAdminLink = "https://angelonline.altervista.org/admin.php";
 const link = document.getElementById("dash-admin-link");
 
-// --- SBLOCCO DA PC (CTRL + ALT + A) ---
+// --- SBLOCCO DA PC (CTRL + ALT + K) ---
 document.addEventListener("keydown", function(e) {
-    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "a") {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
         link.href = realAdminLink;
         link.style.textShadow = "0 0 12px #00ff00";
     }
 });
 
-// --- SBLOCCO DA MOBILE (DOPPIO TAP INVISIBILE) ---
+// --- SBLOCCO DA MOBILE (DOPPIO TAP) ---
 let lastTap = 0;
-document.addEventListener("touchend", function(e) {
+document.addEventListener("touchend", function() {
     const now = Date.now();
-    if (now - lastTap < 300) {   // doppio tap entro 300ms
+    if (now - lastTap < 300) {
         link.href = realAdminLink;
         link.style.textShadow = "0 0 12px #00ff00";
     }
