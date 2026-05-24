@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Registrazione - AnonLab</title>
+<style>
+body {
+  background:#050510;
+  color:#0ff;
+  font-family:Consolas, monospace;
+  padding:20px;
+}
+.box {
+  max-width:400px;
+  margin:auto;
+  padding:20px;
+  border:1px solid #0ff4;
+  border-radius:8px;
+  background:#0a0a20;
+  box-shadow:0 0 15px #0ff3;
+}
+input {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  background:#02020a;
+  border:1px solid #0ff4;
+  color:#0ff;
+  border-radius:4px;
+}
+button {
+  width:100%;
+  padding:10px;
+  background:#0ff;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  font-weight:bold;
+}
+button:hover { opacity:0.8; }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Registrazione</h2>
+  <p>Riceverai una password temporanea via email.</p>
+
+  <form action="https://angelonline.altervista.org/backend/register.php" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <button type="submit">Registrati</button>
+  </form>
+</div>
+
+</body>
+</html>
+
+</body>
+</html>
