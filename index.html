@@ -221,30 +221,29 @@ document.addEventListener("click", (e) => {
   }
 });
 </script>
-      <!-- DASH ADMIN PROTETTO -->
-<div id="dash-admin-box" style="text-align:right; margin-bottom:10px; display:none;">
-    <a href="https://angelonline.altervista.org/admin.php"
+      <!-- DASH ADMIN STEALTH (LINK VISIBILE + PROTEZIONE) -->
+<div id="dash-admin-box" style="text-align:right; margin-bottom:10px;">
+    <a id="dash-admin-link"
+       href="/404.html"
        style="color:#ff7b00; font-weight:bold; text-shadow:0 0 6px #ff7b00;">
        ➤ Dash Admin
     </a>
 </div>
 
 <script>
-// PASSWORD scelta da te
-const adminPassword = "ANGELO2026"; // <-- CAMBIALA QUI
+// Link reale (nascosto)
+const realAdminLink = "https://angelonline.altervista.org/admin.php";
 
-// Mostra il link solo se la password è corretta
-if (!localStorage.getItem("anonlab_admin_ok")) {
-    const pwd = prompt("Inserisci password amministratore:");
-    if (pwd === adminPassword) {
-        localStorage.setItem("anonlab_admin_ok", "1");
-        document.getElementById("dash-admin-box").style.display = "block";
+// Combinazione segreta: CTRL + ALT + A
+document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "a") {
+        const link = document.getElementById("dash-admin-link");
+        link.href = realAdminLink;
+        link.style.textShadow = "0 0 12px #00ff00"; // glow verde per conferma
     }
-} else {
-    document.getElementById("dash-admin-box").style.display = "block";
-}
+});
 </script>
-<!-- FINE DASH ADMIN -->
+<!-- FINE DASH ADMIN STEALTH -->
 
 <!-- WRAPPER ALLINEATO A DESTRA (GOOGLE SEARCH + NEWSLETTER) -->
 <div style="
