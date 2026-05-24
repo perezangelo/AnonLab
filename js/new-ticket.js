@@ -11,3 +11,10 @@
 
   <button type="submit">Registrati</button>
 </form>
+<div style="text-align:center; margin-top:15px;">
+    <a href="https://angelonline.altervista.org/admin.php" 
+       style="color:#ff7b00; font-weight:bold; text-shadow:0 0 6px #ff7b00;">
+       ➤ Dash Admin
+    </a>
+</div>
+
