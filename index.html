@@ -242,11 +242,10 @@ document.addEventListener("click", (e) => {
 </div>
 
 <script>
-// Link reale del backend
-const realAdminLink = "https://angelonline.altervista.org/backend/admin.php";
+const realAdminLink = "https://angelonline.altervista.org/backend/login.php";
 const link = document.getElementById("dash-admin-link");
 
-// --- SBLOCCO DA PC (CTRL + ALT + K) ---
+// PC: CTRL + ALT + K
 document.addEventListener("keydown", function(e) {
     if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
         link.href = realAdminLink;
@@ -254,7 +253,7 @@ document.addEventListener("keydown", function(e) {
     }
 });
 
-// --- SBLOCCO DA MOBILE (DOPPIO TAP) ---
+// MOBILE: doppio tap
 let lastTap = 0;
 document.addEventListener("touchend", function() {
     const now = Date.now();
