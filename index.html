@@ -221,6 +221,30 @@ document.addEventListener("click", (e) => {
   }
 });
 </script>
+      <!-- DASH ADMIN PROTETTO -->
+<div id="dash-admin-box" style="text-align:right; margin-bottom:10px; display:none;">
+    <a href="https://angelonline.altervista.org/admin.php"
+       style="color:#ff7b00; font-weight:bold; text-shadow:0 0 6px #ff7b00;">
+       ➤ Dash Admin
+    </a>
+</div>
+
+<script>
+// PASSWORD scelta da te
+const adminPassword = "ANGELO2026"; // <-- CAMBIALA QUI
+
+// Mostra il link solo se la password è corretta
+if (!localStorage.getItem("anonlab_admin_ok")) {
+    const pwd = prompt("Inserisci password amministratore:");
+    if (pwd === adminPassword) {
+        localStorage.setItem("anonlab_admin_ok", "1");
+        document.getElementById("dash-admin-box").style.display = "block";
+    }
+} else {
+    document.getElementById("dash-admin-box").style.display = "block";
+}
+</script>
+<!-- FINE DASH ADMIN -->
 
 <!-- WRAPPER ALLINEATO A DESTRA (GOOGLE SEARCH + NEWSLETTER) -->
 <div style="
