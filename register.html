@@ -52,6 +52,40 @@ button:hover { opacity:0.8; }
       <button type="submit">Registrati</button>
   </form>
 </div>
+  <div id="confirmBox" style="
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    border:1px solid #0ff4;
+    background:#0a0a20;
+    color:#0ff;
+    border-radius:6px;
+    box-shadow:0 0 12px #0ff6;
+    text-align:center;
+    font-size:14px;
+">
+    Registrazione completata! Controlla la tua email per la password temporanea.
+</div>
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const box = document.getElementById("confirmBox");
+
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then(r => r.text())
+    .then(res => {
+        box.style.display = "block";
+        box.innerHTML = res.includes("Registrazione completata")
+            ? "Registrazione completata! Controlla la tua email."
+            : res;
+    });
+});
+</script>
 
 </body>
 </html>
