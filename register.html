@@ -49,6 +49,40 @@ button:hover { opacity:0.8; }
   <form action="https://angelonline.altervista.org/backend/register.php" method="POST">
       <input type="text" name="username" placeholder="Username" required>
       <input type="email" name="email" placeholder="Email" required>
+    <p id="userCheck" style="font-size:12px; color:#f55; display:none;"></p>
+<p id="emailCheck" style="font-size:12px; color:#f55; display:none;"></p>
+<script>
+const userField = document.querySelector("input[name='username']");
+const emailField = document.querySelector("input[name='email']");
+const userCheck = document.getElementById("userCheck");
+const emailCheck = document.getElementById("emailCheck");
+
+userField.addEventListener("input", () => {
+    fetch("https://angelonline.altervista.org/backend/check_user.php?username=" + userField.value)
+    .then(r => r.text())
+    .then(res => {
+        if (res === "exists") {
+            userCheck.style.display = "block";
+            userCheck.innerHTML = "⚠️ Username già in uso";
+        } else {
+            userCheck.style.display = "none";
+        }
+    });
+});
+
+emailField.addEventListener("input", () => {
+    fetch("https://angelonline.altervista.org/backend/check_user.php?email=" + emailField.value)
+    .then(r => r.text())
+    .then(res => {
+        if (res === "exists") {
+            emailCheck.style.display = "block";
+            emailCheck.innerHTML = "⚠️ Email già registrata";
+        } else {
+            emailCheck.style.display = "none";
+        }
+    });
+});
+</script>
       <button type="submit">Registrati</button>
   </form>
 </div>
