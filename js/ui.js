@@ -330,18 +330,18 @@ document.addEventListener("click", function (e) {
     }
 
     const mainLoaded = [...document.querySelectorAll("script")]
-        .some(s => s.src.includes("/assets/js/main.js"));
+    .some(s => s.src.includes("/js/main.js"));
 
-    if (!mainLoaded) {
-        const script = document.createElement("script");
-        script.src = "/assets/js/main.js";
-        script.onload = () => {
-            console.log("main.js caricato automaticamente");
-            if (typeof initCalculator === "function") initCalculator();
-        };
-        document.body.appendChild(script);
-        return;
-    }
+if (!mainLoaded) {
+    const script = document.createElement("script");
+    script.src = "/js/main.js";
+    script.onload = () => {
+        console.log("main.js caricato automaticamente");
+        if (typeof initCalculator === "function") initCalculator();
+    };
+    document.body.appendChild(script);
+    return;
+}
 
     if (typeof initCalculator === "function") {
         initCalculator();
