@@ -330,7 +330,7 @@ document.addEventListener("click", function (e) {
     }
 
     const mainLoaded = [...document.querySelectorAll("script")]
-        .some(s => s.src.includes("/assets/js/main.js"));
+        .some(s => s.src.includes("/js/main.js"));
 
     if (!mainLoaded) {
         const script = document.createElement("script");
