@@ -334,7 +334,7 @@ document.addEventListener("click", function (e) {
 
     if (!mainLoaded) {
         const script = document.createElement("script");
-        script.src = "/assets/js/main.js";
+        script.src = "/js/main.js";
         script.onload = () => {
             console.log("main.js caricato automaticamente");
             if (typeof initCalculator === "function") initCalculator();
