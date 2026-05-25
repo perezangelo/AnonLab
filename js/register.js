@@ -5,36 +5,33 @@ document.getElementById("register-form").addEventListener("submit", async functi
 
     const username = document.getElementById("reg-username").value.trim();
     const email = document.getElementById("reg-email").value.trim();
-    const password = document.getElementById("reg-password").value;
 
-    if (!username || !email || !password) {
+    if (!username || !email) {
         status.textContent = "Compila tutti i campi.";
         return;
     }
 
-    // HASH PASSWORD (SHA-256)
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const password_hash = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+    // Prepara i dati da inviare al backend PHP
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
 
-    // INVIO A GITHUB ACTIONS (salvataggio utente)
-    await fetch("https://api.github.com/repos/perezangelo/AnonLab/dispatches", {
-        method: "POST",
-        headers: {
-            "Accept": "application/vnd.github+json"
-        },
-        body: JSON.stringify({
-            event_type: "register_user",
-            client_payload: {
-                username,
-                email,
-                password_hash
-            }
-        })
-    });
+    try {
+        const response = await fetch("/backend/register.php", {
+            method: "POST",
+            body: formData
+        });
 
-    // INVIA EMAIL (Web3Forms)
-    this.submit();
+        const result = await response.json();
+
+        if (result.status === "success") {
+            // 🔥 REDIRECT ALLA PAGINA DI RINGRAZIAMENTO
+            window.location.href = "/grazie.html";
+        } else {
+            status.textContent = result.message;
+        }
+
+    } catch (error) {
+        status.textContent = "Errore di connessione. Riprova.";
+    }
 });
