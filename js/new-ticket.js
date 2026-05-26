@@ -3,7 +3,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // --- FUNZIONE GENERICA DI INVIO ---
   async function inviaForm(formId, statusId, endpoint) {
     const form = document.getElementById(formId);
     const status = document.getElementById(statusId);
@@ -23,10 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
           body: formData
         });
 
-        const text = await response.text();
-        status.textContent = text;
+        const json = await response.json();
 
-        if (text.includes("correttamente") || text.includes("Registrazione completata")) {
+        status.textContent = json.message;
+
+        if (json.status === "success") {
           form.reset();
         }
 
@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- ATTIVA I FORM ---
   inviaForm("info-form", "info-status", "https://angelonline.altervista.org/send-info.php");
   inviaForm("faq-form", "faq-status", "https://angelonline.altervista.org/send-faq.php");
   inviaForm("register-form", "register-status", "https://angelonline.altervista.org/send-register.php");
