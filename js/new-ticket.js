@@ -1,21 +1,44 @@
-<form id="register-form" action="https://angelonline.altervista.org/send-ticket.php" method="POST">
-  <!-- Web3Forms -->
+// new-ticket.js
+// Gestione AJAX per INFO, FAQ e REGISTRAZIONE
 
-  <!-- Honeypot -->
-  <input type="checkbox" name="botcheck" style="display:none;">
+document.addEventListener("DOMContentLoaded", () => {
 
-  <!-- Campi utente -->
-  <input type="text" id="reg-username" name="Username" placeholder="Username" required>
-  <input type="email" id="reg-email" name="Email" placeholder="Email" required>
-  <input type="password" id="reg-password" name="Password" placeholder="Password" required>
+  // --- FUNZIONE GENERICA DI INVIO ---
+  async function inviaForm(formId, statusId, endpoint) {
+    const form = document.getElementById(formId);
+    const status = document.getElementById(statusId);
 
-  <button type="submit">Registrati</button>
-</form>
-<div style="text-align:center; margin-top:15px;">
-    <a href="https://angelonline.altervista.org/admin.php" 
-       style="color:#ff7b00; font-weight:bold; text-shadow:0 0 6px #ff7b00;">
-       ➤ Dash Admin
-    </a>
-</div>
+    if (!form) return;
 
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
+      status.textContent = "Invio in corso...";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: formData
+        });
+
+        const text = await response.text();
+        status.textContent = text;
+
+        if (text.includes("correttamente") || text.includes("Registrazione completata")) {
+          form.reset();
+        }
+
+      } catch (error) {
+        status.textContent = "Errore di connessione.";
+      }
+    });
+  }
+
+  // --- ATTIVA I FORM ---
+  inviaForm("info-form", "info-status", "https://angelonline.altervista.org/send-info.php");
+  inviaForm("faq-form", "faq-status", "https://angelonline.altervista.org/send-faq.php");
+  inviaForm("register-form", "register-status", "https://angelonline.altervista.org/send-register.php");
+
+});
