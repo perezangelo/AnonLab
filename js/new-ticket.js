@@ -36,8 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  inviaForm("info-form", "info-status", "https://angelonline.altervista.org/send-info.php");
-  inviaForm("faq-form", "faq-status", "https://angelonline.altervista.org/send-faq.php");
-  inviaForm("register-form", "register-status", "https://angelonline.altervista.org/send-register.php");
+  // 🔥 ENDPOINT CORRETTI
+  inviaForm("info-form", "info-status", "https://angelonline.altervista.org/backend/send-info.php");
+  inviaForm("faq-form", "faq-status", "https://angelonline.altervista.org/backend/send-faq.php");
+  inviaForm("register-form", "register-status", "https://angelonline.altervista.org/backend/send-register.php");
 
 });
