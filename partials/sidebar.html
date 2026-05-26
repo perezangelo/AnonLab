@@ -100,20 +100,12 @@
   <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
   <h3>Registrazione Utente</h3>
 
-  <form id="register-form">
-<form id="register-form" action="https://angelonline.altervista.org/send-register.php" method="POST">
-
-  <!-- Honeypot -->
+  <form id="register-form" action="https://angelonline.altervista.org/send-register.php" method="POST">
   <input type="checkbox" name="botcheck" style="display:none;">
-
-  <!-- Campi utente -->
-  <input type="text" id="reg-username" name="username" placeholder="Username" required>
-  <input type="email" id="reg-email" name="email" placeholder="Email" required>
-  <input type="password" id="reg-password" name="password" placeholder="Password" required>
-
+  <input type="text" name="username" placeholder="Username" required>
+  <input type="email" name="email" placeholder="Email" required>
   <button type="submit">Registrati</button>
 </form>
-
 <p id="register-status"></p>
 </div>
 
