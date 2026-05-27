@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById(formId);
     const status = document.getElementById(statusId);
 
-    if (!form) return;
+    // Se il form non esiste, esci
+    if (!form || !status) return;
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -22,10 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
           body: formData
         });
 
+        // Tenta di leggere JSON
         const json = await response.json();
 
+        // Mostra il messaggio restituito dal PHP
         status.textContent = json.message;
 
+        // Reset del form se tutto ok
         if (json.status === "success") {
           form.reset();
         }
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🔥 ENDPOINT CORRETTI
+  // Attivazione AJAX per i 3 form
   inviaForm("info-form", "info-status", "https://angelonline.altervista.org/backend/send-info.php");
   inviaForm("faq-form", "faq-status", "https://angelonline.altervista.org/backend/send-faq.php");
   inviaForm("register-form", "register-status", "https://angelonline.altervista.org/backend/send-register.php");
