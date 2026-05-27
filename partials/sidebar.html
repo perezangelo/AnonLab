@@ -83,17 +83,19 @@
   <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
   <h3>FAQ & Domande</h3>
 
-  <form id="faq-form" action="https://angelonline.altervista.org/backend/send-faq.php" method="POST">
+  <form id="faq-form" action="/backend/send-faq.php" method="POST">
     <input type="checkbox" name="botcheck" style="display:none;">
+
     <input type="email" name="email" placeholder="La tua email" required>
+
     <textarea name="question" placeholder="La tua domanda..." required></textarea>
+
+    <textarea name="details" placeholder="Dettagli (opzionale)"></textarea>
+
     <button type="submit">Invia</button>
   </form>
 
-  <p id="faq-status"></p>
 </div>
-
-<script src="/js/new-ticket.js"></script>
 
 <!-- FORM — REGISTRAZIONE UTENTE -->
 <div class="sidebar-box" aria-label="Registrazione utente">
