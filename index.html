@@ -621,20 +621,24 @@ document.addEventListener("touchend", function() {
     <div id="sidebar"></div>
     
   <script>
-      fetch("/partials/sidebar.html")
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById("sidebar").innerHTML = data;
+fetch("/partials/sidebar.html")
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
 
-          initCalculator();
-          initRadio();
-          initYouTubePlayer();
-          initOroscopo();  // ← RIGA FONDAMENTALE
+      initCalculator();
+      initRadio();
+      initYouTubePlayer();
+      initOroscopo();
 
-          console.log("Sidebar caricata — Widget inizializzati");
-      });
-  </script>
+      console.log("Sidebar caricata — Widget inizializzati");
 
+      // ⭐ CARICO forms.js SOLO ORA, DOPO CHE I FORM ESISTONO
+      const script = document.createElement("script");
+      script.src = "/js/forms.js";
+      document.body.appendChild(script);
+  });
+</script>
   </main>
 
   <div id="footer"></div>
@@ -672,8 +676,6 @@ document.addEventListener("touchend", function() {
 <script src="js/main.js"></script>
   <script src="js/cve-today.js"></script>
   <?php include __DIR__ . "/backend/hotkey.php"; ?>
-  
-  <script src="/js/forms.js"></script>
 
 </body>
 </html>
