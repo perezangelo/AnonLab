@@ -73,9 +73,6 @@
   <!-- HEADER (caricato dal partial) -->
   <div id="header"></div>
 
-  <!-- ⭐ SIDEBAR (POSIZIONE CORRETTA) -->
-  <div id="sidebar"></div>
-
   <!-- 🔥 TICKER SPOSTATO QUI (SUBITO SOTTO L’HEADER) -->
   <div class="ticker" aria-label="Ultime notizie in scorrimento" role="marquee">
 
@@ -109,9 +106,6 @@
       });
   </script>
 
-  <script src="/js/new-ticket.js"></script>
-
-  <!-- ⭐ INIZIO MAIN -->
   <main class="page">
     
     <section class="main-column">
@@ -122,7 +116,7 @@
 
   <img 
     src="img/eyes.png" 
-    alt="AnonLab Eyes"
+    alt="AnonLab Eyes" 
     class="hero-favicon"
     loading="eager"
     decoding="async"
@@ -135,6 +129,7 @@
 <!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
 <div style="position:relative; margin-top:25px; display:inline-block;">
 
+  <!-- BOTTONE -->
   <button id="newsToggle"
           style="
             cursor:pointer;
@@ -149,15 +144,18 @@
     Esplora le ultime news ▾
   </button>
 
+  <!-- MENU A TENDINA -->
   <div id="newsPanel"
        style="
          display:none;
          opacity:0;
          transform:translateY(-10px);
          transition:opacity 0.25s ease, transform 0.25s ease;
+
          position:absolute;
          top:40px;
          left:0;
+
          width:260px;
          background:#000;
          border:1px solid #ff7b00aa;
@@ -186,10 +184,10 @@
 <img src="img/ai-soc.jpg"
      alt="AI SOC"
      style="
-       width:220px;
+       width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
        height:auto;
-       margin-top:0px;
-       margin-bottom:25px;
+       margin-top:0px;   /* leggero rialzo */
+       margin-bottom:25px; /* 🔥 stacco dal box sottostante */
        border-radius:6px;
        box-shadow:0 0 12px #ff7b00aa;
        display:block;
@@ -230,23 +228,24 @@ document.addEventListener("click", (e) => {
     flex-direction:column;
     align-items:flex-end;
     gap:18px;
-    margin-top:20px;   /* ← CORRETTO: niente margine negativo */
+    margin-top:-120px;
     margin-bottom:80px;
     width:100%;
 ">
-
-  <div id="dash-admin-box" style="text-align:right; margin-bottom:10px; width:100%;">
+  <!-- DASH ADMIN STEALTH (LINK VISIBILE + PROTEZIONE 404) -->
+<div id="dash-admin-box" style="text-align:right; margin-bottom:10px; width:100%;">
     <a id="dash-admin-link"
        href="/404.html"
        style="color:#ff7b00; font-weight:bold; text-shadow:0 0 6px #ff7b00;">
        ➤ Dash Admin
     </a>
-  </div>
+</div>
 
 <script>
 const realAdminLink = "https://angelonline.altervista.org/backend/login.php";
 const link = document.getElementById("dash-admin-link");
 
+// PC: CTRL + ALT + K
 document.addEventListener("keydown", function(e) {
     if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
         link.href = realAdminLink;
@@ -254,6 +253,7 @@ document.addEventListener("keydown", function(e) {
     }
 });
 
+// MOBILE: doppio tap
 let lastTap = 0;
 document.addEventListener("touchend", function() {
     const now = Date.now();
@@ -264,6 +264,7 @@ document.addEventListener("touchend", function() {
     lastTap = now;
 });
 </script>
+<!-- FINE DASH ADMIN STEALTH -->
 
     <!-- GOOGLE SEARCH -->
     <div style="
@@ -317,92 +318,75 @@ document.addEventListener("touchend", function() {
             </button>
         </form>
     </div>
-  
-  <!-- NEWSLETTER -->
-<div style="
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:15px;
-    width:100%;
-">
 
-    <img src="img/newsletter.png"
-         alt="Newsletter Icon"
-         style="
-            width:42px;
-            height:42px;
-            filter:drop-shadow(0 0 12px #00eaff);
-         ">
+    <!-- NEWSLETTER -->
+    <div style="
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+        gap:15px;
+        width:100%;
+    ">
+        <img src="img/newsletter.png"
+             alt="Newsletter Icon"
+             style="
+                width:42px;
+                height:42px;
+                filter:drop-shadow(0 0 10px #00eaff);
+             ">
 
-    <form action="/backend/send-newsletter.php" method="POST"
-          style="
-            display:flex;
-            flex-direction:column;
-            gap:8px;
-            width:100%;
-            max-width:300px;
-          ">
+        <form action="https://api.web3forms.com/submit" method="POST"
+              style="
+                display:flex;
+                gap:8px;
+                width:100%;
+                max-width:300px;
+                justify-content:flex-end;
+              ">
 
-        <input type="checkbox" name="botcheck" style="display:none;">
+            <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+            <input type="hidden" name="subject" value="Nuova iscrizione Newsletter - AnonLab">
+            <input type="hidden" name="from_name" value="AnonLab Newsletter">
+            <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+            <input type="checkbox" name="botcheck" style="display:none;">
 
-        <div style="
-            font-size:12px;
-            color:#9be7ff;
-            margin-bottom:-2px;
-            text-shadow:0 0 6px #00eaff55;
-        ">
-            🔒 Ricevi report esclusivi, OSINT tools e minacce emergenti.
-        </div>
+            <input type="email" name="Email"
+                   placeholder="La tua email"
+                   required
+                   style="
+                     width:100%;
+                     padding:10px 12px;
+                     font-size:1rem;
+                     border-radius:8px;
+                     border:1px solid #00eaff;
+                     background:#000814;
+                     color:#e0faff;
+                     box-shadow:0 0 10px #00eaff55;
+                   ">
 
-        <input type="email" name="email"
-               placeholder="La tua email"
-               required
-               style="
-                 width:100%;
-                 padding:10px 12px;
-                 font-size:1rem;
-                 border-radius:8px;
-                 border:1px solid #00eaff;
-                 background:#000814;
-                 color:#e0faff;
-                 box-shadow:0 0 10px #00eaff55;
-               ">
+            <button type="submit"
+                    style="
+                      padding:10px 14px;
+                      background:#00eaff;
+                      color:#000;
+                      font-weight:bold;
+                      border:none;
+                      border-radius:8px;
+                      cursor:pointer;
+                      box-shadow:0 0 10px #00eaffaa;
+                    ">
+              Iscriviti gratuitamente
+            </button>
+        </form>
+    </div>
 
-        <button type="submit"
-                style="
-                  padding:10px 14px;
-                  background:#00eaff;
-                  color:#000;
-                  font-weight:bold;
-                  border:none;
-                  border-radius:8px;
-                  cursor:pointer;
-                  box-shadow:0 0 10px #00eaffaa;
-                  transition:0.2s;
-                "
-                onmouseover="this.style.background='#00d4ff'"
-                onmouseout="this.style.background='#00eaff'">
-          Iscriviti gratuitamente
-        </button>
-
-        <div style="
-            font-size:11px;
-            color:#7ddfff;
-            opacity:0.8;
-            margin-top:-4px;
-        ">
-            ✔ Nessuno spam — puoi disiscriverti in ogni momento
-        </div>
-
-    </form>
 </div>
       
 <!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
 <style>
 @media (max-width: 480px) {
   .google-wrapper {
-    max-width: 260px !important;
+    max-width: 260px !important; /* allinea tutto alla colonna */
   }
   .google-wrapper input {
     padding: 10px !important;
@@ -413,8 +397,7 @@ document.addEventListener("touchend", function() {
   }
 }
 </style>
-
-<style>
+      <style>
 @media (max-width: 480px) {
   .ai-soc-img {
     width: 200px !important;
@@ -422,27 +405,25 @@ document.addEventListener("touchend", function() {
   }
 }
 </style>
+      <div style="margin-top:60px;"></div>
 
-<div style="margin-top:60px;"></div>
+      <!-- ULTIME NEWS -->
+      <section class="widget-large">
+        <h2>Ultime dal mondo cyber</h2>
+        <div id="home-news"></div>
+      </section>
 
-<!-- ULTIME NEWS -->
-<section class="widget-large">
-  <h2>Ultime dal mondo cyber</h2>
-  <div id="home-news"></div>
-</section>
-
-<!-- Immagine Anonymous sopra Cyber Threat Level -->
-<div style="width:100%; margin:0 0 16px 0;">
-    <img 
-      src="/img/anonymous.png" 
-      alt="Anonymous" 
-      style="width:100%; height:auto; border-radius:10px;"
-      loading="lazy"
-      decoding="async"
-    >
-</div>
-
-<section class="widget-large">
+      <!-- Immagine Anonymous sopra Cyber Threat Level -->
+      <div style="width:100%; margin:0 0 16px 0;">
+          <img 
+            src="/img/anonymous.png" 
+            alt="Anonymous" 
+            style="width:100%; height:auto; border-radius:10px;"
+            loading="lazy"
+            decoding="async"
+          >
+      </div>
+      <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map">
     <h2>Cyber Threat Map (Live)</h2>
@@ -459,19 +440,19 @@ document.addEventListener("touchend", function() {
   </div>
 </section>
 
-<!-- CYBER THREAT LEVEL -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
-    <h2>Cyber Threat Level</h2>
-  </div>
-  <div class="threat-box">
-    <span class="threat-level">Moderato</span>
-    <p>Aggiornato quotidianamente</p>
-  </div>
-</section>
-  
-    <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
+      <!-- CYBER THREAT LEVEL -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
+          <h2>Cyber Threat Level</h2>
+        </div>
+        <div class="threat-box">
+          <span class="threat-level">Moderato</span>
+          <p>Aggiornato quotidianamente</p>
+        </div>
+      </section>
+
+     <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid">
@@ -485,132 +466,138 @@ document.addEventListener("touchend", function() {
 
 <script src="/js/cve-today.js"></script>
 
-<!-- CYBER ALERT LIVE -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
-    <h2>Cyber Alert Live</h2>
+      <!-- CYBER ALERT LIVE -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
+          <h2>Cyber Alert Live</h2>
 
-    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       Advisory CISA →
-    </a>
-  </div>
-  <ul class="alert-list" id="alert-live"></ul>
-</section>
+          <!-- 🔗 LINK ESTERNO CISA -->
+          <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             Advisory CISA →
+          </a>
+        </div>
+        <ul class="alert-list" id="alert-live"></ul>
+      </section>
 
-<!-- FEED DAL MONDO -->
-<section class="widget-large">
-  <h2>Feed dal Mondo</h2>
+      <!-- FEED DAL MONDO -->
+      <section class="widget-large">
+        <h2>Feed dal Mondo</h2>
 
-  <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-    Approfondisci su DarkReading →
-  </a>
+        <!-- 🔗 LINK ESTERNO DARKREADING -->
+        <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+          Approfondisci su DarkReading →
+        </a>
 
-  <div id="world-feed"></div>
-</section>
+        <div id="world-feed"></div>
+      </section>
 
-<!-- TECH RADAR -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
-    <h2>Tech Radar</h2>
+      <!-- TECH RADAR -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
+          <h2>Tech Radar</h2>
 
-    <a href="https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       ENISA Threat Landscape →
-    </a>
-  </div>
-  <ul class="tech-radar">
-    <li>AI generativa in crescita</li>
-    <li>Zero Trust nei SOC</li>
-    <li>Quantum Security</li>
-    <li>Automazione DevSecOps</li>
-  </ul>
-</section>
+          <!-- 🔗 LINK ESTERNO ENISA -->
+          <a href="https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             ENISA Threat Landscape →
+          </a>
+        </div>
+        <ul class="tech-radar">
+          <li>AI generativa in crescita</li>
+          <li>Zero Trust nei SOC</li>
+          <li>Quantum Security</li>
+          <li>Automazione DevSecOps</li>
+        </ul>
+      </section>
 
-<!-- AI TRENDS -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
-    <h2>AI Trends</h2>
+      <!-- AI TRENDS -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
+          <h2>AI Trends</h2>
 
-    <a href="https://www.wired.com/category/security" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       Approfondisci AI & Security →
-    </a>
-  </div>
-  <ul class="ai-trends">
-    <li>Modelli multimodali</li>
-    <li>AI nei SOC</li>
-    <li>AI per la difesa</li>
-    <li>AI per la produttività</li>
-  </ul>
-</section>
+          <!-- 🔗 LINK ESTERNO WIRED SECURITY -->
+          <a href="https://www.wired.com/category/security" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             Approfondisci AI & Security →
+          </a>
+        </div>
+        <ul class="ai-trends">
+          <li>Modelli multimodali</li>
+          <li>AI nei SOC</li>
+          <li>AI per la difesa</li>
+          <li>AI per la produttività</li>
+        </ul>
+      </section>
 
-<!-- STRUMENTI CYBER -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
-    <h2>Strumenti Cyber</h2>
+      <!-- STRUMENTI CYBER -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
+          <h2>Strumenti Cyber</h2>
 
-    <a href="https://osintframework.com" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       OSINT Framework →
-    </a>
-  </div>
+          <!-- 🔗 LINK ESTERNO OSINT FRAMEWORK -->
+          <a href="https://osintframework.com" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             OSINT Framework →
+          </a>
+        </div>
 
-  <ul class="tools-list">
-    <li>Port Scanner</li>
-    <li>Hash Analyzer</li>
-    <li>IP Lookup</li>
-    <li>Header Inspector</li>
-  </ul>
-</section>
+        <ul class="tools-list">
+          <li>Port Scanner</li>
+          <li>Hash Analyzer</li>
+          <li>IP Lookup</li>
+          <li>Header Inspector</li>
+        </ul>
+      </section>
 
-<!-- SYSTEM STATUS -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
-    <h2>System Status</h2>
-  </div>
+      <!-- SYSTEM STATUS -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
+          <h2>System Status</h2>
+        </div>
 
-  <div class="status-box">
-    <p>Server: <span class="ok">Online</span></p>
-    <p>API: <span class="ok">Operative</span></p>
-    <p>News Feed: <span class="ok">Attivo</span></p>
-  </div>
-</section>
+        <div class="status-box">
+          <p>Server: <span class="ok">Online</span></p>
+          <p>API: <span class="ok">Operative</span></p>
+          <p>News Feed: <span class="ok">Attivo</span></p>
+        </div>
+      </section>
 
-<!-- CYBER THREAT MONITOR -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
-    <h2>Cyber Threat Monitor</h2>
-  </div>
+      <!-- CYBER THREAT MONITOR -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
+          <h2>Cyber Threat Monitor</h2>
+        </div>
 
-  <div class="monitor-box">
-    <span>Attività Globale</span>
-    <div class="monitor-bar"><div style="width: 72%;"></div></div>
-  </div>
+        <div class="monitor-box">
+          <span>Attività Globale</span>
+          <div class="monitor-bar"><div style="width: 72%;"></div></div>
+        </div>
 
-  <div class="monitor-box">
-    <span>Rischio Ransomware</span>
-    <div class="monitor-bar"><div style="width: 58%;"></div></div>
-  </div>
+        <div class="monitor-box">
+          <span>Rischio Ransomware</span>
+          <div class="monitor-bar"><div style="width: 58%;"></div></div>
+        </div>
 
-  <div class="monitor-box">
-    <span>Attacchi DDoS</span>
-    <div class="monitor-bar"><div style="width: 81%;"></div></div>
-  </div>
-</section>
+        <div class="monitor-box">
+          <span>Attacchi DDoS</span>
+          <div class="monitor-bar"><div style="width: 81%;"></div></div>
+        </div>
+      </section>
 
-<!-- HACKER ACTIVITY HEATMAP -->
+     <!-- HACKER ACTIVITY HEATMAP -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
     <h2>Hacker Activity Heatmap</h2>
 
+    <!-- 🔗 LINK ESTERNO DARKREADING THREAT INTELLIGENCE -->
     <a href="https://www.darkreading.com/threat-intelligence" 
        target="_blank" rel="noopener noreferrer"
        style="color:#ff7b00 !important; text-decoration:none;"
@@ -628,25 +615,35 @@ document.addEventListener("touchend", function() {
     <li><strong>Africa:</strong> attività ransomware in espansione</li>
   </ul>
 </section>
+    </section> <!-- /main-column -->
 
-</section> <!-- /main-column -->
+    <div id="sidebar"></div>
 
-</main>
+  </main>
 
-<div id="footer"></div>
+  <div id="footer"></div>
 
+  <!-- PULSANTE BACK TO TOP -->
 <button id="backToTop">↑</button>
 
+<!-- SCRIPT ORDINATI CORRETTAMENTE -->
 <script src="js/news.js"></script>
 <script src="js/ticker.js"></script>
 <script src="js/home-news.js"></script>
+
+<!-- UI GENERALE -->
 <script src="js/ui.js?v=3"></script>
 
+<!-- SCRIPT BACK TO TOP -->
 <script>
   const backToTop = document.getElementById("backToTop");
 
   window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
+    if (window.scrollY > 400) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
   });
 
   backToTop.addEventListener("click", () => {
@@ -655,10 +652,9 @@ document.addEventListener("touchend", function() {
 </script>
 
 </div> <!-- /#app GPU WRAPPER -->
-
+ <!-- CALCOLATRICE -->
 <script src="js/main.js"></script>
-<script src="js/cve-today.js"></script>
-<?php include __DIR__ . "/backend/hotkey.php"; ?>
+  <script src="js/cve-today.js"></script>
 
 </body>
 </html>
