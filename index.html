@@ -122,7 +122,7 @@
 
   <img 
     src="img/eyes.png" 
-    alt="AnonLab Eyes" 
+    alt="AnonLab Eyes"
     class="hero-favicon"
     loading="eager"
     decoding="async"
@@ -135,7 +135,6 @@
 <!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
 <div style="position:relative; margin-top:25px; display:inline-block;">
 
-  <!-- BOTTONE -->
   <button id="newsToggle"
           style="
             cursor:pointer;
@@ -150,18 +149,15 @@
     Esplora le ultime news ▾
   </button>
 
-  <!-- MENU A TENDINA -->
   <div id="newsPanel"
        style="
          display:none;
          opacity:0;
          transform:translateY(-10px);
          transition:opacity 0.25s ease, transform 0.25s ease;
-
          position:absolute;
          top:40px;
          left:0;
-
          width:260px;
          background:#000;
          border:1px solid #ff7b00aa;
@@ -190,10 +186,10 @@
 <img src="img/ai-soc.jpg"
      alt="AI SOC"
      style="
-       width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
+       width:220px;
        height:auto;
-       margin-top:0px;   /* leggero rialzo */
-       margin-bottom:25px; /* 🔥 stacco dal box sottostante */
+       margin-top:0px;
+       margin-bottom:25px;
        border-radius:6px;
        box-shadow:0 0 12px #ff7b00aa;
        display:block;
@@ -234,24 +230,23 @@ document.addEventListener("click", (e) => {
     flex-direction:column;
     align-items:flex-end;
     gap:18px;
-    margin-top:-120px;
+    margin-top:20px;   /* ← CORRETTO: niente margine negativo */
     margin-bottom:80px;
     width:100%;
 ">
-  <!-- DASH ADMIN STEALTH (LINK VISIBILE + PROTEZIONE 404) -->
-<div id="dash-admin-box" style="text-align:right; margin-bottom:10px; width:100%;">
+
+  <div id="dash-admin-box" style="text-align:right; margin-bottom:10px; width:100%;">
     <a id="dash-admin-link"
        href="/404.html"
        style="color:#ff7b00; font-weight:bold; text-shadow:0 0 6px #ff7b00;">
        ➤ Dash Admin
     </a>
-</div>
+  </div>
 
 <script>
 const realAdminLink = "https://angelonline.altervista.org/backend/login.php";
 const link = document.getElementById("dash-admin-link");
 
-// PC: CTRL + ALT + K
 document.addEventListener("keydown", function(e) {
     if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
         link.href = realAdminLink;
@@ -259,7 +254,6 @@ document.addEventListener("keydown", function(e) {
     }
 });
 
-// MOBILE: doppio tap
 let lastTap = 0;
 document.addEventListener("touchend", function() {
     const now = Date.now();
@@ -270,7 +264,6 @@ document.addEventListener("touchend", function() {
     lastTap = now;
 });
 </script>
-<!-- FINE DASH ADMIN STEALTH -->
 
     <!-- GOOGLE SEARCH -->
     <div style="
@@ -324,7 +317,7 @@ document.addEventListener("touchend", function() {
             </button>
         </form>
     </div>
-
+  
    <!-- NEWSLETTER -->
 <div style="
     display:flex;
