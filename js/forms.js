@@ -21,7 +21,6 @@ async function sendForm(url, formData) {
     body: formData,
   });
 
-  // Se il server risponde con JSON valido
   const data = await response.json();
   return data;
 }
@@ -37,14 +36,13 @@ function initInfoForm() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Botcheck
     const botcheck = form.querySelector('input[name="botcheck"]');
     if (botcheck && botcheck.checked) {
       setStatus(statusEl, "Rilevato traffico sospetto.", true);
       return;
     }
 
-    setStatus(statusEl, "Invio in corso...", false);
+    setStatus(statusEl, "Invio in corso...");
 
     try {
       const formData = new FormData(form);
@@ -53,6 +51,12 @@ function initInfoForm() {
       if (data.status === "success") {
         setStatus(statusEl, data.message || "Richiesta inviata correttamente!");
         form.reset();
+
+        // ⭐ REDIRECT A GRAZIE.HTML
+        setTimeout(() => {
+          window.location.href = "/grazie.html";
+        }, 1500);
+
       } else {
         setStatus(statusEl, data.message || "Si è verificato un errore.", true);
       }
@@ -80,7 +84,7 @@ function initFaqForm() {
       return;
     }
 
-    setStatus(statusEl, "Invio in corso...", false);
+    setStatus(statusEl, "Invio in corso...");
 
     try {
       const formData = new FormData(form);
@@ -89,6 +93,12 @@ function initFaqForm() {
       if (data.status === "success") {
         setStatus(statusEl, data.message || "Domanda inviata correttamente!");
         form.reset();
+
+        // ⭐ REDIRECT A GRAZIE.HTML
+        setTimeout(() => {
+          window.location.href = "/grazie.html";
+        }, 1500);
+
       } else {
         setStatus(statusEl, data.message || "Si è verificato un errore.", true);
       }
@@ -116,7 +126,7 @@ function initRegisterForm() {
       return;
     }
 
-    setStatus(statusEl, "Registrazione in corso...", false);
+    setStatus(statusEl, "Registrazione in corso...");
 
     try {
       const formData = new FormData(form);
@@ -125,6 +135,12 @@ function initRegisterForm() {
       if (data.status === "success") {
         setStatus(statusEl, data.message || "Registrazione completata!");
         form.reset();
+
+        // ⭐ REDIRECT A GRAZIE.HTML
+        setTimeout(() => {
+          window.location.href = "/grazie.html";
+        }, 1500);
+
       } else {
         setStatus(statusEl, data.message || "Si è verificato un errore.", true);
       }
