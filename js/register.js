@@ -22,20 +22,22 @@ document.getElementById("register-form").addEventListener("submit", async functi
 
     const status = document.getElementById("register-status");
 
+    const nome = document.getElementById("reg-nome").value.trim();
     const username = document.getElementById("reg-username").value.trim();
     const email = document.getElementById("reg-email").value.trim();
 
-    if (!username || !email) {
+    if (!nome || !username || !email) {
         status.textContent = "Compila tutti i campi.";
         return;
     }
 
     const formData = new FormData();
+    formData.append("nome", nome);
     formData.append("username", username);
     formData.append("email", email);
 
     try {
-        const response = await fetch("https://angelonline.altervista.org/backend/register.php", {
+        const response = await fetch("https://angelonline.altervista.org/backend/send-register.php", {
             method: "POST",
             body: formData
         });
