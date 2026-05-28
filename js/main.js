@@ -109,9 +109,6 @@ function initVisitCounter() {
         return;
     }
 
-    // -----------------------------
-    // ANIMAZIONE NUMERICA
-    // -----------------------------
     function animateValue(el, start, end, duration = 600) {
         const range = end - start;
         let startTime = null;
@@ -126,23 +123,14 @@ function initVisitCounter() {
         requestAnimationFrame(step);
     }
 
-    // -----------------------------
-    // VISITE TOTALI
-    // -----------------------------
     let visits = parseInt(localStorage.getItem("anonlab_visits") || "0") + 1;
     localStorage.setItem("anonlab_visits", visits);
     animateValue(counterEl, visits - 1, visits);
 
-    // -----------------------------
-    // PAGINE TOTALI
-    // -----------------------------
     let pagesTotal = parseInt(localStorage.getItem("anonlab_pages") || "0") + 1;
     localStorage.setItem("anonlab_pages", pagesTotal);
     animateValue(pageEl, pagesTotal - 1, pagesTotal);
 
-    // -----------------------------
-    // PAGINA CORRENTE + ELENCO COMPLETO
-    // -----------------------------
     const pageName = window.location.pathname.replace("/", "") || "home";
 
     let pages = JSON.parse(localStorage.getItem("pagesViewed")) || {};
@@ -163,9 +151,6 @@ function initVisitCounter() {
         });
     }
 
-    // -----------------------------
-    // SALUTO DINAMICO
-    // -----------------------------
     function updateGreeting() {
         const hour = new Date().getHours();
         let greeting = "Ciao!";
@@ -176,9 +161,6 @@ function initVisitCounter() {
         greetEl.textContent = greeting;
     }
 
-    // -----------------------------
-    // DATA
-    // -----------------------------
     function updateDate() {
         const now = new Date();
         dateEl.textContent =
@@ -187,9 +169,6 @@ function initVisitCounter() {
             now.getFullYear();
     }
 
-    // -----------------------------
-    // ORA + EFFETTO PULSE
-    // -----------------------------
     function updateTime() {
         const now = new Date();
         timeEl.textContent =
@@ -213,6 +192,7 @@ function initVisitCounter() {
 
     console.log("Contatore visite — versione completa attiva");
 }
+
 // ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
 // ===============================
@@ -233,10 +213,29 @@ function initMobileMenu() {
     console.log("Navbar mobile inizializzata");
 }
 
-// Aspetta che i partial siano caricati
+// ===============================
+// CARICAMENTO PARTIALS
+// ===============================
+
+function loadPartial(id, file) {
+    fetch(file)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById(id).innerHTML = html;
+        });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Ritardo minimo per permettere a loadPartial() di completare
+
+    loadPartial("header", "/partials/header.html");
+    loadPartial("sidebar", "/partials/sidebar.html");
+    loadPartial("footer", "/partials/footer.html");
+
     setTimeout(() => {
+        initCalculator();
+        initRadio();
+        initYouTubePlayer();
+        initVisitCounter();
         initMobileMenu();
     }, 300);
 });
