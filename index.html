@@ -90,6 +90,23 @@
 
   </div>
 
+  <!-- SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
+  <script>
+      fetch("/partials/sidebar.html")
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById("sidebar").innerHTML = data;
+
+          initCalculator();
+          initRadio();
+          initYouTubePlayer();
+          initOroscopo();  // ← RIGA FONDAMENTALE
+
+          console.log("Sidebar caricata — Widget inizializzati");
+      });
+  </script>
+  <script src="/js/new-ticket.js"></script>
+
   <main class="page">
     
     <section class="main-column">
@@ -619,26 +636,7 @@ document.addEventListener("touchend", function() {
     </section> <!-- /main-column -->
 
     <div id="sidebar"></div>
-    
-  <script>
-fetch("/partials/sidebar.html")
-  .then(response => response.text())
-  .then(data => {
-      document.getElementById("sidebar").innerHTML = data;
 
-      initCalculator();
-      initRadio();
-      initYouTubePlayer();
-      initOroscopo();
-
-      console.log("Sidebar caricata — Widget inizializzati");
-
-      // ⭐ CARICO forms.js SOLO ORA, DOPO CHE I FORM ESISTONO
-      const script = document.createElement("script");
-      script.src = "/js/forms.js";
-      document.body.appendChild(script);
-  });
-</script>
   </main>
 
   <div id="footer"></div>
