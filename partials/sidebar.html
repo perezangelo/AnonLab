@@ -89,11 +89,15 @@
 
   <form id="faq-form" action="https://angelonline.altervista.org/backend/send-faq.php" method="POST">
     <input type="checkbox" name="botcheck" style="display:none;">
-    <input type="email" name="email" placeholder="La tua email" required>
-    <textarea name="question" placeholder="La tua domanda..." required></textarea>
-    <button type="submit">Invia</button>
-  </form>
 
+    <input type="email" name="email" placeholder="La tua email" required>
+
+    <input type="text" name="question" placeholder="La tua domanda" required>
+
+    <textarea name="details" placeholder="Dettagli aggiuntivi (opzionale)"></textarea>
+
+    <button type="submit">Invia</button>
+</form>
   <p id="faq-status"></p>
 </div>
 
