@@ -1,4 +1,4 @@
-// register.js — versione finale e corretta
+// register.js — versione finale
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("register-form");
@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Controllo campi
         const nome = document.getElementById("reg-nome")?.value.trim();
         const username = document.getElementById("reg-username")?.value.trim();
         const email = document.getElementById("reg-email")?.value.trim();
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Invio normale del form → il backend gestisce tutto
+        // Invio normale del form → il backend gestisce redirect e pagina grazie
         form.submit();
     });
 });
