@@ -109,6 +109,7 @@
   <h3>Registrazione Utente</h3>
 
   <form id="register-form" action="https://angelonline.altervista.org/backend/send-register.php" method="POST">
+    <form id="register-form" action="https://angelonline.altervista.org/backend/send-register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
       <input type="checkbox" name="botcheck" style="display:none;">
 
       <input id="reg-nome" type="text" name="nome" placeholder="Nome" required>
