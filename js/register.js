@@ -1,69 +1,25 @@
-<!-- FORM — REGISTRAZIONE UTENTE -->
-<div class="sidebar-box" aria-label="Registrazione utente">
-  <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
-  <h3>Registrazione Utente</h3>
+// register.js — versione finale e corretta
 
-  <form id="register-form" action="https://angelonline.altervista.org/backend/register.php" method="POST">
-    <input type="checkbox" name="botcheck" style="display:none;">
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("register-form");
 
-    <!-- ID CORRETTI PER register.js -->
-    <input id="reg-username" type="text" name="username" placeholder="Username" required>
-    <input id="reg-email" type="email" name="email" placeholder="Email" required>
+    if (!form) return;
 
-    <button type="submit">Registrati</button>
-  </form>
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-  <p id="register-status"></p>
-</div>
+        // Controllo campi
+        const nome = document.getElementById("reg-nome")?.value.trim();
+        const username = document.getElementById("reg-username")?.value.trim();
+        const email = document.getElementById("reg-email")?.value.trim();
 
-<script>
-document.getElementById("register-form").addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const status = document.getElementById("register-status");
-
-    const nome = document.getElementById("reg-nome").value.trim();
-    const username = document.getElementById("reg-username").value.trim();
-    const email = document.getElementById("reg-email").value.trim();
-
-    if (!nome || !username || !email) {
-        status.textContent = "Compila tutti i campi.";
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append("nome", nome);
-    formData.append("username", username);
-    formData.append("email", email);
-
-    try {
-        const response = await fetch("https://angelonline.altervista.org/backend/send-register.php", {
-            method: "POST",
-            body: formData
-        });
-
-        const result = await response.json();
-
-        if (result.status === "success") {
-            window.location.href = "/grazie.html";
-        } else {
-            status.textContent = result.message;
+        if (!nome || !username || !email) {
+            const status = document.getElementById("register-status");
+            if (status) status.textContent = "Compila tutti i campi.";
+            return;
         }
 
-    } catch (error) {
-        status.textContent = "Errore di connessione. Riprova.";
-    }
+        // Invio normale del form → il backend gestisce tutto
+        form.submit();
+    });
 });
-</script>
-
-<!-- FORM — LOGIN -->
-<div class="sidebar-box" aria-label="Login utente">
-  <img src="/img/Pc.png" class="sidebar-icon" alt="Icona login">
-  <h3>Login</h3>
-
-  <form action="https://angelonline.altervista.org/backend/login.php" method="POST">
-    <input type="text" name="login" placeholder="Username o Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Accedi</button>
-  </form>
-</div>
