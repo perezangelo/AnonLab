@@ -108,8 +108,7 @@
   <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
   <h3>Registrazione Utente</h3>
 
-  <form id="register-form" action="https://angelonline.altervista.org/backend/send-register.php" method="POST">
-    <form id="register-form" action="https://angelonline.altervista.org/backend/send-register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
+  <form id="register-form" action="https://angelonline.altervista.org/backend/send-register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
       <input type="checkbox" name="botcheck" style="display:none;">
 
       <input id="reg-nome" type="text" name="nome" placeholder="Nome" required>
@@ -119,21 +118,32 @@
       <button type="submit">Registrati</button>
   </form>
 
+  <!-- LINK ALLA PAGINA UNICA CREDENZIALI -->
+  <div style="margin-top:10px; font-size:13px;">
+      <a href="/backend/credentials.php" style="color:#0ff;">Gestione credenziali</a>
+  </div>
+
   <p id="register-status"></p>
 </div>
 
- <script src="/js/register.js"></script>
+<script src="/js/register.js"></script>
+
 
 <!-- FORM — LOGIN -->
 <div class="sidebar-box" aria-label="Login utente">
   <img src="/img/Pc.png" class="sidebar-icon" alt="Icona login">
   <h3>Login</h3>
 
-  <form action="http://angelonline.altervista.org/backend/login.php" method="POST">
+  <form action="https://angelonline.altervista.org/backend/login.php" method="POST">
     <input type="text" name="username" placeholder="Username o Email" required>
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Accedi</button>
   </form>
+
+  <!-- LINK ALLA PAGINA UNICA CREDENZIALI -->
+  <div style="margin-top:10px; font-size:13px;">
+      <a href="/backend/credentials.php" style="color:#0ff;">Hai dimenticato qualcosa?</a>
+  </div>
 </div>
 
 <!-- FEED DAL MONDO -->
