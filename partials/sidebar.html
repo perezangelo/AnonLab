@@ -108,7 +108,7 @@
   <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
   <h3>Registrazione Utente</h3>
 
-  <form id="register-form" action="https://angelonline.altervista.org/backend/send-register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
+  <form id="register-form" action="https://angelonline.altervista.org/backend/register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
       <input type="checkbox" name="botcheck" style="display:none;">
 
       <input id="reg-nome" type="text" name="nome" placeholder="Nome" required>
@@ -120,15 +120,14 @@
 
   <!-- LINK ALLA PAGINA UNICA CREDENZIALI -->
   <div style="margin-top:10px; font-size:13px;">
-  <a href="http://angelonline.altervista.org/backend/credentials.php" style="color:#0ff;">
-    Gestione credenziali
-  </a>
-</div>
+    <a href="https://angelonline.altervista.org/backend/recover.php" style="color:#0ff;">
+      Gestione credenziali
+    </a>
+  </div>
 
   <p id="register-status"></p>
 </div>
 
-<!-- <script src="/js/register.js"></script> -->
 
 
 <!-- FORM — LOGIN -->
@@ -144,9 +143,10 @@
 
   <!-- LINK ALLA PAGINA UNICA CREDENZIALI -->
   <div style="margin-top:10px; font-size:13px;">
-  <a href="http://angelonline.altervista.org/backend/credentials.php" style="color:#0ff;">
-    Hai dimenticato qualcosa?
-  </a>
+    <a href="https://angelonline.altervista.org/backend/recover.php" style="color:#0ff;">
+      Hai dimenticato qualcosa?
+    </a>
+  </div>
 </div>
 
 <!-- FEED DAL MONDO -->
