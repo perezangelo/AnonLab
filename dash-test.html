@@ -493,6 +493,16 @@
   <script src="/js/ui.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/js/dashboard.js"></script>
+
+  <script>
+fetch("https://angelonline.altervista.org/api/test-sidebar.php")
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById("sidebar").innerHTML = html;
+  })
+  .catch(err => console.error("Errore caricamento sidebar:", err));
+</script>
+
   <!-- BACK TO TOP BUTTON -->
 <button id="backToTop">↑</button>
 
