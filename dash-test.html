@@ -1,1 +1,526 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SOC Dashboard — Monitoraggio Cyber in Tempo Reale | AnonLab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SEO -->
+  <meta name="description" content="SOC Dashboard di AnonLab: Threat Level, Attacchi rilevati, Event Log, System Status e monitoraggio cyber in tempo reale.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+</head>
+
+<body class="dark-mode">
+
+<div id="app" class="gpu-boost">
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- TICKER -->
+  <div id="ticker"></div>
+
+  <main class="page">
+    <section class="main-column">
+
+      <h1 class="page-title">SOC Dashboard</h1>
+
+      <p class="cyber-intro">
+        Monitoraggio in tempo reale dello stato dei sistemi, livello di minaccia,
+        log eventi e attività di rete.
+      </p>
+
+      <div class="soc-grid">
+
+        <!-- THREAT LEVEL -->
+        <div class="soc-card threat-card">
+          <h2>Threat Level</h2>
+          <div id="threat-level" class="dash-number">--</div>
+        </div>
+
+        <!-- GRAFICO ATTACCHI -->
+        <div class="soc-card">
+          <h2>Attacchi rilevati (ultime 24h)</h2>
+          <canvas id="attacksChart"></canvas>
+        </div>
+
+        <!-- EVENT LOG -->
+        <div class="soc-card log-card">
+          <h2>Event Log</h2>
+          <div id="event-log" class="event-log"></div>
+        </div>
+
+        <!-- SYSTEM STATUS -->
+        <div class="soc-card">
+          <h2>System Status</h2>
+          <ul class="system-status">
+            <li>CPU Load: <span id="cpu-load" class="dash-number">--%</span></li>
+            <li>Network Activity: <span id="net-activity" class="dash-number">-- kb/s</span></li>
+            <li>Firewall Status: <span id="fw-status" class="dash-number">--</span></li>
+          </ul>
+        </div>
+
+        <!-- MINI THREAT MAP -->
+        <div class="soc-card">
+          <h2>Threat Map</h2>
+          <img src="/img/threat-map-placeholder.png" alt="Threat Map" class="map-img">
+        </div>
+
+        <!-- ATTIVITÀ SOSPETTE -->
+        <div class="soc-card">
+          <h2>Attività sospette</h2>
+          <ul id="suspicious-list" class="suspicious-list"></ul>
+        </div>
+
+      </div> <!-- /soc-grid -->
+      <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">SOC Metrics Overview</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Indicatori chiave del SOC aggiornati in tempo reale.
+  </p>
+
+  <div style="display:flex; gap:20px; flex-wrap:wrap;">
+
+    <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+      <h4 style="color:#ffaa00;">Incidenti aperti</h4>
+      <p style="color:#fff; font-size:24px; margin-top:10px;">12</p>
+    </div>
+
+    <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+      <h4 style="color:#ffaa00;">Minacce critiche</h4>
+      <p style="color:#fff; font-size:24px; margin-top:10px;">7</p>
+    </div>
+
+    <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+      <h4 style="color:#ffaa00;">Allarmi attivi</h4>
+      <p style="color:#fff; font-size:24px; margin-top:10px;">19</p>
+    </div>
+
+    <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+      <h4 style="color:#ffaa00;">Zero‑day monitorati</h4>
+      <p style="color:#fff; font-size:24px; margin-top:10px;">3</p>
+    </div>
+
+  </div>
+</div>
+      <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Security Score</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
+  </p>
+
+  <div style="width:180px; height:180px; margin:auto; border-radius:50%;
+      background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 20px #00eaffaa;">
+    <span style="color:#fff; font-size:32px; font-weight:bold;">78</span>
+  </div>
+
+  <p style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
+    Stato: ALTO
+  </p>
+</div>
+      <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Network Traffic Monitor</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Traffico di rete in tempo reale suddiviso per protocollo.
+  </p>
+
+  <div style="width:100%; height:220px; background:#111; border-radius:6px; padding:15px;">
+    <canvas id="netTrafficChart"></canvas>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const ctx = document.getElementById('netTrafficChart');
+      if (!ctx) return;
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['HTTP', 'HTTPS', 'DNS', 'SSH', 'RDP'],
+          datasets: [{
+            label: 'KB/s',
+            data: [320, 540, 120, 80, 45],
+            backgroundColor: ['#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { color: '#fff' } },
+            y: { ticks: { color: '#fff' } }
+          }
+        }
+      });
+    });
+  </script>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff0044aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff0044aa;
+">
+  <h3 style="color:#ff0044;">Top 5 IP Sospetti</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Indirizzi IP con attività anomala rilevata nelle ultime ore.
+  </p>
+
+  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
+    <li><strong>185.23.91.12</strong> — Tentativi SSH multipli (Rischio: ALTO)</li>
+    <li><strong>91.204.15.77</strong> — Scansione porte (Rischio: MEDIO)</li>
+    <li><strong>212.54.33.9</strong> — Traffico DNS anomalo (Rischio: ALTO)</li>
+    <li><strong>45.67.120.4</strong> — Accessi falliti ripetuti (Rischio: MEDIO)</li>
+    <li><strong>103.88.14.200</strong> — Pattern sospetto HTTP (Rischio: BASSO)</li>
+  </ul>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Processi sospetti (LOTL)</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Attività di tipo Living‑Off‑The‑Land rilevate sui sistemi monitorati.
+  </p>
+
+  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
+    <li><strong>powershell.exe</strong> — Download script remoto</li>
+    <li><strong>wscript.exe</strong> — Esecuzione script non firmato</li>
+    <li><strong>wmic.exe</strong> — Query anomala su processi</li>
+    <li><strong>rundll32.exe</strong> — Caricamento DLL sospetta</li>
+    <li><strong>certutil.exe</strong> — Decodifica file sconosciuto</li>
+  </ul>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #7a00ffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #7a00ffaa;
+">
+  <h3 style="color:#b366ff;">Vulnerabilità attive (CVSS)</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Elenco delle vulnerabilità critiche rilevate sui sistemi monitorati.
+  </p>
+
+  <table style="width:100%; border-collapse:collapse; color:#fff;">
+    <tr style="background:#111;">
+      <th style="padding:10px; border-bottom:1px solid #333;">CVE</th>
+      <th style="padding:10px; border-bottom:1px solid #333;">CVSS</th>
+      <th style="padding:10px; border-bottom:1px solid #333;">Stato</th>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">CVE‑2024‑12345</td>
+      <td style="padding:10px; color:#ff0044;">9.8</td>
+      <td style="padding:10px;">Non patchata</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">CVE‑2024‑99876</td>
+      <td style="padding:10px; color:#ffaa00;">7.5</td>
+      <td style="padding:10px;">In analisi</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">CVE‑2023‑55421</td>
+      <td style="padding:10px; color:#00eaff;">5.4</td>
+      <td style="padding:10px;">Patch disponibile</td>
+    </tr>
+  </table>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Incident Response Timeline</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Fasi del processo di risposta agli incidenti rilevati.
+  </p>
+
+  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
+    <li><strong>Rilevamento:</strong> Attività anomala identificata dal SIEM</li>
+    <li><strong>Analisi:</strong> Correlazione eventi e verifica indicatori</li>
+    <li><strong>Contenimento:</strong> Isolamento host compromesso</li>
+    <li><strong>Mitigazione:</strong> Rimozione minaccia e ripristino servizi</li>
+    <li><strong>Chiusura:</strong> Report finale e aggiornamento policy</li>
+  </ul>
+</div>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    margin-bottom:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">SOC Daily Report</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Riepilogo giornaliero delle attività del SOC.
+  </p>
+
+  <p style="color:#fff; line-height:1.7;">
+    • <strong>Minacce rilevate:</strong> 27<br>
+    • <strong>Incidenti gestiti:</strong> 4<br>
+    • <strong>Allarmi critici:</strong> 2<br>
+    • <strong>Host monitorati:</strong> 184<br>
+    • <strong>Traffico anomalo:</strong> 3 eventi<br><br>
+
+    La situazione generale è <strong>stabile</strong>, con alcune attività sospette in corso di analisi.
+    Nessuna compromissione confermata nelle ultime 24 ore.
+  </p>
+</div>
+   <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff0044aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff0044aa;
+">
+  <h3 style="color:#ff0044;">Malware Activity Monitor</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Tipologie di malware rilevate nelle ultime 24 ore.
+  </p>
+
+  <div style="width:100%; height:220px; background:#111; border-radius:6px; padding:15px;">
+    <canvas id="malwareChart"></canvas>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const ctx = document.getElementById('malwareChart');
+      if (!ctx) return;
+
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Ransomware', 'Trojan', 'Spyware', 'Worm', 'Backdoor'],
+          datasets: [{
+            data: [35, 25, 15, 10, 15],
+            backgroundColor: [
+              '#ff0044aa',
+              '#ffaa00aa',
+              '#00eaffaa',
+              '#7a00ffaa',
+              '#00ff99aa'
+            ]
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { labels: { color: '#fff' } } }
+        }
+      });
+    });
+  </script>
+</div>
+ <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Authentication Failures Monitor</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Tentativi di accesso falliti e attività di autenticazione sospette.
+  </p>
+
+  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
+    <li><strong>admin</strong> — 14 tentativi falliti (IP: 185.23.91.12)</li>
+    <li><strong>root</strong> — 9 tentativi falliti (IP: 91.204.15.77)</li>
+    <li><strong>service_user</strong> — 5 tentativi falliti (IP: 212.54.33.9)</li>
+    <li><strong>backup</strong> — 3 tentativi falliti (IP: 45.67.120.4)</li>
+    <li><strong>guest</strong> — 2 tentativi falliti (IP: 103.88.14.200)</li>
+  </ul>
+</div>
+ <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00ff99aa;
+    padding:25px;
+    margin-top:40px;
+    margin-bottom:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00ff99aa;
+">
+  <h3 style="color:#00ff99;">Data Exfiltration Monitor</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Monitoraggio del traffico in uscita per individuare possibili esfiltrazioni di dati.
+  </p>
+
+  <table style="width:100%; border-collapse:collapse; color:#fff;">
+    <tr style="background:#111;">
+      <th style="padding:10px; border-bottom:1px solid #333;">Host</th>
+      <th style="padding:10px; border-bottom:1px solid #333;">Traffico uscente</th>
+      <th style="padding:10px; border-bottom:1px solid #333;">Stato</th>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">SRV‑WEB‑01</td>
+      <td style="padding:10px;">1.8 GB</td>
+      <td style="padding:10px; color:#ffaa00;">Anomalo</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">SRV‑DB‑02</td>
+      <td style="padding:10px;">450 MB</td>
+      <td style="padding:10px; color:#00ff99;">Normale</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">CLIENT‑HR‑07</td>
+      <td style="padding:10px;">980 MB</td>
+      <td style="padding:10px; color:#ff0044;">Sospetto</td>
+    </tr>
+  </table>
+</div> 
+ <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">GeoIP Threat Origins</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Paesi da cui provengono le principali attività malevole rilevate.
+  </p>
+
+  <table style="width:100%; border-collapse:collapse; color:#fff;">
+    <tr style="background:#111;">
+      <th style="padding:10px; border-bottom:1px solid #333;">Paese</th>
+      <th style="padding:10px; border-bottom:1px solid #333;">Attività</th>
+      <th style="padding:10px; border-bottom:1px solid #333;">Rischio</th>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">Russia</td>
+      <td style="padding:10px;">124</td>
+      <td style="padding:10px; color:#ff0044;">ALTO</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">Cina</td>
+      <td style="padding:10px;">98</td>
+      <td style="padding:10px; color:#ffaa00;">MEDIO</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">Brasile</td>
+      <td style="padding:10px;">54</td>
+      <td style="padding:10px; color:#ffaa00;">MEDIO</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">USA</td>
+      <td style="padding:10px;">41</td>
+      <td style="padding:10px; color:#00eaff;">BASSO</td>
+    </tr>
+
+    <tr>
+      <td style="padding:10px;">India</td>
+      <td style="padding:10px;">37</td>
+      <td style="padding:10px; color:#00eaff;">BASSO</td>
+    </tr>
+  </table>
+</div>  
+      
+    </section>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar"></div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <!-- SCRIPT (ordine corretto) -->
+  <script src="/js/main.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <!-- BACK TO TOP BUTTON -->
+<button id="backToTop">↑</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
+
+    backToTop.style.display = 'none';
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+</div>
+
+</body>
+</html>
