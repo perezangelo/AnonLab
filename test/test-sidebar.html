@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Sidebar — AnonLab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #333;
+            background: #111;
+        }
+        #sidebar-test {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #444;
+            background: #1a1a1a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="test-container">
+        <h2>Test Sidebar (GitHub → AlterVista)</h2>
+        <p>Se questa sidebar si carica correttamente, possiamo integrare tutto nella dashboard reale.</p>
+
+        <div id="sidebar-test">Caricamento sidebar...</div>
+    </div>
+
+    <script>
+        // Carica la sidebar da AlterVista
+        fetch("https://angelonline.altervista.org/api/test-sidebar.php")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("sidebar-test").innerHTML = html;
+            })
+            .catch(err => {
+                document.getElementById("sidebar-test").innerHTML =
+                    "Errore nel caricamento della sidebar.";
+            });
+    </script>
+
+</body>
+</html>
