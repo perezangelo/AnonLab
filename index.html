@@ -310,7 +310,7 @@ document.addEventListener("click", (e) => {
                 filter:drop-shadow(0 0 10px #00eaff);
              ">
 
-        <form action="https://api.web3forms.com/submit" method="POST"
+       <form action="/backend/newsletter.php" method="POST">
               style="
                 display:flex;
                 gap:8px;
@@ -325,7 +325,7 @@ document.addEventListener("click", (e) => {
             <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
             <input type="checkbox" name="botcheck" style="display:none;">
 
-            <input type="email" name="Email"
+            <input type="email" name="email">
                    placeholder="La tua email"
                    required
                    style="
