@@ -232,39 +232,6 @@ document.addEventListener("click", (e) => {
     margin-bottom:80px;
     width:100%;
 ">
-  <!-- DASH ADMIN STEALTH (LINK VISIBILE + PROTEZIONE 404) -->
-<div id="dash-admin-box" style="text-align:right; margin-bottom:10px; width:100%;">
-    <a id="dash-admin-link"
-       href="/404.html"
-       style="color:#ff7b00; font-weight:bold; text-shadow:0 0 6px #ff7b00;">
-       ➤ Dash Admin
-    </a>
-</div>
-
-<script>
-const realAdminLink = "https://angelonline.altervista.org/backend/login.php";
-const link = document.getElementById("dash-admin-link");
-
-// PC: CTRL + ALT + K
-document.addEventListener("keydown", function(e) {
-    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "k") {
-        link.href = realAdminLink;
-        link.style.textShadow = "0 0 12px #00ff00";
-    }
-});
-
-// MOBILE: doppio tap
-let lastTap = 0;
-document.addEventListener("touchend", function() {
-    const now = Date.now();
-    if (now - lastTap < 300) {
-        link.href = realAdminLink;
-        link.style.textShadow = "0 0 12px #00ff00";
-    }
-    lastTap = now;
-});
-</script>
-<!-- FINE DASH ADMIN STEALTH -->
 
     <!-- GOOGLE SEARCH -->
     <div style="
