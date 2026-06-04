@@ -106,29 +106,30 @@
       });
   </script>
 
-<main class="page">
-<section class="main-column">
+  <main class="page">
+    
+    <section class="main-column">
+      
+      <!-- HERO PRINCIPALE -->
+<section class="hero-big">
+  <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
 
-<!-- HERO PRINCIPALE -->
-<section class="widget-large">
-  <div class="hero-big">
-    <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
+  <img 
+    src="img/eyes.png" 
+    alt="AnonLab Eyes" 
+    class="hero-favicon"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  >
 
-    <img 
-      src="img/eyes.png" 
-      alt="AnonLab Eyes" 
-      class="hero-favicon"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    >
-
-    <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
-  </div>
+  <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS -->
-<section class="widget-large">
+<!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
+<div style="position:relative; margin-top:25px; display:inline-block;">
+
+  <!-- BOTTONE -->
   <button id="newsToggle"
           style="
             cursor:pointer;
@@ -143,19 +144,25 @@
     Esplora le ultime news ▾
   </button>
 
+  <!-- MENU A TENDINA -->
   <div id="newsPanel"
        style="
          display:none;
          opacity:0;
          transform:translateY(-10px);
          transition:opacity 0.25s ease, transform 0.25s ease;
-         margin-top:15px;
+
+         position:absolute;
+         top:40px;
+         left:0;
+
          width:260px;
          background:#000;
          border:1px solid #ff7b00aa;
          border-radius:8px;
          box-shadow:0 0 18px #ff7b00aa;
          padding:15px;
+         z-index:9999;
        ">
 
     <a href='https://thehackernews.com' target='_blank'
@@ -171,112 +178,176 @@
        style='display:block; margin-bottom:12px; color:#ffb366;'>SecurityWeek</a>
 
   </div>
-</section>
-
-<!-- DASH ADMIN IMAGE BUTTON -->
-<div style="text-align:right; margin-bottom:20px; width:100%; position:relative; z-index:20;">
-    <a href="https://angelonline.altervista.org/backend/login.php" style="display:inline-block;">
-        <img src="/img/OIP.png"
-             alt="Admin Access"
-             style="width:150px; filter:drop-shadow(0 0 12px #ff0000); transition:0.2s;"
-             onmouseover="this.style.filter='drop-shadow(0 0 18px #ff3333)';"
-             onmouseout="this.style.filter='drop-shadow(0 0 12px #ff0000)';">
-    </a>
 </div>
 
-</section>
+<!-- IMMAGINE SOTTO IL MENU -->
+<img src="img/ai-soc.jpg"
+     alt="AI SOC"
+     style="
+       width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
+       height:auto;
+       margin-top:0px;   /* leggero rialzo */
+       margin-bottom:25px; /* 🔥 stacco dal box sottostante */
+       border-radius:6px;
+       box-shadow:0 0 12px #ff7b00aa;
+       display:block;
+     ">
 
-<!-- IMMAGINE AI SOC -->
-<section class="widget-large">
-  <img src="img/ai-soc.jpg"
-       alt="AI SOC"
-       class="ai-soc-img"
-       style="
-         width:100%;
-         height:auto;
-         border-radius:6px;
-         box-shadow:0 0 12px #ff7b00aa;
-       ">
-</section>
+<script>
+const toggle = document.getElementById("newsToggle");
+const panel = document.getElementById("newsPanel");
 
-<!-- GOOGLE SEARCH -->
-<section class="widget-large">
-  <div class="google-wrapper" style="display:flex; align-items:center; gap:15px;">
-    <img src="img/gears.png"
-         alt="Gears Icon"
-         style="width:42px; height:42px; filter:drop-shadow(0 0 10px #00eaff);">
+toggle.addEventListener("click", () => {
+  if (panel.style.display === "none") {
+    panel.style.display = "block";
+    requestAnimationFrame(() => {
+      panel.style.opacity = "1";
+      panel.style.transform = "translateY(0)";
+    });
+  } else {
+    panel.style.opacity = "0";
+    panel.style.transform = "translateY(-10px)";
+    setTimeout(() => panel.style.display = "none", 250);
+  }
+});
 
-    <form action="https://www.google.com/search" method="GET"
-          style="display:flex; gap:8px; width:100%; max-width:300px;">
-        <input type="text" name="q"
-               placeholder="Cerca su Google..."
-               style="
-                 width:100%;
-                 padding:10px 12px;
-                 font-size:1rem;
-                 border-radius:8px;
-                 border:1px solid #00eaff;
-                 background:#000814;
-                 color:#e0faff;
-                 box-shadow:0 0 10px #00eaff55;
-               ">
+document.addEventListener("click", (e) => {
+  if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+    if (panel.style.display === "block") {
+      panel.style.opacity = "0";
+      panel.style.transform = "translateY(-10px)";
+      setTimeout(() => panel.style.display = "none", 250);
+    }
+  }
+});
+</script>
+      
+<!-- WRAPPER ALLINEATO A DESTRA (GOOGLE SEARCH + NEWSLETTER) -->
+<div style="
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:18px;
+    margin-top:-120px;
+    margin-bottom:80px;
+    width:100%;
+">
 
-        <button type="submit"
-                style="
-                  padding:10px 14px;
-                  background:#00eaff;
-                  color:#000;
-                  font-weight:bold;
-                  border:none;
-                  border-radius:8px;
-                  cursor:pointer;
-                  box-shadow:0 0 10px #00eaffaa;
-                ">
-          Cerca
-        </button>
-    </form>
-  </div>
-</section>
+    <!-- GOOGLE SEARCH -->
+    <div style="
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+        gap:15px;
+        width:100%;
+    ">
+        <img src="img/gears.png"
+             alt="Gears Icon"
+             style="
+                width:42px;
+                height:42px;
+                filter:drop-shadow(0 0 10px #00eaff);
+             ">
 
-<!-- NEWSLETTER -->
-<section class="widget-large">
-  <div style="display:flex; align-items:center; gap:15px;">
-    <img src="img/newsletter.png"
-         alt="Newsletter Icon"
-         style="width:42px; height:42px; filter:drop-shadow(0 0 10px #00eaff);">
+        <form action="https://www.google.com/search" method="GET"
+              style="
+                display:flex;
+                gap:8px;
+                width:100%;
+                max-width:300px;
+                justify-content:flex-end;
+              ">
+            <input type="text" name="q"
+                   placeholder="Cerca su Google..."
+                   style="
+                     width:100%;
+                     padding:10px 12px;
+                     font-size:1rem;
+                     border-radius:8px;
+                     border:1px solid #00eaff;
+                     background:#000814;
+                     color:#e0faff;
+                     box-shadow:0 0 10px #00eaff55;
+                   ">
 
-    <form action="https://angelonline.altervista.org/backend/newsletter.php" method="POST"
-          style="display:flex; gap:8px; width:100%; max-width:300px;">
-        <input type="email" name="email"
-               placeholder="La tua email"
-               required
-               style="
-                 width:100%;
-                 padding:10px 12px;
-                 font-size:1rem;
-                 border-radius:8px;
-                 border:1px solid #00eaff;
-                 background:#000814;
-                 color:#e0faff;
-                 box-shadow:0 0 10px #00eaff55;
-               ">
+            <button type="submit"
+                    style="
+                      padding:10px 14px;
+                      background:#00eaff;
+                      color:#000;
+                      font-weight:bold;
+                      border:none;
+                      border-radius:8px;
+                      cursor:pointer;
+                      box-shadow:0 0 10px #00eaffaa;
+                    ">
+              Cerca
+            </button>
+        </form>
+    </div>
 
-        <button type="submit"
-                style="
-                  padding:10px 14px;
-                  background:#00eaff;
-                  color:#000;
-                  font-weight:bold;
-                  border:none;
-                  border-radius:8px;
-                  cursor:pointer;
-                  box-shadow:0 0 10px #00eaffaa;
-                ">
-          Iscriviti gratuitamente
-        </button>
-    </form>
-  </div>
-</section>
+    <!-- NEWSLETTER -->
+    <div style="
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+        gap:15px;
+        width:100%;
+    ">
+        <img src="img/newsletter.png"
+             alt="Newsletter Icon"
+             style="
+                width:42px;
+                height:42px;
+                filter:drop-shadow(0 0 10px #00eaff);
+             ">
+
+        <form action="https://api.web3forms.com/submit" method="POST"
+              style="
+                display:flex;
+                gap:8px;
+                width:100%;
+                max-width:300px;
+                justify-content:flex-end;
+              ">
+
+            <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
+            <input type="hidden" name="subject" value="Nuova iscrizione Newsletter - AnonLab">
+            <input type="hidden" name="from_name" value="AnonLab Newsletter">
+            <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
+            <input type="checkbox" name="botcheck" style="display:none;">
+
+            <input type="email" name="Email"
+                   placeholder="La tua email"
+                   required
+                   style="
+                     width:100%;
+                     padding:10px 12px;
+                     font-size:1rem;
+                     border-radius:8px;
+                     border:1px solid #00eaff;
+                     background:#000814;
+                     color:#e0faff;
+                     box-shadow:0 0 10px #00eaff55;
+                   ">
+
+            <button type="submit"
+                    style="
+                      padding:10px 14px;
+                      background:#00eaff;
+                      color:#000;
+                      font-weight:bold;
+                      border:none;
+                      border-radius:8px;
+                      cursor:pointer;
+                      box-shadow:0 0 10px #00eaffaa;
+                    ">
+              Iscriviti gratuitamente
+            </button>
+        </form>
+    </div>
+
+</div>
       
 <!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
 <style>
@@ -303,179 +374,206 @@
 </style>
       <div style="margin-top:60px;"></div>
 
-     <!-- ULTIME NEWS -->
-<section class="widget-large">
-  <h2>Ultime dal mondo cyber</h2>
-  <div id="home-news"></div>
-</section>
+      <!-- ULTIME NEWS -->
+      <section class="widget-large">
+        <h2>Ultime dal mondo cyber</h2>
+        <div id="home-news"></div>
+      </section>
 
-<!-- IMMAGINE ANONYMOUS -->
-<section class="widget-large">
-  <img 
-    src="/img/anonymous.png" 
-    alt="Anonymous"
-    style="width:100%; height:auto; border-radius:10px;">
-</section>
-
-<!-- CYBER THREAT MAP -->
-<section class="widget-large">
+      <!-- Immagine Anonymous sopra Cyber Threat Level -->
+      <div style="width:100%; margin:0 0 16px 0;">
+          <img 
+            src="/img/anonymous.png" 
+            alt="Anonymous" 
+            style="width:100%; height:auto; border-radius:10px;"
+            loading="lazy"
+            decoding="async"
+          >
+      </div>
+      <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map">
     <h2>Cyber Threat Map (Live)</h2>
   </div>
 
-  <iframe 
-    src="https://threatmap.checkpoint.com/" 
-    width="100%" 
-    height="230" 
-    style="border:0; filter: drop-shadow(0 0 8px rgba(0,255,255,0.35));"
-    loading="lazy">
-  </iframe>
-</section>
-
-<!-- CYBER THREAT LEVEL -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
-    <h2>Cyber Threat Level</h2>
-  </div>
-  <div class="threat-box">
-    <span class="threat-level">Moderato</span>
-    <p>Aggiornato quotidianamente</p>
+  <div class="widget-content">
+    <iframe 
+      src="https://threatmap.checkpoint.com/" 
+      width="100%" 
+      height="230" 
+      style="border:0; filter: drop-shadow(0 0 8px rgba(0,255,255,0.35));"
+      loading="lazy">
+    </iframe>
   </div>
 </section>
 
-<!-- VULNERABILITÀ DEL GIORNO -->
+      <!-- CYBER THREAT LEVEL -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
+          <h2>Cyber Threat Level</h2>
+        </div>
+        <div class="threat-box">
+          <span class="threat-level">Moderato</span>
+          <p>Aggiornato quotidianamente</p>
+        </div>
+      </section>
+
+     <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid">
     <h2>Vulnerabilità del Giorno</h2>
   </div>
-  <div id="cve-today">Caricamento vulnerabilità…</div>
+
+  <div id="cve-today">
+      Caricamento vulnerabilità…
+  </div>
 </section>
 
 <script src="/js/cve-today.js"></script>
 
-<!-- CYBER ALERT LIVE -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
-    <h2>Cyber Alert Live</h2>
-    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       Advisory CISA →
-    </a>
-  </div>
-  <ul class="alert-list" id="alert-live"></ul>
-</section>
+      <!-- CYBER ALERT LIVE -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
+          <h2>Cyber Alert Live</h2>
 
-<!-- FEED DAL MONDO -->
-<section class="widget-large">
-  <h2>Feed dal Mondo</h2>
-  <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-    Approfondisci su DarkReading →
-  </a>
-  <div id="world-feed"></div>
-</section>
+          <!-- 🔗 LINK ESTERNO CISA -->
+          <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             Advisory CISA →
+          </a>
+        </div>
+        <ul class="alert-list" id="alert-live"></ul>
+      </section>
 
-<!-- TECH RADAR -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
-    <h2>Tech Radar</h2>
-    <a href="https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       ENISA Threat Landscape →
-    </a>
-  </div>
-  <ul class="tech-radar">
-    <li>AI generativa in crescita</li>
-    <li>Zero Trust nei SOC</li>
-    <li>Quantum Security</li>
-    <li>Automazione DevSecOps</li>
-  </ul>
-</section>
+      <!-- FEED DAL MONDO -->
+      <section class="widget-large">
+        <h2>Feed dal Mondo</h2>
 
-<!-- AI TRENDS -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
-    <h2>AI Trends</h2>
-    <a href="https://www.wired.com/category/security" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       Approfondisci AI & Security →
-    </a>
-  </div>
-  <ul class="ai-trends">
-    <li>Modelli multimodali</li>
-    <li>AI nei SOC</li>
-    <li>AI per la difesa</li>
-    <li>AI per la produttività</li>
-  </ul>
-</section>
+        <!-- 🔗 LINK ESTERNO DARKREADING -->
+        <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+          Approfondisci su DarkReading →
+        </a>
 
-     <!-- STRUMENTI CYBER -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
-    <h2>Strumenti Cyber</h2>
-    <a href="https://osintframework.com" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       OSINT Framework →
-    </a>
-  </div>
-  <ul class="tools-list">
-    <li>Port Scanner</li>
-    <li>Hash Analyzer</li>
-    <li>IP Lookup</li>
-    <li>Header Inspector</li>
-  </ul>
-</section>
+        <div id="world-feed"></div>
+      </section>
 
-<!-- SYSTEM STATUS -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
-    <h2>System Status</h2>
-  </div>
-  <div class="status-box">
-    <p>Server: <span class="ok">Online</span></p>
-    <p>API: <span class="ok">Operative</span></p>
-    <p>News Feed: <span class="ok">Attivo</span></p>
-  </div>
-</section>
+      <!-- TECH RADAR -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
+          <h2>Tech Radar</h2>
 
-<!-- CYBER THREAT MONITOR -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
-    <h2>Cyber Threat Monitor</h2>
-  </div>
-  <div class="monitor-box">
-    <span>Attività Globale</span>
-    <div class="monitor-bar"><div style="width: 72%;"></div></div>
-  </div>
-  <div class="monitor-box">
-    <span>Rischio Ransomware</span>
-    <div class="monitor-bar"><div style="width: 58%;"></div></div>
-  </div>
-  <div class="monitor-box">
-    <span>Attacchi DDoS</span>
-    <div class="monitor-bar"><div style="width: 81%;"></div></div>
-  </div>
-</section>
+          <!-- 🔗 LINK ESTERNO ENISA -->
+          <a href="https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             ENISA Threat Landscape →
+          </a>
+        </div>
+        <ul class="tech-radar">
+          <li>AI generativa in crescita</li>
+          <li>Zero Trust nei SOC</li>
+          <li>Quantum Security</li>
+          <li>Automazione DevSecOps</li>
+        </ul>
+      </section>
 
-<!-- HACKER ACTIVITY HEATMAP -->
+      <!-- AI TRENDS -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
+          <h2>AI Trends</h2>
+
+          <!-- 🔗 LINK ESTERNO WIRED SECURITY -->
+          <a href="https://www.wired.com/category/security" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             Approfondisci AI & Security →
+          </a>
+        </div>
+        <ul class="ai-trends">
+          <li>Modelli multimodali</li>
+          <li>AI nei SOC</li>
+          <li>AI per la difesa</li>
+          <li>AI per la produttività</li>
+        </ul>
+      </section>
+
+      <!-- STRUMENTI CYBER -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
+          <h2>Strumenti Cyber</h2>
+
+          <!-- 🔗 LINK ESTERNO OSINT FRAMEWORK -->
+          <a href="https://osintframework.com" 
+             target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+             OSINT Framework →
+          </a>
+        </div>
+
+        <ul class="tools-list">
+          <li>Port Scanner</li>
+          <li>Hash Analyzer</li>
+          <li>IP Lookup</li>
+          <li>Header Inspector</li>
+        </ul>
+      </section>
+
+      <!-- SYSTEM STATUS -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
+          <h2>System Status</h2>
+        </div>
+
+        <div class="status-box">
+          <p>Server: <span class="ok">Online</span></p>
+          <p>API: <span class="ok">Operative</span></p>
+          <p>News Feed: <span class="ok">Attivo</span></p>
+        </div>
+      </section>
+
+      <!-- CYBER THREAT MONITOR -->
+      <section class="widget-large">
+        <div class="box-title-row">
+          <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
+          <h2>Cyber Threat Monitor</h2>
+        </div>
+
+        <div class="monitor-box">
+          <span>Attività Globale</span>
+          <div class="monitor-bar"><div style="width: 72%;"></div></div>
+        </div>
+
+        <div class="monitor-box">
+          <span>Rischio Ransomware</span>
+          <div class="monitor-bar"><div style="width: 58%;"></div></div>
+        </div>
+
+        <div class="monitor-box">
+          <span>Attacchi DDoS</span>
+          <div class="monitor-bar"><div style="width: 81%;"></div></div>
+        </div>
+      </section>
+
+     <!-- HACKER ACTIVITY HEATMAP -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
     <h2>Hacker Activity Heatmap</h2>
+
+    <!-- 🔗 LINK ESTERNO DARKREADING THREAT INTELLIGENCE -->
     <a href="https://www.darkreading.com/threat-intelligence" 
        target="_blank" rel="noopener noreferrer"
-       style="color:#ff7b00 !important; text-decoration:none;">
+       style="color:#ff7b00 !important; text-decoration:none;"
+       onmouseover="this.style.color='#ff9a40'"
+       onmouseout="this.style.color='#ff7b00'">
        Threat Intelligence su DarkReading →
     </a>
   </div>
+
   <ul class="attack-list">
     <li><strong>Europa:</strong> aumento exploit su VPN e Active Directory</li>
     <li><strong>USA:</strong> intensificazione attacchi DDoS su infrastrutture cloud</li>
@@ -484,33 +582,12 @@
     <li><strong>Africa:</strong> attività ransomware in espansione</li>
   </ul>
 </section>
+    </section> <!-- /main-column -->
 
-</section> <!-- /main-column -->
+    <div id="sidebar"></div>
 
-<div id="sidebar"></div>
-</main>
+  </main>
 
-<!-- MEDIA QUERY -->
-<style>
-@media (max-width: 480px) {
-  .google-wrapper {
-    max-width: 260px !important;
-  }
-  .google-wrapper input {
-    padding: 10px !important;
-    font-size: 0.95rem !important;
-  }
-  .google-wrapper button {
-    padding: 10px 14px !important;
-  }
-
-  .ai-soc-img {
-    width: 200px !important;
-    margin-top: 10px !important;
-  }
-}
-</style>
-  
   <div id="footer"></div>
 
   <!-- PULSANTE BACK TO TOP -->
