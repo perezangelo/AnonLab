@@ -483,7 +483,8 @@
 
   <img src="/img/anonlab-radio.png" class="radio-logo" alt="AnonLab Radio">
 
-  <select id="radioSelector" class="radio-select">
+<select id="radioSelector" class="radio-select"
+        onchange="if(this.value) window.open(this.value, '_blank');">
     <option value="">Seleziona una stazione…</option>
 
     <option value="https://www.rtl.it/player/">RTL 102.5</option>
@@ -504,7 +505,7 @@
     <option value="https://www.m2o.it/player/">m2o</option>
     <option value="https://www.radiosportiva.it/player/">Radio Sportiva</option>
     <option value="https://www.radiozeta.it/player/">Radio Zeta</option>
-  </select>
+</select>
 </div>
 
 <!-- PLAYER YOUTUBE MUSICALE -->
