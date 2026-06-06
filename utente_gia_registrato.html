@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Utente già registrato</title>
+
+<style>
+    body {
+        background:#000;
+        color:#00ff00;
+        font-family:"Courier New", monospace;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        margin:0;
+    }
+
+    .box {
+        text-align:center;
+        padding:40px;
+        border:1px solid #00ff00;
+        background:#001100;
+        box-shadow:0 0 15px #00ff00;
+        max-width:420px;
+    }
+
+    h2 {
+        margin-bottom:15px;
+        color:#00ff00;
+        text-shadow:0 0 10px #00ff00;
+    }
+
+    p {
+        color:#99ff99;
+        font-size:16px;
+        line-height:1.5;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>⚠ Utente già registrato</h2>
+    <p>
+        L'email inserita risulta già presente nel sistema.<br>
+        Se hai dimenticato la password puoi recuperarla dalla pagina dedicata.<br><br>
+        Verrai reindirizzato alla pagina di login...
+    </p>
+</div>
+
+<script>
+    setTimeout(() => {
+        window.location.href = "/login.html";
+    }, 3500);
+</script>
+
+</body>
+</html>
