@@ -630,14 +630,42 @@
   ">Genera</button>
 
   <p id="cfResult" style="color:#fff; margin-top:15px; font-size:20px; font-weight:bold;"></p>
-
-<!-- CARICHIAMO I COMUNI -->
-<script src="/backend/comuni.js"></script>
+</div>
 
 <script>
-// ===============================
+// ======================================================
+// CARICAMENTO AUTOMATICO DI TUTTI I FILE COMUNI A–Z
+// ======================================================
+let COMUNI = [];
+
+async function loadComuni() {
+  const lettere = ["A","B","C","D","E","F","G","H","I","L","M","N","O","P","Q","R","S","T","U","V","Z"];
+
+  for (let l of lettere) {
+    try {
+      const res = await fetch(`/backend/comuni/comuni_${l}.json`);
+      if (!res.ok) continue;
+      const data = await res.json();
+
+      // ogni file contiene array di ["COMUNE","CODICE"]
+      data.forEach(c => {
+        COMUNI.push({
+          comune: c[0].toUpperCase(),
+          codice: c[1]
+        });
+      });
+
+    } catch(e) {
+      console.warn("File comuni mancante:", l);
+    }
+  }
+}
+
+loadComuni();
+
+// ======================================================
 // AUTOCOMPLETE
-// ===============================
+// ======================================================
 function autocompleteComune(val) {
   const box = document.getElementById("comuneList");
   box.innerHTML = "";
@@ -646,8 +674,10 @@ function autocompleteComune(val) {
     return;
   }
 
+  const ricerca = val.toUpperCase();
+
   const results = COMUNI
-    .filter(c => c.comune.startsWith(val.toUpperCase()))
+    .filter(c => c.comune.startsWith(ricerca))
     .slice(0, 30);
 
   if (results.length === 0) {
@@ -674,9 +704,9 @@ function autocompleteComune(val) {
   box.style.display = "block";
 }
 
-// ===============================
+// ======================================================
 // TABELLE UFFICIALI
-// ===============================
+// ======================================================
 const mesi = {
   1:"A",2:"B",3:"C",4:"D",5:"E",6:"H",
   7:"L",8:"M",9:"P",10:"R",11:"S",12:"T"
@@ -696,9 +726,9 @@ const valoriPari = {
   U:20,V:21,W:22,X:23,Y:24,Z:25
 };
 
-// ===============================
+// ======================================================
 // FUNZIONI UFFICIALI
-// ===============================
+// ======================================================
 function estraiConsonanti(s) { return s.replace(/[^BCDFGHJKLMNPQRSTVWXYZ]/gi, ""); }
 function estraiVocali(s) { return s.replace(/[^AEIOU]/gi, ""); }
 
@@ -735,9 +765,9 @@ function carattereControllo(cf15) {
   return String.fromCharCode((somma % 26) + 65);
 }
 
-// ===============================
+// ======================================================
 // GENERATORE PRINCIPALE
-// ===============================
+// ======================================================
 function generaCF() {
   let nome = document.getElementById("cfNome").value.toUpperCase();
   let cognome = document.getElementById("cfCognome").value.toUpperCase();
@@ -762,8 +792,6 @@ function generaCF() {
   document.getElementById("cfResult").innerText = cf;
 }
 </script>
-
-</div>
 
 <div class="cyber-box" style="
     background:#000814;
