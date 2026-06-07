@@ -594,6 +594,7 @@
     }
   </script>
 </div>
+      
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #00eaffaa;
@@ -675,16 +676,37 @@ function autocompleteComune(val) {
 
   const ricerca = val.toUpperCase();
 
-  const results = COMUNI
-    .filter(c => c.comune.startsWith(ricerca))
-    .slice(0, 30);
+  // Filtra i comuni
+  const results = COMUNI.filter(c => c.comune.startsWith(ricerca));
 
+  // 🔥 AUTOSELEZIONE SE IL TESTO È ESATTO
+  const matchEsatto = COMUNI.find(c => c.comune === ricerca);
+  if (matchEsatto) {
+    const input = document.getElementById("cfComune");
+    input.value = matchEsatto.comune;
+    input.dataset.codice = matchEsatto.codice;
+    box.style.display = "none";
+    return;
+  }
+
+  // 🔥 AUTOSELEZIONE SE C'È UN SOLO RISULTATO
+  if (results.length === 1) {
+    const unico = results[0];
+    const input = document.getElementById("cfComune");
+    input.value = unico.comune;
+    input.dataset.codice = unico.codice;
+    box.style.display = "none";
+    return;
+  }
+
+  // Nessun risultato → chiudi
   if (results.length === 0) {
     box.style.display = "none";
     return;
   }
 
-  results.forEach(r => {
+  // Mostra lista autocomplete
+  results.slice(0, 30).forEach(r => {
     const div = document.createElement("div");
     div.style.padding = "8px";
     div.style.cursor = "pointer";
