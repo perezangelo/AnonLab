@@ -296,68 +296,85 @@ document.addEventListener("click", (e) => {
         </form>
     </div>
 
-    <!-- NEWSLETTER -->
-    <div style="
-        display:flex;
-        justify-content:flex-end;
-        align-items:center;
-        gap:15px;
-        width:100%;
-    ">
-        <img src="img/newsletter.png"
-             alt="Newsletter Icon"
-             style="
-                width:42px;
-                height:42px;
-                filter:drop-shadow(0 0 10px #00eaff);
-             ">
+<!-- NEWSLETTER -->
+<div style="
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:15px;
+    width:100%;
+">
+    <img src="img/newsletter.png"
+         alt="Newsletter Icon"
+         style="
+            width:42px;
+            height:42px;
+            filter:drop-shadow(0 0 10px #00eaff);
+         ">
 
-        <form action="https://api.web3forms.com/submit" method="POST"
-              style="
-                display:flex;
-                gap:8px;
-                width:100%;
-                max-width:300px;
-                justify-content:flex-end;
-              ">
+    <form action="https://angelonline.altervista.org/backend/newsletter_add.php"
+          method="POST"
+          style="
+            display:flex;
+            gap:8px;
+            width:100%;
+            max-width:300px;
+            justify-content:flex-end;
+          "
+          onsubmit="return sendNewsletter(event)">
 
-            <input type="hidden" name="access_key" value="9d55bc37-731e-405c-b3c2-b24c3feffb8c">
-            <input type="hidden" name="subject" value="Nuova iscrizione Newsletter - AnonLab">
-            <input type="hidden" name="from_name" value="AnonLab Newsletter">
-            <input type="hidden" name="redirect" value="https://anonlab.it/grazie.html">
-            <input type="checkbox" name="botcheck" style="display:none;">
+        <input type="email" id="newsletterEmail"
+               name="email"
+               placeholder="La tua email"
+               required
+               style="
+                 width:100%;
+                 padding:10px 12px;
+                 font-size:1rem;
+                 border-radius:8px;
+                 border:1px solid #00eaff;
+                 background:#000814;
+                 color:#e0faff;
+                 box-shadow:0 0 10px #00eaff55;
+               ">
 
-            <input type="email" name="Email"
-                   placeholder="La tua email"
-                   required
-                   style="
-                     width:100%;
-                     padding:10px 12px;
-                     font-size:1rem;
-                     border-radius:8px;
-                     border:1px solid #00eaff;
-                     background:#000814;
-                     color:#e0faff;
-                     box-shadow:0 0 10px #00eaff55;
-                   ">
-
-            <button type="submit"
-                    style="
-                      padding:10px 14px;
-                      background:#00eaff;
-                      color:#000;
-                      font-weight:bold;
-                      border:none;
-                      border-radius:8px;
-                      cursor:pointer;
-                      box-shadow:0 0 10px #00eaffaa;
-                    ">
-              Iscriviti gratuitamente
-            </button>
-        </form>
-    </div>
-
+        <button type="submit"
+                style="
+                  padding:10px 14px;
+                  background:#00eaff;
+                  color:#000;
+                  font-weight:bold;
+                  border:none;
+                  border-radius:8px;
+                  cursor:pointer;
+                  box-shadow:0 0 10px #00eaffaa;
+                ">
+          Iscriviti gratuitamente
+        </button>
+    </form>
 </div>
+
+<script>
+async function sendNewsletter(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("newsletterEmail").value;
+
+    const res = await fetch("https://angelonline.altervista.org/backend/newsletter_add.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "email=" + encodeURIComponent(email)
+    });
+
+    const data = await res.json();
+
+    if (data.status === "success") {
+        window.location.href = "https://anonlab.it/grazie.html";
+    } else {
+        alert(data.message);
+    }
+}
+</script>
       
 <!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
 <style>
