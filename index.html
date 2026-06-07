@@ -359,12 +359,12 @@ async function sendNewsletter(e) {
     const email = document.getElementById("newsletterEmail").value;
 
     const res = await fetch("https://angelonline.altervista.org/backend/newsletter_add.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        mode: "cors",
-        credentials: "omit",
-        body: "email=" + encodeURIComponent(email)
-    });
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    mode: "cors",
+    credentials: "omit",
+    body: "email=" + encodeURIComponent(email)
+});
 
     const data = await res.json();
 
