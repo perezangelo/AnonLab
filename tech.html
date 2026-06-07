@@ -609,15 +609,21 @@
   </p>
 
   <input id="cfNome" type="text" placeholder="Nome" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
-  <input id="cfCognome" type="text" placeholder="Cognome" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
-  <input id="cfData" type="date" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+  <input id="cfCognome" type="text" placeholder="Cognome" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid:#00eaff;">
+  <input id="cfData" type="date" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid:#00eaff;">
 
-  <select id="cfSesso" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+  <select id="cfSesso" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid:#00eaff;">
     <option value="M">Maschio</option>
     <option value="F">Femmina</option>
   </select>
 
-  <input id="cfComune" type="text" placeholder="Comune di nascita" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+  <div style="position:relative;">
+    <input id="cfComune" type="text" placeholder="Comune di nascita"
+           oninput="autocompleteComune(this.value)" autocomplete="off"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid:#00eaff;">
+    <div id="comuneList"
+         style="background:#000; border:1px solid #00eaff; display:none; max-height:180px; overflow-y:auto; position:absolute; z-index:999; width:100%;"></div>
+  </div>
 
   <button onclick="generaCF()" style="
       width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
@@ -625,29 +631,140 @@
 
   <p id="cfResult" style="color:#fff; margin-top:15px; font-size:20px; font-weight:bold;"></p>
 
-  <script>
-    function generaCF() {
-      let nome = document.getElementById('cfNome').value.toUpperCase();
-      let cognome = document.getElementById('cfCognome').value.toUpperCase();
-      let data = document.getElementById('cfData').value;
-      let sesso = document.getElementById('cfSesso').value;
-      let comune = document.getElementById('cfComune').value.toUpperCase();
+<!-- CARICHIAMO I COMUNI -->
+<script src="/backend/comuni.js"></script>
 
-      if (!nome || !cognome || !data || !comune) {
-        document.getElementById('cfResult').innerText = "Compila tutti i campi.";
-        return;
-      }
+<script>
+// ===============================
+// AUTOCOMPLETE
+// ===============================
+function autocompleteComune(val) {
+  const box = document.getElementById("comuneList");
+  box.innerHTML = "";
+  if (val.length < 2) {
+    box.style.display = "none";
+    return;
+  }
 
-      let anno = data.substring(2,4);
-      let mese = "ABCDEHLMPRST".charAt(parseInt(data.substring(5,7))-1);
-      let giorno = parseInt(data.substring(8,10));
-      if (sesso === "F") giorno += 40;
+  const results = COMUNI
+    .filter(c => c.comune.startsWith(val.toUpperCase()))
+    .slice(0, 30);
 
-      let cf = cognome.substring(0,3) + nome.substring(0,3) + anno + mese + (giorno < 10 ? "0"+giorno : giorno) + comune.substring(0,4);
-      document.getElementById('cfResult').innerText = cf;
-    }
-  </script>
+  if (results.length === 0) {
+    box.style.display = "none";
+    return;
+  }
+
+  results.forEach(r => {
+    const div = document.createElement("div");
+    div.style.padding = "8px";
+    div.style.cursor = "pointer";
+    div.style.color = "#00eaff";
+    div.style.fontSize = "14px";
+    div.innerText = r.comune + " (" + r.codice + ")";
+    div.onclick = () => {
+      const input = document.getElementById("cfComune");
+      input.value = r.comune;
+      input.dataset.codice = r.codice;
+      box.style.display = "none";
+    };
+    box.appendChild(div);
+  });
+
+  box.style.display = "block";
+}
+
+// ===============================
+// TABELLE UFFICIALI
+// ===============================
+const mesi = {
+  1:"A",2:"B",3:"C",4:"D",5:"E",6:"H",
+  7:"L",8:"M",9:"P",10:"R",11:"S",12:"T"
+};
+
+const valoriDispari = {
+  0:1,1:0,2:5,3:7,4:9,5:13,6:15,7:17,8:19,9:21,
+  A:1,B:0,C:5,D:7,E:9,F:13,G:15,H:17,I:19,J:21,
+  K:2,L:4,M:18,N:20,O:11,P:3,Q:6,R:8,S:12,T:14,
+  U:16,V:10,W:22,X:25,Y:24,Z:23
+};
+
+const valoriPari = {
+  0:0,1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,
+  A:0,B:1,C:2,D:3,E:4,F:5,G:6,H:7,I:8,J:9,
+  K:10,L:11,M:12,N:13,O:14,P:15,Q:16,R:17,S:18,T:19,
+  U:20,V:21,W:22,X:23,Y:24,Z:25
+};
+
+// ===============================
+// FUNZIONI UFFICIALI
+// ===============================
+function estraiConsonanti(s) { return s.replace(/[^BCDFGHJKLMNPQRSTVWXYZ]/gi, ""); }
+function estraiVocali(s) { return s.replace(/[^AEIOU]/gi, ""); }
+
+function codiceCognome(c) {
+  c = c.toUpperCase();
+  let cons = estraiConsonanti(c);
+  let voc = estraiVocali(c);
+  return (cons + voc + "XXX").substring(0,3);
+}
+
+function codiceNome(n) {
+  n = n.toUpperCase();
+  let cons = estraiConsonanti(n);
+  if (cons.length >= 4) return cons[0] + cons[2] + cons[3];
+  let voc = estraiVocali(n);
+  return (cons + voc + "XXX").substring(0,3);
+}
+
+function codiceData(data, sesso) {
+  let [anno, mese, giorno] = data.split("-");
+  anno = anno.substring(2,4);
+  mese = mesi[parseInt(mese)];
+  giorno = parseInt(giorno);
+  if (sesso === "F") giorno += 40;
+  return anno + mese + (giorno < 10 ? "0"+giorno : giorno);
+}
+
+function carattereControllo(cf15) {
+  let somma = 0;
+  for (let i = 0; i < 15; i++) {
+    let c = cf15[i];
+    somma += ((i+1) % 2 === 0) ? valoriPari[c] : valoriDispari[c];
+  }
+  return String.fromCharCode((somma % 26) + 65);
+}
+
+// ===============================
+// GENERATORE PRINCIPALE
+// ===============================
+function generaCF() {
+  let nome = document.getElementById("cfNome").value.toUpperCase();
+  let cognome = document.getElementById("cfCognome").value.toUpperCase();
+  let data = document.getElementById("cfData").value;
+  let sesso = document.getElementById("cfSesso").value;
+  let comune = document.getElementById("cfComune").value.toUpperCase();
+  let codiceComune = document.getElementById("cfComune").dataset.codice;
+
+  if (!nome || !cognome || !data || !comune || !codiceComune) {
+    document.getElementById("cfResult").innerText = "Compila tutti i campi e seleziona il comune dall'elenco.";
+    return;
+  }
+
+  let cf =
+    codiceCognome(cognome) +
+    codiceNome(nome) +
+    codiceData(data, sesso) +
+    codiceComune;
+
+  cf += carattereControllo(cf);
+
+  document.getElementById("cfResult").innerText = cf;
+}
+</script>
+
 </div>
+
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ffaa00aa;
