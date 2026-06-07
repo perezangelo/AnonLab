@@ -647,7 +647,6 @@ async function loadComuni() {
       if (!res.ok) continue;
       const data = await res.json();
 
-      // ogni file contiene array di ["COMUNE","CODICE"]
       data.forEach(c => {
         COMUNI.push({
           comune: c[0].toUpperCase(),
