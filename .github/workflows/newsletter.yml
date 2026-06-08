@@ -1,0 +1,15 @@
+name: Newsletter settimanale
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"   # ogni lunedì alle 08:00
+  workflow_dispatch:
+
+jobs:
+  call-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Esegui invio newsletter
+      run: |
+        curl "https://angelonline.altervista.org/backend/send-weekly-newsletter.php?token=${{ secrets.NEWSLETTER_TOKEN }}"
