@@ -12,4 +12,6 @@ jobs:
     steps:
     - name: Esegui invio newsletter
       run: |
-        curl "https://angelonline.altervista.org/backend/send-weekly-newsletter.php?token=${{ secrets.NEWSLETTER_TOKEN }}"
+        echo "Avvio invio newsletter settimanale..."
+        RISPOSTA=$(curl -s "https://angelonline.altervista.org/backend/send-weekly-newsletter.php?token=${{ secrets.NEWSLETTER_TOKEN }}")
+        echo "Risposta server: $RISPOSTA"
