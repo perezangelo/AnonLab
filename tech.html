@@ -633,26 +633,50 @@
   <p id="cfResult" style="color:#fff; margin-top:15px; font-size:20px; font-weight:bold;"></p>
 </div>
 
-<!-- CARICAMENTO FILE UNICO COMUNI -->
-<script src="/backend/comuni.js"></script>
-
 <script>
 // ======================================================
-// AUTOCOMPLETE (versione stabile senza fetch)
+// CARICAMENTO COMUNI DA GITHUB (versione definitiva)
+// ======================================================
+let COMUNI = [];
+
+async function caricaComuni() {
+  const url = "https://raw.githubusercontent.com/perezangelo/AnonLab/refs/heads/main/data/comuni.json";
+  const response = await fetch(url);
+  const data = await response.json();
+
+  // Convertiamo nel formato richiesto dal tuo autocomplete:
+  // COMUNI = [ ["NOME", "CODICE"], ... ]
+  COMUNI = data.map(c => [
+    c.nome.toUpperCase(),
+    c.codiceCatastale
+  ]);
+}
+
+caricaComuni();
+
+
+// ======================================================
+// AUTOCOMPLETE OTTIMIZZATO
 // ======================================================
 function autocompleteComune(val) {
   const box = document.getElementById("comuneList");
   box.innerHTML = "";
-  if (val.length < 2) {
+
+  if (!val || val.length < 2 || COMUNI.length === 0) {
     box.style.display = "none";
     return;
   }
 
   const ricerca = val.toUpperCase();
 
-  const results = COMUNI.filter(c => c[0].startsWith(ricerca));
+  // FILTRO OTTIMIZZATO
+  let results = COMUNI.filter(c => c[0].startsWith(ricerca));
 
-  // AUTOSELEZIONE SE IL TESTO È ESATTO
+  if (results.length === 0) {
+    results = COMUNI.filter(c => c[0].includes(ricerca));
+  }
+
+  // MATCH ESATTO
   const matchEsatto = COMUNI.find(c => c[0] === ricerca);
   if (matchEsatto) {
     const input = document.getElementById("cfComune");
@@ -662,7 +686,7 @@ function autocompleteComune(val) {
     return;
   }
 
-  // AUTOSELEZIONE SE C'È UN SOLO RISULTATO
+  // UNICO RISULTATO
   if (results.length === 1) {
     const unico = results[0];
     const input = document.getElementById("cfComune");
@@ -672,29 +696,28 @@ function autocompleteComune(val) {
     return;
   }
 
-  if (results.length === 0) {
-    box.style.display = "none";
-    return;
-  }
-
-  results.slice(0, 30).forEach(r => {
+  // LISTA RISULTATI
+  results.slice(0, 40).forEach(r => {
     const div = document.createElement("div");
     div.style.padding = "8px";
     div.style.cursor = "pointer";
     div.style.color = "#00eaff";
     div.style.fontSize = "14px";
-    div.innerText = r[0] + " (" + r[1] + ")";
+    div.innerText = `${r[0]} (${r[1]})`;
+
     div.onclick = () => {
       const input = document.getElementById("cfComune");
       input.value = r[0];
       input.dataset.codice = r[1];
       box.style.display = "none";
     };
+
     box.appendChild(div);
   });
 
   box.style.display = "block";
 }
+
 
 // ======================================================
 // TABELLE UFFICIALI
@@ -718,8 +741,9 @@ const valoriPari = {
   U:20,V:21,W:22,X:23,Y:24,Z:25
 };
 
+
 // ======================================================
-// FUNZIONI UFFICIALI
+// FUNZIONI BASE
 // ======================================================
 function estraiConsonanti(s) { return s.replace(/[^BCDFGHJKLMNPQRSTVWXYZ]/gi, ""); }
 function estraiVocali(s) { return s.replace(/[^AEIOU]/gi, ""); }
@@ -757,6 +781,7 @@ function carattereControllo(cf15) {
   return String.fromCharCode((somma % 26) + 65);
 }
 
+
 // ======================================================
 // GENERATORE PRINCIPALE
 // ======================================================
@@ -768,7 +793,7 @@ function generaCF() {
   let comune = document.getElementById("cfComune").value.toUpperCase();
   let codiceComune = document.getElementById("cfComune").dataset.codice;
 
-  // AUTO-RICONOSCIMENTO SE NON SELEZIONATO
+  // AUTO-RICONOSCIMENTO
   if (!codiceComune && comune) {
     const match = COMUNI.find(c => c[0] === comune);
     if (match) {
