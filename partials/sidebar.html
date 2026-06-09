@@ -530,40 +530,83 @@
   </select>
 </div>
 
-<!-- MISURAINTERNET -->
+<!-- MISURAINTERNET (Versione PRO Sidebar) -->
 <div class="sidebar-box misura-box" aria-label="MisuraInternet AGCOM">
   <h3>MisuraInternet</h3>
 
-  <div class="misura-img">
-    <img src="/img/misurainternet.png" alt="Logo MisuraInternet AGCOM" style="width:100%; border-radius:6px;">
+  <div style="text-align:center; margin-bottom:10px;">
+    <img src="/img/misurainternet.png" 
+         alt="Logo MisuraInternet AGCOM" 
+         style="width:100%; border-radius:6px; border:1px solid #00eaff;">
   </div>
 
-  <p class="misura-desc">
+  <p class="misura-desc" style="color:#0ff; font-size:14px; line-height:1.4;">
     Servizio ufficiale AGCOM per la misura certificata della qualità della tua connessione Internet.
   </p>
 
-  <a href="https://www.misurainternet.it" target="_blank" rel="noopener noreferrer" class="misura-btn" style="
-      display:block;
-      text-align:center;
-      padding:10px;
-      background:#0057b8;
-      color:#fff;
-      border-radius:6px;
-      margin-top:10px;
-      text-decoration:none;
-      font-weight:bold;
-  ">
+  <a href="https://www.misurainternet.it" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     style="
+        display:block;
+        text-align:center;
+        padding:10px;
+        background:#00eaff;
+        color:#000;
+        border-radius:6px;
+        margin-top:10px;
+        text-decoration:none;
+        font-weight:bold;
+        box-shadow:0 0 10px #00eaff;
+     ">
     Vai al sito ufficiale
   </a>
 </div>
 
-<!-- GOOGLE CALENDAR (Widget reale) -->
+<!-- CALENDARIO GOOGLE — Versione PRO Cyber -->
 <div class="sidebar-box" aria-label="Calendario eventi">
   <h3>Calendario</h3>
 
+  <!-- Header grafico -->
+  <div style="
+      background:#000;
+      border:1px solid #00eaff;
+      border-radius:6px;
+      padding:10px;
+      text-align:center;
+      margin-bottom:10px;
+      position:relative;
+      box-shadow:0 0 10px #00eaff;
+  ">
+      <img src="/img/calendar.png" alt="Icona calendario" style="width:100%; border-radius:4px; opacity:0.9;">
+
+      <!-- Badge data del giorno -->
+      <div style="
+          position:absolute;
+          bottom:8px;
+          right:8px;
+          background:#00eaff;
+          color:#000;
+          padding:4px 8px;
+          border-radius:4px;
+          font-weight:bold;
+          font-size:12px;
+          box-shadow:0 0 6px #00eaff;
+      ">
+        <script>
+          document.write(new Date().toLocaleDateString('it-IT', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+          }));
+        </script>
+      </div>
+  </div>
+
+  <!-- Google Calendar reale -->
   <iframe 
     src="https://calendar.google.com/calendar/embed?src=c_classroom6b3d5b0b%40group.calendar.google.com&ctz=Europe%2FRome&mode=AGENDA&showPrint=0&showTabs=0&showCalendars=0&showTz=0&showTitle=0&color=%2300eaff&bgcolor=%23000000"
-    style="border:0; width:100%; height:300px; border-radius:6px;"
+    style="border:1px solid #00eaff; width:100%; height:300px; border-radius:6px; box-shadow:0 0 10px #00eaff;"
     loading="lazy">
   </iframe>
 </div>
