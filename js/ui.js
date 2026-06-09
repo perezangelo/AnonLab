@@ -177,7 +177,7 @@ async function initOroscopo() {
             // Aggiorna testo
             text.textContent = data[sign] || "Oroscopo non disponibile";
 
-            // Link esterno (provvisorio, poi lo sostituiremo con pagina interna)
+            // Link esterno (provvisorio)
             link.href = "https://www.google.com/search?q=oroscopo+" + sign;
         }
 
@@ -192,6 +192,7 @@ async function initOroscopo() {
         text.textContent = "Oroscopo non disponibile";
     }
 }
+
 /* ============================================================
    OROSCOPO — ISCRIZIONE NEWSLETTER
 ============================================================ */
