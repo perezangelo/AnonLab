@@ -216,7 +216,7 @@ function iscriviOroscopo() {
         return;
     }
 
-    fetch("/save-oroscopo.php", {
+    fetch("https://angelonline.altervista.org/save-oroscopo.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, segno })
