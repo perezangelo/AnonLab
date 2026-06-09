@@ -478,10 +478,12 @@
     SIDEBAR COMPLETA — BLOCCO 4/4
     RADIO + YOUTUBE + MISURAINTERNET + CALENDARIO + MAPS
 ============================= -->
-
+<!-- RADIO MULTI-EMITTENTE -->
 <div class="sidebar-box radio-box">
   <h3>AnonLab Radio</h3>
 
+  <img src="/img/anonlab-radio.png" class="radio-logo" alt="AnonLab Radio">
+  
   <!-- Equalizzatore integrato -->
   <div style="
       width:100%;
@@ -492,41 +494,31 @@
       border-radius:4px;
       margin-bottom:12px;
   "></div>
+  
+<select id="radioSelector" class="radio-select"
+        onchange="if(this.value) window.open(this.value, '_blank');">
+    <option value="">Seleziona una stazione…</option>
 
-  <!-- RADIO CON CHECKBOX CLICCABILI (NESSUNA LISTA SOTTO) -->
-  <label><input type="checkbox" onclick="window.open('https://www.rtl.it/player/', '_blank')"> RTL 102.5</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.rds.it/player/', '_blank')"> RDS</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.r101.it/player/', '_blank')"> R101</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.deejay.it/player/', '_blank')"> Radio Deejay</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.105.net/player/', '_blank')"> Radio 105</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.kisskiss.it/player/', '_blank')"> Radio Kiss Kiss</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.virginradio.it/player/', '_blank')"> Virgin Radio</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radioitalia.it/player/', '_blank')"> Radio Italia</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radiozeta.it/player/', '_blank')"> Radio Zeta</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.m2o.it/player/', '_blank')"> m2o</label><br>
+    <option value="https://www.rtl.it/player/">RTL 102.5</option>
+    <option value="https://www.radioitalia.it/player/">Radio Italia SoloMusicaItaliana</option>
+    <option value="https://www.rds.it/player/">RDS 100% Grandi Successi</option>
+    <option value="https://www.deejay.it/player/">Radio Deejay</option>
+    <option value="https://www.105.net/player/">Radio 105</option>
+    <option value="https://www.kisskiss.it/player/">Radio Kiss Kiss</option>
+    <option value="https://www.virginradio.it/player/">Virgin Radio</option>
 
-  <label><input type="checkbox" onclick="window.open('https://www.raiplaysound.it/diretta/radio1', '_blank')"> Rai Radio 1</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.raiplaysound.it/diretta/radio2', '_blank')"> Rai Radio 2</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.raiplaysound.it/diretta/radio3', '_blank')"> Rai Radio 3</label><br>
+    <option value="https://www.raiplaysound.it/radio1">Rai Radio 1</option>
+    <option value="https://www.raiplaysound.it/radio2">Rai Radio 2</option>
+    <option value="https://www.raiplaysound.it/radio3">Rai Radio 3</option>
 
-  <label><input type="checkbox" onclick="window.open('https://www.radio24.ilsole24ore.com/player/', '_blank')"> Radio 24</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.capital.it/player/', '_blank')"> Radio Capital</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radiomontecarlo.net/player/', '_blank')"> Radio Monte Carlo</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radiosportiva.it/player/', '_blank')"> Radio Sportiva</label><br>
-
-  <label><input type="checkbox" onclick="window.open('https://www.radiosubasio.it/player/', '_blank')"> Radio Subasio</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radionorba.it/player/', '_blank')"> Radio Norba</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radiobruno.it/player/', '_blank')"> Radio Bruno</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radiocompany.com/player/', '_blank')"> Radio Company</label><br>
-  <label><input type="checkbox" onclick="window.open('https://www.radiomargherita.com/player/', '_blank')"> Radio Margherita</label><br>
+    <option value="https://www.radio24.ilsole24ore.com/player/">Radio 24</option>
+    <option value="https://www.capital.it/player/">Radio Capital</option>
+    <option value="https://www.radiomontecarlo.net/player/">Radio Monte Carlo</option>
+    <option value="https://www.m2o.it/player/">m2o</option>
+    <option value="https://www.radiosportiva.it/player/">Radio Sportiva</option>
+    <option value="https://www.radiozeta.it/player/">Radio Zeta</option>
+</select>
 </div>
-
-<style>
-@keyframes eqBarMove {
-  0% { background-position:0% 0; }
-  100% { background-position:200% 0; }
-}
-</style>
 
 <!-- PLAYER YOUTUBE MUSICALE -->
 <div class="sidebar-box yt-box">
