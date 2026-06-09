@@ -110,22 +110,28 @@ async function whoisLookup() {
             return;
         }
 
+        const status = Array.isArray(data.domain_status)
+            ? data.domain_status.join(", ")
+            : (data.domain_status || "Non disponibile");
+
+        const raw = data.raw_text || "Non disponibile";
+
         output.innerText =
-            "Dominio: " + data.domain + "\n" +
-            "Stato: " + data.domain_status + "\n" +
-            "Creato: " + data.create_date + "\n" +
-            "Aggiornato: " + data.update_date + "\n" +
-            "Scadenza: " + data.expire_date + "\n" +
-            "Registrar: " + data.registrar.name + "\n" +
+            "Dominio: " + (data.domain || "Non disponibile") + "\n" +
+            "Stato: " + status + "\n" +
+            "Creato: " + (data.create_date || "Non disponibile") + "\n" +
+            "Aggiornato: " + (data.update_date || "Non disponibile") + "\n" +
+            "Scadenza: " + (data.expire_date || "Non disponibile") + "\n" +
+            "Registrar: " + (data.registrar?.name || "Non disponibile") + "\n" +
             "\n--- RAW WHOIS ---\n\n" +
-            data.raw_text;
+            raw;
 
     } catch (e) {
         output.innerText = "Errore durante la richiesta WHOIS.";
     }
 }
 </script>
-
+        
         <!-- DNS Lookup -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
