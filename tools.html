@@ -133,11 +133,11 @@ async function whoisLookup() {
 </script>
         
         <!-- DNS Lookup -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/dns.png" class="box-title-icon">
-                <h2>DNS Lookup</h2>
-            </div>
+<div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/dns.png" class="box-title-icon">
+        <h2>DNS Lookup</h2>
+    </div>
 
     <input id="dnsInput" type="text" placeholder="es: google.com"
            style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
@@ -146,12 +146,12 @@ async function whoisLookup() {
         width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
     ">Cerca</button>
 
-    <pre id="dnsResult" style="
+    <div id="dnsResult" style="
         background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:300px; overflow-y:auto; border:1px solid #00eaff;
+        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
         white-space:pre-wrap;
-    "></pre>
-</div>  
+    "></div>
+</div> 
         <script>
 async function dnsLookup() {
     const dominio = document.getElementById("dnsInput").value.trim();
@@ -174,6 +174,68 @@ async function dnsLookup() {
         }
 
         output.innerText = JSON.stringify(data, null, 2);
+
+    } catch (e) {
+        output.innerText = "Errore durante la richiesta DNS.";
+    }
+}
+            function cleanDomain(input) {
+    return input
+        .replace(/^https?:\/\//i, "")
+        .replace(/\/.*$/, "")
+        .replace(/^www\./i, "")
+        .trim();
+}
+
+async function dnsLookup() {
+    const raw = document.getElementById("dnsInput").value;
+    const dominio = cleanDomain(raw);
+    const output = document.getElementById("dnsResult");
+
+    if (!dominio) {
+        output.innerText = "Inserisci un dominio valido.";
+        return;
+    }
+
+    output.innerText = "Caricamento DNS...";
+
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/dns.php?domain=" + dominio);
+        const data = await res.json();
+
+        if (!data.Answer) {
+            output.innerText = "Nessun record DNS trovato.";
+            return;
+        }
+
+        let html = "";
+
+        const typeNames = {
+            1: "A",
+            28: "AAAA",
+            5: "CNAME",
+            15: "MX",
+            16: "TXT",
+            2: "NS",
+            6: "SOA"
+        };
+
+        const grouped = {};
+
+        data.Answer.forEach(rec => {
+            const type = typeNames[rec.type] || rec.type;
+            if (!grouped[type]) grouped[type] = [];
+            grouped[type].push(rec);
+        });
+
+        for (const type in grouped) {
+            html += `<div style="margin-bottom:15px;">
+                        <h3 style="color:#00eaff; border-bottom:1px solid #00eaff;">${type} Records</h3>
+                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${JSON.stringify(grouped[type], null, 2)}</pre>
+                     </div>`;
+        }
+
+        output.innerHTML = html;
 
     } catch (e) {
         output.innerText = "Errore durante la richiesta DNS.";
