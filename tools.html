@@ -244,14 +244,91 @@ async function dnsLookup() {
 </script>
 
         <!-- IP Info -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/ip.png" class="box-title-icon">
-                <h2>IP Information</h2>
-            </div>
-            <iframe src="/tools/ip.html" width="100%" height="180" frameborder="0"></iframe>
-        </div>
+       <div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/ip.png" class="box-title-icon">
+        <h2>IP Information</h2>
+    </div>
 
+    <input id="ipInput" type="text" placeholder="es: 8.8.8.8"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <button onclick="ipLookup()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
+    ">Cerca</button>
+
+    <div id="ipResult" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        max-height:500px; overflow-y:auto; border:1px solid #00eaff;
+        white-space:pre-wrap;
+    "></div>
+</div>
+        
+async function ipLookup() {
+    const raw = document.getElementById("ipInput").value;
+    const ip = cleanIP(raw);
+    const output = document.getElementById("ipResult");
+
+    if (!ip) {
+        output.innerText = "Inserisci un IP valido.";
+        return;
+    }
+
+    output.innerText = "Caricamento informazioni IP...";
+
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/ip.php?ip=" + ip);
+        const data = await res.json();
+
+        if (data.status !== "success") {
+            output.innerText = "Errore: " + (data.message || "IP non valido");
+            return;
+        }
+
+        let html = `
+            <h3 style="color:#00eaff;">Informazioni su ${ip}</h3>
+
+            <div style="margin-bottom:20px;">
+                <h4 style="color:#00eaff;">🌍 Localizzazione</h4>
+                <p>Paese: ${data.country} (${data.countryCode})</p>
+                <p>Regione: ${data.regionName}</p>
+                <p>Città: ${data.city}</p>
+                <p>Timezone: ${data.timezone}</p>
+            </div>
+
+            <div style="margin-bottom:20px;">
+                <h4 style="color:#00eaff;">📡 Rete</h4>
+                <p>ISP: ${data.isp}</p>
+                <p>Organizzazione: ${data.org}</p>
+                <p>ASN: ${data.as}</p>
+                <p>Reverse DNS: ${data.reverse || "N/A"}</p>
+            </div>
+
+            <div style="margin-bottom:20px;">
+                <h4 style="color:#00eaff;">📌 Coordinate</h4>
+                <p>Latitudine: ${data.lat}</p>
+                <p>Longitudine: ${data.lon}</p>
+            </div>
+
+            <div style="margin-bottom:20px;">
+                <h4 style="color:#00eaff;">🗺️ Mappa</h4>
+                <iframe width="100%" height="250" frameborder="0" style="border:1px solid #00eaff;"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=${data.lon-0.01}%2C${data.lat-0.01}%2C${data.lon+0.01}%2C${data.lat+0.01}&layer=mapnik&marker=${data.lat}%2C${data.lon}">
+                </iframe>
+            </div>
+
+            <h4 style="color:#00eaff;">📄 JSON Completo</h4>
+            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
+${JSON.stringify(data, null, 2)}
+            </pre>
+        `;
+
+        output.innerHTML = html;
+
+    } catch (e) {
+        output.innerText = "Errore durante la richiesta IP.";
+    }
+}
         <!-- Password Generator -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
