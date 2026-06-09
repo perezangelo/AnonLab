@@ -90,6 +90,7 @@
 </div>
 
 <script>
+<script>
 async function whoisLookup() {
     const dominio = document.getElementById("whoisInput").value.trim();
     const output = document.getElementById("whoisResult");
@@ -101,15 +102,12 @@ async function whoisLookup() {
 
     output.innerText = "Caricamento WHOIS...";
 
-    const API_KEY = "5EBC4F6D286956443EBA541129ACE9E4";
-    const url = `https://api.ip2whois.com/v2?key=${API_KEY}&domain=${dominio}`;
-
     try {
-        const res = await fetch(url);
+        const res = await fetch("/backend/whois.php?domain=" + dominio);
         const data = await res.json();
 
         if (data.error) {
-            output.innerText = "Errore WHOIS: " + data.error.error_message;
+            output.innerText = "Errore WHOIS: " + data.error;
             return;
         }
 
