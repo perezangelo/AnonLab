@@ -193,6 +193,43 @@ async function initOroscopo() {
     }
 }
 /* ============================================================
+   OROSCOPO — ISCRIZIONE NEWSLETTER
+============================================================ */
+
+function iscriviOroscopo() {
+    const email = document.getElementById("oroscopo-email")?.value.trim();
+    const segno = document.getElementById("oroscopo-select")?.value;
+    const optin = document.getElementById("oroscopo-optin")?.checked;
+
+    if (!email || !email.includes("@")) {
+        alert("Inserisci una email valida.");
+        return;
+    }
+
+    if (!segno) {
+        alert("Seleziona il tuo segno zodiacale.");
+        return;
+    }
+
+    if (!optin) {
+        alert("Seleziona la checkbox per ricevere ogni giorno il tuo oroscopo aggiornato.");
+        return;
+    }
+
+    fetch("/save-oroscopo.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, segno })
+    })
+    .then(r => r.text())
+    .then(t => {
+        alert(t || "Iscrizione registrata correttamente.");
+    })
+    .catch(() => {
+        alert("Si è verificato un errore. Riprova più tardi.");
+    });
+}
+/* ============================================================
    C) TICKER CONTINUO
 ============================================================ */
 
