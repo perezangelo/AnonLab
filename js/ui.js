@@ -157,25 +157,34 @@ async function initOroscopo() {
     const text = document.getElementById("oroscopo-text");
     const link = document.getElementById("oroscopo-link");
 
+    // Se la sidebar non contiene l'oroscopo, esci
     if (!select || !img || !text || !link) return;
 
     try {
-        // JSON con percorso ASSOLUTO
+        // Percorso ASSOLUTO al JSON aggiornato via GitHub Actions
         const res = await fetch("https://anonlab.it/data/oroscopo.json");
         const data = await res.json();
 
-        // Immagini con percorso ASSOLUTO
+        // Percorso ASSOLUTO alle icone dei segni
         const base = "https://anonlab.it/img/oroscopo/";
 
         function updateOroscopo() {
             const sign = select.value;
 
+            // Aggiorna immagine
             img.src = base + sign + ".svg";
+
+            // Aggiorna testo
             text.textContent = data[sign] || "Oroscopo non disponibile";
+
+            // Link esterno (provvisorio, poi lo sostituiremo con pagina interna)
             link.href = "https://www.google.com/search?q=oroscopo+" + sign;
         }
 
+        // Primo caricamento
         updateOroscopo();
+
+        // Cambio segno
         select.addEventListener("change", updateOroscopo);
 
     } catch (e) {
