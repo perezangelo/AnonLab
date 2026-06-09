@@ -563,7 +563,7 @@
   </a>
 </div>
 
-<!-- CALENDARIO MENSILE CYBER -->
+<!-- CALENDARIO MENSILE CYBER — Versione PRO -->
 <div class="sidebar-box" aria-label="Calendario mensile">
   <h3>Calendario</h3>
 
@@ -574,10 +574,40 @@
       padding:10px;
       color:#0ff;
       font-size:14px;
-      box-shadow:0 0 10px #00eaff;
+      box-shadow:0 0 12px #00eaff;
+      position:relative;
+      overflow:hidden;
   ">
-      <div id="calendar-title" style="text-align:center; font-weight:bold; margin-bottom:10px; font-size:16px;"></div>
-      <div id="calendar-grid" style="display:grid; grid-template-columns:repeat(7, 1fr); text-align:center; gap:4px;"></div>
+
+      <!-- Sfondo cyber grid -->
+      <div style="
+          position:absolute;
+          inset:0;
+          background-image:linear-gradient(#00eaff22 1px, transparent 1px),
+                           linear-gradient(90deg, #00eaff22 1px, transparent 1px);
+          background-size:20px 20px;
+          pointer-events:none;
+      "></div>
+
+      <!-- Titolo mese -->
+      <div id="calendar-title" style="
+          text-align:center;
+          font-weight:bold;
+          margin-bottom:10px;
+          font-size:16px;
+          letter-spacing:1px;
+          text-shadow:0 0 6px #00eaff;
+          position:relative;
+      "></div>
+
+      <!-- Griglia -->
+      <div id="calendar-grid" style="
+          display:grid;
+          grid-template-columns:repeat(7, 1fr);
+          text-align:center;
+          gap:4px;
+          position:relative;
+      "></div>
   </div>
 </div>
 
@@ -597,6 +627,7 @@
         const el = document.createElement("div");
         el.style.fontWeight = "bold";
         el.style.color = "#00eaff";
+        el.style.textShadow = "0 0 6px #00eaff";
         el.textContent = d;
         grid.appendChild(el);
     });
@@ -619,12 +650,40 @@
         cell.style.background = isToday ? "#00eaff" : "#0a0f1a";
         cell.style.color = isToday ? "#000" : "#0ff";
         cell.style.fontWeight = isToday ? "bold" : "normal";
-        cell.style.boxShadow = isToday ? "0 0 8px #00eaff" : "none";
+        cell.style.boxShadow = isToday ? "0 0 10px #00eaff" : "0 0 4px #00111a";
+        cell.style.transition = "0.2s";
+
+        // Hover neon
+        cell.onmouseenter = () => {
+            if (!isToday) {
+                cell.style.background = "#022436";
+                cell.style.boxShadow = "0 0 8px #00eaff";
+            }
+        };
+        cell.onmouseleave = () => {
+            if (!isToday) {
+                cell.style.background = "#0a0f1a";
+                cell.style.boxShadow = "0 0 4px #00111a";
+            }
+        };
+
+        // Effetto pulsazione sul giorno corrente
+        if (isToday) {
+            cell.style.animation = "pulseDay 1.5s infinite";
+        }
 
         grid.appendChild(cell);
     }
 })();
 </script>
+
+<style>
+@keyframes pulseDay {
+  0% { box-shadow:0 0 6px #00eaff; }
+  50% { box-shadow:0 0 14px #00eaff; }
+  100% { box-shadow:0 0 6px #00eaff; }
+}
+</style>
 
 <!-- GOOGLE MAPS — Varese -->
 <div class="sidebar-box" aria-label="Mappa geografica">
