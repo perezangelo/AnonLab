@@ -723,14 +723,56 @@ ${JSON.stringify(data, null, 2)}
 }
 </script>
 
-        <!-- QR Code -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/qr.png" class="box-title-icon">
-                <h2>QR Code Generator</h2>
-            </div>
-            <iframe src="/tools/qrcode.html" width="100%" height="180" frameborder="0"></iframe>
-        </div>
+       <!-- QR Code Generator -->
+<div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/qr.png" class="box-title-icon">
+        <h2>QR Code Generator</h2>
+    </div>
+
+    <input id="qrInput" type="text" placeholder="Inserisci testo o URL"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <button onclick="generateQR()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Genera QR Code
+    </button>
+
+    <div id="qrResult" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        border:1px solid #00eaff; text-align:center;"></div>
+</div>
+<script>
+async function generateQR() {
+    const text = document.getElementById("qrInput").value.trim();
+    const output = document.getElementById("qrResult");
+
+    if (!text) {
+        output.innerText = "Inserisci del testo.";
+        return;
+    }
+
+    output.innerText = "Generazione QR Code...";
+
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/qrcode.php?text=" + encodeURIComponent(text));
+        const data = await res.json();
+
+        if (data.error) {
+            output.innerText = "Errore: " + data.error;
+            return;
+        }
+
+        output.innerHTML = `
+            <h3 style="color:#00eaff;">QR Code Generato</h3>
+            <img src="${data.image}" style="width:200px; height:200px; border:1px solid #00eaff;">
+            <p style="margin-top:10px; color:#0ff;">${data.input}</p>
+        `;
+    } catch (e) {
+        output.innerText = "Errore durante la generazione del QR Code.";
+    }
+}
+</script>
 
         <!-- JSON Formatter -->
         <div class="widget-large tools-box">
