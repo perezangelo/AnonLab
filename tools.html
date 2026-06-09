@@ -774,23 +774,116 @@ async function generateQR() {
 }
 </script>
 
-        <!-- JSON Formatter -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/json.png" class="box-title-icon">
-                <h2>JSON Formatter</h2>
-            </div>
-            <iframe src="/tools/json.html" width="100%" height="180" frameborder="0"></iframe>
-        </div>
+       <!-- JSON Formatter -->
+<div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/json.png" class="box-title-icon">
+        <h2>JSON Formatter</h2>
+    </div>
 
-        <!-- Regex Tester -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/regex.png" class="box-title-icon">
-                <h2>Regex Tester</h2>
-            </div>
-            <iframe src="/tools/regex.html" width="100%" height="180" frameborder="0"></iframe>
-        </div>
+    <textarea id="jsonInput" placeholder="Incolla JSON qui..."
+        style="width:100%; height:150px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+
+    <button onclick="formatJSON()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Format JSON
+    </button>
+
+    <div id="jsonOutput" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+        white-space:pre-wrap;"></div>
+</div>
+
+<script>
+function formatJSON() {
+    const raw = document.getElementById("jsonInput").value.trim();
+    const output = document.getElementById("jsonOutput");
+
+    if (!raw) {
+        output.innerText = "Inserisci del JSON.";
+        return;
+    }
+
+    try {
+        const parsed = JSON.parse(raw);
+        const formatted = JSON.stringify(parsed, null, 4);
+
+        output.innerHTML = `
+            <h3 style="color:#00eaff;">JSON Formattato</h3>
+            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${formatted}</pre>
+        `;
+    } catch (e) {
+        output.innerHTML = `
+            <span style="color:#ff4444;">JSON non valido.</span>
+        `;
+    }
+}
+</script>
+
+       <!-- Regex Tester -->
+<div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/regex.png" class="box-title-icon">
+        <h2>Regex Tester</h2>
+    </div>
+
+    <input id="regexPattern" type="text" placeholder="Regex (es: ^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <input id="regexFlags" type="text" placeholder="Flag (es: gi)"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <textarea id="regexText" placeholder="Testo su cui applicare la regex..."
+        style="width:100%; height:120px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+
+    <button onclick="testRegex()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Test Regex
+    </button>
+
+    <div id="regexResult" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+        white-space:pre-wrap;"></div>
+</div>
+
+<script>
+function testRegex() {
+    const pattern = document.getElementById("regexPattern").value.trim();
+    const flags = document.getElementById("regexFlags").value.trim();
+    const text = document.getElementById("regexText").value;
+    const output = document.getElementById("regexResult");
+
+    if (!pattern) {
+        output.innerText = "Inserisci una regex.";
+        return;
+    }
+
+    try {
+        const regex = new RegExp(pattern, flags);
+        const matches = text.match(regex);
+
+        if (!matches) {
+            output.innerHTML = "<span style='color:#ff4444;'>Nessuna corrispondenza trovata.</span>";
+            return;
+        }
+
+        let html = "<h3 style='color:#00eaff;'>Match trovati</h3><ul>";
+
+        matches.forEach((m, i) => {
+            html += `<li><strong>Match ${i + 1}:</strong> ${m}</li>`;
+        });
+
+        html += "</ul>";
+
+        output.innerHTML = html;
+
+    } catch (e) {
+        output.innerHTML = "<span style='color:#ff4444;'>Regex non valida.</span>";
+    }
+}
+</script>
 
         <!-- UUID -->
         <div class="widget-large tools-box">
