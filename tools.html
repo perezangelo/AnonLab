@@ -140,6 +140,34 @@ async function whoisLookup() {
             </div>
             <iframe src="/tools/dns.html" width="100%" height="180" frameborder="0"></iframe>
         </div>
+        <script>
+async function dnsLookup() {
+    const dominio = document.getElementById("dnsInput").value.trim();
+    const output = document.getElementById("dnsResult");
+
+    if (!dominio) {
+        output.innerText = "Inserisci un dominio valido.";
+        return;
+    }
+
+    output.innerText = "Caricamento DNS...";
+
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/dns.php?domain=" + dominio);
+        const data = await res.json();
+
+        if (data.error) {
+            output.innerText = "Errore DNS: " + data.error;
+            return;
+        }
+
+        output.innerText = JSON.stringify(data, null, 2);
+
+    } catch (e) {
+        output.innerText = "Errore durante la richiesta DNS.";
+    }
+}
+</script>
 
         <!-- IP Info -->
         <div class="widget-large tools-box">
