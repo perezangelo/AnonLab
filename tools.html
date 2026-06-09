@@ -662,13 +662,66 @@ ${JSON.stringify(data.headers, null, 2)}
 </script>
         
         <!-- URL Expander -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/url.png" class="box-title-icon">
-                <h2>URL Expander</h2>
-            </div>
-            <iframe src="/tools/urlexpand.html" width="100%" height="180" frameborder="0"></iframe>
-        </div>
+<div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/url.png" class="box-title-icon">
+        <h2>URL Expander</h2>
+    </div>
+
+    <input id="expandInput" type="text" placeholder="es: https://bit.ly/3xyz"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <button onclick="expandURL()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Espandi URL
+    </button>
+
+    <div id="expandResult" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        max-height:300px; overflow-y:auto; border:1px solid #00eaff;
+        white-space:pre-wrap;"></div>
+</div>
+<script>
+async function expandURL() {
+    const raw = document.getElementById("expandInput").value.trim();
+    const output = document.getElementById("expandResult");
+
+    if (!raw) {
+        output.innerText = "Inserisci un URL valido.";
+        return;
+    }
+
+    output.innerText = "Espansione in corso...";
+
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/urlexpand.php?url=" + encodeURIComponent(raw));
+        const data = await res.json();
+
+        if (data.error) {
+            output.innerText = "Errore: " + data.error;
+            return;
+        }
+
+        let html = `
+            <h3 style="color:#00eaff;">Risultato Espansione</h3>
+
+            <p><strong>URL Inserito:</strong><br>${data.input}</p>
+            <p><strong>URL Finale:</strong><br>${data.expanded}</p>
+            <p><strong>HTTP Status:</strong> ${data.status}</p>
+
+            <h4 style="color:#00eaff;">JSON Completo</h4>
+            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
+${JSON.stringify(data, null, 2)}
+            </pre>
+        `;
+
+        output.innerHTML = html;
+
+    } catch (e) {
+        output.innerText = "Errore durante l'espansione dell'URL.";
+    }
+}
+</script>
 
         <!-- QR Code -->
         <div class="widget-large tools-box">
