@@ -90,7 +90,6 @@
 </div>
 
 <script>
-<script>
 async function whoisLookup() {
     const dominio = document.getElementById("whoisInput").value.trim();
     const output = document.getElementById("whoisResult");
@@ -103,7 +102,7 @@ async function whoisLookup() {
     output.innerText = "Caricamento WHOIS...";
 
     try {
-        const res = await fetch("/backend/whois.php?domain=" + dominio);
+        const res = await fetch("https://angelonline.altervista.org/widgets/whois.php?domain=" + dominio);
         const data = await res.json();
 
         if (data.error) {
