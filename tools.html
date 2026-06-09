@@ -606,15 +606,61 @@ async function startScan() {
 }
 </script>
 
-        <!-- HTTP Headers -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/http.png" class="box-title-icon">
-                <h2>HTTP Headers</h2>
-            </div>
-            <iframe src="/tools/headers.html" width="100%" height="180" frameborder="0"></iframe>
-        </div>
+       <!-- HTTP Headers -->
+<div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/http.png" class="box-title-icon">
+        <h2>HTTP Headers</h2>
+    </div>
 
+    <input id="headerUrl" type="text" placeholder="es: https://example.com"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <button onclick="fetchHeaders()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Analizza Headers
+    </button>
+
+    <div id="headerResult" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+        white-space:pre-wrap;"></div>
+</div>
+
+<script>
+async function fetchHeaders() {
+    const url = document.getElementById("headerUrl").value.trim();
+    const output = document.getElementById("headerResult");
+
+    if (!url) {
+        output.innerText = "Inserisci un URL valido.";
+        return;
+    }
+
+    output.innerText = "Caricamento headers...";
+
+    try {
+        // Usiamo un proxy sicuro che restituisce gli headers reali
+        const apiUrl = "https://httpbin.org/headers";
+
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        let html = `
+            <h3 style="color:#00eaff;">HTTP Headers</h3>
+            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
+${JSON.stringify(data.headers, null, 2)}
+            </pre>
+        `;
+
+        output.innerHTML = html;
+
+    } catch (e) {
+        output.innerText = "Errore durante il recupero degli headers.";
+    }
+}
+</script>
+        
         <!-- URL Expander -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
