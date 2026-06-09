@@ -8,6 +8,11 @@ Allow: /
 Disallow: /*.map$
 Disallow: /img/*.svg$
 
+# Evita duplicati generati da parametri comuni
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content / 
+Clean-param: fbclid / 
+Clean-param: ref /
+
 # ============================================================
 # GOOGLEBOT (WEB)
 # ============================================================
@@ -42,3 +47,4 @@ Allow: /
 # SITEMAP
 # ============================================================
 Sitemap: https://anonlab.it/sitemap.xml
+
