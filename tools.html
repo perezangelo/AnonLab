@@ -138,8 +138,25 @@ async function whoisLookup() {
                 <img src="/img/dns.png" class="box-title-icon">
                 <h2>DNS Lookup</h2>
             </div>
-            <iframe src="/tools/dns.html" width="100%" height="180" frameborder="0"></iframe>
-        </div>
+           <div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/dns.png" class="box-title-icon">
+        <h2>DNS Lookup</h2>
+    </div>
+
+    <input id="dnsInput" type="text" placeholder="es: google.com"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <button onclick="dnsLookup()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
+    ">Cerca</button>
+
+    <pre id="dnsResult" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        max-height:300px; overflow-y:auto; border:1px solid #00eaff;
+        white-space:pre-wrap;
+    "></pre>
+</div>  
         <script>
 async function dnsLookup() {
     const dominio = document.getElementById("dnsInput").value.trim();
