@@ -90,7 +90,7 @@
 </div>
 
 <script>
-function whoisLookup() {
+async function whoisLookup() {
     const dominio = document.getElementById("whoisInput").value.trim();
     const output = document.getElementById("whoisResult");
 
@@ -101,22 +101,31 @@ function whoisLookup() {
 
     output.innerText = "Caricamento WHOIS...";
 
-    const url = "https://api.allorigins.win/raw?url=" +
-                encodeURIComponent("https://www.whois.com/whois/" + dominio);
+    const API_KEY = "5EBC4F6D286956443EBA541129ACE9E4";
+    const url = `https://api.ip2whois.com/v2?key=${API_KEY}&domain=${dominio}`;
 
-    fetch(url)
-        .then(r => r.text())
-        .then(html => {
-            const match = html.match(/<pre[^>]*>([\s\S]*?)<\/pre>/i);
-            if (match) {
-                output.innerText = match[1].trim();
-            } else {
-                output.innerText = "Impossibile estrarre i dati WHOIS.";
-            }
-        })
-        .catch(() => {
-            output.innerText = "Errore durante la richiesta WHOIS.";
-        });
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.error) {
+            output.innerText = "Errore WHOIS: " + data.error.error_message;
+            return;
+        }
+
+        output.innerText =
+            "Dominio: " + data.domain + "\n" +
+            "Stato: " + data.domain_status + "\n" +
+            "Creato: " + data.create_date + "\n" +
+            "Aggiornato: " + data.update_date + "\n" +
+            "Scadenza: " + data.expire_date + "\n" +
+            "Registrar: " + data.registrar.name + "\n" +
+            "\n--- RAW WHOIS ---\n\n" +
+            data.raw_text;
+
+    } catch (e) {
+        output.innerText = "Errore durante la richiesta WHOIS.";
+    }
 }
 </script>
 
