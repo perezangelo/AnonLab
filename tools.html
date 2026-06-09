@@ -243,8 +243,8 @@ async function dnsLookup() {
 }
 </script>
 
-        <!-- IP Info -->
-       <div class="widget-large tools-box">
+       <!-- IP Info -->
+<div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/ip.png" class="box-title-icon">
         <h2>IP Information</h2>
@@ -263,7 +263,12 @@ async function dnsLookup() {
         white-space:pre-wrap;
     "></div>
 </div>
-        
+
+<script>
+function cleanIP(ip) {
+    return ip.trim().replace(/[^0-9a-fA-F\.:]/g, "");
+}
+
 async function ipLookup() {
     const raw = document.getElementById("ipInput").value;
     const ip = cleanIP(raw);
@@ -329,6 +334,8 @@ ${JSON.stringify(data, null, 2)}
         output.innerText = "Errore durante la richiesta IP.";
     }
 }
+</script>
+
         <!-- Password Generator -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
