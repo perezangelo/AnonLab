@@ -548,6 +548,48 @@
     <option data-stream="" data-link="https://www.radiocompany.com/player/">Radio Company</option>
     <option data-stream="" data-link="https://www.radiomargherita.com/player/">Radio Margherita</option>
   </select>
+<div class="sidebar-box radio-box">
+  <h3>AnonLab Radio</h3>
+
+  <!-- Equalizzatore barra neon integrato -->
+  <div style="
+      width:100%;
+      height:6px;
+      background:linear-gradient(90deg,#003344,#00eaff,#003344);
+      background-size:200% 100%;
+      animation:eqBarMove 1.5s linear infinite;
+      border-radius:4px;
+      margin-bottom:12px;
+  "></div>
+
+  <!-- Link cliccabili alle radio ON-AIR -->
+  <ul style="list-style:none; padding-left:0; margin:0; line-height:1.6;">
+    <li><a href="https://www.rtl.it/player/" target="_blank">RTL 102.5</a></li>
+    <li><a href="https://www.rds.it/player/" target="_blank">RDS</a></li>
+    <li><a href="https://www.r101.it/player/" target="_blank">R101</a></li>
+    <li><a href="https://www.deejay.it/player/" target="_blank">Radio Deejay</a></li>
+    <li><a href="https://www.105.net/player/" target="_blank">Radio 105</a></li>
+    <li><a href="https://www.kisskiss.it/player/" target="_blank">Radio Kiss Kiss</a></li>
+    <li><a href="https://www.virginradio.it/player/" target="_blank">Virgin Radio</a></li>
+    <li><a href="https://www.radioitalia.it/player/" target="_blank">Radio Italia</a></li>
+    <li><a href="https://www.radiozeta.it/player/" target="_blank">Radio Zeta</a></li>
+    <li><a href="https://www.m2o.it/player/" target="_blank">m2o</a></li>
+
+    <li><a href="https://www.raiplaysound.it/diretta/radio1" target="_blank">Rai Radio 1</a></li>
+    <li><a href="https://www.raiplaysound.it/diretta/radio2" target="_blank">Rai Radio 2</a></li>
+    <li><a href="https://www.raiplaysound.it/diretta/radio3" target="_blank">Rai Radio 3</a></li>
+
+    <li><a href="https://www.radio24.ilsole24ore.com/player/" target="_blank">Radio 24</a></li>
+    <li><a href="https://www.capital.it/player/" target="_blank">Radio Capital</a></li>
+    <li><a href="https://www.radiomontecarlo.net/player/" target="_blank">Radio Monte Carlo</a></li>
+    <li><a href="https://www.radiosportiva.it/player/" target="_blank">Radio Sportiva</a></li>
+
+    <li><a href="https://www.radiosubasio.it/player/" target="_blank">Radio Subasio</a></li>
+    <li><a href="https://www.radionorba.it/player/" target="_blank">Radio Norba</a></li>
+    <li><a href="https://www.radiobruno.it/player/" target="_blank">Radio Bruno</a></li>
+    <li><a href="https://www.radiocompany.com/player/" target="_blank">Radio Company</a></li>
+    <li><a href="https://www.radiomargherita.com/player/" target="_blank">Radio Margherita</a></li>
+  </ul>
 </div>
 
 <style>
@@ -556,30 +598,6 @@
   100% { background-position:200% 0; }
 }
 </style>
-
-<script>
-document.getElementById("radioSelector").addEventListener("change", function () {
-    const opt = this.selectedOptions[0];
-    const stream = opt.dataset.stream;
-    const link = opt.dataset.link;
-
-    const player = document.getElementById("radioPlayer");
-    const source = document.getElementById("radioSource");
-    const logo = document.getElementById("radioLink");
-
-    logo.href = link;
-
-    if (stream) {
-        source.src = stream;
-        player.style.display = "block";
-        player.load();
-        player.play();
-    } else {
-        player.style.display = "none";
-        window.open(link, "_blank");
-    }
-});
-</script>
 
 <!-- PLAYER YOUTUBE MUSICALE -->
 <div class="sidebar-box yt-box">
