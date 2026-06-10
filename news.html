@@ -109,39 +109,40 @@
 
             <!-- 🔥 NUOVE SEZIONI NEWS INSERITE QUI -->
 
-      <!-- Cyber Threat Barometer -->
-      <div class="news-box" style="
-          background:#000814;
-          border:1px solid #ff7b00aa;
-          padding:20px;
-          margin-top:40px;
-          border-radius:8px;
-          box-shadow:0 0 12px #ff7b00aa;
-      ">
-          <h3 style="color:#ff7b00;">Cyber Threat Barometer</h3>
-          <p style="color:#ccc; margin-bottom:15px;">
-              Indicatore sintetico del livello di minaccia globale basato su trend recenti, campagne ransomware e attività APT.
-          </p>
+     <div class="news-box" style="
+    background:#000814;
+    border:1px solid #ff7b00aa;
+    padding:20px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff7b00aa;
+">
+    <h3 style="color:#ff7b00;">Cyber Threat Barometer</h3>
+    <p style="color:#ccc; margin-bottom:15px;">
+        Indicatore sintetico del livello di minaccia globale basato su trend recenti, campagne ransomware e attività APT.
+    </p>
 
-          <div style="
-              width:100%;
-              height:22px;
-              background:#111;
-              border-radius:6px;
-              overflow:hidden;
-              box-shadow:0 0 8px #ff7b00aa inset;
-          ">
-              <div style="
-                  width:78%;
-                  height:100%;
-                  background:linear-gradient(90deg, #ff7b00, #ff0000);
-              "></div>
-          </div>
+    <div style="
+        width:100%;
+        height:22px;
+        background:#111;
+        border-radius:6px;
+        overflow:hidden;
+        box-shadow:0 0 8px #ff7b00aa inset;
+    ">
+        <div id="threat-bar" style="
+            height:100%;
+            width:0%;
+            background:linear-gradient(90deg, #ff7b00, #ff0000);
+            transition:width .6s ease;
+        "></div>
+    </div>
 
-          <p style="color:#ff7b00; margin-top:10px; font-weight:bold;">
-              Livello attuale: ALTO (78%)
-          </p>
-      </div>
+    <p id="threat-label" style="color:#ff7b00; margin-top:10px; font-weight:bold;">
+        Caricamento…
+    </p>
+</div>
+
       <!-- Cyber Incident Map -->
       <div class="news-box" style="
           background:#000814;
