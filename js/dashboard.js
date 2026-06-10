@@ -1,6 +1,5 @@
 /* ============================================================
-/* ============================================================
-   THREAT LEVEL — Versione Reale con API /soc/threat_level.php
+   THREAT LEVEL — Versione Reale con API Altervista
 ============================================================ */
 
 async function loadThreatLevel() {
@@ -8,13 +7,10 @@ async function loadThreatLevel() {
     if (!el) return;
 
     try {
-        const res = await fetch("/soc/threat_level.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
         const data = await res.json();
 
-        // Aggiorna testo
         el.textContent = data.level;
-
-        // Aggiorna colore neon
         el.style.color = data.color;
         el.style.textShadow = `0 0 12px ${data.color}`;
 
@@ -26,11 +22,9 @@ async function loadThreatLevel() {
     }
 }
 
-// Primo caricamento
 loadThreatLevel();
-
-// Aggiornamento automatico ogni 15 secondi
 setInterval(loadThreatLevel, 15000);
+
 /* ============================================================
 /* ============================================================
    GRAFICO ATTACCHI — Versione Reale con API /soc/attacks_chart.php
