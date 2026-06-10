@@ -182,28 +182,25 @@
       </div>
       
       <!-- Weekly Cyber Trends -->
-      <div class="news-box" style="
-          background:#000814;
-          border:1px solid #00eaffaa;
-          padding:20px;
-          margin-top:30px;
-          border-radius:8px;
-          box-shadow:0 0 12px #00eaffaa;
-      ">
-          <h3 style="color:#00eaff;">Weekly Cyber Trends</h3>
+     <div class="news-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:20px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+    <h3 style="color:#00eaff;">Weekly Cyber Trends</h3>
 
-          <div style="display:flex; gap:10px; margin-top:15px;">
-              <div style="width:20%; background:#ff7b00; height:80px;"></div>
-              <div style="width:20%; background:#ff7b00; height:120px;"></div>
-              <div style="width:20%; background:#ff7b00; height:60px;"></div>
-              <div style="width:20%; background:#ff7b00; height:140px;"></div>
-              <div style="width:20%; background:#ff7b00; height:100px;"></div>
-          </div>
+    <div id="weekly-trends" style="display:flex; gap:10px; margin-top:15px;">
+        <div style="color:#ccc;">Caricamento...</div>
+    </div>
 
-          <p style="color:#ccc; margin-top:10px;">
-              Volume di attacchi rilevati negli ultimi 5 giorni.
-          </p>
-      </div>
+    <p style="color:#ccc; margin-top:10px;">
+        Volume di attacchi rilevati negli ultimi 5 giorni.
+    </p>
+</div>
+      
       <!-- Global Attack Heat Index -->
 <div class="news-box" style="
     background:#000814;
@@ -763,6 +760,43 @@ function startNewsDigest() {
 }
 
 startNewsDigest();
+</script>
+  <script>
+function startWeeklyTrends() {
+    const box = document.getElementById("weekly-trends");
+    if (!box) return setTimeout(startWeeklyTrends, 200);
+
+    async function loadTrends() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/weeklytrends.php");
+            const data = await res.json();
+
+            box.innerHTML = "";
+
+            data.forEach(v => {
+                box.innerHTML += `
+                    <div style="
+                        width:20%;
+                        background:#ff7b00;
+                        height:${v}px;
+                        border-radius:4px;
+                        box-shadow:0 0 10px #ff7b00aa;
+                        transition:height .4s ease;
+                    "></div>
+                `;
+            });
+
+        } catch (e) {
+            console.error("Errore Weekly Trends:", e);
+            box.innerHTML = "<div style='color:#ccc;'>Impossibile caricare i trend settimanali</div>";
+        }
+    }
+
+    loadTrends();
+    setInterval(loadTrends, 30000);
+}
+
+startWeeklyTrends();
 </script>
 
 </body>
