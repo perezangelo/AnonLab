@@ -176,14 +176,11 @@
       ">
           <h3 style="color:#ff7b00;">Cyber News Digest</h3>
 
-          <ul style="color:#ccc; line-height:1.6;">
-              <li>Nuova campagna phishing mirata al settore bancario europeo.</li>
-              <li>Scoperta vulnerabilità zero‑day su framework web molto diffuso.</li>
-              <li>APT asiatico attivo contro infrastrutture cloud occidentali.</li>
-              <li>Ransomware: aumento del 22% nelle ultime due settimane.</li>
-              <li>Leak di 1.2M credenziali da marketplace underground.</li>
-          </ul>
+          <ul id="news-digest" style="color:#ccc; line-height:1.6;">
+    <li>Caricamento notizie...</li>
+</ul>
       </div>
+      
       <!-- Weekly Cyber Trends -->
       <div class="news-box" style="
           background:#000814;
@@ -738,6 +735,34 @@ function startIncidentMap() {
 }
 
 startIncidentMap();
+</script>
+  <script>
+function startNewsDigest() {
+    const box = document.getElementById("news-digest");
+    if (!box) return setTimeout(startNewsDigest, 200);
+
+    async function loadNews() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/newsdigest.php");
+            const data = await res.json();
+
+            box.innerHTML = "";
+
+            data.forEach(n => {
+                box.innerHTML += `<li>${n}</li>`;
+            });
+
+        } catch (e) {
+            console.error("Errore News Digest:", e);
+            box.innerHTML = "<li>Impossibile caricare le notizie</li>";
+        }
+    }
+
+    loadNews();
+    setInterval(loadNews, 30000);
+}
+
+startNewsDigest();
 </script>
 
 </body>
