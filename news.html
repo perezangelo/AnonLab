@@ -143,28 +143,28 @@
     </p>
 </div>
 
-      <!-- Cyber Incident Map -->
-      <div class="news-box" style="
-          background:#000814;
-          border:1px solid #00eaffaa;
-          padding:20px;
-          margin-top:30px;
-          border-radius:8px;
-          box-shadow:0 0 12px #00eaffaa;
-      ">
-          <h3 style="color:#00eaff;">Cyber Incident Map</h3>
-          <p style="color:#ccc; margin-bottom:15px;">
-              Distribuzione geografica degli incidenti segnalati nelle ultime 72 ore.
-          </p>
+     <div class="news-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:20px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+    <h3 style="color:#00eaff;">Cyber Incident Map</h3>
+    <p style="color:#ccc; margin-bottom:15px;">
+        Distribuzione geografica degli incidenti segnalati nelle ultime 72 ore.
+    </p>
 
-          <img src="img/cyber-map.jpg" alt="Cyber Map"
-               style="
-                  width:100%;
-                  border-radius:6px;
-                  box-shadow:0 0 20px #00eaff88;
-                  filter:brightness(1.2) saturate(1.3);
-               ">
-      </div>
+    <img id="incident-map" src="img/cyber-map.jpg" alt="Cyber Map"
+         style="
+            width:100%;
+            border-radius:6px;
+            box-shadow:0 0 20px #00eaff88;
+            filter:brightness(1.2) saturate(1.3);
+         ">
+</div>
+      
       <!-- Cyber News Digest -->
       <div class="news-box" style="
           background:#000814;
@@ -714,6 +714,30 @@ function startThreatBarometer() {
 }
 
 startThreatBarometer();
+</script>
+  <script>
+function startIncidentMap() {
+    const img = document.getElementById("incident-map");
+    if (!img) return setTimeout(startIncidentMap, 200);
+
+    async function loadMap() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/incidentmap.php");
+            const data = await res.json();
+
+            // Forza refresh immagine evitando cache
+            img.src = data.map + "?t=" + data.timestamp;
+
+        } catch (e) {
+            console.error("Errore Incident Map:", e);
+        }
+    }
+
+    loadMap();
+    setInterval(loadMap, 30000);
+}
+
+startIncidentMap();
 </script>
 
 </body>
