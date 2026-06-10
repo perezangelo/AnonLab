@@ -26,8 +26,7 @@ loadThreatLevel();
 setInterval(loadThreatLevel, 15000);
 
 /* ============================================================
-/* ============================================================
-   GRAFICO ATTACCHI — Versione Reale con API /soc/attacks_chart.php
+   ATTACCHI RILEVATI (ultime 24h) — Versione Reale Altervista
 ============================================================ */
 
 let attacksChartInstance = null;
@@ -37,7 +36,7 @@ async function loadAttacksChart() {
     if (!ctx) return;
 
     try {
-        const res = await fetch("/soc/attacks_chart.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/attacks_chart.php");
         const data = await res.json();
 
         // Evita sovrapposizioni distruggendo il grafico precedente
@@ -77,6 +76,7 @@ loadAttacksChart();
 
 // Aggiornamento automatico ogni 30 secondi
 setInterval(loadAttacksChart, 30000);
+
 
 /* ============================================================
    EVENT LOG — Generazione dinamica
