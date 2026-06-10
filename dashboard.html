@@ -441,18 +441,52 @@
     Riepilogo giornaliero delle attività del SOC.
   </p>
 
-  <p style="color:#fff; line-height:1.7;">
-    • <strong>Minacce rilevate:</strong> 27<br>
-    • <strong>Incidenti gestiti:</strong> 4<br>
-    • <strong>Allarmi critici:</strong> 2<br>
-    • <strong>Host monitorati:</strong> 184<br>
-    • <strong>Traffico anomalo:</strong> 3 eventi<br><br>
+  <div id="soc-daily-report" style="color:#fff; line-height:1.7;">
+    Caricamento...
+  </div>
 
-    La situazione generale è <strong>stabile</strong>, con alcune attività sospette in corso di analisi.
-    Nessuna compromissione confermata nelle ultime 24 ore.
-  </p>
+  <script>
+  /* ============================================================
+     SOC DAILY REPORT — Versione Reale Altervista
+  ============================================================ */
+
+  function startSOCDailyReport() {
+      const box = document.getElementById("soc-daily-report");
+
+      if (!box) {
+          return setTimeout(startSOCDailyReport, 200);
+      }
+
+      async function loadDailyReport() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/daily_report.php");
+              const data = await res.json();
+
+              box.innerHTML = `
+                • <strong>Minacce rilevate:</strong> ${data.minacce}<br>
+                • <strong>Incidenti gestiti:</strong> ${data.incidenti}<br>
+                • <strong>Allarmi critici:</strong> ${data.allarmi}<br>
+                • <strong>Host monitorati:</strong> ${data.host}<br>
+                • <strong>Traffico anomalo:</strong> ${data.anomalo} eventi<br><br>
+
+                La situazione generale è <strong>${data.stato}</strong>.<br>
+                ${data.note}
+              `;
+          } catch (error) {
+              console.error("Errore Daily Report:", error);
+              box.innerHTML = "<span style='color:#888;'>Impossibile caricare il report</span>";
+          }
+      }
+
+      loadDailyReport();
+      setInterval(loadDailyReport, 15000); // aggiorna ogni 15s
+  }
+
+  startSOCDailyReport();
+  </script>
 </div>
-   <div class="cyber-box" style="
+
+  <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ff0044aa;
     padding:25px;
@@ -471,33 +505,67 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const ctx = document.getElementById('malwareChart');
-      if (!ctx) return;
+  /* ============================================================
+     MALWARE ACTIVITY MONITOR — Versione Reale Altervista
+  ============================================================ */
 
-      new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels: ['Ransomware', 'Trojan', 'Spyware', 'Worm', 'Backdoor'],
-          datasets: [{
-            data: [35, 25, 15, 10, 15],
-            backgroundColor: [
-              '#ff0044aa',
-              '#ffaa00aa',
-              '#00eaffaa',
-              '#7a00ffaa',
-              '#00ff99aa'
-            ]
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { labels: { color: '#fff' } } }
-        }
-      });
-    });
+  function startMalwareMonitor() {
+      const ctx = document.getElementById("malwareChart");
+
+      if (!ctx || typeof Chart === "undefined") {
+          return setTimeout(startMalwareMonitor, 200);
+      }
+
+      async function loadMalwareData() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/malware_activity.php");
+              const data = await res.json();
+
+              if (window.malwareChartInstance) {
+                  window.malwareChartInstance.data.labels = data.labels;
+                  window.malwareChartInstance.data.datasets[0].data = data.values;
+                  window.malwareChartInstance.update();
+                  return;
+              }
+
+              window.malwareChartInstance = new Chart(ctx, {
+                  type: "pie",
+                  data: {
+                      labels: data.labels,
+                      datasets: [{
+                          data: data.values,
+                          backgroundColor: [
+                              "#ff0044aa",
+                              "#ffaa00aa",
+                              "#00eaffaa",
+                              "#7a00ffaa",
+                              "#00ff99aa"
+                          ]
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      plugins: {
+                          legend: {
+                              labels: { color: "#fff" }
+                          }
+                      }
+                  }
+              });
+
+          } catch (error) {
+              console.error("Errore Malware Monitor:", error);
+          }
+      }
+
+      loadMalwareData();
+      setInterval(loadMalwareData, 15000); // aggiorna ogni 15s
+  }
+
+  startMalwareMonitor();
   </script>
 </div>
+
  <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ffaa00aa;
@@ -512,15 +580,60 @@
     Tentativi di accesso falliti e attività di autenticazione sospette.
   </p>
 
-  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
-    <li><strong>admin</strong> — 14 tentativi falliti (IP: 185.23.91.12)</li>
-    <li><strong>root</strong> — 9 tentativi falliti (IP: 91.204.15.77)</li>
-    <li><strong>service_user</strong> — 5 tentativi falliti (IP: 212.54.33.9)</li>
-    <li><strong>backup</strong> — 3 tentativi falliti (IP: 45.67.120.4)</li>
-    <li><strong>guest</strong> — 2 tentativi falliti (IP: 103.88.14.200)</li>
-  </ul>
+  <!-- LISTA DINAMICA -->
+  <ul id="auth-failures-list" style="list-style:none; padding:0; color:#fff; line-height:1.8;"></ul>
+
+  <script>
+  /* ============================================================
+     AUTHENTICATION FAILURES MONITOR — Versione Reale Altervista
+  ============================================================ */
+
+  function startAuthFailuresMonitor() {
+      const box = document.getElementById("auth-failures-list");
+
+      if (!box) {
+          return setTimeout(startAuthFailuresMonitor, 200);
+      }
+
+      async function loadAuthFailures() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/auth_failures.php");
+              const data = await res.json();
+
+              box.innerHTML = "";
+
+              data.forEach(item => {
+                  const [user, attempts, ip] = item;
+
+                  const color =
+                      attempts >= 20 ? "#ff3355" :
+                      attempts >= 10 ? "#ffaa00" :
+                      "#00ff99";
+
+                  box.innerHTML += `
+                      <li style="margin-bottom:8px;">
+                          <strong>${user}</strong> — 
+                          <span style="color:${color}; font-weight:bold;">${attempts} tentativi falliti</span>
+                          (IP: ${ip})
+                      </li>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Authentication Failures:", error);
+              box.innerHTML = "<li style='color:#888;'>Impossibile caricare i dati</li>";
+          }
+      }
+
+      loadAuthFailures();
+      setInterval(loadAuthFailures, 10000); // aggiorna ogni 10s
+  }
+
+  startAuthFailuresMonitor();
+  </script>
 </div>
- <div class="cyber-box" style="
+
+<div class="cyber-box" style="
     background:#000814;
     border:1px solid #00ff99aa;
     padding:25px;
@@ -536,31 +649,73 @@
   </p>
 
   <table style="width:100%; border-collapse:collapse; color:#fff;">
-    <tr style="background:#111;">
-      <th style="padding:10px; border-bottom:1px solid #333;">Host</th>
-      <th style="padding:10px; border-bottom:1px solid #333;">Traffico uscente</th>
-      <th style="padding:10px; border-bottom:1px solid #333;">Stato</th>
-    </tr>
+    <thead>
+      <tr style="background:#111;">
+        <th style="padding:10px; border-bottom:1px solid #333;">Host</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Traffico uscente</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Stato</th>
+      </tr>
+    </thead>
 
-    <tr>
-      <td style="padding:10px;">SRV‑WEB‑01</td>
-      <td style="padding:10px;">1.8 GB</td>
-      <td style="padding:10px; color:#ffaa00;">Anomalo</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">SRV‑DB‑02</td>
-      <td style="padding:10px;">450 MB</td>
-      <td style="padding:10px; color:#00ff99;">Normale</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">CLIENT‑HR‑07</td>
-      <td style="padding:10px;">980 MB</td>
-      <td style="padding:10px; color:#ff0044;">Sospetto</td>
-    </tr>
+    <tbody id="exfiltration-table"></tbody>
   </table>
-</div> 
+
+  <script>
+  /* ============================================================
+     DATA EXFILTRATION MONITOR — Versione Reale Altervista
+  ============================================================ */
+
+  function startDataExfiltrationMonitor() {
+      const table = document.getElementById("exfiltration-table");
+
+      if (!table) {
+          return setTimeout(startDataExfiltrationMonitor, 200);
+      }
+
+      async function loadExfiltrationData() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/data_exfiltration.php");
+              const data = await res.json();
+
+              table.innerHTML = "";
+
+              data.forEach(row => {
+                  const [host, traffic, stato] = row;
+
+                  const color =
+                      stato === "Anomalo" ? "#ffaa00" :
+                      stato === "Sospetto" ? "#ff0044" :
+                      "#00ff99";
+
+                  table.innerHTML += `
+                      <tr>
+                          <td style="padding:10px;">${host}</td>
+                          <td style="padding:10px;">${traffic}</td>
+                          <td style="padding:10px; color:${color}; font-weight:bold;">${stato}</td>
+                      </tr>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Data Exfiltration:", error);
+              table.innerHTML = `
+                  <tr>
+                      <td colspan="3" style="padding:10px; color:#888;">
+                          Impossibile caricare i dati
+                      </td>
+                  </tr>
+              `;
+          }
+      }
+
+      loadExfiltrationData();
+      setInterval(loadExfiltrationData, 10000); // aggiorna ogni 10s
+  }
+
+  startDataExfiltrationMonitor();
+  </script>
+</div>
+
  <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ffaa00aa;
@@ -576,43 +731,73 @@
   </p>
 
   <table style="width:100%; border-collapse:collapse; color:#fff;">
-    <tr style="background:#111;">
-      <th style="padding:10px; border-bottom:1px solid #333;">Paese</th>
-      <th style="padding:10px; border-bottom:1px solid #333;">Attività</th>
-      <th style="padding:10px; border-bottom:1px solid #333;">Rischio</th>
-    </tr>
+    <thead>
+      <tr style="background:#111;">
+        <th style="padding:10px; border-bottom:1px solid #333;">Paese</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Attività</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Rischio</th>
+      </tr>
+    </thead>
 
-    <tr>
-      <td style="padding:10px;">Russia</td>
-      <td style="padding:10px;">124</td>
-      <td style="padding:10px; color:#ff0044;">ALTO</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">Cina</td>
-      <td style="padding:10px;">98</td>
-      <td style="padding:10px; color:#ffaa00;">MEDIO</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">Brasile</td>
-      <td style="padding:10px;">54</td>
-      <td style="padding:10px; color:#ffaa00;">MEDIO</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">USA</td>
-      <td style="padding:10px;">41</td>
-      <td style="padding:10px; color:#00eaff;">BASSO</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">India</td>
-      <td style="padding:10px;">37</td>
-      <td style="padding:10px; color:#00eaff;">BASSO</td>
-    </tr>
+    <tbody id="geoip-table"></tbody>
   </table>
-</div>  
+
+  <script>
+  /* ============================================================
+     GEOIP THREAT ORIGINS — Versione Reale Altervista
+  ============================================================ */
+
+  function startGeoIPThreats() {
+      const table = document.getElementById("geoip-table");
+
+      if (!table) {
+          return setTimeout(startGeoIPThreats, 200);
+      }
+
+      async function loadGeoIP() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/geoip_threats.php");
+              const data = await res.json();
+
+              table.innerHTML = "";
+
+              data.forEach(row => {
+                  const [paese, attivita, rischio] = row;
+
+                  const color =
+                      rischio === "ALTO" ? "#ff0044" :
+                      rischio === "MEDIO" ? "#ffaa00" :
+                      "#00eaff";
+
+                  table.innerHTML += `
+                      <tr>
+                          <td style="padding:10px;">${paese}</td>
+                          <td style="padding:10px;">${attivita}</td>
+                          <td style="padding:10px; color:${color}; font-weight:bold;">${rischio}</td>
+                      </tr>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore GeoIP:", error);
+              table.innerHTML = `
+                  <tr>
+                      <td colspan="3" style="padding:10px; color:#888;">
+                          Impossibile caricare i dati
+                      </td>
+                  </tr>
+              `;
+          }
+      }
+
+      loadGeoIP();
+      setInterval(loadGeoIP, 10000); // aggiorna ogni 10s
+  }
+
+  startGeoIPThreats();
+  </script>
+</div>
+
       
     </section>
 
