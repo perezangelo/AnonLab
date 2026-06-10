@@ -111,23 +111,49 @@ loadEventLog();
 setInterval(loadEventLog, 10000);
 
 /* ============================================================
-   SYSTEM STATUS — Simulazione dinamica
+   SYSTEM STATUS — Versione Reale Altervista
 ============================================================ */
-function updateSystemStatus() {
-    const cpu = document.getElementById("cpu-load");
-    const net = document.getElementById("net-activity");
-    const fw = document.getElementById("fw-status");
 
-    if (!cpu) return;
+async function loadSystemStatus() {
+    const cpuEl = document.getElementById("cpu-load");
+    const netEl = document.getElementById("network-activity");
+    const fwEl = document.getElementById("firewall-status");
 
-    cpu.textContent = Math.floor(Math.random() * 80 + 10) + "%";
-    net.textContent = Math.floor(Math.random() * 900 + 100) + " kb/s";
+    if (!cpuEl || !netEl || !fwEl) return;
 
-    const fwStatus = ["OK", "WARN", "BLOCK"];
-    fw.textContent = fwStatus[Math.floor(Math.random() * fwStatus.length)];
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/system_status.php");
+        const data = await res.json();
+
+        // CPU
+        cpuEl.textContent = data.cpu + "%";
+
+        // Network
+        netEl.textContent = data.network + " kb/s";
+
+        // Firewall
+        fwEl.textContent = data.firewall;
+        fwEl.style.color = data.firewall === "ALLOW" ? "#00ff99" : "#ff3355";
+        fwEl.style.textShadow = `0 0 10px ${
+            data.firewall === "ALLOW" ? "#00ff99" : "#ff3355"
+        }`;
+
+    } catch (error) {
+        console.error("Errore System Status:", error);
+
+        cpuEl.textContent = "N/A";
+        netEl.textContent = "N/A";
+        fwEl.textContent = "N/A";
+        fwEl.style.color = "#888";
+        fwEl.style.textShadow = "none";
+    }
 }
-setInterval(updateSystemStatus, 3000);
-updateSystemStatus();
+
+// Primo caricamento
+loadSystemStatus();
+
+// Aggiornamento automatico ogni 10 secondi
+setInterval(loadSystemStatus, 10000);
 
 /* ============================================================
    ATTIVITÀ SOSPETTE — Lista dinamica
