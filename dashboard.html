@@ -158,32 +158,58 @@
   </div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const ctx = document.getElementById('netTrafficChart');
-    if (!ctx) return;
+  /* ============================================================
+     NETWORK TRAFFIC MONITOR — Versione Reale Altervista
+  ============================================================ */
 
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['HTTP', 'HTTPS', 'DNS', 'SSH', 'RDP'],
-        datasets: [{
-          label: 'KB/s',
-          data: [320, 540, 120, 80, 45],
-          backgroundColor: ['#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa']
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { color: '#fff' } },
-          y: { ticks: { color: '#fff' } }
-        }
+  async function loadNetworkTraffic() {
+      const ctx = document.getElementById("netTrafficChart");
+      if (!ctx) return;
+
+      try {
+          const res = await fetch("https://angelonline.altervista.org/soc/network_traffic.php");
+          const data = await res.json();
+
+          if (window.netTrafficChartInstance) {
+              window.netTrafficChartInstance.data.labels = data.labels;
+              window.netTrafficChartInstance.data.datasets[0].data = data.values;
+              window.netTrafficChartInstance.update();
+              return;
+          }
+
+          window.netTrafficChartInstance = new Chart(ctx, {
+              type: "bar",
+              data: {
+                  labels: data.labels,
+                  datasets: [{
+                      label: "KB/s",
+                      data: data.values,
+                      backgroundColor: "#00eaffaa"
+                  }]
+              },
+              options: {
+                  responsive: true,
+                  plugins: { legend: { display: false } },
+                  scales: {
+                      x: { ticks: { color: "#fff" } },
+                      y: { ticks: { color: "#fff" } }
+                  }
+              }
+          });
+
+      } catch (error) {
+          console.error("Errore Network Traffic:", error);
       }
-    });
-  });
-</script>
+  }
+
+  // Primo caricamento
+  loadNetworkTraffic();
+
+  // Aggiornamento automatico ogni 10 secondi
+  setInterval(loadNetworkTraffic, 10000);
+  </script>
 </div>
+      
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ff0044aa;
