@@ -155,25 +155,31 @@ loadSystemStatus();
 // Aggiornamento automatico ogni 10 secondi
 setInterval(loadSystemStatus, 10000);
 /* ============================================================
-   ATTIVITÀ SOSPETTE — Lista dinamica
+   ATTIVITÀ SOSPETTE — Versione Reale Altervista
 ============================================================ */
-function updateSuspicious() {
-    const list = document.getElementById("suspicious-list");
-    if (!list) return;
 
-    const items = [
-        "Accesso da IP non riconosciuto",
-        "Download anomalo rilevato",
-        "Processo sconosciuto in esecuzione",
-        "Connessione esterna persistente",
-        "Tentativo di escalation privilegi"
-    ];
+async function loadSuspiciousList() {
+    const box = document.getElementById("suspicious-list");
+    if (!box) return;
 
-    const li = document.createElement("li");
-    li.textContent = items[Math.floor(Math.random() * items.length)];
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/suspicious_list.php");
+        const data = await res.json();
 
-    list.prepend(li);
+        box.innerHTML = "";
 
-    if (list.children.length > 10) list.removeChild(list.lastChild);
+        data.forEach(ev => {
+            box.innerHTML += `<div class="alert-item">⚠️ ${ev}</div>`;
+        });
+
+    } catch (error) {
+        console.error("Errore Suspicious List:", error);
+        box.innerHTML = "<div>Impossibile caricare le attività</div>";
+    }
 }
-setInterval(updateSuspicious, 6000);
+
+// Primo caricamento
+loadSuspiciousList();
+
+// Aggiornamento automatico ogni 10 secondi
+setInterval(loadSuspiciousList, 10000);
