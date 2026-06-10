@@ -111,13 +111,13 @@ loadEventLog();
 setInterval(loadEventLog, 10000);
 
 /* ============================================================
-   SYSTEM STATUS — Versione Reale Altervista
+   SYSTEM STATUS — Versione Reale Altervista (compatibile con tuoi ID)
 ============================================================ */
 
 async function loadSystemStatus() {
     const cpuEl = document.getElementById("cpu-load");
-    const netEl = document.getElementById("network-activity");
-    const fwEl = document.getElementById("firewall-status");
+    const netEl = document.getElementById("net-activity");
+    const fwEl = document.getElementById("fw-status");
 
     if (!cpuEl || !netEl || !fwEl) return;
 
@@ -154,7 +154,6 @@ loadSystemStatus();
 
 // Aggiornamento automatico ogni 10 secondi
 setInterval(loadSystemStatus, 10000);
-
 /* ============================================================
    ATTIVITÀ SOSPETTE — Lista dinamica
 ============================================================ */
