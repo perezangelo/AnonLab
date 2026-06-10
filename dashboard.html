@@ -158,31 +158,31 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const ctx = document.getElementById('netTrafficChart');
-      if (!ctx) return;
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById('netTrafficChart');
+    if (!ctx) return;
 
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['HTTP', 'HTTPS', 'DNS', 'SSH', 'RDP'],
-          datasets: [{
-            label: 'KB/s',
-            data: [320, 540, 120, 80, 45],
-            backgroundColor: ['#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa']
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { ticks: { color: '#fff' } },
-            y: { ticks: { color: '#fff' } }
-          }
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['HTTP', 'HTTPS', 'DNS', 'SSH', 'RDP'],
+        datasets: [{
+          label: 'KB/s',
+          data: [320, 540, 120, 80, 45],
+          backgroundColor: ['#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa', '#00eaffaa']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#fff' } },
+          y: { ticks: { color: '#fff' } }
         }
-      });
+      }
     });
-  </script>
+  });
+</script>
 </div>
 <div class="cyber-box" style="
     background:#000814;
