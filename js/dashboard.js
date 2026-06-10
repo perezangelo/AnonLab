@@ -79,29 +79,36 @@ setInterval(loadAttacksChart, 30000);
 
 
 /* ============================================================
-   EVENT LOG — Generazione dinamica
+   EVENT LOG — Versione Reale Altervista
 ============================================================ */
-function addEventLog() {
-    const log = document.getElementById("event-log");
-    if (!log) return;
 
-    const events = [
-        "Tentativo di accesso non autorizzato",
-        "Connessione sospetta rilevata",
-        "Traffico anomalo su porta 443",
-        "Richiesta API non valida",
-        "Login fallito da IP esterno"
-    ];
+async function loadEventLog() {
+    const box = document.getElementById("event-log");
+    if (!box) return;
 
-    const item = document.createElement("div");
-    item.className = "log-item";
-    item.textContent = events[Math.floor(Math.random() * events.length)];
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/event_log.php");
+        const data = await res.json();
 
-    log.prepend(item);
+        box.innerHTML = "";
 
-    if (log.children.length > 20) log.removeChild(log.lastChild);
+        data.forEach(ev => {
+            box.innerHTML += `
+                <div>[${ev.time}] — ${ev.event}</div>
+            `;
+        });
+
+    } catch (error) {
+        console.error("Errore Event Log:", error);
+        box.innerHTML = "<div>Impossibile caricare i log</div>";
+    }
 }
-setInterval(addEventLog, 4000);
+
+// Primo caricamento
+loadEventLog();
+
+// Aggiornamento automatico ogni 10 secondi
+setInterval(loadEventLog, 10000);
 
 /* ============================================================
    SYSTEM STATUS — Simulazione dinamica
