@@ -686,6 +686,35 @@ function startLawTimeline() {
 
 startLawTimeline();
 </script>
+  <script>
+function startThreatBarometer() {
+    const bar = document.getElementById("threat-bar");
+    const label = document.getElementById("threat-label");
+
+    if (!bar || !label) return setTimeout(startThreatBarometer, 200);
+
+    async function loadThreat() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/threatindex.php");
+            const data = await res.json();
+
+            bar.style.width = data.percent + "%";
+            bar.style.background = data.color;
+
+            label.innerHTML = `Livello attuale: ${data.level} (${data.percent}%) — ${data.desc}`;
+
+        } catch (e) {
+            console.error("Errore Threat Barometer:", e);
+            label.innerHTML = "Impossibile caricare il livello di minaccia";
+        }
+    }
+
+    loadThreat();
+    setInterval(loadThreat, 30000);
+}
+
+startThreatBarometer();
+</script>
 
 </body>
 </html>
