@@ -620,6 +620,71 @@ function startRansomTimeline() {
 startVulnTimeline();
 startRansomTimeline();
 </script>
+  <script>
+function startLawTimeline() {
+    const box = document.getElementById("law-timeline");
+    if (!box) return setTimeout(startLawTimeline, 200);
+
+    const statusMap = {
+        "ATTIVO":    { icon: "🟢", color: "#00b894" },
+        "IN VIGORE": { icon: "🟡", color: "#fdcb6e" },
+        "AGGIORNATO":{ icon: "🟠", color: "#e17055" },
+        "APPROVATO": { icon: "🔵", color: "#0984e3" }
+    };
+
+    async function loadLaw() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/lawindex.php");
+            const data = await res.json();
+
+            box.innerHTML = "";
+
+            data.forEach(l => {
+                const st = statusMap[l.status] || statusMap["ATTIVO"];
+
+                box.innerHTML += `
+                    <div style="
+                        display:flex;
+                        align-items:center;
+                        padding:6px 0;
+                        border-bottom:1px solid rgba(255,255,255,0.08);
+                        font-size:15px;
+                    ">
+                        <span style="
+                            display:inline-flex;
+                            align-items:center;
+                            justify-content:center;
+                            min-width:110px;
+                            padding:4px 10px;
+                            border-radius:6px;
+                            font-weight:700;
+                            text-transform:uppercase;
+                            color:#fff;
+                            font-size:12px;
+                            background:${st.color};
+                            margin-right:12px;
+                        ">
+                            <span style="font-size:18px; margin-right:6px;">${st.icon}</span>
+                            ${l.status}
+                        </span>
+
+                        <span><strong>${l.name}:</strong> ${l.desc}</span>
+                    </div>
+                `;
+            });
+
+        } catch (e) {
+            console.error("Errore Normative UE:", e);
+            box.innerHTML = "<div style='color:#888;'>Impossibile caricare le normative UE</div>";
+        }
+    }
+
+    loadLaw();
+    setInterval(loadLaw, 30000);
+}
+
+startLawTimeline();
+</script>
 
 </body>
 </html>
