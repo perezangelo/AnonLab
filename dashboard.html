@@ -297,31 +297,73 @@
   </p>
 
   <table style="width:100%; border-collapse:collapse; color:#fff;">
-    <tr style="background:#111;">
-      <th style="padding:10px; border-bottom:1px solid #333;">CVE</th>
-      <th style="padding:10px; border-bottom:1px solid #333;">CVSS</th>
-      <th style="padding:10px; border-bottom:1px solid #333;">Stato</th>
-    </tr>
+    <thead>
+      <tr style="background:#111;">
+        <th style="padding:10px; border-bottom:1px solid #333;">CVE</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">CVSS</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Stato</th>
+      </tr>
+    </thead>
 
-    <tr>
-      <td style="padding:10px;">CVE‑2024‑12345</td>
-      <td style="padding:10px; color:#ff0044;">9.8</td>
-      <td style="padding:10px;">Non patchata</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">CVE‑2024‑99876</td>
-      <td style="padding:10px; color:#ffaa00;">7.5</td>
-      <td style="padding:10px;">In analisi</td>
-    </tr>
-
-    <tr>
-      <td style="padding:10px;">CVE‑2023‑55421</td>
-      <td style="padding:10px; color:#00eaff;">5.4</td>
-      <td style="padding:10px;">Patch disponibile</td>
-    </tr>
+    <tbody id="cvss-table"></tbody>
   </table>
+
+  <script>
+  /* ============================================================
+     VULNERABILITÀ ATTIVE (CVSS) — Versione Reale Altervista
+  ============================================================ */
+
+  function startCVSSList() {
+      const table = document.getElementById("cvss-table");
+
+      if (!table) {
+          return setTimeout(startCVSSList, 200);
+      }
+
+      async function loadCVSS() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/cvss_list.php");
+              const data = await res.json();
+
+              table.innerHTML = "";
+
+              data.forEach(v => {
+                  const [cve, score, stato] = v;
+
+                  const color =
+                      score >= 9 ? "#ff0044" :
+                      score >= 7 ? "#ffaa00" :
+                      "#00eaff";
+
+                  table.innerHTML += `
+                      <tr>
+                          <td style="padding:10px;">${cve}</td>
+                          <td style="padding:10px; color:${color}; font-weight:bold;">${score}</td>
+                          <td style="padding:10px;">${stato}</td>
+                      </tr>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore CVSS:", error);
+              table.innerHTML = `
+                  <tr>
+                      <td colspan="3" style="padding:10px; color:#888;">
+                          Impossibile caricare le vulnerabilità
+                      </td>
+                  </tr>
+              `;
+          }
+      }
+
+      loadCVSS();
+      setInterval(loadCVSS, 10000);
+  }
+
+  startCVSSList();
+  </script>
 </div>
+      
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ffaa00aa;
