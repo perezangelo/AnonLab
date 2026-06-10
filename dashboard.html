@@ -378,14 +378,54 @@
     Fasi del processo di risposta agli incidenti rilevati.
   </p>
 
-  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
-    <li><strong>Rilevamento:</strong> Attività anomala identificata dal SIEM</li>
-    <li><strong>Analisi:</strong> Correlazione eventi e verifica indicatori</li>
-    <li><strong>Contenimento:</strong> Isolamento host compromesso</li>
-    <li><strong>Mitigazione:</strong> Rimozione minaccia e ripristino servizi</li>
-    <li><strong>Chiusura:</strong> Report finale e aggiornamento policy</li>
-  </ul>
+  <!-- LISTA DINAMICA -->
+  <ul id="incident-timeline" style="list-style:none; padding:0; color:#fff; line-height:1.8;"></ul>
+
+  <script>
+  /* ============================================================
+     INCIDENT RESPONSE TIMELINE — Versione Reale Altervista
+  ============================================================ */
+
+  function startIncidentTimeline() {
+      const box = document.getElementById("incident-timeline");
+
+      if (!box) {
+          return setTimeout(startIncidentTimeline, 200);
+      }
+
+      async function loadTimeline() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/incident_timeline.php");
+              const data = await res.json();
+
+              box.innerHTML = "";
+
+              data.forEach(step => {
+                  const [fase, descr] = step;
+
+                  box.innerHTML += `
+                      <li style="margin-bottom:8px;">
+                          <strong>${fase}:</strong> ${descr}
+                      </li>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Timeline:", error);
+              box.innerHTML = `
+                  <li style="color:#888;">Impossibile caricare la timeline</li>
+              `;
+          }
+      }
+
+      loadTimeline();
+      setInterval(loadTimeline, 15000); // aggiorna ogni 15s
+  }
+
+  startIncidentTimeline();
+  </script>
 </div>
+      
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #00eaffaa;
