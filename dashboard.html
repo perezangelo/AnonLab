@@ -139,26 +139,7 @@
     Stato: ALTO
   </p>
 </div>
-      <div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #00eaffaa;
-    padding:25px;
-    margin-top:40px;
-    border-radius:8px;
-    box-shadow:0 0 12px #00eaffaa;
-">
-  <h3 style="color:#00eaff;">Network Traffic Monitor</h3>
-
-  <p style="color:#ccc; margin-bottom:15px;">
-    Traffico di rete in tempo reale suddiviso per protocollo.
-  </p>
-
-  <div style="width:100%; height:220px; background:#111; border-radius:6px; padding:15px;">
-    <canvas id="netTrafficChart"></canvas>
-  </div>
-
-  <script>
-<div class="cyber-box" style="
+     <div class="cyber-box" style="
     background:#000814;
     border:1px solid #00eaffaa;
     padding:25px;
@@ -181,51 +162,57 @@
      NETWORK TRAFFIC MONITOR — Versione Reale Altervista
   ============================================================ */
 
-  async function loadNetworkTraffic() {
+  function startNetworkTrafficMonitor() {
       const ctx = document.getElementById("netTrafficChart");
-      if (!ctx) return;
 
-      try {
-          const res = await fetch("https://angelonline.altervista.org/soc/network_traffic.php");
-          const data = await res.json();
-
-          if (window.netTrafficChartInstance) {
-              window.netTrafficChartInstance.data.labels = data.labels;
-              window.netTrafficChartInstance.data.datasets[0].data = data.values;
-              window.netTrafficChartInstance.update();
-              return;
-          }
-
-          window.netTrafficChartInstance = new Chart(ctx, {
-              type: "bar",
-              data: {
-                  labels: data.labels,
-                  datasets: [{
-                      label: "KB/s",
-                      data: data.values,
-                      backgroundColor: "#00eaffaa"
-                  }]
-              },
-              options: {
-                  responsive: true,
-                  plugins: { legend: { display: false } },
-                  scales: {
-                      x: { ticks: { color: "#fff" } },
-                      y: { ticks: { color: "#fff" } }
-                  }
-              }
-          });
-
-      } catch (error) {
-          console.error("Errore Network Traffic:", error);
+      // Se Chart.js non è ancora caricato, riprova
+      if (!ctx || typeof Chart === "undefined") {
+          return setTimeout(startNetworkTrafficMonitor, 200);
       }
-  }
 
-  // Avvia SOLO quando la pagina è pronta (Chart incluso)
-  document.addEventListener("DOMContentLoaded", function () {
+      async function loadNetworkTraffic() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/network_traffic.php");
+              const data = await res.json();
+
+              if (window.netTrafficChartInstance) {
+                  window.netTrafficChartInstance.data.labels = data.labels;
+                  window.netTrafficChartInstance.data.datasets[0].data = data.values;
+                  window.netTrafficChartInstance.update();
+                  return;
+              }
+
+              window.netTrafficChartInstance = new Chart(ctx, {
+                  type: "bar",
+                  data: {
+                      labels: data.labels,
+                      datasets: [{
+                          label: "KB/s",
+                          data: data.values,
+                          backgroundColor: "#00eaffaa"
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      plugins: { legend: { display: false } },
+                      scales: {
+                          x: { ticks: { color: "#fff" } },
+                          y: { ticks: { color: "#fff" } }
+                      }
+                  }
+              });
+
+          } catch (error) {
+              console.error("Errore Network Traffic:", error);
+          }
+      }
+
       loadNetworkTraffic();
       setInterval(loadNetworkTraffic, 10000);
-  });
+  }
+
+  // Avvio sicuro
+  startNetworkTrafficMonitor();
   </script>
 </div>
 
