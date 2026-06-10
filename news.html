@@ -74,51 +74,15 @@
         </ul>
       </section>
 
-      <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json");
-
-$timeline = [
-    ["Oggi", "Nuova vulnerabilità critica su VPN aziendali."],
-    ["Ieri", "Attacco ransomware a infrastruttura sanitaria europea."],
-    ["3 giorni fa", "Campagna phishing contro utenti bancari."],
-    ["1 settimana fa", "Scoperta botnet IoT con 200k dispositivi."],
-    ["5 giorni fa", "Leak di credenziali da marketplace underground."],
-    ["2 settimane fa", "Nuovi IoC collegati a gruppi APT asiatici."],
-    ["4 giorni fa", "Compromissione supply‑chain su software open‑source."]
-];
-
-echo json_encode(array_slice($timeline, 0, 4));
-function startCyberTimeline() {
-    const box = document.getElementById("cyber-timeline");
-    if (!box) return setTimeout(startCyberTimeline, 200);
-
-    async function loadTimeline() {
-        try {
-            const res = await fetch("/newsops/timeline/index.php");
-            const data = await res.json();
-
-            box.innerHTML = "";
-
-            data.forEach(item => {
-                const [time, desc] = item;
-
-                box.innerHTML += `
-                    <li><span class="time-tag">${time}</span> ${desc}</li>
-                `;
-            });
-
-        } catch (e) {
-            console.error("Errore Cyber Timeline:", e);
-            box.innerHTML = "<li style='color:#888;'>Impossibile caricare la timeline</li>";
-        }
-    }
-
-    loadTimeline();
-    setInterval(loadTimeline, 30000);
-}
-
-startCyberTimeline();
+      <section class="news-section">
+        <h2 class="news-title">Cyber Timeline</h2>
+        <ul class="timeline-list">
+          <li><span class="time-tag">Oggi</span> Nuova vulnerabilità critica su VPN aziendali.</li>
+          <li><span class="time-tag">Ieri</span> Attacco ransomware a infrastruttura sanitaria europea.</li>
+          <li><span class="time-tag">3 giorni fa</span> Campagna phishing contro utenti bancari.</li>
+          <li><span class="time-tag">1 settimana fa</span> Scoperta botnet IoT con 200k dispositivi.</li>
+        </ul>
+      </section>
 
       <section class="news-section">
         <h2 class="news-title">Vulnerability Spotlight</h2>
