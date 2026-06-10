@@ -91,15 +91,11 @@
       </section>
 
       <section class="news-section">
-        <h2 class="news-title">Ransomware Tracker</h2>
-        <div class="news-panel">
-          <ul class="ransom-list">
-            <li><strong>BlackStorm:</strong> attacchi a enti pubblici in UE.</li>
-            <li><strong>RedLock:</strong> campagne contro aziende fintech.</li>
-            <li><strong>ShadowHive:</strong> data leak su infrastrutture cloud.</li>
-          </ul>
-        </div>
-      </section>
+    <h2 class="news-title">Ransomware Tracker</h2>
+    <div class="news-panel">
+        <div id="ransom-timeline"></div>
+    </div>
+</section>
 
       <section class="news-section">
         <h2 class="news-title">Normative UE</h2>
@@ -495,6 +491,69 @@
 </script>
 
 </div>
+  function startRansomTimeline() {
+    const box = document.getElementById("ransom-timeline");
+    if (!box) return setTimeout(startRansomTimeline, 200);
+
+    const sevMap = {
+        "LOW":     { icon: "🟢", color: "#00b894" },
+        "MEDIUM":  { icon: "🟡", color: "#fdcb6e" },
+        "HIGH":    { icon: "🟠", color: "#e17055" },
+        "CRITICAL":{ icon: "🔴", color: "#d63031" }
+    };
+
+    async function loadRansom() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/ransomindex.php");
+            const data = await res.json();
+
+            box.innerHTML = "";
+
+            data.forEach(r => {
+                const sev = sevMap[r.severity] || sevMap["MEDIUM"];
+
+                box.innerHTML += `
+                    <div style="
+                        display:flex;
+                        align-items:center;
+                        padding:6px 0;
+                        border-bottom:1px solid rgba(255,255,255,0.08);
+                        font-size:15px;
+                    ">
+                        <span style="
+                            display:inline-flex;
+                            align-items:center;
+                            justify-content:center;
+                            min-width:90px;
+                            padding:4px 10px;
+                            border-radius:6px;
+                            font-weight:700;
+                            text-transform:uppercase;
+                            color:#fff;
+                            font-size:12px;
+                            background:${sev.color};
+                            margin-right:12px;
+                        ">
+                            <span style="font-size:18px; margin-right:6px;">${sev.icon}</span>
+                            ${r.severity}
+                        </span>
+
+                        <span><strong>${r.group}:</strong> ${r.desc}</span>
+                    </div>
+                `;
+            });
+
+        } catch (e) {
+            console.error("Errore Ransomware Timeline:", e);
+            box.innerHTML = "<div style='color:#888;'>Impossibile caricare il Ransomware Tracker</div>";
+        }
+    }
+
+    loadRansom();
+    setInterval(loadRansom, 30000);
+}
+
+startRansomTimeline();
 
 </body>
 </html>
