@@ -32,35 +32,57 @@ loadThreatLevel();
 // Aggiornamento automatico ogni 15 secondi
 setInterval(loadThreatLevel, 15000);
 /* ============================================================
-   GRAFICO ATTACCHI — Chart.js
+/* ============================================================
+   GRAFICO ATTACCHI — Versione Reale con API /soc/attacks_chart.php
 ============================================================ */
-function initAttacksChart() {
+
+let attacksChartInstance = null;
+
+async function loadAttacksChart() {
     const ctx = document.getElementById("attacksChart");
     if (!ctx) return;
 
-    new Chart(ctx, {
-        type: "line",
-        data: {
-            labels: Array.from({ length: 24 }, (_, i) => `${i}:00`),
-            datasets: [{
-                label: "Attacchi",
-                data: Array.from({ length: 24 }, () => Math.floor(Math.random() * 50)),
-                borderColor: "#00eaff",
-                backgroundColor: "rgba(0, 234, 255, 0.15)",
-                tension: 0.3
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { ticks: { color: "#ccc" } },
-                y: { ticks: { color: "#ccc" } }
-            }
+    try {
+        const res = await fetch("/soc/attacks_chart.php");
+        const data = await res.json();
+
+        // Evita sovrapposizioni distruggendo il grafico precedente
+        if (attacksChartInstance) {
+            attacksChartInstance.destroy();
         }
-    });
+
+        attacksChartInstance = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: "Attacchi",
+                    data: data.values,
+                    borderColor: "#00eaff",
+                    backgroundColor: "rgba(0, 234, 255, 0.15)",
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { ticks: { color: "#ccc" } },
+                    y: { ticks: { color: "#ccc" } }
+                }
+            }
+        });
+
+    } catch (error) {
+        console.error("Errore Attacchi 24h:", error);
+    }
 }
-initAttacksChart();
+
+// Primo caricamento
+loadAttacksChart();
+
+// Aggiornamento automatico ogni 30 secondi
+setInterval(loadAttacksChart, 30000);
 
 /* ============================================================
    EVENT LOG — Generazione dinamica
