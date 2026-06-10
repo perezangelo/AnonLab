@@ -1,24 +1,36 @@
 /* ============================================================
-   THREAT LEVEL — Simulazione dinamica
+/* ============================================================
+   THREAT LEVEL — Versione Reale con API /soc/threat_level.php
 ============================================================ */
-function updateThreatLevel() {
+
+async function loadThreatLevel() {
     const el = document.getElementById("threat-level");
     if (!el) return;
 
-    const levels = ["LOW", "MEDIUM", "HIGH", "CRITICAL"];
-    const level = levels[Math.floor(Math.random() * levels.length)];
+    try {
+        const res = await fetch("/soc/threat_level.php");
+        const data = await res.json();
 
-    el.textContent = level;
+        // Aggiorna testo
+        el.textContent = data.level;
 
-    el.style.color =
-        level === "LOW" ? "#00ff99" :
-        level === "MEDIUM" ? "#ffee55" :
-        level === "HIGH" ? "#ff9933" :
-        "#ff3355";
+        // Aggiorna colore neon
+        el.style.color = data.color;
+        el.style.textShadow = `0 0 12px ${data.color}`;
+
+    } catch (error) {
+        console.error("Errore Threat Level:", error);
+        el.textContent = "N/A";
+        el.style.color = "#888";
+        el.style.textShadow = "none";
+    }
 }
-setInterval(updateThreatLevel, 5000);
-updateThreatLevel();
 
+// Primo caricamento
+loadThreatLevel();
+
+// Aggiornamento automatico ogni 15 secondi
+setInterval(loadThreatLevel, 15000);
 /* ============================================================
    GRAFICO ATTACCHI — Chart.js
 ============================================================ */
