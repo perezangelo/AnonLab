@@ -230,36 +230,58 @@
     Indirizzi IP con attività anomala rilevata nelle ultime ore.
   </p>
 
-  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
-    <li><strong>185.23.91.12</strong> — Tentativi SSH multipli (Rischio: ALTO)</li>
-    <li><strong>91.204.15.77</strong> — Scansione porte (Rischio: MEDIO)</li>
-    <li><strong>212.54.33.9</strong> — Traffico DNS anomalo (Rischio: ALTO)</li>
-    <li><strong>45.67.120.4</strong> — Accessi falliti ripetuti (Rischio: MEDIO)</li>
-    <li><strong>103.88.14.200</strong> — Pattern sospetto HTTP (Rischio: BASSO)</li>
-  </ul>
-</div>
-<div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #ffaa00aa;
-    padding:25px;
-    margin-top:40px;
-    border-radius:8px;
-    box-shadow:0 0 12px #ffaa00aa;
-">
-  <h3 style="color:#ffaa00;">Processi sospetti (LOTL)</h3>
+  <!-- LISTA DINAMICA -->
+  <div id="top-ip-list" style="color:#fff; line-height:1.8;"></div>
 
-  <p style="color:#ccc; margin-bottom:15px;">
-    Attività di tipo Living‑Off‑The‑Land rilevate sui sistemi monitorati.
-  </p>
+  <script>
+  /* ============================================================
+     TOP 5 IP SOSPETTI — Versione Reale Altervista
+  ============================================================ */
 
-  <ul style="list-style:none; padding:0; color:#fff; line-height:1.8;">
-    <li><strong>powershell.exe</strong> — Download script remoto</li>
-    <li><strong>wscript.exe</strong> — Esecuzione script non firmato</li>
-    <li><strong>wmic.exe</strong> — Query anomala su processi</li>
-    <li><strong>rundll32.exe</strong> — Caricamento DLL sospetta</li>
-    <li><strong>certutil.exe</strong> — Decodifica file sconosciuto</li>
-  </ul>
+  function startTopIPSospetti() {
+      const box = document.getElementById("top-ip-list");
+
+      if (!box) {
+          return setTimeout(startTopIPSospetti, 200);
+      }
+
+      async function loadTopIPs() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/top_ip.php");
+              const data = await res.json();
+
+              box.innerHTML = "";
+
+              data.forEach(item => {
+                  const [ip, descr, rischio] = item;
+
+                  const color =
+                      rischio === "ALTO" ? "#ff3355" :
+                      rischio === "MEDIO" ? "#ffaa00" :
+                      "#00ff99";
+
+                  box.innerHTML += `
+                      <div style="margin-bottom:8px;">
+                          <strong>${ip}</strong> — ${descr}
+                          <span style="color:${color}; font-weight:bold;">(Rischio: ${rischio})</span>
+                      </div>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Top IP:", error);
+              box.innerHTML = "<div style='color:#888;'>Impossibile caricare i dati</div>";
+          }
+      }
+
+      loadTopIPs();
+      setInterval(loadTopIPs, 10000);
+  }
+
+  startTopIPSospetti();
+  </script>
 </div>
+      
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #7a00ffaa;
