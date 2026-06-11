@@ -332,8 +332,8 @@
     ">
         <p style="color:#ccc;">Caricamento immagini...</p>
     </div>
-</div>
-      <!-- Cyber Case Study -->
+  
+     <!-- Cyber Case Study -->
 <div class="news-box" style="
     background:#000814;
     border:1px solid #ff7b00aa;
@@ -342,25 +342,13 @@
     border-radius:8px;
     box-shadow:0 0 12px #ff7b00aa;
 ">
-    <h3 style="color:#ff7b00;">Cyber Case Study: Compromissione di una PMI</h3>
+    <h3 style="color:#ff7b00;">Cyber Case Study</h3>
 
-    <p style="color:#ccc; line-height:1.7;">
-        Una piccola azienda manifatturiera italiana è stata colpita da un attacco ransomware che ha bloccato la produzione
-        per 48 ore. L’attacco è iniziato con una semplice email di phishing inviata al reparto amministrativo, contenente
-        un allegato Excel con macro malevole.
-    </p>
+    <div id="caseStudyContent" style="color:#ccc; line-height:1.7;">
+        <p>Caricamento del case study...</p>
+    </div>
 
-    <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-        Una volta aperto il file, gli attaccanti hanno ottenuto accesso alla rete interna sfruttando credenziali deboli.
-        Da lì hanno eseguito movimenti laterali, disattivato i backup automatici e cifrato i server principali.
-    </p>
-
-    <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-        L’incidente evidenzia l’importanza di formazione continua, MFA obbligatoria e segmentazione di rete anche per
-        realtà di piccole dimensioni.
-    </p>
-</div>
-      <!-- Cybersecurity Insights -->
+     <!-- Cybersecurity Insights -->
 <div class="news-box" style="
     background:#000814;
     border:1px solid #00eaffaa;
@@ -371,24 +359,11 @@
 ">
     <h3 style="color:#00eaff;">Cybersecurity Insights</h3>
 
-    <p style="color:#ccc; line-height:1.7;">
-        Le moderne minacce informatiche non si limitano più a malware tradizionali o attacchi opportunistici. I gruppi
-        criminali utilizzano tecniche avanzate come living-off-the-land, attacchi supply-chain e compromissione di
-        identità per aggirare i controlli di sicurezza.
-    </p>
-
-    <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-        Le aziende più mature stanno adottando modelli basati su telemetria continua, analisi comportamentale e
-        correlazione degli eventi tramite piattaforme SIEM e XDR. Questo approccio permette di individuare segnali
-        deboli prima che si trasformino in incidenti critici.
-    </p>
-
-    <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-        L’integrazione tra sicurezza IT e sicurezza OT è un altro tema centrale, soprattutto per settori industriali e
-        infrastrutture critiche.
-    </p>
-</div>
-      <!-- Cybersecurity Predictions -->
+    <div id="insightsBox" style="color:#ccc; line-height:1.7;">
+        <p>Caricamento insights...</p>
+    </div>
+  
+     <!-- Cybersecurity Predictions -->
 <div class="news-box" style="
     background:#000814;
     border:1px solid #b366ffaa;
@@ -400,23 +375,9 @@
 ">
     <h3 style="color:#b366ff;">Cybersecurity Predictions 2026</h3>
 
-    <p style="color:#ccc; line-height:1.7;">
-        Il 2026 sarà un anno caratterizzato da un aumento significativo degli attacchi basati su intelligenza artificiale.
-        I modelli generativi verranno sfruttati per creare phishing altamente realistici, deepfake credibili e campagne
-        di social engineering difficili da rilevare.
-    </p>
-
-    <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-        Le organizzazioni dovranno investire in soluzioni di AI Security, controlli di identità avanzati e sistemi di
-        rilevamento basati su comportamento. La protezione delle supply-chain software diventerà una priorità assoluta,
-        con audit continui e monitoraggio dei componenti open-source.
-    </p>
-
-    <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-        Infine, la crescente regolamentazione europea porterà a una maggiore attenzione alla resilienza operativa,
-        richiedendo alle aziende di dimostrare capacità di risposta e continuità anche in caso di attacco grave.
-    </p>
-</div>
+    <div id="predictionsBox" style="color:#ccc; line-height:1.7;">
+        <p>Caricamento previsioni...</p>
+    </div>
 
     </section>
 
@@ -917,6 +878,73 @@ function loadCyberGallery() {
 
 loadCyberGallery();
 setInterval(loadCyberGallery, 30000);
+</script>
+  <script>
+function loadCaseStudy() {
+    fetch("https://angelonline.altervista.org/newsops/casestudy.php")
+        .then(r => r.json())
+        .then(data => {
+            const box = document.getElementById("caseStudyContent");
+
+            box.innerHTML = `
+                <h4 style="color:#ff7b00; margin-bottom:10px;">${data.title}</h4>
+                <p style="margin-top:10px;">${data.p1}</p>
+                <p style="margin-top:10px;">${data.p2}</p>
+                <p style="margin-top:10px;">${data.p3}</p>
+            `;
+        })
+        .catch(() => {
+            document.getElementById("caseStudyContent").innerHTML =
+                "<p style='color:#ccc;'>Errore caricamento case study</p>";
+        });
+}
+
+loadCaseStudy();
+setInterval(loadCaseStudy, 30000);
+</script>
+  <script>
+function loadInsights() {
+    fetch("https://angelonline.altervista.org/newsops/cyberinsights.php")
+        .then(r => r.json())
+        .then(data => {
+            const box = document.getElementById("insightsBox");
+
+            box.innerHTML = `
+                <p>${data.p1}</p>
+                <p style="margin-top:10px;">${data.p2}</p>
+                <p style="margin-top:10px;">${data.p3}</p>
+            `;
+        })
+        .catch(() => {
+            document.getElementById("insightsBox").innerHTML =
+                "<p>Errore caricamento insights</p>";
+        });
+}
+
+loadInsights();
+setInterval(loadInsights, 30000);
+</script>
+  <script>
+function loadPredictions() {
+    fetch("https://angelonline.altervista.org/newsops/cyberpredictions.php")
+        .then(r => r.json())
+        .then(data => {
+            const box = document.getElementById("predictionsBox");
+
+            box.innerHTML = `
+                <p>${data.p1}</p>
+                <p style="margin-top:10px;">${data.p2}</p>
+                <p style="margin-top:10px;">${data.p3}</p>
+            `;
+        })
+        .catch(() => {
+            document.getElementById("predictionsBox").innerHTML =
+                "<p>Errore caricamento previsioni</p>";
+        });
+}
+
+loadPredictions();
+setInterval(loadPredictions, 30000);
 </script>
 
 </body>
