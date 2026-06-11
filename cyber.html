@@ -184,18 +184,19 @@
 </div>          
         </section>
         <!-- CARDS -->
-        <div class="cyber-card">
-          <h3>Threat Intelligence</h3>
-          <p>Analisi delle minacce emergenti, trend globali e attività degli attori malevoli.</p>
+<div class="cyber-card">
+  <h3>Threat Intelligence</h3>
+  <p>Analisi delle minacce emergenti, trend globali e attività degli attori malevoli.</p>
 
-          <!-- Mappa globale degli attacchi -->
-          <div class="ti-section" style="margin-top:20px;">
-            <h4 style="color:#ff7b00;">Mappa globale degli attacchi</h4>
-            <div class="map-frame">
-              <img src="/img/threat-map-placeholder.png" alt="Mappa globale degli attacchi" class="map-img">
-              <p class="map-note">Flusso simulato degli attacchi globali.</p>
-            </div>
-          </div>
+  <!-- Mappa globale degli attacchi -->
+  <div class="ti-section" style="margin-top:20px;">
+    <h4 style="color:#ff7b00;">Mappa globale degli attacchi</h4>
+
+    <div id="tiMapBox" class="map-frame">
+      <img src="/img/threat-map-placeholder.png" alt="Mappa globale degli attacchi" class="map-img">
+      <p class="map-note">Caricamento mappa...</p>
+    </div>
+  </div>
 
           <!-- Ransomware Trends -->
           <div class="ti-section" style="margin-top:25px;">
@@ -557,6 +558,27 @@
 </script>
 
 </div>
+  <script>
+function loadThreatMap() {
+    fetch("https://angelonline.altervista.org/cyberops/timap.php")
+        .then(r => r.json())
+        .then(data => {
+            const box = document.getElementById("tiMapBox");
+
+            box.innerHTML = `
+                <img src="${data.img}" alt="Threat Map" class="map-img">
+                <p class="map-note">${data.note}</p>
+            `;
+        })
+        .catch(() => {
+            document.getElementById("tiMapBox").innerHTML =
+                "<p class='map-note'>Errore caricamento mappa</p>";
+        });
+}
+
+loadThreatMap();
+setInterval(loadThreatMap, 30000);
+</script>
 
 </body>
 </html>
