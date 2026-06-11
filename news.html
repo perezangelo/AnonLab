@@ -265,8 +265,7 @@
     <li>Caricamento...</li>
 </ul>
 </div>
-      <!-- Cyber Risk Forecast -->
-<div class="news-box" style="
+     <div class="news-box" style="
     background:#000814;
     border:1px solid #ffaa00aa;
     padding:20px;
@@ -281,19 +280,20 @@
     </p>
 
     <div style="display:flex; gap:10px;">
-        <div style="flex:1; height:80px; background:#ff0044;"></div>
-        <div style="flex:1; height:60px; background:#ff7b00;"></div>
-        <div style="flex:1; height:90px; background:#ffaa00;"></div>
-        <div style="flex:1; height:70px; background:#00eaff;"></div>
-        <div style="flex:1; height:100px; background:#00ff99;"></div>
-        <div style="flex:1; height:85px; background:#b366ff;"></div>
-        <div style="flex:1; height:120px; background:#ff0044;"></div>
+        <div id="risk1" style="flex:1; height:80px; background:#ff0044; transition:0.4s;"></div>
+        <div id="risk2" style="flex:1; height:60px; background:#ff7b00; transition:0.4s;"></div>
+        <div id="risk3" style="flex:1; height:90px; background:#ffaa00; transition:0.4s;"></div>
+        <div id="risk4" style="flex:1; height:70px; background:#00eaff; transition:0.4s;"></div>
+        <div id="risk5" style="flex:1; height:100px; background:#00ff99; transition:0.4s;"></div>
+        <div id="risk6" style="flex:1; height:85px; background:#b366ff; transition:0.4s;"></div>
+        <div id="risk7" style="flex:1; height:120px; background:#ff0044; transition:0.4s;"></div>
     </div>
 
-    <p style="color:#ffaa00; margin-top:10px; font-weight:bold;">
-        Rischio previsto: ALTO
+    <p id="riskLabel" style="color:#ffaa00; margin-top:10px; font-weight:bold;">
+        Caricamento...
     </p>
 </div>
+
 <!-- Cybersecurity FAQ -->
 <div class="news-box" style="
     background:#000814;
@@ -306,13 +306,9 @@
 ">
     <h3 style="color:#ffaa00;">Cybersecurity FAQ</h3>
 
-    <ul style="color:#ccc; line-height:1.7;">
-        <li><strong>Come riconosco un attacco phishing?</strong> Controlla mittente, link sospetti e allegati non richiesti.</li>
-        <li><strong>È utile un antivirus nel 2026?</strong> Sì, ma deve essere integrato con EDR/XDR.</li>
-        <li><strong>Cos’è la segmentazione di rete?</strong> Separare le reti per limitare la propagazione degli attacchi.</li>
-        <li><strong>Serve ancora il backup offline?</strong> Assolutamente sì, è l’unica difesa contro ransomware avanzati.</li>
-        <li><strong>La MFA è sufficiente?</strong> È essenziale, ma va combinata con controlli comportamentali.</li>
-    </ul>
+    <ul id="faqList" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+</ul>
 </div>
 <!-- Cyber Image Gallery (Extended) -->
 <div class="cyber-box" style="
@@ -326,7 +322,7 @@
 ">
     <h3 style="color:#00eaff;">Cyber Image Gallery</h3>
 
-    <div style="
+    <div id="cyberGallery" style="
         display:flex;
         overflow-x:auto;
         gap:20px;
@@ -334,25 +330,7 @@
         scroll-behavior:smooth;
         scrollbar-width:none;
     ">
-        <a href="https://www.cisa.gov" target="_blank">
-            <img src="img/cyber1.jpg" style="height:160px; border-radius:6px; box-shadow:0 0 12px #00eaff88;">
-        </a>
-
-        <a href="https://www.darkreading.com" target="_blank">
-            <img src="img/cyber2.jpg" style="height:160px; border-radius:6px; box-shadow:0 0 12px #00eaff88;">
-        </a>
-
-        <a href="https://www.bleepingcomputer.com" target="_blank">
-            <img src="img/cyber3.jpg" style="height:160px; border-radius:6px; box-shadow:0 0 12px #00eaff88;">
-        </a>
-
-        <a href="https://www.kaspersky.com" target="_blank">
-            <img src="img/cyber4.jpg" style="height:160px; border-radius:6px; box-shadow:0 0 12px #00eaff88;">
-        </a>
-
-        <a href="https://www.europol.europa.eu" target="_blank">
-            <img src="img/cyber5.jpg" style="height:160px; border-radius:6px; box-shadow:0 0 12px #00eaff88;">
-        </a>
+        <p style="color:#ccc;">Caricamento immagini...</p>
     </div>
 </div>
       <!-- Cyber Case Study -->
@@ -857,6 +835,88 @@ function loadIntelNotes() {
 
 loadIntelNotes();
 setInterval(loadIntelNotes, 30000);
+</script>
+  <script>
+function loadRiskForecast() {
+    fetch("https://angelonline.altervista.org/newsops/riskforecast.php")
+        .then(r => r.json())
+        .then(data => {
+            const bars = data.values;
+
+            document.getElementById("risk1").style.height = bars[0] + "px";
+            document.getElementById("risk2").style.height = bars[1] + "px";
+            document.getElementById("risk3").style.height = bars[2] + "px";
+            document.getElementById("risk4").style.height = bars[3] + "px";
+            document.getElementById("risk5").style.height = bars[4] + "px";
+            document.getElementById("risk6").style.height = bars[5] + "px";
+            document.getElementById("risk7").style.height = bars[6] + "px";
+
+            document.getElementById("riskLabel").innerHTML =
+                "Rischio previsto: " + data.label;
+        })
+        .catch(() => {
+            document.getElementById("riskLabel").innerHTML =
+                "Errore caricamento previsione rischio";
+        });
+}
+
+loadRiskForecast();
+setInterval(loadRiskForecast, 30000);
+</script>
+  <script>
+function loadCyberFAQ() {
+    fetch("https://angelonline.altervista.org/newsops/cyberfaq.php")
+        .then(r => r.json())
+        .then(data => {
+            const ul = document.getElementById("faqList");
+            ul.innerHTML = "";
+
+            data.forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = `<strong>${item.q}</strong> ${item.a}`;
+                ul.appendChild(li);
+            });
+        })
+        .catch(() => {
+            document.getElementById("faqList").innerHTML =
+                "<li>Errore caricamento FAQ</li>";
+        });
+}
+
+loadCyberFAQ();
+setInterval(loadCyberFAQ, 30000);
+</script>
+  <script>
+function loadCyberGallery() {
+    fetch("https://angelonline.altervista.org/newsops/cybergallery.php")
+        .then(r => r.json())
+        .then(data => {
+            const box = document.getElementById("cyberGallery");
+            box.innerHTML = "";
+
+            data.forEach(item => {
+                const a = document.createElement("a");
+                a.href = item.url;
+                a.target = "_blank";
+
+                const img = document.createElement("img");
+                img.src = item.img;
+                img.style.height = "160px";
+                img.style.borderRadius = "6px";
+                img.style.boxShadow = "0 0 12px #00eaff88";
+
+                a.appendChild(img);
+                box.appendChild(a);
+            });
+        })
+        .catch(() => {
+            document.getElementById("cyberGallery").innerHTML =
+                "<p style='color:#ccc;'>Errore caricamento galleria</p>";
+        });
+}
+
+loadCyberGallery();
+setInterval(loadCyberGallery, 30000);
 </script>
 
 </body>
