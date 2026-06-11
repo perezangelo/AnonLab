@@ -227,8 +227,7 @@
     </p>
 </div>
 
-      <!-- Cyber Threat Categories -->
-<div class="news-box" style="
+      <div class="news-box" style="
     background:#000814;
     border:1px solid #00ff99aa;
     padding:20px;
@@ -239,17 +238,18 @@
     <h3 style="color:#00ff99;">Cyber Threat Categories</h3>
 
     <div style="display:flex; gap:12px; margin-top:15px;">
-        <div style="width:20%; height:120px; background:#ff0044;"></div>
-        <div style="width:20%; height:90px; background:#ff7b00;"></div>
-        <div style="width:20%; height:150px; background:#ffaa00;"></div>
-        <div style="width:20%; height:70px; background:#00eaff;"></div>
-        <div style="width:20%; height:110px; background:#00ff99;"></div>
+        <div id="aptCol" style="width:20%; height:120px; background:#ff0044; transition:0.4s;"></div>
+        <div id="malCol" style="width:20%; height:90px; background:#ff7b00; transition:0.4s;"></div>
+        <div id="phiCol" style="width:20%; height:150px; background:#ffaa00; transition:0.4s;"></div>
+        <div id="expCol" style="width:20%; height:70px; background:#00eaff; transition:0.4s;"></div>
+        <div id="botCol" style="width:20%; height:110px; background:#00ff99; transition:0.4s;"></div>
     </div>
 
     <p style="color:#ccc; margin-top:10px;">
         Distribuzione delle principali categorie di minacce rilevate questa settimana.
     </p>
 </div>
+      
       <!-- Cyber Intelligence Notes -->
 <div class="news-box" style="
     background:#000814;
@@ -261,13 +261,9 @@
 ">
     <h3 style="color:#b366ff;">Cyber Intelligence Notes</h3>
 
-    <ul style="color:#ccc; line-height:1.7;">
-        <li>Nuovi indicatori di compromissione (IoC) collegati a gruppi APT russi.</li>
-        <li>Incremento del 30% nelle campagne di credential harvesting.</li>
-        <li>Attività sospette su infrastrutture cloud multi‑tenant.</li>
-        <li>Nuovi domini malevoli rilevati tramite OSINT.</li>
-        <li>Trend crescente di attacchi supply‑chain su software open‑source.</li>
-    </ul>
+<ul id="intelNotes" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+</ul>
 </div>
       <!-- Cyber Risk Forecast -->
 <div class="news-box" style="
@@ -819,6 +815,48 @@ loadAttackIndex();
 
 // Aggiorna ogni 30 secondi
 setInterval(loadAttackIndex, 30000);
+</script>
+  <script>
+function loadThreatCategories() {
+    fetch("https://angelonline.altervista.org/newsops/threatcategories.php")
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("aptCol").style.height = data.apt + "px";
+            document.getElementById("malCol").style.height = data.malware + "px";
+            document.getElementById("phiCol").style.height = data.phishing + "px";
+            document.getElementById("expCol").style.height = data.exploits + "px";
+            document.getElementById("botCol").style.height = data.botnet + "px";
+        })
+        .catch(() => console.log("Errore caricamento categorie"));
+}
+
+// Carica subito
+loadThreatCategories();
+
+// Aggiorna ogni 30 secondi
+setInterval(loadThreatCategories, 30000);
+</script>
+  <script>
+function loadIntelNotes() {
+    fetch("https://angelonline.altervista.org/newsops/intelligencenotes.php")
+        .then(r => r.json())
+        .then(data => {
+            const ul = document.getElementById("intelNotes");
+            ul.innerHTML = "";
+            data.forEach(note => {
+                const li = document.createElement("li");
+                li.textContent = note;
+                ul.appendChild(li);
+            });
+        })
+        .catch(() => {
+            document.getElementById("intelNotes").innerHTML =
+                "<li>Errore caricamento note di intelligence</li>";
+        });
+}
+
+loadIntelNotes();
+setInterval(loadIntelNotes, 30000);
 </script>
 
 </body>
