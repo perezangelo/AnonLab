@@ -201,8 +201,7 @@
     </p>
 </div>
       
-      <!-- Global Attack Heat Index -->
-<div class="news-box" style="
+      <div class="news-box" style="
     background:#000814;
     border:1px solid #ff0044aa;
     padding:20px;
@@ -212,21 +211,22 @@
 ">
     <h3 style="color:#ff0044;">Global Attack Heat Index</h3>
     <p style="color:#ccc; margin-bottom:15px;">
-        Intensità degli attacchi informatici nelle ultime 24 ore, basata su fonti OSINT e threat intelligence.
+        Intensità degli attacchi informatici nelle ultime 24 ore.
     </p>
 
-    <div style="
+    <div id="attackBar" style="
         width:100%;
         height:180px;
-        background:linear-gradient(180deg, #ff0000 0%, #ff7b00 40%, #ffaa00 70%, #00eaff 100%);
         border-radius:6px;
         box-shadow:0 0 20px #ff004488 inset;
+        transition:0.5s;
     "></div>
 
-    <p style="color:#ff0044; margin-top:10px; font-weight:bold;">
-        Picco registrato: 92% — Attività APT elevata
+    <p id="attackText" style="color:#ff0044; margin-top:10px; font-weight:bold;">
+        Caricamento...
     </p>
 </div>
+
       <!-- Cyber Threat Categories -->
 <div class="news-box" style="
     background:#000814;
@@ -797,6 +797,28 @@ function startWeeklyTrends() {
 }
 
 startWeeklyTrends();
+</script>
+  <script>
+function loadAttackIndex() {
+    fetch("https://angelonline.altervista.org/newsops/attackindex.php")
+        .then(r => r.json())
+        .then(data => {
+            const bar = document.getElementById("attackBar");
+            const text = document.getElementById("attackText");
+
+            bar.style.background = `linear-gradient(180deg, ${data.color} 0%, #000814 100%)`;
+            text.innerHTML = `${data.percent}% — ${data.desc}`;
+        })
+        .catch(() => {
+            document.getElementById("attackText").innerHTML = "Errore caricamento dati";
+        });
+}
+
+// Carica subito
+loadAttackIndex();
+
+// Aggiorna ogni 30 secondi
+setInterval(loadAttackIndex, 30000);
 </script>
 
 </body>
