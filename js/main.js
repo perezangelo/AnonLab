@@ -89,7 +89,7 @@ function initYouTubePlayer() {
 }
 
 // ===============================
-// CONTATORE + SALUTO + DATA/ORA
+// CONTATORE VISITE REALE (PRO)
 // ===============================
 
 function initVisitCounter() {
@@ -99,13 +99,17 @@ function initVisitCounter() {
     const dateEl    = document.getElementById("visit-date");
     const timeEl    = document.getElementById("visit-time");
     const greetEl   = document.getElementById("visit-greeting");
-    const iconEl    = document.querySelector(".counter-icon");
 
-    const currentPageEl = document.getElementById("current-page-count");
+    const currentPageEl   = document.getElementById("current-page-count");
     const listContainerEl = document.getElementById("pages-list");
 
-    if (!counterEl || !pageEl || !dateEl || !timeEl || !greetEl) {
-        console.warn("Counter: elementi non trovati, sidebar non pronta");
+    const onlineEl = document.getElementById("online-users");
+    const devMobileEl  = document.getElementById("dev-mobile");
+    const devDesktopEl = document.getElementById("dev-desktop");
+    const devTabletEl  = document.getElementById("dev-tablet");
+
+    if (!counterEl) {
+        console.warn("Sidebar non pronta, counter non inizializzato");
         return;
     }
 
@@ -127,40 +131,46 @@ function initVisitCounter() {
     }
 
     // -----------------------------
-    // VISITE TOTALI
+    // FETCH REAL-TIME DA ALTERVISTA
     // -----------------------------
-    let visits = parseInt(localStorage.getItem("anonlab_visits") || "0") + 1;
-    localStorage.setItem("anonlab_visits", visits);
-    animateValue(counterEl, visits - 1, visits);
+    function loadRealCounter() {
+        const pageName = window.location.pathname.replace("/", "") || "home";
 
-    // -----------------------------
-    // PAGINE TOTALI
-    // -----------------------------
-    let pagesTotal = parseInt(localStorage.getItem("anonlab_pages") || "0") + 1;
-    localStorage.setItem("anonlab_pages", pagesTotal);
-    animateValue(pageEl, pagesTotal - 1, pagesTotal);
+        fetch("https://angelonline.altervista.org/counter/visit_counter.php?page=" + pageName)
+            .then(r => r.json())
+            .then(data => {
 
-    // -----------------------------
-    // PAGINA CORRENTE + ELENCO COMPLETO
-    // -----------------------------
-    const pageName = window.location.pathname.replace("/", "") || "home";
+                // Totale visite
+                animateValue(counterEl, parseInt(counterEl.textContent), data.total);
 
-    let pages = JSON.parse(localStorage.getItem("pagesViewed")) || {};
+                // Pagine totali (somma di tutte)
+                const totalPages = Object.values(data.pages).reduce((a, b) => a + b, 0);
+                animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
 
-    if (!pages[pageName]) pages[pageName] = 0;
-    pages[pageName]++;
+                // Questa pagina
+                if (currentPageEl) {
+                    currentPageEl.textContent = data.pages[pageName] ?? 0;
+                }
 
-    localStorage.setItem("pagesViewed", JSON.stringify(pages));
+                // Lista pagine viste
+                if (listContainerEl) {
+                    listContainerEl.innerHTML = "";
+                    for (const p in data.pages) {
+                        const li = document.createElement("li");
+                        li.textContent = `${p}: ${data.pages[p]}`;
+                        listContainerEl.appendChild(li);
+                    }
+                }
 
-    if (currentPageEl) currentPageEl.textContent = pages[pageName];
+                // Utenti online
+                if (onlineEl) onlineEl.textContent = data.online;
 
-    if (listContainerEl) {
-        listContainerEl.innerHTML = "";
-        Object.keys(pages).forEach(page => {
-            const li = document.createElement("li");
-            li.textContent = `${page}: ${pages[page]}`;
-            listContainerEl.appendChild(li);
-        });
+                // Dispositivi
+                if (devMobileEl)  devMobileEl.textContent  = data.devices.mobile;
+                if (devDesktopEl) devDesktopEl.textContent = data.devices.desktop;
+                if (devTabletEl)  devTabletEl.textContent  = data.devices.tablet;
+            })
+            .catch(err => console.error("Errore counter:", err));
     }
 
     // -----------------------------
@@ -188,7 +198,7 @@ function initVisitCounter() {
     }
 
     // -----------------------------
-    // ORA + EFFETTO PULSE
+    // ORA
     // -----------------------------
     function updateTime() {
         const now = new Date();
@@ -196,22 +206,20 @@ function initVisitCounter() {
             `${String(now.getHours()).padStart(2, "0")}:` +
             `${String(now.getMinutes()).padStart(2, "0")}:` +
             `${String(now.getSeconds()).padStart(2, "0")}`;
-
-        timeEl.classList.add("neon-pulse");
-        setTimeout(() => timeEl.classList.remove("neon-pulse"), 300);
-
-        if (iconEl) {
-            iconEl.classList.add("spin-once");
-            setTimeout(() => iconEl.classList.remove("spin-once"), 600);
-        }
     }
 
+    // -----------------------------
+    // AVVIO
+    // -----------------------------
     updateGreeting();
     updateDate();
     updateTime();
     setInterval(updateTime, 1000);
 
-    console.log("Contatore visite — versione completa attiva");
+    loadRealCounter();
+    setInterval(loadRealCounter, 5000);
+
+    console.log("Contatore visite REAL-TIME attivo");
 }
 // ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
