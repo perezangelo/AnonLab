@@ -944,8 +944,12 @@ function generaCF() {
 </script>
 
 </div>
-  <script src="/counter/visit_counter.php?page=tech.html"></script>
-
+  <script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
