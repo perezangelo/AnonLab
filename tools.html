@@ -1095,8 +1095,12 @@ function runDiffLocal() {
     });
   });
 </script>
-    <script src="/counter/visit_counter.php?page=tools.html"></script>
-
+ <script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
