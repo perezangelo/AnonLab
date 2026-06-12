@@ -55,7 +55,12 @@ button:hover { opacity:0.8; }
     Se è la prima volta che accedi, ti verrà chiesto di cambiare la password.
   </p>
 </div>
-  <script src="/counter/visit_counter.php?page=login.html"></script>
+ <script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
