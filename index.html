@@ -711,11 +711,14 @@ setInterval(loadStats, 10000);
 updateClock();
 setInterval(updateClock, 1000);
 </script>
- <script>
+<script>
 fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
     method: "GET",
     mode: "cors"
-});
+})
+.then(r => r.text())
+.then(t => console.log("Tracking:", t))
+.catch(err => console.error("Errore tracking:", err));
 </script>
   
 </body>
