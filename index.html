@@ -654,7 +654,7 @@ async function sendNewsletter(e) {
   <script>
 async function loadStats() {
   try {
-    const res  = await fetch("/counter/visits.json?cache=" + Date.now());
+   const res = await fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now());
     const data = await res.json();
 
     const pages   = data.pages   || {};
