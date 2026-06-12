@@ -842,8 +842,12 @@
 </script>
 
 </div>
-  <script src="/counter/visit_counter.php?page=dashboard.html"></script>
-
+<script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
