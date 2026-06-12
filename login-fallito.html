@@ -43,7 +43,12 @@ p {
     <h2>Accesso Negato</h2>
     <p>Le credenziali inserite non sono corrette.</p>
 </div>
-    <script src="/counter/visit_counter.php?page=login-fallito.html"></script>
+  <script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
