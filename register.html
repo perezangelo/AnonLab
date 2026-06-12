@@ -120,8 +120,12 @@ document.querySelector("form").addEventListener("submit", function(e) {
     });
 });
 </script>
-  <script src="/counter/visit_counter.php?page=register.html"></script>
-
+<script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
