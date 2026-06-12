@@ -136,20 +136,24 @@ function initVisitCounter() {
     function loadRealCounter() {
         const pageName = window.location.pathname.replace("/", "") || "home";
 
-        fetch("https://angelonline.altervista.org/counter/visit_counter.php?page=" + pageName)
+        // 1) Registra la visita (NON JSON)
+        fetch("https://angelonline.altervista.org/counter/visit_counter.php?page=" + pageName);
+
+        // 2) Legge i dati reali (JSON)
+        fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now())
             .then(r => r.json())
             .then(data => {
 
-                // Totale visite
-                animateValue(counterEl, parseInt(counterEl.textContent), data.total);
+                // Totale visite oggi
+                animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
 
-                // Pagine totali (somma di tutte)
-                const totalPages = Object.values(data.pages).reduce((a, b) => a + b, 0);
+                // Pagine totali
+                const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
                 animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
 
                 // Questa pagina
                 if (currentPageEl) {
-                    currentPageEl.textContent = data.pages[pageName] ?? 0;
+                    currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
                 }
 
                 // Lista pagine viste
@@ -157,18 +161,18 @@ function initVisitCounter() {
                     listContainerEl.innerHTML = "";
                     for (const p in data.pages) {
                         const li = document.createElement("li");
-                        li.textContent = `${p}: ${data.pages[p]}`;
+                        li.textContent = `${p}: ${data.pages[p].total}`;
                         listContainerEl.appendChild(li);
                     }
                 }
 
                 // Utenti online
-                if (onlineEl) onlineEl.textContent = data.online;
+                if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
 
                 // Dispositivi
-                if (devMobileEl)  devMobileEl.textContent  = data.devices.mobile;
-                if (devDesktopEl) devDesktopEl.textContent = data.devices.desktop;
-                if (devTabletEl)  devTabletEl.textContent  = data.devices.tablet;
+                if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
+                if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
+                if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
             })
             .catch(err => console.error("Errore counter:", err));
     }
@@ -221,6 +225,7 @@ function initVisitCounter() {
 
     console.log("Contatore visite REAL-TIME attivo");
 }
+
 // ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
 // ===============================
@@ -243,7 +248,6 @@ function initMobileMenu() {
 
 // Aspetta che i partial siano caricati
 document.addEventListener("DOMContentLoaded", () => {
-    // Ritardo minimo per permettere a loadPartial() di completare
     setTimeout(() => {
         initMobileMenu();
     }, 300);
