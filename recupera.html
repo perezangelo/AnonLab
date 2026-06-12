@@ -86,7 +86,12 @@ function mostraMessaggio() {
   }, 3000);
 }
 </script>
-  <script src="/counter/visit_counter.php?page=recupera.html"></script>
+ <script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
