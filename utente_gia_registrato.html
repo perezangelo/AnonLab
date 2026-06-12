@@ -57,7 +57,12 @@
         window.location.href = "/login.html";
     }, 3500);
 </script>
-    <script src="/counter/visit_counter.php?page=utente_gia_registrato.html"></script>
+  <script>
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
+    method: "GET",
+    mode: "cors"
+});
+</script>
 
 </body>
 </html>
