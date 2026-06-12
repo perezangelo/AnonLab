@@ -650,67 +650,7 @@ async function sendNewsletter(e) {
  <!-- CALCOLATRICE -->
 <script src="js/main.js"></script>
   <script src="js/cve-today.js"></script>
-  <script src="/counter/visit_counter.php?page=index.html"></script>
-  <script>
-async function loadStats() {
-  try {
-   const res = await fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now());
-    const data = await res.json();
 
-    const pages   = data.pages   || {};
-    const devices = data.devices || { mobile:0, desktop:0, tablet:0 };
-    const today   = data.today   || { date: "", visits: 0 };
-
-    const currentPage = "index.html"; // 🔧 cambia se il file è index.php
-
-    let totalVisits = 0;
-    let totalPageViews = 0;
-    for (const p of Object.keys(pages)) {
-      const pageObj = pages[p] || {};
-      const tot = pageObj.total ?? 0;
-      totalVisits    += tot;
-      totalPageViews += tot;
-    }
-
-    const thisPageTotal = pages[currentPage]?.total ?? 0;
-    const onlineCount   = Object.keys(data.online || {}).length;
-
-    document.getElementById("stat_totali").innerText  = totalVisits;
-    document.getElementById("stat_pagine").innerText  = totalPageViews;
-    document.getElementById("stat_pagina").innerText  = thisPageTotal;
-    document.getElementById("stat_online").innerText  = onlineCount;
-
-    document.getElementById("stat_mobile").innerText  = devices.mobile  ?? 0;
-    document.getElementById("stat_desktop").innerText = devices.desktop ?? 0;
-    document.getElementById("stat_tablet").innerText  = devices.tablet  ?? 0;
-
-    if (today.date) {
-      const parts = today.date.split("-");
-      if (parts.length === 3) {
-        document.getElementById("stat_data").innerText =
-          parts[2] + "/" + parts[1] + "/" + parts[0];
-      }
-    }
-
-  } catch (e) {
-    console.error("Errore stats:", e);
-  }
-}
-
-function updateClock() {
-  const now = new Date();
-  const hh  = String(now.getHours()).padStart(2, "0");
-  const mm  = String(now.getMinutes()).padStart(2, "0");
-  const ss  = String(now.getSeconds()).padStart(2, "0");
-  const el  = document.getElementById("stat_ora");
-  if (el) el.innerText = `${hh}:${mm}:${ss}`;
-}
-
-loadStats();
-setInterval(loadStats, 10000);
-updateClock();
-setInterval(updateClock, 1000);
-</script>
 <script>
 fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
     method: "GET",
