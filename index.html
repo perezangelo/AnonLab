@@ -711,7 +711,9 @@ setInterval(loadStats, 10000);
 updateClock();
 setInterval(updateClock, 1000);
 </script>
-  <script src="/counter/visit_counter.php?page=home"></script>
+  <script>
+fetch("https://angelonline.altervista.org/backend/visit_counter.php?page=home");
+</script>
 
 </body>
 </html>
