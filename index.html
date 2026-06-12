@@ -712,15 +712,10 @@ updateClock();
 setInterval(updateClock, 1000);
 </script>
 <script>
-fetch("https://angelonline.altervista.org/counter/visits.json", {
+fetch("https://angelonline.altervista.org/counter/visit_counter.php", {
     method: "GET",
     mode: "cors"
-})
-.then(r => r.json())
-.then(data => {
-    console.log("Dati visite:", data);
-})
-.catch(err => console.error("Errore stats:", err));
+});
 </script>
   
 </body>
