@@ -60,9 +60,7 @@ function initRadio() {
 
     selector.addEventListener("change", () => {
         const url = selector.value;
-        if (url) {
-            window.open(url, "_blank");
-        }
+        if (url) window.open(url, "_blank");
     });
 
     console.log("Radio inizializzata");
@@ -80,9 +78,7 @@ function initYouTubePlayer() {
 
     selector.addEventListener("change", () => {
         const id = selector.value;
-        if (id) {
-            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-        }
+        if (id) iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
     });
 
     console.log("YouTube Player inizializzato");
@@ -131,32 +127,26 @@ function initVisitCounter() {
     }
 
     // -----------------------------
-    // FETCH REAL-TIME DA ALTERVISTA
+    // FETCH REAL-TIME DA ANONLAB.IT
     // -----------------------------
     function loadRealCounter() {
         const pageName = window.location.pathname.replace("/", "") || "home";
 
-        // 1) Registra la visita (NON JSON)
-        fetch("https://angelonline.altervista.org/counter/visit_counter.php?page=" + pageName);
+        // 1) Registra la visita
+        fetch("https://anonlab.it/counter/visit_counter.php?page=" + pageName);
 
         // 2) Legge i dati reali (JSON)
-        fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now())
+        fetch("https://anonlab.it/counter/visits.php?cache=" + Date.now())
             .then(r => r.json())
             .then(data => {
 
-                // Totale visite oggi
                 animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
 
-                // Pagine totali
                 const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
                 animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
 
-                // Questa pagina
-                if (currentPageEl) {
-                    currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
-                }
+                if (currentPageEl) currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
 
-                // Lista pagine viste
                 if (listContainerEl) {
                     listContainerEl.innerHTML = "";
                     for (const p in data.pages) {
@@ -166,10 +156,8 @@ function initVisitCounter() {
                     }
                 }
 
-                // Utenti online
                 if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
 
-                // Dispositivi
                 if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
                 if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
                 if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
@@ -190,9 +178,6 @@ function initVisitCounter() {
         greetEl.textContent = greeting;
     }
 
-    // -----------------------------
-    // DATA
-    // -----------------------------
     function updateDate() {
         const now = new Date();
         dateEl.textContent =
@@ -201,9 +186,6 @@ function initVisitCounter() {
             now.getFullYear();
     }
 
-    // -----------------------------
-    // ORA
-    // -----------------------------
     function updateTime() {
         const now = new Date();
         timeEl.textContent =
@@ -212,9 +194,6 @@ function initVisitCounter() {
             `${String(now.getSeconds()).padStart(2, "0")}`;
     }
 
-    // -----------------------------
-    // AVVIO
-    // -----------------------------
     updateGreeting();
     updateDate();
     updateTime();
@@ -246,9 +225,14 @@ function initMobileMenu() {
     console.log("Navbar mobile inizializzata");
 }
 
-// Aspetta che i partial siano caricati
+// ===============================
+// AVVIO GENERALE
+// ===============================
+
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        initMobileMenu();
-    }, 300);
+    initCalculator();
+    initRadio();
+    initYouTubePlayer();
+    initVisitCounter();
+    initMobileMenu();
 });
