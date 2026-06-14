@@ -113,117 +113,118 @@ function initVisitCounter() {
         return;
     }
 
-   // -----------------------------
-// ANIMAZIONE NUMERICA
-// -----------------------------
-function animateValue(el, start, end, duration = 600) {
-    const range = end - start;
-    let startTime = null;
+    // -----------------------------
+    // ANIMAZIONE NUMERICA
+    // -----------------------------
+    function animateValue(el, start, end, duration = 600) {
+        const range = end - start;
+        let startTime = null;
 
-    function step(ts) {
-        if (!startTime) startTime = ts;
-        const progress = Math.min((ts - startTime) / duration, 1);
-        el.textContent = Math.floor(start + range * progress);
-        if (progress < 1) requestAnimationFrame(step);
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            const progress = Math.min((ts - startTime) / duration, 1);
+            el.textContent = Math.floor(start + range * progress);
+            if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
     }
 
-    requestAnimationFrame(step);
-}
+    // -----------------------------
+    // FETCH REAL-TIME DA ALTERVISTA
+    // -----------------------------
+    function loadRealCounter() {
+        const pageName = window.location.pathname.replace("/", "") || "home";
 
-// -----------------------------
-// FETCH REAL-TIME DA ANONLAB.IT
-// -----------------------------
-function loadRealCounter() {
-    const pageName = window.location.pathname.replace("/", "") || "home";
+        // 1) Registra la visita (NON JSON)
+        fetch("https://angelonline.altervista.org/counter/visit_counter.php?page=" + pageName);
 
-    // 1) Registra la visita (NON JSON)
-    fetch("https://anonlab.it/counter/visit_counter.php?page=" + pageName);
+        // 2) Legge i dati reali (JSON)
+        fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now())
+            .then(r => r.json())
+            .then(data => {
 
-    // 2) Legge i dati reali (JSON)
-    fetch("https://anonlab.it/counter/visits.php?cache=" + Date.now())
-        .then(r => r.json())
-        .then(data => {
+                // Totale visite oggi
+                animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
 
-            // Totale visite oggi
-            animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
+                // Pagine totali
+                const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
+                animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
 
-            // Pagine totali
-            const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
-            animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
-
-            // Questa pagina
-            if (currentPageEl) {
-                currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
-            }
-
-            // Lista pagine viste
-            if (listContainerEl) {
-                listContainerEl.innerHTML = "";
-                for (const p in data.pages) {
-                    const li = document.createElement("li");
-                    li.textContent = `${p}: ${data.pages[p].total}`;
-                    listContainerEl.appendChild(li);
+                // Questa pagina
+                if (currentPageEl) {
+                    currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
                 }
-            }
 
-            // Utenti online
-            if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
+                // Lista pagine viste
+                if (listContainerEl) {
+                    listContainerEl.innerHTML = "";
+                    for (const p in data.pages) {
+                        const li = document.createElement("li");
+                        li.textContent = `${p}: ${data.pages[p].total}`;
+                        listContainerEl.appendChild(li);
+                    }
+                }
 
-            // Dispositivi
-            if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
-            if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
-            if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
-        })
-        .catch(err => console.error("Errore counter:", err));
+                // Utenti online
+                if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
+
+                // Dispositivi
+                if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
+                if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
+                if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
+            })
+            .catch(err => console.error("Errore counter:", err));
+    }
+
+    // -----------------------------
+    // SALUTO DINAMICO
+    // -----------------------------
+    function updateGreeting() {
+        const hour = new Date().getHours();
+        let greeting = "Ciao!";
+        if (hour >= 5 && hour < 12) greeting = "Buongiorno!";
+        else if (hour >= 12 && hour < 18) greeting = "Buon pomeriggio!";
+        else if (hour >= 18 && hour < 23) greeting = "Buonasera!";
+        else greeting = "Buonanotte!";
+        greetEl.textContent = greeting;
+    }
+
+    // -----------------------------
+    // DATA
+    // -----------------------------
+    function updateDate() {
+        const now = new Date();
+        dateEl.textContent =
+            `${String(now.getDate()).padStart(2, "0")}/` +
+            `${String(now.getMonth() + 1).padStart(2, "0")}/` +
+            now.getFullYear();
+    }
+
+    // -----------------------------
+    // ORA
+    // -----------------------------
+    function updateTime() {
+        const now = new Date();
+        timeEl.textContent =
+            `${String(now.getHours()).padStart(2, "0")}:` +
+            `${String(now.getMinutes()).padStart(2, "0")}:` +
+            `${String(now.getSeconds()).padStart(2, "0")}`;
+    }
+
+    // -----------------------------
+    // AVVIO
+    // -----------------------------
+    updateGreeting();
+    updateDate();
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    loadRealCounter();
+    setInterval(loadRealCounter, 5000);
+
+    console.log("Contatore visite REAL-TIME attivo");
 }
-
-// -----------------------------
-// SALUTO DINAMICO
-// -----------------------------
-function updateGreeting() {
-    const hour = new Date().getHours();
-    let greeting = "Ciao!";
-    if (hour >= 5 && hour < 12) greeting = "Buongiorno!";
-    else if (hour >= 12 && hour < 18) greeting = "Buon pomeriggio!";
-    else if (hour >= 18 && hour < 23) greeting = "Buonasera!";
-    else greeting = "Buonanotte!";
-    greetEl.textContent = greeting;
-}
-
-// -----------------------------
-// DATA
-// -----------------------------
-function updateDate() {
-    const now = new Date();
-    dateEl.textContent =
-        `${String(now.getDate()).padStart(2, "0")}/` +
-        `${String(now.getMonth() + 1).padStart(2, "0")}/` +
-        now.getFullYear();
-}
-
-// -----------------------------
-// ORA
-// -----------------------------
-function updateTime() {
-    const now = new Date();
-    timeEl.textContent =
-        `${String(now.getHours()).padStart(2, "0")}:` +
-        `${String(now.getMinutes()).padStart(2, "0")}:` +
-        `${String(now.getSeconds()).padStart(2, "0")}`;
-}
-
-// -----------------------------
-// AVVIO
-// -----------------------------
-updateGreeting();
-updateDate();
-updateTime();
-setInterval(updateTime, 1000);
-
-loadRealCounter();
-setInterval(loadRealCounter, 5000);
-
-console.log("Contatore visite REAL-TIME attivo");
 
 // ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
