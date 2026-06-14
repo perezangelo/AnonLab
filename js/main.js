@@ -85,7 +85,7 @@ function initYouTubePlayer() {
 }
 
 // ===============================
-// CONTATORE VISITE REALE (PRO)
+// CONTATORE VISITE — VERSIONE GITHUB
 // ===============================
 
 function initVisitCounter() {
