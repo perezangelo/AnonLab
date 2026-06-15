@@ -88,6 +88,53 @@ function initYouTubePlayer() {
     console.log("YouTube Player inizializzato");
 }
 
+// -----------------------------
+// FETCH REAL-TIME DA ALTERVISTA (SOLO LETTURA)
+// -----------------------------
+function loadRealCounter() {
+    const pageName = window.location.pathname.replace("/", "") || "home";
+
+    // 1) Registrazione visita DISATTIVATA su GitHub (evita CORS)
+    console.log("Visita NON registrata da GitHub (CORS).");
+
+    // 2) Legge i dati reali (JSON)
+    fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now())
+        .then(r => r.json())
+        .then(data => {
+
+            // Totale visite oggi
+            animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
+
+            // Pagine totali
+            const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
+            animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
+
+            // Questa pagina
+            if (currentPageEl) {
+                currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
+            }
+
+            // Lista pagine viste
+            if (listContainerEl) {
+                listContainerEl.innerHTML = "";
+                for (const p in data.pages) {
+                    const li = document.createElement("li");
+                    li.textContent = `${p}: ${data.pages[p].total}`;
+                    listContainerEl.appendChild(li);
+                }
+            }
+
+            // Utenti online
+            if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
+
+            // Dispositivi
+            if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
+            if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
+            if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
+        })
+        .catch(err => console.error("Errore counter:", err));
+}
+
 // ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
 // ===============================
