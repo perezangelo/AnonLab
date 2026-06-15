@@ -88,51 +88,138 @@ function initYouTubePlayer() {
     console.log("YouTube Player inizializzato");
 }
 
-// -----------------------------
-// FETCH REAL-TIME DA ALTERVISTA (SOLO LETTURA)
-// -----------------------------
-function loadRealCounter() {
-    const pageName = window.location.pathname.replace("/", "") || "home";
+// ===============================
+// CONTATORE VISITE REALE (PRO)
+// ===============================
 
-    // 1) Registrazione visita DISATTIVATA su GitHub (evita CORS)
-    console.log("Visita NON registrata da GitHub (CORS).");
+function initVisitCounter() {
 
-    // 2) Legge i dati reali (JSON)
-    fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now())
-        .then(r => r.json())
-        .then(data => {
+    const counterEl = document.getElementById("visit-counter");
+    const pageEl    = document.getElementById("page-counter");
+    const dateEl    = document.getElementById("visit-date");
+    const timeEl    = document.getElementById("visit-time");
+    const greetEl   = document.getElementById("visit-greeting");
 
-            // Totale visite oggi
-            animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
+    const currentPageEl   = document.getElementById("current-page-count");
+    const listContainerEl = document.getElementById("pages-list");
 
-            // Pagine totali
-            const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
-            animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
+    const onlineEl = document.getElementById("online-users");
+    const devMobileEl  = document.getElementById("dev-mobile");
+    const devDesktopEl = document.getElementById("dev-desktop");
+    const devTabletEl  = document.getElementById("dev-tablet");
 
-            // Questa pagina
-            if (currentPageEl) {
-                currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
-            }
+    if (!counterEl) {
+        console.warn("Sidebar non pronta, counter non inizializzato");
+        return;
+    }
 
-            // Lista pagine viste
-            if (listContainerEl) {
-                listContainerEl.innerHTML = "";
-                for (const p in data.pages) {
-                    const li = document.createElement("li");
-                    li.textContent = `${p}: ${data.pages[p].total}`;
-                    listContainerEl.appendChild(li);
+    // -----------------------------
+    // ANIMAZIONE NUMERICA
+    // -----------------------------
+    function animateValue(el, start, end, duration = 600) {
+        const range = end - start;
+        let startTime = null;
+
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            const progress = Math.min((ts - startTime) / duration, 1);
+            el.textContent = Math.floor(start + range * progress);
+            if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    // -----------------------------
+    // FETCH REAL-TIME DA ALTERVISTA
+    // -----------------------------
+    function loadRealCounter() {
+        const pageName = window.location.pathname.replace("/", "") || "home";
+
+        // 1) Registra la visita (NON JSON)
+        fetch("https://angelonline.altervista.org/counter/visit_counter.php?page=" + pageName);
+
+
+                // Totale visite oggi
+                animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
+
+                // Pagine totali
+                const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
+                animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
+
+                // Questa pagina
+                if (currentPageEl) {
+                    currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
                 }
-            }
 
-            // Utenti online
-            if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
+                // Lista pagine viste
+                if (listContainerEl) {
+                    listContainerEl.innerHTML = "";
+                    for (const p in data.pages) {
+                        const li = document.createElement("li");
+                        li.textContent = `${p}: ${data.pages[p].total}`;
+                        listContainerEl.appendChild(li);
+                    }
+                }
 
-            // Dispositivi
-            if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
-            if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
-            if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
-        })
-        .catch(err => console.error("Errore counter:", err));
+                // Utenti online
+                if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
+
+                // Dispositivi
+                if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
+                if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
+                if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
+            })
+            .catch(err => console.error("Errore counter:", err));
+    }
+
+    // -----------------------------
+    // SALUTO DINAMICO
+    // -----------------------------
+    function updateGreeting() {
+        const hour = new Date().getHours();
+        let greeting = "Ciao!";
+        if (hour >= 5 && hour < 12) greeting = "Buongiorno!";
+        else if (hour >= 12 && hour < 18) greeting = "Buon pomeriggio!";
+        else if (hour >= 18 && hour < 23) greeting = "Buonasera!";
+        else greeting = "Buonanotte!";
+        greetEl.textContent = greeting;
+    }
+
+    // -----------------------------
+    // DATA
+    // -----------------------------
+    function updateDate() {
+        const now = new Date();
+        dateEl.textContent =
+            `${String(now.getDate()).padStart(2, "0")}/` +
+            `${String(now.getMonth() + 1).padStart(2, "0")}/` +
+            now.getFullYear();
+    }
+
+    // -----------------------------
+    // ORA
+    // -----------------------------
+    function updateTime() {
+        const now = new Date();
+        timeEl.textContent =
+            `${String(now.getHours()).padStart(2, "0")}:` +
+            `${String(now.getMinutes()).padStart(2, "0")}:` +
+            `${String(now.getSeconds()).padStart(2, "0")}`;
+    }
+
+    // -----------------------------
+    // AVVIO
+    // -----------------------------
+    updateGreeting();
+    updateDate();
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    loadRealCounter();
+    setInterval(loadRealCounter, 5000);
+
+    console.log("Contatore visite REAL-TIME attivo");
 }
 
 // ===============================
