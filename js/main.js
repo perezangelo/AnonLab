@@ -136,7 +136,7 @@ function initVisitCounter() {
     function loadRealCounter() {
         const pageName = window.location.pathname.replace("/", "") || "home";
         
-        // 2) Legge i dati reali (JSON)
+        // Legge i dati reali (JSON)
         fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now())
             .then(r => r.json())
             .then(data => {
