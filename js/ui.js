@@ -271,10 +271,10 @@ function waitForSidebar() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    loadPartial("header", "/partials/header.html");
-    loadPartial("ticker", "/partials/ticker.html");
-    loadPartial("sidebar", "/partials/sidebar.html");
-    loadPartial("footer", "/partials/footer.html");
+loadPartial("header", "partials/header.html");
+loadPartial("ticker", "partials/ticker.html");
+loadPartial("sidebar", "partials/sidebar.html");
+loadPartial("footer", "partials/footer.html");
 
     waitForSidebar().then(() => {
 
