@@ -449,10 +449,10 @@ async function sendNewsletter(e) {
   loading="lazy"
   decoding="async">
       </div>
-      <section class="widget-large">
+     <section class="widget-large" aria-labelledby="threat-map">
   <div class="box-title-row">
     <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map — Attacchi globali in tempo reale">
-    <h2 class="widget-title">Cyber Threat Map (Live)</h2>
+   <h2 id="threat-map">Cyber Threat Map (Live)</h2>
   </div>
 
   <div class="widget-content">
@@ -479,10 +479,10 @@ async function sendNewsletter(e) {
       </section>
 
         <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
-<section class="widget-large">
+<section class="widget-large" aria-labelledby="cve-today-title">
   <div class="box-title-row">
    <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid — Vulnerabilità del giorno">
-    <h2>Vulnerabilità del Giorno</h2>
+     <h2 id="cve-today-title">Vulnerabilità del Giorno</h2>
   </div>
 
   <div id="cve-today">
@@ -493,10 +493,10 @@ async function sendNewsletter(e) {
 <script src="/js/cve-today.js"></script>
       
       <!-- CYBER ALERT LIVE -->
-      <section class="widget-large">
+     <section class="widget-large" aria-labelledby="alert-live-title">
         <div class="box-title-row">
          <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit — Cyber Alert Live">
-          <h2>Cyber Alert Live</h2>
+          <h2 id="alert-live-title">Cyber Alert Live</h2>
 
           <!-- 🔗 LINK ESTERNO CISA -->
           <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
