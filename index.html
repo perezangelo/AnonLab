@@ -134,37 +134,16 @@
   <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
 
   <img 
-  src="img/eyes.png" 
-  alt="AnonLab — Cybersecurity, Threat Intelligence e Analisi Tecniche"
-  class="hero-favicon"
-  loading="eager"
-  decoding="async"
-  fetchpriority="high"
-/>
+    src="img/eyes.png" 
+    alt="AnonLab Eyes" 
+    class="hero-favicon"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  >
 
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
-
-<!-- ⭐ MICRO‑PARAGRAFO TECNICO (VERSIONE MEDIUM) -->
-<div style="
-  margin-top:18px;
-  margin-bottom:28px;
-  font-size:0.95rem;
-  color:#7fdfff;
-  text-shadow:0 0 6px #009dff55;
-  line-height:1.45;
-">
-  AnonLab analizza minacce, vulnerabilità e trend cyber con un approccio SOC‑oriented.<br>
-  Strumenti, dati e intelligence per comprendere l’evoluzione degli attacchi digitali.
-</div>
-
-<!-- ⭐ BLOCCO SEO INVISIBILE (GOOGLE-ONLY, NON VISIBILE AGLI UTENTI) -->
-<div style="position:absolute; left:-9999px; top:-9999px; opacity:0;">
-  cybersecurity italiana, threat intelligence, analisi tecnica, vulnerabilità CVE,
-  attacchi informatici 2026, SOC analysis, OSINT tools, cyber threat map,
-  sicurezza digitale, monitoraggio minacce, AI security, ransomware trends,
-  exploit zero‑day, digital forensics, cyber defense, incident response.
-</div>
 
 <!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
 <div style="position:relative; margin-top:25px; display:inline-block;">
@@ -205,16 +184,16 @@
          z-index:9999;
        ">
 
-    <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer">
+    <a href='https://thehackernews.com' target='_blank'
        style='display:block; margin-bottom:12px; color:#ffb366;'>TheHackerNews</a>
 
-    <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener noreferrer">
+    <a href='https://www.bleepingcomputer.com' target='_blank'
        style='display:block; margin-bottom:12px; color:#ffb366;'>BleepingComputer</a>
 
-    <a href="https://www.darkreading.com" target="_blank' rel="noopener noreferrer">
+    <a href='https://www.darkreading.com' target='_blank'
        style='display:block; margin-bottom:12px; color:#ffb366;'>DarkReading</a>
 
-    <a href="https://www.securityweek.com' target="_blank" rel="noopener noreferrer">
+    <a href='https://www.securityweek.com' target='_blank'
        style='display:block; margin-bottom:12px; color:#ffb366;'>SecurityWeek</a>
 
   </div>
@@ -232,10 +211,16 @@
 
 <!-- IMMAGINE SOTTO IL MENU -->
 <img src="img/ai-soc.jpg"
-     alt="AI SOC — Automazione e analisi delle minacce digitali"
-     style="width:220px; height:auto; margin-top:0; margin-bottom:25px; border-radius:6px; box-shadow:0 0 12px #ff7b00aa; display:block;"
-     loading="lazy"
-     decoding="async">
+     alt="AI SOC"
+     style="
+       width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
+       height:auto;
+       margin-top:0px;   /* leggero rialzo */
+       margin-bottom:25px; /* 🔥 stacco dal box sottostante */
+       border-radius:6px;
+       box-shadow:0 0 12px #ff7b00aa;
+       display:block;
+     ">
 
 <script>
 const toggle = document.getElementById("newsToggle");
@@ -437,22 +422,25 @@ async function sendNewsletter(e) {
       <div style="margin-top:60px;"></div>
 
       <!-- ULTIME NEWS -->
-      <section class="widget-large" aria-labelledby="news-latest">
-  <h2 id="news-latest">Ultime dal mondo cyber</h2>
+      <section class="widget-large">
+        <h2>Ultime dal mondo cyber</h2>
         <div id="home-news"></div>
       </section>
 
-      <img 
-  src="/img/anonymous.png" 
-  alt="Anonymous — Attività cyber globale"
-  style="width:100%; height:auto; border-radius:10px;"
-  loading="lazy"
-  decoding="async">
+      <!-- Immagine Anonymous sopra Cyber Threat Level -->
+      <div style="width:100%; margin:0 0 16px 0;">
+          <img 
+            src="/img/anonymous.png" 
+            alt="Anonymous" 
+            style="width:100%; height:auto; border-radius:10px;"
+            loading="lazy"
+            decoding="async"
+          >
       </div>
       <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map — Attacchi globali in tempo reale">
-    <h2 class="widget-title">Cyber Threat Map (Live)</h2>
+    <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map">
+    <h2>Cyber Threat Map (Live)</h2>
   </div>
 
   <div class="widget-content">
@@ -469,7 +457,7 @@ async function sendNewsletter(e) {
       <!-- CYBER THREAT LEVEL -->
       <section class="widget-large">
         <div class="box-title-row">
-         <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield — Livello minaccia attuale">
+          <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
           <h2>Cyber Threat Level</h2>
         </div>
         <div class="threat-box">
@@ -481,7 +469,7 @@ async function sendNewsletter(e) {
         <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
 <section class="widget-large">
   <div class="box-title-row">
-   <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid — Vulnerabilità del giorno">
+    <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid">
     <h2>Vulnerabilità del Giorno</h2>
   </div>
 
@@ -495,7 +483,7 @@ async function sendNewsletter(e) {
       <!-- CYBER ALERT LIVE -->
       <section class="widget-large">
         <div class="box-title-row">
-         <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit — Cyber Alert Live">
+          <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
           <h2>Cyber Alert Live</h2>
 
           <!-- 🔗 LINK ESTERNO CISA -->
@@ -522,7 +510,7 @@ async function sendNewsletter(e) {
       <!-- TECH RADAR -->
       <section class="widget-large">
         <div class="box-title-row">
-         <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Tech Radar — Trend tecnologici 2026">
+          <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
           <h2>Tech Radar</h2>
 
           <!-- 🔗 LINK ESTERNO ENISA -->
@@ -620,7 +608,7 @@ async function sendNewsletter(e) {
      <!-- HACKER ACTIVITY HEATMAP -->
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/threat-2.png" class="box-title-icon" alt="Hacker Activity Heatmap — Attività cyber globale">
+    <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
     <h2>Hacker Activity Heatmap</h2>
 
     <!-- 🔗 LINK ESTERNO DARKREADING THREAT INTELLIGENCE -->
