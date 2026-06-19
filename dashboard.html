@@ -109,72 +109,38 @@
   </p>
 
   <!-- FEED REAL-TIME (Altervista) -->
-  <h3 class="pillar-subtitle">Cyber Threat Feed (Real‑Time)</h3>
-  <div id="cyber-feed" class="pillar-feed">Caricamento feed...</div>
+<h3 class="pillar-subtitle">Cyber Threat Feed (Real‑Time)</h3>
+<div id="cyber-feed" class="pillar-feed">Caricamento feed...</div>
 
-  <script>
-  async function loadCyberFeed() {
-      try {
-          const res = await fetch("https://angelonline.altervista.org/soc/cyber_feed.php");
-          const data = await res.json();
+<script>
+async function loadCyberFeed() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/cyber_feed.php");
+        const data = await res.json();
 
-          const box = document.getElementById("cyber-feed");
-          box.innerHTML = "";
+        const box = document.getElementById("cyber-feed");
+        box.innerHTML = "";
 
-          data.slice(0, 6).forEach(item => {
-              const div = document.createElement("div");
-              div.className = "feed-item";
-              div.innerHTML = `
-                  <strong>${item.title}</strong><br>
-                  <span style="color:#7fdfff">${item.time}</span><br>
-                  <a href="${item.link}" target="_blank" style="color:#00eaff">Apri →</a>
-                  <hr style="border-color:#003344">
-              `;
-              box.appendChild(div);
-          });
+        data.slice(0, 6).forEach(item => {
+            const div = document.createElement("div");
+            div.className = "feed-item";
+            div.innerHTML = `
+                <strong>${item.title}</strong><br>
+                <span style="color:#7fdfff">${item.time}</span><br>
+                <a href="${item.link}" target="_blank" style="color:#00eaff">Apri →</a>
+                <hr style="border-color:#003344">
+            `;
+            box.appendChild(div);
+        });
 
-      } catch (e) {
-          document.getElementById("cyber-feed").innerHTML = "Errore caricamento feed.";
-      }
-  }
-  loadCyberFeed();
-  setInterval(loadCyberFeed, 60000);
-  </script>
+    } catch (e) {
+        document.getElementById("cyber-feed").innerHTML = "Errore caricamento feed.";
+    }
+}
 
-</div>
-      
-        <!-- FEED REAL-TIME (Altervista) -->
-        <h3 class="pillar-subtitle">Cyber Threat Feed (Real‑Time)</h3>
-        <div id="cyber-feed" class="pillar-feed">Caricamento feed...</div>
-
-        <script>
-        async function loadCyberFeed() {
-            try {
-                const res = await fetch("https://angelonline.altervista.org/soc/cyber_feed.php");
-                const data = await res.json();
-
-                const box = document.getElementById("cyber-feed");
-                box.innerHTML = "";
-
-                data.slice(0, 6).forEach(item => {
-                    const div = document.createElement("div");
-                    div.className = "feed-item";
-                    div.innerHTML = `
-                        <strong>${item.title}</strong><br>
-                        <span style="color:#7fdfff">${item.time}</span><br>
-                        <a href="${item.link}" target="_blank" style="color:#00eaff">Apri →</a>
-                        <hr style="border-color:#003344">
-                    `;
-                    box.appendChild(div);
-                });
-
-            } catch (e) {
-                document.getElementById("cyber-feed").innerHTML = "Errore caricamento feed.";
-            }
-        }
-        loadCyberFeed();
-        setInterval(loadCyberFeed, 60000);
-        </script>
+loadCyberFeed();
+setInterval(loadCyberFeed, 60000);
+</script>
 
         <!-- LINK INTERNI -->
         <h3 class="pillar-subtitle">Sezioni AnonLab</h3>
