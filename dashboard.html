@@ -902,6 +902,88 @@
   startDarkWebSignals();
   </script>
 </div>
+
+      <div class="cyber-box" style="
+          background:#000814;
+          border:1px solid #ff0044aa;
+          padding:25px;
+          margin-top:40px;
+          margin-bottom:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #ff0044aa;
+      ">
+  <h3 style="color:#ff0044;">Threat Level Indicator</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Livello di minaccia globale calcolato in base ai feed attivi.
+  </p>
+
+  <div id="threat-level-box" style="
+        width:100%;
+        height:35px;
+        background:#111;
+        border-radius:6px;
+        overflow:hidden;
+        margin-bottom:15px;
+      ">
+      <div id="threat-bar" style="
+          height:100%;
+          width:0%;
+          background:#00ff99;
+          transition:width 0.6s ease, background 0.6s ease;
+      "></div>
+  </div>
+
+  <div id="threat-text" style="color:#fff; font-size:18px; font-weight:bold;">
+    Calcolo in corso...
+  </div>
+
+  <script>
+  /* ============================================================
+         THREAT LEVEL INDICATOR — Versione Reale Altervista
+     ============================================================ */
+
+  function startThreatLevel() {
+      const bar = document.getElementById("threat-bar");
+      const text = document.getElementById("threat-text");
+
+      if (!bar || !text) {
+          return setTimeout(startThreatLevel, 200);
+      }
+
+      async function loadThreat() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
+              const data = await res.json();
+
+              const livello = data.level;   // numero 0–100
+              const stato  = data.status;   // BASSO / MEDIO / ALTO / CRITICO
+
+              // Colori dinamici
+              const color =
+                  stato === "CRITICO" ? "#ff0044" :
+                  stato === "ALTO"    ? "#ff6600" :
+                  stato === "MEDIO"   ? "#ffaa00" :
+                                        "#00ff99";
+
+              bar.style.width = livello + "%";
+              bar.style.background = color;
+
+              text.innerHTML = `Livello attuale: <span style="color:${color};">${stato}</span> (${livello}%)`;
+
+          } catch (error) {
+              console.error("Errore Threat Level:", error);
+              text.innerHTML = "<span style='color:#888;'>Impossibile caricare il livello di minaccia</span>";
+          }
+      }
+
+      loadThreat();
+      setInterval(loadThreat, 10000);
+  }
+
+  startThreatLevel();
+  </script>
+</div>
     </section>
 
     <!-- SIDEBAR -->
