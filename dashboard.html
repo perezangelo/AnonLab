@@ -951,6 +951,131 @@
 
     </section>
 
+    <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff8800aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff8800aa;
+">
+  <h3 style="color:#ff8800;">Honeypot Attack Log</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Attività malevole rilevate dai sistemi honeypot nelle ultime ore.
+  </p>
+
+  <div id="honeypot-log" style="color:#fff; line-height:1.7;">
+    Caricamento...
+  </div>
+
+  <script>
+  /* ============================================================
+     HONEYPOT ATTACK LOG — Versione Reale Altervista
+  ============================================================ */
+
+  function startHoneypotLog() {
+      const box = document.getElementById("honeypot-log");
+
+      if (!box) return setTimeout(startHoneypotLog, 200);
+
+      async function loadHoneypot() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/honeypot_log.php");
+              const data = await res.json();
+
+              box.innerHTML = "";
+
+              data.forEach(item => {
+                  const [ip, vector, time] = item;
+
+                  box.innerHTML += `
+                      <div style="margin-bottom:12px;">
+                          <strong style="color:#ff8800;">${ip}</strong><br>
+                          Vettore: ${vector}<br>
+                          <span style="color:#7fdfff;">${time}</span>
+                          <hr style="border-color:#222;">
+                      </div>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Honeypot Log:", error);
+              box.innerHTML = "<span style='color:#888;'>Impossibile caricare i dati</span>";
+          }
+      }
+
+      loadHoneypot();
+      setInterval(loadHoneypot, 15000);
+  }
+
+  startHoneypotLog();
+  </script>
+</div>
+
+    <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #7a00ffaa;
+    padding:25px;
+    margin-top:40px;
+    margin-bottom:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #7a00ffaa;
+">
+  <h3 style="color:#b366ff;">Dark Web Signals</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Segnali e discussioni rilevanti provenienti da fonti monitorate nel dark web.
+  </p>
+
+  <div id="darkweb-signals" style="color:#fff; line-height:1.7;">
+    Caricamento...
+  </div>
+
+  <script>
+  /* ============================================================
+     DARK WEB SIGNALS — Versione Reale Altervista
+  ============================================================ */
+
+  function startDarkWebSignals() {
+      const box = document.getElementById("darkweb-signals");
+
+      if (!box) return setTimeout(startDarkWebSignals, 200);
+
+      async function loadSignals() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/darkweb_signals.php");
+              const data = await res.json();
+
+              box.innerHTML = "";
+
+              data.forEach(item => {
+                  const [topic, detail, time] = item;
+
+                  box.innerHTML += `
+                      <div style="margin-bottom:12px;">
+                          <strong style="color:#b366ff;">${topic}</strong><br>
+                          ${detail}<br>
+                          <span style="color:#7fdfff;">${time}</span>
+                          <hr style="border-color:#222;">
+                      </div>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Dark Web Signals:", error);
+              box.innerHTML = "<span style='color:#888;'>Impossibile caricare i dati</span>";
+          }
+      }
+
+      loadSignals();
+      setInterval(loadSignals, 20000);
+  }
+
+  startDarkWebSignals();
+  </script>
+</div>
+
     <!-- SIDEBAR -->
     <div id="sidebar"></div>
 
