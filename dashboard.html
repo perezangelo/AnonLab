@@ -32,7 +32,6 @@
         Monitoraggio in tempo reale dello stato dei sistemi, livello di minaccia,
         log eventi e attività di rete.
       </p>
-
       <div class="soc-grid">
 
         <!-- THREAT LEVEL -->
@@ -76,249 +75,137 @@
         </div>
 
       </div> <!-- /soc-grid -->
-     <!-- ============================
-     PILLAR PAGE — SOC DASHBOARD
-============================= -->
-<div class="pillar-box" style="position:relative; z-index:3;">
 
-  <h2 class="pillar-title">SOC Dashboard — Analisi, Monitoraggio e Cyber Intelligence</h2>
-
-  <p class="pillar-desc">
-    Questa sezione trasforma la tua dashboard in una vera <strong>Security Operations Center</strong> virtuale.
-    Contenuti tecnici, video, feed real‑time e collegamenti autorevoli rendono questa pagina
-    una risorsa completa per analisti, ricercatori e appassionati di cybersecurity.
-  </p>
-
-  <!-- VIDEO ANONYMOUS (video funzionante) -->
-<div class="video-responsive">
-    <iframe 
-        src="https://www.youtube.com/embed/2JclQdQKxFg"
-        title="Anonymous Documentary"
-        frameborder="0"
-        style="position:absolute; z-index:5; pointer-events:auto;"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-</div>
-
-  <h3 class="pillar-subtitle">Chi è Anonymous?</h3>
-  <p class="pillar-desc">
-    Anonymous è un collettivo hacktivista noto per operazioni globali contro censura,
-    corruzione e violazioni dei diritti umani. Le loro attività hanno influenzato
-    la cultura digitale moderna e il concetto stesso di attivismo online.
-  </p>
-
-  <!-- FEED REAL-TIME (Altervista) -->
-<h3 class="pillar-subtitle">Cyber Threat Feed (Real‑Time)</h3>
-<div id="cyber-feed" class="pillar-feed">Caricamento feed...</div>
-
-<script>
-async function loadCyberFeed() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/cyber_feed.php");
-        const data = await res.json();
-
-        const box = document.getElementById("cyber-feed");
-        box.innerHTML = "";
-
-        data.slice(0, 6).forEach(item => {
-            const div = document.createElement("div");
-            div.className = "feed-item";
-            div.innerHTML = `
-                <strong>${item.title}</strong><br>
-                <span style="color:#7fdfff">${item.time}</span><br>
-                <a href="${item.link}" target="_blank" style="color:#00eaff">Apri →</a>
-                <hr style="border-color:#003344">
-            `;
-            box.appendChild(div);
-        });
-
-    } catch (e) {
-        document.getElementById("cyber-feed").innerHTML = "Errore caricamento feed.";
-    }
-}
-
-loadCyberFeed();
-setInterval(loadCyberFeed, 60000);
-</script>
-
-        <!-- LINK INTERNI -->
-        <h3 class="pillar-subtitle">Sezioni AnonLab</h3>
-        <div class="pillar-links">
-            <a href="/tools.html">Tools Cyber →</a>
-            <a href="/osint.html">OSINT Tools →</a>
-            <a href="/news.html">Cyber News →</a>
-            <a href="/threats.html">Threat Intelligence →</a>
-            <a href="/ai.html">AI Security →</a>
-        </div>
-
-        <!-- LINK ESTERNI AUTOREVOLI -->
-        <h3 class="pillar-subtitle">Fonti Autorevoli</h3>
-        <div class="pillar-links">
-            <a href="https://www.cisa.gov/news-events" target="_blank">CISA Alerts →</a>
-            <a href="https://nvd.nist.gov" target="_blank">NIST NVD →</a>
-            <a href="https://attack.mitre.org" target="_blank">MITRE ATT&CK →</a>
-            <a href="https://www.reuters.com/technology" target="_blank">Reuters Tech →</a>
-            <a href="https://www.darkreading.com" target="_blank">DarkReading →</a>
-        </div>
-
-      </div>
-
-      <!-- SOC METRICS OVERVIEW (DINAMICO) -->
+      <!-- ANONYMOUS LIVE OPERATIONS FEED -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #ffaa00aa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #ffaa00aa;
+          background:#000814;
+          border:1px solid #00eaffaa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #00eaffaa;
       ">
-        <h3 style="color:#ffaa00;">SOC Metrics Overview</h3>
+        <h3 style="color:#00eaff;">Anonymous — Live Operations Feed</h3>
 
         <p style="color:#ccc; margin-bottom:15px;">
-          Indicatori chiave del SOC aggiornati in tempo reale.
+          Attività operative, comunicati e movimenti del collettivo Anonymous monitorati in tempo reale.
         </p>
 
-        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <div id="anon-live-feed" style="color:#fff; line-height:1.7;">
+          Caricamento feed...
+        </div>
 
+        <script>
+        function startAnonLiveFeed() {
+            const box = document.getElementById("anon-live-feed");
+            if (!box) return setTimeout(startAnonLiveFeed, 200);
+
+            async function loadAnonOps() {
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/soc/anon_live_ops.php");
+                    const data = await res.json();
+
+                    box.innerHTML = "";
+                    data.forEach(item => {
+                        const [operazione, ora, fonte, link] = item;
+                        box.innerHTML += `
+                            <div style="margin-bottom:12px;">
+                                <strong style="color:#00eaff;">${operazione}</strong><br>
+                                <span style="color:#7fdfff;">${ora}</span><br>
+                                <span style="color:#ccc;">Fonte: ${fonte}</span><br>
+                                <a href="${link}" target="_blank" style="color:#00eaff;">Dettagli →</a>
+                            </div>
+                        `;
+                    });
+
+                } catch (error) {
+                    console.error("Errore Anonymous Live Feed:", error);
+                    box.innerHTML = "<span style='color:#888;'>Impossibile caricare il feed</span>";
+                }
+            }
+
+            loadAnonOps();
+            setInterval(loadAnonOps, 20000);
+        }
+        startAnonLiveFeed();
+        </script>
+      </div>
+      <div class="cyber-box" style="
+          background:#000814;
+          border:1px solid #ffaa00aa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #ffaa00aa;
+      ">
+        <h3 style="color:#ffaa00;">SOC Metrics Overview</h3>
+        <p style="color:#ccc; margin-bottom:15px;">Indicatori chiave del SOC aggiornati in tempo reale.</p>
+
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
           <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Incidenti aperti</h4>
-            <p id="metric-incidenti" class="metric-value" style="color:#fff; font-size:24px; margin-top:10px;">--</p>
+            <p style="color:#fff; font-size:24px; margin-top:10px;">12</p>
           </div>
 
           <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Minacce critiche</h4>
-            <p id="metric-minacce" class="metric-value" style="color:#fff; font-size:24px; margin-top:10px;">--</p>
+            <p style="color:#fff; font-size:24px; margin-top:10px;">7</p>
           </div>
 
           <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Allarmi attivi</h4>
-            <p id="metric-allarmi" class="metric-value" style="color:#fff; font-size:24px; margin-top:10px;">--</p>
+            <p style="color:#fff; font-size:24px; margin-top:10px;">19</p>
           </div>
 
           <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Zero‑day monitorati</h4>
-            <p id="metric-zeroday" class="metric-value" style="color:#fff; font-size:24px; margin-top:10px;">--</p>
+            <p style="color:#fff; font-size:24px; margin-top:10px;">3</p>
           </div>
-
         </div>
-
-        <script>
-        /* ============================================================
-           SOC METRICS OVERVIEW — Dinamico da Altervista
-        ============================================================ */
-        function startMetricsOverview() {
-
-            async function loadMetrics() {
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/soc/metrics_overview.php");
-                    const data = await res.json();
-
-                    document.getElementById("metric-incidenti").innerText = data.incidenti;
-                    document.getElementById("metric-minacce").innerText  = data.minacce;
-                    document.getElementById("metric-allarmi").innerText  = data.allarmi;
-                    document.getElementById("metric-zeroday").innerText  = data.zeroday;
-
-                } catch (e) {
-                    console.error("Errore Metrics Overview:", e);
-                }
-            }
-
-            loadMetrics();
-            setInterval(loadMetrics, 10000);
-        }
-        startMetricsOverview();
-        </script>
       </div>
 
-      <!-- SECURITY SCORE (DINAMICO) -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #00eaffaa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #00eaffaa;
+          background:#000814;
+          border:1px solid #00eaffaa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #00eaffaa;
       ">
         <h3 style="color:#00eaff;">Security Score</h3>
+        <p style="color:#ccc; margin-bottom:15px;">Valutazione complessiva dello stato di sicurezza dell’infrastruttura.</p>
 
-        <p style="color:#ccc; margin-bottom:15px;">
-          Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
-        </p>
-
-        <div id="security-score-circle" style="
-            width:180px; height:180px; margin:auto; border-radius:50%;
-            background:conic-gradient(#00eaff 0% 50%, #222 50% 100%);
+        <div style="width:180px; height:180px; margin:auto; border-radius:50%;
+            background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
             display:flex; align-items:center; justify-content:center;
             box-shadow:0 0 20px #00eaffaa;">
-          <span id="security-score-value" style="color:#fff; font-size:32px; font-weight:bold;">--</span>
+          <span style="color:#fff; font-size:32px; font-weight:bold;">78</span>
         </div>
 
-        <p id="security-score-status" style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
-          Stato: --
+        <p style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
+          Stato: ALTO
         </p>
-
-        <script>
-        /* ============================================================
-           SECURITY SCORE — Dinamico da Altervista
-        ============================================================ */
-        function startSecurityScore() {
-            const scoreBox = document.getElementById("security-score-value");
-            const circle   = document.getElementById("security-score-circle");
-            const stato    = document.getElementById("security-score-status");
-
-            async function loadScore() {
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/soc/security_score.php");
-                    const data = await res.json();
-
-                    scoreBox.innerText = data.score;
-                    stato.innerText    = "Stato: " + data.stato;
-
-                    circle.style.background =
-                        `conic-gradient(#00eaff 0% ${data.score}%, #222 ${data.score}% 100%)`;
-
-                } catch (e) {
-                    console.error("Errore Security Score:", e);
-                }
-            }
-
-            loadScore();
-            setInterval(loadScore, 15000);
-        }
-        startSecurityScore();
-        </script>
       </div>
-      <!-- NETWORK TRAFFIC MONITOR -->
+
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #00eaffaa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #00eaffaa;
+          background:#000814;
+          border:1px solid #00eaffaa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #00eaffaa;
       ">
         <h3 style="color:#00eaff;">Network Traffic Monitor</h3>
-
-        <p style="color:#ccc; margin-bottom:15px;">
-          Traffico di rete in tempo reale suddiviso per protocollo.
-        </p>
+        <p style="color:#ccc; margin-bottom:15px;">Traffico di rete in tempo reale suddiviso per protocollo.</p>
 
         <div style="width:100%; height:220px; background:#111; border-radius:6px; padding:15px;">
           <canvas id="netTrafficChart"></canvas>
         </div>
 
         <script>
-        /* ============================================================
-           NETWORK TRAFFIC MONITOR — Versione Reale Altervista
-        ============================================================ */
-
         function startNetworkTrafficMonitor() {
             const ctx = document.getElementById("netTrafficChart");
-
-            if (!ctx || typeof Chart === "undefined") {
-                return setTimeout(startNetworkTrafficMonitor, 200);
-            }
+            if (!ctx || typeof Chart === "undefined") return setTimeout(startNetworkTrafficMonitor, 200);
 
             async function loadNetworkTraffic() {
                 try {
@@ -360,39 +247,27 @@ setInterval(loadCyberFeed, 60000);
             loadNetworkTraffic();
             setInterval(loadNetworkTraffic, 10000);
         }
-
         startNetworkTrafficMonitor();
         </script>
       </div>
 
-      <!-- TOP 5 IP SOSPETTI -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #ff0044aa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #ff0044aa;
+          background:#000814;
+          border:1px solid #ff0044aa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #ff0044aa;
       ">
         <h3 style="color:#ff0044;">Top 5 IP Sospetti</h3>
-
-        <p style="color:#ccc; margin-bottom:15px;">
-          Indirizzi IP con attività anomala rilevata nelle ultime ore.
-        </p>
+        <p style="color:#ccc; margin-bottom:15px;">Indirizzi IP con attività anomala rilevata nelle ultime ore.</p>
 
         <div id="top-ip-list" style="color:#fff; line-height:1.8;"></div>
 
         <script>
-        /* ============================================================
-           TOP 5 IP SOSPETTI — Versione Reale Altervista
-        ============================================================ */
-
         function startTopIPSospetti() {
             const box = document.getElementById("top-ip-list");
-
-            if (!box) {
-                return setTimeout(startTopIPSospetti, 200);
-            }
+            if (!box) return setTimeout(startTopIPSospetti, 200);
 
             async function loadTopIPs() {
                 try {
@@ -400,7 +275,6 @@ setInterval(loadCyberFeed, 60000);
                     const data = await res.json();
 
                     box.innerHTML = "";
-
                     data.forEach(item => {
                         const [ip, descr, rischio] = item;
 
@@ -426,25 +300,19 @@ setInterval(loadCyberFeed, 60000);
             loadTopIPs();
             setInterval(loadTopIPs, 10000);
         }
-
         startTopIPSospetti();
         </script>
       </div>
-
-      <!-- VULNERABILITÀ ATTIVE (CVSS) -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #7a00ffaa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #7a00ffaa;
+          background:#000814;
+          border:1px solid #7a00ffaa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #7a00ffaa;
       ">
         <h3 style="color:#b366ff;">Vulnerabilità attive (CVSS)</h3>
-
-        <p style="color:#ccc; margin-bottom:15px;">
-          Elenco delle vulnerabilità critiche rilevate sui sistemi monitorati.
-        </p>
+        <p style="color:#ccc; margin-bottom:15px;">Elenco delle vulnerabilità critiche rilevate sui sistemi monitorati.</p>
 
         <table style="width:100%; border-collapse:collapse; color:#fff;">
           <thead>
@@ -454,21 +322,13 @@ setInterval(loadCyberFeed, 60000);
               <th style="padding:10px; border-bottom:1px solid #333;">Stato</th>
             </tr>
           </thead>
-
           <tbody id="cvss-table"></tbody>
         </table>
 
         <script>
-        /* ============================================================
-           VULNERABILITÀ ATTIVE (CVSS) — Versione Reale Altervista
-        ============================================================ */
-
         function startCVSSList() {
             const table = document.getElementById("cvss-table");
-
-            if (!table) {
-                return setTimeout(startCVSSList, 200);
-            }
+            if (!table) return setTimeout(startCVSSList, 200);
 
             async function loadCVSS() {
                 try {
@@ -476,7 +336,6 @@ setInterval(loadCyberFeed, 60000);
                     const data = await res.json();
 
                     table.innerHTML = "";
-
                     data.forEach(v => {
                         const [cve, score, stato] = v;
 
@@ -509,82 +368,18 @@ setInterval(loadCyberFeed, 60000);
             loadCVSS();
             setInterval(loadCVSS, 10000);
         }
-
         startCVSSList();
         </script>
       </div>
 
-      <!-- INCIDENT RESPONSE TIMELINE -->
-      <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #ffaa00aa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #ffaa00aa;
-      ">
-        <h3 style="color:#ffaa00;">Incident Response Timeline</h3>
-
-        <p style="color:#ccc; margin-bottom:15px;">
-          Fasi del processo di risposta agli incidenti rilevati.
-        </p>
-
-        <ul id="incident-timeline" style="list-style:none; padding:0; color:#fff; line-height:1.8;"></ul>
-
-        <script>
-        /* ============================================================
-           INCIDENT RESPONSE TIMELINE — Versione Reale Altervista
-        ============================================================ */
-
-        function startIncidentTimeline() {
-            const box = document.getElementById("incident-timeline");
-
-            if (!box) {
-                return setTimeout(startIncidentTimeline, 200);
-            }
-
-            async function loadTimeline() {
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/soc/incident_timeline.php");
-                    const data = await res.json();
-
-                    box.innerHTML = "";
-
-                    data.forEach(step => {
-                        const [fase, descr] = step;
-
-                        box.innerHTML += `
-                            <li style="margin-bottom:8px;">
-                                <strong>${fase}:</strong> ${descr}
-                            </li>
-                        `;
-                    });
-
-                } catch (error) {
-                    console.error("Errore Timeline:", error);
-                    box.innerHTML = `
-                        <li style="color:#888;">Impossibile caricare la timeline</li>
-                    `;
-                }
-            }
-
-            loadTimeline();
-            setInterval(loadTimeline, 15000);
-        }
-
-        startIncidentTimeline();
-        </script>
-      </div>
-
-      <!-- SOC DAILY REPORT -->
-      <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #00eaffaa;
-        padding:25px;
-        margin-top:40px;
-        margin-bottom:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #00eaffaa;
+            <div class="cyber-box" style="
+          background:#000814;
+          border:1px solid #00eaffaa;
+          padding:25px;
+          margin-top:40px;
+          margin-bottom:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #00eaffaa;
       ">
         <h3 style="color:#00eaff;">SOC Daily Report</h3>
 
@@ -630,20 +425,19 @@ setInterval(loadCyberFeed, 60000);
             }
 
             loadDailyReport();
-            setInterval(loadDailyReport, 15000);
+            setInterval(loadDailyReport, 15000); // aggiorna ogni 15s
         }
 
         startSOCDailyReport();
         </script>
       </div>
-      <!-- MALWARE ACTIVITY MONITOR -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #ff0044aa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #ff0044aa;
+          background:#000814;
+          border:1px solid #ff0044aa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #ff0044aa;
       ">
         <h3 style="color:#ff0044;">Malware Activity Monitor</h3>
 
@@ -710,21 +504,20 @@ setInterval(loadCyberFeed, 60000);
             }
 
             loadMalwareData();
-            setInterval(loadMalwareData, 15000);
+            setInterval(loadMalwareData, 15000); // aggiorna ogni 15s
         }
 
         startMalwareMonitor();
         </script>
       </div>
 
-      <!-- AUTHENTICATION FAILURES MONITOR -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #ffaa00aa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #ffaa00aa;
+          background:#000814;
+          border:1px solid #ffaa00aa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #ffaa00aa;
       ">
         <h3 style="color:#ffaa00;">Authentication Failures Monitor</h3>
 
@@ -777,22 +570,21 @@ setInterval(loadCyberFeed, 60000);
             }
 
             loadAuthFailures();
-            setInterval(loadAuthFailures, 10000);
+            setInterval(loadAuthFailures, 10000); // aggiorna ogni 10s
         }
 
         startAuthFailuresMonitor();
         </script>
       </div>
 
-      <!-- DATA EXFILTRATION MONITOR -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #00ff99aa;
-        padding:25px;
-        margin-top:40px;
-        margin-bottom:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #00ff99aa;
+          background:#000814;
+          border:1px solid #00ff99aa;
+          padding:25px;
+          margin-top:40px;
+          margin-bottom:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #00ff99aa;
       ">
         <h3 style="color:#00ff99;">Data Exfiltration Monitor</h3>
 
@@ -861,21 +653,20 @@ setInterval(loadCyberFeed, 60000);
             }
 
             loadExfiltrationData();
-            setInterval(loadExfiltrationData, 10000);
+            setInterval(loadExfiltrationData, 10000); // aggiorna ogni 10s
         }
 
         startDataExfiltrationMonitor();
         </script>
       </div>
 
-      <!-- GEOIP THREAT ORIGINS -->
       <div class="cyber-box" style="
-        background:#000814;
-        border:1px solid #ffaa00aa;
-        padding:25px;
-        margin-top:40px;
-        border-radius:8px;
-        box-shadow:0 0 12px #ffaa00aa;
+          background:#000814;
+          border:1px solid #ffaa00aa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #ffaa00aa;
       ">
         <h3 style="color:#ffaa00;">GeoIP Threat Origins</h3>
 
@@ -944,126 +735,56 @@ setInterval(loadCyberFeed, 60000);
             }
 
             loadGeoIP();
-            setInterval(loadGeoIP, 10000);
+            setInterval(loadGeoIP, 10000); // aggiorna ogni 10s
         }
 
         startGeoIPThreats();
         </script>
       </div>
-
     </section>
 
     <!-- SIDEBAR -->
     <div id="sidebar"></div>
 
   </main>
+
   <!-- FOOTER -->
   <div id="footer"></div>
 
-  <!-- SCRIPT GLOBALI (ordine corretto) -->
+  <!-- SCRIPT (ordine corretto) -->
   <script src="/js/main.js"></script>
   <script src="/js/ui.js"></script>
-  <script src="/js/header.js"></script>
-  <script src="/js/ticker.js"></script>
-
-  <!-- Chart.js 3.9.1 -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
-
-  <!-- Script specifico dashboard -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/js/dashboard.js"></script>
 
   <!-- BACK TO TOP BUTTON -->
   <button id="backToTop">↑</button>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const backToTop = document.getElementById('backToTop');
-    if (!backToTop) return;
+    document.addEventListener('DOMContentLoaded', function () {
+      const backToTop = document.getElementById('backToTop');
+      if (!backToTop) return;
 
-    backToTop.style.display = 'none';
+      backToTop.style.display = 'none';
 
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 400) {
+          backToTop.style.display = 'block';
+        } else {
+          backToTop.style.display = 'none';
+        }
+      });
 
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
     });
-  });
   </script>
 
-</div> <!-- /app -->
-
-<style>
-.pillar-box {
-    background:#000814;
-    border:1px solid #00eaff55;
-    padding:25px;
-    margin-top:40px;
-    border-radius:10px;
-    box-shadow:0 0 20px #00eaff33;
-}
-.pillar-title {
-    color:#00eaff;
-    font-size:24px;
-    margin-bottom:10px;
-    text-shadow:0 0 10px #00eaff;
-}
-.pillar-subtitle {
-    color:#00eaff;
-    font-size:18px;
-    margin-top:25px;
-    margin-bottom:10px;
-}
-.pillar-desc {
-    color:#7fdfff;
-    font-size:15px;
-    line-height:1.6;
-}
-.pillar-links a {
-    display:inline-block;
-    margin-right:12px;
-    margin-bottom:8px;
-    color:#00eaff;
-    text-decoration:none;
-    font-size:14px;
-}
-.pillar-links a:hover {
-    text-decoration:underline;
-}
-.video-responsive {
-    position:relative;
-    padding-bottom:56.25%;
-    height:0;
-    overflow:hidden;
-    border-radius:12px;
-    box-shadow:0 0 15px #00eaff55;
-    margin-bottom:20px;
-}
-.video-responsive iframe {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-}
-.pillar-feed {
-    background:#00111c;
-    padding:15px;
-    border-radius:8px;
-    color:#fff;
-    box-shadow:0 0 10px #00eaff33;
-}
-</style>
+</div>
 
 </body>
 </html>
-
-
