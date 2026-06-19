@@ -76,37 +76,73 @@
         </div>
 
       </div> <!-- /soc-grid -->
-      <!-- ============================
-           PILLAR PAGE — SOC DASHBOARD
-      ============================= -->
-      <div class="pillar-box">
+     <!-- ============================
+     PILLAR PAGE — SOC DASHBOARD
+============================= -->
+<div class="pillar-box" style="position:relative; z-index:3;">
 
-        <h2 class="pillar-title">SOC Dashboard — Analisi, Monitoraggio e Cyber Intelligence</h2>
+  <h2 class="pillar-title">SOC Dashboard — Analisi, Monitoraggio e Cyber Intelligence</h2>
 
-        <p class="pillar-desc">
-          Questa sezione trasforma la tua dashboard in una vera <strong>Security Operations Center</strong> virtuale.
-          Contenuti tecnici, video, feed real‑time e collegamenti autorevoli rendono questa pagina
-          una risorsa completa per analisti, ricercatori e appassionati di cybersecurity.
-        </p>
+  <p class="pillar-desc">
+    Questa sezione trasforma la tua dashboard in una vera <strong>Security Operations Center</strong> virtuale.
+    Contenuti tecnici, video, feed real‑time e collegamenti autorevoli rendono questa pagina
+    una risorsa completa per analisti, ricercatori e appassionati di cybersecurity.
+  </p>
 
-        <!-- VIDEO ANONYMOUS -->
-        <div class="video-responsive">
-            <iframe 
-                src="https://www.youtube.com/embed/ZVvjXJentik"
-                title="Anonymous Documentary"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
+  <!-- VIDEO ANONYMOUS (video funzionante) -->
+  <div class="video-responsive">
+      <iframe 
+          src="https://www.youtube.com/embed/2JclQdQKxFg"
+          title="Anonymous Documentary"
+          frameborder="0"
+          style="position:absolute; z-index:5; pointer-events:auto;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+      </iframe>
+  </div>
 
-        <h3 class="pillar-subtitle">Chi è Anonymous?</h3>
-        <p class="pillar-desc">
-          Anonymous è un collettivo hacktivista noto per operazioni globali contro censura,
-          corruzione e violazioni dei diritti umani. Le loro attività hanno influenzato
-          la cultura digitale moderna e il concetto stesso di attivismo online.
-        </p>
+  <h3 class="pillar-subtitle">Chi è Anonymous?</h3>
+  <p class="pillar-desc">
+    Anonymous è un collettivo hacktivista noto per operazioni globali contro censura,
+    corruzione e violazioni dei diritti umani. Le loro attività hanno influenzato
+    la cultura digitale moderna e il concetto stesso di attivismo online.
+  </p>
 
+  <!-- FEED REAL-TIME (Altervista) -->
+  <h3 class="pillar-subtitle">Cyber Threat Feed (Real‑Time)</h3>
+  <div id="cyber-feed" class="pillar-feed">Caricamento feed...</div>
+
+  <script>
+  async function loadCyberFeed() {
+      try {
+          const res = await fetch("https://angelonline.altervista.org/soc/cyber_feed.php");
+          const data = await res.json();
+
+          const box = document.getElementById("cyber-feed");
+          box.innerHTML = "";
+
+          data.slice(0, 6).forEach(item => {
+              const div = document.createElement("div");
+              div.className = "feed-item";
+              div.innerHTML = `
+                  <strong>${item.title}</strong><br>
+                  <span style="color:#7fdfff">${item.time}</span><br>
+                  <a href="${item.link}" target="_blank" style="color:#00eaff">Apri →</a>
+                  <hr style="border-color:#003344">
+              `;
+              box.appendChild(div);
+          });
+
+      } catch (e) {
+          document.getElementById("cyber-feed").innerHTML = "Errore caricamento feed.";
+      }
+  }
+  loadCyberFeed();
+  setInterval(loadCyberFeed, 60000);
+  </script>
+
+</div>
+      
         <!-- FEED REAL-TIME (Altervista) -->
         <h3 class="pillar-subtitle">Cyber Threat Feed (Real‑Time)</h3>
         <div id="cyber-feed" class="pillar-feed">Caricamento feed...</div>
