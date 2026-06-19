@@ -741,6 +741,167 @@
         startGeoIPThreats();
         </script>
       </div>
+
+      <div class="cyber-box" style="
+          background:#000814;
+          border:1px solid #ff8800aa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #ff8800aa;
+      ">
+  <h3 style="color:#ff8800;">Honeypot Attack Log</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Attività malevole rilevate dall’honeypot.
+  </p>
+
+  <table style="width:100%; border-collapse:collapse; color:#fff;">
+    <thead>
+      <tr style="background:#111;">
+        <th style="padding:10px; border-bottom:1px solid #333;">IP</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Tipo Attacco</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Timestamp</th>
+      </tr>
+    </thead>
+
+    <tbody id="honeypot-table"></tbody>
+  </table>
+
+  <script>
+  /* ============================================================
+       HONEYPOT ATTACK LOG — Versione Reale Altervista
+     ============================================================ */
+
+  function startHoneypotLog() {
+      const table = document.getElementById("honeypot-table");
+
+      if (!table) {
+          return setTimeout(startHoneypotLog, 200);
+      }
+
+      async function loadHoneypot() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/honeypot.php");
+              const data = await res.json();
+
+              table.innerHTML = "";
+
+              data.forEach(row => {
+                  const [ip, tipo, ts] = row;
+
+                  table.innerHTML += `
+                      <tr>
+                          <td style="padding:10px;">${ip}</td>
+                          <td style="padding:10px;">${tipo}</td>
+                          <td style="padding:10px;">${ts}</td>
+                      </tr>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Honeypot:", error);
+              table.innerHTML = `
+                  <tr>
+                      <td colspan="3" style="padding:10px; color:#888;">
+                          Impossibile caricare i dati
+                      </td>
+                  </tr>
+              `;
+          }
+      }
+
+      loadHoneypot();
+      setInterval(loadHoneypot, 10000);
+  }
+
+  startHoneypotLog();
+  </script>
+</div>
+
+      <div class="cyber-box" style="
+          background:#000814;
+          border:1px solid #7a00ffaa;
+          padding:25px;
+          margin-top:40px;
+          border-radius:8px;
+          box-shadow:0 0 12px #7a00ffaa;
+      ">
+  <h3 style="color:#b366ff;">Dark Web Signals</h3>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Segnalazioni rilevanti provenienti dal dark web.
+  </p>
+
+  <table style="width:100%; border-collapse:collapse; color:#fff;">
+    <thead>
+      <tr style="background:#111;">
+        <th style="padding:10px; border-bottom:1px solid #333;">Titolo</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Fonte</th>
+        <th style="padding:10px; border-bottom:1px solid #333;">Rischio</th>
+      </tr>
+    </thead>
+
+    <tbody id="darkweb-table"></tbody>
+  </table>
+
+  <script>
+  /* ============================================================
+         DARK WEB SIGNALS — Versione Reale Altervista
+     ============================================================ */
+
+  function startDarkWebSignals() {
+      const table = document.getElementById("darkweb-table");
+
+      if (!table) {
+          return setTimeout(startDarkWebSignals, 200);
+      }
+
+      async function loadDarkWeb() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/darkweb_signals.php");
+              const data = await res.json();
+
+              table.innerHTML = "";
+
+              data.forEach(row => {
+                  const [titolo, fonte, rischio, link] = row;
+
+                  const color =
+                      rischio === "ALTO" ? "#ff0044" :
+                      rischio === "MEDIO" ? "#ffaa00" :
+                      "#00ff99";
+
+                  table.innerHTML += `
+                      <tr>
+                          <td style="padding:10px;">
+                              <a href="${link}" target="_blank" style="color:#b366ff;">${titolo}</a>
+                          </td>
+                          <td style="padding:10px;">${fonte}</td>
+                          <td style="padding:10px; color:${color}; font-weight:bold;">${rischio}</td>
+                      </tr>
+                  `;
+              });
+
+          } catch (error) {
+              console.error("Errore Dark Web Signals:", error);
+              table.innerHTML = `
+                  <tr>
+                      <td colspan="3" style="padding:10px; color:#888;">
+                          Impossibile caricare i dati
+                      </td>
+                  </tr>
+              `;
+          }
+      }
+
+      loadDarkWeb();
+      setInterval(loadDarkWeb, 15000);
+  }
+
+  startDarkWebSignals();
+  </script>
+</div>
     </section>
 
     <!-- SIDEBAR -->
