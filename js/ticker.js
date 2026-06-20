@@ -6,7 +6,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 0.5; // velocità scorrimento (px per frame)
+let speed = 0.9; // velocità scorrimento (px per frame)
 
 /* ============================================================
    CARICAMENTO NEWS DA GITHUB RAW
@@ -41,13 +41,15 @@ function startTicker() {
     const item = tickerNews[tickerIndex];
 
     el.textContent = item.title;
-el.href = item.link || "#";
+    el.href = item.link || "#";
 
-/* Stile inline per evitare il blu (senza CSS esterno) */
-el.style.color = "#ffffff";          // testo bianco
-el.style.textDecoration = "none";    // niente underline
-el.style.fontWeight = "600";         // stesso peso del tuo tema
-el.style.fontFamily = "inherit";     // usa il font del sito
+    // Stile inline (niente CSS esterno)
+    el.style.color = "#ffffff";
+    el.style.textDecoration = "none";
+    el.style.fontWeight = "600";
+    el.style.fontFamily = "inherit";
+    el.style.display = "inline-block";
+    el.style.whiteSpace = "nowrap";
 
     // Posizione iniziale: fuori dallo schermo a destra
     pos = el.parentElement.offsetWidth;
