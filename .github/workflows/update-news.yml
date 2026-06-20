@@ -13,24 +13,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install tools
-        run: sudo apt-get install -y xmlstarlet jq curl
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
 
-      - name: Download CISA ATOM feed
-        run: curl -s "https://www.cisa.gov/cybersecurity-advisories/all.xml" -o cisa.xml
+      - name: Install feedparser
+        run: pip install feedparser
 
-      - name: Convert ATOM → JSON (namespace aware)
+      - name: Fetch and convert CISA feed
         run: |
-          xmlstarlet sel \
-            -N a="http://www.w3.org/2005/Atom" \
-            -t -m "//a:entry" \
-            -v "concat(a:title, '|||', a:id)" -n \
-            cisa.xml | head -n 8 | \
-          awk -F '|||' '{
-            gsub(/"/, "\\\"", $1);
-            gsub(/"/, "\\\"", $2);
-            printf "{\"title\":\"%s\",\"link\":\"%s\"}\n", $1, $2
-          }' | jq -s '.' > data/news.json
+          python3 << 'EOF'
+          import feedparser, json
+
+          url = "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+          feed = feedparser.parse(url)
+
+          news = []
+          for entry in feed.entries[:8]:
+              title = entry.title
+              link = entry.link
+              news.append({"title": title, "link": link})
+
+          with open("data/news.json", "w") as f:
+              json.dump(news, f, indent=2)
+          EOF
 
       - name: Commit updated news.json
         run: |
