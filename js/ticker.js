@@ -6,7 +6,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.00; // velocità scorrimento (px per frame) — stabile e lenta
+let speed = 1.00; // velocità stabile e lenta
 let tickerFrame = null;
 
 /* ============================================================
@@ -78,6 +78,7 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
+    // Quando esce completamente → reset immediato
     if (pos < -el.offsetWidth) {
         pos = el.parentElement.offsetWidth;
     }
