@@ -1,65 +1,61 @@
 /* ============================================================
-   TICKER NEWS — VERSIONE OTTIMIZZATA E ROBUSTA
-   ------------------------------------------------------------
-   - Attende che la traccia esista nel DOM
-   - Gestisce errori di rete e JSON
-   - Gestisce caso "nessuna news"
-   - Evita duplicazioni (gestite da initTicker in ui.js)
+   TICKER REAL‑TIME — VERSIONE DEFINITIVA SENZA CSS AGGIUNTIVO
 ============================================================ */
 
 async function loadTickerNews() {
     try {
-        // Attende che la traccia sia presente nel DOM
         const track = await waitForTickerTrack();
         if (!track) return;
 
-        // Carica il JSON
-        const res = await fetch("/data/news.json");
-
-        if (!res.ok) {
-            throw new Error("Errore nel caricamento del JSON delle news");
-        }
+        const res = await fetch("/data/news.json?cache=" + Date.now());
+        if (!res.ok) throw new Error("Errore caricamento news.json");
 
         const news = await res.json();
 
-        // Se il JSON è vuoto → fallback
         if (!Array.isArray(news) || news.length === 0) {
             track.innerHTML = `<span class="ticker-item">Nessuna notizia disponibile</span>`;
             return;
         }
 
-        // Genera i titoli
+        // Genera contenuto
         const items = news
-            .map(item => `<span class="ticker-item">${item.title}</span>`)
+            .map(n => `<span class="ticker-item">${n.title}</span>`)
             .join("");
 
-        // Inserisce gli elementi
-        track.innerHTML = items;
+        // Duplicazione per scorrimento continuo
+        track.innerHTML = items + items;
 
-        // La duplicazione è gestita da initTicker() in ui.js
+        // Calcolo larghezza e velocità
+        requestAnimationFrame(() => {
+            initTickerWidth(track);
+        });
 
     } catch (err) {
         console.error("Ticker error:", err);
-
-        // Fallback visivo
-        const track = document.querySelector(".ticker-track");
-        if (track) {
-            track.innerHTML = `<span class="ticker-item">Errore nel caricamento delle news</span>`;
-        }
     }
 }
 
 /* ============================================================
-   ATTESA SICURA DELLA TRACCIA DEL TICKER
-   ------------------------------------------------------------
-   - Il ticker viene caricato via partials
-   - Quindi potrebbe non esistere subito
+   CALCOLO LARGHEZZA E VELOCITÀ (NO CSS AGGIUNTIVO)
+============================================================ */
+
+function initTickerWidth(track) {
+    const width = track.scrollWidth / 2;
+
+    // velocità proporzionale alla lunghezza
+    const speed = Math.max(18, width / 12);
+
+    track.style.animationDuration = speed + "s";
+}
+
+/* ============================================================
+   ATTESA SICURA DELLA TRACCIA
 ============================================================ */
 
 function waitForTickerTrack() {
     return new Promise(resolve => {
         const check = () => {
-            const el = document.querySelector(".ticker-track");
+            const el = document.getElementById("ticker-track");
             if (el) resolve(el);
             else setTimeout(check, 80);
         };
@@ -68,7 +64,13 @@ function waitForTickerTrack() {
 }
 
 /* ============================================================
-   AVVIO AUTOMATICO
+   AUTO‑REFRESH OGNI 60 SECONDI
+============================================================ */
+
+setInterval(loadTickerNews, 60000);
+
+/* ============================================================
+   AVVIO
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", loadTickerNews);
