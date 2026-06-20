@@ -65,7 +65,7 @@ function startTicker() {
         el.style.transition = "opacity 0.6s";
         el.style.opacity = "1";
 
-        /* Reset posizione */
+        /* Reset posizione: larghezza TOTALE del ticker */
         const fullWidth = el.parentElement.parentElement.offsetWidth;
         pos = fullWidth;
 
@@ -94,7 +94,7 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    /* Reset solo quando esce da TUTTO il ticker (titolo + contenuto) */
+    /* Reset solo quando esce da TUTTO il ticker */
     const fullWidth = el.parentElement.parentElement.offsetWidth;
 
     if (pos < -el.offsetWidth) {
