@@ -1,12 +1,12 @@
 /* ============================================================
-   TICKER SCORREVOLE — VERSIONE DEFINITIVA CON SEPARATORE
-   Nessun CSS richiesto — tutto gestito via JS
+   TICKER SCORREVOLE — VERSIONE DEFINITIVA
+   Nessun CSS richiesto — tutto via JS
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.2;
+let speed = 0.35;
 let tickerFrame = null;
 
 /* ============================================================
@@ -39,9 +39,13 @@ function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
-    /* Allarga contenitore per evitare tagli */
-    el.parentElement.style.width = "100%";
-    el.parentElement.style.overflow = "visible";
+    /* 🔥 FIX DEFINITIVO: il testo deve scorrere nel contenitore ESTERNO */
+    const outer = el.parentElement.parentElement; // .ticker
+    const inner = el.parentElement;               // .ticker-content
+
+    inner.style.width = "100%";
+    inner.style.overflow = "visible"; // impedisce il taglio
+    outer.style.overflow = "hidden";  // il ticker vero
 
     const item = tickerNews[tickerIndex];
 
@@ -50,11 +54,15 @@ function startTicker() {
 
     setTimeout(() => {
 
-        /* SEPARATORE GRAFICO */
-        const separator = "  ❯❯  ";
+        /* 🎨 Colore dinamico */
+        const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
+        const neon = colors[Math.floor(Math.random() * colors.length)];
 
-        /* Testo completo con separatore */
-        el.textContent = item.title + separator;
+        /* 🖼️ Icona tra le news */
+        const icon = " 🔹 ";
+
+        /* Testo completo */
+        el.textContent = icon + item.title + icon;
 
         el.href = item.link || "#";
 
@@ -65,14 +73,16 @@ function startTicker() {
         el.style.fontFamily = "inherit";
         el.style.display = "inline-block";
         el.style.whiteSpace = "nowrap";
-        el.style.textShadow = "0 0 6px rgba(0,255,255,0.6)";
+
+        /* Neon dinamico */
+        el.style.textShadow = `0 0 8px ${neon}`;
 
         /* Fade-in */
         el.style.transition = "opacity 0.6s";
         el.style.opacity = "1";
 
-        /* Reset posizione */
-        const fullWidth = el.parentElement.offsetWidth;
+        /* Reset posizione: larghezza TOTALE del ticker */
+        const fullWidth = outer.offsetWidth;
         pos = fullWidth;
 
         /* Stop vecchio loop */
@@ -100,11 +110,11 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    const fullWidth = el.parentElement.offsetWidth;
+    const outer = el.parentElement.parentElement;
 
-    /* Reset quando esce completamente */
+    /* Reset quando esce da TUTTO il ticker */
     if (pos < -el.offsetWidth) {
-        pos = fullWidth;
+        pos = outer.offsetWidth;
     }
 
     tickerFrame = requestAnimationFrame(scrollTicker);
