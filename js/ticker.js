@@ -1,12 +1,16 @@
 /* ============================================================
-   TICKER SCORREVOLE SENZA CSS — VERSIONE DEFINITIVA
+   TICKER SCORREVOLE CONTINUO — VERSIONE DEFINITIVA
+   Nessun CSS richiesto — tutto gestito via JS
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1; // velocità scorrimento (px per frame)
+let speed = 1.2; // velocità scorrimento (px per frame)
 
+/* ============================================================
+   CARICAMENTO NEWS DA GITHUB RAW
+============================================================ */
 async function loadTickerNews() {
     try {
         const url = "https://raw.githubusercontent.com/perezangelo/AnonLab/refs/heads/main/data/news.json?cache=" + Date.now();
@@ -27,6 +31,9 @@ async function loadTickerNews() {
     }
 }
 
+/* ============================================================
+   AVVIO TICKER
+============================================================ */
 function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
@@ -36,7 +43,7 @@ function startTicker() {
     el.textContent = item.title;
     el.href = item.link || "#";
 
-    // Reset posizione
+    // Posizione iniziale: fuori dallo schermo a destra
     pos = el.parentElement.offsetWidth;
 
     // Avvia scorrimento
@@ -49,6 +56,9 @@ function startTicker() {
     }, 12000);
 }
 
+/* ============================================================
+   SCORRIMENTO CONTINUO
+============================================================ */
 function scrollTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
@@ -56,7 +66,7 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    // Quando esce dallo schermo → reset
+    // Quando esce completamente → reset
     if (pos < -el.offsetWidth) {
         pos = el.parentElement.offsetWidth;
     }
@@ -64,5 +74,8 @@ function scrollTicker() {
     requestAnimationFrame(scrollTicker);
 }
 
+/* ============================================================
+   AVVIO AUTOMATICO
+============================================================ */
 document.addEventListener("DOMContentLoaded", loadTickerNews);
 setInterval(loadTickerNews, 60000);
