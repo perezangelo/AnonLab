@@ -5,7 +5,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 0.35;
+let speed = 1,2;
 let tickerFrame = null;
 
 /* ============================================================
