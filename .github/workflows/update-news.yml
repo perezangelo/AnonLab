@@ -3,7 +3,7 @@ name: Update CISA News
 on:
   schedule:
     - cron: "*/10 * * * *"   # ogni 10 minuti
-  workflow_dispatch:         # avvio manuale
+  workflow_dispatch:
 
 jobs:
   update-news:
@@ -13,31 +13,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: sudo apt-get install -y jq curl
+      - name: Install tools
+        run: sudo apt-get install -y xmlstarlet jq curl
 
-      - name: Fetch CISA RSS
-        run: |
-          curl -s "https://www.cisa.gov/cybersecurity-advisories/all.xml" -o cisa.xml
+      - name: Download CISA ATOM feed
+        run: curl -s "https://www.cisa.gov/cybersecurity-advisories/all.xml" -o cisa.xml
 
-      - name: Convert RSS → JSON
+      - name: Convert ATOM → JSON
         run: |
-          # Estrae titolo e link delle prime 8 news
-          cat cisa.xml | \
-          grep -E "<title>|<link>" | \
-          sed 's/<\/\?title>//g; s/<\/\?link>//g' | \
-          sed 's/^[ \t]*//' | \
-          paste - - | \
-          head -n 8 | \
-          awk -F '\t' '{
+          xmlstarlet sel -t \
+            -m "//entry" \
+            -v "concat(title, '|||', id)" -n \
+            cisa.xml | head -n 8 | \
+          awk -F '|||' '{
+            gsub(/"/, "\\\"", $1);
+            gsub(/"/, "\\\"", $2);
             printf "{\"title\":\"%s\",\"link\":\"%s\"}\n", $1, $2
-          }' | \
-          jq -s '.' > data/news.json
+          }' | jq -s '.' > data/news.json
 
       - name: Commit updated news.json
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add data/news.json
-          git commit -m "Update CISA news" || echo "No changes to commit"
+          git commit -m "Update CISA news" || echo "No changes"
           git push
