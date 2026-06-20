@@ -1,12 +1,12 @@
 /* ============================================================
-   TICKER SCORREVOLE CONTINUO — VERSIONE DEFINITIVA E STABILE
+   TICKER SCORREVOLE — VERSIONE DEFINITIVA E STABILE
    Nessun CSS richiesto — tutto gestito via JS
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.00; // velocità stabile e lenta
+let speed = 0.35; // velocità base
 let tickerFrame = null;
 
 /* ============================================================
@@ -33,7 +33,7 @@ async function loadTickerNews() {
 }
 
 /* ============================================================
-   AVVIO TICKER (con reset del loop)
+   AVVIO TICKER (con reset loop + fade + neon)
 ============================================================ */
 function startTicker() {
     const el = document.getElementById("ticker-text");
@@ -41,25 +41,42 @@ function startTicker() {
 
     const item = tickerNews[tickerIndex];
 
-    el.textContent = item.title;
-    el.href = item.link || "#";
+    // Fade-out
+    el.style.opacity = "0";
 
-    // Stile inline (niente CSS esterno)
-    el.style.color = "#ffffff";
-    el.style.textDecoration = "none";
-    el.style.fontWeight = "600";
-    el.style.fontFamily = "inherit";
-    el.style.display = "inline-block";
-    el.style.whiteSpace = "nowrap";
+    setTimeout(() => {
+        el.textContent = item.title;
+        el.href = item.link || "#";
 
-    // Reset posizione
-    pos = el.parentElement.offsetWidth;
+        // Stile inline (no CSS esterno)
+        el.style.color = "#ffffff";
+        el.style.textDecoration = "none";
+        el.style.fontWeight = "600";
+        el.style.fontFamily = "inherit";
+        el.style.display = "inline-block";
+        el.style.whiteSpace = "nowrap";
 
-    // 🔥 STOPPA il vecchio loop prima di avviarne uno nuovo
-    if (tickerFrame) cancelAnimationFrame(tickerFrame);
+        // Effetto neon leggero
+        el.style.textShadow = "0 0 6px rgba(0,255,255,0.6)";
 
-    // Avvia scorrimento
-    scrollTicker();
+        // Fade-in
+        el.style.transition = "opacity 0.6s";
+        el.style.opacity = "1";
+
+        // Velocità dinamica in base alla lunghezza
+        const len = item.title.length;
+        speed = Math.max(0.25, Math.min(0.55, len / 120));
+
+        // Reset posizione
+        pos = el.parentElement.offsetWidth;
+
+        // Stop vecchio loop
+        if (tickerFrame) cancelAnimationFrame(tickerFrame);
+
+        // Avvia scorrimento
+        scrollTicker();
+
+    }, 300);
 
     // Cambia news ogni 12 secondi
     setTimeout(() => {
@@ -78,7 +95,7 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    // Quando esce completamente → reset immediato
+    // Reset immediato senza spazio
     if (pos < -el.offsetWidth) {
         pos = el.parentElement.offsetWidth;
     }
