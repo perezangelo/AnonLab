@@ -6,7 +6,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.2; // velocità scorrimento (px per frame)
+let speed = 1.5; // velocità scorrimento (px per frame)
 
 /* ============================================================
    CARICAMENTO NEWS DA GITHUB RAW
