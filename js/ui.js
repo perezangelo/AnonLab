@@ -30,10 +30,6 @@ async function loadPartial(id, file) {
     });
 }
 
-        if (id === "header") {
-            requestAnimationFrame(initTicker);
-        }
-
     } catch (err) {
         console.error(err);
         el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
@@ -229,23 +225,6 @@ function iscriviOroscopo() {
     .catch(() => {
         alert("Si è verificato un errore. Riprova più tardi.");
     });
-}
-/* ============================================================
-   C) TICKER CONTINUO
-============================================================ */
-
-function initTicker() {
-    const track = document.querySelector(".ticker-track");
-    if (!track) return;
-
-    if (track.dataset.cloned === "true") return;
-
-    const clone = track.cloneNode(true);
-    clone.dataset.cloned = "true";
-    track.parentElement.appendChild(clone);
-
-    const totalWidth = track.scrollWidth;
-    track.style.setProperty("--ticker-width", totalWidth + "px");
 }
 
 /* ============================================================
