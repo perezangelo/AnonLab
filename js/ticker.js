@@ -39,48 +39,39 @@ function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
-    // Allarga il contenitore per evitare sparizioni premature
-    el.parentElement.style.width = "calc(100% - 90px)";
+    // FIX DEFINITIVO: allarga il contenitore e disattiva il taglio
+    el.parentElement.style.width = "100%";
+    el.parentElement.style.overflow = "visible";
 
     const item = tickerNews[tickerIndex];
 
-    /* Fade-out */
     el.style.opacity = "0";
 
     setTimeout(() => {
 
-        /* Imposta testo e link */
         el.textContent = item.title;
         el.href = item.link || "#";
 
-        /* Stile inline (no CSS esterno) */
         el.style.color = "#ffffff";
         el.style.textDecoration = "none";
         el.style.fontWeight = "600";
         el.style.fontFamily = "inherit";
         el.style.display = "inline-block";
         el.style.whiteSpace = "nowrap";
-
-        /* Effetto neon leggero */
         el.style.textShadow = "0 0 6px rgba(0,255,255,0.6)";
 
-        /* Fade-in */
         el.style.transition = "opacity 0.6s";
         el.style.opacity = "1";
 
-        /* Reset posizione: larghezza TOTALE del ticker */
         const fullWidth = el.parentElement.offsetWidth;
         pos = fullWidth;
 
-        /* Stop vecchio loop */
         if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
-        /* Avvia scorrimento */
         scrollTicker();
 
     }, 250);
 
-    /* Cambia news ogni 12 secondi */
     setTimeout(() => {
         tickerIndex = (tickerIndex + 1) % tickerNews.length;
         startTicker();
