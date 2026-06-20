@@ -1,40 +1,33 @@
 /* ============================================================
-   TICKER ROTANTE CLICCABILE — VERSIONE DEFINITIVA
+   TICKER SCORREVOLE SENZA CSS — VERSIONE DEFINITIVA
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
+let pos = 0;
+let speed = 1; // velocità scorrimento (px per frame)
 
 async function loadTickerNews() {
     try {
-        // URL RAW aggiornato da GitHub Actions
         const url = "https://raw.githubusercontent.com/perezangelo/AnonLab/refs/heads/main/data/news.json?cache=" + Date.now();
         const res = await fetch(url);
+        const data = await res.json();
 
-        if (!res.ok) {
-            throw new Error("Errore nel caricamento del JSON delle news");
-        }
-
-        const news = await res.json();
-
-        // Se il JSON è vuoto → fallback
-        if (!Array.isArray(news) || news.length === 0) {
-            tickerNews = [{ title: "Nessuna notizia disponibile", link: "#" }];
-        } else {
-            tickerNews = news;
-        }
+        tickerNews = Array.isArray(data) && data.length > 0
+            ? data
+            : [{ title: "Nessuna notizia disponibile", link: "#" }];
 
         tickerIndex = 0;
-        updateTicker();
+        startTicker();
 
-    } catch (err) {
-        console.error("Ticker error:", err);
+    } catch (e) {
+        console.error("Errore ticker:", e);
         tickerNews = [{ title: "Errore nel caricamento delle news", link: "#" }];
-        updateTicker();
+        startTicker();
     }
 }
 
-function updateTicker() {
+function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
@@ -43,13 +36,33 @@ function updateTicker() {
     el.textContent = item.title;
     el.href = item.link || "#";
 
-    tickerIndex = (tickerIndex + 1) % tickerNews.length;
+    // Reset posizione
+    pos = el.parentElement.offsetWidth;
 
-    setTimeout(updateTicker, 4000); // cambia ogni 4 secondi
+    // Avvia scorrimento
+    scrollTicker();
+
+    // Cambia news ogni 12 secondi
+    setTimeout(() => {
+        tickerIndex = (tickerIndex + 1) % tickerNews.length;
+        startTicker();
+    }, 12000);
 }
 
-// Carica news al caricamento pagina
-document.addEventListener("DOMContentLoaded", loadTickerNews);
+function scrollTicker() {
+    const el = document.getElementById("ticker-text");
+    if (!el) return;
 
-// Aggiorna ogni minuto
+    pos -= speed;
+    el.style.transform = `translateX(${pos}px)`;
+
+    // Quando esce dallo schermo → reset
+    if (pos < -el.offsetWidth) {
+        pos = el.parentElement.offsetWidth;
+    }
+
+    requestAnimationFrame(scrollTicker);
+}
+
+document.addEventListener("DOMContentLoaded", loadTickerNews);
 setInterval(loadTickerNews, 60000);
