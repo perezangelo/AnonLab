@@ -1,16 +1,16 @@
 /* ============================================================
-   TICKER SCORREVOLE — VERSIONE DEFINITIVA E STABILE
+   TICKER SCORREVOLE — VERSIONE DEFINITIVA CON SEPARATORE
    Nessun CSS richiesto — tutto gestito via JS
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.2; // velocità costante e fluida
+let speed = 0.35;
 let tickerFrame = null;
 
 /* ============================================================
-   CARICAMENTO NEWS DA GITHUB RAW
+   CARICAMENTO NEWS
 ============================================================ */
 async function loadTickerNews() {
     try {
@@ -33,25 +33,32 @@ async function loadTickerNews() {
 }
 
 /* ============================================================
-   AVVIO TICKER (fade + neon + reset loop)
+   AVVIO TICKER
 ============================================================ */
 function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
-    // FIX DEFINITIVO: allarga il contenitore e disattiva il taglio
+    /* Allarga contenitore per evitare tagli */
     el.parentElement.style.width = "100%";
     el.parentElement.style.overflow = "visible";
 
     const item = tickerNews[tickerIndex];
 
+    /* Fade-out */
     el.style.opacity = "0";
 
     setTimeout(() => {
 
-        el.textContent = item.title;
+        /* SEPARATORE GRAFICO */
+        const separator = "  ❯❯  ";
+
+        /* Testo completo con separatore */
+        el.textContent = item.title + separator;
+
         el.href = item.link || "#";
 
+        /* Stile inline */
         el.style.color = "#ffffff";
         el.style.textDecoration = "none";
         el.style.fontWeight = "600";
@@ -60,18 +67,23 @@ function startTicker() {
         el.style.whiteSpace = "nowrap";
         el.style.textShadow = "0 0 6px rgba(0,255,255,0.6)";
 
+        /* Fade-in */
         el.style.transition = "opacity 0.6s";
         el.style.opacity = "1";
 
+        /* Reset posizione */
         const fullWidth = el.parentElement.offsetWidth;
         pos = fullWidth;
 
+        /* Stop vecchio loop */
         if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
+        /* Avvia scorrimento */
         scrollTicker();
 
-    }, 250);
+    }, 200);
 
+    /* Cambio news */
     setTimeout(() => {
         tickerIndex = (tickerIndex + 1) % tickerNews.length;
         startTicker();
@@ -79,7 +91,7 @@ function startTicker() {
 }
 
 /* ============================================================
-   SCORRIMENTO CONTINUO (loop unico e stabile)
+   SCORRIMENTO CONTINUO
 ============================================================ */
 function scrollTicker() {
     const el = document.getElementById("ticker-text");
@@ -88,9 +100,9 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    /* Reset solo quando esce da TUTTO il ticker */
-    const fullWidth = el.parentElement.parentElement.offsetWidth;
+    const fullWidth = el.parentElement.offsetWidth;
 
+    /* Reset quando esce completamente */
     if (pos < -el.offsetWidth) {
         pos = fullWidth;
     }
@@ -102,6 +114,4 @@ function scrollTicker() {
    AVVIO AUTOMATICO
 ============================================================ */
 document.addEventListener("DOMContentLoaded", loadTickerNews);
-
-/* Aggiorna news ogni 60 secondi */
 setInterval(loadTickerNews, 60000);
