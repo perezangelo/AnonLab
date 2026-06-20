@@ -18,32 +18,54 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install feedparser
-        run: pip install feedparser
+      - name: Install dependencies
+        run: pip install feedparser requests
 
+      # ============================
+      # DEBUG: stampiamo il feed CISA
+      # ============================
       - name: DEBUG - Print first 80 lines of CISA feed
         run: |
           curl -s -A "Mozilla/5.0" "https://www.cisa.gov/cybersecurity-advisories/all.xml" > debug.xml
           echo "===== FEED CONTENT START ====="
           head -n 80 debug.xml
           echo "===== FEED CONTENT END ====="
+
+      # ============================
+      # PARSER DEFINITIVO
+      # ============================
+      - name: Fetch and convert CISA feed
         run: |
           python3 << 'EOF'
-          import feedparser, json
+          import requests, feedparser, json
 
           url = "https://www.cisa.gov/cybersecurity-advisories/all.xml"
-          feed = feedparser.parse(url)
+
+          headers = {
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+          }
+
+          # Scarica il feed con user-agent reale
+          r = requests.get(url, headers=headers, timeout=10)
+          r.raise_for_status()
+
+          # Parse del contenuto scaricato
+          feed = feedparser.parse(r.text)
 
           news = []
           for entry in feed.entries[:8]:
-              title = entry.title
-              link = entry.link
+              title = entry.get("title", "No title")
+              link = entry.get("link", "#")
               news.append({"title": title, "link": link})
 
+          # Scrive il JSON
           with open("data/news.json", "w") as f:
               json.dump(news, f, indent=2)
           EOF
 
+      # ============================
+      # COMMIT AUTOMATICO
+      # ============================
       - name: Commit updated news.json
         run: |
           git config --global user.name "github-actions"
