@@ -21,7 +21,8 @@ jobs:
 
       - name: Convert ATOM → JSON (namespace aware)
         run: |
-          xmlstarlet sel -N a="http://www.w3.org/2005/Atom" \
+          xmlstarlet sel \
+            -N a="http://www.w3.org/2005/Atom" \
             -t -m "//a:entry" \
             -v "concat(a:title, '|||', a:id)" -n \
             cisa.xml | head -n 8 | \
