@@ -6,7 +6,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.00; // velocità base
+let speed = 0.35; // velocità costante e fluida
 let tickerFrame = null;
 
 /* ============================================================
@@ -33,7 +33,7 @@ async function loadTickerNews() {
 }
 
 /* ============================================================
-   AVVIO TICKER (con reset loop + fade + neon)
+   AVVIO TICKER (fade + neon + reset loop)
 ============================================================ */
 function startTicker() {
     const el = document.getElementById("ticker-text");
@@ -41,14 +41,16 @@ function startTicker() {
 
     const item = tickerNews[tickerIndex];
 
-    // Fade-out
+    /* Fade-out */
     el.style.opacity = "0";
 
     setTimeout(() => {
+
+        /* Imposta testo e link */
         el.textContent = item.title;
         el.href = item.link || "#";
 
-        // Stile inline (no CSS esterno)
+        /* Stile inline (no CSS esterno) */
         el.style.color = "#ffffff";
         el.style.textDecoration = "none";
         el.style.fontWeight = "600";
@@ -56,29 +58,26 @@ function startTicker() {
         el.style.display = "inline-block";
         el.style.whiteSpace = "nowrap";
 
-        // Effetto neon leggero
+        /* Effetto neon leggero */
         el.style.textShadow = "0 0 6px rgba(0,255,255,0.6)";
 
-        // Fade-in
+        /* Fade-in */
         el.style.transition = "opacity 0.6s";
         el.style.opacity = "1";
 
-        // Velocità dinamica in base alla lunghezza
-        const len = item.title.length;
-        speed = Math.max(0.25, Math.min(0.55, len / 120));
+        /* Reset posizione */
+        const fullWidth = el.parentElement.parentElement.offsetWidth;
+        pos = fullWidth;
 
-        // Reset posizione
-        pos = el.parentElement.offsetWidth;
-
-        // Stop vecchio loop
+        /* Stop vecchio loop */
         if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
-        // Avvia scorrimento
+        /* Avvia scorrimento */
         scrollTicker();
 
-    }, 300);
+    }, 250);
 
-    // Cambia news ogni 12 secondi
+    /* Cambia news ogni 12 secondi */
     setTimeout(() => {
         tickerIndex = (tickerIndex + 1) % tickerNews.length;
         startTicker();
@@ -95,9 +94,11 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    // Reset immediato senza spazio
+    /* Reset solo quando esce da TUTTO il ticker (titolo + contenuto) */
+    const fullWidth = el.parentElement.parentElement.offsetWidth;
+
     if (pos < -el.offsetWidth) {
-        pos = el.parentElement.offsetWidth;
+        pos = fullWidth;
     }
 
     tickerFrame = requestAnimationFrame(scrollTicker);
@@ -108,5 +109,5 @@ function scrollTicker() {
 ============================================================ */
 document.addEventListener("DOMContentLoaded", loadTickerNews);
 
-// Aggiorna news ogni 60 secondi
+/* Aggiorna news ogni 60 secondi */
 setInterval(loadTickerNews, 60000);
