@@ -138,10 +138,26 @@
   <h3 style="color:#00eaff;">Global Threat Heatmap</h3>
   <p style="color:#ccc;margin-bottom:15px;">Intensità delle minacce per area geografica (aggiornamento live).</p>
 
-  <div style="position:relative;width:100%;border-radius:6px;overflow:hidden;">
-      <img src="/img/world-map-dark.png" style="width:100%;display:block;">
-      <canvas id="heatmap-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;"></canvas>
-  </div>
+  <!-- LINK ESTERNO CLICCABILE -->
+  <a href="https://www.shodan.io" target="_blank" style="display:block;position:relative;text-decoration:none;">
+
+      <!-- WRAPPER ANIMATO -->
+      <div class="heatmap-wrapper" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
+          <img src="/img/world-map-dark.png" class="heatmap-img" style="width:100%;display:block;">
+          <canvas id="heatmap-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;"></canvas>
+      </div>
+
+  </a>
+
+  <style>
+    /* Effetto movimento al passaggio del mouse */
+    .heatmap-wrapper .heatmap-img {
+        transition: transform 0.5s ease;
+    }
+    .heatmap-wrapper:hover .heatmap-img {
+        transform: scale(1.05);
+    }
+  </style>
 
   <script>
   /* ============================================================
@@ -196,6 +212,7 @@
   startHeatmap();
   </script>
 </div>
+
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
   <h3 style="color:#ff0044;">Malware Activity Monitor</h3>
   <p style="color:#ccc;margin-bottom:15px;">Distribuzione dei principali malware rilevati.</p>
