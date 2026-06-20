@@ -235,11 +235,8 @@ function iscriviOroscopo() {
 ============================================================ */
 
 function initTicker() {
-    const track = document.getElementById("ticker-track");
+    const track = document.querySelector(".ticker-track");
     if (!track) return;
-
-    initTickerWidth(track);
-}
 
     if (track.dataset.cloned === "true") return;
 
