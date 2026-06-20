@@ -1,12 +1,13 @@
 /* ============================================================
-   TICKER SCORREVOLE CONTINUO — VERSIONE DEFINITIVA
+   TICKER SCORREVOLE CONTINUO — VERSIONE DEFINITIVA E STABILE
    Nessun CSS richiesto — tutto gestito via JS
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.5; // velocità scorrimento (px per frame)
+let speed = 0.35; // velocità scorrimento (px per frame) — stabile e lenta
+let tickerFrame = null;
 
 /* ============================================================
    CARICAMENTO NEWS DA GITHUB RAW
@@ -32,7 +33,7 @@ async function loadTickerNews() {
 }
 
 /* ============================================================
-   AVVIO TICKER
+   AVVIO TICKER (con reset del loop)
 ============================================================ */
 function startTicker() {
     const el = document.getElementById("ticker-text");
@@ -51,8 +52,11 @@ function startTicker() {
     el.style.display = "inline-block";
     el.style.whiteSpace = "nowrap";
 
-    // Posizione iniziale: fuori dallo schermo a destra
+    // Reset posizione
     pos = el.parentElement.offsetWidth;
+
+    // 🔥 STOPPA il vecchio loop prima di avviarne uno nuovo
+    if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
     // Avvia scorrimento
     scrollTicker();
@@ -65,7 +69,7 @@ function startTicker() {
 }
 
 /* ============================================================
-   SCORRIMENTO CONTINUO
+   SCORRIMENTO CONTINUO (loop unico e stabile)
 ============================================================ */
 function scrollTicker() {
     const el = document.getElementById("ticker-text");
@@ -74,16 +78,17 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    // Quando esce completamente → reset
     if (pos < -el.offsetWidth) {
         pos = el.parentElement.offsetWidth;
     }
 
-    requestAnimationFrame(scrollTicker);
+    tickerFrame = requestAnimationFrame(scrollTicker);
 }
 
 /* ============================================================
    AVVIO AUTOMATICO
 ============================================================ */
 document.addEventListener("DOMContentLoaded", loadTickerNews);
+
+// Aggiorna news ogni 60 secondi
 setInterval(loadTickerNews, 60000);
