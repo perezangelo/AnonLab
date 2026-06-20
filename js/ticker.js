@@ -6,7 +6,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 0.35; // velocità scorrimento (px per frame) — stabile e lenta
+let speed = 1.00; // velocità scorrimento (px per frame) — stabile e lenta
 let tickerFrame = null;
 
 /* ============================================================
