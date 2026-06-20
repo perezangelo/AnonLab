@@ -6,7 +6,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.00; // velocità costante e fluida
+let speed = 1.2; // velocità costante e fluida
 let tickerFrame = null;
 
 /* ============================================================
@@ -39,6 +39,9 @@ function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
+    // Allarga il contenitore per evitare sparizioni premature
+    el.parentElement.style.width = "calc(100% - 90px)";
+
     const item = tickerNews[tickerIndex];
 
     /* Fade-out */
@@ -66,7 +69,7 @@ function startTicker() {
         el.style.opacity = "1";
 
         /* Reset posizione: larghezza TOTALE del ticker */
-        const fullWidth = el.parentElement.parentElement.offsetWidth;
+        const fullWidth = el.parentElement.offsetWidth;
         pos = fullWidth;
 
         /* Stop vecchio loop */
