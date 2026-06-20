@@ -21,7 +21,12 @@ jobs:
       - name: Install feedparser
         run: pip install feedparser
 
-      - name: Fetch and convert CISA feed
+      - name: DEBUG - Print first 80 lines of CISA feed
+        run: |
+          curl -s -A "Mozilla/5.0" "https://www.cisa.gov/cybersecurity-advisories/all.xml" > debug.xml
+          echo "===== FEED CONTENT START ====="
+          head -n 80 debug.xml
+          echo "===== FEED CONTENT END ====="
         run: |
           python3 << 'EOF'
           import feedparser, json
