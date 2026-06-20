@@ -136,8 +136,65 @@
 </div>
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
   <h3 style="color:#00eaff;">Global Threat Heatmap</h3>
-  <p style="color:#ccc;margin-bottom:15px;">Intensità delle minacce per area geografica.</p>
-  <img src="/img/heatmap-placeholder.png" style="width:100%;border-radius:6px;">
+  <p style="color:#ccc;margin-bottom:15px;">Intensità delle minacce per area geografica (aggiornamento live).</p>
+
+  <div style="position:relative;width:100%;border-radius:6px;overflow:hidden;">
+      <img src="/img/world-map-dark.png" style="width:100%;display:block;">
+      <canvas id="heatmap-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;"></canvas>
+  </div>
+
+  <script>
+  /* ============================================================
+        GLOBAL THREAT HEATMAP — Versione Dinamica Finale
+     ============================================================ */
+
+  function startHeatmap() {
+      const canvas = document.getElementById("heatmap-canvas");
+      if (!canvas) return setTimeout(startHeatmap, 200);
+
+      const ctx = canvas.getContext("2d");
+
+      function resizeCanvas() {
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
+      }
+
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      async function loadHeatmap() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/heatmap_data.php");
+              const points = await res.json();
+
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+              points.forEach(p => {
+                  const x = p.x * canvas.width;
+                  const y = p.y * canvas.height;
+                  const intensity = p.intensity;
+
+                  const gradient = ctx.createRadialGradient(x, y, 0, x, y, 60);
+                  gradient.addColorStop(0, `rgba(255,0,0,${intensity})`);
+                  gradient.addColorStop(1, "rgba(255,0,0,0)");
+
+                  ctx.fillStyle = gradient;
+                  ctx.beginPath();
+                  ctx.arc(x, y, 60, 0, Math.PI * 2);
+                  ctx.fill();
+              });
+
+          } catch (e) {
+              console.error("Errore Heatmap:", e);
+          }
+      }
+
+      loadHeatmap();
+      setInterval(loadHeatmap, 10000);
+  }
+
+  startHeatmap();
+  </script>
 </div>
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
   <h3 style="color:#ff0044;">Malware Activity Monitor</h3>
