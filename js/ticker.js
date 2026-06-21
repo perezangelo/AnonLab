@@ -95,11 +95,13 @@ function startTicker() {
 
     }, 150);
 
-    setTimeout(() => {
-        tickerIndex = (tickerIndex + 1) % tickerNews.length;
-        startTicker();
-    }, 9000);
-}
+    // Calcola la durata reale dello scorrimento
+const duration = (tickerWidth + textWidth) / speed * 16; // 16ms ≈ 1 frame
+
+setTimeout(() => {
+    tickerIndex = (tickerIndex + 1) % tickerNews.length;
+    startTicker();
+}, duration);
 
 /* ============================================================
    SCORRIMENTO CONTINUO
