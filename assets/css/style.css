@@ -1,41 +1,4 @@
 /* ============================================================
-   A) CARICAMENTO PARTIALS — VERSIONE OTTIMIZZATA E ROBUSTA
-============================================================ */
-
-async function loadPartial(id, file) {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 5000);
-
-        const res = await fetch(file, { signal: controller.signal });
-        clearTimeout(timeout);
-
-        if (!res.ok || !res.headers.get("content-type")?.includes("text/html")) {
-            throw new Error(`Errore nel caricamento di ${file}`);
-        }
-
-        el.innerHTML = await res.text();
-
-        if (id === "sidebar") {
-            requestAnimationFrame(() => {
-                loadMeteo();
-                initOroscopo();
-            });
-        }
-
-        if (id === "header") {
-            requestAnimationFrame(initTicker);
-        }
-
-    } catch (err) {
-        console.error(err);
-        el.innerHTML = `<p class="error">Impossibile caricare ${file}</p>`;
-    }
-}
-/* ============================================================
    METEO REALE — Open‑Meteo + Icone Neon (VERSIONE CORRETTA)
 ============================================================ */
 
