@@ -148,6 +148,7 @@ h3 {
   grid-template-columns: auto minmax(0, 1fr);
   gap: 10px;
   align-items: center;
+  overflow: visible; /* ⭐ NECESSARIO per evitare tagli */
 }
 
 .ticker-title {
@@ -169,6 +170,7 @@ h3 {
   padding: 8px 14px;
   overflow: visible; /* ⭐ FIX CRITICO */
   position: relative;
+  white-space: nowrap; /* ⭐ evita ritorni a capo */
 }
 
 #ticker-text {
@@ -179,7 +181,7 @@ h3 {
   color: #ffffff;
   text-shadow: 0 0 6px rgba(0,255,255,0.6);
   text-decoration: none;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, color 0.3s ease;
 }
 
 #ticker-text:hover {
