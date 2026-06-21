@@ -24,104 +24,95 @@ jobs:
       - name: Fetch and merge cyber news
         run: |
           python3 << 'EOF'
-        import feedparser, requests, json, time
-from bs4 import BeautifulSoup
-from email.utils import parsedate_to_datetime
+          import feedparser, requests, json, time
+          from bs4 import BeautifulSoup
+          from email.utils import parsedate_to_datetime
 
-FEEDS = [
-    "https://www.cisa.gov/cybersecurity-advisories/all.xml",
-    "https://feeds.feedburner.com/TheHackersNews",
-    "https://www.bleepingcomputer.com/feed/",
-    "https://www.darkreading.com/rss.xml",
-    "https://feeds.feedburner.com/securityweek",
-    "https://cybernews.com/feed/",
-    "https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml"
-]
+          FEEDS = [
+              "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+              "https://feeds.feedburner.com/TheHackersNews",
+              "https://www.bleepingcomputer.com/feed/",
+              "https://www.darkreading.com/rss.xml",
+              "https://feeds.feedburner.com/securityweek",
+              "https://cybernews.com/feed/",
+              "https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml"
+          ]
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-}
+          headers = {
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+          }
 
-all_news = []
+          all_news = []
 
-def extract_image(url):
-    try:
-        html = requests.get(url, headers=headers, timeout=8).text
-        soup = BeautifulSoup(html, "html.parser")
-        og = soup.find("meta", property="og:image")
-        if og and og.get("content"):
-            return og["content"]
-    except:
-        pass
-    return ""
+          def extract_image(url):
+              try:
+                  html = requests.get(url, headers=headers, timeout=8).text
+                  soup = BeautifulSoup(html, "html.parser")
+                  og = soup.find("meta", property="og:image")
+                  if og and og.get("content"):
+                      return og["content"]
+              except:
+                  pass
+              return ""
 
-def parse_date(entry):
-    # 1) feedparser standard
-    if "published" in entry:
-        try:
-            return parsedate_to_datetime(entry["published"]).timestamp()
-        except:
-            pass
+          def parse_date(entry):
+              if "published" in entry:
+                  try:
+                      return parsedate_to_datetime(entry["published"]).timestamp()
+                  except:
+                      pass
+              if "updated" in entry:
+                  try:
+                      return parsedate_to_datetime(entry["updated"]).timestamp()
+                  except:
+                      pass
+              return time.time()
 
-    # 2) updated
-    if "updated" in entry:
-        try:
-            return parsedate_to_datetime(entry["updated"]).timestamp()
-        except:
-            pass
+          for url in FEEDS:
+              try:
+                  print(f"Fetching {url}")
+                  r = requests.get(url, headers=headers, timeout=10)
+                  r.raise_for_status()
 
-    # 3) fallback: adesso
-    return time.time()
+                  feed = feedparser.parse(r.text)
 
-for url in FEEDS:
-    try:
-        print(f"Fetching {url}")
-        r = requests.get(url, headers=headers, timeout=10)
-        r.raise_for_status()
+                  for entry in feed.entries[:10]:
+                      title = entry.get("title", "").strip()
+                      link = entry.get("link", "").strip()
 
-        feed = feedparser.parse(r.text)
+                      if title and link:
+                          img = extract_image(link)
+                          ts = parse_date(entry)
 
-        for entry in feed.entries[:10]:
-            title = entry.get("title", "").strip()
-            link = entry.get("link", "").strip()
+                          all_news.append({
+                              "title": title,
+                              "link": link,
+                              "image": img,
+                              "ts": ts
+                          })
 
-            if title and link:
-                img = extract_image(link)
-                ts = parse_date(entry)
+              except Exception as e:
+                  print(f"Errore feed {url}: {e}")
 
-                all_news.append({
-                    "title": title,
-                    "link": link,
-                    "image": img,
-                    "ts": ts
-                })
+          unique = []
+          seen = set()
 
-    except Exception as e:
-        print(f"Errore feed {url}: {e}")
+          for n in all_news:
+              if n["title"] not in seen:
+                  unique.append(n)
+                  seen.add(n["title"])
 
-# Rimuovi duplicati
-unique = []
-seen = set()
+          unique.sort(key=lambda x: x["ts"], reverse=True)
 
-for n in all_news:
-    if n["title"] not in seen:
-        unique.append(n)
-        seen.add(n["title"])
+          final_news = unique[:30]
 
-# Ordina per timestamp
-unique.sort(key=lambda x: x["ts"], reverse=True)
+          for n in final_news:
+              n.pop("ts", None)
 
-# Limita a 30 news
-final_news = unique[:30]
+          with open("data/news.json", "w") as f:
+              json.dump(final_news, f, indent=2)
 
-# Rimuovi ts per compatibilità ticker
-for n in final_news:
-    n.pop("ts", None)
-
-with open("data/news.json", "w") as f:
-    json.dump(final_news, f, indent=2)
-
-print(f"Totale news salvate: {len(final_news)}")
+          print(f"Totale news salvate: {len(final_news)}")
           EOF
 
       - name: Commit updated news.json
@@ -131,4 +122,3 @@ print(f"Totale news salvate: {len(final_news)}")
           git add data/news.json
           git commit -m "Update cyber news" || echo "No changes"
           git push
-
