@@ -59,43 +59,116 @@ h3 {
 }
 
 /* ============================================================
-   TICKER — VERSIONE NEON COMPATIBILE CON ticker.js
+   SEZIONE 2 — LAYOUT + HEADER + NAV + TICKER (VERSIONE PRO)
+============================================================ */
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(280px, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  margin: 12px auto 10px;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 0 22px rgba(0, 234, 255, 0.18);
+  position: sticky;
+  top: 8px;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(0, 234, 255, 0.4);
+}
+
+@media (min-width: 821px) {
+  .main-nav {
+    display: flex;
+    gap: 14px;
+    font-size: 0.9rem;
+  }
+}
+
+.main-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: 0.18s ease;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+  background: rgba(0, 255, 157, 0.06);
+}
+
+@media (max-width: 480px) {
+  .main-nav {
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+
+  .main-nav a {
+    padding: 4px 8px;
+  }
+}
+
+/* ============================================================
+   TICKER — VERSIONE DEFINITIVA COMPATIBILE CON ticker.js
 ============================================================ */
 
 .ticker {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto 14px;
-  padding: 8px 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
   align-items: center;
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.55);
-  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.18);
-  backdrop-filter: blur(4px);
-  overflow: visible; /* ⭐ CRITICO */
-  position: relative;
-  z-index: 9998;
 }
 
 .ticker-title {
-  font-weight: 800;
-  font-size: 0.85rem;
-  color: #00eaff;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(0, 255, 255, 0.12);
-  text-shadow: 0 0 6px rgba(0,255,255,0.6);
+  background: linear-gradient(135deg, #ff4b6e, #ff9f43);
+  color: #050308;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-radius: 999px;
   white-space: nowrap;
-  margin-left: 12px;
 }
 
 .ticker-content {
-  flex: 1;
-  overflow: visible; /* ⭐ CRITICO */
+  background: #111;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 8px 14px;
+  overflow: visible; /* ⭐ FIX CRITICO */
   position: relative;
-  white-space: nowrap;
 }
 
 #ticker-text {
@@ -104,29 +177,14 @@ h3 {
   font-size: 0.95rem;
   font-weight: 600;
   color: #ffffff;
-  text-decoration: none;
-  transition: opacity 0.4s ease, color 0.3s ease;
   text-shadow: 0 0 6px rgba(0,255,255,0.6);
+  text-decoration: none;
+  transition: opacity 0.4s ease;
 }
 
 #ticker-text:hover {
   color: #00faff;
   text-shadow: 0 0 10px rgba(0,255,255,0.9);
-}
-
-/* ============================================================
-   RESPONSIVE
-============================================================ */
-
-@media (max-width: 480px) {
-  .ticker-title {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-  }
-
-  #ticker-text {
-    font-size: 0.85rem;
-  }
 }
 
 /* ============================================================
