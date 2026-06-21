@@ -212,17 +212,18 @@
     position: relative !important;
     z-index: 999 !important;
 }
-/* ============================
-   TICKER NEON — VERSIONE CORRETTA
-============================ */
+/* ============================================================
+   TICKER — VERSIONE COMPATIBILE CON ticker.js
+============================================================ */
 
 .ticker {
-    width: 100%;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
     background: rgba(0, 0, 0, 0.55);
     border-bottom: 1px solid rgba(0, 255, 255, 0.25);
-    padding: 0;                     /* FIX: niente padding, niente sfasamenti */
-    display: block;                 /* FIX: niente flex, niente gap fantasma */
-    overflow: hidden;               /* il contenitore esterno chiude tutto */
+    padding: 0;
+    overflow: hidden;
     position: relative;
     z-index: 2;
     box-shadow: 0 0 12px rgba(0, 255, 255, 0.18);
@@ -230,6 +231,7 @@
 }
 
 .ticker-title {
+    flex-shrink: 0 !important;
     font-weight: 800;
     font-size: 0.95rem;
     color: #00eaff;
@@ -239,16 +241,13 @@
     text-shadow: 0 0 6px rgba(0,255,255,0.6);
     margin-left: 12px;
     white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .ticker-content {
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    overflow: hidden;               /* FIX: chiude il testo scorrevole */
-    width: calc(100% - 140px);      /* spazio dinamico dopo "Breaking" */
+    flex-grow: 1 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    min-width: 0 !important;
     margin-left: 8px;
 }
 
@@ -261,7 +260,6 @@
     text-shadow: 0 0 6px rgba(0,255,255,0.6);
     text-decoration: none;
     transition: opacity 0.4s ease;
-    margin-left: 0;                 /* nessuno spazio extra tra le news */
 }
 
 /* Effetto neon al passaggio */
