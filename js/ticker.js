@@ -133,6 +133,6 @@ function scrollTicker(textWidth, tickerWidth) {
 ============================================================ */
 
 // document.addEventListener("DOMContentLoaded", loadTickerNews);
-// setInterval(loadTickerNews, 50000);
+// setInterval(loadTickerNews, 10000);
 
 
