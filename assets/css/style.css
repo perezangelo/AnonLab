@@ -180,21 +180,26 @@ async function initOroscopo() {
     }
 }
 /* ============================================================
-   C) TICKER CONTINUO
+   C) TICKER CONTINUO (VERSIONE LEGACY — DISATTIVATA IN SICUREZZA)
 ============================================================ */
+
+/* Disattivato per evitare errori: .ticker-track non esiste più */
+// requestAnimationFrame(initTicker);
 
 function initTicker() {
     const track = document.querySelector(".ticker-track");
+
+    /* Se non esiste, esci senza errori */
     if (!track) return;
 
-    if (track.dataset.cloned === "true") return;
+    /* totalWidth non esiste più → evitiamo errore */
+    const totalWidth = track.scrollWidth || 0;
 
-    const clone = track.cloneNode(true);
-    clone.dataset.cloned = "true";
-    track.parentElement.appendChild(clone);
-
-    const totalWidth = track.scrollWidth;
+    /* Evita crash */
     track.style.setProperty("--ticker-width", totalWidth + "px");
+
+    /* Rimosso: causava loop e ricaricava il partial infinite volte */
+    // loadPartial("ticker", "/partials/ticker.html");
 }
 
 /* ============================================================
