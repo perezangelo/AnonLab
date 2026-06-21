@@ -269,22 +269,40 @@
 }
 
 /* ============================
-   RESPONSIVE
+   RESPONSIVE — VERSIONE CORRETTA PER MOBILE
 ============================ */
 
 @media (max-width: 480px) {
+
+    .ticker {
+        padding: 6px 0;
+        gap: 8px;
+    }
+
     .ticker-title {
-        font-size: 0.8rem;
-        padding: 3px 8px;
+        font-size: 0.75rem;
+        padding: 2px 6px;
         margin-left: 8px;
     }
 
     .ticker-content {
-        width: calc(100% - 120px);
+        overflow: hidden; /* ⭐ fondamentale per il treno continuo */
+        position: relative;
     }
 
     #ticker-text {
-        font-size: 0.85rem;
+        font-size: 0.80rem;
+        white-space: nowrap;
+        display: inline-block;
+        will-change: transform; /* ⭐ accelera lo scroll su mobile */
+        transform: translateX(0); /* ⭐ reset sicuro */
+    }
+
+    #ticker-text img {
+        height: 16px;
+        width: 16px;
+        margin-right: 4px;
+        border-radius: 3px;
     }
 }
 
