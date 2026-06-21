@@ -1,8 +1,8 @@
-name: Update CISA News
+name: Update Cyber News (AnonLab Ultimate)
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/10 * * * *"   # ogni 10 minuti
   workflow_dispatch:
 
 jobs:
@@ -19,57 +19,118 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: pip install feedparser requests
+        run: pip install feedparser requests beautifulsoup4
 
-      # ============================
-      # DEBUG: stampiamo il feed CISA
-      # ============================
-      - name: DEBUG - Print first 80 lines of CISA feed
-        run: |
-          curl -s -A "Mozilla/5.0" "https://www.cisa.gov/cybersecurity-advisories/all.xml" > debug.xml
-          echo "===== FEED CONTENT START ====="
-          head -n 80 debug.xml
-          echo "===== FEED CONTENT END ====="
-
-      # ============================
-      # PARSER DEFINITIVO
-      # ============================
-      - name: Fetch and convert CISA feed
+      - name: Fetch and merge cyber news
         run: |
           python3 << 'EOF'
-          import requests, feedparser, json
+          import feedparser, requests, json
+          from bs4 import BeautifulSoup
 
-          url = "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+          # ============================
+          # FONTI RSS REALI
+          # ============================
+          FEEDS = [
+              "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+              "https://feeds.feedburner.com/TheHackersNews",
+              "https://www.bleepingcomputer.com/feed/",
+              "https://www.darkreading.com/rss.xml",
+              "https://feeds.feedburner.com/securityweek",
+              "https://cybernews.com/feed/",
+              "https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml"
+          ]
 
           headers = {
               "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
           }
 
-          # Scarica il feed con user-agent reale
-          r = requests.get(url, headers=headers, timeout=10)
-          r.raise_for_status()
+          all_news = []
 
-          # Parse del contenuto scaricato
-          feed = feedparser.parse(r.text)
+          # ============================
+          # FUNZIONE PER ESTRARRE IMMAGINE OG
+          # ============================
+          def extract_image(url):
+              try:
+                  html = requests.get(url, headers=headers, timeout=8).text
+                  soup = BeautifulSoup(html, "html.parser")
+                  og = soup.find("meta", property="og:image")
+                  if og and og.get("content"):
+                      return og["content"]
+              except:
+                  pass
+              return ""
 
-          news = []
-          for entry in feed.entries[:8]:
-              title = entry.get("title", "No title")
-              link = entry.get("link", "#")
-              news.append({"title": title, "link": link})
+          # ============================
+          # PARSING MULTI-FEED
+          # ============================
+          for url in FEEDS:
+              try:
+                  print(f"Fetching {url}")
+                  r = requests.get(url, headers=headers, timeout=10)
+                  r.raise_for_status()
 
-          # Scrive il JSON
+                  feed = feedparser.parse(r.text)
+
+                  for entry in feed.entries[:10]:
+                      title = entry.get("title", "").strip()
+                      link = entry.get("link", "").strip()
+                      published = entry.get("published", "")
+
+                      if title and link:
+                          img = extract_image(link)
+
+                          all_news.append({
+                              "title": title,
+                              "link": link,
+                              "image": img,
+                              "published": published
+                          })
+
+              except Exception as e:
+                  print(f"Errore feed {url}: {e}")
+
+          # ============================
+          # RIMOZIONE DUPLICATI
+          # ============================
+          unique = []
+          seen = set()
+
+          for n in all_news:
+              if n["title"] not in seen:
+                  unique.append(n)
+                  seen.add(n["title"])
+
+          # ============================
+          # ORDINAMENTO PER DATA
+          # ============================
+          def sort_key(x):
+              return x.get("published", "")
+
+          unique.sort(key=sort_key, reverse=True)
+
+          # ============================
+          # LIMITAZIONE A 30 NEWS
+          # ============================
+          final_news = unique[:30]
+
+          # Rimuoviamo il campo "published" per compatibilità ticker
+          for n in final_news:
+              n.pop("published", None)
+
+          # ============================
+          # SCRITTURA FILE JSON
+          # ============================
           with open("data/news.json", "w") as f:
-              json.dump(news, f, indent=2)
+              json.dump(final_news, f, indent=2)
+
+          print(f"Totale news salvate: {len(final_news)}")
           EOF
 
-      # ============================
-      # COMMIT AUTOMATICO
-      # ============================
       - name: Commit updated news.json
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add data/news.json
-          git commit -m "Update CISA news" || echo "No changes"
+          git commit -m "Update cyber news" || echo "No changes"
           git push
+
