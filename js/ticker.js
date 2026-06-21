@@ -5,7 +5,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 2.8;
+let speed = 3.0;
 let tickerFrame = null;
 
 /* ============================================================
@@ -133,6 +133,6 @@ function scrollTicker(textWidth, tickerWidth) {
 ============================================================ */
 
 // document.addEventListener("DOMContentLoaded", loadTickerNews);
-// setInterval(loadTickerNews, 60000);
+// setInterval(loadTickerNews, 50000);
 
 
