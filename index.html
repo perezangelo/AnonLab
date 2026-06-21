@@ -455,7 +455,7 @@ async function sendNewsletter(e) {
     <h2>Vulnerabilità del Giorno</h2>
   </div>
 
- <div id="cve-today">
+<div id="cve-today">
   <p>Caricamento...</p>
 </div>
 
@@ -463,57 +463,97 @@ async function sendNewsletter(e) {
 async function loadCVE() {
   try {
     const res = await fetch("/data/cve-today.json?t=" + Date.now());
-    const cve = await res.json();
+    const list = await res.json();
 
-    const score = parseFloat(cve.cvss);
-    let color = "#666";
-    let icon = "🟢";
-    let label = cve.cvss;
+    let index = 0;
 
-    if (!isNaN(score)) {
-      if (score >= 9.0) { color = "#d32f2f"; icon = "🔥"; }
-      else if (score >= 7.0) { color = "#f57c00"; icon = "⚠️"; }
-      else if (score >= 4.0) { color = "#fbc02d"; icon = "🛡️"; }
-      else if (score > 0) { color = "#388e3c"; icon = "🟢"; }
+    function render() {
+      const cve = list[index];
+      const score = parseFloat(cve.cvss);
+
+      let color = "#666";
+      let icon = "🟢";
+
+      if (!isNaN(score)) {
+        if (score >= 9.0) { color = "#d32f2f"; icon = "🔥"; }
+        else if (score >= 7.0) { color = "#f57c00"; icon = "⚠️"; }
+        else if (score >= 4.0) { color = "#fbc02d"; icon = "🛡️"; }
+        else if (score > 0) { color = "#388e3c"; icon = "🟢"; }
+      }
+
+      const badge = `
+        <span style="
+          display:inline-flex;
+          align-items:center;
+          gap:6px;
+          padding:4px 10px;
+          border-radius:6px;
+          font-size:0.85rem;
+          font-weight:600;
+          color:#fff;
+          background:${color};
+        ">${icon} ${cve.cvss}</span>
+      `;
+
+      const bar = `
+        <div style="
+          width:100%;
+          height:8px;
+          background:#222;
+          border-radius:4px;
+          margin:10px 0 14px 0;
+          overflow:hidden;
+        ">
+          <div style="
+            width:${(score/10)*100}%;
+            height:100%;
+            background:${color};
+            transition:width 0.6s ease;
+          "></div>
+        </div>
+      `;
+
+      document.getElementById("cve-today").innerHTML = `
+        <div style="opacity:0; transition:opacity 0.4s;" id="cve-fade">
+          <p><strong>${cve.id}</strong> ${badge}</p>
+          ${bar}
+          <p>${cve.description}</p>
+          <a href="${cve.link}" target="_blank" style="color:#ff7b00; font-weight:bold;">
+            Vai alla scheda NVD →
+          </a>
+
+          <div style="margin-top:12px;">
+            <button onclick="nextCVE()" style="
+              background:#111;
+              border:1px solid #ff7b00;
+              color:#ff7b00;
+              padding:6px 12px;
+              border-radius:6px;
+              cursor:pointer;
+            ">Prossima CVE →</button>
+
+            <a href="/cve-storico.html" style="
+              margin-left:12px;
+              color:#ff7b00;
+              font-weight:bold;
+            ">Storico CVE</a>
+          </div>
+        </div>
+      `;
+
+      requestAnimationFrame(() => {
+        document.getElementById("cve-fade").style.opacity = "1";
+      });
     }
 
-    const badge = `
-      <span style="
-        display:inline-flex;
-        align-items:center;
-        gap:6px;
-        padding:4px 10px;
-        border-radius:6px;
-        font-size:0.85rem;
-        font-weight:600;
-        color:#fff;
-        background:${color};
-      ">${icon} ${label}</span>
-    `;
+    window.nextCVE = function() {
+      index = (index + 1) % list.length;
+      render();
+    };
 
-    const bar = `
-      <div style="
-        width:100%;
-        height:8px;
-        background:#222;
-        border-radius:4px;
-        margin:10px 0 14px 0;
-        overflow:hidden;
-      ">
-        <div style="
-          width:${(score/10)*100}%;
-          height:100%;
-          background:${color};
-        "></div>
-      </div>
-    `;
+    render();
+    setInterval(nextCVE, 15000);
 
-    document.getElementById("cve-today").innerHTML = `
-      <p><strong>${cve.id}</strong> ${badge}</p>
-      ${bar}
-      <p>${cve.description}</p>
-      <a href="${cve.link}" target="_blank" style="color:#ff7b00;">Dettagli →</a>
-    `;
   } catch (e) {
     document.getElementById("cve-today").innerHTML =
       "<p>Impossibile caricare la CVE.</p>";
@@ -522,9 +562,6 @@ async function loadCVE() {
 
 loadCVE();
 </script>
-</section>
-
-<script src="/js/cve-today.js"></script>
 
 <!-- CYBER ALERT LIVE -->
 <section class="widget-large">
