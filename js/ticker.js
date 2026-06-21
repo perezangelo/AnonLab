@@ -5,7 +5,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.2;   // ⭐ CORRETTO: punto, non virgola
+let speed = 1.2;
 let tickerFrame = null;
 
 /* ============================================================
@@ -38,32 +38,27 @@ function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
-    const wrapper = el.parentElement;      // .ticker-content
-    const outer = wrapper.parentElement;   // .ticker
+    const wrapper = el.parentElement;
+    const outer = wrapper.parentElement;
 
-    /* ⭐ FIX CRITICO: impedisce il taglio */
     wrapper.style.overflow = "visible";
 
     const item = tickerNews[tickerIndex];
 
-    /* Fade-out */
     el.style.opacity = "0";
 
     setTimeout(() => {
 
-        /* 🎨 Colori neon dinamici */
         const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
         const neon = colors[Math.floor(Math.random() * colors.length)];
 
-        /* 🖼️ Icone dinamiche */
         const icons = ["🔹", "◆", "◉", "✦", "❯"];
         const icon = icons[Math.floor(Math.random() * icons.length)];
 
-        /* Testo completo */
-        el.textContent = ` ${icon}  ${item.title}  ${icon} `;
+        /* ⭐ FIX 1: innerHTML invece di textContent */
+        el.innerHTML = ` ${icon}  ${item.title}  ${icon} `;
         el.href = item.link || "#";
 
-        /* Stile inline */
         el.style.color = "#ffffff";
         el.style.textDecoration = "none";
         el.style.fontWeight = "600";
@@ -72,22 +67,20 @@ function startTicker() {
         el.style.whiteSpace = "nowrap";
         el.style.textShadow = `0 0 8px ${neon}`;
 
-        /* Fade-in */
+        /* ⭐ FIX 2: calcolo larghezza reale */
+        el.style.width = el.scrollWidth + "px";
+
         el.style.transition = "opacity 0.5s";
         el.style.opacity = "1";
 
-        /* Reset posizione: parte da DESTRA del ticker */
         pos = outer.offsetWidth;
 
-        /* Stop vecchio loop */
         if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
-        /* Avvia scorrimento */
         scrollTicker();
 
     }, 200);
 
-    /* Cambio news */
     setTimeout(() => {
         tickerIndex = (tickerIndex + 1) % tickerNews.length;
         startTicker();
@@ -106,9 +99,9 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    /* Reset quando esce COMPLETAMENTE dal ticker */
-    if (pos < -el.offsetWidth) {
-        pos = outer.offsetWidth;
+    /* ⭐ FIX 3: reset corretto */
+    if (pos < -el.offsetWidth - 40) {
+        pos = outer.offsetWidth + 40;
     }
 
     tickerFrame = requestAnimationFrame(scrollTicker);
