@@ -1,11 +1,10 @@
 /* ============================================================
-   TICKER — VERSIONE DEFINITIVA (veloce + immagini + no spazi)
+   TICKER — VERSIONE "TRENO DI NEWS" (continua + immagini)
 ============================================================ */
 
-let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 3.0;
+let speed = 1.4;          // velocità scorrimento
 let tickerFrame = null;
 
 /* ============================================================
@@ -21,120 +20,100 @@ async function loadTickerNews() {
             ? data
             : [{ title: "Nessuna notizia disponibile", link: "#", image: "" }];
 
-        tickerIndex = 0;
-        startTicker();
-
+        buildTickerTrain();
     } catch (e) {
         console.error("Errore ticker:", e);
         tickerNews = [{ title: "Errore nel caricamento delle news", link: "#", image: "" }];
-        startTicker();
+        buildTickerTrain();
     }
 }
 
 /* ============================================================
-   AVVIO TICKER
+   COSTRUZIONE "TRENO" DI NEWS
 ============================================================ */
-function startTicker() {
+function buildTickerTrain() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
     const wrapper = el.parentElement;
-    wrapper.style.overflow = "visible";
+    wrapper.style.overflow = "hidden";
 
-    const item = tickerNews[tickerIndex];
+    const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
+    const icons = ["◆", "◉", "✦", "❯"];
 
-    el.style.opacity = "0";
+    // Costruisco una stringa unica con TUTTE le news concatenate
+    let html = "";
 
-    setTimeout(() => {
-
-        const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
-        const neon = colors[Math.floor(Math.random() * colors.length)];
-
-        const icons = ["◆", "◉", "✦", "❯"];
-        const icon = icons[Math.floor(Math.random() * icons.length)];
+    tickerNews.forEach((item, idx) => {
+        const neon = colors[idx % colors.length];
+        const icon = icons[idx % icons.length];
 
         const img = item.image && item.image.trim() !== ""
             ? item.image
-            : "https://picsum.photos/40/40?random=" + Math.random();
+            : "https://picsum.photos/40/40?random=" + idx;
 
-        el.innerHTML = `
-            <img src="${img}" style="
-                height:20px;width:20px;object-fit:cover;
-                border-radius:4px;vertical-align:middle;margin-right:6px;">
-            ${icon} ${item.title}
+        html += `
+            <a href="${item.link || "#"}" style="
+                color:#ffffff;
+                text-decoration:none;
+                font-weight:600;
+                font-family:inherit;
+                display:inline-flex;
+                align-items:center;
+                white-space:nowrap;
+                margin-right:40px;
+                text-shadow:0 0 8px ${neon};
+            ">
+                <img src="${img}" style="
+                    height:20px;width:20px;object-fit:cover;
+                    border-radius:4px;margin-right:6px;
+                ">
+                <span style="margin-right:6px;">${icon}</span>
+                <span>${item.title}</span>
+            </a>
         `;
+    });
 
-        el.href = item.link || "#";
+    // Duplico il contenuto per avere un loop continuo
+    el.innerHTML = html + html;
 
-        el.style.color = "#ffffff";
-        el.style.textDecoration = "none";
-        el.style.fontWeight = "600";
-        el.style.fontFamily = "inherit";
-        el.style.display = "inline-block";
-        el.style.whiteSpace = "nowrap";
-        el.style.textShadow = `0 0 8px ${neon}`;
-        el.style.transition = "opacity 0.4s";
+    el.style.display = "inline-block";
+    el.style.whiteSpace = "nowrap";
+    el.style.transform = "translateX(0px)";
 
-        // larghezza reale del testo
-        const textWidth = el.scrollWidth;
+    // posizione iniziale
+    pos = 0;
 
-        el.style.opacity = "1";
-
-        // ⭐ larghezza reale dell’intero ticker (titolo + contenuto)
-        const tickerEl = document.querySelector(".ticker");
-        if (!tickerEl) return;
-
-        const tickerWidth = tickerEl.getBoundingClientRect().width;
-
-        // partenza: appena fuori dal bordo destro del ticker
-        pos = tickerWidth;
-
-        if (tickerFrame) cancelAnimationFrame(tickerFrame);
-
-        scrollTicker(textWidth, tickerWidth);
-
-    }, 150);
-
-    // Calcola la durata reale dello scorrimento
-const duration = (tickerWidth + textWidth) / speed * 16; // 16ms ≈ 1 frame
-
-setTimeout(() => {
-    tickerIndex = (tickerIndex + 1) % tickerNews.length;
-    startTicker();
-}, duration);
-
-/* ============================================================
-   SCORRIMENTO CONTINUO
-============================================================ */
-function scrollTicker(textWidth, tickerWidth) {
-    const el = document.getElementById("ticker-text");
-    if (!el) return;
-
-    // se non passati, ricalcola (per sicurezza)
-    if (!textWidth) textWidth = el.scrollWidth;
-    if (!tickerWidth) {
-        const tickerEl = document.querySelector(".ticker");
-        if (!tickerEl) return;
-        tickerWidth = tickerEl.getBoundingClientRect().width;
-    }
-
-    pos -= speed;
-    el.style.transform = `translateX(${pos}px)`;
-
-    // ⭐ reset quando il testo è completamente uscito a sinistra
-    if (pos < -textWidth - 20) {
-        pos = tickerWidth;
-    }
-
-    tickerFrame = requestAnimationFrame(() => scrollTicker(textWidth, tickerWidth));
+    if (tickerFrame) cancelAnimationFrame(tickerFrame);
+    startContinuousScroll();
 }
 
 /* ============================================================
-   AVVIO AUTOMATICO — RIMOSSO
-   (il ticker ora parte SOLO da ui.js dopo il partial)
+   SCORRIMENTO CONTINUO SENZA FERMARSI
 ============================================================ */
+function startContinuousScroll() {
+    const el = document.getElementById("ticker-text");
+    if (!el) return;
 
-// document.addEventListener("DOMContentLoaded", loadTickerNews);
-// setInterval(loadTickerNews, 10000);
+    const contentWidth = el.scrollWidth;
+    const tickerEl = document.querySelector(".ticker");
+    if (!tickerEl) return;
 
+    const tickerWidth = tickerEl.getBoundingClientRect().width;
 
+    function step() {
+        pos -= speed;
+
+        // quando metà del contenuto è uscita a sinistra,
+        // riportiamo la posizione avanti di metà larghezza
+        // così il "treno" è sempre continuo
+        if (pos <= -contentWidth / 2) {
+            pos += contentWidth / 2;
+        }
+
+        el.style.transform = `translateX(${pos}px)`;
+        tickerFrame = requestAnimationFrame(step);
+    }
+
+    tickerFrame = requestAnimationFrame(step);
+}
