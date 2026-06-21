@@ -128,4 +128,3 @@ function scrollTicker() {
 ============================================================ */
 document.addEventListener("DOMContentLoaded", loadTickerNews);
 setInterval(loadTickerNews, 60000);
-
