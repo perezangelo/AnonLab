@@ -1,11 +1,11 @@
 /* ============================================================
-   TICKER — VERSIONE FINALE CON ICONE + COLORI NEON
+   TICKER — VERSIONE DEFINITIVA (veloce + immagini + no spazi)
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1.5;
+let speed = 2.8;   // ⭐ velocità aumentata
 let tickerFrame = null;
 
 /* ============================================================
@@ -19,14 +19,14 @@ async function loadTickerNews() {
 
         tickerNews = Array.isArray(data) && data.length > 0
             ? data
-            : [{ title: "Nessuna notizia disponibile", link: "#" }];
+            : [{ title: "Nessuna notizia disponibile", link: "#", image: "" }];
 
         tickerIndex = 0;
         startTicker();
 
     } catch (e) {
         console.error("Errore ticker:", e);
-        tickerNews = [{ title: "Errore nel caricamento delle news", link: "#" }];
+        tickerNews = [{ title: "Errore nel caricamento delle news", link: "#", image: "" }];
         startTicker();
     }
 }
@@ -39,7 +39,7 @@ function startTicker() {
     if (!el) return;
 
     const wrapper = el.parentElement;
-    const outer = wrapper.parentElement;
+    const outer = wrapper.parentElement;   // include Breaking
 
     wrapper.style.overflow = "visible";
 
@@ -49,16 +49,30 @@ function startTicker() {
 
     setTimeout(() => {
 
+        /* Neon dinamico */
         const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
         const neon = colors[Math.floor(Math.random() * colors.length)];
 
-        const icons = ["🔹", "◆", "◉", "✦", "❯"];
+        /* Icone */
+        const icons = ["◆", "◉", "✦", "❯"];
         const icon = icons[Math.floor(Math.random() * icons.length)];
 
-        /* ⭐ FIX 1: innerHTML invece di textContent */
-        el.innerHTML = ` ${icon}  ${item.title}  ${icon} `;
+        /* ⭐ IMMAGINE DI RIEMPIMENTO */
+        const img = item.image && item.image.trim() !== ""
+            ? item.image
+            : "https://picsum.photos/40/40?random=" + Math.random();
+
+        /* ⭐ NESSUNO SPAZIO TRA NEWS */
+        el.innerHTML = `
+            <img src="${img}" style="
+                height:20px;width:20px;object-fit:cover;
+                border-radius:4px;vertical-align:middle;margin-right:6px;">
+            ${icon} ${item.title}
+        `;
+
         el.href = item.link || "#";
 
+        /* Stile */
         el.style.color = "#ffffff";
         el.style.textDecoration = "none";
         el.style.fontWeight = "600";
@@ -67,24 +81,27 @@ function startTicker() {
         el.style.whiteSpace = "nowrap";
         el.style.textShadow = `0 0 8px ${neon}`;
 
-        /* ⭐ FIX 2: calcolo larghezza reale */
+        /* Larghezza reale */
         el.style.width = el.scrollWidth + "px";
 
-        el.style.transition = "opacity 0.5s";
+        /* Fade-in */
+        el.style.transition = "opacity 0.4s";
         el.style.opacity = "1";
 
-        pos = outer.offsetWidth;
+        /* ⭐ PARTENZA DA TUTTA LA LARGHEZZA (Breaking incluso) */
+        pos = outer.parentElement.offsetWidth;
 
         if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
         scrollTicker();
 
-    }, 200);
+    }, 150);
 
+    /* Cambio news */
     setTimeout(() => {
         tickerIndex = (tickerIndex + 1) % tickerNews.length;
         startTicker();
-    }, 12000);
+    }, 9000);
 }
 
 /* ============================================================
@@ -99,9 +116,9 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    /* ⭐ FIX 3: reset corretto */
-    if (pos < -el.offsetWidth - 40) {
-        pos = outer.offsetWidth + 40;
+    /* ⭐ RESET DOPO CHE ESCE COMPLETAMENTE */
+    if (pos < -el.offsetWidth - 20) {
+        pos = outer.parentElement.offsetWidth;
     }
 
     tickerFrame = requestAnimationFrame(scrollTicker);
@@ -112,3 +129,4 @@ function scrollTicker() {
 ============================================================ */
 document.addEventListener("DOMContentLoaded", loadTickerNews);
 setInterval(loadTickerNews, 60000);
+
