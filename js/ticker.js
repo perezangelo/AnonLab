@@ -124,7 +124,9 @@ function scrollTicker() {
 }
 
 /* ============================================================
-   AVVIO AUTOMATICO
+   AVVIO AUTOMATICO — RIMOSSO
+   (il ticker ora parte SOLO da ui.js dopo il partial)
 ============================================================ */
-document.addEventListener("DOMContentLoaded", loadTickerNews);
-setInterval(loadTickerNews, 60000);
+
+// document.addEventListener("DOMContentLoaded", loadTickerNews);
+// setInterval(loadTickerNews, 60000);
