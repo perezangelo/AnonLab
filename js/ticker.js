@@ -47,20 +47,16 @@ function startTicker() {
 
     setTimeout(() => {
 
-        /* Neon dinamico */
         const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
         const neon = colors[Math.floor(Math.random() * colors.length)];
 
-        /* Icone */
         const icons = ["◆", "◉", "✦", "❯"];
         const icon = icons[Math.floor(Math.random() * icons.length)];
 
-        /* Immagine di riempimento */
         const img = item.image && item.image.trim() !== ""
             ? item.image
             : "https://picsum.photos/40/40?random=" + Math.random();
 
-        /* Nessuno spazio tra news */
         el.innerHTML = `
             <img src="${img}" style="
                 height:20px;width:20px;object-fit:cover;
@@ -70,7 +66,6 @@ function startTicker() {
 
         el.href = item.link || "#";
 
-        /* Stile */
         el.style.color = "#ffffff";
         el.style.textDecoration = "none";
         el.style.fontWeight = "600";
@@ -78,26 +73,28 @@ function startTicker() {
         el.style.display = "inline-block";
         el.style.whiteSpace = "nowrap";
         el.style.textShadow = `0 0 8px ${neon}`;
-
-        /* Larghezza reale */
-        el.style.width = el.scrollWidth + "px";
-
         el.style.transition = "opacity 0.4s";
+
+        // larghezza reale del testo
+        const textWidth = el.scrollWidth;
+
         el.style.opacity = "1";
 
-        /* ⭐ PARTENZA CORRETTA: larghezza contenitore reale */
-        const container = document.querySelector(".ticker-content");
-        if (!container) return;
+        // ⭐ larghezza reale dell’intero ticker (titolo + contenuto)
+        const tickerEl = document.querySelector(".ticker");
+        if (!tickerEl) return;
 
-        pos = container.getBoundingClientRect().width;
+        const tickerWidth = tickerEl.getBoundingClientRect().width;
+
+        // partenza: appena fuori dal bordo destro del ticker
+        pos = tickerWidth;
 
         if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
-        scrollTicker();
+        scrollTicker(textWidth, tickerWidth);
 
     }, 150);
 
-    /* Cambio news */
     setTimeout(() => {
         tickerIndex = (tickerIndex + 1) % tickerNews.length;
         startTicker();
@@ -107,22 +104,27 @@ function startTicker() {
 /* ============================================================
    SCORRIMENTO CONTINUO
 ============================================================ */
-function scrollTicker() {
+function scrollTicker(textWidth, tickerWidth) {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
-    const container = document.querySelector(".ticker-content");
-    if (!container) return;
+    // se non passati, ricalcola (per sicurezza)
+    if (!textWidth) textWidth = el.scrollWidth;
+    if (!tickerWidth) {
+        const tickerEl = document.querySelector(".ticker");
+        if (!tickerEl) return;
+        tickerWidth = tickerEl.getBoundingClientRect().width;
+    }
 
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    /* ⭐ RESET CORRETTO — NON SPARISCE PIÙ */
-    if (pos < -el.offsetWidth - 20) {
-        pos = container.getBoundingClientRect().width;
+    // ⭐ reset quando il testo è completamente uscito a sinistra
+    if (pos < -textWidth - 20) {
+        pos = tickerWidth;
     }
 
-    tickerFrame = requestAnimationFrame(scrollTicker);
+    tickerFrame = requestAnimationFrame(() => scrollTicker(textWidth, tickerWidth));
 }
 
 /* ============================================================
@@ -132,4 +134,5 @@ function scrollTicker() {
 
 // document.addEventListener("DOMContentLoaded", loadTickerNews);
 // setInterval(loadTickerNews, 60000);
+
 
