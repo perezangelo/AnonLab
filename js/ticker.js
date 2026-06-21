@@ -1,11 +1,11 @@
 /* ============================================================
-   TICKER SCORREVOLE — VERSIONE DEFINITIVA E STABILE
+   TICKER — VERSIONE FINALE CON ICONE + COLORI NEON
 ============================================================ */
 
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 1,2;
+let speed = 1.2;   // ⭐ CORRETTO: punto, non virgola
 let tickerFrame = null;
 
 /* ============================================================
@@ -38,13 +38,11 @@ function startTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
-    const wrapper = el.parentElement;          // .ticker-content
-    const outer = wrapper.parentElement;       // .ticker
+    const wrapper = el.parentElement;      // .ticker-content
+    const outer = wrapper.parentElement;   // .ticker
 
-    /* FIX DEFINITIVO: wrapper controllato */
-    wrapper.style.width = "100%";
-    wrapper.style.overflow = "hidden";   // il testo NON può uscire
-    outer.style.overflow = "hidden";     // sicurezza
+    /* ⭐ FIX CRITICO: impedisce il taglio */
+    wrapper.style.overflow = "visible";
 
     const item = tickerNews[tickerIndex];
 
@@ -53,15 +51,16 @@ function startTicker() {
 
     setTimeout(() => {
 
-        /* 🎨 Colore neon dinamico */
+        /* 🎨 Colori neon dinamici */
         const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
         const neon = colors[Math.floor(Math.random() * colors.length)];
 
-        /* 🖼️ Icona separatore */
-        const icon = " 🔹 ";
+        /* 🖼️ Icone dinamiche */
+        const icons = ["🔹", "◆", "◉", "✦", "❯"];
+        const icon = icons[Math.floor(Math.random() * icons.length)];
 
         /* Testo completo */
-        el.textContent = icon + item.title + icon;
+        el.textContent = ` ${icon}  ${item.title}  ${icon} `;
         el.href = item.link || "#";
 
         /* Stile inline */
@@ -74,7 +73,7 @@ function startTicker() {
         el.style.textShadow = `0 0 8px ${neon}`;
 
         /* Fade-in */
-        el.style.transition = "opacity 0.6s";
+        el.style.transition = "opacity 0.5s";
         el.style.opacity = "1";
 
         /* Reset posizione: parte da DESTRA del ticker */
