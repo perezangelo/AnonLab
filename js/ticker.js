@@ -109,9 +109,8 @@ function scrollTicker() {
     el.style.transform = `translateX(${pos}px)`;
 
     if (pos < -el.offsetWidth - 20) {
-        pos = outer.parentElement.offsetWidth;
-    }
-
+    pos = outer.parentElement.offsetWidth;
+}
     tickerFrame = requestAnimationFrame(scrollTicker);
 }
 
