@@ -1,7 +1,45 @@
 <div class="ticker">
     <div class="ticker-title">Breaking</div>
 
-    <div class="ticker-content">
-        <a id="ticker-text" href="#" target="_blank">Caricamento…</a>
+    <div class="ticker-content" style="position:relative; overflow:visible;">
+        
+        <!-- LOGO CNN FISSO -->
+        <div id="ticker-fixed" style="
+            position:absolute;left:0;top:50%;transform:translateY(-50%);
+            z-index:10;display:flex;align-items:center;gap:8px;
+            padding:0 14px;height:100%;background:#b30000;color:white;
+            font-weight:800;font-size:0.85rem;letter-spacing:0.05em;
+            border-radius:6px;text-shadow:0 0 6px rgba(255,0,0,0.6);
+        ">
+            <img src="/img/logo.png" style="height:20px;width:auto;">
+            BREAKING
+        </div>
+
+        <!-- AUDIO ON/OFF -->
+        <div id="ticker-audio" style="
+            position:absolute;left:110px;top:50%;transform:translateY(-50%);
+            z-index:12;cursor:pointer;
+        ">
+            🔇
+        </div>
+
+        <!-- TESTO SCORRENTE -->
+        <a id="ticker-text" href="#" target="_blank" style="position:relative;z-index:2;">
+            Caricamento…
+        </a>
+
+        <!-- FADE LATERALE TV -->
+        <div id="fade-left" style="
+            position:absolute;left:0;top:0;width:60px;height:100%;
+            background:linear-gradient(to right, #000 0%, transparent 100%);
+            pointer-events:none;z-index:5;
+        "></div>
+
+        <div id="fade-right" style="
+            position:absolute;right:0;top:0;width:60px;height:100%;
+            background:linear-gradient(to left, #000 0%, transparent 100%);
+            pointer-events:none;z-index:5;
+        "></div>
+
     </div>
 </div>
