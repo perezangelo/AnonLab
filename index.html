@@ -72,29 +72,22 @@
   </script>
 
   <!-- ⭐ CSS -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
 </head>
+
 <body class="dark-mode">
-  
+
 <!-- WRAPPER GPU -->
 <div id="app" class="gpu-boost">
 
   <!-- HEADER (caricato dal partial) -->
   <div id="header"></div>
 
-  <!-- 🔥 TICKER SPOSTATO QUI (SUBITO SOTTO L’HEADER) -->
-  <div class="ticker" aria-label="Ultime notizie in scorrimento" role="marquee">
+  <!-- ⭐ TICKER (caricato dal partial, NON inline) -->
+  <div id="ticker"></div>
 
-    <div class="ticker-title">Breaking</div>
-
-    <div class="ticker-content">
-        <a id="ticker-text" href="#" target="_blank">Caricamento…</a>
-    </div>
-
-</div>
-
-  <!-- SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
+  <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
   <script>
       fetch("/partials/sidebar.html")
       .then(response => response.text())
@@ -109,6 +102,9 @@
           console.log("Sidebar caricata — Widget inizializzati");
       });
   </script>
+
+  <!-- ⭐ TICKER JS (UNO SOLO, percorso corretto) -->
+  <script src="/js/ticker.js"></script>
 
   <main class="page">
     
