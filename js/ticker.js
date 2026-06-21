@@ -5,7 +5,7 @@
 let tickerIndex = 0;
 let tickerNews = [];
 let pos = 0;
-let speed = 2.8;   // ⭐ velocità aumentata
+let speed = 2.8;
 let tickerFrame = null;
 
 /* ============================================================
@@ -49,20 +49,16 @@ function startTicker() {
 
     setTimeout(() => {
 
-        /* Neon dinamico */
         const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
         const neon = colors[Math.floor(Math.random() * colors.length)];
 
-        /* Icone */
         const icons = ["◆", "◉", "✦", "❯"];
         const icon = icons[Math.floor(Math.random() * icons.length)];
 
-        /* ⭐ IMMAGINE DI RIEMPIMENTO */
         const img = item.image && item.image.trim() !== ""
             ? item.image
             : "https://picsum.photos/40/40?random=" + Math.random();
 
-        /* ⭐ NESSUNO SPAZIO TRA NEWS */
         el.innerHTML = `
             <img src="${img}" style="
                 height:20px;width:20px;object-fit:cover;
@@ -72,7 +68,6 @@ function startTicker() {
 
         el.href = item.link || "#";
 
-        /* Stile */
         el.style.color = "#ffffff";
         el.style.textDecoration = "none";
         el.style.fontWeight = "600";
@@ -81,10 +76,8 @@ function startTicker() {
         el.style.whiteSpace = "nowrap";
         el.style.textShadow = `0 0 8px ${neon}`;
 
-        /* Larghezza reale */
         el.style.width = el.scrollWidth + "px";
 
-        /* Fade-in */
         el.style.transition = "opacity 0.4s";
         el.style.opacity = "1";
 
@@ -97,7 +90,6 @@ function startTicker() {
 
     }, 150);
 
-    /* Cambio news */
     setTimeout(() => {
         tickerIndex = (tickerIndex + 1) % tickerNews.length;
         startTicker();
@@ -116,7 +108,6 @@ function scrollTicker() {
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    /* ⭐ RESET DOPO CHE ESCE COMPLETAMENTE */
     if (pos < -el.offsetWidth - 20) {
         pos = outer.parentElement.offsetWidth;
     }
