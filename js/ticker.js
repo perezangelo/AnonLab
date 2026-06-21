@@ -39,8 +39,6 @@ function startTicker() {
     if (!el) return;
 
     const wrapper = el.parentElement;
-    const outer = wrapper.parentElement;   // include Breaking
-
     wrapper.style.overflow = "visible";
 
     const item = tickerNews[tickerIndex];
@@ -87,8 +85,11 @@ function startTicker() {
         el.style.transition = "opacity 0.4s";
         el.style.opacity = "1";
 
-        /* ⭐ PARTENZA CORRETTA (Breaking incluso) */
-        pos = outer.parentElement.getBoundingClientRect().width;
+        /* ⭐ PARTENZA CORRETTA: larghezza contenitore reale */
+        const container = document.querySelector(".ticker-content");
+        if (!container) return;
+
+        pos = container.getBoundingClientRect().width;
 
         if (tickerFrame) cancelAnimationFrame(tickerFrame);
 
@@ -110,14 +111,15 @@ function scrollTicker() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
-    const outer = el.parentElement.parentElement;
+    const container = document.querySelector(".ticker-content");
+    if (!container) return;
 
     pos -= speed;
     el.style.transform = `translateX(${pos}px)`;
 
-    /* ⭐ RESET CORRETTO (Breaking incluso) */
+    /* ⭐ RESET CORRETTO — NON SPARISCE PIÙ */
     if (pos < -el.offsetWidth - 20) {
-        pos = outer.parentElement.getBoundingClientRect().width;
+        pos = container.getBoundingClientRect().width;
     }
 
     tickerFrame = requestAnimationFrame(scrollTicker);
@@ -130,3 +132,4 @@ function scrollTicker() {
 
 // document.addEventListener("DOMContentLoaded", loadTickerNews);
 // setInterval(loadTickerNews, 60000);
+
