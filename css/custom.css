@@ -220,11 +220,9 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.55);
     border-bottom: 1px solid rgba(0, 255, 255, 0.25);
-    padding: 8px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    overflow: hidden; /* questo va bene */
+    padding: 0;                     /* FIX: niente padding, niente sfasamenti */
+    display: block;                 /* FIX: niente flex, niente gap fantasma */
+    overflow: hidden;               /* il contenitore esterno chiude tutto */
     position: relative;
     z-index: 2;
     box-shadow: 0 0 12px rgba(0, 255, 255, 0.18);
@@ -241,12 +239,17 @@
     text-shadow: 0 0 6px rgba(0,255,255,0.6);
     margin-left: 12px;
     white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .ticker-content {
-    flex: 1;
-    overflow: visible; /* ⭐ FIX CRITICO: impedisce il taglio */
+    display: inline-block;
+    vertical-align: middle;
     position: relative;
+    overflow: hidden;               /* FIX: chiude il testo scorrevole */
+    width: calc(100% - 140px);      /* spazio dinamico dopo "Breaking" */
+    margin-left: 8px;
 }
 
 #ticker-text {
@@ -258,6 +261,7 @@
     text-shadow: 0 0 6px rgba(0,255,255,0.6);
     text-decoration: none;
     transition: opacity 0.4s ease;
+    margin-left: 0;                 /* nessuno spazio extra tra le news */
 }
 
 /* Effetto neon al passaggio */
@@ -274,12 +278,18 @@
     .ticker-title {
         font-size: 0.8rem;
         padding: 3px 8px;
+        margin-left: 8px;
+    }
+
+    .ticker-content {
+        width: calc(100% - 120px);
     }
 
     #ticker-text {
         font-size: 0.85rem;
     }
 }
+
 /* ============================
    SOC DASHBOARD — NEON STYLE
 ============================ */
