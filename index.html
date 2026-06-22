@@ -455,49 +455,23 @@ async function sendNewsletter(e) {
     <h2>Vulnerabilità del Giorno</h2>
   </div>
 
+<div id="cve-today">
+  <p>Caricamento...</p>
+</div>
+
 <script>
 async function loadCVE() {
   try {
     const res = await fetch("/data/cve-today.json?t=" + Date.now());
-    const rawList = await res.json();
+    const list = await res.json();
 
-    // 🔥 FILTRO: accettiamo CVE con almeno id + description + link
-    const complete = rawList.filter(cve =>
-      cve &&
-      cve.id &&
-      cve.description &&
-      cve.description !== "N/A" &&
-      cve.link
-    );
-
-    if (complete.length > 0) {
-      renderList(complete);
+    if (!Array.isArray(list) || list.length === 0) {
+      document.getElementById("cve-today").innerHTML =
+        "<p>Nessuna vulnerabilità disponibile.</p>";
       return;
     }
 
-    document.getElementById("cve-today").innerHTML = `
-      <p>Nessuna CVE completa nelle ultime 48 ore.</p>
-      <p style="opacity:0.7;">Mostro la prima CVE completa disponibile negli ultimi 30 giorni.</p>
-    `;
-
-    const fallbackRes = await fetch("/data/cve-storico.json?t=" + Date.now());
-    const fallbackList = await fallbackRes.json();
-
-    const fallbackComplete = fallbackList.filter(cve =>
-      cve &&
-      cve.id &&
-      cve.description &&
-      cve.description !== "N/A" &&
-      cve.link
-    );
-
-    if (fallbackComplete.length > 0) {
-      renderList(fallbackComplete);
-      return;
-    }
-
-    document.getElementById("cve-today").innerHTML =
-      "<p>Nessuna CVE completa trovata.</p>";
+    renderList(list);
 
   } catch (e) {
     document.getElementById("cve-today").innerHTML =
@@ -511,58 +485,13 @@ function renderList(list) {
   function render() {
     const cve = list[index];
 
-    const id = cve.id;
-    const desc = cve.description;
-    const link = cve.link;
-
-    // 🔥 CVSS fallback
-    const score = cve.cvss ? parseFloat(cve.cvss) : 0;
-    const scoreText = cve.cvss ? cve.cvss : "N/A";
-
-    let color = "#666";
-    let icon = "🟢";
-
-    if (score >= 9.0) { color = "#d32f2f"; icon = "🔥"; }
-    else if (score >= 7.0) { color = "#f57c00"; icon = "⚠️"; }
-    else if (score >= 4.0) { color = "#fbc02d"; icon = "🛡️"; }
-    else if (score > 0) { color = "#388e3c"; icon = "🟢"; }
-
-    const badge = `
-      <span style="
-        display:inline-flex;
-        align-items:center;
-        gap:6px;
-        padding:4px 10px;
-        border-radius:6px;
-        font-size:0.85rem;
-        font-weight:600;
-        color:#fff;
-        background:${color};
-      ">${icon} ${scoreText}</span>
-    `;
-
-    const bar = `
-      <div style="
-        width:100%;
-        height:8px;
-        background:#222;
-        border-radius:4px;
-        margin:10px 0 14px 0;
-        overflow:hidden;
-      ">
-        <div style="
-          width:${(score/10)*100}%;
-          height:100%;
-          background:${color};
-          transition:width 0.6s ease;
-        "></div>
-      </div>
-    `;
+    const id = cve.id || "CVE sconosciuta";
+    const desc = cve.description || "Nessuna descrizione disponibile.";
+    const link = `https://nvd.nist.gov/vuln/detail/${id}`;
 
     document.getElementById("cve-today").innerHTML = `
       <div style="opacity:0; transition:opacity 0.4s;" id="cve-fade">
-        <p><strong>${id}</strong> ${badge}</p>
-        ${bar}
+        <p><strong>${id}</strong></p>
         <p>${desc}</p>
 
         <a href="${link}" target="_blank" style="color:#ff7b00; font-weight:bold;">
@@ -578,12 +507,6 @@ function renderList(list) {
             border-radius:6px;
             cursor:pointer;
           ">Prossima CVE →</button>
-
-          <a href="/cve-storico.html" style="
-            margin-left:12px;
-            color:#ff7b00;
-            font-weight:bold;
-          ">Storico CVE</a>
         </div>
       </div>
     `;
