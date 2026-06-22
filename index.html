@@ -465,29 +465,25 @@ async function loadCVE() {
     const res = await fetch("/data/cve-today.json?t=" + Date.now());
     const rawList = await res.json();
 
-    // 🔥 FILTRO: accettiamo solo CVE complete
+    // 🔥 FILTRO: accettiamo CVE con almeno id + description + link
     const complete = rawList.filter(cve =>
       cve &&
       cve.id &&
       cve.description &&
       cve.description !== "N/A" &&
-      !isNaN(parseFloat(cve.cvss)) &&
       cve.link
     );
 
-    // 🔥 Se ci sono CVE complete → usiamo quelle
     if (complete.length > 0) {
       renderList(complete);
       return;
     }
 
-    // 🔥 Se NON ci sono CVE complete → fallback automatico
     document.getElementById("cve-today").innerHTML = `
       <p>Nessuna CVE completa nelle ultime 48 ore.</p>
       <p style="opacity:0.7;">Mostro la prima CVE completa disponibile negli ultimi 30 giorni.</p>
     `;
 
-    // 🔥 Recupero fallback da GitHub (storico)
     const fallbackRes = await fetch("/data/cve-storico.json?t=" + Date.now());
     const fallbackList = await fallbackRes.json();
 
@@ -496,7 +492,6 @@ async function loadCVE() {
       cve.id &&
       cve.description &&
       cve.description !== "N/A" &&
-      !isNaN(parseFloat(cve.cvss)) &&
       cve.link
     );
 
@@ -505,7 +500,6 @@ async function loadCVE() {
       return;
     }
 
-    // 🔥 Se anche lo storico è vuoto → fallback finale
     document.getElementById("cve-today").innerHTML =
       "<p>Nessuna CVE completa trovata.</p>";
 
@@ -524,7 +518,10 @@ function renderList(list) {
     const id = cve.id;
     const desc = cve.description;
     const link = cve.link;
-    const score = parseFloat(cve.cvss);
+
+    // 🔥 CVSS fallback
+    const score = cve.cvss ? parseFloat(cve.cvss) : 0;
+    const scoreText = cve.cvss ? cve.cvss : "N/A";
 
     let color = "#666";
     let icon = "🟢";
@@ -545,7 +542,7 @@ function renderList(list) {
         font-weight:600;
         color:#fff;
         background:${color};
-      ">${icon} ${score}</span>
+      ">${icon} ${scoreText}</span>
     `;
 
     const bar = `
