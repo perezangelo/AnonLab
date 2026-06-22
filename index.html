@@ -723,6 +723,81 @@ slides.forEach(slide => {
 closeBtn.onclick = () => modal.style.display = "none";
 modal.onclick = () => modal.style.display = "none";
 </script>
+
+  <script>
+function classifySeverity(title) {
+  title = title.toLowerCase();
+
+  if (
+    title.includes("rce") ||
+    title.includes("remote code execution") ||
+    title.includes("critical") ||
+    title.includes("zero-day") ||
+    title.includes("actively exploited") ||
+    title.includes("ransomware")
+  ) {
+    return { level: "critical", icon: "🔥", color: "#d32f2f" };
+  }
+
+  if (
+    title.includes("privilege escalation") ||
+    title.includes("arbitrary code execution") ||
+    title.includes("high")
+  ) {
+    return { level: "high", icon: "⚠️", color: "#f57c00" };
+  }
+
+  if (
+    title.includes("denial of service") ||
+    title.includes("dos") ||
+    title.includes("bypass") ||
+    title.includes("information disclosure")
+  ) {
+    return { level: "medium", icon: "🟡", color: "#fbc02d" };
+  }
+
+  return { level: "low", icon: "🟢", color: "#388e3c" };
+}
+
+async function loadCyberAlerts() {
+  const container = document.getElementById("alert-live");
+  container.innerHTML = "<li>Caricamento in corso...</li>";
+
+  try {
+    const response = await fetch("https://www.cisa.gov/sites/default/files/feeds/alerts.json");
+    const data = await response.json();
+
+    container.innerHTML = "";
+
+    const alerts = data.entries.slice(0, 6);
+
+    alerts.forEach(alert => {
+      const sev = classifySeverity(alert.title);
+
+      const li = document.createElement("li");
+      li.className = "alert-item";
+      li.style.borderLeft = `4px solid ${sev.color}`;
+      li.style.paddingLeft = "10px";
+      li.style.marginBottom = "10px";
+
+      li.innerHTML = `
+        <strong style="color:${sev.color};">${sev.icon} ${alert.title}</strong><br>
+        <span style="color:#ff7b00;">${new Date(alert.published).toLocaleDateString()}</span><br>
+        <a href="${alert.link}" target="_blank" style="color:#ff7b00;">Apri Advisory →</a>
+      `;
+
+      container.appendChild(li);
+    });
+
+  } catch (error) {
+    container.innerHTML = "<li>Impossibile caricare gli alert in questo momento.</li>";
+    console.error("Errore Cyber Alert Live:", error);
+  }
+}
+
+loadCyberAlerts();
+setInterval(loadCyberAlerts, 60000);
+</script>
   </section>
 
 <!-- CYBER ALERT LIVE -->
