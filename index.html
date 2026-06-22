@@ -459,15 +459,21 @@ async function sendNewsletter(e) {
   }
 
   .anon-event-box {
-    min-width: 330px;              /* più larga = testo sempre dentro */
-    padding: 20px 20px 26px 20px;  /* più spazio interno */
+    flex: 0 0 360px;                 /* larghezza stabile e garantita */
+    max-width: 380px;
+    padding: 24px 24px 30px 24px;    /* più spazio interno */
     background: rgba(20,20,20,0.85);
     border: 1px solid #ff7b00;
-    border-radius: 10px;
-    box-shadow: 0 0 12px #ff7b00;
+    border-radius: 12px;
+    box-shadow: 0 0 14px #ff7b00;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+
+    /* FIX DEFINITIVO DEL TESTO */
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
 }
 
   .anon-event-box.visible {
