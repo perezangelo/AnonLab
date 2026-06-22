@@ -419,6 +419,270 @@ async function sendNewsletter(e) {
     >
 </div>
 
+      <!-- TIMELINE ORIZZONTALE ANONYMOUS -->
+<h3 style="margin-top: 25px;">Operazioni Storiche di Anonymous</h3>
+
+<style>
+  .anon-timeline-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+  /* CONTATORE ANNI */
+  .anon-year-counter {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ff7b00;
+    text-shadow: 0 0 10px #ff7b00;
+    transition: opacity 0.3s ease;
+  }
+
+  .anon-timeline-horizontal {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 40px 0 35px 0;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+  }
+
+  .anon-timeline-horizontal::-webkit-scrollbar {
+    height: 6px;
+  }
+  .anon-timeline-horizontal::-webkit-scrollbar-thumb {
+    background: #ff7b00;
+    border-radius: 10px;
+  }
+
+  .anon-event-box {
+    min-width: 260px;
+    background: rgba(20,20,20,0.85);
+    border: 1px solid #ff7b00;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 12px #ff7b00;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .anon-event-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .anon-year {
+    font-weight: bold;
+    color: #ff7b00;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .anon-desc {
+    opacity: 0.85;
+    line-height: 1.4rem;
+  }
+
+  /* LINEA NEON ANIMATA */
+  .anon-neon-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #ff7b00, #ffbb55, #ff7b00);
+    background-size: 200% 100%;
+    animation: neonMove 3s linear infinite;
+    border-radius: 4px;
+    box-shadow: 0 0 12px #ff7b00;
+  }
+
+  @keyframes neonMove {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* PULSANTI */
+  .anon-controls {
+    margin-top: 10px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .anon-btn {
+    background: #111;
+    border: 1px solid #ff7b00;
+    color: #ff7b00;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+
+  .anon-btn:hover {
+    background: #ff7b00;
+    color: #111;
+  }
+</style>
+
+<div class="anon-timeline-wrapper">
+
+  <!-- CONTATORE ANNI -->
+  <div id="anonYearCounter" class="anon-year-counter">2008</div>
+
+  <div id="anonTimeline" class="anon-timeline-horizontal">
+
+    <div class="anon-event-box" data-year="2008">
+      <div class="anon-year">2008 — Operazione Chanology</div>
+      <div class="anon-desc">
+        Proteste digitali e fisiche contro la Church of Scientology.
+      </div>
+    </div>
+
+    <div class="anon-event-box" data-year="2010">
+      <div class="anon-year">2010 — Operazione Payback</div>
+      <div class="anon-desc">
+        Azioni digitali contro aziende che avevano bloccato donazioni a WikiLeaks.
+      </div>
+    </div>
+
+    <div class="anon-event-box" data-year="2011">
+      <div class="anon-year">2011 — Primavera Araba</div>
+      <div class="anon-desc">
+        Supporto a movimenti di protesta in Tunisia, Egitto e altri paesi.
+      </div>
+    </div>
+
+    <div class="anon-event-box" data-year="2012">
+      <div class="anon-year">2012 — Caso Megaupload</div>
+      <div class="anon-desc">
+        Attività digitali dopo la chiusura di Megaupload da parte dell’FBI.
+      </div>
+    </div>
+
+    <div class="anon-event-box" data-year="2015">
+      <div class="anon-year">2015 — Campagne contro propaganda estremista</div>
+      <div class="anon-desc">
+        Azioni di segnalazione e rimozione di account legati a propaganda violenta.
+      </div>
+    </div>
+
+    <div class="anon-event-box" data-year="2020">
+      <div class="anon-year">2020 — Proteste globali</div>
+      <div class="anon-desc">
+        Attività online durante movimenti di protesta internazionali.
+      </div>
+    </div>
+
+    <div class="anon-event-box" data-year="2022">
+      <div class="anon-year">2022 — Conflitto Russia–Ucraina</div>
+      <div class="anon-desc">
+        Azioni digitali rivendicate da gruppi sotto il nome Anonymous.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LINEA NEON ANIMATA -->
+  <div class="anon-neon-line"></div>
+
+</div>
+
+<!-- CONTROLLI -->
+<div class="anon-controls">
+  <button id="anonToggle" class="anon-btn">⏸ Pausa</button>
+
+  <select id="anonJump" class="anon-btn" style="padding:6px 10px; cursor:pointer;">
+    <option value="">Vai all’anno…</option>
+    <option value="2008">2008</option>
+    <option value="2010">2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2015">2015</option>
+    <option value="2020">2020</option>
+    <option value="2022">2022</option>
+  </select>
+</div>
+<script>
+  // Fade-in graduale
+  const boxes = document.querySelectorAll(".anon-event-box");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.2 });
+
+  boxes.forEach(box => observer.observe(box));
+
+  // Scorrimento automatico
+  const timeline = document.getElementById("anonTimeline");
+  const yearCounter = document.getElementById("anonYearCounter");
+  let scrollPos = 0;
+  let playing = true;
+
+  function autoScroll() {
+    if (!playing) return;
+    scrollPos += 1;
+    if (scrollPos >= timeline.scrollWidth - timeline.clientWidth) {
+      scrollPos = 0;
+    }
+    timeline.scrollTo({ left: scrollPos, behavior: "smooth" });
+    updateYearCounter();
+  }
+
+  let interval = setInterval(autoScroll, 60);
+
+  // Play/Pausa
+  document.getElementById("anonToggle").onclick = () => {
+    playing = !playing;
+    document.getElementById("anonToggle").innerText = playing ? "⏸ Pausa" : "▶️ Play";
+  };
+
+  // Aggiorna il contatore anni
+  function updateYearCounter() {
+    let closest = null;
+    let minDist = Infinity;
+
+    boxes.forEach(box => {
+      const rect = box.getBoundingClientRect();
+      const dist = Math.abs(rect.left - window.innerWidth / 4);
+      if (dist < minDist) {
+        minDist = dist;
+        closest = box;
+      }
+    });
+
+    if (closest) {
+      yearCounter.innerText = closest.dataset.year;
+    }
+  }
+
+  timeline.addEventListener("scroll", updateYearCounter);
+
+  // Vai all’anno X
+  document.getElementById("anonJump").addEventListener("change", function () {
+    const year = this.value;
+    if (!year) return;
+
+    playing = false;
+    document.getElementById("anonToggle").innerText = "▶️ Play";
+
+    const target = [...boxes].find(b => b.dataset.year === year);
+    if (!target) return;
+
+    const offset = target.offsetLeft - 40;
+    timeline.scrollTo({ left: offset, behavior: "smooth" });
+
+    yearCounter.innerText = year;
+  });
+</script>
+
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map">
