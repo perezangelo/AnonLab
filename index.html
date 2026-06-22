@@ -419,355 +419,208 @@ async function sendNewsletter(e) {
     >
 </div>
 
-      <!-- TIMELINE ORIZZONTALE ANONYMOUS -->
-<h3 style="margin-top: 25px;">Operazioni Storiche di Anonymous</h3>
+    <!-- SLIDER STORICO ANONYMOUS -->
+<div class="anon-slider-wrapper">
 
-<style>
-  .anon-timeline-wrapper {
-    position: relative;
-    margin-top: 30px;   /* AUMENTATO */
-    margin-bottom: 25px;
-}
+  <div class="anon-slider" id="anonSlider">
 
-  /* CONTATORE ANNI */
-  .anon-year-counter {
-    position: absolute;
-    top: -10px;
-    left: 0;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #ff7b00;
-    text-shadow: 0 0 10px #ff7b00;
-    transition: opacity 0.3s ease;
-  }
-
-  .anon-timeline-horizontal {
-    display: flex;
-    overflow-x: auto;
-    gap: 30px;
-    padding: 40px 0 35px 0;
-    scroll-behavior: smooth;
-    white-space: nowrap;
-  }
-
-  .anon-timeline-horizontal::-webkit-scrollbar {
-    height: 6px;
-  }
-  .anon-timeline-horizontal::-webkit-scrollbar-thumb {
-    background: #ff7b00;
-    border-radius: 10px;
-  }
-
-  .anon-event-box {
-    flex: 0 0 360px;                 /* larghezza stabile e garantita */
-    max-width: 380px;
-    padding: 24px 24px 30px 24px;    /* più spazio interno */
-    background: rgba(20,20,20,0.85);
-    border: 1px solid #ff7b00;
-    border-radius: 12px;
-    box-shadow: 0 0 14px #ff7b00;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-
-    /* FIX DEFINITIVO DEL TESTO */
-    white-space: normal !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-}
-
-  .anon-event-box.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .anon-year {
-    font-weight: bold;
-    color: #ff7b00;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-
-  .anon-desc {
-    opacity: 0.85;
-    line-height: 1.4rem;
-  }
-
-  /* LINEA NEON ANIMATA */
-  .anon-neon-line {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    background: linear-gradient(90deg, #ff7b00, #ffbb55, #ff7b00);
-    background-size: 200% 100%;
-    animation: neonMove 3s linear infinite;
-    border-radius: 4px;
-    box-shadow: 0 0 12px #ff7b00;
-  }
-
-  @keyframes neonMove {
-    0% { background-position: 0% 0; }
-    100% { background-position: 200% 0; }
-  }
-
-  /* PULSANTI */
-  .anon-controls {
-    margin-top: 10px;
-    text-align: right;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
-  .anon-btn {
-    background: #111;
-    border: 1px solid #ff7b00;
-    color: #ff7b00;
-    padding: 6px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-  }
-
-  .anon-btn:hover {
-    background: #ff7b00;
-    color: #111;
-  }
-</style>
-
-<div class="anon-timeline-wrapper">
-
-  <!-- CONTATORE ANNI -->
-  <div id="anonYearCounter" class="anon-year-counter">2008</div>
-
-  <div id="anonTimeline" class="anon-timeline-horizontal">
-
-  <div class="anon-event-box" data-year="2008">
-    <div class="anon-year">2008 — Operazione Chanology</div>
-    <div class="anon-desc">
-      Proteste digitali e fisiche contro la Church of Scientology.
+    <div class="anon-slide" data-caption="Operazione Chanology – 2008">
+      <img src="https://i.imgur.com/0pQwYpC.jpeg" alt="Chanology">
     </div>
 
-    <a href="https://it.wikipedia.org/wiki/Project_Chanology" 
-       target="_blank"
-       style="color:#ff7b00; font-weight:bold; display:block; margin-top:10px;">
-       Approfondisci →
-    </a>
+    <div class="anon-slide" data-caption="Operazione Payback – 2010">
+      <img src="https://i.imgur.com/2m7z4yP.jpeg" alt="Payback">
+    </div>
 
-    <a href="https://www.youtube.com/watch?v=2JclQdQKxFg"
-       target="_blank"
-       style="color:#ffbb55; font-weight:bold; display:block; margin-top:6px;">
-       Guarda il video →
-    </a>
+    <div class="anon-slide" data-caption="Primavera Araba – 2011">
+      <img src="https://i.imgur.com/8xJt5oG.jpeg" alt="Arab Spring">
+    </div>
+
+    <div class="anon-slide" data-caption="Caso Megaupload – 2012">
+      <img src="https://i.imgur.com/1mV5z0R.jpeg" alt="Megaupload">
+    </div>
+
+    <div class="anon-slide" data-caption="Operazione Paris – 2015">
+      <img src="https://i.imgur.com/7z2Yp7F.jpeg" alt="Paris">
+    </div>
+
+    <div class="anon-slide" data-caption="Proteste Globali – 2020">
+      <img src="https://i.imgur.com/4tZ8x6Q.jpeg" alt="Global Protests">
+    </div>
+
+    <div class="anon-slide" data-caption="Conflitto Russia–Ucraina – 2022">
+      <img src="https://i.imgur.com/6mQ7b9S.jpeg" alt="Ukraine">
+    </div>
+
   </div>
 
-  <div class="anon-event-box" data-year="2010">
-    <div class="anon-year">2010 — Operazione Payback</div>
-    <div class="anon-desc">
-      Azioni digitali contro aziende che avevano bloccato donazioni a WikiLeaks.
-    </div>
+  <!-- Didascalia -->
+  <div id="anonCaption" class="anon-caption">Operazione Chanology – 2008</div>
 
-    <a href="https://en.wikipedia.org/wiki/Operation_Payback" 
-       target="_blank"
-       style="color:#ff7b00; font-weight:bold; display:block; margin-top:10px;">
-       Approfondisci →
-    </a>
-
-    <a href="https://www.youtube.com/watch?v=5K1Z9p2VJzI"
-       target="_blank"
-       style="color:#ffbb55; font-weight:bold; display:block; margin-top:6px;">
-       Guarda il video →
-    </a>
-  </div>
-
-  <div class="anon-event-box" data-year="2011">
-    <div class="anon-year">2011 — Primavera Araba</div>
-    <div class="anon-desc">
-      Supporto a movimenti di protesta in Tunisia, Egitto e altri paesi.
-    </div>
-
-    <a href="https://en.wikipedia.org/wiki/Arab_Spring" 
-       target="_blank"
-       style="color:#ff7b00; font-weight:bold; display:block; margin-top:10px;">
-       Approfondisci →
-    </a>
-
-    <a href="https://www.youtube.com/watch?v=8k9vX2pQm0k"
-       target="_blank"
-       style="color:#ffbb55; font-weight:bold; display:block; margin-top:6px;">
-       Guarda il video →
-    </a>
-  </div>
-
-  <div class="anon-event-box" data-year="2012">
-    <div class="anon-year">2012 — Caso Megaupload</div>
-    <div class="anon-desc">
-      Attività digitali dopo la chiusura di Megaupload da parte dell’FBI.
-    </div>
-
-    <a href="https://en.wikipedia.org/wiki/Megaupload" 
-       target="_blank"
-       style="color:#ff7b00; font-weight:bold; display:block; margin-top:10px;">
-       Approfondisci →
-    </a>
-
-    <a href="https://www.youtube.com/watch?v=5K1Z9p2VJzI"
-       target="_blank"
-       style="color:#ffbb55; font-weight:bold; display:block; margin-top:6px;">
-       Guarda il video →
-    </a>
-  </div>
-
-  <div class="anon-event-box" data-year="2015">
-    <div class="anon-year">2015 — Campagne contro propaganda estremista</div>
-    <div class="anon-desc">
-      Azioni di segnalazione e rimozione di account legati a propaganda violenta.
-    </div>
-
-    <a href="https://en.wikipedia.org/wiki/Operation_Paris" 
-       target="_blank"
-       style="color:#ff7b00; font-weight:bold; display:block; margin-top:10px;">
-       Approfondisci →
-    </a>
-
-    <a href="https://www.youtube.com/watch?v=2JclQdQKxFg"
-       target="_blank"
-       style="color:#ffbb55; font-weight:bold; display:block; margin-top:6px;">
-       Guarda il video →
-    </a>
-  </div>
-
-  <div class="anon-event-box" data-year="2020">
-    <div class="anon-year">2020 — Proteste globali</div>
-    <div class="anon-desc">
-      Attività online durante movimenti di protesta internazionali.
-    </div>
-
-    <a href="https://en.wikipedia.org/wiki/Anonymous" 
-       target="_blank"
-       style="color:#ff7b00; font-weight:bold; display:block; margin-top:10px;">
-       Approfondisci →
-    </a>
-
-    <a href="https://www.youtube.com/watch?v=8k9vX2pQm0k"
-       target="_blank"
-       style="color:#ffbb55; font-weight:bold; display:block; margin-top:6px;">
-       Guarda il video →
-    </a>
-  </div>
-
-  <div class="anon-event-box" data-year="2022">
-    <div class="anon-year">2022 — Conflitto Russia–Ucraina</div>
-    <div class="anon-desc">
-      Azioni digitali rivendicate da gruppi sotto il nome Anonymous.
-    </div>
-
-    <a href="https://en.wikipedia.org/wiki/Anonymous#Russia%E2%80%93Ukraine_conflict" 
-       target="_blank"
-       style="color:#ff7b00; font-weight:bold; display:block; margin-top:10px;">
-       Approfondisci →
-    </a>
-
-    <a href="https://www.youtube.com/watch?v=5K1Z9p2VJzI"
-       target="_blank"
-       style="color:#ffbb55; font-weight:bold; display:block; margin-top:6px;">
-       Guarda il video →
-    </a>
+  <!-- Pulsante Play/Pausa -->
+  <div class="anon-slider-controls">
+    <button id="anonSliderToggle" class="anon-slider-btn">⏸ Pausa</button>
   </div>
 
 </div>
+
+<!-- FULLSCREEN MODAL -->
+<div id="anonModal" class="anon-modal">
+  <span id="anonClose" class="anon-close">✕</span>
+  <img id="anonModalImg" class="anon-modal-content">
+  <div id="anonModalCaption" class="anon-modal-caption"></div>
+</div>
+/* WRAPPER */
+.anon-slider-wrapper {
+  margin: 40px 0 25px 0;
+  position: relative;
+}
+
+/* SLIDER ORIZZONTALE */
+.anon-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.anon-slide {
+  flex: 0 0 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 14px #ff7b00;
+  cursor: pointer;
+}
+
+.anon-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* DIDASCALIA */
+.anon-caption {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ff7b00;
+  text-shadow: 0 0 10px #ff7b00;
+  font-weight: bold;
+}
+
+/* PULSANTE PLAY/PAUSA */
+.anon-slider-controls {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.anon-slider-btn {
+  background: #111;
+  border: 1px solid #ff7b00;
+  color: #ff7b00;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  box-shadow: 0 0 10px #ff7b00;
+}
+
+.anon-slider-btn:hover {
+  background: #ff7b00;
+  color: #111;
+}
+
+/* FULLSCREEN MODAL */
+.anon-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10,10,10,0.95);
+}
+
+.anon-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 20px #ff7b00;
+}
+
+.anon-modal-caption {
+  margin: 20px auto;
+  text-align: center;
+  color: #ffbb55;
+  font-size: 1.2rem;
+}
+
+.anon-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #ff7b00;
+  font-size: 40px;
+  cursor: pointer;
+  text-shadow: 0 0 10px #ff7b00;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .anon-slide {
+    flex: 0 0 260px;
+  }
+  .anon-slide img {
+    height: 160px;
+  }
+}
 <script>
-  // Fade-in graduale
-  const boxes = document.querySelectorAll(".anon-event-box");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    });
-  }, { threshold: 0.2 });
+const slider = document.getElementById("anonSlider");
+const slides = document.querySelectorAll(".anon-slide");
+const caption = document.getElementById("anonCaption");
 
-  boxes.forEach(box => observer.observe(box));
+let index = 0;
+let playing = true;
 
-  // Scorrimento automatico
-  const timeline = document.getElementById("anonTimeline");
-  const yearCounter = document.getElementById("anonYearCounter");
-  let scrollPos = 0;
-  let playing = true;
+/* AUTO-SCROLL */
+let sliderInterval = setInterval(() => {
+  if (!playing) return;
+  index = (index + 1) % slides.length;
+  slider.scrollTo({ left: slides[index].offsetLeft, behavior: "smooth" });
+  caption.innerText = slides[index].dataset.caption;
+}, 3500);
 
-  function autoScroll() {
-    if (!playing) return;
-    scrollPos += 1;
-    if (scrollPos >= timeline.scrollWidth - timeline.clientWidth) {
-      scrollPos = 0;
-    }
-    timeline.scrollTo({ left: scrollPos, behavior: "smooth" });
-    updateYearCounter();
-  }
+/* PLAY/PAUSA */
+const toggleBtn = document.getElementById("anonSliderToggle");
 
-  let interval = setInterval(autoScroll, 60);
+toggleBtn.onclick = () => {
+  playing = !playing;
+  toggleBtn.innerText = playing ? "⏸ Pausa" : "▶️ Play";
+};
 
-  // Play/Pausa
-  document.getElementById("anonToggle").onclick = () => {
-    playing = !playing;
-    document.getElementById("anonToggle").innerText = playing ? "⏸ Pausa" : "▶️ Play";
+/* FULLSCREEN */
+const modal = document.getElementById("anonModal");
+const modalImg = document.getElementById("anonModalImg");
+const modalCaption = document.getElementById("anonModalCaption");
+const closeBtn = document.getElementById("anonClose");
+
+slides.forEach(slide => {
+  slide.onclick = () => {
+    modal.style.display = "block";
+    modalImg.src = slide.querySelector("img").src;
+    modalCaption.innerText = slide.dataset.caption;
   };
+});
 
-  // Aggiorna il contatore anni
-  function updateYearCounter() {
-    let closest = null;
-    let minDist = Infinity;
-
-    boxes.forEach(box => {
-      const rect = box.getBoundingClientRect();
-      const dist = Math.abs(rect.left - window.innerWidth / 4);
-      if (dist < minDist) {
-        minDist = dist;
-        closest = box;
-      }
-    });
-
-    if (closest) {
-      yearCounter.innerText = closest.dataset.year;
-    }
-  }
-
-  timeline.addEventListener("scroll", updateYearCounter);
-
-  // Vai all’anno X
-  document.getElementById("anonJump").addEventListener("change", function () {
-    const year = this.value;
-    if (!year) return;
-
-    playing = false;
-    document.getElementById("anonToggle").innerText = "▶️ Play";
-
-    const target = [...boxes].find(b => b.dataset.year === year);
-    if (!target) return;
-
-    const offset = target.offsetLeft - 40;
-    timeline.scrollTo({ left: offset, behavior: "smooth" });
-
-    yearCounter.innerText = year;
-  });
+closeBtn.onclick = () => modal.style.display = "none";
+modal.onclick = () => modal.style.display = "none";
 </script>
-
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/threat-1.png" class="box-title-icon" alt="Threat Map">
-    <h2>Cyber Threat Map (Live)</h2>
-  </div>
-
-  <div class="widget-content">
-    <iframe 
-      src="https://threatmap.checkpoint.com/" 
-      width="100%" 
-      height="230" 
-      style="border:0; filter: drop-shadow(0 0 8px rgba(0,255,255,0.35));"
-      loading="lazy">
-    </iframe>
-  </div>
 </section>
 
 <!-- CYBER THREAT LEVEL -->
