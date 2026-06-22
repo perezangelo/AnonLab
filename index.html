@@ -465,21 +465,34 @@ async function loadCVE() {
     const res = await fetch("/data/cve-today.json?t=" + Date.now());
     const list = await res.json();
 
+    if (!Array.isArray(list) || list.length === 0) {
+      document.getElementById("cve-today").innerHTML =
+        "<p>Nessuna CVE disponibile.</p>";
+      return;
+    }
+
     let index = 0;
 
     function render() {
       const cve = list[index];
-      const score = parseFloat(cve.cvss);
+
+      // --- Fallback robusti ---
+      const id = cve.id || "CVE sconosciuta";
+      const desc = cve.description && cve.description !== "N/A"
+        ? cve.description
+        : "Nessuna descrizione disponibile.";
+      const link = cve.link || "#";
+
+      // --- CVSS robusto ---
+      const score = isNaN(parseFloat(cve.cvss)) ? 0 : parseFloat(cve.cvss);
 
       let color = "#666";
       let icon = "🟢";
 
-      if (!isNaN(score)) {
-        if (score >= 9.0) { color = "#d32f2f"; icon = "🔥"; }
-        else if (score >= 7.0) { color = "#f57c00"; icon = "⚠️"; }
-        else if (score >= 4.0) { color = "#fbc02d"; icon = "🛡️"; }
-        else if (score > 0) { color = "#388e3c"; icon = "🟢"; }
-      }
+      if (score >= 9.0) { color = "#d32f2f"; icon = "🔥"; }
+      else if (score >= 7.0) { color = "#f57c00"; icon = "⚠️"; }
+      else if (score >= 4.0) { color = "#fbc02d"; icon = "🛡️"; }
+      else if (score > 0) { color = "#388e3c"; icon = "🟢"; }
 
       const badge = `
         <span style="
@@ -515,10 +528,11 @@ async function loadCVE() {
 
       document.getElementById("cve-today").innerHTML = `
         <div style="opacity:0; transition:opacity 0.4s;" id="cve-fade">
-          <p><strong>${cve.id}</strong> ${badge}</p>
+          <p><strong>${id}</strong> ${badge}</p>
           ${bar}
-          <p>${cve.description}</p>
-          <a href="${cve.link}" target="_blank" style="color:#ff7b00; font-weight:bold;">
+          <p>${desc}</p>
+
+          <a href="${link}" target="_blank" style="color:#ff7b00; font-weight:bold;">
             Vai alla scheda NVD →
           </a>
 
