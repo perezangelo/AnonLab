@@ -463,11 +463,21 @@ async function sendNewsletter(e) {
 async function loadCVE() {
   try {
     const res = await fetch("/data/cve-today.json?t=" + Date.now());
-    const list = await res.json();
+    const rawList = await res.json();
 
-    if (!Array.isArray(list) || list.length === 0) {
+    // 🔥 FILTRO: accettiamo solo CVE complete
+    const list = rawList.filter(cve =>
+      cve &&
+      cve.id &&
+      cve.description &&
+      cve.description !== "N/A" &&
+      !isNaN(parseFloat(cve.cvss)) &&
+      cve.link
+    );
+
+    if (list.length === 0) {
       document.getElementById("cve-today").innerHTML =
-        "<p>Nessuna CVE disponibile.</p>";
+        "<p>Nessuna CVE completa disponibile.</p>";
       return;
     }
 
@@ -476,15 +486,10 @@ async function loadCVE() {
     function render() {
       const cve = list[index];
 
-      // --- Fallback robusti ---
-      const id = cve.id || "CVE sconosciuta";
-      const desc = cve.description && cve.description !== "N/A"
-        ? cve.description
-        : "Nessuna descrizione disponibile.";
-      const link = cve.link || "#";
-
-      // --- CVSS robusto ---
-      const score = isNaN(parseFloat(cve.cvss)) ? 0 : parseFloat(cve.cvss);
+      const id = cve.id;
+      const desc = cve.description;
+      const link = cve.link;
+      const score = parseFloat(cve.cvss);
 
       let color = "#666";
       let icon = "🟢";
@@ -505,7 +510,7 @@ async function loadCVE() {
           font-weight:600;
           color:#fff;
           background:${color};
-        ">${icon} ${cve.cvss}</span>
+        ">${icon} ${score}</span>
       `;
 
       const bar = `
