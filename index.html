@@ -723,8 +723,22 @@ slides.forEach(slide => {
 closeBtn.onclick = () => modal.style.display = "none";
 modal.onclick = () => modal.style.display = "none";
 </script>
+  </section>
 
-  <script>
+<!-- CYBER ALERT LIVE -->
+<section class="widget-large">
+  <div class="box-title-row">
+    <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
+    <h2>Cyber Alert Live</h2>
+
+    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
+       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+       Advisory CISA →
+    </a>
+  </div>
+  <ul class="alert-list" id="alert-live"></ul>
+</section>
+      <script>
 function classifySeverity(title) {
   title = title.toLowerCase();
 
@@ -798,21 +812,6 @@ async function loadCyberAlerts() {
 loadCyberAlerts();
 setInterval(loadCyberAlerts, 60000);
 </script>
-  </section>
-
-<!-- CYBER ALERT LIVE -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
-    <h2>Cyber Alert Live</h2>
-
-    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-       Advisory CISA →
-    </a>
-  </div>
-  <ul class="alert-list" id="alert-live"></ul>
-</section>
 
 <!-- FEED DAL MONDO -->
 <section class="widget-large">
