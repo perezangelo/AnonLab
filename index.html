@@ -745,10 +745,9 @@ async function loadCyberAlerts() {
   container.innerHTML = "<li>Caricamento in corso...</li>";
 
   try {
-    const data = await tryFeeds();
+    const data = await fetchNVD();
     renderAlerts(data);
 
-    // 🔥 Calcolo severità massima per colorare il titolo
     const maxSeverity = getMaxSeverity(data);
     applyTitleColor(title, maxSeverity);
 
@@ -758,45 +757,23 @@ async function loadCyberAlerts() {
   }
 }
 
-/* 🔥 FALLBACK AUTOMATICO SU 3 FEED */
-async function tryFeeds() {
+/* 🔥 SOLO NVD — SEMPRE AGGIORNATO */
+async function fetchNVD() {
+  const r = await fetch("https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=20");
+  const json = await r.json();
 
-  /* 1️⃣ CIRCL */
-  try {
-    const r1 = await fetch("https://cve.circl.lu/api/last", { cache: "no-store" });
-    if (r1.ok) return await r1.json();
-  } catch {}
-
-  /* 2️⃣ NVD */
-  try {
-    const r2 = await fetch("https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=6", { cache: "no-store" });
-    if (r2.ok) {
-      const json = await r2.json();
-      return json.vulnerabilities.map(v => ({
-        id: v.cve.id,
-        summary: v.cve.descriptions[0].value,
-        Published: v.cve.published
-      }));
-    }
-  } catch {}
-
-  /* 3️⃣ GitHub CVE Mirror */
-  try {
-    const r3 = await fetch("https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/0xxx/CVE-2024-0001.json");
-    if (r3.ok) {
-      const j = await r3.json();
-      return [{
-        id: j.cveMetadata.cveId,
-        summary: j.containers.cna.descriptions[0].value,
-        Published: j.cveMetadata.datePublished
-      }];
-    }
-  } catch {}
-
-  throw new Error("Tutti i feed sono offline");
+  return json.vulnerabilities
+    .map(v => ({
+      id: v.cve.id,
+      summary: v.cve.descriptions[0].value,
+      Published: v.cve.published
+    }))
+    .filter(v => {
+      const days = (Date.now() - new Date(v.Published)) / 86400000;
+      return days <= 7; // solo CVE ultime 24–168 ore
+    });
 }
 
-/* 🔥 RENDERING ALERT */
 function renderAlerts(alerts) {
   const container = document.getElementById("alert-live");
   container.innerHTML = "";
@@ -823,7 +800,6 @@ function renderAlerts(alerts) {
   });
 }
 
-/* 🔥 CLASSIFICAZIONE SEVERITÀ */
 function classifySeverity(text) {
   text = text.toLowerCase();
 
@@ -839,7 +815,6 @@ function classifySeverity(text) {
   return { icon: "🟢", color: "#00ff99", level: 1 };
 }
 
-/* 🔥 TROVA LA SEVERITÀ MASSIMA */
 function getMaxSeverity(alerts) {
   let max = 1;
   alerts.forEach(a => {
@@ -849,13 +824,12 @@ function getMaxSeverity(alerts) {
   return max;
 }
 
-/* 🔥 COLORA IL TITOLO IN BASE AL RISCHIO */
 function applyTitleColor(title, level) {
   const colors = {
-    4: "#ff3333", // Critical
-    3: "#ff7b00", // High
-    2: "#ffcc00", // Medium
-    1: "#00ff99"  // Low
+    4: "#ff3333",
+    3: "#ff7b00",
+    2: "#ffcc00",
+    1: "#00ff99"
   };
 
   title.style.color = colors[level];
