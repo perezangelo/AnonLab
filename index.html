@@ -738,7 +738,7 @@ modal.onclick = () => modal.style.display = "none";
   </div>
   <ul class="alert-list" id="alert-live"></ul>
 </section>
-      <script>
+<script>
 function classifySeverity(title) {
   title = title.toLowerCase();
 
@@ -778,7 +778,7 @@ async function loadCyberAlerts() {
   container.innerHTML = "<li>Caricamento in corso...</li>";
 
   try {
-    const response = await fetch("https://www.cisa.gov/sites/default/files/feeds/alerts.json");
+    const response = await fetch("https://TUO-SITO.altervista.org/api/cisa.php");
     const data = await response.json();
 
     container.innerHTML = "";
