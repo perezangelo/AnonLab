@@ -745,7 +745,7 @@ async function loadCyberAlerts() {
   container.innerHTML = "<li>Caricamento in corso...</li>";
 
   try {
-    const data = await fetchNVD();
+    const data = await fetchGHSA();
     renderAlerts(data);
 
     const maxSeverity = getMaxSeverity(data);
@@ -757,32 +757,34 @@ async function loadCyberAlerts() {
   }
 }
 
-/* 🔥 SOLO NVD — SEMPRE AGGIORNATO */
-async function fetchNVD() {
-  const r = await fetch("https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=20");
+/* 🔥 GHSA — feed stabile e sempre aggiornato */
+async function fetchGHSA() {
+  const url =
+    "https://raw.githubusercontent.com/github/advisory-database/main/advisories/github-reviewed/ghsa.json";
+
+  const r = await fetch(url, { cache: "no-store" });
   const json = await r.json();
 
-  return json.vulnerabilities
-    .map(v => ({
-      id: v.cve.id,
-      summary: v.cve.descriptions[0].value,
-      Published: v.cve.published
-    }))
-    .filter(v => {
-      const days = (Date.now() - new Date(v.Published)) / 86400000;
-      return days <= 7; // solo CVE ultime 24–168 ore
-    });
+  // Normalizzazione: estraiamo solo gli ultimi 20 advisory
+  return json
+    .sort((a, b) => new Date(b.published) - new Date(a.published))
+    .slice(0, 20)
+    .map(a => ({
+      id: a.aliases?.[0] || a.id,
+      summary: a.summary,
+      severity: a.severity || "unknown",
+      published: a.published,
+      ghsa: a.id
+    }));
 }
 
+/* 🔥 RENDERING */
 function renderAlerts(alerts) {
   const container = document.getElementById("alert-live");
   container.innerHTML = "";
 
   alerts.slice(0, 6).forEach(alert => {
-    const title = alert.id + " – " + alert.summary;
-    const published = alert.Published;
-
-    const sev = classifySeverity(title);
+    const sev = classifySeverity(alert.severity);
 
     const li = document.createElement("li");
     li.className = "alert-item";
@@ -791,39 +793,38 @@ function renderAlerts(alerts) {
     li.style.marginBottom = "10px";
 
     li.innerHTML = `
-      <strong style="color:${sev.color};">${sev.icon} ${title}</strong><br>
-      <span style="color:#ff7b00;">${new Date(published).toLocaleDateString()}</span><br>
-      <a href="https://nvd.nist.gov/vuln/detail/${alert.id}" target="_blank" style="color:#ff7b00;">Apri Advisory →</a>
+      <strong style="color:${sev.color};">${sev.icon} ${alert.id} – ${alert.summary}</strong><br>
+      <span style="color:#ff7b00;">${new Date(alert.published).toLocaleDateString()}</span><br>
+      <a href="https://github.com/advisories/${alert.ghsa}" target="_blank" style="color:#ff7b00;">
+        Apri Advisory →
+      </a>
     `;
 
     container.appendChild(li);
   });
 }
 
-function classifySeverity(text) {
-  text = text.toLowerCase();
+/* 🔥 CLASSIFICAZIONE SEVERITÀ GHSA */
+function classifySeverity(level) {
+  level = level.toLowerCase();
 
-  if (text.includes("critical") || text.includes("rce") || text.includes("execution")) {
-    return { icon: "🔥", color: "#ff3333", level: 4 };
-  }
-  if (text.includes("high") || text.includes("overflow")) {
-    return { icon: "⚠️", color: "#ff7b00", level: 3 };
-  }
-  if (text.includes("medium") || text.includes("bypass")) {
-    return { icon: "🟡", color: "#ffcc00", level: 2 };
-  }
+  if (level === "critical") return { icon: "🔥", color: "#ff3333", level: 4 };
+  if (level === "high") return { icon: "⚠️", color: "#ff7b00", level: 3 };
+  if (level === "moderate") return { icon: "🟡", color: "#ffcc00", level: 2 };
   return { icon: "🟢", color: "#00ff99", level: 1 };
 }
 
+/* 🔥 SEVERITÀ MASSIMA PER IL TITOLO */
 function getMaxSeverity(alerts) {
   let max = 1;
   alerts.forEach(a => {
-    const sev = classifySeverity(a.summary);
+    const sev = classifySeverity(a.severity);
     if (sev.level > max) max = sev.level;
   });
   return max;
 }
 
+/* 🔥 COLORAZIONE DINAMICA DEL TITOLO */
 function applyTitleColor(title, level) {
   const colors = {
     4: "#ff3333",
