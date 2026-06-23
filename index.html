@@ -590,19 +590,13 @@ async function sendNewsletter(e) {
   <div id="anonModalCaption" class="anon-modal-caption"></div>
 </div>
 
-<!-- CYBER THREAT LEVEL -->
-<section class="widget-large">
-  <div class="box-title-row">
-    <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
-    <h2>Cyber Threat Level</h2>
-  </div>
-
-  <div class="threat-box">
-    <span class="threat-level">Moderato</span>
-    <div class="threat-bar-text">██░░░</div>
-    <p>Aggiornato quotidianamente</p>
-  </div>
-</section>
+<div class="threat-box">
+  <span class="threat-level">Moderato</span>
+  <div class="threat-bar-text">██░░░</div>
+  <p class="threat-static">Aggiornato quotidianamente</p>
+  <p class="threat-dynamic"></p>
+  <p class="threat-updated"></p>
+</div>
 
 <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
 <section class="widget-large">
@@ -744,10 +738,11 @@ modal.onclick = () => modal.style.display = "none";
 <script>
 function updateThreatLevelFromAlerts(data) {
   const levelSpan = document.querySelector(".threat-level");
-  const descSpan = document.querySelector(".threat-box p");
   const barSpan = document.querySelector(".threat-bar-text");
+  const dynamicSpan = document.querySelector(".threat-dynamic");
+  const updatedSpan = document.querySelector(".threat-updated");
 
-  if (!levelSpan || !descSpan || !barSpan) return;
+  if (!levelSpan || !barSpan || !dynamicSpan || !updatedSpan) return;
 
   let critical = 0;
   let high = 0;
@@ -761,26 +756,32 @@ function updateThreatLevelFromAlerts(data) {
   });
 
   let levelText = "Basso";
-  let desc = "Attività nella norma";
   let bar = "█░░░░";
+  let desc = "Attività nella norma";
 
   if (critical >= 1 || high >= 5) {
     levelText = "Critico";
-    desc = "Elevato numero di vulnerabilità gravi rilevate";
     bar = "█████";
+    desc = "Elevato numero di vulnerabilità gravi rilevate";
   } else if (high >= 2 || moderate >= 5) {
     levelText = "Alto";
-    desc = "Aumento delle minacce ad alta severità";
     bar = "████░";
+    desc = "Aumento delle minacce ad alta severità";
   } else if (moderate >= 2) {
     levelText = "Moderato";
-    desc = "Presenza di vulnerabilità da monitorare";
     bar = "███░░";
+    desc = "Presenza di vulnerabilità da monitorare";
   }
 
   levelSpan.textContent = levelText;
-  descSpan.textContent = desc;
   barSpan.textContent = bar;
+  dynamicSpan.textContent = desc;
+
+  // 🔥 TIMESTAMP REALE
+  const now = new Date();
+  updatedSpan.textContent = "Ultimo aggiornamento: " +
+    now.toLocaleDateString("it-IT") + " " +
+    now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
 }
 
 async function loadCyberAlerts() {
