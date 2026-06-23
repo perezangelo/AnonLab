@@ -1,5 +1,30 @@
 [
   {
+    "title": "OpenAI Refocuses Cybersecurity Efforts on Patching Over Discovery",
+    "link": "https://www.securityweek.com/openai-refocuses-cybersecurity-efforts-on-patching-over-discovery/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/OpenAI.jpeg"
+  },
+  {
+    "title": "Russian Initial Access Broker Behind FortiBleed Campaign",
+    "link": "https://www.securityweek.com/russian-initial-access-broker-behind-fortibleed-campaign/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Russian-hacking.jpeg"
+  },
+  {
+    "title": "Canadian Electricity Provider London Hydro Discloses Data Breach",
+    "link": "https://www.securityweek.com/canadian-electricity-provider-london-hydro-discloses-data-breach/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2021/01/Powerplant.jpg"
+  },
+  {
+    "title": "Malicious npm Packages Pose as PostCSS Tools to Deliver Windows RAT",
+    "link": "https://thehackernews.com/2026/06/malicious-npm-packages-pose-as-postcss.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiENcFC1DFPXKuRCT_WmSwq-wpzC8IcZUdZzu5IHi597n77W8LFs9qSUdDPCuMK9QzkRZEBMbBh4p2xhnI1OXZu4akIgR5suIv_yRA7AtEkojDcyXaU5x0UiZKRDRvTn0n0wy9HIQnhJj9zUO0rpemNOFNZEmMl4NQsCj5aDEpDrqXUkivsOX1QoLRqeKZh/s1600/npmm.jpg"
+  },
+  {
+    "title": "Trump Signs Executive Order Accelerating Post-Quantum Cryptography Migration",
+    "link": "https://www.securityweek.com/trump-signs-executive-order-accelerating-post-quantum-cryptography-migration/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/08/quantum.jpg"
+  },
+  {
     "title": "Xsolis Data Breach Affects 1.4 Million Individuals",
     "link": "https://www.securityweek.com/xsolis-data-breach-affects-1-4-million-individuals/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/05/healthcare-medical-data-breach-.jpeg"
@@ -115,26 +140,6 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/05/iPhone-iOS-Updates-Security.jpeg"
   },
   {
-    "title": "Fortinet Responds to FortiBleed Campaign",
-    "link": "https://www.securityweek.com/fortinet-responds-to-fortibleed-campaign/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/06/fortinet-e1737023333411.jpg"
-  },
-  {
-    "title": "Canada\u2019s Spy Agency Used First-of-Its-Kind Warrant to Clean Botnet-Infected Devices",
-    "link": "https://thehackernews.com/2026/06/canadas-spy-agency-used-first-of-its.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLwfeNp6y7paVA9a8F1NvROjNla494WBkRnt8JfQrDpxLCB-cEiewUAhyQeD9_xw1xL_KQkfXp5EnMImW7_js9HDTAjN5b-Sf5uIV4RghVuxpHYvd0YdAeJMXuRsm-xJldrNnBnoRK1lfZNT3aFUd-re2yS6X5Q05F2k7_RXQb1sPkhQp3_faoocFqayvj/s1600/cn.jpg"
-  },
-  {
-    "title": "More Cybersecurity Firms Disclose Impact From Klue Hack",
-    "link": "https://www.securityweek.com/more-cybersecurity-firms-disclose-impact-from-klue-hack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/blockchain-cryptocurrency-Solana.jpeg"
-  },
-  {
-    "title": "Texas Parks & Wildlife Data Breach Affects 3 Million Individuals",
-    "link": "https://www.securityweek.com/texas-parks-wildlife-data-breach-affects-3-million-individuals/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Texas-Parks-Wildlife.jpeg"
-  },
-  {
     "title": "AryStinger botnet infected thousands of D-Link routers worldwide",
     "link": "https://www.bleepingcomputer.com/news/security/arystinger-botnet-infected-thousands-of-d-link-routers-worldwide/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/botnet.jpg"
@@ -143,10 +148,5 @@
     "title": "New Prinz Eugen ransomware prioritizes recent files for encryption",
     "link": "https://www.bleepingcomputer.com/news/security/new-prinz-eugen-ransomware-prioritizes-recent-files-for-encryption/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/28/ransomware.jpg"
-  },
-  {
-    "title": "Microsoft links Mastra AI supply chain attack to North Korean hackers",
-    "link": "https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/11/07/North_Korean_hackers.jpg"
   }
 ]
