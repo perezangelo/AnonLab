@@ -741,36 +741,16 @@ modal.onclick = () => modal.style.display = "none";
 <script>
 async function loadCyberAlerts() {
   const container = document.getElementById("alert-live");
+  const title = document.querySelector(".box-title-row h2");
   container.innerHTML = "<li>Caricamento in corso...</li>";
 
   try {
-    const response = await fetch("https://cve.circl.lu/api/last");
-    const data = await response.json();
+    const data = await tryFeeds();
+    renderAlerts(data);
 
-    container.innerHTML = "";
-
-    const alerts = data.slice(0, 6);
-
-    alerts.forEach(alert => {
-      const title = alert.id + " – " + alert.summary;
-      const published = alert.Published;
-
-      const sev = classifySeverity(title);
-
-      const li = document.createElement("li");
-      li.className = "alert-item";
-      li.style.borderLeft = `4px solid ${sev.color}`;
-      li.style.paddingLeft = "10px";
-      li.style.marginBottom = "10px";
-
-      li.innerHTML = `
-        <strong style="color:${sev.color};">${sev.icon} ${title}</strong><br>
-        <span style="color:#ff7b00;">${new Date(published).toLocaleDateString()}</span><br>
-        <a href="https://nvd.nist.gov/vuln/detail/${alert.id}" target="_blank" style="color:#ff7b00;">Apri Advisory →</a>
-      `;
-
-      container.appendChild(li);
-    });
+    // 🔥 Calcolo severità massima per colorare il titolo
+    const maxSeverity = getMaxSeverity(data);
+    applyTitleColor(title, maxSeverity);
 
   } catch (error) {
     container.innerHTML = "<li>Impossibile caricare gli alert in questo momento.</li>";
@@ -778,19 +758,108 @@ async function loadCyberAlerts() {
   }
 }
 
-function classifySeverity(title) {
-  title = title.toLowerCase();
+/* 🔥 FALLBACK AUTOMATICO SU 3 FEED */
+async function tryFeeds() {
 
-  if (title.includes("critical") || title.includes("rce") || title.includes("execution")) {
-    return { icon: "🔥", color: "#d32f2f" };
+  /* 1️⃣ CIRCL */
+  try {
+    const r1 = await fetch("https://cve.circl.lu/api/last", { cache: "no-store" });
+    if (r1.ok) return await r1.json();
+  } catch {}
+
+  /* 2️⃣ NVD */
+  try {
+    const r2 = await fetch("https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=6", { cache: "no-store" });
+    if (r2.ok) {
+      const json = await r2.json();
+      return json.vulnerabilities.map(v => ({
+        id: v.cve.id,
+        summary: v.cve.descriptions[0].value,
+        Published: v.cve.published
+      }));
+    }
+  } catch {}
+
+  /* 3️⃣ GitHub CVE Mirror */
+  try {
+    const r3 = await fetch("https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/0xxx/CVE-2024-0001.json");
+    if (r3.ok) {
+      const j = await r3.json();
+      return [{
+        id: j.cveMetadata.cveId,
+        summary: j.containers.cna.descriptions[0].value,
+        Published: j.cveMetadata.datePublished
+      }];
+    }
+  } catch {}
+
+  throw new Error("Tutti i feed sono offline");
+}
+
+/* 🔥 RENDERING ALERT */
+function renderAlerts(alerts) {
+  const container = document.getElementById("alert-live");
+  container.innerHTML = "";
+
+  alerts.slice(0, 6).forEach(alert => {
+    const title = alert.id + " – " + alert.summary;
+    const published = alert.Published;
+
+    const sev = classifySeverity(title);
+
+    const li = document.createElement("li");
+    li.className = "alert-item";
+    li.style.borderLeft = `4px solid ${sev.color}`;
+    li.style.paddingLeft = "10px";
+    li.style.marginBottom = "10px";
+
+    li.innerHTML = `
+      <strong style="color:${sev.color};">${sev.icon} ${title}</strong><br>
+      <span style="color:#ff7b00;">${new Date(published).toLocaleDateString()}</span><br>
+      <a href="https://nvd.nist.gov/vuln/detail/${alert.id}" target="_blank" style="color:#ff7b00;">Apri Advisory →</a>
+    `;
+
+    container.appendChild(li);
+  });
+}
+
+/* 🔥 CLASSIFICAZIONE SEVERITÀ */
+function classifySeverity(text) {
+  text = text.toLowerCase();
+
+  if (text.includes("critical") || text.includes("rce") || text.includes("execution")) {
+    return { icon: "🔥", color: "#ff3333", level: 4 };
   }
-  if (title.includes("high") || title.includes("overflow")) {
-    return { icon: "⚠️", color: "#f57c00" };
+  if (text.includes("high") || text.includes("overflow")) {
+    return { icon: "⚠️", color: "#ff7b00", level: 3 };
   }
-  if (title.includes("medium") || title.includes("bypass")) {
-    return { icon: "🟡", color: "#fbc02d" };
+  if (text.includes("medium") || text.includes("bypass")) {
+    return { icon: "🟡", color: "#ffcc00", level: 2 };
   }
-  return { icon: "🟢", color: "#388e3c" };
+  return { icon: "🟢", color: "#00ff99", level: 1 };
+}
+
+/* 🔥 TROVA LA SEVERITÀ MASSIMA */
+function getMaxSeverity(alerts) {
+  let max = 1;
+  alerts.forEach(a => {
+    const sev = classifySeverity(a.summary);
+    if (sev.level > max) max = sev.level;
+  });
+  return max;
+}
+
+/* 🔥 COLORA IL TITOLO IN BASE AL RISCHIO */
+function applyTitleColor(title, level) {
+  const colors = {
+    4: "#ff3333", // Critical
+    3: "#ff7b00", // High
+    2: "#ffcc00", // Medium
+    1: "#00ff99"  // Low
+  };
+
+  title.style.color = colors[level];
+  title.style.textShadow = `0 0 12px ${colors[level]}`;
 }
 
 loadCyberAlerts();
