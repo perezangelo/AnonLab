@@ -778,13 +778,16 @@ async function loadCyberAlerts() {
   container.innerHTML = "<li>Caricamento in corso...</li>";
 
   try {
-    const response = await fetch("https://angelonline.altervista.org/api/cisa.php");
-    const data = await response.json();
+    const response = await fetch(
+      "https://cors.sh/https://www.cisa.gov/sites/default/files/feeds/alerts.json",
+      {
+        headers: {
+          "x-cors-api-key": "cors.sh"
+        }
+      }
+    );
 
-    if (data.error) {
-      container.innerHTML = "<li>Errore nel recupero degli alert.</li>";
-      return;
-    }
+    const data = await response.json();
 
     container.innerHTML = "";
 
