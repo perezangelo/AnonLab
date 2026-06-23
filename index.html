@@ -739,6 +739,49 @@ modal.onclick = () => modal.style.display = "none";
   <ul class="alert-list" id="alert-live"></ul>
 </section>
 
+     <script>
+async function loadCyberAlerts() {
+  const container = document.getElementById("alert-live");
+  container.innerHTML = "<li>Caricamento in corso...</li>";
+
+  try {
+    const r = await fetch("https://angelonline.altervista.org/api/cyber-alert.php");
+    const data = await r.json();
+
+    if (!Array.isArray(data)) {
+      container.innerHTML = "<li>Errore nel feed.</li>";
+      return;
+    }
+
+    container.innerHTML = "";
+
+    data.slice(0, 6).forEach(alert => {
+      const li = document.createElement("li");
+      li.className = "alert-item";
+      li.style.borderLeft = "4px solid #ff7b00";
+      li.style.paddingLeft = "10px";
+      li.style.marginBottom = "10px";
+
+      li.innerHTML = `
+        <strong style="color:#ff7b00;">${alert.id} – ${alert.summary}</strong><br>
+        <span style="color:#ff7b00;">${new Date(alert.published).toLocaleDateString()}</span><br>
+        <a href="https://github.com/advisories/${alert.ghsa}" target="_blank" style="color:#ff7b00;">
+          Apri Advisory →
+        </a>
+      `;
+
+      container.appendChild(li);
+    });
+
+  } catch (e) {
+    container.innerHTML = "<li>Impossibile caricare gli alert.</li>";
+  }
+}
+
+loadCyberAlerts();
+setInterval(loadCyberAlerts, 60000);
+</script>
+
 <!-- FEED DAL MONDO -->
 <section class="widget-large">
   <h2>Feed dal Mondo</h2>
