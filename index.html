@@ -767,30 +767,42 @@ function updateThreatLevelFromAlerts(data) {
   let levelText = "Basso";
   let bar = "█░░░░";
   let desc = "Attività nella norma";
+  let color = "#00ff99"; // verde
 
   if (critical >= 1 || high >= 5) {
     levelText = "Critico";
     bar = "█████";
     desc = "Elevato numero di vulnerabilità gravi rilevate";
+    color = "#ff3333"; // rosso
   } else if (high >= 2 || moderate >= 5) {
     levelText = "Alto";
     bar = "████░";
     desc = "Aumento delle minacce ad alta severità";
+    color = "#ff7b00"; // arancione
   } else if (moderate >= 2) {
     levelText = "Moderato";
     bar = "███░░";
     desc = "Presenza di vulnerabilità da monitorare";
+    color = "#ffcc00"; // giallo
   }
 
+  // Aggiorna contenuti
   levelSpan.textContent = levelText;
   barSpan.textContent = bar;
   dynamicSpan.textContent = desc;
 
-  // 🔥 TIMESTAMP REALE
+  // TIMESTAMP
   const now = new Date();
-  updatedSpan.textContent = "Ultimo aggiornamento: " +
+  updatedSpan.textContent =
+    "Ultimo aggiornamento: " +
     now.toLocaleDateString("it-IT") + " " +
     now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
+
+  // 🔥 COLORI DINAMICI
+  levelSpan.style.color = color;
+  barSpan.style.color = color;
+  dynamicSpan.style.color = color;
+  updatedSpan.style.color = color;
 }
 
 async function loadCyberAlerts() {
