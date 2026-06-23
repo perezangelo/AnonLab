@@ -1,4 +1,4 @@
-<head>
+ <head>
   <meta charset="UTF-8">
   <title>AnonLab — Cybersecurity, Threat Intelligence e Analisi Tecniche</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -739,57 +739,26 @@ modal.onclick = () => modal.style.display = "none";
   <ul class="alert-list" id="alert-live"></ul>
 </section>
 <script>
-function classifySeverity(title) {
-  title = title.toLowerCase();
-
-  if (
-    title.includes("rce") ||
-    title.includes("remote code execution") ||
-    title.includes("critical") ||
-    title.includes("zero-day") ||
-    title.includes("actively exploited") ||
-    title.includes("ransomware")
-  ) {
-    return { level: "critical", icon: "🔥", color: "#d32f2f" };
-  }
-
-  if (
-    title.includes("privilege escalation") ||
-    title.includes("arbitrary code execution") ||
-    title.includes("high")
-  ) {
-    return { level: "high", icon: "⚠️", color: "#f57c00" };
-  }
-
-  if (
-    title.includes("denial of service") ||
-    title.includes("dos") ||
-    title.includes("bypass") ||
-    title.includes("information disclosure")
-  ) {
-    return { level: "medium", icon: "🟡", color: "#fbc02d" };
-  }
-
-  return { level: "low", icon: "🟢", color: "#388e3c" };
-}
-
 async function loadCyberAlerts() {
   const container = document.getElementById("alert-live");
   container.innerHTML = "<li>Caricamento in corso...</li>";
 
   try {
     const response = await fetch(
-      "https://corsproxy.io/?https://www.cisa.gov/sites/default/files/feeds/alerts.json"
+      "https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=6"
     );
-
     const data = await response.json();
 
     container.innerHTML = "";
 
-    const alerts = data.entries.slice(0, 6);
+    const alerts = data.vulnerabilities;
 
-    alerts.forEach(alert => {
-      const sev = classifySeverity(alert.title);
+    alerts.forEach(item => {
+      const cve = item.cve;
+      const title = cve.id + " – " + cve.descriptions[0].value;
+      const published = cve.published;
+
+      const sev = classifySeverity(title);
 
       const li = document.createElement("li");
       li.className = "alert-item";
@@ -798,9 +767,9 @@ async function loadCyberAlerts() {
       li.style.marginBottom = "10px";
 
       li.innerHTML = `
-        <strong style="color:${sev.color};">${sev.icon} ${alert.title}</strong><br>
-        <span style="color:#ff7b00;">${new Date(alert.published).toLocaleDateString()}</span><br>
-        <a href="${alert.link}" target="_blank" style="color:#ff7b00;">Apri Advisory →</a>
+        <strong style="color:${sev.color};">${sev.icon} ${title}</strong><br>
+        <span style="color:#ff7b00;">${new Date(published).toLocaleDateString()}</span><br>
+        <a href="https://nvd.nist.gov/vuln/detail/${cve.id}" target="_blank" style="color:#ff7b00;">Apri Advisory →</a>
       `;
 
       container.appendChild(li);
@@ -810,6 +779,21 @@ async function loadCyberAlerts() {
     container.innerHTML = "<li>Impossibile caricare gli alert in questo momento.</li>";
     console.error("Errore Cyber Alert Live:", error);
   }
+}
+
+function classifySeverity(title) {
+  title = title.toLowerCase();
+
+  if (title.includes("critical") || title.includes("rce") || title.includes("execution")) {
+    return { icon: "🔥", color: "#d32f2f" };
+  }
+  if (title.includes("high") || title.includes("overflow")) {
+    return { icon: "⚠️", color: "#f57c00" };
+  }
+  if (title.includes("medium") || title.includes("bypass")) {
+    return { icon: "🟡", color: "#fbc02d" };
+  }
+  return { icon: "🟢", color: "#388e3c" };
 }
 
 loadCyberAlerts();
