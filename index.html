@@ -768,10 +768,11 @@ function updateThreatLevelFromAlerts(data) {
   let bar = "█░░░░";
   let desc = "Attività nella norma";
 
-  // Colori dinamici
+  // 🎨 Colori dinamici
   let colorLevel = "#00ff99";   // verde
-  let colorDesc  = "#cccccc";   // grigio chiaro per distinguere
-  let colorTime  = "#00ff99";   // stesso colore del livello
+  let colorBar   = "#00ff99";
+  let colorDesc  = "#b3ffcc";   // verde chiaro (DISTINTO)
+  let colorTime  = "#00ff99";
 
   if (critical >= 1 || high >= 5) {
     levelText = "Critico";
@@ -779,8 +780,9 @@ function updateThreatLevelFromAlerts(data) {
     desc = "Elevato numero di vulnerabilità gravi rilevate";
 
     colorLevel = "#ff3333";  // rosso
-    colorDesc  = "#ff9999";  // rosso chiaro (distinto)
-    colorTime  = "#ff3333";  // rosso
+    colorBar   = "#ff3333";
+    colorDesc  = "#ff9999";  // rosso chiaro (DISTINTO)
+    colorTime  = "#ff3333";
   } 
   else if (high >= 2 || moderate >= 5) {
     levelText = "Alto";
@@ -788,8 +790,9 @@ function updateThreatLevelFromAlerts(data) {
     desc = "Aumento delle minacce ad alta severità";
 
     colorLevel = "#ff7b00";  // arancione
-    colorDesc  = "#ffb366";  // arancione chiaro
-    colorTime  = "#ff7b00";  // arancione
+    colorBar   = "#ff7b00";
+    colorDesc  = "#ffb366";  // arancione chiaro (DISTINTO)
+    colorTime  = "#ff7b00";
   } 
   else if (moderate >= 2) {
     levelText = "Moderato";
@@ -797,31 +800,32 @@ function updateThreatLevelFromAlerts(data) {
     desc = "Presenza di vulnerabilità da monitorare";
 
     colorLevel = "#ffcc00";  // giallo
-    colorDesc  = "#ffe680";  // giallo chiaro
-    colorTime  = "#ffcc00";  // giallo
+    colorBar   = "#ffcc00";
+    colorDesc  = "#ffe680";  // giallo chiaro (DISTINTO)
+    colorTime  = "#ffcc00";
   }
 
-  // Aggiorna contenuti
+  // 🔥 Aggiorna contenuti
   levelSpan.textContent = levelText;
   barSpan.textContent = bar;
   dynamicSpan.textContent = desc;
 
-  // TIMESTAMP
+  // 🔥 TIMESTAMP
   const now = new Date();
   updatedSpan.textContent =
     "Ultimo aggiornamento: " +
     now.toLocaleDateString("it-IT") + " " +
     now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
 
-  // 🔥 Applica i colori dinamici
+  // 🔥 Applica i colori
   levelSpan.style.color = colorLevel;
-  barSpan.style.color = colorLevel;
+  barSpan.style.color = colorBar;
   updatedSpan.style.color = colorTime;
 
-  // La descrizione ha un colore diverso per distinguersi
+  // 👇 La descrizione ha un colore diverso per distinguersi
   dynamicSpan.style.color = colorDesc;
 }
-
+ 
 async function loadCyberAlerts() {
   const container = document.getElementById("alert-live");
   container.innerHTML = "<li>Caricamento in corso...</li>";
