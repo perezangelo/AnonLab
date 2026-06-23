@@ -590,7 +590,6 @@ async function sendNewsletter(e) {
   <div id="anonModalCaption" class="anon-modal-caption"></div>
 </div>
 
-<!-- CYBER THREAT LEVEL -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/cyber-shield.png" class="box-title-icon" alt="Cyber Shield">
@@ -598,6 +597,7 @@ async function sendNewsletter(e) {
   </div>
   <div class="threat-box">
     <span class="threat-level">Moderato</span>
+    <div class="threat-bar-text">██░░░</div>
     <p>Aggiornato quotidianamente</p>
   </div>
 </section>
@@ -739,7 +739,48 @@ modal.onclick = () => modal.style.display = "none";
   <ul class="alert-list" id="alert-live"></ul>
 </section>
 
-     <script>
+<script>
+function updateThreatLevelFromAlerts(data) {
+  const levelSpan = document.querySelector(".threat-level");
+  const descSpan = document.querySelector(".threat-box p");
+  const barSpan = document.querySelector(".threat-bar-text");
+
+  if (!levelSpan || !descSpan || !barSpan) return;
+
+  let critical = 0;
+  let high = 0;
+  let moderate = 0;
+
+  data.forEach(a => {
+    const sev = (a.severity || "").toUpperCase();
+    if (sev === "CRITICAL") critical++;
+    else if (sev === "HIGH") high++;
+    else if (sev === "MODERATE" || sev === "MEDIUM") moderate++;
+  });
+
+  let levelText = "Basso";
+  let desc = "Attività nella norma";
+  let bar = "█░░░░";
+
+  if (critical >= 1 || high >= 5) {
+    levelText = "Critico";
+    desc = "Elevato numero di vulnerabilità gravi rilevate";
+    bar = "█████";
+  } else if (high >= 2 || moderate >= 5) {
+    levelText = "Alto";
+    desc = "Aumento delle minacce ad alta severità";
+    bar = "████░";
+  } else if (moderate >= 2) {
+    levelText = "Moderato";
+    desc = "Presenza di vulnerabilità da monitorare";
+    bar = "███░░";
+  }
+
+  levelSpan.textContent = levelText;
+  descSpan.textContent = desc;
+  barSpan.textContent = bar;
+}
+
 async function loadCyberAlerts() {
   const container = document.getElementById("alert-live");
   container.innerHTML = "<li>Caricamento in corso...</li>";
@@ -772,6 +813,9 @@ async function loadCyberAlerts() {
 
       container.appendChild(li);
     });
+
+    // 🔥 Aggiorna il Cyber Threat Level
+    updateThreatLevelFromAlerts(data);
 
   } catch (e) {
     container.innerHTML = "<li>Impossibile caricare gli alert.</li>";
