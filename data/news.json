@@ -1,5 +1,35 @@
 [
   {
+    "title": "Data Exposure Flaws Threaten Dify AI Platform Used by 1 Million Apps",
+    "link": "https://www.securityweek.com/data-exposure-flaws-threaten-dify-ai-platform-powering-over-1-million-apps/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/05/AI-Hallucinations.jpg"
+  },
+  {
+    "title": "Scattered Spider members plead guilty to hacking Transport for London",
+    "link": "https://www.bleepingcomputer.com/news/security/scattered-spider-members-plead-guilty-to-hacking-transport-for-london/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/09/02/just-uk.jpg"
+  },
+  {
+    "title": "GitHub Updates actions/checkout to Block Common Pwn Request Attack Patterns",
+    "link": "https://thehackernews.com/2026/06/github-updates-actionscheckout-to-block.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcacTEKD_LZFda1wwX5aClbAVOb6mwah2lVUY-jUZwNsrSZGDOFL18LP5zYLX3M2DwKng0qknZ5qo_hMk4q-NExgZv1ozhCy7DJuZwvviZE0sv36PQ2k8Y2emv1KMDFplakFwVzulOFPteWkmVoLO6Le912KAbJGFW0nkqKWHEkwJQLbsGhz5npWO3aJaR/s1600/github-actions.jpg"
+  },
+  {
+    "title": "The Exploit Doesn't Exist. You Can Still Prove It Works Against You",
+    "link": "https://www.bleepingcomputer.com/news/security/the-exploit-doesnt-exist-you-can-still-prove-it-works-against-you/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/06/21/picus-ttp-header.jpg"
+  },
+  {
+    "title": "LastPass confirms data breach in Klue supply chain attack",
+    "link": "https://www.bleepingcomputer.com/news/security/lastpass-confirms-data-breach-in-klue-supply-chain-attack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/23/lastpass.jpg"
+  },
+  {
+    "title": "SocGholish Takedown Highlights Malicious TDS Threats",
+    "link": "https://www.darkreading.com/cyber-risk/socgholish-takedown-malicious-tds-threats",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb4d9b2d2bbf8d9fa/6a3995234ad7bb19bccc4621/malware-Just_Super-Getty-1420039900.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Eight-Year-Old Samsung KNOX Flaw Exposed Millions of Galaxy Devices to Kernel Attacks",
     "link": "https://www.securityweek.com/eight-year-old-samsung-knox-flaw-exposed-millions-of-galaxy-devices-to-kernel-attacks/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Samsung-Android-Vulnerability.jpg"
@@ -23,6 +53,41 @@
     "title": "Algerian Man Extradited to US for Running Cybercrime Marketplaces",
     "link": "https://www.securityweek.com/algerian-man-extradited-to-us-for-running-cybercrime-marketplaces/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/06/hacker-arrested.jpeg"
+  },
+  {
+    "title": "Siemens WinCC Certificate Manager",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-01",
+    "image": ""
+  },
+  {
+    "title": "Siemens SIPROTEC 5 Using DIGSI5 Protocol",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-02",
+    "image": ""
+  },
+  {
+    "title": "Impact of Linux Kernel vulnerabilities on B&R products",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-06",
+    "image": ""
+  },
+  {
+    "title": "ABB Freelance Security Lock",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-05",
+    "image": ""
+  },
+  {
+    "title": "Hubbell Aclara Metrum Cellular Web Interface",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-07",
+    "image": ""
+  },
+  {
+    "title": "Siemens Products using OpenSSL",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-03",
+    "image": ""
+  },
+  {
+    "title": "Siemens SINEC INS",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-04",
+    "image": ""
   },
   {
     "title": "FFmpeg PixelSmash Flaw Allows RCE on Video Players, Media Servers, NAS Appliances",
@@ -83,70 +148,5 @@
     "title": "JaredFromSubway MEV bot hacked in $15 million crypto theft",
     "link": "https://www.bleepingcomputer.com/news/security/jaredfromsubway-mev-bot-hacked-in-15-million-crypto-theft/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Cryptocurrency-bitcoin.jpg"
-  },
-  {
-    "title": "DifyTap Bugs Let Attackers 'Wiretap' AI Chat Histories",
-    "link": "https://www.darkreading.com/application-security/difytap-bugs-wiretap-ai-chat-histories",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5e56dffba0c7c4e2/6a3994ea41818a1608d11925/man_listening_in-Olena_Bartienieva-Getty-2206181252.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "FFmpeg fixes PixelSmash flaw in widely used video decoder",
-    "link": "https://www.bleepingcomputer.com/news/security/ffmpeg-fixes-pixelsmash-flaw-in-widely-used-video-decoder/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/22/FFmpeg.jpg"
-  },
-  {
-    "title": "FortiBleed campaign used custom FortiGate sniffer to steal credentials",
-    "link": "https://www.bleepingcomputer.com/news/security/fortibleed-campaign-used-custom-fortigate-sniffer-to-steal-credentials/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/12/19/Fortinet.jpg"
-  },
-  {
-    "title": "ShapedPlugin WordPress Pro Plugins Backdoored in Supply Chain Attack",
-    "link": "https://thehackernews.com/2026/06/shapedplugin-wordpress-pro-plugins.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd4DchiVkQLBMvGHgWrojoZUdyk2SwEhEj5q6cOYzKCUWF1Lz3Mxeizurg1O-SLVi2jg319ib4SJsSoVWixAkl5WLPu4rL1cMoYXUM6EziOVyt42ESt1zmMo_iLEfHx9XSAXpsDd1FEtRSgKk4AhDzA7DjJN8c__pUgogxTQgaGjsxM04WNiesgRnbEVHN/s1600/wordpress-plugin.jpg"
-  },
-  {
-    "title": "Microsoft says Windows 11 26H2 is coming soon, details upgrade process",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-windows-11-26h2-is-coming-soon-details-upgrade-process/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/02/13/0_Windows_11.jpg"
-  },
-  {
-    "title": "Microsoft fixes AutoGen Studio flaw that enabled code execution",
-    "link": "https://www.bleepingcomputer.com/news/security/microsoft-fixes-autogen-studio-flaw-that-enabled-code-execution/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/11/ai-extract.jpg"
-  },
-  {
-    "title": "29-Year-Old Squid Proxy Bug 'Squidbleed' Can Leak Cleartext HTTP Requests",
-    "link": "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA4IfKMjQxVhpOYdrcCC4ty0vlGBDg_qCZuuvSTvyVWXYPXQlli7qyCZkPdHHuGJp-HVH1s-HGmf_Zqn97o2Qz5JOHaZ-Mk1mecm4W4yUBiCaejJL5guczISx2Q8ZH7RvS_4fXiNdHemr1aWKwz0CcyBJI_4_jFjQhY5JedBz_-pSiSQ1eQCF_BPYEbRs/s1600/sq.jpg"
-  },
-  {
-    "title": "Researchers Detail DifyTap Flaws in Dify That Could Expose AI Chats Across Tenants",
-    "link": "https://thehackernews.com/2026/06/researchers-detail-difytap-flaws-in.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrjCumekV1hjkgdgebp4RqfYc_Yt9Swv4lG7ds3XMDHG9f-JxSuJSWY3UcWIoivJoJkJjdlBvtiQAHKy7NNgApCoD8ADtOpicXvKf9RJwAZT1DEGUkgX87bmSR8cO75Ss__mnLn8MyDEddnzhyphenhyphenRfcf_gWEtoLiKu53yXNQJtT0DP7nZufqBhB3P8VmvV48/s1600/dify.png"
-  },
-  {
-    "title": "Crypto Heist Fueled by Elaborate Fake Reputation-Boosting Campaign",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/crypto-heist-fake-reputation-boosting-campaign",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt488625da6dcc5e36/6a3956fde4fc4e3dbf65d2b3/bitcoinstolen_KeremYucel-Getty-902191710.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "He Thought He Was Secure; His Phone Number Got Stolen Anyway",
-    "link": "https://www.darkreading.com/cyber-risk/how-a-sim-swap-attack-led-to-a-near-account-takeover",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6dddf9d981db26e1/68ee58f2ca973956d757c9a3/sim-swapping-attacks_.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "A Glimpse into the \u201cSearch Your Target\u201d Market for Stolen Credentials",
-    "link": "https://www.bleepingcomputer.com/news/security/a-glimpse-into-the-search-your-target-market-for-stolen-credentials/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2021/05/01/hacking.jpg"
-  },
-  {
-    "title": "Decades-Old Squid Proxy Flaw \u2018Squidbleed\u2019 Can Expose User Data",
-    "link": "https://www.securityweek.com/decades-old-squid-proxy-flaw-squidbleed-can-expose-user-data/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/SquidBleed.jpeg"
-  },
-  {
-    "title": "New OXLOADER Loader Uses Malicious Google Ads to Deliver CastleStealer",
-    "link": "https://thehackernews.com/2026/06/new-oxloader-loader-uses-malicious.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8sz7SHbQd4E8HNEKbvGGSYhPpJrUydP_gCRt_mWYYTr6QHLmChyphenhyphenca6BXhLBXA4OyKw-eS9xbqRqpKcYWFqDp4HoLBYKjVdWzhF0K1pqjX2bPtB91y1P1PZ8gh5r7Bpp-PIeUJVi_Hki91Qf6YjFAtFmf-qh7V9gNzmbEh_A2lISCvCDnNMALAuiqAlkL_/s1600/loader.jpg"
   }
 ]
