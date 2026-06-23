@@ -1,5 +1,10 @@
 [
   {
+    "title": "Dragos Unveils AI for OT Security",
+    "link": "https://www.securityweek.com/dragos-unveils-ai-for-ot-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/AI-artificial-intelligence-industrial-OT-ICS.webp"
+  },
+  {
     "title": "Data Exposure Flaws Threaten Dify AI Platform Used by 1 Million Apps",
     "link": "https://www.securityweek.com/data-exposure-flaws-threaten-dify-ai-platform-powering-over-1-million-apps/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/05/AI-Hallucinations.jpg"
@@ -8,6 +13,16 @@
     "title": "Scattered Spider members plead guilty to hacking Transport for London",
     "link": "https://www.bleepingcomputer.com/news/security/scattered-spider-members-plead-guilty-to-hacking-transport-for-london/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/09/02/just-uk.jpg"
+  },
+  {
+    "title": "Fake AI Agent Skill Passed Security Scans and Reportedly Reached 26,000 Agents",
+    "link": "https://thehackernews.com/2026/06/fake-ai-agent-skill-passed-security.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgb14v3ddlfpybc15jRbk-cwHI-0S8BAzdp8Ix83L5ZCZ4AB8gCySG7J4tZr4od9q3Jbuic1a4J29VAvRcdSQag_-ju1o9ae9yCcL6XV_jRDVhgd31E5BljiThpXcfHu_gdsmSySY8o0WyjuUoSQ5CGOyKO3cKXVDYeGKa1b1up2VM5ZJE6_PjPNCVOD_M/s1600/skills.jpg"
+  },
+  {
+    "title": "Trump Order Sets 2030 Deadline for Federal Post-Quantum Crypto Migration",
+    "link": "https://thehackernews.com/2026/06/trump-order-sets-2030-deadline-for.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoC7KFWoDGkSi-UzAyKNUkw-Ogs4oy2tCOAYXiYAAkqEUC1WMotLAE1GUwoWApfXK3prWVctTP05aLGjru0hDBfJkZ1NzPiFeI1VObgSNCx4egTrYhKIUt4m1S14eQ6_GpdffFBL4Ak3Mgjw7UiiBethv1lmyd_OaPIfhk_b-zuMjxCHLZtih8Tk6MtRg/s1600/unitedstates.jpg"
   },
   {
     "title": "GitHub Updates actions/checkout to Block Common Pwn Request Attack Patterns",
@@ -55,26 +70,6 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2024/06/hacker-arrested.jpeg"
   },
   {
-    "title": "Siemens WinCC Certificate Manager",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-01",
-    "image": ""
-  },
-  {
-    "title": "Siemens SIPROTEC 5 Using DIGSI5 Protocol",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-02",
-    "image": ""
-  },
-  {
-    "title": "Impact of Linux Kernel vulnerabilities on B&R products",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-06",
-    "image": ""
-  },
-  {
-    "title": "ABB Freelance Security Lock",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-05",
-    "image": ""
-  },
-  {
     "title": "Hubbell Aclara Metrum Cellular Web Interface",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-07",
     "image": ""
@@ -85,8 +80,33 @@
     "image": ""
   },
   {
+    "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
+    "title": "Siemens WinCC Certificate Manager",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-01",
+    "image": ""
+  },
+  {
+    "title": "ABB Freelance Security Lock",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-05",
+    "image": ""
+  },
+  {
+    "title": "Siemens SIPROTEC 5 Using DIGSI5 Protocol",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-02",
+    "image": ""
+  },
+  {
     "title": "Siemens SINEC INS",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-04",
+    "image": ""
+  },
+  {
+    "title": "Impact of Linux Kernel vulnerabilities on B&R products",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-06",
     "image": ""
   },
   {
@@ -125,28 +145,8 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/08/quantum.jpg"
   },
   {
-    "title": "Xsolis Data Breach Affects 1.4 Million Individuals",
-    "link": "https://www.securityweek.com/xsolis-data-breach-affects-1-4-million-individuals/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/05/healthcare-medical-data-breach-.jpeg"
-  },
-  {
     "title": "WhatsApp VBScript Campaign Uses Fake Documents to Install ManageEngine RMM Tool",
     "link": "https://thehackernews.com/2026/06/whatsapp-vbscript-campaign-uses-fake.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDqA3duB8U44C_MQ5PM061Wch2-j7uRvX_D52lK_2Dsm2lxcquuICTnFZ-dhQiQfxxKTnIJz4tf7ffCupdkoU1giCEGhHXLKJ0xC3dw7duptIHq15dD0E5XlkvB9JbKztGCTJOk2iJ53shzUQexv2So6rrFy8djOO1etfsolTM5UbvMUkKvNwNpHqFvS7V/s1600/whatsapp-main.jpg"
-  },
-  {
-    "title": "OpenAI Expands Daybreak With GPT-5.5-Cyber to Help Defenders Patch Security Flaws",
-    "link": "https://thehackernews.com/2026/06/openai-expands-daybreak-with-gpt-55.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5t7SN4kPSfgifNku4Z0eWG5x1Dd8CIb99OAHuktz4ZGAeIrwDEnLwD9DUkRj8nStBQjzxOgWO2hfsGYI07Yp8gQGtXiSBIqlQXtzDTc3bkveScQ2gd-WbUmBA0L1xVDXhbrukUIuWdLaMPyiDZO-5-tWlq-kwFdImdd-h7YVkO7oGDN08bv25RJ2TRDt8/s1600/opne.jpg"
-  },
-  {
-    "title": "WhatsApp phishing attack uses fake business docs to hack PCs",
-    "link": "https://www.bleepingcomputer.com/news/security/whatsapp-phishing-attack-uses-fake-business-docs-to-hack-pcs/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/08/WhatsApp.jpg"
-  },
-  {
-    "title": "JaredFromSubway MEV bot hacked in $15 million crypto theft",
-    "link": "https://www.bleepingcomputer.com/news/security/jaredfromsubway-mev-bot-hacked-in-15-million-crypto-theft/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Cryptocurrency-bitcoin.jpg"
   }
 ]
