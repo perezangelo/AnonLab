@@ -767,23 +767,38 @@ function updateThreatLevelFromAlerts(data) {
   let levelText = "Basso";
   let bar = "█░░░░";
   let desc = "Attività nella norma";
-  let color = "#00ff99"; // verde
+
+  // Colori dinamici
+  let colorLevel = "#00ff99";   // verde
+  let colorDesc  = "#cccccc";   // grigio chiaro per distinguere
+  let colorTime  = "#00ff99";   // stesso colore del livello
 
   if (critical >= 1 || high >= 5) {
     levelText = "Critico";
     bar = "█████";
     desc = "Elevato numero di vulnerabilità gravi rilevate";
-    color = "#ff3333"; // rosso
-  } else if (high >= 2 || moderate >= 5) {
+
+    colorLevel = "#ff3333";  // rosso
+    colorDesc  = "#ff9999";  // rosso chiaro (distinto)
+    colorTime  = "#ff3333";  // rosso
+  } 
+  else if (high >= 2 || moderate >= 5) {
     levelText = "Alto";
     bar = "████░";
     desc = "Aumento delle minacce ad alta severità";
-    color = "#ff7b00"; // arancione
-  } else if (moderate >= 2) {
+
+    colorLevel = "#ff7b00";  // arancione
+    colorDesc  = "#ffb366";  // arancione chiaro
+    colorTime  = "#ff7b00";  // arancione
+  } 
+  else if (moderate >= 2) {
     levelText = "Moderato";
     bar = "███░░";
     desc = "Presenza di vulnerabilità da monitorare";
-    color = "#ffcc00"; // giallo
+
+    colorLevel = "#ffcc00";  // giallo
+    colorDesc  = "#ffe680";  // giallo chiaro
+    colorTime  = "#ffcc00";  // giallo
   }
 
   // Aggiorna contenuti
@@ -798,11 +813,13 @@ function updateThreatLevelFromAlerts(data) {
     now.toLocaleDateString("it-IT") + " " +
     now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
 
-  // 🔥 COLORI DINAMICI
-  levelSpan.style.color = color;
-  barSpan.style.color = color;
-  dynamicSpan.style.color = color;
-  updatedSpan.style.color = color;
+  // 🔥 Applica i colori dinamici
+  levelSpan.style.color = colorLevel;
+  barSpan.style.color = colorLevel;
+  updatedSpan.style.color = colorTime;
+
+  // La descrizione ha un colore diverso per distinguersi
+  dynamicSpan.style.color = colorDesc;
 }
 
 async function loadCyberAlerts() {
