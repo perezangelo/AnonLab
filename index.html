@@ -1002,9 +1002,18 @@ async function loadSocTV() {
       source.classList.remove("soc-visible");
 
       setTimeout(() => {
-        img.src = item.image && item.image.trim() !== ""
-          ? item.image
-          : "/img/cyber-circuit.png";
+    img.src = item.image && item.image.trim() !== ""
+      ? item.image
+      : "/img/cyber-circuit.png";
+
+    title.textContent = item.title;
+    source.textContent = "Fonte: " + item.source;
+
+    img.classList.add("soc-visible");
+    title.classList.add("soc-visible");
+    source.classList.add("soc-visible");
+
+}, 400);
 
         title.textContent = item.title;
         source.textContent = "Fonte: " + item.source;
