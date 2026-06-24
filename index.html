@@ -879,30 +879,32 @@ loadCyberAlerts();
 setInterval(loadCyberAlerts, 60000);
 </script>
 
-     <script>
+<script>
 async function loadSocTV() {
   const img = document.getElementById("soc-tv-img");
   const title = document.getElementById("soc-tv-title");
   const source = document.getElementById("soc-tv-source");
 
   try {
-    const r = await fetch("https://www.reuters.com/pf/api/v3/content/fetch/articles-by-tag-v1?tag=cybersecurity&size=10");
-    const data = await r.json();
+    const r = await fetch("https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml");
+    const xmlText = await r.text();
 
-    if (!data || !data.content_elements || data.content_elements.length === 0) {
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(xmlText, "text/xml");
+
+    const item = xml.querySelector("item");
+
+    if (!item) {
       title.textContent = "Nessuna notizia disponibile";
       return;
     }
 
-    const news = data.content_elements[0];
+    const newsTitle = item.querySelector("title")?.textContent || "Cyber News";
+    const newsImg = item.querySelector("enclosure")?.getAttribute("url") || "/img/cyber-circuit.png";
 
-    img.src = news.promo_image?.url || "/img/cyber-circuit.png";
-    title.textContent = news.headlines?.basic || "Cyber News";
-    source.textContent = "Fonte: Reuters Cybersecurity";
-
-    // Effetto flicker leggero
-    img.style.opacity = "0.85";
-    setTimeout(() => { img.style.opacity = "1"; }, 150);
+    img.src = newsImg;
+    title.textContent = newsTitle;
+    source.textContent = "Fonte: ANSA Tecnologia";
 
   } catch (e) {
     title.textContent = "Errore nel caricamento delle notizie";
