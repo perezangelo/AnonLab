@@ -511,32 +511,7 @@ async function sendNewsletter(e) {
   }
 }
       </style>
-
-     <style>
-
-      /* Effetto ON AIR */
-@keyframes onAirBlink {
-  from { opacity: 1; }
-  to   { opacity: 0.4; }
-}
-
-/* Barra neon di caricamento */
-@keyframes loadbar {
-  0%   { margin-left:-40%; }
-  100% { margin-left:100%; }
-}
-
-/* Fade-in / Fade-out tra notizie */
-.soc-fade {
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.soc-visible {
-  opacity: 1;
-}
-</style>
-
+     
       <div style="margin-top:60px;"></div>
 
       <!-- ULTIME NEWS -->
@@ -896,6 +871,31 @@ async function loadCyberAlerts() {
 loadCyberAlerts();
 setInterval(loadCyberAlerts, 60000);
 </script>
+
+       <style>
+
+      /* Effetto ON AIR */
+@keyframes onAirBlink {
+  from { opacity: 1; }
+  to   { opacity: 0.4; }
+}
+
+/* Barra neon di caricamento */
+@keyframes loadbar {
+  0%   { margin-left:-40%; }
+  100% { margin-left:100%; }
+}
+
+/* Fade-in / Fade-out tra notizie */
+.soc-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.soc-visible {
+  opacity: 1;
+}
+</style>
 
 <script>
 async function loadSocTV() {
