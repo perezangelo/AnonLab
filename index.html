@@ -886,28 +886,20 @@ async function loadSocTV() {
   const source = document.getElementById("soc-tv-source");
 
   try {
-    const r = await fetch("https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml");
-    const xmlText = await r.text();
+    const r = await fetch("https://angelonline.altervista.org/soc-tv.php");
+    const data = await r.json();
 
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(xmlText, "text/xml");
-
-    const item = xml.querySelector("item");
-
-    if (!item) {
-      title.textContent = "Nessuna notizia disponibile";
+    if (data.error) {
+      title.textContent = "Errore nel caricamento delle notizie";
       return;
     }
 
-    const newsTitle = item.querySelector("title")?.textContent || "Cyber News";
-    const newsImg = item.querySelector("enclosure")?.getAttribute("url") || "/img/cyber-circuit.png";
-
-    img.src = newsImg;
-    title.textContent = newsTitle;
-    source.textContent = "Fonte: ANSA Tecnologia";
+    img.src = data.image || "/img/cyber-circuit.png";
+    title.textContent = data.title;
+    source.textContent = "Fonte: " + data.source;
 
   } catch (e) {
-    title.textContent = "Errore nel caricamento delle notizie";
+    title.textContent = "Errore di connessione";
     source.textContent = "";
   }
 }
