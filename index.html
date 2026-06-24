@@ -897,72 +897,6 @@ setInterval(loadCyberAlerts, 60000);
 }
 </style>
 
-<script>
-async function loadSocTV() {
-  const img = document.getElementById("soc-tv-img");
-  const title = document.getElementById("soc-tv-title");
-  const source = document.getElementById("soc-tv-source");
-  const loading = document.getElementById("soc-tv-loading");
-
-  try {
-    const r = await fetch("https://angelonline.altervista.org/soc-tv.php");
-    const data = await r.json();
-
-    if (!Array.isArray(data) || data.length === 0) {
-      loading.textContent = "Nessuna notizia disponibile";
-      return;
-    }
-
-    // Nasconde loading e mostra la TV
-    loading.style.display = "none";
-    img.style.display = "block";
-    title.style.display = "block";
-    source.style.display = "block";
-
-    // Applica classi per fade
-    img.classList.add("soc-fade");
-    title.classList.add("soc-fade");
-    source.classList.add("soc-fade");
-
-    let index = 0;
-
-    function showNews() {
-      const item = data[index];
-
-      // Fade-out
-      img.classList.remove("soc-visible");
-      title.classList.remove("soc-visible");
-      source.classList.remove("soc-visible");
-
-      setTimeout(() => {
-        img.src = item.image && item.image.trim() !== ""
-          ? item.image
-          : "/img/cyber-circuit.png";
-
-        title.textContent = item.title;
-        source.textContent = "Fonte: " + item.source;
-
-        // Fade-in
-        img.classList.add("soc-visible");
-        title.classList.add("soc-visible");
-        source.classList.add("soc-visible");
-
-      }, 400);
-
-      index = (index + 1) % data.length;
-    }
-
-    showNews();
-    setInterval(showNews, 8000);
-
-  } catch (e) {
-    loading.textContent = "Errore nel caricamento del feed";
-  }
-}
-
-loadSocTV();
-</script>
-
 <!-- FEED DAL MONDO -->
 <section class="widget-large">
   <h2>Feed dal Mondo</h2>
@@ -1029,6 +963,72 @@ loadSocTV();
     display:none;
   "></div>
 </div>
+
+     <script>
+async function loadSocTV() {
+  const img = document.getElementById("soc-tv-img");
+  const title = document.getElementById("soc-tv-title");
+  const source = document.getElementById("soc-tv-source");
+  const loading = document.getElementById("soc-tv-loading");
+
+  try {
+    const r = await fetch("https://angelonline.altervista.org/soc-tv.php");
+    const data = await r.json();
+
+    if (!Array.isArray(data) || data.length === 0) {
+      loading.textContent = "Nessuna notizia disponibile";
+      return;
+    }
+
+    // Nasconde loading e mostra la TV
+    loading.style.display = "none";
+    img.style.display = "block";
+    title.style.display = "block";
+    source.style.display = "block";
+
+    // Applica classi per fade
+    img.classList.add("soc-fade");
+    title.classList.add("soc-fade");
+    source.classList.add("soc-fade");
+
+    let index = 0;
+
+    function showNews() {
+      const item = data[index];
+
+      // Fade-out
+      img.classList.remove("soc-visible");
+      title.classList.remove("soc-visible");
+      source.classList.remove("soc-visible");
+
+      setTimeout(() => {
+        img.src = item.image && item.image.trim() !== ""
+          ? item.image
+          : "/img/cyber-circuit.png";
+
+        title.textContent = item.title;
+        source.textContent = "Fonte: " + item.source;
+
+        // Fade-in
+        img.classList.add("soc-visible");
+        title.classList.add("soc-visible");
+        source.classList.add("soc-visible");
+
+      }, 400);
+
+      index = (index + 1) % data.length;
+    }
+
+    showNews();
+    setInterval(showNews, 8000);
+
+  } catch (e) {
+    loading.textContent = "Errore nel caricamento del feed";
+  }
+}
+
+loadSocTV();
+</script>
 
 <!-- TECH RADAR -->
 <section class="widget-large">
