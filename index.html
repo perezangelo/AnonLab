@@ -964,6 +964,41 @@ setInterval(loadCyberAlerts, 60000);
   "></div>
 </div>
 
+     <!-- WIDGET ON AIR -->
+<div id="on-air-widget" style="
+  margin-top:15px;
+  padding:10px;
+  background:#111;
+  border:2px solid #ff0033;
+  border-radius:8px;
+  color:#ff0033;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  gap:10px;
+">
+
+  <!-- LED ROSSO LAMPEGGIANTE -->
+  <div style="
+    width:12px;
+    height:12px;
+    background:#ff0033;
+    border-radius:50%;
+    animation:onAirBlink 1s infinite;
+  "></div>
+
+  <span>ON AIR — Trasmissione in diretta</span>
+</div>
+
+<!-- ANIMAZIONE LED -->
+<style>
+@keyframes onAirBlink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+</style>
+
    <script>
 async function loadSocTV() {
   const img = document.getElementById("soc-tv-img");
