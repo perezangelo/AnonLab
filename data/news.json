@@ -1,13 +1,53 @@
 [
   {
+    "title": "Microsoft and Allies Smash Shared Infrastructure of Amadey and StealC Malware",
+    "link": "https://www.securityweek.com/microsoft-and-allies-smash-shared-infrastructure-of-amadey-and-stealc-malware/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/botnet.jpeg"
+  },
+  {
+    "title": "CISA warns of max severity Ubiquiti flaws exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-max-severity-ubiquiti-flaws-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/01/13/CISA--headpic.jpg"
+  },
+  {
+    "title": "Amadey, StealC malware operations disrupted in Operation Endgame action",
+    "link": "https://www.bleepingcomputer.com/news/security/amadey-stealc-malware-operations-disrupted-in-operation-endgame-action/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/05/05/malware-header.jpg"
+  },
+  {
+    "title": "Exclusive: Meet AIVEX, a New Triage Model Built to Reduce Supply Chain Threat and Risk",
+    "link": "https://www.securityweek.com/exclusive-meet-aivex-a-new-triage-model-built-to-reduce-supply-chain-threat-and-risk/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/coding-vulnerability-software-development.jpeg"
+  },
+  {
+    "title": "Securing the service desk: Why social engineering attacks keep succeeding",
+    "link": "https://www.bleepingcomputer.com/news/security/securing-the-service-desk-why-social-engineering-attacks-keep-succeeding/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/06/16/specops-help-desk-header.jpg"
+  },
+  {
+    "title": "macOS Weaknesses Chained to Silently Disable Endpoint Security Agents",
+    "link": "https://www.securityweek.com/macos-weaknesses-chained-to-silently-disable-endpoint-security-agents/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/MacOS-Mac-malware-Apple.jpeg"
+  },
+  {
     "title": "Third DraftKings Hacker Sentenced to 18 Months in Prison",
     "link": "https://www.securityweek.com/third-draftkings-hacker-sentenced-to-18-months-in-prison/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/10/DraftKings.jpg"
   },
   {
+    "title": "Cordyceps CI/CD Flaws Expose 300+ GitHub Repositories to Supply-Chain Attacks",
+    "link": "https://thehackernews.com/2026/06/cordyceps-cicd-flaws-expose-300-github.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjl_D6QzBWfQRZAXbjo9RhhLXSedzJR2Q2sUQoQYnDxpC7yETzJgn3KnpT8CcoqlfXdqkcnTCNcEpR1QKphy77NvG_9PIO57hHNF27x8pBb1pLf_4n3A6pTBs3qXQMsz81rvzpGIOqHZn7VqvJoJoB98o7COHOxi5wfkQvxhL4LcOxBkziY4MLxVCEOljX8/s1600/1000085115.jpg"
+  },
+  {
     "title": "Critical Ubiquiti Vulnerabilities in Attackers\u2019 Crosshairs",
     "link": "https://www.securityweek.com/critical-ubiquiti-vulnerabilities-in-attackers-crosshairs/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/CISA-KEV.jpg"
+  },
+  {
+    "title": "Using SASE in a Modern TIC 3.0 Solution",
+    "link": "https://www.cisa.gov/resources-tools/resources/using-sase-modern-tic-30-solution",
+    "image": ""
   },
   {
     "title": "Apple's MacOS Gap Lets Users Disable Security Tools",
@@ -60,16 +100,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivauBSNOsDqBHvUFSnF1NdlWJ8BAt2JVgIo_ZUQhBkVppSz0PvkEmrc9RP1hMf2-oFFRgr5PNm7pxLmPngAJHcxV6-F3e43bEqmdEg38013JmlUKDlGVOLQTj6bYbyk_R7WXBqbW3o2yPHdosqz7nncLivqDqXGAuiTFcHkPqiVPBJuDHlsvYWtEreVmk_/s1600/cc.jpg"
   },
   {
-    "title": "Hackers Exploiting Cisco Unified CM Vulnerability",
-    "link": "https://www.securityweek.com/hackers-exploiting-cisco-unified-cm-vulnerability/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Cisco-network-switch-exploit.webp"
-  },
-  {
-    "title": "Anthropic\u2019s Mythos Model Found Vulnerabilities in Classified US Government Systems, Official Says",
-    "link": "https://www.securityweek.com/anthropics-mythos-model-found-vulnerabilities-in-classified-us-government-systems-official-says/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Claude-Mythos.jpeg"
-  },
-  {
     "title": "Cisco Unified CM flaw CVE-2026-20230 now exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/cisco-unified-cm-sme-flaw-cve-2026-20230-now-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/07/01/Cisco-logo.jpg"
@@ -110,11 +140,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJkhDD5qINhfAhBFXG2C13raQF6T6zAOmnHlArhnLUP5z0ifBzpyq6M_4n11cgynQfZW0mxJWnYU-TDYSpKQHYFHvXsZHCB7uoMFg0w02yZILY-JLMm2-uqm-CA_wIqZHhzl25FfO_lMd7dYm6VfprDP83bz_SoB3MWLEc059E4YCa554bba-qWHW5udHv/s1600/fortigate.jpg"
   },
   {
-    "title": "Dragos Unveils AI for OT Security",
-    "link": "https://www.securityweek.com/dragos-unveils-ai-for-ot-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/AI-artificial-intelligence-industrial-OT-ICS.webp"
-  },
-  {
     "title": "Scattered Spider members plead guilty to hacking Transport for London",
     "link": "https://www.bleepingcomputer.com/news/security/scattered-spider-members-plead-guilty-to-hacking-transport-for-london/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/09/02/just-uk.jpg"
@@ -123,30 +148,5 @@
     "title": "Fake AI Agent Skill Passed Security Scans and Reportedly Reached 26,000 Agents",
     "link": "https://thehackernews.com/2026/06/fake-ai-agent-skill-passed-security.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgb14v3ddlfpybc15jRbk-cwHI-0S8BAzdp8Ix83L5ZCZ4AB8gCySG7J4tZr4od9q3Jbuic1a4J29VAvRcdSQag_-ju1o9ae9yCcL6XV_jRDVhgd31E5BljiThpXcfHu_gdsmSySY8o0WyjuUoSQ5CGOyKO3cKXVDYeGKa1b1up2VM5ZJE6_PjPNCVOD_M/s1600/skills.jpg"
-  },
-  {
-    "title": "Trump Order Sets 2030 Deadline for Federal Post-Quantum Crypto Migration",
-    "link": "https://thehackernews.com/2026/06/trump-order-sets-2030-deadline-for.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoC7KFWoDGkSi-UzAyKNUkw-Ogs4oy2tCOAYXiYAAkqEUC1WMotLAE1GUwoWApfXK3prWVctTP05aLGjru0hDBfJkZ1NzPiFeI1VObgSNCx4egTrYhKIUt4m1S14eQ6_GpdffFBL4Ak3Mgjw7UiiBethv1lmyd_OaPIfhk_b-zuMjxCHLZtih8Tk6MtRg/s1600/unitedstates.jpg"
-  },
-  {
-    "title": "GitHub Updates actions/checkout to Block Common Pwn Request Attack Patterns",
-    "link": "https://thehackernews.com/2026/06/github-updates-actionscheckout-to-block.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcacTEKD_LZFda1wwX5aClbAVOb6mwah2lVUY-jUZwNsrSZGDOFL18LP5zYLX3M2DwKng0qknZ5qo_hMk4q-NExgZv1ozhCy7DJuZwvviZE0sv36PQ2k8Y2emv1KMDFplakFwVzulOFPteWkmVoLO6Le912KAbJGFW0nkqKWHEkwJQLbsGhz5npWO3aJaR/s1600/github-actions.jpg"
-  },
-  {
-    "title": "The Exploit Doesn't Exist. You Can Still Prove It Works Against You",
-    "link": "https://www.bleepingcomputer.com/news/security/the-exploit-doesnt-exist-you-can-still-prove-it-works-against-you/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/06/21/picus-ttp-header.jpg"
-  },
-  {
-    "title": "LastPass confirms data breach in Klue supply chain attack",
-    "link": "https://www.bleepingcomputer.com/news/security/lastpass-confirms-data-breach-in-klue-supply-chain-attack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/23/lastpass.jpg"
-  },
-  {
-    "title": "SocGholish Takedown Highlights Malicious TDS Threats",
-    "link": "https://www.darkreading.com/cyber-risk/socgholish-takedown-malicious-tds-threats",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb4d9b2d2bbf8d9fa/6a3995234ad7bb19bccc4621/malware-Just_Super-Getty-1420039900.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
