@@ -964,7 +964,7 @@ setInterval(loadCyberAlerts, 60000);
   "></div>
 </div>
 
-     <script>
+   <script>
 async function loadSocTV() {
   const img = document.getElementById("soc-tv-img");
   const title = document.getElementById("soc-tv-title");
@@ -993,41 +993,48 @@ async function loadSocTV() {
 
     let index = 0;
 
-function showNews() {
-  const item = data[index];
+    function showNews() {
+      const item = data[index];
 
-  // Fade-out
-  img.classList.remove("soc-visible");
-  title.classList.remove("soc-visible");
-  source.classList.remove("soc-visible");
+      // Fade-out
+      img.classList.remove("soc-visible");
+      title.classList.remove("soc-visible");
+      source.classList.remove("soc-visible");
 
-  setTimeout(() => {
+      setTimeout(() => {
 
-    // Fallback immagine a prova di feed vuoti
-    let imgUrl = item.image;
-    if (!imgUrl || imgUrl.trim() === "" || imgUrl.length < 5) {
-      imgUrl = "/img/cyber-circuit.png";
+        // Fallback immagine a prova di feed vuoti
+        let imgUrl = item.image;
+        if (!imgUrl || imgUrl.trim() === "" || imgUrl.length < 5) {
+          imgUrl = "/img/cyber-circuit.png";
+        }
+
+        img.src = imgUrl;
+
+        // Aggiorna testo
+        title.textContent = item.title;
+        source.textContent = "Fonte: " + item.source;
+
+        // Fade-in
+        img.classList.add("soc-visible");
+        title.classList.add("soc-visible");
+        source.classList.add("soc-visible");
+
+      }, 400);
+
+      index = (index + 1) % data.length;
     }
 
-    img.src = imgUrl;
+    showNews();
+    setInterval(showNews, 8000);
 
-    // Aggiorna testo
-    title.textContent = item.title;
-    source.textContent = "Fonte: " + item.source;
-
-    // Fade-in
-    img.classList.add("soc-visible");
-    title.classList.add("soc-visible");
-    source.classList.add("soc-visible");
-
-  }, 400);
-
-  index = (index + 1) % data.length;
+  } catch (e) {
+    loading.textContent = "Errore nel caricamento del feed";
+  }
 }
 
-showNews();
-setInterval(showNews, 8000);
-     </script>
+loadSocTV();
+</script>
 
 <!-- TECH RADAR -->
 <section class="widget-large">
