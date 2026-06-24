@@ -513,9 +513,27 @@ async function sendNewsletter(e) {
       </style>
 
      <style>
+
+      /* Effetto ON AIR */
 @keyframes onAirBlink {
   from { opacity: 1; }
   to   { opacity: 0.4; }
+}
+
+/* Barra neon di caricamento */
+@keyframes loadbar {
+  0%   { margin-left:-40%; }
+  100% { margin-left:100%; }
+}
+
+/* Fade-in / Fade-out tra notizie */
+.soc-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.soc-visible {
+  opacity: 1;
 }
 </style>
 
@@ -901,17 +919,35 @@ async function loadSocTV() {
     title.style.display = "block";
     source.style.display = "block";
 
+    // Applica classi per fade
+    img.classList.add("soc-fade");
+    title.classList.add("soc-fade");
+    source.classList.add("soc-fade");
+
     let index = 0;
 
     function showNews() {
       const item = data[index];
 
-      img.src = item.image && item.image.trim() !== ""
-        ? item.image
-        : "/img/cyber-circuit.png";
+      // Fade-out
+      img.classList.remove("soc-visible");
+      title.classList.remove("soc-visible");
+      source.classList.remove("soc-visible");
 
-      title.textContent = item.title;
-      source.textContent = "Fonte: " + item.source;
+      setTimeout(() => {
+        img.src = item.image && item.image.trim() !== ""
+          ? item.image
+          : "/img/cyber-circuit.png";
+
+        title.textContent = item.title;
+        source.textContent = "Fonte: " + item.source;
+
+        // Fade-in
+        img.classList.add("soc-visible");
+        title.classList.add("soc-visible");
+        source.classList.add("soc-visible");
+
+      }, 400);
 
       index = (index + 1) % data.length;
     }
@@ -934,7 +970,6 @@ loadSocTV();
   <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
     Approfondisci su DarkReading →
   </a>
-
   <div id="world-feed"></div>
 </section>
    
@@ -949,14 +984,35 @@ loadSocTV();
 ">
 
   <div id="soc-tv-loading" style="
-    color:#00eaff;
-    font-weight:bold;
-    text-align:center;
-    padding:40px 0;
-    font-size:1.1rem;
+  padding:40px 20px;
+  text-align:center;
+  color:#00eaff;
+  font-weight:bold;
+">
+  <div style="
+    width:100%;
+    height:6px;
+    background:#003344;
+    border-radius:4px;
+    overflow:hidden;
+    margin-bottom:12px;
   ">
-    📡 Acquisizione feed...
+    <div style="
+      width:40%;
+      height:100%;
+      background:#00eaff;
+      animation: loadbar 1.2s infinite;
+    "></div>
   </div>
+  📡 Acquisizione feed...
+</div>
+
+<style>
+@keyframes loadbar {
+  0%   { margin-left:-40%; }
+  100% { margin-left:100%; }
+}
+</style>
 
   <img id="soc-tv-img" style="
     width:100%;
