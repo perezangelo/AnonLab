@@ -905,7 +905,7 @@ async function loadSocTV() {
   const loading = document.getElementById("soc-tv-loading");
 
   try {
-    const r = await fetch("https://angelolab.altervista.org/soc-tv.php");
+    const r = await fetch("https://angelonline.altervista.org/soc-tv.php");
     const data = await r.json();
 
     if (!Array.isArray(data) || data.length === 0) {
