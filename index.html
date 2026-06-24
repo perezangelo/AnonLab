@@ -993,50 +993,39 @@ async function loadSocTV() {
 
     let index = 0;
 
-    function showNews() {
-      const item = data[index];
+function showNews() {
+  const item = data[index];
 
-      // Fade-out
-      img.classList.remove("soc-visible");
-      title.classList.remove("soc-visible");
-      source.classList.remove("soc-visible");
+  // Fade-out
+  img.classList.remove("soc-visible");
+  title.classList.remove("soc-visible");
+  source.classList.remove("soc-visible");
 
-      setTimeout(() => {
-    img.src = item.image && item.image.trim() !== ""
-      ? item.image
-      : "/img/cyber-circuit.png";
+  setTimeout(() => {
 
+    // Fallback immagine a prova di feed vuoti
+    let imgUrl = item.image;
+    if (!imgUrl || imgUrl.trim() === "" || imgUrl.length < 5) {
+      imgUrl = "/img/cyber-circuit.png";
+    }
+
+    img.src = imgUrl;
+
+    // Aggiorna testo
     title.textContent = item.title;
     source.textContent = "Fonte: " + item.source;
 
+    // Fade-in
     img.classList.add("soc-visible");
     title.classList.add("soc-visible");
     source.classList.add("soc-visible");
 
-}, 400);
+  }, 400);
 
-        title.textContent = item.title;
-        source.textContent = "Fonte: " + item.source;
-
-        // Fade-in
-        img.classList.add("soc-visible");
-        title.classList.add("soc-visible");
-        source.classList.add("soc-visible");
-
-      }, 400);
-
-      index = (index + 1) % data.length;
-    }
-
-    showNews();
-    setInterval(showNews, 8000);
-
-  } catch (e) {
-    loading.textContent = "Errore nel caricamento del feed";
-  }
+  index = (index + 1) % data.length;
 }
-
-loadSocTV();
+showNews();
+setInterval(showNews, 8000);
 </script>
 
 <!-- TECH RADAR -->
