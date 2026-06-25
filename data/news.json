@@ -1,5 +1,10 @@
 [
   {
+    "title": "New macOS malware embeds fake errors to confuse AI analysis tools",
+    "link": "https://www.bleepingcomputer.com/news/security/new-macos-malware-embeds-fake-errors-to-confuse-ai-analysis-tools/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/11/ai-extract.jpg"
+  },
+  {
     "title": "PirloTV sports piracy network disrupted as 44 domains seized",
     "link": "https://www.bleepingcomputer.com/news/security/pirlotv-sports-piracy-network-disrupted-as-44-domains-seized/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/12/12/Pirate.jpg"
@@ -35,9 +40,54 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2025/10/01/login-credentials.jpg"
   },
   {
-    "title": "Cal Water Finds No Evidence of OT Activity After Hackers Claimed They Could Disrupt Water Supply",
+    "title": "Cal Water Says No OT Systems Breached in Iranian Handala Cyberattack",
     "link": "https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/water-treatment-utility.jpeg"
+  },
+  {
+    "title": "Daktronics Controller Firmware",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-04",
+    "image": ""
+  },
+  {
+    "title": "Delta Electronics DTM Soft",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-06",
+    "image": ""
+  },
+  {
+    "title": "OHIF Viewers DICOM",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-176-02",
+    "image": ""
+  },
+  {
+    "title": "H.VIEW HV-500S6 IP Camera",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-05",
+    "image": ""
+  },
+  {
+    "title": "pydicom pynetdicom Library",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-176-01",
+    "image": ""
+  },
+  {
+    "title": "Schneider Electric PowerLogic P7",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-07",
+    "image": ""
+  },
+  {
+    "title": "Yokogawa FAST/TOOLS and CI Server",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-01",
+    "image": ""
+  },
+  {
+    "title": "Horner Automation Cscape",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-03",
+    "image": ""
+  },
+  {
+    "title": "EVoke Systems Charging Station Management System",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-02",
+    "image": ""
   },
   {
     "title": "Lantronix Serial-to-IP Converter Flaw Exploited in Attacks After OT Threat Warning",
@@ -70,6 +120,11 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTrOy7FP80AfVcwyuiLtJx1T9YECQ6fxHaelQKUn3MNwSV9P3tiVq4_-pOB-gmU3lF9GpWnc5ebVSAbp0MZMZpHHZkdpTK_HX40hfg3KbusQS5bD0kRYjYVyRzffkUpWBsblvGULiZnnOj6e0NF-dg49It3Wn8p9WqD2TNEz0ruG1XrnqCckAXqsDAOTn/s1600/ai-full-disk.jpg"
   },
   {
+    "title": "SecurityWeek ICS Cybersecurity Conference Heads to Nashville for Special 25-Year Anniversary Edition",
+    "link": "https://www.securityweek.com/securityweek-ics-cybersecurity-conference-heads-to-nashville-for-special-25-year-anniversary-edition/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/ICS_Nasvhille.jpeg"
+  },
+  {
     "title": "New Mistic Backdoor Linked to KongTuke in ClickFix and ModeloRAT Campaigns",
     "link": "https://thehackernews.com/2026/06/new-mistic-backdoor-linked-to-kongtuke.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC1-4l_iOC19z96Q7C7O_dZSKwEvMnMLhHyb7kpt2rpOzQmn3gKpz6_BaZmSpzgvyhTJf8BBQmBTx0Nvymxk1vfO5O5bE0nNGbYPHAcb5F8ZF_WjTyQe4AXSK71q6fESS9i5Rdpcfzt6ULab7eo21OZKRCYlqwU7G97mF4-AeVVANlT4YIbigdYxUJkwfy/s1600/clickattack.jpg"
@@ -93,60 +148,5 @@
     "title": "Cisco Catalyst SD-WAN Zero-Day CVE-2026-20245 Exploited to Gain Root Access",
     "link": "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3UeGaI_Ej8KFu7-vQHTOuoohYdx04xIdI3W2B6JjCdaTSR6m-y1PAZ-aes-tH9nxtPGO2sFUiu1NwYkwT5s8bDPaHpG8nyN4t_mbZfVjf0nU8L11XujdqERtFUQlMZ85NV_nG6ZhqIQbGdAtyi8p1Oqq7TsBRs1IDn8HvOOnUPFEaL9_2cXrh9eovvaYz/s1600/cisco-20245.jpg"
-  },
-  {
-    "title": "Google releases new privacy controls for activity history, personalization",
-    "link": "https://www.bleepingcomputer.com/news/google/google-releases-new-privacy-controls-for-activity-history-personalization/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/12/Google_headpic.jpg"
-  },
-  {
-    "title": "DraftKings hacker 'Snoopy' sentenced to 18 months in prison",
-    "link": "https://www.bleepingcomputer.com/news/security/draftkings-hacker-snoopy-sentenced-to-18-months-in-prison/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/24/Draft_Kings.jpg"
-  },
-  {
-    "title": "Mandiant reveals how Cisco SD-WAN zero-day attacks gained root access",
-    "link": "https://www.bleepingcomputer.com/news/security/mandiant-reveals-how-cisco-sd-wan-zero-day-attacks-gained-root-access/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Cisco.jpg"
-  },
-  {
-    "title": "Attackers Hit Cisco SD-WAN Flaw 2 Months Before Disclosure",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/attackers-hit-cisco-sd-wan-flaw-2-months-before-disclosure",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltcec8a650a8536405/6a3c3e984acf5754b02f6f0c/cisco_Mehaniq_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Malicious Edge extension abuses Native Messaging as bridge to malware",
-    "link": "https://www.bleepingcomputer.com/news/security/malicious-edge-extension-abuses-native-messaging-as-bridge-to-malware/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/24/edge.jpg"
-  },
-  {
-    "title": "2026 FIFA World Cup Faces Surge in Cyber Threats",
-    "link": "https://www.darkreading.com/cybersecurity-operations/2026-fifa-world-cup-faces-surge-cyber-threats",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltcef7e908d6274aed/6a3c367f81f828adba621518/flag_soccer_ball_in_net-peterschreiber_media-getty-2278285554.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Do CISOs Need a Code of Ethics?",
-    "link": "https://www.darkreading.com/cybersecurity-operations/ciso-code-of-ethics",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0469f94bd17817ff/6642699959fdc64aa5f9c5fa/dark-reading-confidential-logo-sq.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "When Information Becomes the Attack Surface \u2013 Understanding AI Agent Traps",
-    "link": "https://www.securityweek.com/when-information-becomes-the-attack-surface-understanding-ai-agent-traps/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/AI_Risk-970x250-v2.jpg"
-  },
-  {
-    "title": "CISA Warns Critical Lantronix EDS5000 Flaw Is Being Actively Exploited",
-    "link": "https://thehackernews.com/2026/06/cisa-warns-critical-lantronix-eds5000.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjZtIkR9YS2fMY5MvIzgyEShmJAP1bgHqhBdU115iSY7WZ2EcBAbFKb1OQP6Nq8hoF4HlnRifxW890ztCcnezyAivPNWZjVsyJrhoNe8BVnZgSfcRo1Jbl4XilQM9bcQTU9nOeDgfWXSzh9sBru4RH6mDhwa1IijucDmj-l1gVI8NAiQRzu0IJ8d2AIVh9/s1600/1000085210.jpg"
-  },
-  {
-    "title": "More Malicious OpenClaw Skills Threaten AI Supply Chain",
-    "link": "https://www.darkreading.com/cyber-risk/malicious-openclaw-skills-clawhub-threaten-ai-supply-chain",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltae6f59d8c10d8c7c/6a3bc8af154dd32d453f2e72/openclaw_Koshiro_K_shutterstock.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Amadey and StealC Malware Network Disrupted, 27M Stolen Credentials Recovered",
-    "link": "https://thehackernews.com/2026/06/amadey-and-stealc-malware-network.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBVSibdiZdJ1tNYJFrsHtZ8Vr1EG28rqKLY4E7HvAtuax2i3vgpcaMZjEAcGDRxUVu5aa_BHzCAahpw5l2RP2HNw9t7PF6zknNICdw0iuW5jozt5fzqsSfb3Lw55MIvStq2vh5W0139JychUhhJHvchyphenhyphenm7tT2oTS555CkVZrBYSkhmlMKWaXMLtO4OcSp6/s16000/cybercrime-ms.jpg"
   }
 ]
