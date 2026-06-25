@@ -1,5 +1,25 @@
 [
   {
+    "title": "NIST Opens Updated IoT Security Guidance to Public Review",
+    "link": "https://www.securityweek.com/nist-opens-updated-iot-security-guidance-to-public-review/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/08/NIST_CSF.jpg"
+  },
+  {
+    "title": "Chrome 149 Update Resolves 18 Severe Vulnerabilities",
+    "link": "https://www.securityweek.com/chrome-149-update-resolves-18-severe-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Chrome.jpeg"
+  },
+  {
+    "title": "Cisco SD-WAN Zero-Day Exploited Months Before Patching",
+    "link": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploited-months-before-patching/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/07/Cisco-switches-network.jpeg"
+  },
+  {
+    "title": "Cisco Catalyst SD-WAN Zero-Day CVE-2026-20245 Exploited to Gain Root Access",
+    "link": "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3UeGaI_Ej8KFu7-vQHTOuoohYdx04xIdI3W2B6JjCdaTSR6m-y1PAZ-aes-tH9nxtPGO2sFUiu1NwYkwT5s8bDPaHpG8nyN4t_mbZfVjf0nU8L11XujdqERtFUQlMZ85NV_nG6ZhqIQbGdAtyi8p1Oqq7TsBRs1IDn8HvOOnUPFEaL9_2cXrh9eovvaYz/s1600/cisco-20245.jpg"
+  },
+  {
     "title": "Google releases new privacy controls for activity history, personalization",
     "link": "https://www.bleepingcomputer.com/news/google/google-releases-new-privacy-controls-for-activity-history-personalization/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/03/12/Google_headpic.jpg"
@@ -115,19 +135,9 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/Agentic-AI-Security.jpg"
   },
   {
-    "title": "New \u2018Mistic\u2019 RAT Opens Door to Several Ransomware Families",
-    "link": "https://www.securityweek.com/new-mistic-rat-opens-door-to-several-ransomware-families/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/malware.jpeg"
-  },
-  {
     "title": "Dawn of the Apex Agentic Adversary",
     "link": "https://thehackernews.com/2026/06/dawn-of-apex-agentic-adversary.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuQ2GvCcnjBgMTXoXBXqazE9MU3nbNgeccOlWELBQOL9WcHHH4uXS1BKCrrmv6iWWAn6vu1LZJzpHl1MGetv8EfnylIM48MlBK91Gyiz5zCL6cMFr6sJd5x0qdSvjPkwm-V5ON79TgMNPHdOuGQIqSWwTdQcmBnEjehYuDoKMllm9Xray6dVy2uqexoas/s1600/apex.jpg"
-  },
-  {
-    "title": "Exploitable CI/CD Vulnerabilities Expose Millions of Repositories to Hijacking",
-    "link": "https://www.securityweek.com/exploitable-ci-cd-vulnerabilities-expose-millions-of-repositories-to-hijacking/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
   },
   {
     "title": "Stealthy Mistic backdoor linked to ransomware access broker KongTuke",
@@ -135,18 +145,8 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2025/02/12/ransomware-3.jpg"
   },
   {
-    "title": "BeyondTrust, LastPass Impacted by Klue-Salesforce Incident",
-    "link": "https://www.securityweek.com/beyondtrust-lastpass-impacted-by-klue-salesforce-incident/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/05/firewall.jpeg"
-  },
-  {
     "title": "DoJ Seizes Huione Cloud Account Tied to Cyber Scam Money Laundering",
     "link": "https://thehackernews.com/2026/06/doj-seizes-huione-cloud-account-tied-to.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwWpkKj6KRX5Q7jeH07PFaANRRfRbl_CdrBEZ0cypjUg2UBsy49GSGNAOXF74dDez1H9xz_FXTMWh1lziO6f1Q0xrhjZRICtxmzQQJruQoQ8fk33kgTacTn5Y0BrNHmkHfLy3iC4s2oEL7H2CRCaBTcbLBqCbg3jcSFfHTSYiIa_RZV49sE58GCHOWorXJ/s1600/cybercrime.jpg"
-  },
-  {
-    "title": "Cisco Unified CM Flaw Exploited After PoC Reveals File-Write Path to Root",
-    "link": "https://thehackernews.com/2026/06/cisco-unified-cm-flaw-exploited-after.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivauBSNOsDqBHvUFSnF1NdlWJ8BAt2JVgIo_ZUQhBkVppSz0PvkEmrc9RP1hMf2-oFFRgr5PNm7pxLmPngAJHcxV6-F3e43bEqmdEg38013JmlUKDlGVOLQTj6bYbyk_R7WXBqbW3o2yPHdosqz7nncLivqDqXGAuiTFcHkPqiVPBJuDHlsvYWtEreVmk_/s1600/cc.jpg"
   }
 ]
