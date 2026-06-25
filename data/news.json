@@ -1,5 +1,15 @@
 [
   {
+    "title": "Order-tracking app Shop abused to push callback phishing attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/order-tracking-app-shop-abused-to-push-callback-phishing-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/25/shop.jpg"
+  },
+  {
+    "title": "Microsoft quietly extends free Windows 10 ESU support to October 2027",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-quietly-extends-free-windows-10-esu-support-to-october-2027/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2021/02/03/Windows-10-headpic.jpg"
+  },
+  {
     "title": "New macOS malware embeds fake errors to confuse AI analysis tools",
     "link": "https://www.bleepingcomputer.com/news/security/new-macos-malware-embeds-fake-errors-to-confuse-ai-analysis-tools/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/02/11/ai-extract.jpg"
@@ -45,6 +55,11 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/water-treatment-utility.jpeg"
   },
   {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/06/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
     "title": "Daktronics Controller Firmware",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-04",
     "image": ""
@@ -80,13 +95,13 @@
     "image": ""
   },
   {
-    "title": "Horner Automation Cscape",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-03",
+    "title": "EVoke Systems Charging Station Management System",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-02",
     "image": ""
   },
   {
-    "title": "EVoke Systems Charging Station Management System",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-02",
+    "title": "Horner Automation Cscape",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-03",
     "image": ""
   },
   {
@@ -103,11 +118,6 @@
     "title": "GitLab Patches Code Execution, Information Disclosure Vulnerabilities",
     "link": "https://www.securityweek.com/gitlab-patches-code-execution-information-disclosure-vulnerabilities/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/GitLab.jpeg"
-  },
-  {
-    "title": "Europe Evolves Into Ransomware's Favorite Region",
-    "link": "https://www.darkreading.com/cybersecurity-analytics/europe-evolves-ransomware-favorite-region",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt7ef4b56117367b12/6a39ffe932b8b46be16e5a3d/Europe-imaginima-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "25-Year-Old Vulnerability Patched in Curl",
@@ -138,15 +148,5 @@
     "title": "Chrome 149 Update Resolves 18 Severe Vulnerabilities",
     "link": "https://www.securityweek.com/chrome-149-update-resolves-18-severe-vulnerabilities/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Chrome.jpeg"
-  },
-  {
-    "title": "Cisco SD-WAN Zero-Day Exploited Months Before Patching",
-    "link": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploited-months-before-patching/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/07/Cisco-switches-network.jpeg"
-  },
-  {
-    "title": "Cisco Catalyst SD-WAN Zero-Day CVE-2026-20245 Exploited to Gain Root Access",
-    "link": "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3UeGaI_Ej8KFu7-vQHTOuoohYdx04xIdI3W2B6JjCdaTSR6m-y1PAZ-aes-tH9nxtPGO2sFUiu1NwYkwT5s8bDPaHpG8nyN4t_mbZfVjf0nU8L11XujdqERtFUQlMZ85NV_nG6ZhqIQbGdAtyi8p1Oqq7TsBRs1IDn8HvOOnUPFEaL9_2cXrh9eovvaYz/s1600/cisco-20245.jpg"
   }
 ]
