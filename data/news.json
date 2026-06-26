@@ -1,5 +1,55 @@
 [
   {
+    "title": "In Other News: Chinese Mythos-Like AI, Tata Electronics Breach, Snyk Layoffs",
+    "link": "https://www.securityweek.com/in-other-news-chinese-mythos-like-ai-tata-electronics-breach-snyk-layoffs/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "Your First GRC Agent: A Red Teamer's Walkthrough",
+    "link": "https://www.bleepingcomputer.com/news/security/your-first-grc-agent-a-red-teamers-walkthrough/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/06/18/anecdotes-ai-header.jpg"
+  },
+  {
+    "title": "New Linux pedit COW Exploit Enables Root Access by Poisoning Cached Binaries",
+    "link": "https://thehackernews.com/2026/06/new-linux-pedit-cow-exploit-enables.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBWN46D03nuGH8FWFxZD7Ax6T3Wvmf5bt3WrqjghU6ZJU65L6pfoPjt2fVw4-dGXfyEx8fkygfYUftIDlMpPaRcegTEH6eL58nSyiFvbbg5A0GxtFTIhwQUIj16DF-vIqiH2B6jnC7C3DebkJja3v6ayIjOF-eY5DoDL9qef319S3m4ny2lnodtc1WeE59/s1600/linux-cow.jpg"
+  },
+  {
+    "title": "Amazon Q Developer Flaw Could Let Malicious Repos Run Code via MCP Configs",
+    "link": "https://thehackernews.com/2026/06/amazon-q-developer-flaw-could-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig3gygt20RdznayWN2yru6wSgNt8CSdr16F8I-naxtPn837cr6v0uV0bXdhz36P1XYrpnjmzDXTAtH0wa43Me8rqD2hvET-xQP0ndoX-ddXsypZCjSSNJUqmfl69g96R6yMiUqgXE_NGAL8bl2z6lYutrgKiY74tNIafz_xRsNsJQSB9s_9lSHiybX2kQ/s1600/aws.jpg"
+  },
+  {
+    "title": "Meeting Trump's 2030 Quantum Deadline Will be Expensive, Complex",
+    "link": "https://www.darkreading.com/cybersecurity-operations/meeting-2030-quantum-deadline-expensive-complex",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt3f96ce16a435deca/6a3d55be62f12d27e415ed3c/quantum_computer-Peter_Hansen-getty-2214879776.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Thanks for Crushing the Submissions Inbox. We're Trying to Keep Up",
+    "link": "https://www.darkreading.com/cybersecurity-operations/submissions-guidelines-reminder",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb0a7aff0c7827ded/6a3c70cdfc46ad1f4754589e/kitten_hanging_on_rope_oksun70_Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Nebulock Raises $25 Million for AI-Native Contextual Security",
+    "link": "https://www.securityweek.com/nebulock-raises-25-million-for-ai-native-contextual-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/funding-round.jpeg"
+  },
+  {
+    "title": "CISA Adds Exploited PTC Windchill RCE Flaw to KEV as Web Shell Attacks Continue",
+    "link": "https://thehackernews.com/2026/06/cisa-adds-exploited-ptc-windchill-rce.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzGOpsiL9b-uwhocEgzazTFR251KJL6pnZAVCmzty7Nx0uR-vZ9r2-WP95IrRaKJtFoUxmBFbqrkt31Yn2MTmD0bZAaPFTlmDfHxRURuWSsRzeTWHmyZF93QR94AOrSkbLnBYEQtVGJxI5VlRinwq8cLnEVCmGWk6wCnL1zpW_LbbZ-3-yTSdAmZ-0tqO6/s1600/ptc.jpg"
+  },
+  {
+    "title": "New DirtyClone Linux Kernel Flaw Lets Local Users Gain Root via Cloned Packets",
+    "link": "https://thehackernews.com/2026/06/new-dirtyclone-linux-kernel-flaw-lets.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidrcFiZh5KSQ9sYpF7Fafoy8kYny6olyD5WlY_oaAdYt0krMeOL8eNiTItqYmEmJ55wueKdZJlhIKMun7kwQR8AbbFPKTw0Nv-qJbPiaKA1n2J1rUHBV3YuRmdJHQpOTlsKctFMXoO8ogpgHC8rXls3FGamF7p7K1gxc-7dmU2va58Es1c40FV8AZFR-w/s1600/dirtyclone.jpg"
+  },
+  {
+    "title": "Guardian Agents: The Next Layer of Identity Governance",
+    "link": "https://thehackernews.com/2026/06/guardian-agents-next-layer-of-identity.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiySQAlgg9_uk-lgoIhvKGoXnx274-L4HUyTdvRdDTEabD2GvfR6LY81pn8p-Vo1mSdb_ycPyUyilvhlpWRYRlb9nulwVW1MCIkZABPd-KelEYK9NAqh_tefhmTmPeDkU9D7LQqW1Yfk0rAMbK1S9-q2CVCDgDk3uu5AQOT_hcnkYKRsD169PeWiwqTq4g/s1600/guardian-agents.jpg"
+  },
+  {
     "title": "Linux Foundation Unveils New Open Source Security Project Akrites",
     "link": "https://www.securityweek.com/linux-foundation-unveils-new-open-source-security-project-akrites/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/02/open-source.jpeg"
@@ -55,6 +105,11 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Claude_chats.jpg"
   },
   {
+    "title": "Robinhood Cuts Access Approval Time to Support High-Velocity Development",
+    "link": "https://www.darkreading.com/application-security/robinhood-reengineered-access-approvals-for-high-velocity-development",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt702a5bf42e4e4366/64f171e1523617b5bc948dac/office-workshop-Dzianis_Apolka-Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Poland busts SIM-swapping gang tied to millions in crypto theft",
     "link": "https://www.bleepingcomputer.com/news/security/poland-busts-sim-swapping-gang-tied-to-millions-in-crypto-theft/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/11/arrest.jpg"
@@ -93,60 +148,5 @@
     "title": "New macOS malware embeds fake errors to confuse AI analysis tools",
     "link": "https://www.bleepingcomputer.com/news/security/new-macos-malware-embeds-fake-errors-to-confuse-ai-analysis-tools/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/02/11/ai-extract.jpg"
-  },
-  {
-    "title": "PirloTV sports piracy network disrupted as 44 domains seized",
-    "link": "https://www.bleepingcomputer.com/news/security/pirlotv-sports-piracy-network-disrupted-as-44-domains-seized/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/12/12/Pirate.jpg"
-  },
-  {
-    "title": "Bluekit phishing kit adopts browser-in-the-middle for login theft",
-    "link": "https://www.bleepingcomputer.com/news/security/bluekit-phishing-kit-adopts-browser-in-the-middle-for-login-theft/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/03/25/phishing.jpg"
-  },
-  {
-    "title": "Chrome Ad Blocker with 10M+ Installs Found with Dormant Script Injection Capability",
-    "link": "https://thehackernews.com/2026/06/chrome-ad-blocker-with-10m-installs.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqtdBDQ0Y38i0JZmDwU6XKiZ1R6HJ0KHe59012E0krnPubG5pJgiTg6IUg4fHEzoW5jm7QyEk8fXOL9swj7FlpXdMcjyn0ltziMhQJD2pYPtzjXimsntV8DFg-c1erOgWkLl8du8eBvJYlukTCDDycp5jSmWNfwmv5WwGKlJRJvZt1GvUZZl24dP2HVDkn/s1600/adblocker.jpg"
-  },
-  {
-    "title": "The Four Elevations of Effective Fraud Prevention",
-    "link": "https://www.bleepingcomputer.com/news/security/the-four-elevations-of-effective-fraud-prevention/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/06/24/fraud-elevation-header.jpg"
-  },
-  {
-    "title": "Runlayer Raises $30 Million in Series A Funding",
-    "link": "https://www.securityweek.com/runlayer-raises-30-million-in-series-a-funding/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-4.jpeg"
-  },
-  {
-    "title": "ThreatsDay Bulletin: Smart TV Proxyware, 24-Year curl Bug, AI Crime Forums + 13 More Stories",
-    "link": "https://thehackernews.com/2026/06/threatsday-bulletin-smart-tv-proxyware.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO1f6pZmhVaPQd2FjrrAG-IbL0vMk7zHVZ6BqjzkzJS8qd7HlAtIJ-7chRUbqR7tZHPNqdZFbm0QL9O03mkW7YsOh0pVwW1_ogikaoxNX8dFd5-ZB4SwB7-tfpWmp9Hr22DJL6tzZgTdeFnCU4VwaZXSY_htGs2_xlaB8n0EOedrfe7wHuI30GXTF6Pofc/s1600/threatsday-june.jpg"
-  },
-  {
-    "title": "Webinar: Why account takeovers remain one of the hardest threats to stop",
-    "link": "https://www.bleepingcomputer.com/news/security/webinar-why-account-takeovers-remain-one-of-the-hardest-threats-to-stop/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/01/login-credentials.jpg"
-  },
-  {
-    "title": "Cal Water Says No OT Systems Breached in Iranian Handala Cyberattack",
-    "link": "https://www.securityweek.com/cal-water-finds-no-evidence-of-ot-activity-after-hackers-claimed-they-could-disrupt-water-supply/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/water-treatment-utility.jpeg"
-  },
-  {
-    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/06/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "Daktronics Controller Firmware",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-04",
-    "image": ""
-  },
-  {
-    "title": "Delta Electronics DTM Soft",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-06",
-    "image": ""
   }
 ]
