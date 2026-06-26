@@ -1,8 +1,23 @@
 [
   {
+    "title": "Linux Foundation Unveils New Open Source Security Project Akrites",
+    "link": "https://www.securityweek.com/linux-foundation-unveils-new-open-source-security-project-akrites/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/open-source.jpeg"
+  },
+  {
+    "title": "Miasma Malware Targets npm Packages and GitHub Actions in Supply Chain Attack",
+    "link": "https://thehackernews.com/2026/06/miasma-malware-targets-npm-packages-and.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhatZ2Vkvxd086INLXiuhbRJrli5Ao9hoNajbVq-Xr0HVAS70cCzhRBfM78KEusnBPI1sXyAK5tYrKt55U5mTIXCQDAmBzY2e860qtXo4YAlvAnVWHDV3DddKUML1q1g71h97Ke1i-714gv5SaVW9lmaFNtRda5XP1kc20urtc-HzlX5JXwkQv0g_-1VwC3/s1600/Miasma.jpg"
+  },
+  {
     "title": "$3 Million Reportedly Stolen in Polymarket Hack",
     "link": "https://www.securityweek.com/3-million-reportedly-stolen-in-polymarket-hack/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Polymarket.webp"
+  },
+  {
+    "title": "Microsoft Warns of Photo ZIP Phishing Campaign Targeting Hotels with Node.js Implant",
+    "link": "https://thehackernews.com/2026/06/microsoft-warns-of-photo-zip-phishing.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWYWOSDRBtv65eOzqdHSuOxXN7BWyBo1EAltLLUTTKGt68GYJ67zn9ixdKIQjTPCgE3P1o09UzrwXzvbopRZIhjN0LxYAZR06WaXOd116NQutGo1zLaceeob3nkuIHCeP6ZhlVp1yVOfc7dt-YZKFhEJJiPF8H5P03bc1ny0E3mi7jbIhqh7wqodC_zKE/s1600/hotel-photo-zip.jpg"
   },
   {
     "title": "Russian APT Deploys \u2018StockStay\u2019 Backdoor Against Ukrainian Targets",
@@ -45,9 +60,29 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/11/arrest.jpg"
   },
   {
+    "title": "In Less Than 24 Hours, Attackers Weaponize Cisco CUCM Flaw",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/less-than-24-hours-attackers-weaponize-cisco-cucm-flaw",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltfdd5607b561f0591/6a3d9511d5c6b885ac175e9e/cisco_Sergiy_Palamarchuk_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Russian APT 'Gamaredon' Upgrades Its Arsenal, Requiring New Defenses",
+    "link": "https://www.darkreading.com/threat-intelligence/russia-apt-gamaredon-arsenal-defense",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd750a2c59eb07ea7/6a3d78c6918bcf634cc30013/Russia_Ukraine-Gwengoat-Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "EdTech Attackers Shift From Schools to Their Software Suppliers",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/edtech-attackers-shift-schools-software-suppliers",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltaf3f5c478af04e8e/64f15f8a4aa0fc4337f57a56/school_data_.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Order-tracking app Shop abused to push callback phishing attacks",
     "link": "https://www.bleepingcomputer.com/news/security/order-tracking-app-shop-abused-to-push-callback-phishing-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/25/shop.jpg"
+  },
+  {
+    "title": "Local Police Collusion Hampers Crackdown on Asian Scam Centers",
+    "link": "https://www.darkreading.com/threat-intelligence/police-collusion-crackdown-asian-scam-centers",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt721fdc64be81c12c/6a3c4c65fdbe062a481b8a46/scam-compound-T01c-SEZ-Amnesty_International.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "Microsoft quietly extends free Windows 10 ESU support to October 2027",
@@ -112,41 +147,6 @@
   {
     "title": "Delta Electronics DTM Soft",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-06",
-    "image": ""
-  },
-  {
-    "title": "OHIF Viewers DICOM",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-176-02",
-    "image": ""
-  },
-  {
-    "title": "H.VIEW HV-500S6 IP Camera",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-05",
-    "image": ""
-  },
-  {
-    "title": "pydicom pynetdicom Library",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-176-01",
-    "image": ""
-  },
-  {
-    "title": "Schneider Electric PowerLogic P7",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-07",
-    "image": ""
-  },
-  {
-    "title": "Yokogawa FAST/TOOLS and CI Server",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-01",
-    "image": ""
-  },
-  {
-    "title": "EVoke Systems Charging Station Management System",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-02",
-    "image": ""
-  },
-  {
-    "title": "Horner Automation Cscape",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-03",
     "image": ""
   }
 ]
