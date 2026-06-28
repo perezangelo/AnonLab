@@ -250,16 +250,25 @@ function waitForSidebar() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-loadPartial("header", "partials/header.html");
-loadPartial("ticker", "partials/ticker.html").then(() => {
-    if (typeof loadTickerNews === "function") loadTickerNews();
-});
-loadPartial("sidebar", "partials/sidebar.html");
-loadPartial("footer", "partials/footer.html");
+    // Caricamento partials
+    loadPartial("header", "partials/header.html");
+    loadPartial("ticker", "partials/ticker.html").then(() => {
+        if (typeof loadTickerNews === "function") loadTickerNews();
+    });
 
+    loadPartial("sidebar", "partials/sidebar.html");   // ⭐ OBBLIGATORIO
+    loadPartial("footer", "partials/footer.html");
+
+    // Attende che la sidebar sia caricata
     waitForSidebar().then(() => {
 
-        loadMeteo(); // fallback
+        // Meteo (fallback)
+        loadMeteo();
+
+        // ⭐ INIZIALIZZA IL CONTATORE SOLO QUANDO LA SIDEBAR ESISTE
+        if (typeof initVisitCounter === "function") {
+            initVisitCounter();
+        }
 
     });
 
