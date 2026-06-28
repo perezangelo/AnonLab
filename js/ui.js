@@ -16,15 +16,15 @@ async function loadPartial(id, file) {
         const html = await res.text();
         el.innerHTML = html;
 
-        if (id === "sidebar") {
-            requestAnimationFrame(() => {
-                loadMeteo();
-                initOroscopo();
-                if (typeof initVisitCounter === "function") {
-                    initVisitCounter();
-                }
-            });
+       if (id === "sidebar") {
+    requestAnimationFrame(() => {
+        loadMeteo();
+        initOroscopo();
+        if (typeof initVisitCounter === "function") {
+            initVisitCounter();   // ⭐ QUI PARTE NEL MOMENTO GIUSTO
         }
+    });
+}
 
         return Promise.resolve();   // ⭐ FIX 2
 
