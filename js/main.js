@@ -135,39 +135,26 @@ function initVisitCounter() {
     // -----------------------------
     function loadRealCounter() {
 
-        const pageName = window.location.pathname.replace("/", "") || "home";
-
-        // 🔥 VERSIONE CORRETTA: usa visits.json (file reale)
         fetch("/counter/visits.json?cache=" + Date.now())
             .then(r => r.json())
             .then(data => {
 
-                // Totale visite oggi
-                animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
+                // VISITE TOTALI (campo reale)
+                animateValue(counterEl, parseInt(counterEl.textContent), data.total);
 
-                // Pagine totali
-                const totalPages = Object.values(data.pages).reduce((a, b) => a + b.total, 0);
-                animateValue(pageEl, parseInt(pageEl.textContent), totalPages);
+                // VISITE OGGI (campo reale)
+                animateValue(pageEl, parseInt(pageEl.textContent), data.today.visits);
 
-                // Questa pagina
-                if (currentPageEl) {
-                    currentPageEl.textContent = data.pages[pageName]?.total ?? 0;
-                }
+                // QUESTA PAGINA (non esiste nel JSON → mettiamo 0)
+                if (currentPageEl) currentPageEl.textContent = 0;
 
-                // Lista pagine viste
-                if (listContainerEl) {
-                    listContainerEl.innerHTML = "";
-                    for (const p in data.pages) {
-                        const li = document.createElement("li");
-                        li.textContent = `${p}: ${data.pages[p].total}`;
-                        listContainerEl.appendChild(li);
-                    }
-                }
+                // LISTA PAGINE (non esiste nel JSON → svuotiamo)
+                if (listContainerEl) listContainerEl.innerHTML = "";
 
-                // Utenti online
+                // UTENTI ONLINE
                 if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
 
-                // Dispositivi
+                // DISPOSITIVI
                 if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
                 if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
                 if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
@@ -221,7 +208,7 @@ function initVisitCounter() {
     loadRealCounter();
     setInterval(loadRealCounter, 5000);
 
-    console.log("Contatore visite REAL-TIME attivo");
+    console.log("Contatore visite REAL-TIME attivo (compatibile con visits.json)");
 }
 
 // ===============================
