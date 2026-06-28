@@ -134,14 +134,13 @@ function initVisitCounter() {
     // FETCH REAL-TIME DA ALTERVISTA
     // -----------------------------
     function loadRealCounter() {
+
         const pageName = window.location.pathname.replace("/", "") || "home";
-        
-        // Legge i dati reali (JSON)
-        fetch("https://angelonline.altervista.org/counter/visits.php?cache=" + Date.now())
+
+        // 🔥 VERSIONE CORRETTA: usa visits.json (file reale)
+        fetch("/counter/visits.json?cache=" + Date.now())
             .then(r => r.json())
             .then(data => {
-
-
 
                 // Totale visite oggi
                 animateValue(counterEl, parseInt(counterEl.textContent), data.today.visits);
