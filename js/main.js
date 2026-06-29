@@ -89,7 +89,7 @@ function initYouTubePlayer() {
 }
 
 // ===============================
-// CONTATORE VISITE REALE (PRO)
+// CONTATORE VISITE (DISATTIVATO)
 // ===============================
 
 function initVisitCounter() {
@@ -131,36 +131,25 @@ function initVisitCounter() {
     }
 
     // -----------------------------
-    // FETCH REAL-TIME DA ALTERVISTA
+    // ⚠️ FETCH REAL-TIME DISATTIVATO
     // -----------------------------
+    /*
     function loadRealCounter() {
-
-        fetch("/counter/visits.json?cache=" + Date.now())
+        fetch("https://angelonline.altervista.org/counter/visits.json?cache=" + Date.now())
             .then(r => r.json())
             .then(data => {
-
-                // VISITE TOTALI (campo reale)
                 animateValue(counterEl, parseInt(counterEl.textContent), data.total);
-
-                // VISITE OGGI (campo reale)
                 animateValue(pageEl, parseInt(pageEl.textContent), data.today.visits);
-
-                // QUESTA PAGINA (non esiste nel JSON → mettiamo 0)
                 if (currentPageEl) currentPageEl.textContent = 0;
-
-                // LISTA PAGINE (non esiste nel JSON → svuotiamo)
                 if (listContainerEl) listContainerEl.innerHTML = "";
-
-                // UTENTI ONLINE
                 if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
-
-                // DISPOSITIVI
                 if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
                 if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
                 if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
             })
             .catch(err => console.error("Errore counter:", err));
     }
+    */
 
     // -----------------------------
     // SALUTO DINAMICO
@@ -205,10 +194,10 @@ function initVisitCounter() {
     updateTime();
     setInterval(updateTime, 1000);
 
-    loadRealCounter();
-    setInterval(loadRealCounter, 5000);
+    // ❌ RIMOSSO: loadRealCounter();
+    // ❌ RIMOSSO: setInterval(loadRealCounter, 5000);
 
-    console.log("Contatore visite REAL-TIME attivo (compatibile con visits.json)");
+    console.log("Contatore REAL-TIME disattivato — ora gestito da visit_counter.js");
 }
 
 // ===============================
