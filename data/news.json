@@ -1,5 +1,35 @@
 [
   {
+    "title": "Nissan discloses employee data breach linked to Oracle zero-day attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/12/06/Nissan-1.jpg"
+  },
+  {
+    "title": "NAIC says public data stolen in ShinyHunters' PeopleSoft breach",
+    "link": "https://www.bleepingcomputer.com/news/security/naic-says-public-data-stolen-in-shinyhunters-peoplesoft-breach/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/29/DataLeak.jpg"
+  },
+  {
+    "title": "Can Clothes Make You Invisible to Facial Recognition?",
+    "link": "https://www.darkreading.com/cyber-risk/clothes-invisible-facial-recognition",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8704fb69f68c1e69/6a415c91573ebe1989d149e5/noRecognition-Bill_Swearingen.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Iran, Russia, China Target Water Systems for Sabotage",
+    "link": "https://www.darkreading.com/ics-ot-security/iran-russia-china-target-water-systems-sabotage",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt24bbf93173729620/6a42bce1588d51aaf968fa84/wastewater_plant_engineers-BugTiger-Getty-2160087422.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Malicious Perplexity Chrome Extension Intercepted Searches and Address Bar Input",
+    "link": "https://thehackernews.com/2026/06/malicious-perplexity-chrome-extension.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOcObOpyIQZzuiNoFu6Lv4jCDh64o1WYrC3stGdk58mMRg69RT56svVrXVwu618f6szk2lj_Tqbt6b7Rg25yV0cauxIDTbMAI8cbftKVYibIt5SMeaOT2zE3oeuu-RLI7M1mkEV3zirqDiO-nLMikX7QixM2EpVIdKQERGc7I_0p58L4J-s5mBjSCpgHc/s1600/pp-ai.jpg"
+  },
+  {
+    "title": "WhatsApp rolls out usernames to help users hide their phone number",
+    "link": "https://www.bleepingcomputer.com/news/security/whatsapp-rolls-out-usernames-to-help-users-hide-their-phone-number/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/09/23/WhatsApp.jpg"
+  },
+  {
     "title": "Microsoft extends Windows Server 2022 hotpatching until October 2027",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-extends-windows-server-2022-hotpatching-until-october-2027/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/15/Windows_Server.jpg"
@@ -65,9 +95,19 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2024/06/27/blacksuit-hacker.jpg"
   },
   {
+    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/06/29/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "image": ""
+  },
+  {
     "title": "236,000 DCloud Uni-App Sites Used in Crypto Scams, Phishing, and Wallet Drainers",
     "link": "https://thehackernews.com/2026/06/236000-dcloud-uni-app-sites-used-in.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhK82zgZh0edVIi1z4Rs0V9v_8tn_Mh_X6_H5TQYnFwEtbrE1dhjw5Z-9U99Lojet5RdcrIgwJK0bZusY4u22qKVFBzpCuHihAzXd4RNuJQGSxEfdNlBH4GFZYedXXohyQdbfNYIxr9LV6KFgUyX3CWVjfsOiIQRq3JEXmGRrR9afqsfMoeR-BH_kZmTCKd/s1600/phish-uni.jpg"
+  },
+  {
+    "title": "Amazon Q VS Extension Flaw Leads to Cloud Credential Theft",
+    "link": "https://www.darkreading.com/cloud-security/amazon-q-vs-extension-flaw-leads-cloud-credential-theft",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt739efb26c97e2c21/6a4262393ad9ac7b4208de76/AI_agents_(1800)_Kiattisak_Lamchan_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "Why Post-Quantum Cryptography Starts With Credentials",
@@ -108,45 +148,5 @@
     "title": "OpenAI Unveils GPT-5.6 Sol as Its Most Advanced Cybersecurity AI",
     "link": "https://www.securityweek.com/openai-unveils-gpt-5-6-sol-as-its-most-advanced-cybersecurity-ai/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
-  },
-  {
-    "title": "Public PoC Released for Critical libssh2 CVE-2026-55200 Client-Side SSH Flaw",
-    "link": "https://thehackernews.com/2026/06/public-poc-released-for-critical.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD9yQyR_bCP0-I73R6EpwLjJtptGUvzeJD90oYzZvFZXVnM99EIvHFtIJlhZ2f4NSZkAyO7JWjJOy6Zd3lAtPz1Bbk2vmj7Ls8aMIZsFqiIVtIArSjypgJRIHJzlDN5BykKcZziAicpJiNE02Wg3Aheu5BIF1SvY3Pn09WYcdLtvWAT5giGf9mC_uY9GkG/s1600/ssh.jpg"
-  },
-  {
-    "title": "Hijacked npm and Go Packages Use VS Code Tasks to Deploy Python Infostealer",
-    "link": "https://thehackernews.com/2026/06/hijacked-npm-and-go-packages-use-vs.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBjmO4haWCgXfALMAtSHKJXRWIlLfYqulkKflfK-3BSYON-8A4MjUNoZRxOyaLGc-4Bsj1eIfGDhdpJuKZrJORz4HZHx5iM7lj0-VlehqqZ6kaq5_ZWP08MviAchtNF1XORD_Fps-IWderGKNM18TT-Jgh_0LRFULqdMeOfv_FKDd8oWmHmv-iR1-_7XZP/s1600/gogo.jpg"
-  },
-  {
-    "title": "Data breach exposes up to 14.2 million email logins at six ISPs",
-    "link": "https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/26/KDDI.jpg"
-  },
-  {
-    "title": "Ukraine Says Russian Intelligence Used Fake Support Texts to Steal Messaging Credentials",
-    "link": "https://thehackernews.com/2026/06/ukraine-says-russian-intelligence-used.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgL9wu_kGShq1lDTiDFjL3VdxF51l9aXdtW8vfE6Z0f3nLKXnr3WctY8jw3INV7FcO0FmLzv_EVCkfmsC4AmEaPih-SD_c24f8R_MJjjNT8OBdd6SuwVECGV3VdxnMDBs7ULHaVBFPPGkZZcruUhMcbmYE-RQu-QTZfn7rEWltSSSdFLhJeZKIZy4jZzl7L/s1600/cyberattack.jpg"
-  },
-  {
-    "title": "Clean GitHub repo tricks AI coding agents into running malware",
-    "link": "https://www.bleepingcomputer.com/news/security/clean-github-repo-tricks-ai-coding-agents-into-running-malware/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/23/ai-1.jpg"
-  },
-  {
-    "title": "Chinese Framework Powers 200,000 Scam Sites",
-    "link": "https://www.securityweek.com/chinese-framework-powers-200000-scam-sites/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/08/trader-trading-stock-hack-e1782467979372.jpg"
-  },
-  {
-    "title": "Third-Party Breaches Teach Education Sector a Costly Lesson in Vendor Risk",
-    "link": "https://www.darkreading.com/cyber-risk/third-party-breaches-teaches-education-lesson-vendor-risk",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2feed32bad3a1e85/6781341c966e6945d6fe1118/Education_(1800)_Aleksei_Gorodenkov_Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "FBI: Russian hackers now target Signal backup recovery keys",
-    "link": "https://www.bleepingcomputer.com/news/security/fbi-russian-hackers-now-target-signal-backup-recovery-keys/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/14/signal-header-white.jpg"
   }
 ]
