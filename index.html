@@ -88,20 +88,25 @@
   <div id="ticker"></div>
 
   <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
-  <script>
-      fetch("/partials/sidebar.html")
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById("sidebar").innerHTML = data;
+ <script>
+    fetch("/partials/sidebar.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("sidebar").innerHTML = data;
 
-          initCalculator();
-          initRadio();
-          initYouTubePlayer();
-          initOroscopo();  // ← RIGA FONDAMENTALE
+        initCalculator();
+        initRadio();
+        initYouTubePlayer();
+        initOroscopo();
 
-          console.log("Sidebar caricata — Widget inizializzati");
-      });
-  </script>
+        // ⭐ AVVIO DEL CONTATORE VISITE
+        if (typeof initVisitCounter === "function") {
+            initVisitCounter();
+        }
+
+        console.log("Sidebar caricata — Widget inizializzati");
+    });
+</script>
 
   <!-- ⭐ TICKER JS (UNO SOLO, percorso corretto) -->
   <script src="/js/ticker.js"></script>
