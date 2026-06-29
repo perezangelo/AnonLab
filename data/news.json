@@ -1,8 +1,18 @@
 [
   {
+    "title": "Data breach exposes up to 14.2 million email logins at six ISPs",
+    "link": "https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/26/KDDI.jpg"
+  },
+  {
     "title": "Ukraine Says Russian Intelligence Used Fake Support Texts to Steal Messaging Credentials",
     "link": "https://thehackernews.com/2026/06/ukraine-says-russian-intelligence-used.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgL9wu_kGShq1lDTiDFjL3VdxF51l9aXdtW8vfE6Z0f3nLKXnr3WctY8jw3INV7FcO0FmLzv_EVCkfmsC4AmEaPih-SD_c24f8R_MJjjNT8OBdd6SuwVECGV3VdxnMDBs7ULHaVBFPPGkZZcruUhMcbmYE-RQu-QTZfn7rEWltSSSdFLhJeZKIZy4jZzl7L/s1600/cyberattack.jpg"
+  },
+  {
+    "title": "Clean GitHub repo tricks AI coding agents into running malware",
+    "link": "https://www.bleepingcomputer.com/news/security/clean-github-repo-tricks-ai-coding-agents-into-running-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/23/ai-1.jpg"
   },
   {
     "title": "OpenAI Previews GPT-5.6 Sol With Restricted Access and Stronger Cyber Safeguards",
@@ -20,6 +30,16 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2feed32bad3a1e85/6781341c966e6945d6fe1118/Education_(1800)_Aleksei_Gorodenkov_Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
+    "title": "FBI: Russian hackers now target Signal backup recovery keys",
+    "link": "https://www.bleepingcomputer.com/news/security/fbi-russian-hackers-now-target-signal-backup-recovery-keys/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/14/signal-header-white.jpg"
+  },
+  {
+    "title": "CISA sets urgent deadline to fix Cisco flaw exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-sets-urgent-deadline-to-fix-cisco-flaw-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/01/13/CISA.jpg"
+  },
+  {
     "title": "FBI Warns Russian Intelligence Hackers Target Signal Backup Recovery Keys",
     "link": "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjt2-y25_EiB31BmVQQpt9ne8mH9iPOJpYJmItVSIKGexUBmKRwzNSvDYzbVyRm9xxR6H0rE880CTv3QTblUdJgkRh2EoXqYGJ9wwOq-cOktE6iIvI0fZdeuxf8gTmdEpStuzq5CywuWYEjb32JqfwIznRc6YtDK_V5dFH1bcx2EoqvQ1Koieo4g7QDKA/s1600/signal-phishing.jpg"
@@ -33,6 +53,16 @@
     "title": "New SharkLoader Malware Deploys Cobalt Strike in StrikeShark Cyberattacks",
     "link": "https://thehackernews.com/2026/06/new-sharkloader-malware-deploys-cobalt.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsnAZNjHSEX7UtabbKNVn68uohH8pK5LKuU2CgckZTJowWHxYmEjx9ROquO9tFsThy-3_759_ko2TQEX4Wm3PI1Y-opfzyeAzW8Tni0-gz2YMtPMln9XQRzcKq1mviZSTW7MNShxVRhbuUXBSuNGTNStlwj_NCfFsyrptpXvkLNt5CUfARwENz0IshNDma/s1600/shark.jpg"
+  },
+  {
+    "title": "Polymarket customers lose $3 million in supply-chain attack",
+    "link": "https://www.bleepingcomputer.com/news/security/polymarket-customers-lose-3-million-in-supply-chain-attack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/29/Polymarket.jpg"
+  },
+  {
+    "title": "Cybersecurity firms targeted by fraudulent OpenAI organization invites",
+    "link": "https://www.bleepingcomputer.com/news/security/cybersecurity-firms-targeted-by-fraudulent-openai-organization-invites/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/04/11/OpenAI_headpic.jpeg"
   },
   {
     "title": "Cisco Adds NHI to Security Stack With Astrix, WideField Acquisitions",
@@ -68,6 +98,11 @@
     "title": "In Other News: Chinese Mythos-Like AI, Tata Electronics Breach, Snyk Layoffs",
     "link": "https://www.securityweek.com/in-other-news-chinese-mythos-like-ai-tata-electronics-breach-snyk-layoffs/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "Your First GRC Agent: A Red Teamer's Walkthrough",
+    "link": "https://www.bleepingcomputer.com/news/security/your-first-grc-agent-a-red-teamers-walkthrough/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/06/18/anecdotes-ai-header.jpg"
   },
   {
     "title": "New Linux pedit COW Exploit Enables Root Access by Poisoning Cached Binaries",
@@ -113,40 +148,5 @@
     "title": "Guardian Agents: The Next Layer of Identity Governance",
     "link": "https://thehackernews.com/2026/06/guardian-agents-next-layer-of-identity.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiySQAlgg9_uk-lgoIhvKGoXnx274-L4HUyTdvRdDTEabD2GvfR6LY81pn8p-Vo1mSdb_ycPyUyilvhlpWRYRlb9nulwVW1MCIkZABPd-KelEYK9NAqh_tefhmTmPeDkU9D7LQqW1Yfk0rAMbK1S9-q2CVCDgDk3uu5AQOT_hcnkYKRsD169PeWiwqTq4g/s1600/guardian-agents.jpg"
-  },
-  {
-    "title": "Linux Foundation Unveils New Open Source Security Project Akrites",
-    "link": "https://www.securityweek.com/linux-foundation-unveils-new-open-source-security-project-akrites/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/open-source.jpeg"
-  },
-  {
-    "title": "$3 Million Reportedly Stolen in Polymarket Hack",
-    "link": "https://www.securityweek.com/3-million-reportedly-stolen-in-polymarket-hack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Polymarket.webp"
-  },
-  {
-    "title": "Russian APT Deploys \u2018StockStay\u2019 Backdoor Against Ukrainian Targets",
-    "link": "https://www.securityweek.com/russian-apt-deploys-stockstay-backdoor-against-ukrainian-targets/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Russian-GRU_Hackers.jpg"
-  },
-  {
-    "title": "First-Ever Exploitation of PTC Windchill Vulnerability Discovered in the Wild",
-    "link": "https://www.securityweek.com/first-ever-exploitation-of-ptc-windchill-vulnerability-discovered-in-the-wild/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PLC-HMI-SCADA-ICS-industrial.jpeg"
-  },
-  {
-    "title": "New Enterprise-Ready MCP Specification Brings New Security Challenges",
-    "link": "https://www.securityweek.com/new-enterprise-ready-mcp-specification-brings-new-security-challenges/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/MCP_Vulnerability.jpg"
-  },
-  {
-    "title": "Robinhood Cuts Access Approval Time to Support High-Velocity Development",
-    "link": "https://www.darkreading.com/application-security/robinhood-reengineered-access-approvals-for-high-velocity-development",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt702a5bf42e4e4366/64f171e1523617b5bc948dac/office-workshop-Dzianis_Apolka-Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "In Less Than 24 Hours, Attackers Weaponize Cisco CUCM Flaw",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/less-than-24-hours-attackers-weaponize-cisco-cucm-flaw",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltfdd5607b561f0591/6a3d9511d5c6b885ac175e9e/cisco_Sergiy_Palamarchuk_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
