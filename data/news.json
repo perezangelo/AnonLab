@@ -1,5 +1,60 @@
 [
   {
+    "title": "\u26a1 Weekly Recap: Linux Kernel Flaws, AI Malware Tricks, Turla Backdoor, Infostealers and More",
+    "link": "https://thehackernews.com/2026/06/weekly-recap-linux-kernel-flaws-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFXmUW2VYnBd5oSyq6V328rZOIdanacqm-k4Wae2x53iAvPb7YvO7rqDcfWTklR_skhgLDVTThASQvf4UATgFVoVy1iHddO0Nxp9zkhuVEROXkqDAEyyWZZWzMZLNy1apXbCj1xttx9kYI_jPbLmV5hmUHJEkS_Efo9GiFAg5snM_JNwWKDDbMW5wuvwyl/s1600/thn-recap-main.jpg"
+  },
+  {
+    "title": "Researchers Demo New Claude Code Attack Using Harmless-Looking Repositories to Hijack Developer Machines",
+    "link": "https://www.securityweek.com/new-attack-abuses-claude-code-and-harmless-looking-repositories-to-hijack-developer-machines/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
+  },
+  {
+    "title": "Straiker Raises $64 Million for AI Security Platform",
+    "link": "https://www.securityweek.com/straiker-raises-64-million-for-ai-security-platform/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-funding.jpeg"
+  },
+  {
+    "title": "Agentic AI Has an Identity Problem and Attackers Know It",
+    "link": "https://www.bleepingcomputer.com/news/security/agentic-ai-has-an-identity-problem-and-attackers-know-it/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/06/28/state-of-confusion-license.jpg"
+  },
+  {
+    "title": "Critical SimpleHelp flaw exploited to deploy new stealer malware",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-simplehelp-flaw-deploy-new-djinn-infostealer-taskweaver-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
+  },
+  {
+    "title": "Hackers now exploit critical Oracle E-Business flaw in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/new-oracle-e-business-suite-flaw-now-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/24/Oracle_logo.jpg"
+  },
+  {
+    "title": "Insurance Regulators Group NAIC Hit in Oracle PeopleSoft Hack",
+    "link": "https://www.securityweek.com/insurance-regulators-group-naic-hit-in-oracle-peoplesoft-hack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
+  },
+  {
+    "title": "Webinar: Why business email compromise attacks keep succeeding",
+    "link": "https://www.bleepingcomputer.com/news/security/webinar-why-business-email-compromise-attacks-keep-succeeding/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/06/27/blacksuit-hacker.jpg"
+  },
+  {
+    "title": "236,000 DCloud Uni-App Sites Used in Crypto Scams, Phishing, and Wallet Drainers",
+    "link": "https://thehackernews.com/2026/06/236000-dcloud-uni-app-sites-used-in.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhK82zgZh0edVIi1z4Rs0V9v_8tn_Mh_X6_H5TQYnFwEtbrE1dhjw5Z-9U99Lojet5RdcrIgwJK0bZusY4u22qKVFBzpCuHihAzXd4RNuJQGSxEfdNlBH4GFZYedXXohyQdbfNYIxr9LV6KFgUyX3CWVjfsOiIQRq3JEXmGRrR9afqsfMoeR-BH_kZmTCKd/s1600/phish-uni.jpg"
+  },
+  {
+    "title": "Why Post-Quantum Cryptography Starts With Credentials",
+    "link": "https://thehackernews.com/2026/06/why-post-quantum-cryptography-starts.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgufw7UrtG2RgRTMvdhUaNVywdIBuSIRFLngtWMIY_3fzq7gzTZnlL7KMi_kzPhfpdny4vP5Rd9QVLpkX9xR5Vpk0cVvDV8Xsy4wljRyA5TjKvojsoBsYJt7yhhk1VK46OegGewBgqi-c41Z5mX5Ivos1PMrgrrmgLZKUJ8hqb4xl8o85sB7jQJLvI3gj0/s1600/keeper.jpg"
+  },
+  {
+    "title": "Gamaredon Expands Ukraine Attacks with New Malware and Cloud Service Abuse",
+    "link": "https://thehackernews.com/2026/06/gamaredon-expands-ukraine-attacks-with.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijvTMs5lEwRQ2ndqc7YNsz1eNQK0XuR_q4uSjl8tLZ8Nh8vA4WRKZsQhyphenhyphenUx1O0gR-QJtdvAj8LDEUaGscAEXAlA9_e9c0LNtEeV-6NJzdqEdGt0gb7mDEUBNmlMNI2L05YQ8lPXA6kNBFL4s7BsjiJSPD72fyhQq2fmYJwZBPQhyHI4PN_zvSrnxtRbRtI/s1600/uk.jpg"
+  },
+  {
     "title": "US seizes hundreds of FIFA World Cup illegal streaming domains",
     "link": "https://www.bleepingcomputer.com/news/security/us-seizes-hundreds-of-fifa-world-cup-illegal-streaming-domains/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/29/FIFA-World_Cup_2026.jpg"
@@ -90,63 +145,8 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9cecfe428e15238b/6a3ea2dc74904e0996378e9c/collection-of-interlocking-gears-Asmaulna-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
-    "title": "New SharkLoader Malware Deploys Cobalt Strike in StrikeShark Cyberattacks",
-    "link": "https://thehackernews.com/2026/06/new-sharkloader-malware-deploys-cobalt.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsnAZNjHSEX7UtabbKNVn68uohH8pK5LKuU2CgckZTJowWHxYmEjx9ROquO9tFsThy-3_759_ko2TQEX4Wm3PI1Y-opfzyeAzW8Tni0-gz2YMtPMln9XQRzcKq1mviZSTW7MNShxVRhbuUXBSuNGTNStlwj_NCfFsyrptpXvkLNt5CUfARwENz0IshNDma/s1600/shark.jpg"
-  },
-  {
     "title": "Polymarket customers lose $3 million in supply-chain attack",
     "link": "https://www.bleepingcomputer.com/news/security/polymarket-customers-lose-3-million-in-supply-chain-attack/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/29/Polymarket.jpg"
-  },
-  {
-    "title": "Cybersecurity firms targeted by fraudulent OpenAI organization invites",
-    "link": "https://www.bleepingcomputer.com/news/security/cybersecurity-firms-targeted-by-fraudulent-openai-organization-invites/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/04/11/OpenAI_headpic.jpeg"
-  },
-  {
-    "title": "Cisco Adds NHI to Security Stack With Astrix, WideField Acquisitions",
-    "link": "https://www.darkreading.com/identity-access-management-security/cisco-adds-nhi-security-stack-with-astrix-widefield",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf5ae2981cb5cbc98/67a6074e7dd6537daef9a0fa/robot-army-laurent-davoust-alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "New Initiative Tackles Security for End-of-Life Open Source Software",
-    "link": "https://www.darkreading.com/application-security/initiative-tackles-security-end-of-life-open-source",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb28e347d4c1f6e89/678529a3a527d254da4ed749/open_source_(1800)_Wavebreakmedia_Ltd_FUS1407_Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Chinese-Speaking APT Deploys New TinyRCT Backdoor in Southeast Asia Campaign",
-    "link": "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHsYcZgd4WIkN0k-b4_j7JxBgi0R0dzj0jSwSWVgItyIy88VoZK5z8BAiwjmYnou7YLrNuckCgQvnHXV2KYHoNS8WRZbjU1MP5HqvLKkIakvRVuJio7oZeUbi1XsgQVmJ-cDKKWeOzgGouUAzUtJrFRu8CtPQJG-eXCy7aSOx_fyCvGK2tRl12tBbPG7YC/s1600/tinyrct.jpg"
-  },
-  {
-    "title": "AI Won't Wipe-Out Entry-Level Cybersecurity Jobs",
-    "link": "https://www.darkreading.com/cybersecurity-operations/ai-wont-wipe-out-entry-level-cybersecurity-jobs",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta84710e2a296fb51/6a3d8492c8bfcb045af470b0/Graduates_Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Amazon Q Flaw Enabled Cloud Credential Theft via Malicious Repositories",
-    "link": "https://www.securityweek.com/amazon-q-flaw-enabled-cloud-credential-theft-via-malicious-repositories/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/coding-vulnerability-software-development.jpeg"
-  },
-  {
-    "title": "More Klue Breach Victims Identified as Hackers Get Hacked",
-    "link": "https://www.securityweek.com/more-klue-breach-victims-identified-as-hackers-get-hacked/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/supply-chain-threat.webp"
-  },
-  {
-    "title": "In Other News: Chinese Mythos-Like AI, Tata Electronics Breach, Snyk Layoffs",
-    "link": "https://www.securityweek.com/in-other-news-chinese-mythos-like-ai-tata-electronics-breach-snyk-layoffs/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
-    "title": "Your First GRC Agent: A Red Teamer's Walkthrough",
-    "link": "https://www.bleepingcomputer.com/news/security/your-first-grc-agent-a-red-teamers-walkthrough/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/06/18/anecdotes-ai-header.jpg"
-  },
-  {
-    "title": "New Linux pedit COW Exploit Enables Root Access by Poisoning Cached Binaries",
-    "link": "https://thehackernews.com/2026/06/new-linux-pedit-cow-exploit-enables.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBWN46D03nuGH8FWFxZD7Ax6T3Wvmf5bt3WrqjghU6ZJU65L6pfoPjt2fVw4-dGXfyEx8fkygfYUftIDlMpPaRcegTEH6eL58nSyiFvbbg5A0GxtFTIhwQUIj16DF-vIqiH2B6jnC7C3DebkJja3v6ayIjOF-eY5DoDL9qef319S3m4ny2lnodtc1WeE59/s1600/linux-cow.jpg"
   }
 ]
