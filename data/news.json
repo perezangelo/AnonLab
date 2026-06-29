@@ -1,5 +1,40 @@
 [
   {
+    "title": "US seizes hundreds of FIFA World Cup illegal streaming domains",
+    "link": "https://www.bleepingcomputer.com/news/security/us-seizes-hundreds-of-fifa-world-cup-illegal-streaming-domains/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/29/FIFA-World_Cup_2026.jpg"
+  },
+  {
+    "title": "\u2018DirtyClone\u2019 Linux Kernel Vulnerability Leads to Root Access",
+    "link": "https://www.securityweek.com/dirtyclone-linux-kernel-vulnerability-leads-to-root-access/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Linux-vulnerability-malware.jpeg"
+  },
+  {
+    "title": "OpenAI and Anthropic Limit New AI Models to Trump-Approved Customers During Cybersecurity Review",
+    "link": "https://www.securityweek.com/openai-and-anthropic-limit-new-ai-models-to-trump-approved-customers-during-cybersecurity-review/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/ChatGPT-Claude-OpenAI-Anthropic.jpeg"
+  },
+  {
+    "title": "US Offers $10 Million Bounty for Russian State Hackers as Messaging App Attacks Evolve",
+    "link": "https://www.securityweek.com/us-offers-10-million-bounty-for-russian-state-hackers-as-messaging-app-attacks-evolve/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/reward.jpeg"
+  },
+  {
+    "title": "Microsoft Removes 119 Edge Extensions That Hid Malware in Images and Fonts",
+    "link": "https://thehackernews.com/2026/06/microsoft-removes-119-edge-extensions.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmbNHaJMqOcEeoUkaQeIZC_ilbUt8RpG-kyweNVY_fJ_3BQk19-pmJQXV_soXqZiHleBISNTwcYSqew2nzpc3eBEDULz52KaY1RNrJTb7u87f2oEtpJuTtmi4OL6Lc_HXP9WQcMDRco_w4U5mklzQ1QJj8ndNiBYVQRRUsevzc1P6hZe2N26_lyAhkQbsP/s1600/edge.jpg"
+  },
+  {
+    "title": "OpenAI Unveils GPT-5.6 Sol as Its Most Advanced Cybersecurity AI",
+    "link": "https://www.securityweek.com/openai-unveils-gpt-5-6-sol-as-its-most-advanced-cybersecurity-ai/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
+  },
+  {
+    "title": "Public PoC Released for Critical libssh2 CVE-2026-55200 Client-Side SSH Flaw",
+    "link": "https://thehackernews.com/2026/06/public-poc-released-for-critical.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD9yQyR_bCP0-I73R6EpwLjJtptGUvzeJD90oYzZvFZXVnM99EIvHFtIJlhZ2f4NSZkAyO7JWjJOy6Zd3lAtPz1Bbk2vmj7Ls8aMIZsFqiIVtIArSjypgJRIHJzlDN5BykKcZziAicpJiNE02Wg3Aheu5BIF1SvY3Pn09WYcdLtvWAT5giGf9mC_uY9GkG/s1600/ssh.jpg"
+  },
+  {
     "title": "Hijacked npm and Go Packages Use VS Code Tasks to Deploy Python Infostealer",
     "link": "https://thehackernews.com/2026/06/hijacked-npm-and-go-packages-use-vs.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBjmO4haWCgXfALMAtSHKJXRWIlLfYqulkKflfK-3BSYON-8A4MjUNoZRxOyaLGc-4Bsj1eIfGDhdpJuKZrJORz4HZHx5iM7lj0-VlehqqZ6kaq5_ZWP08MviAchtNF1XORD_Fps-IWderGKNM18TT-Jgh_0LRFULqdMeOfv_FKDd8oWmHmv-iR1-_7XZP/s1600/gogo.jpg"
@@ -113,40 +148,5 @@
     "title": "New Linux pedit COW Exploit Enables Root Access by Poisoning Cached Binaries",
     "link": "https://thehackernews.com/2026/06/new-linux-pedit-cow-exploit-enables.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBWN46D03nuGH8FWFxZD7Ax6T3Wvmf5bt3WrqjghU6ZJU65L6pfoPjt2fVw4-dGXfyEx8fkygfYUftIDlMpPaRcegTEH6eL58nSyiFvbbg5A0GxtFTIhwQUIj16DF-vIqiH2B6jnC7C3DebkJja3v6ayIjOF-eY5DoDL9qef319S3m4ny2lnodtc1WeE59/s1600/linux-cow.jpg"
-  },
-  {
-    "title": "Amazon Q Developer Flaw Could Let Malicious Repos Run Code via MCP Configs",
-    "link": "https://thehackernews.com/2026/06/amazon-q-developer-flaw-could-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig3gygt20RdznayWN2yru6wSgNt8CSdr16F8I-naxtPn837cr6v0uV0bXdhz36P1XYrpnjmzDXTAtH0wa43Me8rqD2hvET-xQP0ndoX-ddXsypZCjSSNJUqmfl69g96R6yMiUqgXE_NGAL8bl2z6lYutrgKiY74tNIafz_xRsNsJQSB9s_9lSHiybX2kQ/s1600/aws.jpg"
-  },
-  {
-    "title": "Meeting Trump's 2030 Quantum Deadline Will be Expensive, Complex",
-    "link": "https://www.darkreading.com/cybersecurity-operations/meeting-2030-quantum-deadline-expensive-complex",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt3f96ce16a435deca/6a3d55be62f12d27e415ed3c/quantum_computer-Peter_Hansen-getty-2214879776.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Thanks for Crushing the Submissions Inbox. We're Trying to Keep Up",
-    "link": "https://www.darkreading.com/cybersecurity-operations/submissions-guidelines-reminder",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb0a7aff0c7827ded/6a3c70cdfc46ad1f4754589e/kitten_hanging_on_rope_oksun70_Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Nebulock Raises $25 Million for AI-Native Contextual Security",
-    "link": "https://www.securityweek.com/nebulock-raises-25-million-for-ai-native-contextual-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/funding-round.jpeg"
-  },
-  {
-    "title": "CISA Adds Exploited PTC Windchill RCE Flaw to KEV as Web Shell Attacks Continue",
-    "link": "https://thehackernews.com/2026/06/cisa-adds-exploited-ptc-windchill-rce.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzGOpsiL9b-uwhocEgzazTFR251KJL6pnZAVCmzty7Nx0uR-vZ9r2-WP95IrRaKJtFoUxmBFbqrkt31Yn2MTmD0bZAaPFTlmDfHxRURuWSsRzeTWHmyZF93QR94AOrSkbLnBYEQtVGJxI5VlRinwq8cLnEVCmGWk6wCnL1zpW_LbbZ-3-yTSdAmZ-0tqO6/s1600/ptc.jpg"
-  },
-  {
-    "title": "Russian Intelligence Services Continue to Target Commercial Messaging Applications",
-    "link": "https://www.cisa.gov/resources-tools/resources/russian-intelligence-services-continue-target-commercial-messaging-applications",
-    "image": ""
-  },
-  {
-    "title": "New DirtyClone Linux Kernel Flaw Lets Local Users Gain Root via Cloned Packets",
-    "link": "https://thehackernews.com/2026/06/new-dirtyclone-linux-kernel-flaw-lets.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidrcFiZh5KSQ9sYpF7Fafoy8kYny6olyD5WlY_oaAdYt0krMeOL8eNiTItqYmEmJ55wueKdZJlhIKMun7kwQR8AbbFPKTw0Nv-qJbPiaKA1n2J1rUHBV3YuRmdJHQpOTlsKctFMXoO8ogpgHC8rXls3FGamF7p7K1gxc-7dmU2va58Es1c40FV8AZFR-w/s1600/dirtyclone.jpg"
   }
 ]
