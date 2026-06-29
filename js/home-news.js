@@ -1,5 +1,5 @@
 /* ============================
-   HOME NEWS — FEED MULTIPLO CYBER (versione migliore)
+   HOME NEWS — FEED MULTIPLO CYBER (versione stabile)
    - The Hacker News
    - HackRead
    - DarkReading
@@ -9,11 +9,11 @@ async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    // FEED MULTIPLI (via rss2json)
+    // FEED MULTIPLI (via rss2json.io — stabile)
     const feeds = [
-        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.hackread.com/feed/",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
+        "https://api.rss2json.io/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
+        "https://api.rss2json.io/v1/api.json?rss_url=https://www.hackread.com/feed/",
+        "https://api.rss2json.io/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
     ];
 
     // Link esterni personalizzati (in ordine)
@@ -95,12 +95,11 @@ async function loadHomeNews() {
                         : "News";
 
                 // FIX IMMAGINI MANCANTI / NON VALIDE / BLOCCATE
-                // Fallback personalizzato SOLO quando il feed non fornisce alcuna immagine
-const image =
-    (item.thumbnail && item.thumbnail.startsWith("http")) ? item.thumbnail :
-    (item.image && item.image.startsWith("http")) ? item.image :
-    (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http")) ? item.enclosure.link :
-    "/img/cloud-hosting.jpg";
+                const image =
+                    (item.thumbnail && item.thumbnail.startsWith("http")) ? item.thumbnail :
+                    (item.image && item.image.startsWith("http")) ? item.image :
+                    (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http")) ? item.enclosure.link :
+                    "/img/cloud-hosting.jpg";
 
                 const excerpt = item.description
                     ? item.description.replace(/<[^>]+>/g, "").slice(0, 160) + "..."
