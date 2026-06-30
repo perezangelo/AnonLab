@@ -368,10 +368,9 @@ document.addEventListener("click", function (e) {
 
 function initVisitCounter() {
 
-    // 🔥 REGISTRA LA VISITA SU ALTERVISTA
-    fetch("https://angelonline.altervista.org/counter/update.php", {
-        method: "POST"
-    });
+    fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
+    .then(r => r.json())
+    .then(data => updateCounterUI(data));
 
     // 🔥 POI LEGGE IL JSON AGGIORNATO TRAMITE PROXY
     fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
