@@ -1,5 +1,10 @@
 [
   {
+    "title": "Langflow RCE Exploited to Deploy Monero Miner on Exposed AI App Endpoints",
+    "link": "https://thehackernews.com/2026/06/langflow-rce-exploited-to-deploy-monero.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA2GvsvmPnHZF-e1GDbhOVW4DxQZr79HzSMLp7-YKaA9DC-V2fVo6cmBig0bxUxWjK0Kz1mTm2Cmg6CrjaKgNhxC7xE6SsBxRx8DW5ljkMWPuJ0-7WUzxYbSrRWFdix8Nks8tobGkIY5cpNjczspeiKYyXYVSgoVct-7u1SFpWXB0mEi8AB5X-Wcp59Vca/s1600/Langflow.jpg"
+  },
+  {
     "title": "Fake Perplexity extension on Chrome Web Store tracked searches",
     "link": "https://www.bleepingcomputer.com/news/security/fake-perplexity-extension-on-chrome-web-store-tracked-searches/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/03/13/Google_Chrome.jpg"
@@ -43,6 +48,46 @@
     "title": "Aflac Japan Data Breach Impacts 4.38 Million",
     "link": "https://www.securityweek.com/aflac-japan-data-breach-impacts-4-38-million/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Aflac-Japan-.jpeg"
+  },
+  {
+    "title": "Schneider Electric EasyLogic T150 and Saitel DP RTU",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-04",
+    "image": ""
+  },
+  {
+    "title": "OFFIS DCMTK Toolkit",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-181-01",
+    "image": ""
+  },
+  {
+    "title": "Mitsubishi Electric MELSOFT Update Manager SW1DND-UDM-M",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-01",
+    "image": ""
+  },
+  {
+    "title": "Schneider Electric EcoStruxure IT Data Center Expert",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-03",
+    "image": ""
+  },
+  {
+    "title": "StoneFly Storage Concentrator",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-06",
+    "image": ""
+  },
+  {
+    "title": "Frangoteam FUXA SCADA/HMI",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02",
+    "image": ""
+  },
+  {
+    "title": "XZ Utils vulnerability impacting B&R Products",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-05",
+    "image": ""
+  },
+  {
+    "title": "Delta Electronics DVP12SE PLC",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-07",
+    "image": ""
   },
   {
     "title": "Hacker Conversations: Chris Thompson, Former Head of IBM X-Force Red, Co-Founder of RemoteThreat",
@@ -103,50 +148,5 @@
     "title": "Nissan Employee Data Breached in Oracle PeopleSoft Hack",
     "link": "https://www.securityweek.com/nissan-employee-data-breached-in-oracle-peoplesoft-hack/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Nissan-breach-scaled.jpeg"
-  },
-  {
-    "title": "CISA: Windows BlueHammer flaw now exploited by ransomware gangs",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows-headpic.jpg"
-  },
-  {
-    "title": "Critical SimpleHelp Vulnerability Exploited for Malware Delivery",
-    "link": "https://www.securityweek.com/critical-simplehelp-vulnerability-exploited-for-malware-delivery/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/malware.jpeg"
-  },
-  {
-    "title": "New BioShocking Attack Tricks AI Browsers Into Leaking User Credentials",
-    "link": "https://thehackernews.com/2026/06/new-bioshocking-attack-tricks-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitNDarGF3uRKXTWC12cbM97uJW3DxiLuQwmplVLHEqdrUZJdzbkMz6Wc524z5Xu2GGSyNYhMT_m9kGqqGjRmIxDf0fy_ZXCx3f6G7JvvCFkcdga3PTnUR8XqfrPtIH_9_yrb9n7VaJZTqsLK4CznHRTcYZA1B84r2T_Jl5YYjnUbwUAvyGo4K05ckMnyYG/s1600/ai-prompt.jpg"
-  },
-  {
-    "title": "Progress Kemp LoadMaster Flaw Could Let Attackers Run Root Commands Pre-Auth",
-    "link": "https://thehackernews.com/2026/06/progress-kemp-loadmaster-flaw-could-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtFZGtJwnGA8dQHmNpd8Pzgx4p0wSq_e2hyphenhyphen2bZwWBQEDK8QPAi2CEOR_Nbns5jhRw9mMSPv6RBe2IqRO1c9fIMvMlUAV14B3VQE7-csMvfMQK6Qr3THGlxQY3C9HiYW_TYHGzok-TWFmMoMkto0OA8fNsQuvADEaJNFQYdIrXXzHGJEhyqpKRC2IFCaRM6/s1600/loadmaster.jpg"
-  },
-  {
-    "title": "Quantifind Raises $200 Million for AI-Native Risk Intelligence",
-    "link": "https://www.securityweek.com/quantifind-raises-200-million-for-ai-native-risk-intelligence/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
-  },
-  {
-    "title": "Oracle E-Business Suite Flaw CVE-2026-46817 Actively Exploited in the Wild",
-    "link": "https://thehackernews.com/2026/06/oracle-e-business-suite-flaw-cve-2026.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYwCBjb2uPzIs-8BNIxo90ae4xRgxzM1av-ijebBJ32Y2DEvRUvM-jMd6S535UdnbPKrLtFHxm0k9Lo7GJgVjCWCrH-0RNFZukDv7shdA02IkDs1Iqx8C-uH2hOCyfpJ01tmNVGhrvQ-6FGlmdjnCP0nXrq7zl5KVL3XZ84I9QTImD5DM8HYoJbA0A1P3w/s1600/oracle.jpg"
-  },
-  {
-    "title": "NIST Enrichment Reductions Impact CVE Coverage, Accuracy",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/nist-enrichment-reductions-cve-coverage-accuracy",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltce262544df7c2abd/6a42a988c1d2df8b5850a8ea/rm-NIST-Getty-153842014.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "'Djinn' Stealer Targets Cloud, AI Credentials",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/djinn-stealer-targets-cloud-ai-credentials",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb3a3f4df4386574c/6a42db87ff96a7b022fd72f5/djinn_Dimart_Graphics_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Vulnerabilities Expose Private Data in Indian Government Systems",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/vulnerabilities-private-data-indian-government-systems",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6e7f8fc00f3ce97c/6a42c5e6f990b60082e51b44/India_cockroach_mask-Ritesh_Shukla-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
