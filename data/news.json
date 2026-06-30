@@ -1,5 +1,40 @@
 [
   {
+    "title": "Fake Perplexity extension on Chrome Web Store tracked searches",
+    "link": "https://www.bleepingcomputer.com/news/security/fake-perplexity-extension-on-chrome-web-store-tracked-searches/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/13/Google_Chrome.jpg"
+  },
+  {
+    "title": "Silent Swap Crypto Clipper Uses Fake Google Notes Extension to Replace Wallet Addresses",
+    "link": "https://thehackernews.com/2026/06/silent-swap-crypto-clipper-uses-fake.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfz8WYO9wONzogh2V8g9VorZ8Ab_nAUZMD7rOM9xrVUhg3cbKGA5zc73PGQiAkbsNgY-qbm2AFAUjBdeMcpemGmDNWrvnpyjzKiqU8iJHMetkW68d20V_U-96mHOaHF6fff7VKBREN2v6fz1R_ahyIklq-Fd7ILYKxXck5ahL1BoFWC_CDQFrQZqQqg3hm/s1600/chrome-wallet.jpg"
+  },
+  {
+    "title": "GuardFall Exposes Open-Source AI Coding Agents to Decades-Old Shell Injection Risks",
+    "link": "https://thehackernews.com/2026/06/guardfall-exposes-open-source-ai-coding.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR59EidY6iMYv3s9bikjIxpj6_YTaUIesrZ3MyD9OqUbOk262aDW7bCArqr-IjT9CUQUSzE2F_knKKvs4bIJ2d9cuzZ-DKlmkW_Q3SO43HkA79kSVhCELVyKaStWliNZc9l1xxEGEFE5UmT1Abn6XMKTjk-rxBRTTtRAjb-jYDRKj-ODtIYy8dGQvbzDE/s1600/shell-ai.jpg"
+  },
+  {
+    "title": "Lessons from the Underground: How to Combat Business Email Compromise",
+    "link": "https://www.bleepingcomputer.com/news/security/lessons-from-the-underground-how-to-combat-business-email-compromise/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/06/25/email-header-image.jpg"
+  },
+  {
+    "title": "BlueHammer Vulnerability Exploited in Ransomware Attacks",
+    "link": "https://www.securityweek.com/bluehammer-vulnerability-exploited-in-ransomware-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/05/Ransomware-Alert-threat.jpg"
+  },
+  {
+    "title": "282 iOS AI Apps Leak API Keys and Open AI Proxy Access in Network Traffic Study",
+    "link": "https://thehackernews.com/2026/06/282-ios-apps-found-leaking-llm-api-keys.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ9nmTBu_vYBf5fRZV4Jc-qtFGPySofVDYHUd-9-ogdve-M4Qd4j7_CnH9Zmvln6O3nfXSsDqQiMoL3rDYBSXZSrXlkCnSWSQUdAYJX1PkRzmytlVaYAc2AyrFOCpo9doU58gO6Gl5fQ-0SZ5D3yGP2SspNgK0U4f5jViSBnY_PAMUOjr42Nt8OLrhnTsQ/s1600/llm-keys.jpg"
+  },
+  {
+    "title": "AI-Generated Workflows Are a Silent Security Disaster",
+    "link": "https://www.darkreading.com/cyber-risk/ai-generated-workflows-silent-security-disaster",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltca7b936f842a69d1/6a42cdbb63726b86fca0672d/AI_Workflow_da-dunk_Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Decades-Old Bash Tricks Expose AI Coding Agents to Supply Chain Attacks",
     "link": "https://www.securityweek.com/decades-old-bash-tricks-expose-ai-coding-agents-to-supply-chain-attacks/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
@@ -41,7 +76,7 @@
   },
   {
     "title": "Microsoft adds smarter bot protection to Teams meetings",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/mircosoft-adds-smarter-bot-protection-to-teams-meetings/",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-adds-smarter-bot-protection-to-teams-meetings/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/11/13/Microsoft-Teams.jpg"
   },
   {
@@ -95,14 +130,14 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
   },
   {
-    "title": "New Controller Flaws Expose Highway Signs and Billboards to Remote Hacking",
-    "link": "https://www.securityweek.com/new-controller-flaws-expose-highway-signs-and-billboards-to-remote-hacking/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/hacked-billboard.jpeg"
-  },
-  {
     "title": "Oracle E-Business Suite Flaw CVE-2026-46817 Actively Exploited in the Wild",
     "link": "https://thehackernews.com/2026/06/oracle-e-business-suite-flaw-cve-2026.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYwCBjb2uPzIs-8BNIxo90ae4xRgxzM1av-ijebBJ32Y2DEvRUvM-jMd6S535UdnbPKrLtFHxm0k9Lo7GJgVjCWCrH-0RNFZukDv7shdA02IkDs1Iqx8C-uH2hOCyfpJ01tmNVGhrvQ-6FGlmdjnCP0nXrq7zl5KVL3XZ84I9QTImD5DM8HYoJbA0A1P3w/s1600/oracle.jpg"
+  },
+  {
+    "title": "NIST Enrichment Reductions Impact CVE Coverage, Accuracy",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/nist-enrichment-reductions-cve-coverage-accuracy",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltce262544df7c2abd/6a42a988c1d2df8b5850a8ea/rm-NIST-Getty-153842014.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "'Djinn' Stealer Targets Cloud, AI Credentials",
@@ -113,40 +148,5 @@
     "title": "Vulnerabilities Expose Private Data in Indian Government Systems",
     "link": "https://www.darkreading.com/vulnerabilities-threats/vulnerabilities-private-data-indian-government-systems",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6e7f8fc00f3ce97c/6a42c5e6f990b60082e51b44/India_cockroach_mask-Ritesh_Shukla-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Nissan discloses employee data breach linked to Oracle zero-day attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/12/06/Nissan-1.jpg"
-  },
-  {
-    "title": "NAIC says public data stolen in ShinyHunters' PeopleSoft breach",
-    "link": "https://www.bleepingcomputer.com/news/security/naic-says-public-data-stolen-in-shinyhunters-peoplesoft-breach/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/29/DataLeak.jpg"
-  },
-  {
-    "title": "Can Clothes Make You Invisible to Facial Recognition?",
-    "link": "https://www.darkreading.com/cyber-risk/clothes-invisible-facial-recognition",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8704fb69f68c1e69/6a415c91573ebe1989d149e5/noRecognition-Bill_Swearingen.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Iran, Russia, China Target Water Systems for Sabotage",
-    "link": "https://www.darkreading.com/ics-ot-security/iran-russia-china-target-water-systems-sabotage",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt24bbf93173729620/6a42bce1588d51aaf968fa84/wastewater_plant_engineers-BugTiger-Getty-2160087422.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "WhatsApp rolls out usernames to help users hide their phone number",
-    "link": "https://www.bleepingcomputer.com/news/security/whatsapp-rolls-out-usernames-to-help-users-hide-their-phone-number/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/09/23/WhatsApp.jpg"
-  },
-  {
-    "title": "Microsoft extends Windows Server 2022 hotpatching until October 2027",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-extends-windows-server-2022-hotpatching-until-october-2027/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/15/Windows_Server.jpg"
-  },
-  {
-    "title": "WhatsApp is Finally Getting Usernames to Help Keep Phone Numbers Private",
-    "link": "https://thehackernews.com/2026/06/whatsapp-is-finally-getting-usernames.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio-ZtaOMuibm1cwTHj1YFNRqRbs2GdaipPSXv1pzX9qcUI2VS6MGjpxEcNnhU0zniwOokUFL530mntMPSO2X8CjA3ybwYDXEwsJb9sV7nP9QWiDHLTiYV6Yf10B9qHNTdqsU3hn-ac8mzmzghyphenhyphenrhvgSJQBEgP723mfcyNA4y1ck5wKPBY1ELzb_xpQhB_s/s1600/whatsapp-usernames.jpg"
   }
 ]
