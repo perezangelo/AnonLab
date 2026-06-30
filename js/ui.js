@@ -363,16 +363,12 @@ document.addEventListener("click", function (e) {
 })();
 
 /* ============================================================
-   CONTATORE VISITE — VERSIONE DEFINITIVA
+   CONTATORE VISITE — VERSIONE DEFINITIVA CORRETTA
 ============================================================ */
 
 function initVisitCounter() {
 
-    fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
-    .then(r => r.json())
-    .then(data => updateCounterUI(data));
-
-    // 🔥 POI LEGGE IL JSON AGGIORNATO TRAMITE PROXY
+    // 🔥 Esegue SOLO il proxy (update.php viene richiamato internamente)
     fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
         .then(r => r.json())
         .then(data => {
