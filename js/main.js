@@ -89,118 +89,6 @@ function initYouTubePlayer() {
 }
 
 // ===============================
-// CONTATORE VISITE (DISATTIVATO)
-// ===============================
-
-function initVisitCounter() {
-
-    const counterEl = document.getElementById("visit-counter");
-    const pageEl    = document.getElementById("page-counter");
-    const dateEl    = document.getElementById("visit-date");
-    const timeEl    = document.getElementById("visit-time");
-    const greetEl   = document.getElementById("visit-greeting");
-
-    const currentPageEl   = document.getElementById("current-page-count");
-    const listContainerEl = document.getElementById("pages-list");
-
-    const onlineEl = document.getElementById("online-users");
-    const devMobileEl  = document.getElementById("dev-mobile");
-    const devDesktopEl = document.getElementById("dev-desktop");
-    const devTabletEl  = document.getElementById("dev-tablet");
-
-    if (!counterEl) {
-        console.warn("Sidebar non pronta, counter non inizializzato");
-        return;
-    }
-
-    // -----------------------------
-    // ANIMAZIONE NUMERICA
-    // -----------------------------
-    function animateValue(el, start, end, duration = 600) {
-        const range = end - start;
-        let startTime = null;
-
-        function step(ts) {
-            if (!startTime) startTime = ts;
-            const progress = Math.min((ts - startTime) / duration, 1);
-            el.textContent = Math.floor(start + range * progress);
-            if (progress < 1) requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
-    }
-
-    // -----------------------------
-    // ⚠️ FETCH REAL-TIME DISATTIVATO
-    // -----------------------------
-    /*
-    function loadRealCounter() {
-        fetch("https://angelonline.altervista.org/counter/visits.json?cache=" + Date.now())
-            .then(r => r.json())
-            .then(data => {
-                animateValue(counterEl, parseInt(counterEl.textContent), data.total);
-                animateValue(pageEl, parseInt(pageEl.textContent), data.today.visits);
-                if (currentPageEl) currentPageEl.textContent = 0;
-                if (listContainerEl) listContainerEl.innerHTML = "";
-                if (onlineEl) onlineEl.textContent = Object.keys(data.online).length;
-                if (devMobileEl)  devMobileEl.textContent  = data.today.mobile;
-                if (devDesktopEl) devDesktopEl.textContent = data.today.desktop;
-                if (devTabletEl)  devTabletEl.textContent  = data.today.tablet;
-            })
-            .catch(err => console.error("Errore counter:", err));
-    }
-    */
-
-    // -----------------------------
-    // SALUTO DINAMICO
-    // -----------------------------
-    function updateGreeting() {
-        const hour = new Date().getHours();
-        let greeting = "Ciao!";
-        if (hour >= 5 && hour < 12) greeting = "Buongiorno!";
-        else if (hour >= 12 && hour < 18) greeting = "Buon pomeriggio!";
-        else if (hour >= 18 && hour < 23) greeting = "Buonasera!";
-        else greeting = "Buonanotte!";
-        greetEl.textContent = greeting;
-    }
-
-    // -----------------------------
-    // DATA
-    // -----------------------------
-    function updateDate() {
-        const now = new Date();
-        dateEl.textContent =
-            `${String(now.getDate()).padStart(2, "0")}/` +
-            `${String(now.getMonth() + 1).padStart(2, "0")}/` +
-            now.getFullYear();
-    }
-
-    // -----------------------------
-    // ORA
-    // -----------------------------
-    function updateTime() {
-        const now = new Date();
-        timeEl.textContent =
-            `${String(now.getHours()).padStart(2, "0")}:` +
-            `${String(now.getMinutes()).padStart(2, "0")}:` +
-            `${String(now.getSeconds()).padStart(2, "0")}`;
-    }
-
-    // -----------------------------
-    // AVVIO
-    // -----------------------------
-    updateGreeting();
-    updateDate();
-    updateTime();
-    setInterval(updateTime, 1000);
-
-    // ❌ RIMOSSO: loadRealCounter();
-    // ❌ RIMOSSO: setInterval(loadRealCounter, 5000);
-
-    console.log("Contatore REAL-TIME disattivato — ora gestito da visit_counter.js");
-}
-
-// ===============================
 // NAVBAR MOBILE — HAMBURGER MENU
 // ===============================
 
@@ -220,9 +108,26 @@ function initMobileMenu() {
     console.log("Navbar mobile inizializzata");
 }
 
-// Aspetta che i partial siano caricati
+// ===============================
+// DOM READY — INIZIALIZZAZIONI
+// ===============================
+
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Inizializza navbar mobile
     setTimeout(() => {
         initMobileMenu();
     }, 300);
+
+    // Inizializza calcolatrice
+    initCalculator();
+
+    // Inizializza radio
+    initRadio();
+
+    // Inizializza YouTube player
+    initYouTubePlayer();
+
+    // ⭐ Il contatore visite è ora gestito dal nuovo script in index.html
 });
+
