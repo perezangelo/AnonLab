@@ -1,3 +1,7 @@
+/* ============================================================
+   PARTIALS LOADER — VERSIONE STABILE
+============================================================ */
+
 async function loadPartial(id, file) {
     const el = document.getElementById(id);
     if (!el) return Promise.resolve();   // ⭐ FIX 1
@@ -16,15 +20,16 @@ async function loadPartial(id, file) {
         const html = await res.text();
         el.innerHTML = html;
 
-      if (id === "sidebar") {
-    requestAnimationFrame(() => {
-        loadMeteo();
-        initOroscopo();
-
-        // ⭐ Il contatore visite è ora gestito dal nuovo script in index.html
-        // (Nessuna chiamata a initVisitCounter)
-    });
-}
+        /* ============================================================
+           SIDEBAR — INIZIALIZZAZIONE WIDGET
+        ============================================================ */
+        if (id === "sidebar") {
+            requestAnimationFrame(() => {
+                loadMeteo();
+                initOroscopo();
+                // ⭐ Il contatore visite verrà gestito nella PARTE 2
+            });
+        }
 
         return Promise.resolve();   // ⭐ FIX 2
 
@@ -36,7 +41,7 @@ async function loadPartial(id, file) {
 }
 
 /* ============================================================
-   METEO REALE — Open‑Meteo + Icone Neon (VERSIONE CORRETTA)
+   METEO — Open‑Meteo + Icone Neon
 ============================================================ */
 
 async function loadMeteo() {
@@ -59,79 +64,56 @@ async function loadMeteo() {
         const temp = data.current.temperature_2m;
         const code = data.current.weather_code;
 
-        /* ============================
-           DESCRIZIONI COMPLETE
-        ============================ */
         const meteoDesc = {
             0: "Sereno",
             1: "Prevalentemente sereno",
             2: "Parzialmente nuvoloso",
             3: "Nuvoloso",
-
             45: "Nebbia",
             48: "Nebbia ghiacciata",
-
             51: "Pioviggine leggera",
             53: "Pioviggine",
             55: "Pioviggine intensa",
-
             61: "Pioggia leggera",
             63: "Pioggia",
             65: "Pioggia intensa",
-
             71: "Neve leggera",
             73: "Neve",
             75: "Neve intensa",
-
-            /* ⭐ MANCAVANO QUESTI → CAUSA “Condizioni sconosciute” */
             80: "Rovesci leggeri",
             81: "Rovesci",
             82: "Rovesci intensi",
-
             95: "Temporale",
             96: "Temporale con grandine",
             99: "Temporale forte con grandine"
         };
 
-       /* ============================
-   ICONE METEO (VERSIONE CORRETTA)
-============================ */
+        const meteoIcon = {
+            0: "clear.svg",
+            1: "cloud.svg",
+            2: "cloud.svg",
+            3: "cloud.svg",
+            45: "fog.svg",
+            48: "fog.svg",
+            51: "rain.svg",
+            53: "rain.svg",
+            55: "rain.svg",
+            61: "rain.svg",
+            63: "rain.svg",
+            65: "rain.svg",
+            80: "rain.svg",
+            81: "rain.svg",
+            82: "rain.svg",
+            95: "storm.svg",
+            96: "storm.svg",
+            99: "storm.svg"
+        };
 
-const meteoIcon = {
-    0: "clear.svg",
-    1: "cloud.svg",
-    2: "cloud.svg",
-    3: "cloud.svg",
-
-    45: "fog.svg",
-    48: "fog.svg",
-
-    51: "rain.svg",
-    53: "rain.svg",
-    55: "rain.svg",
-
-    61: "rain.svg",
-    63: "rain.svg",
-    65: "rain.svg",
-
-    80: "rain.svg",
-    81: "rain.svg",
-    82: "rain.svg",
-
-    95: "storm.svg",
-    96: "storm.svg",
-    99: "storm.svg"
-};
-        /* ============================
-           AGGIORNAMENTO UI
-        ============================ */
         cityEl.textContent = "Varese";
         tempEl.textContent = `${temp}°C`;
         descEl.textContent = meteoDesc[code] || "Condizioni sconosciute";
 
- iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
-
-        /* ⭐ FIX SENZA TOCCARE CSS — evita taglio icona */
+        iconEl.src = `/img/img/meteo/${meteoIcon[code] || "default.svg"}`;
         iconEl.style.width = "auto";
         iconEl.style.maxWidth = "100px";
         iconEl.style.height = "auto";
@@ -143,8 +125,9 @@ const meteoIcon = {
         iconEl.src = "/img/img/meteo/default.svg";
     }
 }
+
 /* ============================================================
-   OROSCOPO — VERSIONE DEFINITIVA CORRETTA
+   OROSCOPO — VERSIONE DEFINITIVA
 ============================================================ */
 
 async function initOroscopo() {
@@ -153,34 +136,22 @@ async function initOroscopo() {
     const text = document.getElementById("oroscopo-text");
     const link = document.getElementById("oroscopo-link");
 
-    // Se la sidebar non contiene l'oroscopo, esci
     if (!select || !img || !text || !link) return;
 
     try {
-        // Percorso ASSOLUTO al JSON aggiornato via GitHub Actions
         const res = await fetch("https://anonlab.it/data/oroscopo.json");
         const data = await res.json();
 
-        // Percorso ASSOLUTO alle icone dei segni
         const base = "https://anonlab.it/img/oroscopo/";
 
         function updateOroscopo() {
             const sign = select.value;
-
-            // Aggiorna immagine
             img.src = base + sign + ".svg";
-
-            // Aggiorna testo
             text.textContent = data[sign] || "Oroscopo non disponibile";
-
-            // Link esterno (provvisorio)
             link.href = "https://www.google.com/search?q=oroscopo+" + sign;
         }
 
-        // Primo caricamento
         updateOroscopo();
-
-        // Cambio segno
         select.addEventListener("change", updateOroscopo);
 
     } catch (e) {
@@ -244,6 +215,7 @@ function waitForSidebar() {
         check();
     });
 }
+
 /* ============================================================
    D) DOM READY — VERSIONE OTTIMIZZATA
 ============================================================ */
@@ -273,6 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 /* ============================================================
    G) WIDGET CYBER ALERT LIVE
 ============================================================ */
@@ -297,6 +270,7 @@ async function loadCyberAlerts() {
         `)
         .join("");
 }
+
 /* ============================================================
    H) WIDGET FEED DAL MONDO
 ============================================================ */
@@ -321,6 +295,7 @@ async function loadWorldFeed() {
         `)
         .join("");
 }
+
 /* ============================================================
    I) HEADER SCROLL EFFECT
 ============================================================ */
@@ -352,6 +327,7 @@ document.addEventListener("click", function (e) {
 
     dropdown.classList.toggle("open", dropdown.contains(e.target));
 });
+
 /* ============================================================
    M) CALCOLATRICE
 ============================================================ */
@@ -367,18 +343,18 @@ document.addEventListener("click", function (e) {
     }
 
     const mainLoaded = [...document.querySelectorAll("script")]
-    .some(s => s.src.includes("/js/main.js"));
+        .some(s => s.src.includes("/js/main.js"));
 
-if (!mainLoaded) {
-    const script = document.createElement("script");
-    script.src = "/js/main.js";
-    script.onload = () => {
-        console.log("main.js caricato automaticamente");
-        if (typeof initCalculator === "function") initCalculator();
-    };
-    document.body.appendChild(script);
-    return;
-}
+    if (!mainLoaded) {
+        const script = document.createElement("script");
+        script.src = "/js/main.js";
+        script.onload = () => {
+            console.log("main.js caricato automaticamente");
+            if (typeof initCalculator === "function") initCalculator();
+        };
+        document.body.appendChild(script);
+        return;
+    }
 
     if (typeof initCalculator === "function") {
         initCalculator();
