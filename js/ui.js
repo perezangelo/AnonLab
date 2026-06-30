@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof loadTickerNews === "function") loadTickerNews();
     });
 
-    loadPartial("sidebar", "partials/sidebar.html");   // ⭐ OBBLIGATORIO
+    loadPartial("sidebar", "partials/sidebar.html");   // ⭐ Sidebar obbligatoria
     loadPartial("footer", "partials/footer.html");
 
     // Attende che la sidebar sia caricata
@@ -265,9 +265,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Meteo (fallback)
         loadMeteo();
 
-        // ⭐ INIZIALIZZA IL CONTATORE SOLO QUANDO LA SIDEBAR ESISTE
+        // ⭐ Inizializza il contatore SOLO quando la sidebar esiste
         if (typeof initVisitCounter === "function") {
-            initVisitCounter();
+            initVisitCounter();   // <-- questa è la funzione corretta
         }
 
     });
