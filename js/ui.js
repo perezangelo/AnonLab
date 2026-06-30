@@ -16,13 +16,13 @@ async function loadPartial(id, file) {
         const html = await res.text();
         el.innerHTML = html;
 
-       if (id === "sidebar") {
+      if (id === "sidebar") {
     requestAnimationFrame(() => {
         loadMeteo();
         initOroscopo();
-        if (typeof initVisitCounter === "function") {
-            initVisitCounter();   // ⭐ QUI PARTE NEL MOMENTO GIUSTO
-        }
+
+        // ⭐ Il contatore visite è ora gestito dal nuovo script in index.html
+        // (Nessuna chiamata a initVisitCounter)
     });
 }
 
