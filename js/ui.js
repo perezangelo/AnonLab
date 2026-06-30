@@ -361,3 +361,108 @@ document.addEventListener("click", function (e) {
     }
 
 })();
+
+/* ============================================================
+   CONTATORE VISITE — VERSIONE DEFINITIVA
+============================================================ */
+
+function initVisitCounter() {
+
+    // 🔥 REGISTRA LA VISITA SU ALTERVISTA
+    fetch("https://angelonline.altervista.org/counter/update.php", {
+        method: "POST"
+    });
+
+    // 🔥 POI LEGGE IL JSON AGGIORNATO TRAMITE PROXY
+    fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            updateCounterUI(data);
+        })
+        .catch(err => console.error("Errore counter frontend:", err));
+}
+
+/* ============================================================
+   AGGIORNAMENTO UI DEL CONTATORE
+============================================================ */
+
+function updateCounterUI(data) {
+
+    const elTotal       = document.getElementById("visit-counter");
+    const elPagesTotal  = document.getElementById("page-counter");
+    const elCurrentPage = document.getElementById("current-page-count");
+    const elPagesList   = document.getElementById("pages-list");
+
+    const elOnline      = document.getElementById("online-users");
+    const elMobile      = document.getElementById("dev-mobile");
+    const elDesktop     = document.getElementById("dev-desktop");
+    const elTablet      = document.getElementById("dev-tablet");
+
+    const elGreeting    = document.getElementById("visit-greeting");
+    const elDate        = document.getElementById("visit-date");
+    const elTime        = document.getElementById("visit-time");
+
+    /* ============================================================
+       KPI PRINCIPALI
+    ============================================================ */
+    if (elTotal)      elTotal.textContent      = data.total ?? 0;
+    if (elPagesTotal) elPagesTotal.textContent = Object.keys(data.pages || {}).length;
+
+    /* ============================================================
+       DISPOSITIVI
+    ============================================================ */
+    if (elMobile)  elMobile.textContent  = data.today?.mobile  ?? 0;
+    if (elDesktop) elDesktop.textContent = data.today?.desktop ?? 0;
+    if (elTablet)  elTablet.textContent  = data.today?.tablet  ?? 0;
+
+    /* ============================================================
+       UTENTI ONLINE
+    ============================================================ */
+    if (elOnline) elOnline.textContent = Object.keys(data.online || {}).length;
+
+    /* ============================================================
+       PAGINA CORRENTE
+    ============================================================ */
+    const currentPage = window.location.pathname.replace("/", "") || "index.html";
+    const pageCount   = data.pages?.[currentPage] ?? 0;
+
+    if (elCurrentPage) elCurrentPage.textContent = pageCount;
+
+    /* ============================================================
+       LISTA PAGINE VISITATE
+    ============================================================ */
+    if (elPagesList) {
+        elPagesList.innerHTML = "";
+        if (data.pages) {
+            Object.keys(data.pages).forEach(page => {
+                const li = document.createElement("li");
+                li.textContent = `${page}: ${data.pages[page]}`;
+                elPagesList.appendChild(li);
+            });
+        }
+    }
+
+    /* ============================================================
+       SALUTO DINAMICO
+    ============================================================ */
+    if (elGreeting) {
+        const hour = new Date().getHours();
+        let greeting = "Ciao!";
+        if (hour < 12) greeting = "Buongiorno!";
+        else if (hour < 18) greeting = "Buon pomeriggio!";
+        else greeting = "Buona serata!";
+        elGreeting.textContent = greeting;
+    }
+
+    /* ============================================================
+       DATA E ORA
+    ============================================================ */
+    const now = new Date();
+
+    if (elDate)
+        elDate.textContent = now.toLocaleDateString("it-IT");
+
+    if (elTime)
+        elTime.textContent = now.toLocaleTimeString("it-IT");
+}
+
