@@ -196,11 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
-
-    waitForSidebar().then(() => {
-        if (typeof initVisitCounter === "function") {
-            initVisitCounter();
-        }
+   
         loadMeteo(); // fallback
     });
 
