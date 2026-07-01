@@ -369,7 +369,7 @@ document.addEventListener("click", function (e) {
 function initVisitCounter() {
 
     // 🔥 Esegue SOLO il proxy (update.php viene richiamato internamente)
-   fetch("https://angelonline.altervista.org/counter/visits.json?cache=" + Date.now())
+ fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
         .then(r => r.json())
         .then(data => {
             updateCounterUI(data);
