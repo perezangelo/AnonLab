@@ -1,5 +1,45 @@
 [
   {
+    "title": "Adobe Patches Critical ColdFusion, Campaign Classic Vulnerabilities",
+    "link": "https://www.securityweek.com/adobe-patches-critical-coldfusion-campaign-classic-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Adobe.jpg"
+  },
+  {
+    "title": "Citrix Patches NetScaler Vulnerabilities, Including New \u2018HTTP/2 Bomb\u2019 Attack",
+    "link": "https://www.securityweek.com/citrix-patches-netscaler-vulnerabilities-including-new-http-2-bomb-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Citrix-zero-day.jpg"
+  },
+  {
+    "title": "Microsoft fixes GIF functionality in the Windows Emoji Panel",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-gif-functionality-in-the-windows-emoji-panel/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
+  },
+  {
+    "title": "Microsoft Accelerates Post-Quantum Cryptography Shift to 2029",
+    "link": "https://thehackernews.com/2026/07/microsoft-accelerates-post-quantum.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyPq-iy_BsDM3LGWIEtwydOynDIApb_bokv6EuarUGUbyIw8tFnntySLPL5FuN0Qw1PIGNzlabEaSq00S9ojIShTnbJyM0kWKUbCcIEOH3eEbdLOpgOumlnXHVvrsn2o9A75a2R3_8vjpTB18P45qaK7CtSuggZyGAb2uA8SGGXp_bUV7mqY4aGNlYGXwM/s1600/Microsoft-Encryption.jpg"
+  },
+  {
+    "title": "Frontier AI: Six Questions Every Enterprise Should Ask Security Vendors",
+    "link": "https://www.securityweek.com/frontier-ai-six-questions-every-enterprise-should-ask-security-vendors/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
+  },
+  {
+    "title": "Amazon fined $2.25M for withholding evidence from fraud victims",
+    "link": "https://www.bleepingcomputer.com/news/security/amazon-fined-225m-for-withholding-evidence-from-fraud-victims/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/10/15/amazon-logo.jpg"
+  },
+  {
+    "title": "Apple Patches Dozens of Vulnerabilities Across iOS, macOS, and Safari",
+    "link": "https://www.securityweek.com/apple-patches-dozens-of-vulnerabilities-across-ios-macos-and-safari/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
+  },
+  {
+    "title": "Dawnguard Raises $6.3 Million for Security Architecture Automation Platform",
+    "link": "https://www.securityweek.com/dawnguard-raises-6-3-million-for-security-architecture-automation-platform/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
+  },
+  {
     "title": "Massive Password Spray Campaign Targeting Azure CLI",
     "link": "https://www.securityweek.com/massive-password-spray-campaign-targeting-azure-cli/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Microsoft-Azure.jpeg"
@@ -108,45 +148,5 @@
     "title": "Fake Perplexity extension on Chrome Web Store tracked searches",
     "link": "https://www.bleepingcomputer.com/news/security/fake-perplexity-extension-on-chrome-web-store-tracked-searches/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/03/13/Google_Chrome.jpg"
-  },
-  {
-    "title": "Silent Swap Crypto Clipper Uses Fake Google Notes Extension to Replace Wallet Addresses",
-    "link": "https://thehackernews.com/2026/06/silent-swap-crypto-clipper-uses-fake.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfz8WYO9wONzogh2V8g9VorZ8Ab_nAUZMD7rOM9xrVUhg3cbKGA5zc73PGQiAkbsNgY-qbm2AFAUjBdeMcpemGmDNWrvnpyjzKiqU8iJHMetkW68d20V_U-96mHOaHF6fff7VKBREN2v6fz1R_ahyIklq-Fd7ILYKxXck5ahL1BoFWC_CDQFrQZqQqg3hm/s1600/chrome-wallet.jpg"
-  },
-  {
-    "title": "GuardFall Exposes Open-Source AI Coding Agents to Decades-Old Shell Injection Risks",
-    "link": "https://thehackernews.com/2026/06/guardfall-exposes-open-source-ai-coding.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR59EidY6iMYv3s9bikjIxpj6_YTaUIesrZ3MyD9OqUbOk262aDW7bCArqr-IjT9CUQUSzE2F_knKKvs4bIJ2d9cuzZ-DKlmkW_Q3SO43HkA79kSVhCELVyKaStWliNZc9l1xxEGEFE5UmT1Abn6XMKTjk-rxBRTTtRAjb-jYDRKj-ODtIYy8dGQvbzDE/s1600/shell-ai.jpg"
-  },
-  {
-    "title": "Lessons from the Underground: How to Combat Business Email Compromise",
-    "link": "https://www.bleepingcomputer.com/news/security/lessons-from-the-underground-how-to-combat-business-email-compromise/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/06/25/email-header-image.jpg"
-  },
-  {
-    "title": "BlueHammer Vulnerability Exploited in Ransomware Attacks",
-    "link": "https://www.securityweek.com/bluehammer-vulnerability-exploited-in-ransomware-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/05/Ransomware-Alert-threat.jpg"
-  },
-  {
-    "title": "AI-Generated Workflows Are a Silent Security Disaster",
-    "link": "https://www.darkreading.com/cyber-risk/ai-generated-workflows-silent-security-disaster",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltca7b936f842a69d1/6a42cdbb63726b86fca0672d/AI_Workflow_da-dunk_Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Decades-Old Bash Tricks Expose AI Coding Agents to Supply Chain Attacks",
-    "link": "https://www.securityweek.com/decades-old-bash-tricks-expose-ai-coding-agents-to-supply-chain-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
-  },
-  {
-    "title": "Aflac Japan Data Breach Impacts 4.38 Million",
-    "link": "https://www.securityweek.com/aflac-japan-data-breach-impacts-4-38-million/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Aflac-Japan-.jpeg"
-  },
-  {
-    "title": "Schneider Electric EasyLogic T150 and Saitel DP RTU",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-04",
-    "image": ""
   }
 ]
