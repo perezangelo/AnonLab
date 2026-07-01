@@ -1,5 +1,40 @@
 [
   {
+    "title": "Massive Password Spray Campaign Targeting Azure CLI",
+    "link": "https://www.securityweek.com/massive-password-spray-campaign-targeting-azure-cli/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Microsoft-Azure.jpeg"
+  },
+  {
+    "title": "Adobe patches seven max severity ColdFusion, Campaign flaws",
+    "link": "https://www.bleepingcomputer.com/news/security/adobe-patches-seven-max-severity-coldfusion-campaign-flaws/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/01/Adobe.jpg"
+  },
+  {
+    "title": "Phantom Squatting Uses AI-Hallucinated Domains for Phishing and Malware",
+    "link": "https://thehackernews.com/2026/07/phantom-squatting-uses-ai-hallucinated.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX2IWQhpupx-U0U70hWTg9afsBb41pslrGP733mXXdBKValODZrPoYD3UQqGVq1j9fSgmgf9rqDyxEAx1iKzblSnc_AcfO_CzQ-CA4G24vKEO5YC9P1vC_K_K01RfbMAvN1eaqgRjJUYRIyWZVLQjxYVleEsgcgD_Ifm04sjBCp08xk6W7QjbX4Rgm2vXp/s1600/ai-domains.jpg"
+  },
+  {
+    "title": "Anthropic Restores Claude Fable 5 After U.S. Lifts Jailbreak-Linked Export Controls",
+    "link": "https://thehackernews.com/2026/07/anthropic-restores-claude-fable-5-after.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2AmA92QCIqSJfXqC3z9I1jjdJGEkIvN4k-Oc5MlWZb4yZLPg5clokead6q8yXUfeI4DbdsKVn4qbd1sufvo47zyIy-Wcr15xK9oJJyet1vlFGiOKOU0ylMhgXWI0Duuztk7W_YURPKwdgfOyFsm2k3Rj1Db5tEVB9jzNi3xeYD0R_wfOaRKranmNj6kOy/s1600/claude-fable-5.jpg"
+  },
+  {
+    "title": "Google Patches 382 Chrome Vulnerabilities",
+    "link": "https://www.securityweek.com/google-patches-382-chrome-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Chrome-Zero-Day-exploits.jpg"
+  },
+  {
+    "title": "Azure CLI Password Spray Hits at Least 78 Microsoft Accounts in 81M+ Attempts",
+    "link": "https://thehackernews.com/2026/07/azure-cli-password-spray-hits-at-least.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlhMdp0ML_DO3inv2zhyphenhyphenoZ9CmB1ESRBbVh_YHPol3serW7D4zTsXPGVjF62GhEcvamH6fmTs0ZLguVOM72ynrL6ebpPxBgpCv3XeUJNCb4un1Ue4o1V5BjB4r9pEnW_t717d8d49ZdH4OPavLgNkov9VNaJDMruqwG65QoBkxpzFx8q7QofYHuH9gDie-O/s1600/login.jpg"
+  },
+  {
+    "title": "Researcher Analyzes 3,000 Live ClickFix Payloads, Exposing API-Driven Malware Delivery",
+    "link": "https://thehackernews.com/2026/07/researcher-analyzes-3000-live-clickfix.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXEaR4unJmt3rBY1LzI0Gq_veoF7Qzi-yPQNUcoR2oNV802lQ4MZAviyeq7bBh73PLAyp1quTozDq0ki_zm_9qsJIIfAUTaG8jFTv5dpxvuDUPJZA2BU4Zo11wIVyysWeMROXv8z2XOZoPOoJPVqMEJEhCI_OE1mM5wnSCFHJ1sgjl5411fZ4srklq5Fbs/s1600/clickfix-payloads.jpg"
+  },
+  {
     "title": "Citrix Patches Six NetScaler Flaws Allowing File Read and Denial-of-Service",
     "link": "https://thehackernews.com/2026/07/citrix-patches-six-netscaler-flaws.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkaU5jHNUkuBuH0Obx-gU_L4wSKOWP9bPwZeyD8tY1hIHShQozXYO2UckRTb2z5SwreXgHxLzePWkBfixNzYWsJ6eXioRllicv96TA8QvXBerGAguD3uA2T1DcMaURdi5BdMcNlY4DF_DPk-kdNXvIZfz8QMnrekgc-Hjksqf5OCHy11j0zcT668GgBhnc/s1600/citrix.jpg"
@@ -95,11 +130,6 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/05/Ransomware-Alert-threat.jpg"
   },
   {
-    "title": "282 iOS AI Apps Leak API Keys and Open AI Proxy Access in Network Traffic Study",
-    "link": "https://thehackernews.com/2026/06/282-ios-apps-found-leaking-llm-api-keys.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ9nmTBu_vYBf5fRZV4Jc-qtFGPySofVDYHUd-9-ogdve-M4Qd4j7_CnH9Zmvln6O3nfXSsDqQiMoL3rDYBSXZSrXlkCnSWSQUdAYJX1PkRzmytlVaYAc2AyrFOCpo9doU58gO6Gl5fQ-0SZ5D3yGP2SspNgK0U4f5jViSBnY_PAMUOjr42Nt8OLrhnTsQ/s1600/llm-keys.jpg"
-  },
-  {
     "title": "AI-Generated Workflows Are a Silent Security Disaster",
     "link": "https://www.darkreading.com/cyber-risk/ai-generated-workflows-silent-security-disaster",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltca7b936f842a69d1/6a42cdbb63726b86fca0672d/AI_Workflow_da-dunk_Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -117,36 +147,6 @@
   {
     "title": "Schneider Electric EasyLogic T150 and Saitel DP RTU",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-04",
-    "image": ""
-  },
-  {
-    "title": "OFFIS DCMTK Toolkit",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-181-01",
-    "image": ""
-  },
-  {
-    "title": "Mitsubishi Electric MELSOFT Update Manager SW1DND-UDM-M",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-01",
-    "image": ""
-  },
-  {
-    "title": "Schneider Electric EcoStruxure IT Data Center Expert",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-03",
-    "image": ""
-  },
-  {
-    "title": "StoneFly Storage Concentrator",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-06",
-    "image": ""
-  },
-  {
-    "title": "Frangoteam FUXA SCADA/HMI",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02",
-    "image": ""
-  },
-  {
-    "title": "XZ Utils vulnerability impacting B&R Products",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-05",
     "image": ""
   }
 ]
