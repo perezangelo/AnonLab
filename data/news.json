@@ -1,7 +1,22 @@
 [
   {
-    "title": "ChocoPoc malware delivered via trojanized exploits on GitHub",
-    "link": "https://www.bleepingcomputer.com/news/security/chocopoc-malware-delivered-via-trojanized-exploits-on-github/",
+    "title": "FortiBleed credential-theft campaign linked to Lynx ransomware",
+    "link": "https://www.bleepingcomputer.com/news/security/fortibleed-credential-theft-campaign-linked-to-lynx-ransomware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/10/14/Fortinet.jpg"
+  },
+  {
+    "title": "Kubota says hackers had month-long access to network systems",
+    "link": "https://www.bleepingcomputer.com/news/security/kubota-says-hackers-had-month-long-access-to-network-systems/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/01/kubota.jpg"
+  },
+  {
+    "title": "Crafty Phishing Campaigns Auto-Adapt to Victim's Device, OS",
+    "link": "https://www.darkreading.com/application-security/phishing-campaigns-auto-adapt-victims-device-os",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt704d77c44062a0a1/6a45705583bc8bcd9c6ec0e1/fishing_credit_card-imageBROKER_Markus_Gann-Getty-2275842170.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "New ChocoPoC malware targets researchers via trojanized PoC exploits",
+    "link": "https://www.bleepingcomputer.com/news/security/new-chocopoc-malware-targets-researchers-via-trojanized-poc-exploits/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/01/cocopops.jpg"
   },
   {
@@ -133,20 +148,5 @@
     "title": "Apple Patches Dozens of Vulnerabilities Across iOS, macOS, and Safari",
     "link": "https://www.securityweek.com/apple-patches-dozens-of-vulnerabilities-across-ios-macos-and-safari/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
-  },
-  {
-    "title": "Dawnguard Raises $6.3 Million for Security Architecture Automation Platform",
-    "link": "https://www.securityweek.com/dawnguard-raises-6-3-million-for-security-architecture-automation-platform/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
-  },
-  {
-    "title": "Massive Password Spray Campaign Targeting Azure CLI",
-    "link": "https://www.securityweek.com/massive-password-spray-campaign-targeting-azure-cli/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Microsoft-Azure.jpeg"
-  },
-  {
-    "title": "Adobe patches seven max severity ColdFusion, Campaign flaws",
-    "link": "https://www.bleepingcomputer.com/news/security/adobe-patches-seven-max-severity-coldfusion-campaign-flaws/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/01/Adobe.jpg"
   }
 ]
