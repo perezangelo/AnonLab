@@ -1,5 +1,20 @@
 [
   {
+    "title": "ThreatsDay: AI Compute Hijacking, Apple Email Flaw, BlueHammer Ransomware + 14 Stories",
+    "link": "https://thehackernews.com/2026/07/threatsday-ai-compute-hijacking-apple.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMzwXbN53zy07KSkFJL7uOzty4Pj7VgKS6lSwWWGSCppX0wEX5eY0ZLur2NiFcs-ByBBhbd1WZ270Y4VMMGL6WkvOIZ5MhyphenhyphenkDX2B45wiQue-W88oiF_-RZs0HxvrvcxCHI8Zhhv1-fqHDgnX-VLWk00gt463rQhyKY7Mzcd5STMCYeCUcyVri3aBSUpl2t/s1600/threatsday-board.jpg"
+  },
+  {
+    "title": "Google loses final appeal to overturn \u20ac4.1 billion EU fine",
+    "link": "https://www.bleepingcomputer.com/news/legal/google-loses-final-appeal-to-overturn-41-billion-eu-fine/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/06/Europe.jpg"
+  },
+  {
+    "title": "New CitrixBleed Vulnerability Exploited Immediately After Public Disclosure",
+    "link": "https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
     "title": "ConsentFix and ClickFix: How Microsoft 365 Accounts are Hijacked in 3 Seconds",
     "link": "https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/",
     "image": "https://www.bleepstatic.com/content/posts/2026/06/30/clickfix-header-s.jpg"
@@ -28,6 +43,21 @@
     "title": "Microsoft fixes bug that removed Copilot buttons in Outlook",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-bug-that-removed-copilot-button-in-outlook/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/27/Outlook.jpg"
+  },
+  {
+    "title": "CubeSpace CW0057 Reaction Wheel",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-02",
+    "image": ""
+  },
+  {
+    "title": "Gardyn IoT Hub",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03",
+    "image": ""
+  },
+  {
+    "title": "ST Engineering iDirect iQ-Series Terminals",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01",
+    "image": ""
   },
   {
     "title": "Cisco finally confirms attackers exploiting Unified CM flaw",
@@ -115,38 +145,8 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt704d77c44062a0a1/6a45705583bc8bcd9c6ec0e1/fishing_credit_card-imageBROKER_Markus_Gann-Getty-2275842170.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
-    "title": "New ChocoPoC malware targets researchers via trojanized PoC exploits",
-    "link": "https://www.bleepingcomputer.com/news/security/new-chocopoc-malware-targets-researchers-via-trojanized-poc-exploits/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/01/cocopops.jpg"
-  },
-  {
     "title": "And the Winner in Dominant Malware Delivery? ClickFix",
     "link": "https://www.darkreading.com/vulnerabilities-threats/winner-dominant-malware-delivery-clickfix",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltfaf93bd096fd735c/6a45559d327edd13ed6ac140/clickfix-tumsasedgars-Getty-2234293893.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Unpatched Argo CD Repo-Server Flaw Could Let Attackers Take Over Kubernetes Clusters",
-    "link": "https://thehackernews.com/2026/07/unpatched-argo-cd-repo-server-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9emdIsaMBcMQoyS0ot-ckXq8LWhMk6P2zAm3WdCVFBhRMNUqN6E1vZqllIq6qYHBvGm8WhCGi8C3PLUNOecmNYU4LLoWH5zRBadBejDgpbC5DihDwqiYAMLpZNsQBk2MsiN89nt-honwtPiQzjg4fDUp5w2aiCXWZBKk94qHwfG4yEHak6zoZuNmXKgY/s1600/argo-cd.jpg"
-  },
-  {
-    "title": "19-Year-Old Scattered Spider Suspect Extradited to Face U.S. Hacking Charges",
-    "link": "https://thehackernews.com/2026/07/19-year-old-scattered-spider-suspect.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitCA6eGqIT2msGTmYh2Qr84lq5GYGvI4Y8FSzzNira0osd5SNIbnpLKZfLZLggblyWGxZ1ScIR_I06M-RoM5wM3he2KRkFCnwYxIKtGBDb9PA1JtoK1JM5f0vObSITDMGt4eeVV82LUF3DBNkYiHLhCTYNwnlOP3DlfCHYLkP6NfHjwRJDsHSMTHEGKAs/s1600/hacker-arrested.jpg"
-  },
-  {
-    "title": "Microsoft Adds New Teams Controls to Block Unauthorized AI Bots From Meetings",
-    "link": "https://www.securityweek.com/microsoft-adds-new-teams-controls-to-block-unauthorized-ai-bots-from-meetings/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Microsoft-Vulnerabilities-Patched.jpg"
-  },
-  {
-    "title": "SEO-Poisoned Software Sites Abuse ScreenConnect to Deploy AsyncRAT",
-    "link": "https://thehackernews.com/2026/07/seo-poisoned-software-sites-abuse.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbKfADFEhazeaRztmVJkTBhFqZxALUDBwsOV_25bWjZ6Qm3pCBoSSawssWOOJC2ZQ7M6hrUDRXLfR5gcpWRkkaSdNtSPCz-FLrG5Dy4-Y-IzEMt_souSqJuc3JK9FNQ9p2-dT7Ojf3ufzPkWBpLNyDAVeeuYS7Ya-BJWT4MmAHz7OjHvwjMSCfF5Jvahyphenhyphenj/s1600/SEO-MALWARE.jpg"
-  },
-  {
-    "title": "VEIL#DROP Malware Chain Uses Blogger Platform to Deliver PureLogs Stealer",
-    "link": "https://thehackernews.com/2026/07/veildrop-malware-chain-uses-blogger.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3OuCh7SjXAd7hG_0Q0p__EmpV5MwYh0fOfMZHc1wxRHpsCN9qlonLr93NB6-iJMWJd6nv8VoMqSt9hWW34H7R7tpoGuhkn1mkEL8UgsiUIfNxh9L1Bh0Qpvt0xrX9Pqq6rw1vb-0CEC3KLAT5N7fdlgEHWnYVDyeuUHt2pD59vugSKLaC9n8-LBLoqV0Y/s1600/blogger.jpg"
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc94608acf452fd67/655cf371ab171e040a838b2a/329050_DR23_Graphics_Website_V5_Default_Image_v1.png?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
