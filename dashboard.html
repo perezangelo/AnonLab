@@ -455,59 +455,67 @@
         ============================================================ */
 
         function startMalwareMonitor() {
-            const ctx = document.getElementById("malwareChart");
+    const ctx = document.getElementById("malwareChart");
 
-            if (!ctx || typeof Chart === "undefined") {
-                return setTimeout(startMalwareMonitor, 200);
+    if (!ctx || typeof Chart === "undefined") {
+        return setTimeout(startMalwareMonitor, 200);
+    }
+
+    async function loadMalwareData() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/malware_activity.php");
+            const data = await res.json();
+
+            if (window.malwareChartInstance) {
+                window.malwareChartInstance.data.labels = data.labels;
+                window.malwareChartInstance.data.datasets[0].data = data.values;
+                window.malwareChartInstance.update();
+                return;
             }
 
-            async function loadMalwareData() {
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/soc/malware_activity.php");
-                    const data = await res.json();
-
-                    if (window.malwareChartInstance) {
-                        window.malwareChartInstance.data.labels = data.labels;
-                        window.malwareChartInstance.data.datasets[0].data = data.values;
-                        window.malwareChartInstance.update();
-                        return;
-                    }
-
-                    window.malwareChartInstance = new Chart(ctx, {
-                        type: "pie",
-                        data: {
-                            labels: data.labels,
-                            datasets: [{
-                                data: data.values,
-                                backgroundColor: [
-                                    "#ff0044aa",
-                                    "#ffaa00aa",
-                                    "#00eaffaa",
-                                    "#7a00ffaa",
-                                    "#00ff99aa"
-                                ]
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                legend: {
-                                    labels: { color: "#fff" }
-                                }
-                            }
+            window.malwareChartInstance = new Chart(ctx, {
+                type: "pie",
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        data: data.values,
+                        backgroundColor: [
+                            "#ff0044aa",
+                            "#ffaa00aa",
+                            "#00eaffaa",
+                            "#7a00ffaa",
+                            "#00ff99aa"
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,   // ⭐ FIX 1: impedisce l’esplosione
+                    plugins: {
+                        legend: {
+                            labels: { color: "#fff" }
                         }
-                    });
-
-                } catch (error) {
-                    console.error("Errore Malware Monitor:", error);
+                    }
                 }
-            }
+            });
 
-            loadMalwareData();
-            setInterval(loadMalwareData, 15000); // aggiorna ogni 15s
+            // ⭐ FIX 2: ricalcolo dimensioni dopo il render
+            setTimeout(() => {
+                if (window.malwareChartInstance) {
+                    window.malwareChartInstance.resize();
+                }
+            }, 150);
+
+        } catch (error) {
+            console.error("Errore Malware Monitor:", error);
         }
+    }
 
-        startMalwareMonitor();
+    loadMalwareData();
+    setInterval(loadMalwareData, 15000);
+}
+
+startMalwareMonitor();
         </script>
       </div>
 
