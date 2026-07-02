@@ -1,5 +1,20 @@
 [
   {
+    "title": "AI Agent Exploits Langflow RCE to Automate Database Ransomware Attack",
+    "link": "https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirfJNnWRTyyKkXeatZdtLvMsQhba-L0J9yuyASwy4T-6nlbGWnkEl0FUBVO8wS6je9Hc9wPdu01JJ0TETOa1jOjQelGiJY3ZrvsJzFIqpr_gbEvv5F4lnQrJWxTHbpYM6ah6sPJbQ63XtdxlOcFy7KZ06S69LW2escSgSAM-ycKZCqttjAZEcHJ_sO9DdQ/s1600/ai-agent-ransomware.jpg"
+  },
+  {
+    "title": "Alleged Scattered Spider hacker extradited to the United States",
+    "link": "https://www.bleepingcomputer.com/news/security/alleged-scattered-spider-hacker-extradited-to-the-united-states/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/20/Hacker-spider-large.jpg"
+  },
+  {
+    "title": "FortiBleed Credential Theft Linked to INC and Lynx Ransomware Operations",
+    "link": "https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcA80dQWiuszAlBgwcxzc3suImls2cKOwk_2nYMo7UY5MNSdlKNMgibekQNEhWRuxmX5s1JcLHCd_dsDZ3m9oy_FxN-livXwyMIqre86oK8WIOMKUSZwDBvoN7XQOaV63zVBAIKQCH77-RGxhyLNc0bnip4LoUd0P7HsWQx-bxBu8nHr7St5HKs6T1cS6Z/s1600/bleed-ransomware.jpg"
+  },
+  {
     "title": "New ChocoPoC RAT Targets Vulnerability Researchers via Fake PoC Exploit Repos",
     "link": "https://thehackernews.com/2026/07/new-chocopoc-rat-targets-vulnerability.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjd_BdKzn7-7TCZJfnsZBy25kGm8xiQTrJquj8vMVsjlRXf7LXqMiJLQs8ic-lNLRc51whJzP-B4Nv9OOzfgOSHKzmIjZFv0krEDBuSeuXXNj-OccwbpBBBBIofZFMBT4DaThqLeE2Bsx-Nkp8aZZfEs6tVB43kby1L5UbtPjauqfedlANNzOYGrNB7ec5o/s1600/fake.jpg"
@@ -95,19 +110,9 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf79bae173d4ef4ed/6a4528715f6bc22783935f56/phantoms-Cavan_Images-Getty-961114482.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
-    "title": "Critical Cursor Flaws Could Let Prompt Injection Escape Sandbox and Run Commands",
-    "link": "https://thehackernews.com/2026/07/critical-cursor-flaws-could-let-prompt.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjItlLuWZZxw3YcKcnCVEsKn7HKF0QcPnXqFNjor23XT93Xp49dvLt4tZFYIbUApP4eABXQZ3pwnoidAp5GW1wm7ZfBA6vXRlX7i0Lbzw4KWlSkxayxjZQeoxg3TEAQWmLdGP9DePsYjoC1p07KGommOwATsJOHhRQ2zZatOaFRzHoKHVHcQW8K9s-Hd5w/s1600/cato.jpg"
-  },
-  {
     "title": "Turning Indicators into Intelligence in OpenCTI with Criminal IP",
     "link": "https://www.bleepingcomputer.com/news/security/turning-indicators-into-intelligence-in-opencti-with-criminal-ip/",
     "image": "https://www.bleepstatic.com/content/posts/2026/06/27/opencti-criminalip-header-image.jpg"
-  },
-  {
-    "title": "Progress Kemp LoadMaster Pre-Auth RCE Flaw Faces Active Exploitation Attempts",
-    "link": "https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghMOqrFNgwfokWIpvUBFpDUO-So-0focm0a7d9mhocEHiwdB2cHmPQ9q4STjyCr-gVUPK67TYluInMr0_v1omCJVWbd9OVOg6AqVROoxZb44b5BOpxdBb2GECjFw77NhlCf6nWC5oJF3x3KvE3EyDV2pUR3lvROAWjaFs9SOyvzM3qRB6MzEUCFYuVAoCb/s1600/pro-exploit.jpg"
   },
   {
     "title": "Safe Events Start With Threat Intel and Digital Security",
@@ -133,11 +138,6 @@
     "title": "Citrix Patches NetScaler Vulnerabilities, Including New \u2018HTTP/2 Bomb\u2019 Attack",
     "link": "https://www.securityweek.com/citrix-patches-netscaler-vulnerabilities-including-new-http-2-bomb-attack/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Citrix-zero-day.jpg"
-  },
-  {
-    "title": "Microsoft fixes GIF functionality in the Windows Emoji Panel",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-gif-functionality-in-the-windows-emoji-panel/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
   },
   {
     "title": "Frontier AI: Six Questions Every Enterprise Should Ask Security Vendors",
