@@ -368,8 +368,18 @@ document.addEventListener("click", function (e) {
 
 function initVisitCounter() {
 
-    // 🔥 Esegue SOLO il proxy (update.php viene richiamato internamente)
- fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
+    /* ============================================================
+       1) AGGIORNA IL FILE visits.json
+       (incrementa total, pages, timeline, hours, recent, online)
+    ============================================================ */
+    fetch("https://angelonline.altervista.org/counter/update.php?cache=" + Date.now())
+        .catch(err => console.error("Errore update.php:", err));
+
+    /* ============================================================
+       2) LEGGE IL FILE visits.json TRAMITE IL PROXY
+       (CORS OK, restituisce JSON pulito)
+    ============================================================ */
+    fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
         .then(r => r.json())
         .then(data => {
             updateCounterUI(data);
@@ -460,4 +470,3 @@ function updateCounterUI(data) {
     if (elTime)
         elTime.textContent = now.toLocaleTimeString("it-IT");
 }
-
