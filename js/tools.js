@@ -317,7 +317,7 @@ async function initTools() {
                     <strong>${tool.name}</strong>
                     <span>${tool.desc}</span>
                 </div>
-                <a href="${tool.url}" class="tool-link">Apri →</a>
+                <a href="${tool.url}" style="color:#ff7b00; font-weight:bold;">Apri →</a>
             `;
 
             list.appendChild(li);
