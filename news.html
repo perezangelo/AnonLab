@@ -79,21 +79,13 @@ fetch("/partials/ticker.html")
       <!-- CONTENITORE NEWS DINAMICHE -->
       <div id="news-container"></div>
       <!-- SEZIONI STATICHE AVANZATE -->
-      <section class="news-section">
+     <section class="news-section">
   <h2 class="news-title">Trending Topics</h2>
-  <div id="trending"></div>
+  <ul id="trending-list" class="news-list">
+    <li>Caricamento...</li>
+  </ul>
 </section>
-<script>
-fetch("/partials/trending.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("trending").innerHTML = html;
-      initTrending();
-  });
-</script>
-
-<script src="/js/trending.js"></script>
-
+      
      <section class="news-section">
     <h2 class="news-title">Cyber Timeline</h2>
 
