@@ -959,5 +959,36 @@ loadPredictions();
 setInterval(loadPredictions, 30000);
 </script>
 
+  <script>
+function startTrendingTopics() {
+    const list = document.getElementById("trending-list");
+    if (!list) return setTimeout(startTrendingTopics, 200);
+
+    async function loadTrending() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/trendingtopics.php?t=" + Date.now());
+            const data = await res.json();
+
+            list.innerHTML = "";
+
+            data.forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = `<strong>${item.title}:</strong> ${item.desc}`;
+                list.appendChild(li);
+            });
+
+        } catch (e) {
+            console.error("Errore Trending Topics:", e);
+            list.innerHTML = "<li>Impossibile caricare i trending topics</li>";
+        }
+    }
+
+    loadTrending();
+    setInterval(loadTrending, 30000);
+}
+
+startTrendingTopics();
+</script>
+
 </body>
 </html>
