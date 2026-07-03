@@ -1206,30 +1206,31 @@ fetch("/partials/threat-monitor.html")
 
 <script src="/js/threat-monitor.js"></script>
 
-<!-- HACKER ACTIVITY HEATMAP -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
     <h2>Hacker Activity Heatmap</h2>
 
-    <a href="https://www.darkreading.com/threat-intelligence" 
-       target="_blank" rel="noopener noreferrer"
-       style="color:#ff7b00 !important; text-decoration:none;"
+    <a href="/cyber.html"
+       style="color:#ff7b00; text-decoration:none;"
        onmouseover="this.style.color='#ff9a40'"
        onmouseout="this.style.color='#ff7b00'">
-       Threat Intelligence su DarkReading →
+       Cyber Threat Intelligence →
     </a>
   </div>
 
-  <ul class="attack-list">
-    <li><strong>Europa:</strong> aumento exploit su VPN e Active Directory</li>
-    <li><strong>USA:</strong> intensificazione attacchi DDoS su infrastrutture cloud</li>
-    <li><strong>Asia:</strong> campagne phishing su larga scala verso aziende fintech</li>
-    <li><strong>Sud America:</strong> crescita malware bancario e infostealer</li>
-    <li><strong>Africa:</strong> attività ransomware in espansione</li>
-  </ul>
+  <div id="heatmap"></div>
 </section>
+<script>
+fetch("/partials/heatmap.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("heatmap").innerHTML = html;
+      initHeatmap();
+  });
+</script>
 
+<script src="/js/heatmap.js"></script>
 </section> <!-- /main-column -->
 
 <div id="sidebar"></div>
