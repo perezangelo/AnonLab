@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Port Scanner",
+    "desc": "Scansione porte TCP/UDP",
+    "url": "/tools/port-scanner.html",
+    "icon": "/img/tools/port.png"
+  },
+  {
+    "name": "Hash Analyzer",
+    "desc": "Analisi hash e algoritmi",
+    "url": "/tools/hash-analyzer.html",
+    "icon": "/img/tools/hash.png"
+  },
+  {
+    "name": "IP Lookup",
+    "desc": "Geolocalizzazione e ASN",
+    "url": "/tools/ip-lookup.html",
+    "icon": "/img/tools/ip.png"
+  },
+  {
+    "name": "Header Inspector",
+    "desc": "Analisi HTTP headers",
+    "url": "/tools/header-inspector.html",
+    "icon": "/img/tools/header.png"
+  }
+]
