@@ -312,7 +312,7 @@ async function initTools() {
             li.className = "tool-item";
 
             li.innerHTML = `
-                <img src="${tool.icon}" class="tool-icon" alt="${tool.name}">
+                <img src="${tool.icon}" alt="${tool.name}" width="32" height="32">
                 <div class="tool-info">
                     <strong>${tool.name}</strong>
                     <span>${tool.desc}</span>
@@ -328,4 +328,3 @@ async function initTools() {
         console.error(err);
     }
 }
-
