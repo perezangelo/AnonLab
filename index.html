@@ -1168,19 +1168,24 @@ fetch("/partials/tools.html")
 
 <script src="/js/tools.js"></script>
 
-<!-- SYSTEM STATUS -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
     <h2>System Status</h2>
   </div>
 
-  <div class="status-box">
-    <p>Server: <span class="ok">Online</span></p>
-    <p>API: <span class="ok">Operative</span></p>
-    <p>News Feed: <span class="ok">Attivo</span></p>
-  </div>
+  <div id="system-status"></div>
 </section>
+<script>
+fetch("/partials/system-status.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("system-status").innerHTML = html;
+      initSystemStatus();   // ⭐ inizializzazione DOPO il partial
+  });
+</script>
+
+<script src="/js/system-status.js"></script>
 
 <!-- CYBER THREAT MONITOR -->
 <section class="widget-large">
