@@ -80,14 +80,19 @@ fetch("/partials/ticker.html")
       <div id="news-container"></div>
       <!-- SEZIONI STATICHE AVANZATE -->
       <section class="news-section">
-        <h2 class="news-title">Trending Topics</h2>
-        <ul class="news-list">
-          <li><strong>Ransomware 2026:</strong> aumento del 40% degli attacchi alle PMI.</li>
-          <li><strong>AI Security:</strong> modelli compromessi tramite prompt injection.</li>
-          <li><strong>Zero Trust:</strong> nuove linee guida europee per infrastrutture critiche.</li>
-          <li><strong>Cloud Security:</strong> escalation di attacchi su container e Kubernetes.</li>
-        </ul>
-      </section>
+  <h2 class="news-title">Trending Topics</h2>
+  <div id="trending"></div>
+</section>
+<script>
+fetch("/partials/trending.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("trending").innerHTML = html;
+      initTrending();
+  });
+</script>
+
+<script src="/js/trending.js"></script>
 
      <section class="news-section">
     <h2 class="news-title">Cyber Timeline</h2>
