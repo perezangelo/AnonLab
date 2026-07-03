@@ -1096,7 +1096,6 @@ async function loadSocTV() {
 loadSocTV();
 </script>
 
-<!-- TECH RADAR -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
@@ -1107,13 +1106,19 @@ loadSocTV();
        ENISA Threat Landscape →
     </a>
   </div>
-  <ul class="tech-radar">
-    <li>AI generativa in crescita</li>
-    <li>Zero Trust nei SOC</li>
-    <li>Quantum Security</li>
-    <li>Automazione DevSecOps</li>
-  </ul>
+
+  <div id="radar"></div>
 </section>
+     <script>
+fetch("/partials/radar.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("radar").innerHTML = html;
+      initTechRadar();   // ⭐ inizializzazione DOPO il partial
+  });
+</script>
+
+<script src="/js/radar.js"></script>
 
 <!-- AI TRENDS -->
 <section class="widget-large">
