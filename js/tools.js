@@ -293,3 +293,39 @@ function runDiff() {
 
   out.textContent = diff || "I testi sono identici.";
 }
+
+/* ============================================================
+   17) STRUMENTI CYBER
+============================================================ */
+async function initTools() {
+    const list = document.getElementById("tools-list");
+    if (!list) return;
+
+    try {
+        const res = await fetch("/data/tools.json?cache=" + Date.now());
+        const tools = await res.json();
+
+        list.innerHTML = "";
+
+        tools.forEach(tool => {
+            const li = document.createElement("li");
+            li.className = "tool-item";
+
+            li.innerHTML = `
+                <img src="${tool.icon}" class="tool-icon" alt="${tool.name}">
+                <div class="tool-info">
+                    <strong>${tool.name}</strong>
+                    <span>${tool.desc}</span>
+                </div>
+                <a href="${tool.url}" class="tool-link">Apri →</a>
+            `;
+
+            list.appendChild(li);
+        });
+
+    } catch (err) {
+        list.innerHTML = "<li>Errore caricamento strumenti</li>";
+        console.error(err);
+    }
+}
+
