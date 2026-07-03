@@ -42,6 +42,22 @@
 
   <!-- TICKER -->
   <div id="ticker" aria-label="Ticker informazioni"></div>
+  <!-- CARICAMENTO TICKER -->
+<script>
+fetch("/partials/ticker.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("ticker").innerHTML = html;
+
+      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
+      if (typeof initTicker === "function") {
+          initTicker();
+      }
+  });
+</script>
+
+<!-- SCRIPT TICKER -->
+<script src="/js/ticker.js"></script>
 
   <main class="page">
     <section class="main-column">
