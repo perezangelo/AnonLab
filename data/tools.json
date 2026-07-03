@@ -3,24 +3,24 @@
     "name": "Port Scanner",
     "desc": "Scansione porte TCP/UDP",
     "url": "/tools/port-scanner.html",
-    "icon": "/img/tools/port.png"
+    "icon": "/img/port2.png"
   },
   {
     "name": "Hash Analyzer",
     "desc": "Analisi hash e algoritmi",
     "url": "/tools/hash-analyzer.html",
-    "icon": "/img/tools/hash.png"
+    "icon": "/img/hash2.png"
   },
   {
     "name": "IP Lookup",
     "desc": "Geolocalizzazione e ASN",
     "url": "/tools/ip-lookup.html",
-    "icon": "/img/tools/ip.png"
+    "icon": "/img/ip2.png"
   },
   {
     "name": "Header Inspector",
     "desc": "Analisi HTTP headers",
     "url": "/tools/header-inspector.html",
-    "icon": "/img/tools/header.png"
+    "icon": "/img/header.png"
   }
 ]
