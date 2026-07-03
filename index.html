@@ -1120,7 +1120,6 @@ fetch("/partials/radar.html")
 
 <script src="/js/radar.js"></script>
 
-<!-- AI TRENDS -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
@@ -1131,13 +1130,19 @@ fetch("/partials/radar.html")
        Approfondisci AI & Security →
     </a>
   </div>
-  <ul class="ai-trends">
-    <li>Modelli multimodali</li>
-    <li>AI nei SOC</li>
-    <li>AI per la difesa</li>
-    <li>AI per la produttività</li>
-  </ul>
+
+  <div id="ai-trends"></div>
 </section>
+     <script>
+fetch("/partials/ai-trends.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("ai-trends").innerHTML = html;
+      initAITrends();   // ⭐ inizializzazione DOPO il partial
+  });
+</script>
+
+<script src="/js/ai-trends.js"></script>
 
 <!-- STRUMENTI CYBER -->
 <section class="widget-large">
