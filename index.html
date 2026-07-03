@@ -1187,28 +1187,24 @@ fetch("/partials/system-status.html")
 
 <script src="/js/system-status.js"></script>
 
-<!-- CYBER THREAT MONITOR -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
     <h2>Cyber Threat Monitor</h2>
   </div>
 
-  <div class="monitor-box">
-    <span>Attività Globale</span>
-    <div class="monitor-bar"><div style="width: 72%;"></div></div>
-  </div>
-
-  <div class="monitor-box">
-    <span>Rischio Ransomware</span>
-    <div class="monitor-bar"><div style="width: 58%;"></div></div>
-  </div>
-
-  <div class="monitor-box">
-    <span>Attacchi DDoS</span>
-    <div class="monitor-bar"><div style="width: 81%;"></div></div>
-  </div>
+  <div id="threat-monitor"></div>
 </section>
+<script>
+fetch("/partials/threat-monitor.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("threat-monitor").innerHTML = html;
+      initThreatMonitor();
+  });
+</script>
+
+<script src="/js/threat-monitor.js"></script>
 
 <!-- HACKER ACTIVITY HEATMAP -->
 <section class="widget-large">
