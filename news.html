@@ -966,7 +966,7 @@ function startTrendingTopics() {
 
     async function loadTrending() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/trendingtopics.php?t=" + Date.now());
+            const res = await fetch("https://angelonline.altervista.org/newsops/trendingtopics.php?t=" + Date.now())
             const data = await res.json();
 
             list.innerHTML = "";
