@@ -89,7 +89,15 @@ fetch("/partials/ticker.html")
      <section class="news-section">
     <h2 class="news-title">Cyber Timeline</h2>
 
-    <ul id="cyber-timeline" class="timeline-list" style="color:#fff;"></ul>
+    <div id="cyber-timeline-container">
+        <ul id="cyber-timeline"></ul>
+    </div>
+
+    <div class="timeline-pagination">
+        <button id="prev-page">◀</button>
+        <span id="page-info"></span>
+        <button id="next-page">▶</button>
+    </div>
 </section>
 
 <script src="https://angelonline.altervista.org/newsops/timelinescript.js"></script>
