@@ -115,9 +115,8 @@ fetch("/partials/ticker.html")
 
     <script>
     async function startRansomTracker() {
-        const container = document.getElementById("ransom-tracker-container");
         const box = document.getElementById("ransom-tracker");
-        if (!container || !box) return;
+        if (!box) return;
 
         try {
             const res = await fetch("/newsops/ransomindex.php?t=" + Date.now());
