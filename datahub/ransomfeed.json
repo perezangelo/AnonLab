@@ -1,0 +1,82 @@
+[
+  {
+    "group": "LockBit",
+    "description": "RaaS estremamente attivo, noto per attacchi globali e infrastrutture critiche.",
+    "status": "active",
+    "date": "2026-07-05",
+    "leak": "https://lockbitblog.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/lockbit.png"
+  },
+  {
+    "group": "BlackBasta",
+    "description": "Gruppo molto attivo con focus su settori manifatturieri e servizi.",
+    "status": "active",
+    "date": "2026-07-04",
+    "leak": "https://blackbasta.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/blackbasta.png"
+  },
+  {
+    "group": "ALPHV",
+    "description": "Conosciuto anche come BlackCat, utilizza Rust e tecniche avanzate.",
+    "status": "active",
+    "date": "2026-07-03",
+    "leak": "https://alphv.black",
+    "icon": "https://ransomwatch-api.vercel.app/logos/alphv.png"
+  },
+  {
+    "group": "BianLian",
+    "description": "Gruppo che opera principalmente con estorsione senza cifratura.",
+    "status": "active",
+    "date": "2026-07-02",
+    "leak": "https://bianlian.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/bianlian.png"
+  },
+  {
+    "group": "Play",
+    "description": "Ransomware con forte attività in Europa e America Latina.",
+    "status": "active",
+    "date": "2026-07-01",
+    "leak": "https://playblog.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/play.png"
+  },
+  {
+    "group": "8Base",
+    "description": "Gruppo emergente con leak site molto attivo.",
+    "status": "active",
+    "date": "2026-06-30",
+    "leak": "https://8base.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/8base.png"
+  },
+  {
+    "group": "Cactus",
+    "description": "Ransomware noto per attacchi mirati a infrastrutture IT.",
+    "status": "active",
+    "date": "2026-06-29",
+    "leak": "https://cactusgroup.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/cactus.png"
+  },
+  {
+    "group": "Akira",
+    "description": "Gruppo con forte attività contro aziende di medie dimensioni.",
+    "status": "active",
+    "date": "2026-06-28",
+    "leak": "https://akira.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/akira.png"
+  },
+  {
+    "group": "Hunters International",
+    "description": "Successore di Hive, molto attivo nel settore sanitario.",
+    "status": "active",
+    "date": "2026-06-27",
+    "leak": "https://huntersintl.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/hunters.png"
+  },
+  {
+    "group": "RansomHouse",
+    "description": "Gruppo specializzato in data theft e leak senza cifratura.",
+    "status": "active",
+    "date": "2026-06-26",
+    "leak": "https://ransomhouse.com",
+    "icon": "https://ransomwatch-api.vercel.app/logos/ransomhouse.png"
+  }
+]
