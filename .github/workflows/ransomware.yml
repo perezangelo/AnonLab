@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch ransomware data
+      - name: Scarica dati ransomware
         run: |
           curl -s https://ransomwatch-api.vercel.app/groups > groups.json
 
-      - name: Convert to anonlab format
+      - name: Converti nel formato anonlab
         run: |
           cat groups.json | jq '[.[] | {
             group: .name,
@@ -26,12 +26,12 @@ jobs:
             date: .date_added,
             leak: .leak_site,
             icon: .icon
-          }]' > ransomware/ransomware.json
+          }]' > datahub/ransomware.json
 
       - name: Commit & Push
         run: |
           git config user.name "anonlab-bot"
           git config user.email "bot@anonlab.it"
-          git add ransomware/ransomware.json
+          git add datahub/ransomware.json
           git commit -m "Auto-update ransomware data"
           git push
