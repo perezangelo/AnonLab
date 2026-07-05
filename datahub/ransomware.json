@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "group": "LockBit",
+    "description": "Ransomware-as-a-Service group known for aggressive extortion.",
+    "status": "active",
+    "date": "2024-06-01",
+    "leak": "https://lockbitblog.com",
+    "icon": "https://raw.githubusercontent.com/perezangelo/anonlab/datahub/icons/lockbit.png"
+  },
+  {
+    "group": "BlackBasta",
+    "description": "High-profile ransomware group targeting enterprises worldwide.",
+    "status": "active",
+    "date": "2024-05-20",
+    "leak": "https://blackbasta-leaks.com",
+    "icon": "https://raw.githubusercontent.com/perezangelo/anonlab/datahub/icons/blackbasta.png"
+  }
+]
