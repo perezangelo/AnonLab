@@ -113,7 +113,63 @@ fetch("/partials/ticker.html")
         <div id="ransom-tracker"></div>
     </div>
 
-    <script src="https://angelonline.altervista.org/newsops/ransomscripts.js" defer></script>
+    <script>
+    async function startRansomTracker() {
+        const container = document.getElementById("ransom-tracker-container");
+        const box = document.getElementById("ransom-tracker");
+        if (!container || !box) return;
+
+        try {
+            const res = await fetch("/newsops/ransomindex.php?t=" + Date.now());
+            const data = await res.json();
+
+            box.innerHTML = "";
+
+            data.forEach(item => {
+                const group = item.name || "Unknown";
+                const description = item.description || "No description";
+                const status = item.status || "unknown";
+                const date = item.last_updated || "N/A";
+                const leak = item.url || "";
+                const icon = item.logo || "";
+
+                const card = document.createElement("div");
+                card.style.cssText =
+                    "background:#111;border:1px solid #333;padding:10px;margin-bottom:10px;border-radius:6px;font-size:14px;cursor:pointer;";
+
+                const iconHTML = icon
+                    ? `<img src="${icon}" style="width:24px;height:24px;margin-right:6px;border-radius:4px;">`
+                    : `<div style="width:24px;height:24px;background:#333;margin-right:6px;border-radius:4px;"></div>`;
+
+                const leakHTML = leak
+                    ? `<a href="${leak}" target="_blank" style="color:#0ff;font-size:12px;">Leak Site</a>`
+                    : `<span style="color:#555;font-size:12px;">No Leak Site</span>`;
+
+                card.innerHTML = `
+                    <div style="display:flex;align-items:center;margin-bottom:6px;">
+                        ${iconHTML}
+                        <div class="badge" style="background:#0066ff;color:#fff;padding:2px 6px;border-radius:4px;font-size:12px;">${group}</div>
+                    </div>
+                    <div style="font-size:12px;color:#ccc;margin-bottom:6px;">${description}</div>
+                    <div style="font-size:11px;color:#888;">Status: ${status} - Updated: ${date}</div>
+                    <div style="margin-top:4px;">${leakHTML}</div>
+                `;
+
+                box.appendChild(card);
+            });
+
+        } catch (e) {
+            box.textContent = "Impossibile caricare i gruppi ransomware";
+            box.style.color = "#888";
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startRansomTracker);
+    } else {
+        startRansomTracker();
+    }
+    </script>
 </section>
       
       <section class="news-section">
