@@ -1,0 +1,37 @@
+name: Update Ransomware Data
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # ogni 6 ore
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Fetch ransomware data
+        run: |
+          curl -s https://ransomwatch-api.vercel.app/groups > groups.json
+
+      - name: Convert to anonlab format
+        run: |
+          cat groups.json | jq '[.[] | {
+            group: .name,
+            description: .description,
+            status: .status,
+            date: .date_added,
+            leak: .leak_site,
+            icon: .icon
+          }]' > ransomware/ransomware.json
+
+      - name: Commit & Push
+        run: |
+          git config user.name "anonlab-bot"
+          git config user.email "bot@anonlab.it"
+          git add ransomware/ransomware.json
+          git commit -m "Auto-update ransomware data"
+          git push
