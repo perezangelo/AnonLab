@@ -1,5 +1,40 @@
 [
   {
+    "title": "The Shift Toward Business-Aligned Risk Management",
+    "link": "https://www.securityweek.com/the-shift-toward-business-aligned-risk-management/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Armored Likho APT Targeting Government, Electric Power Entities",
+    "link": "https://www.securityweek.com/armored-likho-apt-targeting-government-electric-power-entities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Software Is Now Written at the Speed of Thought. Security Isn't.",
+    "link": "https://www.bleepingcomputer.com/news/security/software-is-now-written-at-the-speed-of-thought-security-isnt/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/01/header-image.jpg"
+  },
+  {
+    "title": "Max severity Adobe ColdFusion flaw now exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/06/Adobe-headpic.jpg"
+  },
+  {
+    "title": "North Korean Hackers Target Open Source Developers in Supply Chain Attacks",
+    "link": "https://www.securityweek.com/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/11/North-Korea-macOS_Malware.jpg"
+  },
+  {
+    "title": "\u26a1 Weekly Recap: Proxy Botnets, Browser Ransomware, AI Agent Tricks, Fake PoC Malware and More",
+    "link": "https://thehackernews.com/2026/07/monday-recap-proxy-botnets-browser.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLyTSo2j_jLDBALDaJ6S4gpQf2xkxgGWRslJKuVLIrY-J7nsEG-zNgi02OKeABO5BNXCI1C05oTO1TdYYMtzjCHE7ugevubBOybwilFTXFY6wgXDBVkzMV3-cyYyZUfd-sfXmlfTtgyouay2kJYwxfclTk2M6PPOaLWdR-26P3TYuIm1l5wjQfoPVzk-ca/s1600/recapss.jpg"
+  },
+  {
+    "title": "Proof-of-Concept Exploit Released for Linux \u2018Bad Epoll\u2019 Root Access Vulnerability",
+    "link": "https://www.securityweek.com/proof-of-concept-exploit-released-for-linux-bad-epoll-root-access-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Linux-vulnerability-malware.jpeg"
+  },
+  {
     "title": "How to Evaluate an AI SOC Platform in 2026: 6 Capabilities That Separate Leaders from Bolt-On AI solutions",
     "link": "https://thehackernews.com/2026/07/how-to-evaluate-ai-soc-platform-in-2026.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeiJymlyu6GGdzNT0Fb3yi6rYZdNn_XCoDUKKV9zSD_p17gngK7FL-IDm5LLTYlGx6Rn2Em6v0TSDq7u_1lttLyp1b97z7YrjSrFK7MrYAG2k1YXI91fHRRTRoPV1xIQSukE1DwqRcHY6i6fIS0jC2CaKv18OhFWHi2fKvXRKmZ6MBgSoRMDWGxmQKlfTt/s1600/aisoc.jpg"
@@ -60,11 +95,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJGo3ti2B3O-v3XpxdiFLMhvMVB_Ee5mmTlis-Qls6K8auWLQtPb4DSLL4snqvuZSxEvYXbGVBiUvRH1wBiw53ovRi-KTpdb0WqPwkZMkA_eHTSkTQVPkexu02-I2u7wc7PKESGKFZxlKRjR1SAkgOK50kIfpqZ9wcEjZCYBWIh6u_L82tXa8WfgUIhmA/s1600/fatfs.jpg"
   },
   {
-    "title": "New \"Bad Epoll\" Linux Kernel Flaw Lets Unprivileged Users Gain Root, Hits Android",
-    "link": "https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggOXDckpE46PYIzBnXsx_kyHzFvlcB3l8qEr6feRNBhRQMKc2p5r2pQArl-NrsoB2z6vE917nXVHpuuMZOgZcRDMlwbVYC0ocK3uIsb-h59qed_kuvDKwvukQCAs-VDcE5Ail8mTRSPpnNfrPzKv5oAMQ9fJCDNE_2PpPrN9a9mOwGUIs0TnWq6_r58HM/s1600/root-linux.gif"
-  },
-  {
     "title": "NetNut proxy network disrupted, 2 million infected devices cut off",
     "link": "https://www.bleepingcomputer.com/news/security/netnut-proxy-network-disrupted-2-million-infected-devices-cut-off/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/05/09/world-internet-network.jpg"
@@ -105,11 +135,6 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2023/02/Geopolitical-Cybersecurity-Insights.jpg"
   },
   {
-    "title": "Critical Cursor AI Code Editor Flaws Could Lead to OS-Level Remote Code Execution",
-    "link": "https://www.securityweek.com/critical-cursor-ai-ide-flaws-could-lead-to-os-level-remote-code-execution/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
-  },
-  {
     "title": "Claude Fable 5 isn\u2019t permanently leaving subscriptions, Anthropic says",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png"
@@ -123,30 +148,5 @@
     "title": "Aussies Face Reduced Cybercrime Risk, as Pressure Shifts to SMBs",
     "link": "https://www.darkreading.com/cybersecurity-analytics/aussies-face-reduced-cybercrime-risk-pressure-shifts-smbs",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltef5cf25552ad1b17/6a46744dec9caa31e05a16a8/Australia-imaginima-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Apple Reverses Age-Old Patch Policy to Keep Up With AI",
-    "link": "https://www.darkreading.com/cybersecurity-operations/apple-patch-policy-ai",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb900b57271d6fc24/6a46a07ecef8a87304f980df/Apple_bandage-imtmphoto-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "FortiBleed Actors Collaborating With Inc, Lynx Ransomware Gangs",
-    "link": "https://www.darkreading.com/threat-intelligence/fortibleed-actors-inc-lynx-ransomware-gangs",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6c22b787d3880a22/6a469e8782b5bc23f1d3a21e/ransomware-Just_Super-Getty-1399980046.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Ransomware Thugs Masquerade as Interpol to Entice Small Biz",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/attackers-use-interpol-lure-target-small-businesses",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt788d90ba1818143b/6a4697d699a6c999ae9e947e/smb_Andrey_Popov_shutterstck.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Google loses final appeal to overturn \u20ac4.1 billion EU fine",
-    "link": "https://www.bleepingcomputer.com/news/legal/google-loses-final-appeal-to-overturn-41-billion-eu-fine/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/06/Europe.jpg"
-  },
-  {
-    "title": "New CitrixBleed Vulnerability Exploited Immediately After Public Disclosure",
-    "link": "https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
   }
 ]
