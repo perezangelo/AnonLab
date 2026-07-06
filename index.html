@@ -1096,7 +1096,6 @@ async function loadSocTV() {
 loadSocTV();
 </script>
 
-<!-- ⭐ TECH RADAR (VERSIONE DEFINITIVA) -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
@@ -1108,25 +1107,22 @@ loadSocTV();
     </a>
   </div>
 
-  <!-- 🔥 CONTENITORE RADAR -->
   <div id="radar"></div>
 </section>
 
-<!-- ⭐ CARICAMENTO PARTIAL + INIZIALIZZAZIONE -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   fetch("/partials/radar.html")
     .then(r => r.text())
     .then(html => {
         const radarBox = document.getElementById("radar");
-        if (!radarBox) return;   /* evita errori DOM */
+        if (!radarBox) return;
         radarBox.innerHTML = html;
-        initTechRadar();         /* inizializzazione DOPO il partial */
+        initTechRadar();
     });
 });
 </script>
 
-<!-- ⭐ SCRIPT RADAR -->
 <script src="/js/radar.js"></script>
 
 <section class="widget-large">
