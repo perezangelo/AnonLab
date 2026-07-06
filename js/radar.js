@@ -3,7 +3,7 @@ async function initTechRadar() {
     if (!list) return;
 
     try {
-        const res = await fetch("/data/radar.json?cache=" + Date.now());
+        const res = await fetch("/api/tech-radar.php?cache=" + Date.now());
         const items = await res.json();
 
         let index = 0;
@@ -12,13 +12,13 @@ async function initTechRadar() {
             list.style.opacity = 0;
 
             setTimeout(() => {
-                list.innerHTML = `<li>${items[index]}</li>`;
+                list.innerHTML = `<li>${items[index].trend}</li>`;
                 list.style.opacity = 1;
                 index = (index + 1) % items.length;
             }, 300);
         }
 
-        updateRadar();               
+        updateRadar();
         setInterval(updateRadar, 4000);
 
     } catch (err) {
