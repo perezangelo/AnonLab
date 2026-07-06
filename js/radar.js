@@ -18,8 +18,8 @@ async function initTechRadar() {
             }, 300);
         }
 
-        updateRadar();               // prima voce
-        setInterval(updateRadar, 4000); // cambia ogni 4 secondi
+        updateRadar();               
+        setInterval(updateRadar, 4000);
 
     } catch (err) {
         list.innerHTML = "<li>Errore caricamento radar</li>";
