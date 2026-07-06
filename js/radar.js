@@ -3,7 +3,7 @@ async function initTechRadar() {
     if (!list) return;
 
     try {
-        const res = await fetch("/api/tech-radar.php?cache=" + Date.now());
+        const res = await fetch("https://angelonline.altervista.org/api/tech-radar.php?cache=" + Date.now());
         const items = await res.json();
 
         let index = 0;
