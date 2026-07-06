@@ -83,6 +83,32 @@
     </p>
 
 </div>
+      <div id="ticker" aria-label="Ticker informazioni"></div>
+<!-- CARICAMENTO TICKER -->
+<script>
+fetch("/partials/ticker.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("ticker").innerHTML = html;
+
+      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
+      if (typeof initTicker === "function") {
+          initTicker();
+      }
+  });
+</script>
+
+<!-- SCRIPT TICKER -->
+<script src="/js/ticker.js"></script>
+    
+    <main class="page">
+        <section class="main-column">
+            <!-- Esempio di struttura per il contenuto della Privacy Policy -->
+            <h1>Privacy Policy</h1>
+            <div class="privacy-box">
+                <h2>1. Trattamento dei dati</h2>
+                <p>AnonLab non raccoglie dati personali, non effettua tracciamenti e non utilizza cookie di profilazione.</p>
+            </div>
   </main>
 
   <div id="footer" aria-label="Piè di pagina"></div>
