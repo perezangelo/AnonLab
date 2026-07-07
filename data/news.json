@@ -1,5 +1,35 @@
 [
   {
+    "title": "Critical Adobe ColdFusion Vulnerability Exploited in Attacks",
+    "link": "https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/coding-vulnerability-software-development.jpeg"
+  },
+  {
+    "title": "Iran-Linked Hackers Using Modular C&C Framework in Cyberattacks",
+    "link": "https://www.securityweek.com/iran-linked-hackers-using-modular-cc-framework-in-cyberattacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Iran-Saudi-Arabia-Middle-East-Egypt-Israel.jpeg"
+  },
+  {
+    "title": "Webinar tomorrow: Why modern email attacks require a new approach to defense",
+    "link": "https://www.bleepingcomputer.com/news/security/webinar-tomorrow-why-modern-email-attacks-require-a-new-approach-to-defense/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/08/23/phishing-hook.jpg"
+  },
+  {
+    "title": "New Januscape Linux flaw allows VM escape on Intel, AMD devices",
+    "link": "https://www.bleepingcomputer.com/news/linux/new-januscape-linux-kernel-flaw-allows-vm-escape-on-intel-amd-devices/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/20/linux.jpg"
+  },
+  {
+    "title": "CISO Conversations: Tarah Wheeler, Cybersecurity Leader, Thought Leader and Original Thinker",
+    "link": "https://www.securityweek.com/ciso-conversations-tarah-wheeler-cybersecurity-leader-thought-leader-and-original-thinker/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/CISO-Tarah-Wheeler.jpeg"
+  },
+  {
+    "title": "What Changes When Your Software Supply Chain Includes AI Writing Your Code?",
+    "link": "https://thehackernews.com/2026/07/what-changes-when-your-software-supply.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0OJ0wrmDju3vsLQqciy7DCza9juzf5jkuI6VPy8mXFoQ-2hVj7uNgqJD8ti8Pft2gayFWUH9TfOuIkqnKyduhjMP9-wqBxuvHPoyp39keS52R_MpsuO0bsKX03-fy2PA3V-gjqOaKuSKoOWaotAyzf9Tsc_zUGJpf4i81bHMrCJYhTo7AjtfsdN_OKuY/s1600/AI-WRITER.jpg"
+  },
+  {
     "title": "Linux Kernel Vulnerability Allows VM Escape on Intel and AMD Systems",
     "link": "https://www.securityweek.com/linux-kernel-vulnerability-allows-vm-escape-on-intel-and-amd-systems/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Linux-vulnerability-malware.jpeg"
@@ -118,35 +148,5 @@
     "title": "\u26a1 Weekly Recap: Proxy Botnets, Browser Ransomware, AI Agent Tricks, Fake PoC Malware and More",
     "link": "https://thehackernews.com/2026/07/monday-recap-proxy-botnets-browser.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLyTSo2j_jLDBALDaJ6S4gpQf2xkxgGWRslJKuVLIrY-J7nsEG-zNgi02OKeABO5BNXCI1C05oTO1TdYYMtzjCHE7ugevubBOybwilFTXFY6wgXDBVkzMV3-cyYyZUfd-sfXmlfTtgyouay2kJYwxfclTk2M6PPOaLWdR-26P3TYuIm1l5wjQfoPVzk-ca/s1600/recapss.jpg"
-  },
-  {
-    "title": "Proof-of-Concept Exploit Released for Linux \u2018Bad Epoll\u2019 Root Access Vulnerability",
-    "link": "https://www.securityweek.com/proof-of-concept-exploit-released-for-linux-bad-epoll-root-access-vulnerability/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Linux-vulnerability-malware.jpeg"
-  },
-  {
-    "title": "How to Evaluate an AI SOC Platform in 2026: 6 Capabilities That Separate Leaders from Bolt-On AI solutions",
-    "link": "https://thehackernews.com/2026/07/how-to-evaluate-ai-soc-platform-in-2026.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeiJymlyu6GGdzNT0Fb3yi6rYZdNn_XCoDUKKV9zSD_p17gngK7FL-IDm5LLTYlGx6Rn2Em6v0TSDq7u_1lttLyp1b97z7YrjSrFK7MrYAG2k1YXI91fHRRTRoPV1xIQSukE1DwqRcHY6i6fIS0jC2CaKv18OhFWHi2fKvXRKmZ6MBgSoRMDWGxmQKlfTt/s1600/aisoc.jpg"
-  },
-  {
-    "title": "Prompt Injection Attacks Trick AI Agents Into Making Crypto Payments",
-    "link": "https://www.securityweek.com/prompt-injection-attacks-trick-ai-agents-into-making-crypto-payments/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Suspected China-Nexus Hackers Use Fake Indian Tax Filing Utility to Deploy DcRAT",
-    "link": "https://thehackernews.com/2026/07/suspected-china-nexus-hackers-use-fake.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0L8iGbVZ6lxBg26K2nsc6uYpFED8ZcgCtrh4C34U4oixLPC0OKHOWWpiPBfaSwe-tpOTbCqZfRZQTMoropayZXEm0GXTtKpyBuBPRk9zF-0WPRprknYiaI2DXLDZnQb8t70R7-0Fjl5G-NNCQFF-Ex40vQZMbUJmJ2JLyXJUjYdAVvgjl3_oBF5wbHrHl/s1600/income-tax.jpg"
-  },
-  {
-    "title": "New TrojPix Attack Leaks Data From Air-Gapped Systems via Video Cable Emissions",
-    "link": "https://thehackernews.com/2026/07/new-trojpix-attack-leaks-data-from-air.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLYJDaMKVJEwbsJA1eYJaguihQzJv2dpnIl512z5xBuWojpidgE7mvbGWz27QN-Dnwx74qvCYOYGQNY4h2K00TzF_hz8D6M9gNxWALh2f2bz6jrzwuKvTuuLsb6kwU1O72qPUIjQYHtRwGPCCUYt-TDFJEZ7frhvxvsQa4vWP7HkLRPtXCi0ovIACzurMP/s1600/TrojPix-attack.jpg"
-  },
-  {
-    "title": "Flipper Zero firmware development continues with community help",
-    "link": "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/09/09/flipper.jpg"
   }
 ]
