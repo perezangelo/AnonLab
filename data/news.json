@@ -1,5 +1,35 @@
 [
   {
+    "title": "Spain arrests suspected member of pro-Russian hacktivist groups",
+    "link": "https://www.bleepingcomputer.com/news/security/spain-arrests-suspected-member-of-pro-russian-hacktivist-groups/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/11/arrest.jpg"
+  },
+  {
+    "title": "Public GitHub Issue Could Trick GitHub Agentic Workflows Into Leaking Private Repo Data",
+    "link": "https://thehackernews.com/2026/07/public-github-issue-could-trick-github.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj35Nf4KvfpGfbhGpq7fhtkXFhxKtTqAEFF5dX23th60tiUCMEYsuOXfiH-kIq1PRUWrRBMo92M6SCtE8chA882l0wCOO2gs1skw-h_sOqfA9jOcED6IYr2RVWkVzKohekZdvzOTZ9QpPnGDtOtJI9jYjWlPiAgvc1dG4Yuy-J02v8GA9rkweGIF000-lA/s1600/githubs.jpg"
+  },
+  {
+    "title": "The GitHub Actions Attack Pattern Your CI Security Scanners Miss",
+    "link": "https://www.bleepingcomputer.com/news/security/the-github-actions-attack-pattern-your-ci-security-scanners-miss/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/06/0_github-actions-header.jpg"
+  },
+  {
+    "title": "Court Filing Reveals Windows Device ID Helped FBI Trace Alleged Scattered Spider Hacker",
+    "link": "https://thehackernews.com/2026/07/court-filing-reveals-windows-device-id.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRD_854zsswRvh7xWklnbEkAjmk7UZy_-dQzlueMbq1ib7deDs-QH0av7XRZ1WEq3vcX57cDDcioIdkebKCiF7qr8xC9Evw7GmFuDS0kQt3mnpXgb3Q2H62eHPIgCy3rk1Mj3uM-Mge0XTfMgSCGaumk3i5KatoyrFnu_PUhg8cZGY1ZAd185qsNqZ1jE/s1600/md-id.jpg"
+  },
+  {
+    "title": "Writer AI Flaw Could Let Agent Previews Leak Session Tokens Across Tenants",
+    "link": "https://thehackernews.com/2026/07/writer-ai-flaw-could-let-agent-previews.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgH0EnuZfnTZVOg-ACF0jKSHBB8TemRtJ6vlDerjpWy9giH2VsJTP_XiktA9SCytwnDcP95jn4gyQaPk2r92S-J-4EcB7FDvenxXiNwJKtg1VQkV_f564nT6mrS6S3wuMX3SC22kdd5nJM9y4IecNKJ3CRq569DtujHzUgaVOAwQDpfvCgkCrSrfeRjT1CQ/s1600/writerai.jpg"
+  },
+  {
+    "title": "CISA Reportedly Using Anthropic\u2019s Mythos to Scan Government Software for Flaws",
+    "link": "https://www.securityweek.com/cisa-reportedly-using-anthropics-mythos-to-scan-government-software-for-flaws/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/Claude-Mythos-cybersecurity-AI.jpg"
+  },
+  {
     "title": "Critical Adobe ColdFusion Vulnerability Exploited in Attacks",
     "link": "https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/04/coding-vulnerability-software-development.jpeg"
@@ -118,35 +148,5 @@
     "title": "Threat Actors Probe Gitea Docker Flaw CVE-2026-20896 13 Days After Disclosure",
     "link": "https://thehackernews.com/2026/07/threat-actors-probe-gitea-docker-flaw.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEge0sNgi3moDw0JpFy3UdFB6bK0oxjaqc8ORZFecu5QqxA_wgpoWT1t56L9u2wScSkxYHP2aLO3N01yCPd8IkTBEyc_MvxIaG6BKzneB0LcXuwO_nEorvNvyvuEL3Krp003q6xOF0gePQCXN_bDswxBIhqV7q89_HY9mIxJ5ySShQwtU_jSa9FQnt0tq0RU/s1600/admin.jpg"
-  },
-  {
-    "title": "The Shift Toward Business-Aligned Risk Management",
-    "link": "https://www.securityweek.com/the-shift-toward-business-aligned-risk-management/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Armored Likho APT Targeting Government, Electric Power Entities",
-    "link": "https://www.securityweek.com/armored-likho-apt-targeting-government-electric-power-entities/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Software Is Now Written at the Speed of Thought. Security Isn't.",
-    "link": "https://www.bleepingcomputer.com/news/security/software-is-now-written-at-the-speed-of-thought-security-isnt/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/01/header-image.jpg"
-  },
-  {
-    "title": "Max severity Adobe ColdFusion flaw now exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/max-severity-adobe-coldfusion-flaw-now-exploited-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/06/Adobe-headpic.jpg"
-  },
-  {
-    "title": "North Korean Hackers Target Open Source Developers in Supply Chain Attacks",
-    "link": "https://www.securityweek.com/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/11/North-Korea-macOS_Malware.jpg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: Proxy Botnets, Browser Ransomware, AI Agent Tricks, Fake PoC Malware and More",
-    "link": "https://thehackernews.com/2026/07/monday-recap-proxy-botnets-browser.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLyTSo2j_jLDBALDaJ6S4gpQf2xkxgGWRslJKuVLIrY-J7nsEG-zNgi02OKeABO5BNXCI1C05oTO1TdYYMtzjCHE7ugevubBOybwilFTXFY6wgXDBVkzMV3-cyYyZUfd-sfXmlfTtgyouay2kJYwxfclTk2M6PPOaLWdR-26P3TYuIm1l5wjQfoPVzk-ca/s1600/recapss.jpg"
   }
 ]
