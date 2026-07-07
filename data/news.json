@@ -1,8 +1,33 @@
 [
   {
+    "title": "County Government Reportedly Paid $1 Million to Cyber Extortion Group",
+    "link": "https://www.securityweek.com/county-government-reportedly-paid-1-million-to-cyber-extortion-group/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/Fraud-Cybercrime-AI.jpeg"
+  },
+  {
+    "title": "Hidden backdoor in Tenda router firmware grants admin access",
+    "link": "https://www.bleepingcomputer.com/news/security/hidden-backdoor-in-tenda-router-firmware-grants-admin-access/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/07/tenda-router.jpg"
+  },
+  {
+    "title": "Critical Gitea Flaw Under Active Exploitation, Researchers Warn",
+    "link": "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "'GitLost' Flaw Leaks Private Data From GitHub's Agentic Workflows",
+    "link": "https://www.darkreading.com/cyber-risk/gitlost-leaks-private-data-github-agentic-workflows",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt10ffb7d3c09c15f9/6a4cd672541f2a099e941684/Unlock_Data_Breach_Pattara_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Spain arrests suspected member of pro-Russian hacktivist groups",
     "link": "https://www.bleepingcomputer.com/news/security/spain-arrests-suspected-member-of-pro-russian-hacktivist-groups/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/11/arrest.jpg"
+  },
+  {
+    "title": "DEBULL Tooling Abuses Microsoft Device-Code Flow to Target M365 Accounts",
+    "link": "https://thehackernews.com/2026/07/debull-tooling-abuses-microsoft-device.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg__v7vicSomxW52wnr8HsJgQKf0vg3kdjUicmIUCMCDexaBZ68pLZzXKVSJxNEeBuBuEzueOldcd5GhtGQI-8eMqd9j0QWMqGScmbZpqBS9RFkXxXSfOZYhBSGqD8BBDfVUEn4RN86sKhgkl9xkJtYMl-7a2zsIU6LCC5j_U2BkupJGr3JqP9_GZCHfHtl/s1600/ms-device-code.jpg"
   },
   {
     "title": "Public GitHub Issue Could Trick GitHub Agentic Workflows Into Leaking Private Repo Data",
@@ -50,6 +75,41 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/20/linux.jpg"
   },
   {
+    "title": "Hydro-Qu\u00e9bec Le Circuit Electrique charging station backend",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-01",
+    "image": ""
+  },
+  {
+    "title": "Siemens Mendix Studio Pro",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-04",
+    "image": ""
+  },
+  {
+    "title": "Digi International PortServer TS, Digi One SP IA",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-07",
+    "image": ""
+  },
+  {
+    "title": "Hitachi Energy e-mesh EMS",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-03",
+    "image": ""
+  },
+  {
+    "title": "Labcenter Proteus 9",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-06",
+    "image": ""
+  },
+  {
+    "title": "Hitachi Energy PROMOD V",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-02",
+    "image": ""
+  },
+  {
+    "title": "Siemens SINEC OS",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05",
+    "image": ""
+  },
+  {
     "title": "CISO Conversations: Tarah Wheeler, Cybersecurity Leader, Thought Leader and Original Thinker",
     "link": "https://www.securityweek.com/ciso-conversations-tarah-wheeler-cybersecurity-leader-thought-leader-and-original-thinker/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/CISO-Tarah-Wheeler.jpeg"
@@ -88,65 +148,5 @@
     "title": "Microsoft testing new Cloud Rebuild Windows 11 recovery feature",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-testing-new-cloud-rebuild-windows-11-recovery-feature/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/10/27/Windows_11.jpg"
-  },
-  {
-    "title": "CERT/CC Warns of Hidden Admin Backdoor in Tenda Router Firmware",
-    "link": "https://thehackernews.com/2026/07/certcc-warns-of-hidden-admin-backdoor.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibED37Q9WinxGoPYaXltP_givD-Q30FneMyezHB4uftr5E4hy4fMm97v_UH34sQWEvlp688bYvMR6zDzy_C93ddbqNDfIVSX7swJgdTD38hOmKgu6ZLGjBW068gXHpsT4soRscJ1vWDxTz2z8xBDSb2QD2UWrR68nVytui4mo6Q0cXVh_GjK5FC6P4imvK/s1600/backdoor-admin.jpg"
-  },
-  {
-    "title": "BeyondTrust Patches Critical Auth Bypass Flaws in Remote Support and PRA",
-    "link": "https://thehackernews.com/2026/07/beyondtrust-patches-critical-auth.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEim5I3ndx1DHNKSznD7AT_CM4ApiaXDfZcQAwsCSDnHq7u8dkGcOzway-IBZJ44bFJintaRMSry4yHbaacESRFOJsRC_UBV6N9l_K4ICcqWsZ2E4zQ5BGibAkxjxm0qPYiiLEvAvDizmPZVYwXC6jN9pgB5G-3xZ9ifiEWisKsZoi9rBjJN1mepJjPl61s9/s1600/bt.jpg"
-  },
-  {
-    "title": "'BusySnake' Infostealer Slithers into Critical Infrastructure Networks",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/busysnake-infostealer-critical-infrastructure-networks",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8a5851671625faf8/6a4c14c7cdf54e22d2b6249c/busysnake_LuckyStep_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "CitrixBleed-ing Again? NetScaler Vulnerability Under Attack",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/citrixbleed-ing-again-netscaler-vulnerability-under-attack",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt88ecb8d1db40386a/6a4c12e577f2da733fcdacb6/rm-Citrix_Justin_Sullivan-Getty-1367905224.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Phishing poses as big-brand job interview to steal Google accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/phishing-poses-as-big-brand-job-interview-to-steal-google-accounts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/06/hacker-looking-for-work-question.jpg"
-  },
-  {
-    "title": "Fake IT support calls on Microsoft Teams push EtherRAT malware",
-    "link": "https://www.bleepingcomputer.com/news/security/fake-it-support-calls-on-microsoft-teams-push-etherrat-malware/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/17/Microsoft--Teams.jpg"
-  },
-  {
-    "title": "Blogspot-Hosted Payloads Delivered in \u2018Veil#Drop\u2019 Attacks",
-    "link": "https://www.securityweek.com/blogspot-hosted-payloads-delivered-in-veildrop-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Iran-Linked Hackers Use New Cavern C2 Framework to Target Israeli Organizations",
-    "link": "https://thehackernews.com/2026/07/iran-linked-hackers-use-new-cavern-c2.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj80nucNUGoxxOtE3SUY1SkDSu77qENrl96c2MUoLWdwAo3ZVoA4FS2QfOdM9c5bsZUJdX1ZxIsXgu7pvVfUzXz3GMZJHmblFTjv5C08dbxvLqXol72iHaD-zH950EZdXUCS-b7F2T-bn8SgqQb9nXA-uOPIaX5V0eaNNmKlQJfWHAKaPAhqsgNL0wTgJH6/s1600/cavern.jpg"
-  },
-  {
-    "title": "Vietnam arrests suspects behind HiAnime anime piracy service",
-    "link": "https://www.bleepingcomputer.com/news/security/vietnam-arrests-suspects-behind-hianime-anime-piracy-service/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/06/Hianime.jpg"
-  },
-  {
-    "title": "16-Year-Old Linux KVM Flaw Lets Guest VMs Escape to Host on Intel and AMD x86 Systems",
-    "link": "https://thehackernews.com/2026/07/16-year-old-linux-kvm-flaw-lets-guest.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjG42lgj1grtq5EQICr-9RYvPU59uHFRBluzVoZ3TZLXEXBcF5bOPerpb_Ck-e6oNz6P4MO1VAiqbBXuPbImhng1CoRnRYHWSZTGOloHmYB5khhpCK5wW348uMgqmWIjTQPnOwCGV7OiPXJoJDWV0n1IPGP80hADXD3AnmRKbTb8jxyGQenhlgIpvNo29I/s1600/linux-kvm.jpg"
-  },
-  {
-    "title": "JadePuffer: The First Complete LLM-Driven Ransomware Attack",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbc06310368e21110/6a4bdbe6a6d4757864059ce1/llm-Boy_Wirat-Getty-2149059417.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Threat Actors Probe Gitea Docker Flaw CVE-2026-20896 13 Days After Disclosure",
-    "link": "https://thehackernews.com/2026/07/threat-actors-probe-gitea-docker-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEge0sNgi3moDw0JpFy3UdFB6bK0oxjaqc8ORZFecu5QqxA_wgpoWT1t56L9u2wScSkxYHP2aLO3N01yCPd8IkTBEyc_MvxIaG6BKzneB0LcXuwO_nEorvNvyvuEL3Krp003q6xOF0gePQCXN_bDswxBIhqV7q89_HY9mIxJ5ySShQwtU_jSa9FQnt0tq0RU/s1600/admin.jpg"
   }
 ]
