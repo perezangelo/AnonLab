@@ -1,5 +1,40 @@
 [
   {
+    "title": "Linux Kernel Vulnerability Allows VM Escape on Intel and AMD Systems",
+    "link": "https://www.securityweek.com/linux-kernel-vulnerability-allows-vm-escape-on-intel-and-amd-systems/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Linux-vulnerability-malware.jpeg"
+  },
+  {
+    "title": "Microsoft to enable Windows settings backup by default for orgs",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-to-enable-windows-backup-for-organizations-by-default/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
+  },
+  {
+    "title": "Keyfactor Scores $1 Billion+ Investment for AI, Post-Quantum Security",
+    "link": "https://www.securityweek.com/keyfactor-scores-1-billion-investment-for-ai-post-quantum-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Suspected China-Aligned Hackers Exploit Roundcube Flaws Against Universities",
+    "link": "https://thehackernews.com/2026/07/suspected-china-aligned-hackers-exploit.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitErUXjxgvdr7CLGa67wtfentIJSFkobxbyIMtQNK4mzNTyf_3Mq9mckQNCGONMFqVaCvkvNKf7FqJfevWKstiWEOxt5wDlV_Fus-Ob3bo9vkMb3m5natJZjHhG-0r4FbH5UUBP4aiGtLcJ7mFIIwLw7IPIHOqw5ln1kAC_ZsiOvllGmVXws4bCXBGugBu/s1600/server-hacker.jpg"
+  },
+  {
+    "title": "BeyondTrust warns of critical flaws in remote access software",
+    "link": "https://www.bleepingcomputer.com/news/security/beyondtrust-warns-of-critical-flaws-in-remote-access-software/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/16/BeyondTrust.jpg"
+  },
+  {
+    "title": "Microsoft testing new Cloud Rebuild Windows 11 recovery feature",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-testing-new-cloud-rebuild-windows-11-recovery-feature/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/27/Windows_11.jpg"
+  },
+  {
+    "title": "CERT/CC Warns of Hidden Admin Backdoor in Tenda Router Firmware",
+    "link": "https://thehackernews.com/2026/07/certcc-warns-of-hidden-admin-backdoor.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibED37Q9WinxGoPYaXltP_givD-Q30FneMyezHB4uftr5E4hy4fMm97v_UH34sQWEvlp688bYvMR6zDzy_C93ddbqNDfIVSX7swJgdTD38hOmKgu6ZLGjBW068gXHpsT4soRscJ1vWDxTz2z8xBDSb2QD2UWrR68nVytui4mo6Q0cXVh_GjK5FC6P4imvK/s1600/backdoor-admin.jpg"
+  },
+  {
     "title": "BeyondTrust Patches Critical Auth Bypass Flaws in Remote Support and PRA",
     "link": "https://thehackernews.com/2026/07/beyondtrust-patches-critical-auth.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEim5I3ndx1DHNKSznD7AT_CM4ApiaXDfZcQAwsCSDnHq7u8dkGcOzway-IBZJ44bFJintaRMSry4yHbaacESRFOJsRC_UBV6N9l_K4ICcqWsZ2E4zQ5BGibAkxjxm0qPYiiLEvAvDizmPZVYwXC6jN9pgB5G-3xZ9ifiEWisKsZoi9rBjJN1mepJjPl61s9/s1600/bt.jpg"
@@ -110,43 +145,8 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLYJDaMKVJEwbsJA1eYJaguihQzJv2dpnIl512z5xBuWojpidgE7mvbGWz27QN-Dnwx74qvCYOYGQNY4h2K00TzF_hz8D6M9gNxWALh2f2bz6jrzwuKvTuuLsb6kwU1O72qPUIjQYHtRwGPCCUYt-TDFJEZ7frhvxvsQa4vWP7HkLRPtXCi0ovIACzurMP/s1600/TrojPix-attack.jpg"
   },
   {
-    "title": "New Java-Based QuimaRAT MaaS Built to Run on Windows, Linux, and macOS",
-    "link": "https://thehackernews.com/2026/07/new-java-based-quimarat-maas-built-to.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVcOvCD8qFylCqOCpN8Rnl9cnxNkIeGxNbVKzlsKXY_7Nuw2xvYsckNEHKVM5ntvT2JAureArFIyApOvGLu52wpCG1xbHO8Y5xBmOAkSI3RoyEegmlNxs_gJip32Uzv_inXS7seOeRB1d3mw9SNIggoqgIApupRF2etBx5U_IFkuQz4_WNBL0Q1oi1l77q/s1600/javarat.jpg"
-  },
-  {
-    "title": "Opera GX Flaw Let Malicious Sites Auto-Install Mods to Steal Data From Visited Pages",
-    "link": "https://thehackernews.com/2026/07/opera-gx-flaw-let-malicious-sites-auto.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ_WItJUaS3rk5pAYa5yOsKuUt0Yovlv1T-jIz2GBBhcmMjToCgnWuEApyWfgDwngwAPcEGke0zwo_2DKKHaN9vzzHMAnd7Z3esepEvjSM022BzOdjo0sJW2bSMlslKXVv5Fg701ozva1HDgZPJV4Qya8Xevye-eT4dB0UmIJK9CKq-_wLnEGgNYigRLzh/s1600/opera-data-leak.jpg"
-  },
-  {
     "title": "Flipper Zero firmware development continues with community help",
     "link": "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/09/09/flipper.jpg"
-  },
-  {
-    "title": "JadePuffer ransomware used AI agent to automate entire attack",
-    "link": "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/02/pufferfish.jpg"
-  },
-  {
-    "title": "NetNut proxy network disrupted, 2 million infected devices cut off",
-    "link": "https://www.bleepingcomputer.com/news/security/netnut-proxy-network-disrupted-2-million-infected-devices-cut-off/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/05/09/world-internet-network.jpg"
-  },
-  {
-    "title": "In Other News: Canadian Hacker Jailed, Open Source Zero-Days, Two Sentenced for ATM Jackpotting",
-    "link": "https://www.securityweek.com/in-other-news-canadian-hacker-jailed-open-source-zero-days-two-sentenced-for-atm-jackpotting/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
-    "title": "ARToken PhaaS exposes EvilTokens' Microsoft 365 phishing toolkit",
-    "link": "https://www.bleepingcomputer.com/news/security/artoken-phaas-exposes-eviltokens-microsoft-365-phishing-toolkit/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/15/MS365.jpg"
-  },
-  {
-    "title": "Chinese LLMs Broaden the Gap Between Attackers &amp; Defenders",
-    "link": "https://www.darkreading.com/cyber-risk/chinese-llms-broaden-gap-between-attackers-and-defenders",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0617bd7899766864/6a46aac83cc4ed702aef33b2/castle-of-the-moors-Gabriela_Beres-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
