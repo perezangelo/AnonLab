@@ -1,5 +1,10 @@
 [
   {
+    "title": "Chinese hackers develop LONGLEASH malware to expand ORB network",
+    "link": "https://www.bleepingcomputer.com/news/security/chinese-hackers-develop-longleash-malware-to-expand-orb-network/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/23/China.jpg"
+  },
+  {
     "title": "County Government Reportedly Paid $1 Million to Cyber Extortion Group",
     "link": "https://www.securityweek.com/county-government-reportedly-paid-1-million-to-cyber-extortion-group/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/Fraud-Cybercrime-AI.jpeg"
@@ -13,6 +18,16 @@
     "title": "Critical Gitea Flaw Under Active Exploitation, Researchers Warn",
     "link": "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "RedWing MaaS Packages Android Bank Fraud as a Telegram Rental Service",
+    "link": "https://thehackernews.com/2026/07/redwing-maas-packages-android-bank.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdqPEGRKkKA7pjGNpR8hijHzJLPvyPD1g1C8bTt91eLUOFdu6Jw99i8LFybvHG9SP3syQ8shdXpC6EhinlQoB9aTgBMtejiCWAzVhhTi0o3nCTKZeKNnwDY0J_Lbf9LGN-KIQIoJ7-GW2op-JUcBg64uz5Actwh7TsFEstwNx9fXnLj4SODskUpnX9TPE/s1600/android-trojan-telegram.jpg"
+  },
+  {
+    "title": "Rogue Agent Flaw Could Have Let Attackers Hijack Google Dialogflow CX Chatbots",
+    "link": "https://thehackernews.com/2026/07/rogue-agent-flaw-could-have-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9i8xIVWZcplpj-QuKnJKGAJjGi0Xq-q2R_luyy-HYXWkpsAPTYASmVbm2w2DoNOQkA81fyu0OQsbflhLykcYQpv66UDBeRxU1v5-xq7kQDQMS0cmvsCFmZI36jfyGxh6xrroU4hNhH_8_nOyXV_WG07om2t4riI-HP4wzE3HJr2KJ3-sUnKxbTNhV84k/s1600/google-chatbots.jpg"
   },
   {
     "title": "'GitLost' Flaw Leaks Private Data From GitHub's Agentic Workflows",
@@ -75,18 +90,8 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/20/linux.jpg"
   },
   {
-    "title": "Hydro-Qu\u00e9bec Le Circuit Electrique charging station backend",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-01",
-    "image": ""
-  },
-  {
-    "title": "Siemens Mendix Studio Pro",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-04",
-    "image": ""
-  },
-  {
-    "title": "Digi International PortServer TS, Digi One SP IA",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-07",
+    "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/07/07/cisa-adds-three-known-exploited-vulnerabilities-catalog",
     "image": ""
   },
   {
@@ -105,8 +110,23 @@
     "image": ""
   },
   {
+    "title": "Digi International PortServer TS, Digi One SP IA",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-07",
+    "image": ""
+  },
+  {
     "title": "Siemens SINEC OS",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-05",
+    "image": ""
+  },
+  {
+    "title": "Siemens Mendix Studio Pro",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-04",
+    "image": ""
+  },
+  {
+    "title": "Hydro-Qu\u00e9bec Le Circuit Electrique charging station backend",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-01",
     "image": ""
   },
   {
@@ -128,25 +148,5 @@
     "title": "Microsoft to enable Windows settings backup by default for orgs",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-to-enable-windows-backup-for-organizations-by-default/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
-  },
-  {
-    "title": "Keyfactor Scores $1 Billion+ Investment for AI, Post-Quantum Security",
-    "link": "https://www.securityweek.com/keyfactor-scores-1-billion-investment-for-ai-post-quantum-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Suspected China-Aligned Hackers Exploit Roundcube Flaws Against Universities",
-    "link": "https://thehackernews.com/2026/07/suspected-china-aligned-hackers-exploit.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitErUXjxgvdr7CLGa67wtfentIJSFkobxbyIMtQNK4mzNTyf_3Mq9mckQNCGONMFqVaCvkvNKf7FqJfevWKstiWEOxt5wDlV_Fus-Ob3bo9vkMb3m5natJZjHhG-0r4FbH5UUBP4aiGtLcJ7mFIIwLw7IPIHOqw5ln1kAC_ZsiOvllGmVXws4bCXBGugBu/s1600/server-hacker.jpg"
-  },
-  {
-    "title": "BeyondTrust warns of critical flaws in remote access software",
-    "link": "https://www.bleepingcomputer.com/news/security/beyondtrust-warns-of-critical-flaws-in-remote-access-software/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/16/BeyondTrust.jpg"
-  },
-  {
-    "title": "Microsoft testing new Cloud Rebuild Windows 11 recovery feature",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-testing-new-cloud-rebuild-windows-11-recovery-feature/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/27/Windows_11.jpg"
   }
 ]
