@@ -1,5 +1,30 @@
 [
   {
+    "title": "3 Ways AI Powers Service Desk Attacks and How to Prevent Them",
+    "link": "https://www.bleepingcomputer.com/news/security/3-ways-ai-powers-service-desk-attacks-and-how-to-prevent-them/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/06/3-ways-ai-aids-service-desk-attacks-and-how-to-prevent-them.jpg"
+  },
+  {
+    "title": "Webinar Today: Why Email Security Keeps Failing",
+    "link": "https://www.securityweek.com/webinar-today-why-email-security-keeps-failing/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/doppel_78-scaled.jpg"
+  },
+  {
+    "title": "New Ghost Phishing Wave Is Breaking Traditional Email Security",
+    "link": "https://thehackernews.com/2026/07/new-ghost-phishing-wave-is-breaking.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgl6gaxMQBH0Bjb1ZhuaOiM5gKEk-zuSf821eRfV33ogx6YWwENunjyOPF8VXHtgtHgIevENLfBV2O04QI4TtjtDe2PGGevWptQEEagmp6q-G4FqOankGokz70XzVtz7dmNbEZ5G7-pV0yINgd2-ima7ap8xeOxuhZBKw2WPoUo81wKmGrwsPxbzYkW5Wk/s1600/anyrun-main.jpg"
+  },
+  {
+    "title": "SCMBANKER Malware Uses ClickFix Lures to Target Mexican Banking Users",
+    "link": "https://thehackernews.com/2026/07/scmbanker-malware-uses-clickfix-lures.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguw-rOR8Masg2W1UVlfj5rr1nTNdwmhHfXvKG-8rLXWxkwDjtEy-O2ZCb40GEca78DPql7PPEPIrRL_tYt9Ob51ZW7_L-i7w-Ej7DzX2NtNGBrRHuorMowS0d89GxVjQW492-J1LansFJY7SqZgVCtBvcwhyphenhyphenpOcveL_9rNcsgyJm-cRSwnbwvFXKQuLMA9/s1600/clickfix-banking.jpg"
+  },
+  {
+    "title": "Google Dialogflow CX Bug Allowed Attackers to Hijack AI Conversations",
+    "link": "https://www.securityweek.com/google-dialogflow-cx-bug-allowed-attackers-to-hijack-ai-conversations/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
     "title": "DuckDuckGo browser now blocks YouTube video ads",
     "link": "https://www.bleepingcomputer.com/news/software/duckduckgo-browser-now-blocks-youtube-video-ads/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/07/header.jpg"
@@ -123,30 +148,5 @@
     "title": "Spain arrests suspected member of pro-Russian hacktivist groups",
     "link": "https://www.bleepingcomputer.com/news/security/spain-arrests-suspected-member-of-pro-russian-hacktivist-groups/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/11/arrest.jpg"
-  },
-  {
-    "title": "DEBULL Tooling Abuses Microsoft Device-Code Flow to Target M365 Accounts",
-    "link": "https://thehackernews.com/2026/07/debull-tooling-abuses-microsoft-device.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg__v7vicSomxW52wnr8HsJgQKf0vg3kdjUicmIUCMCDexaBZ68pLZzXKVSJxNEeBuBuEzueOldcd5GhtGQI-8eMqd9j0QWMqGScmbZpqBS9RFkXxXSfOZYhBSGqD8BBDfVUEn4RN86sKhgkl9xkJtYMl-7a2zsIU6LCC5j_U2BkupJGr3JqP9_GZCHfHtl/s1600/ms-device-code.jpg"
-  },
-  {
-    "title": "Public GitHub Issue Could Trick GitHub Agentic Workflows Into Leaking Private Repo Data",
-    "link": "https://thehackernews.com/2026/07/public-github-issue-could-trick-github.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj35Nf4KvfpGfbhGpq7fhtkXFhxKtTqAEFF5dX23th60tiUCMEYsuOXfiH-kIq1PRUWrRBMo92M6SCtE8chA882l0wCOO2gs1skw-h_sOqfA9jOcED6IYr2RVWkVzKohekZdvzOTZ9QpPnGDtOtJI9jYjWlPiAgvc1dG4Yuy-J02v8GA9rkweGIF000-lA/s1600/githubs.jpg"
-  },
-  {
-    "title": "The GitHub Actions Attack Pattern Your CI Security Scanners Miss",
-    "link": "https://www.bleepingcomputer.com/news/security/the-github-actions-attack-pattern-your-ci-security-scanners-miss/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/06/0_github-actions-header.jpg"
-  },
-  {
-    "title": "CISA Reportedly Using Anthropic\u2019s Mythos to Scan Government Software for Flaws",
-    "link": "https://www.securityweek.com/cisa-reportedly-using-anthropics-mythos-to-scan-government-software-for-flaws/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/Claude-Mythos-cybersecurity-AI.jpg"
-  },
-  {
-    "title": "Critical Adobe ColdFusion Vulnerability Exploited in Attacks",
-    "link": "https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/coding-vulnerability-software-development.jpeg"
   }
 ]
