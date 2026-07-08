@@ -1,5 +1,25 @@
 [
   {
+    "title": "CISA Urges Immediate Patching of Exploited ColdFusion, Langflow, Joomla Flaws",
+    "link": "https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-coldfusion-langflow-joomla-flaws/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/CISA-KEV.jpg"
+  },
+  {
+    "title": "Critical Vulnerability Exposes GitHub Agentic Workflows to Prompt Injection",
+    "link": "https://www.securityweek.com/critical-vulnerability-exposes-github-agentic-workflows-to-prompt-injection/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "CISA orders feds to prioritize patching Langflow auth bypass flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-prioritize-patching-langflow-auth-bypass-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/01/13/CISA--headpic.jpg"
+  },
+  {
+    "title": "China-Linked UAT-7810 Expands ORB Network With New LONGLEASH Malware",
+    "link": "https://thehackernews.com/2026/07/china-linked-uat-7810-expands-orb.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXpYmSnXODMABymw2qCiVS3p13OIwfJ45yIZq-o8wXfgtWXxOPjPbsGjdgEExUsWcvkKhtyPBhGsc6mSIzg8fzwrVJE_GIIm0k3qbzMd7BSjUcAjRFznnsXjv-dnG-Zq671G-_PYcHe88J4yTpy0FBc_pReVfNVrwGvGceEvAbLqA_roMRNI2DjbwohEqK/s1600/routers.jpg"
+  },
+  {
     "title": "Ubiquiti warns of new max severity  UniFi OS vulnerability",
     "link": "https://www.bleepingcomputer.com/news/security/ubiquiti-warns-of-new-max-severity-unifi-os-vulnerability/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/08/Ubiquiti.jpg"
@@ -128,25 +148,5 @@
     "title": "New Januscape Linux flaw allows VM escape on Intel, AMD devices",
     "link": "https://www.bleepingcomputer.com/news/linux/new-januscape-linux-kernel-flaw-allows-vm-escape-on-intel-amd-devices/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/20/linux.jpg"
-  },
-  {
-    "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/07/07/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "Hitachi Energy e-mesh EMS",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-03",
-    "image": ""
-  },
-  {
-    "title": "Labcenter Proteus 9",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-06",
-    "image": ""
-  },
-  {
-    "title": "Hitachi Energy PROMOD V",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-188-02",
-    "image": ""
   }
 ]
