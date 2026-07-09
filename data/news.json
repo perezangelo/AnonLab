@@ -1,5 +1,40 @@
 [
   {
+    "title": "Microsoft to retire the OWA Light client in Exchange Server",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-announces-owa-light-retirement-in-exchange-server/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/07/03/Exchange_Server.jpg"
+  },
+  {
+    "title": "Microsoft Patches Defender \u2018RoguePlanet\u2019 Vulnerability",
+    "link": "https://www.securityweek.com/microsoft-patches-defender-rogueplanet-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Windows-Kernel-BSOD.jpg"
+  },
+  {
+    "title": "Mount Royal University Confirms Data Stolen in Ransomware Attack",
+    "link": "https://www.securityweek.com/mount-royal-university-confirms-data-stolen-in-ransomware-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/University-Hack.jpeg"
+  },
+  {
+    "title": "'GodDamn' Ransomware Uses BYOVD to Smite US Companies",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/goddamn-ransomware-byovd-smite-companies",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte150e290c84d7ff7/6a4e795f8fda9dc0ef942942/Zeus-Hemera_Technologies-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Police arrests 5,800 suspects in global anti-fraud crackdown",
+    "link": "https://www.bleepingcomputer.com/news/security/police-arrests-5-800-suspects-in-global-anti-fraud-crackdown/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/06/16/law-enforcement-arrest-red.jpg"
+  },
+  {
+    "title": "AI Coding Tools Tricked Into Hacking Developer Machine via Decades-Old Technique",
+    "link": "https://www.securityweek.com/ai-coding-tools-tricked-into-hacking-developer-machine-via-decades-old-technique/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-coding.jpeg"
+  },
+  {
+    "title": "Microsoft Patches RoguePlanet Defender Flaw That Can Grant SYSTEM Privileges",
+    "link": "https://thehackernews.com/2026/07/microsoft-patches-rogueplanet-defender.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuqwSaoB3zc0bIhf1aBmcHsVVAsGnRDBc681vhmlgHYy0xx5VSxyS2jqjmk-mq27QrSKPN3yorL3A7DffJYp3iMO7CY_8owm-Cn8r7IFuvqeGHTPSyiFM0KVTMTE8W0Qon84tCbzsLVNqoS5nLq1aX8_RNKg0sxa2ke4Su_p5qy9dAlFdakwYcjueBGNhD/s1600/windows.jpg"
+  },
+  {
     "title": "European Organizations Have a Collaboration Security Confidence Gap",
     "link": "https://www.darkreading.com/cybersecurity-operations/european-organizations-collaboration-security-confidence-gap",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt505e5a89f2bc35de/6a4e65b0c9561b26f8981a67/collaboration_vectorfusionart_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -113,40 +148,5 @@
     "title": "3 Ways AI Powers Service Desk Attacks and How to Prevent Them",
     "link": "https://www.bleepingcomputer.com/news/security/3-ways-ai-powers-service-desk-attacks-and-how-to-prevent-them/",
     "image": "https://www.bleepstatic.com/content/posts/2026/07/06/3-ways-ai-aids-service-desk-attacks-and-how-to-prevent-them.jpg"
-  },
-  {
-    "title": "Webinar Today: Why Email Security Keeps Failing",
-    "link": "https://www.securityweek.com/webinar-today-why-email-security-keeps-failing/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/doppel_78-scaled.jpg"
-  },
-  {
-    "title": "New Ghost Phishing Wave Is Breaking Traditional Email Security",
-    "link": "https://thehackernews.com/2026/07/new-ghost-phishing-wave-is-breaking.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgl6gaxMQBH0Bjb1ZhuaOiM5gKEk-zuSf821eRfV33ogx6YWwENunjyOPF8VXHtgtHgIevENLfBV2O04QI4TtjtDe2PGGevWptQEEagmp6q-G4FqOankGokz70XzVtz7dmNbEZ5G7-pV0yINgd2-ima7ap8xeOxuhZBKw2WPoUo81wKmGrwsPxbzYkW5Wk/s1600/anyrun-main.jpg"
-  },
-  {
-    "title": "SCMBANKER Malware Uses ClickFix Lures to Target Mexican Banking Users",
-    "link": "https://thehackernews.com/2026/07/scmbanker-malware-uses-clickfix-lures.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguw-rOR8Masg2W1UVlfj5rr1nTNdwmhHfXvKG-8rLXWxkwDjtEy-O2ZCb40GEca78DPql7PPEPIrRL_tYt9Ob51ZW7_L-i7w-Ej7DzX2NtNGBrRHuorMowS0d89GxVjQW492-J1LansFJY7SqZgVCtBvcwhyphenhyphenpOcveL_9rNcsgyJm-cRSwnbwvFXKQuLMA9/s1600/clickfix-banking.jpg"
-  },
-  {
-    "title": "Google Dialogflow CX Bug Allowed Attackers to Hijack AI Conversations",
-    "link": "https://www.securityweek.com/google-dialogflow-cx-bug-allowed-attackers-to-hijack-ai-conversations/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "DuckDuckGo browser now blocks YouTube video ads",
-    "link": "https://www.bleepingcomputer.com/news/software/duckduckgo-browser-now-blocks-youtube-video-ads/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/07/header.jpg"
-  },
-  {
-    "title": "GitHub 'Verified' Commits Can Be Rewritten Into New Hashes Without Breaking Signatures",
-    "link": "https://thehackernews.com/2026/07/github-verified-commits-can-be.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifE8OSGx2cVUZ1jiVnMC-LHyladj2cJ1FWw2-t0wDJEK4Icxrhk_bFReZr8jCiNkmpamFxdBGLpgruMJh1g7c687TCf4R76GG8xJEzB9kzPLTXo18DUZkT9_T5LHeikWsoEDeBm-gapabqgRUl2sAyhaPeYOWIs7Re0-jr2CMoKVn5AzlXdU1W6oWIy6mv/s1600/git-hash.jpg"
-  },
-  {
-    "title": "Telco giant KDDI says data breach affects over 12 million people",
-    "link": "https://www.bleepingcomputer.com/news/security/japanese-telecom-giant-kddi-says-data-breach-affects-12-million-people/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/08/KDDI--logo.jpg"
   }
 ]
