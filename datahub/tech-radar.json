@@ -1,35 +1,72 @@
-[
-  {
-    "category": "ENISA Threat Landscape",
-    "trend": "Aumento delle minacce contro infrastrutture critiche in Europa",
-    "risk": "alto",
-    "source": "ENISA",
-    "icon": "/img/radar-eu.png",
-    "link": "https://www.enisa.europa.eu/topics/threat-risk-management/threats-and-trends"
-  },
-  {
-    "category": "CISA Cyber Advisories",
-    "trend": "Nuove vulnerabilità actively exploited rilevate da CISA",
-    "risk": "critico",
-    "source": "CISA",
-    "icon": "/img/radar-cisa.png",
-    "link": "https://www.cisa.gov/news-events/cybersecurity-advisories"
-  },
-  {
-    "category": "MITRE ATT&CK Trends",
-    "trend": "Crescita delle tecniche di persistence e privilege escalation",
-    "risk": "moderato",
-    "source": "MITRE",
-    "icon": "/img/radar-mitre.png",
-    "link": "https://attack.mitre.org/"
-  },
-  {
-    "category": "NVD CVE High Risk",
-    "trend": "Nuove CVE con CVSS > 9.0 identificate nelle ultime 24 ore",
-    "risk": "critico",
-    "source": "NVD",
-    "icon": "/img/radar-cve.png",
-    "link": "https://nvd.nist.gov/vuln/search"
-  }
-]
-
+{
+  "quadrants": [
+    "Languages & Frameworks",
+    "Tools",
+    "Platforms",
+    "Techniques"
+  ],
+  "rings": [
+    "Adopt",
+    "Trial",
+    "Assess",
+    "Hold"
+  ],
+  "items": [
+    {
+      "name": "JavaScript",
+      "quadrant": 0,
+      "ring": 0,
+      "x": 120,
+      "y": 180
+    },
+    {
+      "name": "Python",
+      "quadrant": 0,
+      "ring": 1,
+      "x": 180,
+      "y": 220
+    },
+    {
+      "name": "Node.js",
+      "quadrant": 1,
+      "ring": 0,
+      "x": 260,
+      "y": 140
+    },
+    {
+      "name": "Docker",
+      "quadrant": 1,
+      "ring": 1,
+      "x": 300,
+      "y": 200
+    },
+    {
+      "name": "GitHub Actions",
+      "quadrant": 2,
+      "ring": 0,
+      "x": 180,
+      "y": 80
+    },
+    {
+      "name": "Kubernetes",
+      "quadrant": 2,
+      "ring": 2,
+      "x": 260,
+      "y": 60
+    },
+    {
+      "name": "CI/CD",
+      "quadrant": 3,
+      "ring": 0,
+      "x": 120,
+      "y": 60
+    },
+    {
+      "name": "Microservices",
+      "quadrant": 3,
+      "ring": 2,
+      "x": 80,
+      "y": 120
+    }
+  ]
+}
