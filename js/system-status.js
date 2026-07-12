@@ -8,7 +8,7 @@ async function initSystemStatus() {
 
     async function loadStatus() {
         try {
-            const res = await fetch("https://anonlab.it/data/system-status.json?ts=" + Date.now());
+            const res = await fetch("/data/system-status.json?ts=" + Date.now());
             const status = await res.json();
 
             const grid = document.createElement("div");
@@ -20,7 +20,7 @@ async function initSystemStatus() {
             const items = [
                 { name: "Server", data: status.server, icon: serverSVG() },
                 { name: "API", data: status.api, icon: apiSVG() },
-                { name: "News Feed", data: status.news, icon: newsSVG() }
+                { name: "News Feed", data: status.newsFeed, icon: newsSVG() }
             ];
 
             items.forEach(item => {
@@ -94,48 +94,4 @@ async function initSystemStatus() {
 
     loadStatus();
     setInterval(loadStatus, 10000); // 🔥 aggiornamento real-time ogni 10 secondi
-}
-
-/* ============================================================
-   SVG inline moderni
-   ============================================================ */
-
-function serverSVG() {
-    return `
-        <svg width="22" height="22" fill="#00eaff">
-            <rect x="3" y="4" width="16" height="6" rx="2"/>
-            <rect x="3" y="12" width="16" height="6" rx="2"/>
-        </svg>
-    `;
-}
-
-function apiSVG() {
-    return `
-        <svg width="22" height="22" fill="#00eaff">
-            <circle cx="11" cy="11" r="9"/>
-            <rect x="10" y="4" width="2" height="14"/>
-            <rect x="4" y="10" width="14" height="2"/>
-        </svg>
-    `;
-}
-
-function newsSVG() {
-    return `
-        <svg width="22" height="22" fill="#00eaff">
-            <rect x="3" y="4" width="16" height="14" rx="2"/>
-            <rect x="6" y="7" width="10" height="2"/>
-            <rect x="6" y="11" width="10" height="2"/>
-        </svg>
-    `;
-}
-
-/* ============================================================
-   Colori dinamici real-time
-   ============================================================ */
-
-function getStatusColor(status) {
-    status = status.toLowerCase();
-    if (status === "online" || status === "operative" || status === "active") return "#00ff7f";
-    if (status === "warning") return "#ffcc00";
-    return "#ff4444"; // offline / error
 }
