@@ -1,6 +1,24 @@
 {
-  "server": "online",
-  "latency": 0,
-  "api": "offline",
-  "news": "offline"
+  "server": {
+    "status": "online",
+    "latency": 0
+  },
+  "api": {
+    "status": "offline",
+    "latency": 155
+  },
+  "newsFeed": {
+    "status": "offline"
+  },
+  "database": {
+    "status": "online",
+    "latency": 12
+  },
+  "services": {
+    "auth": "online",
+    "analytics": "online",
+    "monitoring": "online",
+    "scheduler": "online"
+  },
+  "timestamp": 1783888441765
 }
