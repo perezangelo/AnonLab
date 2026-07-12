@@ -6,14 +6,18 @@ async function initThreatMonitor() {
     if (!barGlobal || !barRansom || !barDdos) return;
 
     try {
-        const res = await fetch("https://anonlab.it/data/threat-monitor.json?ts=" + Date.now());
+        const res = await fetch("/data/threat-monitor.json?ts=" + Date.now());
         const data = await res.json();
 
-        // animazione inline
+        // estrazione valori dal JSON completo
+        const globalScore = data.global.score;
+        const ransomScore = data.categories.ransomware.score;
+        const ddosScore = data.categories.ddos.score;
+
         setTimeout(() => {
-            barGlobal.style.width = data.global + "%";
-            barRansom.style.width = data.ransomware + "%";
-            barDdos.style.width = data.ddos + "%";
+            barGlobal.style.width = globalScore + "%";
+            barRansom.style.width = ransomScore + "%";
+            barDdos.style.width = ddosScore + "%";
         }, 100);
 
     } catch (err) {
