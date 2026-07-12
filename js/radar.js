@@ -1,28 +1,84 @@
-async function initTechRadar() {
-    const list = document.getElementById("tech-radar-list");
-    if (!list) return;
+/* ============================================================
+   Tech Radar – Dynamic Renderer
+   Versione ottimizzata per anonlab.it
+   ============================================================ */
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/api/tech-radar.php?cache=" + Date.now());
-        const items = await res.json();
+function renderTechRadar(data) {
+    const radarBox = document.getElementById("radar");
+    if (!radarBox) return;
 
-        let index = 0;
+    radarBox.innerHTML = ""; // pulizia contenuto precedente
 
-        function updateRadar() {
-            list.style.opacity = 0;
+    // Raggruppa gli items per quadrante
+    const categories = {};
 
-            setTimeout(() => {
-                list.innerHTML = `<li>${items[index].trend}</li>`;
-                list.style.opacity = 1;
-                index = (index + 1) % items.length;
-            }, 300);
-        }
+    data.items.forEach(item => {
+        const quadrantName = data.quadrants[item.quadrant];
+        if (!categories[quadrantName]) categories[quadrantName] = [];
+        categories[quadrantName].push(item);
+    });
 
-        updateRadar();
-        setInterval(updateRadar, 4000);
+    // Costruzione HTML per ogni categoria
+    Object.keys(categories).forEach(quadrant => {
+        const section = document.createElement("div");
+        section.className = "radar-section";
 
-    } catch (err) {
-        list.innerHTML = "<li>Errore caricamento radar</li>";
-        console.error(err);
-    }
+        // Titolo categoria
+        section.innerHTML = `
+            <h3 class="radar-category">${quadrant}</h3>
+        `;
+
+        // Lista elementi della categoria
+        categories[quadrant].forEach(item => {
+            const ringName = data.rings[item.ring];
+
+            section.innerHTML += `
+                <div class="radar-item">
+                    <strong>${item.name}</strong><br>
+                    <span class="radar-meta">
+                        Ring: ${ringName}
+                    </span>
+                </div>
+            `;
+        });
+
+        radarBox.appendChild(section);
+    });
 }
+
+/* ============================================================
+   Stili minimi (opzionali, puoi metterli nel tuo CSS)
+   ============================================================ */
+
+// Se vuoi, puoi copiare questi stili nel tuo CSS globale:
+
+/*
+.radar-section {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 6px;
+}
+
+.radar-category {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #ff7b00;
+}
+
+.radar-item {
+    margin-bottom: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #222;
+}
+
+.radar-item:last-child {
+    border-bottom: none;
+}
+
+.radar-meta {
+    font-size: 13px;
+    color: #999;
+}
+*/
