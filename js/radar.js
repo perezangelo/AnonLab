@@ -1,5 +1,5 @@
 /* ============================================================
-   Tech Radar – Dynamic Renderer (AnonLab PRO Edition)
+   Tech Radar – Inline Styled Edition (No external CSS)
    ============================================================ */
 
 const CATEGORY_ICONS = {
@@ -10,19 +10,18 @@ const CATEGORY_ICONS = {
 };
 
 const RING_COLORS = {
-    "Adopt": "#4caf50",
-    "Trial": "#ff9800",
-    "Assess": "#03a9f4",
-    "Hold": "#f44336"
+    "Adopt": "#00ff7f",
+    "Trial": "#ffcc00",
+    "Assess": "#00bfff",
+    "Hold": "#ff4444"
 };
 
 function renderTechRadar(data) {
     const radarBox = document.getElementById("radar");
     if (!radarBox) return;
 
-    radarBox.innerHTML = ""; // pulizia contenuto precedente
+    radarBox.innerHTML = "";
 
-    // Raggruppa gli items per quadrante
     const categories = {};
 
     data.items.forEach(item => {
@@ -31,43 +30,81 @@ function renderTechRadar(data) {
         categories[quadrantName].push(item);
     });
 
-    // Contenitore a colonne
+    // GRID container (inline style)
     const grid = document.createElement("div");
-    grid.className = "radar-grid";
+    grid.style.display = "grid";
+    grid.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
+    grid.style.gap = "20px";
+    grid.style.marginTop = "15px";
 
-    // Costruzione schede affiancate
     Object.keys(categories).forEach(quadrant => {
         const card = document.createElement("div");
-        card.className = "radar-card";
+
+        // CARD style inline
+        card.style.background = "#111";
+        card.style.border = "1px solid #222";
+        card.style.borderRadius = "10px";
+        card.style.padding = "18px";
+        card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+        card.style.transition = "transform .2s ease, boxShadow .2s ease";
+
+        card.onmouseenter = () => {
+            card.style.transform = "translateY(-4px)";
+            card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
+        };
+        card.onmouseleave = () => {
+            card.style.transform = "translateY(0)";
+            card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+        };
 
         const icon = CATEGORY_ICONS[quadrant] || "/img/icons/default.png";
 
-        // Titolo scheda
-        card.innerHTML = `
-            <div class="radar-card-header">
-                <img src="${icon}" class="radar-icon" alt="${quadrant}">
-                <h3>${quadrant}</h3>
-            </div>
+        // HEADER
+        const header = document.createElement("div");
+        header.style.display = "flex";
+        header.style.alignItems = "center";
+        header.style.gap = "12px";
+        header.style.marginBottom = "14px";
+
+        header.innerHTML = `
+            <img src="${icon}" style="width:26px;height:26px;">
+            <h3 style="margin:0;color:#00eaff;font-size:18px;">${quadrant}</h3>
         `;
 
-        // Lista elementi
+        card.appendChild(header);
+
+        // ITEMS
         categories[quadrant].forEach(item => {
             const ringName = data.rings[item.ring];
             const ringColor = RING_COLORS[ringName] || "#999";
-
             const authoritativeLink = generateAuthoritativeLink(item.name);
 
-            card.innerHTML += `
-                <div class="radar-item">
-                    <a href="${authoritativeLink}" target="_blank" rel="noopener noreferrer">
-                        <strong>${item.name}</strong>
-                    </a>
+            const itemRow = document.createElement("div");
+            itemRow.style.display = "flex";
+            itemRow.style.justifyContent = "space-between";
+            itemRow.style.alignItems = "center";
+            itemRow.style.padding = "6px 0";
+            itemRow.style.borderBottom = "1px solid #222";
 
-                    <span class="radar-badge" style="background:${ringColor};">
-                        ${ringName}
-                    </span>
-                </div>
+            itemRow.innerHTML = `
+                <a href="${authoritativeLink}" target="_blank" rel="noopener noreferrer"
+                   style="color:#fff;text-decoration:none;font-size:15px;">
+                    ${item.name}
+                </a>
+
+                <span style="
+                    padding:4px 10px;
+                    border-radius:6px;
+                    font-size:12px;
+                    color:#000;
+                    font-weight:bold;
+                    background:${ringColor};
+                ">
+                    ${ringName}
+                </span>
             `;
+
+            card.appendChild(itemRow);
         });
 
         grid.appendChild(card);
@@ -75,10 +112,6 @@ function renderTechRadar(data) {
 
     radarBox.appendChild(grid);
 }
-
-/* ============================================================
-   Generatore link autorevoli
-   ============================================================ */
 
 function generateAuthoritativeLink(name) {
     const lower = name.toLowerCase();
@@ -93,68 +126,3 @@ function generateAuthoritativeLink(name) {
 
     return `https://www.google.com/search?q=${encodeURIComponent(name + " official documentation")}`;
 }
-
-/* ============================================================
-   CSS consigliato (incollalo nel tuo file CSS)
-   ============================================================ */
-
-/*
-.radar-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-top: 15px;
-}
-
-.radar-card {
-    background: #0d0d0d;
-    border: 1px solid #222;
-    border-radius: 8px;
-    padding: 15px;
-}
-
-.radar-card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-}
-
-.radar-card-header h3 {
-    margin: 0;
-    color: #ff7b00;
-}
-
-.radar-icon {
-    width: 24px;
-    height: 24px;
-}
-
-.radar-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 0;
-    border-bottom: 1px solid #222;
-}
-
-.radar-item:last-child {
-    border-bottom: none;
-}
-
-.radar-item a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.radar-item a:hover {
-    color: #ff7b00;
-}
-
-.radar-badge {
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    color: #fff;
-}
-*/
