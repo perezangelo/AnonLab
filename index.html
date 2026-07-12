@@ -1112,13 +1112,16 @@ loadSocTV();
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/partials/radar.html")
-    .then(r => r.text())
-    .then(html => {
-        const radarBox = document.getElementById("radar");
-        if (!radarBox) return;
-        radarBox.innerHTML = html;
-        initTechRadar();
+  const radarBox = document.getElementById("radar");
+  if (!radarBox) return;
+
+  // Caricamento JSON dinamico da GitHub RAW + anti-cache
+  fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tech-radar.json?ts=" + Date.now())
+    .then(r => r.json())
+    .then(data => renderTechRadar(data))
+    .catch(err => {
+      radarBox.innerHTML = "<p style='color:#ff7b00;'>Impossibile caricare il Tech Radar.</p>";
+      console.error("Tech Radar error:", err);
     });
 });
 </script>
