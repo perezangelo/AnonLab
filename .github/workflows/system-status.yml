@@ -1,0 +1,26 @@
+name: Sync System Status
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # ogni 5 minuti
+  workflow_dispatch:
+
+jobs:
+  update-system-status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Scarica system-status.json da AlterVista
+        run: |
+          curl -o data/system-status.json https://angelonline.altervista.org/data/system-status.json
+
+      - name: Commit & Push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/system-status.json
+          git commit -m "Update system-status.json" || echo "Nessun cambiamento"
+          git push
