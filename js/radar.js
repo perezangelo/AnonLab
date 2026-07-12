@@ -50,8 +50,6 @@ function renderTechRadar(data) {
    Stili minimi (opzionali, puoi metterli nel tuo CSS)
    ============================================================ */
 
-// Se vuoi, puoi copiare questi stili nel tuo CSS globale:
-
 /*
 .radar-section {
     margin-bottom: 20px;
