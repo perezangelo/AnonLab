@@ -1,40 +1,44 @@
-/* ============================================================
-   Threat Monitor – Cyber Risk Bars (AnonLab Edition)
-   ============================================================ */
-
 async function initThreatMonitor() {
-    const barGlobal = document.getElementById("bar-global");
-    const barRansom = document.getElementById("bar-ransomware");
-    const barDdos = document.getElementById("bar-ddos");
+    const bars = {
+        global: document.getElementById("bar-global"),
+        ransomware: document.getElementById("bar-ransomware"),
+        ddos: document.getElementById("bar-ddos"),
+        phishing: document.getElementById("bar-phishing"),
+        botnet: document.getElementById("bar-botnet"),
+        exploit: document.getElementById("bar-exploit")
+    };
 
-    if (!barGlobal || !barRansom || !barDdos) return;
+    // se mancano elementi HTML → esci
+    if (!bars.global) return;
 
     async function loadThreat() {
         try {
             const res = await fetch("/data/threat-monitor.json?ts=" + Date.now());
             const data = await res.json();
 
-            // estrazione valori dal JSON completo
-            const globalScore = data.global.score;
-            const ransomScore = data.categories.ransomware.score;
-            const ddosScore = data.categories.ddos.score;
+            const values = {
+                global: data.global.score,
+                ransomware: data.categories.ransomware.score,
+                ddos: data.categories.ddos.score,
+                phishing: data.categories.phishing.score,
+                botnet: data.categories.botnet.score,
+                exploit: data.categories.exploit.score
+            };
 
-            // animazione fluida
             setTimeout(() => {
-                barGlobal.style.width = globalScore + "%";
-                barRansom.style.width = ransomScore + "%";
-                barDdos.style.width = ddosScore + "%";
+                Object.keys(values).forEach(key => {
+                    if (bars[key]) {
+                        bars[key].style.width = values[key] + "%";
+                    }
+                });
             }, 120);
 
         } catch (err) {
             console.error("Errore Threat Monitor:", err);
-
-            barGlobal.style.width = "0%";
-            barRansom.style.width = "0%";
-            barDdos.style.width = "0%";
         }
     }
 
     loadThreat();
-    setInterval(loadThreat, 10000); // aggiornamento ogni 10 secondi
+    setInterval(loadThreat, 10000);
 }
+
