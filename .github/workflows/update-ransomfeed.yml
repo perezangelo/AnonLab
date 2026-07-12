@@ -1,0 +1,23 @@
+name: Update Ransom Feed
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-ransomfeed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch CISA RVWP
+        run: |
+          curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json > datahub/ransomfeed.json
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update Ransom Feed JSON"
