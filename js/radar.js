@@ -1,5 +1,5 @@
 /* ============================================================
-   Tech Radar – Dynamic Renderer (AnonLab Enhanced Edition)
+   Tech Radar – Dynamic Renderer (AnonLab PRO Edition)
    ============================================================ */
 
 const CATEGORY_ICONS = {
@@ -31,37 +31,37 @@ function renderTechRadar(data) {
         categories[quadrantName].push(item);
     });
 
-    // Costruzione HTML per ogni categoria
+    // Contenitore a colonne
+    const grid = document.createElement("div");
+    grid.className = "radar-grid";
+
+    // Costruzione schede affiancate
     Object.keys(categories).forEach(quadrant => {
-        const section = document.createElement("div");
-        section.className = "radar-section";
+        const card = document.createElement("div");
+        card.className = "radar-card";
 
         const icon = CATEGORY_ICONS[quadrant] || "/img/icons/default.png";
 
-        // Titolo categoria con icona
-        section.innerHTML = `
-            <h3 class="radar-category">
+        // Titolo scheda
+        card.innerHTML = `
+            <div class="radar-card-header">
                 <img src="${icon}" class="radar-icon" alt="${quadrant}">
-                ${quadrant}
-            </h3>
+                <h3>${quadrant}</h3>
+            </div>
         `;
 
-        // Lista elementi della categoria
+        // Lista elementi
         categories[quadrant].forEach(item => {
             const ringName = data.rings[item.ring];
             const ringColor = RING_COLORS[ringName] || "#999";
 
-            // Link autorevoli (default: ricerca MDN / Docs)
             const authoritativeLink = generateAuthoritativeLink(item.name);
 
-            section.innerHTML += `
+            card.innerHTML += `
                 <div class="radar-item">
-                    <strong>
-                        <a href="${authoritativeLink}" target="_blank" rel="noopener noreferrer">
-                            ${item.name}
-                        </a>
-                    </strong>
-                    <br>
+                    <a href="${authoritativeLink}" target="_blank" rel="noopener noreferrer">
+                        <strong>${item.name}</strong>
+                    </a>
 
                     <span class="radar-badge" style="background:${ringColor};">
                         ${ringName}
@@ -70,12 +70,14 @@ function renderTechRadar(data) {
             `;
         });
 
-        radarBox.appendChild(section);
+        grid.appendChild(card);
     });
+
+    radarBox.appendChild(grid);
 }
 
 /* ============================================================
-   Generatore link autorevoli (MDN, Docs, Official)
+   Generatore link autorevoli
    ============================================================ */
 
 function generateAuthoritativeLink(name) {
@@ -89,7 +91,6 @@ function generateAuthoritativeLink(name) {
     if (lower === "ci/cd") return "https://about.gitlab.com/topics/ci-cd/";
     if (lower === "microservices") return "https://microservices.io/";
 
-    // fallback: ricerca Google Docs
     return `https://www.google.com/search?q=${encodeURIComponent(name + " official documentation")}`;
 }
 
@@ -98,31 +99,42 @@ function generateAuthoritativeLink(name) {
    ============================================================ */
 
 /*
-.radar-section {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #0d0d0d;
-    border: 1px solid #222;
-    border-radius: 6px;
+.radar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
 }
 
-.radar-category {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    color: #ff7b00;
+.radar-card {
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.radar-card-header {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 12px;
+}
+
+.radar-card-header h3 {
+    margin: 0;
+    color: #ff7b00;
 }
 
 .radar-icon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
 }
 
 .radar-item {
-    margin-bottom: 12px;
-    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
     border-bottom: 1px solid #222;
 }
 
@@ -140,11 +152,9 @@ function generateAuthoritativeLink(name) {
 }
 
 .radar-badge {
-    display: inline-block;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 4px;
     font-size: 12px;
     color: #fff;
-    margin-top: 4px;
 }
 */
