@@ -2,8 +2,8 @@ name: Sync Threat Monitor
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # ogni 5 minuti
-  workflow_dispatch:
+    - cron: "*/5 * * * *"   # aggiorna ogni 5 minuti
+  workflow_dispatch:        # permette l'avvio manuale
 
 jobs:
   update-threat-monitor:
@@ -17,7 +17,7 @@ jobs:
         run: |
           curl -o data/threat-monitor.json https://angelonline.altervista.org/data/threat-monitor.json
 
-      - name: Commit & Push
+      - name: Commit & Push aggiornamento
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
