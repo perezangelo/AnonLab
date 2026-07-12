@@ -1,5 +1,10 @@
 [
   {
+    "title": "RedHook Android malware now uses Wireless ADB for shell access",
+    "link": "https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/09/Android.jpg"
+  },
+  {
     "title": "Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install",
     "link": "https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhodiWPXDsex6YL7v4e2n_D5MJFMht76GRRmHTdiG61tfEmsoZyow4tkiS3ORACILDl2fNP27YQkw1XLSBKGcom-DhCVzzPDdkdSgeMGdxcVL_rgO70x5LqZcjxKAPTtFOquB8LwSBPWrSpflqCzns-cFZ_EVm0WZfV7wSoPM3S-7_IGtCT3AjxY0rfITU/s1600/npm-js.jpg"
@@ -143,10 +148,5 @@
     "title": "Unpatched XRING Flaw in XQUIC Lets Remote Clients Crash HTTP/3 Servers",
     "link": "https://thehackernews.com/2026/07/unpatched-xring-flaw-in-xquic-lets.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQHphr7bXE4J4-EmYSWy0cjHarUBibR2JrXpFbwDKMZnsWbiUsC9UE7g3x2r8WFDLB7BBZlH2kDJ3I9QqF8IIGLPiZda93wKUaDqJC8Nv11yrd7VPm9RmBOky0yRXGRhhcDqbwNCZvHiGTkKRb06XAwFiGl0juzUeFBn3LUDwFfxZVNlInVmXTNI4cMLI/s1600/XQUIC-demo.gif"
-  },
-  {
-    "title": "Zimbra urges customers to patch critical web client XSS flaw",
-    "link": "https://www.bleepingcomputer.com/news/security/zimbra-urges-customers-to-patch-critical-web-client-xss-flaw/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Zimbra-headpic.jpg"
   }
 ]
