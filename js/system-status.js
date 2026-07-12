@@ -8,7 +8,7 @@ async function initSystemStatus() {
 
     async function loadStatus() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/data/system-status.json?ts=" + Date.now());
+            const res = await fetch("https://anonlab.it/data/system-status.json?ts=" + Date.now());
             const status = await res.json();
 
             const grid = document.createElement("div");
