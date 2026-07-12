@@ -1,0 +1,29 @@
+name: Update Tech Radar
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-tech-radar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate Tech Radar JSON
+        run: |
+          echo '[
+            {"title":"JavaScript","category":"Languages & Frameworks","url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript","source":"MDN","updated":"'"$(date +%Y-%m-%d)"'"},
+            {"title":"Python","category":"Languages & Frameworks","url":"https://www.python.org/","source":"Official","updated":"'"$(date +%Y-%m-%d)"'"},
+            {"title":"Docker","category":"Tools","url":"https://docs.docker.com/","source":"Docker Docs","updated":"'"$(date +%Y-%m-%d)"'"},
+            {"title":"Kubernetes","category":"Platforms","url":"https://kubernetes.io/docs/","source":"Official","updated":"'"$(date +%Y-%m-%d)"'"},
+            {"title":"OWASP Top 10","category":"Techniques","url":"https://owasp.org/www-project-top-ten/","source":"OWASP","updated":"'"$(date +%Y-%m-%d)"'"}
+          ]' > datahub/tech-radar.json
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update Tech Radar JSON"
