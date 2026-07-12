@@ -6,7 +6,7 @@ async function initThreatMonitor() {
     if (!barGlobal || !barRansom || !barDdos) return;
 
     try {
-        const res = await fetch("/data/threat-monitor.json?cache=" + Date.now());
+        const res = await fetch("https://anonlab.it/data/threat-monitor.json?ts=" + Date.now());
         const data = await res.json();
 
         // animazione inline
