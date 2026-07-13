@@ -1,15 +1,15 @@
 {
   "global": {
-    "score": 59,
+    "score": 50,
     "riskLevel": "high",
     "trend": "rising"
   },
   "categories": {
-    "ransomware": { "score": 53, "trend": "stable" },
-    "ddos": { "score": 83, "trend": "rising" },
-    "phishing": { "score": 27, "trend": "falling" },
-    "botnet": { "score": 63, "trend": "rising" },
-    "exploit": { "score": 59, "trend": "stable" }
+    "ransomware": { "score": 47, "trend": "stable" },
+    "ddos": { "score": 61, "trend": "rising" },
+    "phishing": { "score": 67, "trend": "falling" },
+    "botnet": { "score": 27, "trend": "rising" },
+    "exploit": { "score": 21, "trend": "stable" }
   },
   "summary": {
     "activeThreats": 12,
@@ -17,5 +17,5 @@
     "highAlerts": 5,
     "mediumAlerts": 4
   },
-  "timestamp": 1783917664
+  "timestamp": 1783929271
 }
