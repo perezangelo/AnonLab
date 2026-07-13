@@ -1110,12 +1110,13 @@ loadSocTV();
   <div id="radar"></div>
 </section>
 
+<script src="/js/radar.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const radarBox = document.getElementById("radar");
   if (!radarBox) return;
 
-  // Caricamento JSON dinamico da GitHub RAW + anti-cache
   fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tech-radar.json?ts=" + Date.now())
     .then(r => r.json())
     .then(data => renderTechRadar(data))
@@ -1125,8 +1126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
-
-<script src="/js/radar.js"></script>
 
 <section class="widget-large">
   <div class="box-title-row">
