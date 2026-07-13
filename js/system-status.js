@@ -52,7 +52,8 @@ async function initSystemStatus() {
 
     async function loadStatus() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/data/system-status.json?ts=" + Date.now());
+            const res = await fetch("https://angelonline.altervista.org/backend/system-status.php?ts=" + Date.now());
+
             const status = await res.json();
 
             const grid = document.createElement("div");
