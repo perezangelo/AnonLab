@@ -1110,7 +1110,8 @@ loadSocTV();
   <div id="radar"></div>
 </section>
 
-<script src="/js/radar.js"></script>
+<!-- ⚠️ Carico PRIMA radar.js -->
+<script src="/js/radar.js?v=2"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1140,16 +1141,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div id="ai-trends"></div>
 </section>
-     <script>
+
+<script>
 fetch("/partials/ai-trends.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("ai-trends").innerHTML = html;
-      initAITrends();   // ⭐ inizializzazione DOPO il partial
+      initAITrends();
   });
 </script>
 
-<script src="/js/ai-trends.js"></script>
+<script src="/js/ai-trends.js?v=2"></script>
 
 <section class="widget-large">
   <div class="box-title-row">
@@ -1164,16 +1166,17 @@ fetch("/partials/ai-trends.html")
 
   <div id="tools"></div>
 </section>
+
 <script>
 fetch("/partials/tools.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("tools").innerHTML = html;
-      initTools();   // ⭐ inizializzazione DOPO il partial
+      initTools();
   });
 </script>
 
-<script src="/js/tools.js"></script>
+<script src="/js/tools.js?v=2"></script>
 
 <section class="widget-large">
   <div class="box-title-row">
@@ -1183,16 +1186,18 @@ fetch("/partials/tools.html")
 
   <div id="system-status"></div>
 </section>
+
 <script>
 fetch("/partials/system-status.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("system-status").innerHTML = html;
-      initSystemStatus();   // ⭐ inizializzazione DOPO il partial
+      initSystemStatus();
   });
 </script>
 
-<script src="/js/system-status.js"></script>
+<!-- ⚠️ Versione che punta al PHP (CORS OK) -->
+<script src="/js/system-status.js?v=2"></script>
 
 <section class="widget-large">
   <div class="box-title-row">
@@ -1202,6 +1207,7 @@ fetch("/partials/system-status.html")
 
   <div id="threat-monitor"></div>
 </section>
+
 <script>
 fetch("/partials/threat-monitor.html")
   .then(r => r.text())
@@ -1211,7 +1217,8 @@ fetch("/partials/threat-monitor.html")
   });
 </script>
 
-<script src="/js/threat-monitor.js"></script>
+<!-- ⚠️ Versione che punta al PHP (CORS OK) -->
+<script src="/js/threat-monitor.js?v=2"></script>
 
 <section class="widget-large">
   <div class="box-title-row">
@@ -1228,6 +1235,7 @@ fetch("/partials/threat-monitor.html")
 
   <div id="heatmap"></div>
 </section>
+
 <script>
 fetch("/partials/heatmap.html")
   .then(r => r.text())
@@ -1237,7 +1245,8 @@ fetch("/partials/heatmap.html")
   });
 </script>
 
-<script src="/js/heatmap.js"></script>
+<script src="/js/heatmap.js?v=2"></script>
+
 </section> <!-- /main-column -->
 
 <div id="sidebar"></div>
@@ -1250,22 +1259,18 @@ fetch("/partials/heatmap.html")
 <button id="backToTop">↑</button>
 
 <!-- SCRIPT ORDINATI CORRETTAMENTE -->
-<script src="js/news.js"></script>
-<script src="js/home-news.js"></script>
+<script src="/js/news.js?v=2"></script>
+<script src="/js/home-news.js?v=2"></script>
 
 <!-- UI GENERALE -->
-<script src="js/ui.js?v=3"></script>
+<script src="/js/ui.js?v=3"></script>
 
 <!-- SCRIPT BACK TO TOP -->
 <script>
   const backToTop = document.getElementById("backToTop");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      backToTop.style.display = "block";
-    } else {
-      backToTop.style.display = "none";
-    }
+    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
   });
 
   backToTop.addEventListener("click", () => {
@@ -1276,4 +1281,4 @@ fetch("/partials/heatmap.html")
 </div> <!-- /#app GPU WRAPPER -->
 
 <!-- ⭐ CALCOLATRICE -->
-<script src="/js/main.js"></script>
+<script src="/js/main.js?v=2"></script>
