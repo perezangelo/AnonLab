@@ -2,8 +2,8 @@ name: Sync Threat Monitor
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch:
+    - cron: "*/5 * * * *"   # aggiorna ogni 5 minuti
+  workflow_dispatch:        # permette l'avvio manuale
 
 jobs:
   update-threat-monitor:
@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Scarica threat-monitor.json da AlterVista
         run: |
@@ -21,8 +19,8 @@ jobs:
 
       - name: Commit & Push aggiornamento
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
           git add data/threat-monitor.json
           git commit -m "Update threat-monitor.json" || echo "Nessun cambiamento"
           git push
