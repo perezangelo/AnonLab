@@ -2,13 +2,9 @@ async function initThreatMonitor() {
     const bars = {
         global: document.getElementById("bar-global"),
         ransomware: document.getElementById("bar-ransomware"),
-        ddos: document.getElementById("bar-ddos"),
-        phishing: document.getElementById("bar-phishing"),
-        botnet: document.getElementById("bar-botnet"),
         exploit: document.getElementById("bar-exploit")
     };
 
-    // se mancano elementi HTML → esci
     if (!bars.global) return;
 
     async function loadThreat() {
@@ -19,9 +15,6 @@ async function initThreatMonitor() {
             const values = {
                 global: data.global.score,
                 ransomware: data.categories.ransomware.score,
-                ddos: data.categories.ddos.score,
-                phishing: data.categories.phishing.score,
-                botnet: data.categories.botnet.score,
                 exploit: data.categories.exploit.score
             };
 
@@ -42,5 +35,4 @@ async function initThreatMonitor() {
     setInterval(loadThreat, 10000);
 }
 
-}
 
