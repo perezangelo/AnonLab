@@ -52,7 +52,7 @@ async function initSystemStatus() {
 
     async function loadStatus() {
         try {
-            const res = await fetch("/data/system-status.json?ts=" + Date.now());
+            const res = await fetch("https://angelonline.altervista.org/data/system-status.json?ts=" + Date.now());
             const status = await res.json();
 
             const grid = document.createElement("div");
@@ -64,7 +64,7 @@ async function initSystemStatus() {
             const items = [
                 { name: "Server", data: status.server, icon: serverSVG() },
                 { name: "API", data: status.api, icon: apiSVG() },
-                { name: "News Feed", data: status.newsFeed, icon: newsSVG() }
+                { name: "News Feed", data: status.newsFeed || { status: "offline" }, icon: newsSVG() }
             ];
 
             items.forEach(item => {
@@ -139,4 +139,3 @@ async function initSystemStatus() {
     loadStatus();
     setInterval(loadStatus, 10000); // aggiornamento ogni 10 secondi
 }
-
