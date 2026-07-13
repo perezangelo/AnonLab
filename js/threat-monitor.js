@@ -13,7 +13,7 @@ async function initThreatMonitor() {
 
     async function loadThreat() {
         try {
-            const res = await fetch("/data/threat-monitor.json?ts=" + Date.now());
+            const res = await fetch("https://angelonline.altervista.org/data/threat-monitor.json?ts=" + Date.now());
             const data = await res.json();
 
             const values = {
@@ -40,5 +40,7 @@ async function initThreatMonitor() {
 
     loadThreat();
     setInterval(loadThreat, 10000);
+}
+
 }
 
