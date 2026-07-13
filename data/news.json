@@ -1,5 +1,35 @@
 [
   {
+    "title": "US and allies warn of Russian critical infrastructure attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/us-and-allies-share-defense-tips-against-russian-hackers-targeting-critical-infrastructure/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Russian_hacker.jpg"
+  },
+  {
+    "title": "Organizations Warned of Exploited Joomla Extension Vulnerabilities",
+    "link": "https://www.securityweek.com/organizations-warned-of-exploited-joomla-extension-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Joomla.jpeg"
+  },
+  {
+    "title": "Progress Prompts ShareFile Storage Zone Controller Shutdown Amid Security Concerns",
+    "link": "https://www.securityweek.com/progress-prompts-sharefile-storage-zone-controller-shutdown-amid-security-concerns/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/application-security-vulnerabilities.jpeg"
+  },
+  {
+    "title": "Centers Laboratory Data Breach Affects 540,000 Individuals",
+    "link": "https://www.securityweek.com/centers-laboratory-data-breach-affects-540000-individuals/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/05/healthcare-medical-data-breach-.jpeg"
+  },
+  {
+    "title": "Misconfigured Server Reveals Three Evilginx Phishing Operations Targeting Microsoft 365",
+    "link": "https://thehackernews.com/2026/07/misconfigured-server-reveals-three.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVh0XoiKxyvhXW_SN-Ynau8iPG3vd2ltt4cDr4L_cGUhc5oBmsogZt5A_l2qbTdPG8Ciu73I0mHhRBDRJ2uWasrA_vqnkdvpbQcdh0ipe-d_cz2HTFJWOCBNxplCO0RuppogFhl1OONqWWXOLQWhH_Bt89c160ZzHtkrnDJN6PsnYWNV1W510diYait_g/s1600/phishing-server-ms.jpg"
+  },
+  {
+    "title": "iCagenda and Balbooa Forms Joomla Flaws Reportedly Exploited as Zero-Days",
+    "link": "https://thehackernews.com/2026/07/icagenda-and-balbooa-forms-joomla-flaws.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8FM8eXCuapKSUef3nzFlgzqlX4a5mJChM9YqCdHOi6QybQ8AM1xbM9NNTyAjS3iyz7iAX6vC8QVHl5zFlAgNyBIgm5FHgFkEGzOg5l3ZXNXI8ILA2GIGKtvYDuy-qpXmfeMHYxheps3XuPCtgedFa9vcimwad9kBjpbF0SEhhxpZoWsWybn0zcgNtppI/s1600/cisa-joomla.jpg"
+  },
+  {
     "title": "OpenAI temporarily relaxes GPT-5.6 Sol usage limits",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-temporarily-relaxes-gpt-56-sol-usage-limits/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/11/08/ChatGPT.jpg"
@@ -90,11 +120,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihuE5rUYRadx5Q2auJjv9dVeFNIP8XSwSTaH0PDwGLUA54MXlPy3AyI532a8OnhXadtWnCCH30qvUKW9C3rCOu1LPld1or5_lXwNhRVqbohHNInDzNd1f9E77Sox5yB-ir7H69LmlYRKnoqnFASOMFa2TIK2RfTThJvu_oofIXHCpiRbXGXWy-bquBWsw/s1600/bootloader.gif"
   },
   {
-    "title": "Hackers exploit critical auth bypass in Gitea Docker image",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-auth-bypass-in-gitea-docker-image/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Gitea.jpg"
-  },
-  {
     "title": "In Other News: DHS Database Hacked, Adobe Boosts Patch Cadence, Canada Disrupts Ransomware Ops",
     "link": "https://www.securityweek.com/in-other-news-dhs-database-hacked-adobe-boosts-patch-cadence-canada-disrupts-ransomware-ops/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
@@ -120,33 +145,8 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltea14c9f0b9e9121d/6a50fb99c6689e7d0b90589b/GettyImages-2252881496.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
-    "title": "New MODBEACON RAT Uses gRPC Streaming for Encrypted C2 Traffic",
-    "link": "https://thehackernews.com/2026/07/new-modbeacon-rat-uses-grpc-streaming.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKTCUzhkUq2Y7DPv0yS2FatrHQTcHfupRly6f5kSWyQU-So3FOjpC8pt_VKR4qo1SoUGR65ycOEQonbW5heKWj1g_A8qDy69YtWGZDO4m2t46Sip-jdPAlNs2fpRj-w1yd8WpyJpNFUpj1iTBO0X6fy3n9DJ4aEdsWaQz_tN-VV-PxDrufKZR9wkznmXJQ/s1600/MODBEACON.jpg"
-  },
-  {
     "title": "AI Coding: Do Security Risks Outweigh Productivity Gains?",
     "link": "https://www.darkreading.com/application-security/ai-coding-security-risks-productivity-gains",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltfc206a4328894432/6a5003e314cb1e87db5d7a27/robot_hands_on_keyboard-Moor_Studio-Getty-2246656580.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Third US Security Expert Sentenced to Prison for Helping Ransomware Gang",
-    "link": "https://www.securityweek.com/third-us-security-expert-sentenced-to-prison-for-helping-ransomware-gang/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-sentenced-prison.jpeg"
-  },
-  {
-    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "China, India-Linked Hackers Both Targeted Same Pakistani Police Force",
-    "link": "https://www.securityweek.com/china-india-linked-hackers-both-targeted-same-pakistani-police-force/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/China-India-Pakistan.jpeg"
-  },
-  {
-    "title": "Unpatched XRING Flaw in XQUIC Lets Remote Clients Crash HTTP/3 Servers",
-    "link": "https://thehackernews.com/2026/07/unpatched-xring-flaw-in-xquic-lets.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQHphr7bXE4J4-EmYSWy0cjHarUBibR2JrXpFbwDKMZnsWbiUsC9UE7g3x2r8WFDLB7BBZlH2kDJ3I9QqF8IIGLPiZda93wKUaDqJC8Nv11yrd7VPm9RmBOky0yRXGRhhcDqbwNCZvHiGTkKRb06XAwFiGl0juzUeFBn3LUDwFfxZVNlInVmXTNI4cMLI/s1600/XQUIC-demo.gif"
   }
 ]
