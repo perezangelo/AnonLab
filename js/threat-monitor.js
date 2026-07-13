@@ -9,7 +9,7 @@ async function initThreatMonitor() {
 
     async function loadThreat() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/data/threat-monitor.json?ts=" + Date.now());
+            const res = await fetch("https://angelonline.altervista.org/backend/system-status.php?ts=" + Date.now());
             const data = await res.json();
 
             const values = {
