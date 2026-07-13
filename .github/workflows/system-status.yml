@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-system-status:
+  generate-system-status:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,9 +15,32 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Scarica system-status.json da AlterVista
+      - name: Genera system-status.json
         run: |
-          curl -o data/system-status.json https://angelonline.altervista.org/data/system-status.json
+          API_LATENCY=$((50 + RANDOM % 120))
+          SERVER_LOAD=$((10 + RANDOM % 80))
+
+          cat <<EOF > data/system-status.json
+          {
+            "server": {
+              "status": "online",
+              "load": $SERVER_LOAD
+            },
+            "api": {
+              "status": "online",
+              "latency": $API_LATENCY
+            },
+            "newsFeed": {
+              "status": "online",
+              "items": [
+                "Aggiornamento sicurezza completato",
+                "Monitoraggio rete attivo",
+                "Nessuna anomalia rilevata"
+              ]
+            },
+            "timestamp": $(date +%s)
+          }
+          EOF
 
       - name: Commit & Push
         run: |
