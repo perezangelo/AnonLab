@@ -1,3 +1,27 @@
-<ul class="attack-list" id="heatmap-list">
-  <li>Loading…</li>
-</ul>
+<div id="worldmap" style="width:100%;max-width:700px;margin:auto;">
+    <svg id="heatmap-svg" viewBox="0 0 2000 1001">
+
+        <!-- USA -->
+        <path id="usa" d="M256,300 L400,280 L520,350 L580,420 L600,500 L520,540 L400,520 L300,450 Z"
+              fill="#0a0a0a" stroke="#00eaff" stroke-width="3"></path>
+
+        <!-- EUROPA -->
+        <path id="europa" d="M1100,250 L1200,230 L1300,260 L1350,320 L1300,380 L1200,360 L1120,300 Z"
+              fill="#0a0a0a" stroke="#00eaff" stroke-width="3"></path>
+
+        <!-- ASIA -->
+        <path id="asia" d="M1400,300 L1600,280 L1750,350 L1800,450 L1700,520 L1500,500 L1450,420 Z"
+              fill="#0a0a0a" stroke="#00eaff" stroke-width="3"></path>
+
+        <!-- AFRICA -->
+        <path id="africa" d="M1200,500 L1300,520 L1350,600 L1300,700 L1200,720 L1150,620 Z"
+              fill="#0a0a0a" stroke="#00eaff" stroke-width="3"></path>
+
+        <!-- SUD AMERICA -->
+        <path id="sudamerica" d="M500,600 L550,650 L580,720 L560,800 L500,820 L460,750 Z"
+              fill="#0a0a0a" stroke="#00eaff" stroke-width="3"></path>
+
+    </svg>
+</div>
+
+<div id="heatmap-info" style="margin-top:20px;"></div>
