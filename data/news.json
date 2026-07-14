@@ -1,8 +1,63 @@
 [
   {
+    "title": "You Don't Have to Run an Exploit to Know If You're Vulnerable",
+    "link": "https://www.bleepingcomputer.com/news/security/you-dont-have-to-run-an-exploit-to-know-if-youre-vulnerable/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/10/hourglass-header-image.jpg"
+  },
+  {
+    "title": "7 Severe Vulnerabilities Patched in VMware Avi Load Balancer",
+    "link": "https://www.securityweek.com/7-severe-vulnerabilities-patched-in-vmware-avi-load-balancer/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
+  },
+  {
+    "title": "RabbitMQ Flaws Could Leak OAuth Secrets and Expose Cross-Tenant Queue Metadata",
+    "link": "https://thehackernews.com/2026/07/rabbitmq-flaws-could-leak-oauth-secrets.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhhRQ9rN4_5eYqXiJ7svWKwWY0dcPiiALZ6EkDG05ruFzTANJtwyw_w2Ht29dON1oFiLAkQkE0M75FYExbXmvFSr4jU0K0sNlwRxG3Q1rU51ouVIt3UtnrazRwhCer3coTHbU3So1dXx_8Frh1KhJKKXc7Lq2h5DZTGkBq35Y2ngnGVg6wAGubf8cVRx0F/s1600/rebbitmq.jpg"
+  },
+  {
+    "title": "Cursor IDE Auto-Executes Malicious Code in Poisoned Repos",
+    "link": "https://www.darkreading.com/application-security/cursor-ide-malicious-code-poisoned-repos",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9f5cd3865ee90857/6a553fc7f7c949a9a237e0f3/poison_bottle-Olga_Yastremska-Getty-2254109959.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Unpatched Claude for Chrome Flaw Lets Extensions Read Gmail, Calendar",
+    "link": "https://www.securityweek.com/unpatched-claude-for-chrome-flaw-lets-extensions-read-gmail-calendar/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Anthropic-Claude.jpeg"
+  },
+  {
+    "title": "Microsoft Entra ID gets passkeys default authentication starting September",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-entra-id-gets-passkeys-default-authentication-starting-september/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/12/Hacking_login.jpg"
+  },
+  {
+    "title": "New phishing kits target Microsoft 365 accounts, evade MFA",
+    "link": "https://www.bleepingcomputer.com/news/security/new-phishing-kits-target-microsoft-365-accounts-evade-mfa/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/15/MS365.jpg"
+  },
+  {
+    "title": "11 Old Microsoft-Signed Linux UEFI Shims Could Let Attackers Bypass Secure Boot",
+    "link": "https://thehackernews.com/2026/07/11-old-microsoft-signed-linux-uefi.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzgVI5ZeWhnWkl-lXmJYMLjAOXmxw21Y3sgxeF9rrOS_JqjQ7k_yyV_2KU_ELhmsm3nA3qNV0farc_31WCAhPPZRq7iIrYm90R_24lvc1f68Gv-yZPsM3bwDiUuCaCBAzq-S8ymLrrD7dx349vEjlR0eID2LXm5SO3Ocq1sG8sWkhAEG9RWX07avTOu3dW/s1600/shim.gif"
+  },
+  {
+    "title": "Study of 85 Crypto Wallet Extensions Finds Address Leaks and Cross-Site Tracking Risks",
+    "link": "https://thehackernews.com/2026/07/study-of-85-crypto-wallet-extensions.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLw92quWqf4LGudVaNPBRwhiCIP4ZEBpolIRqMKbQuG6hzrXUSx89QCQT1IjMWF_6v7GEkYGOi0kYoc-ES_fELZm6pg1P8lVpRxv5mYmpzAHQMm6A_XC_fXWSWlRVh1JfjFc8wXlqtyGWovxUOOhQn8HiG4XutLeKlyv5aLY2R4UKlHTcD2pgXANePlhBq/s1600/wallet-fingerprint.jpg"
+  },
+  {
     "title": "SAP warns of critical flaws in NetWeaver and Commerce Cloud",
     "link": "https://www.bleepingcomputer.com/news/security/sap-warns-of-critical-flaws-in-netweaver-and-commerce-cloud/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/14/SAP.jpg"
+  },
+  {
+    "title": "How Pentera Turns AI Security Workflows into Validation Engines",
+    "link": "https://thehackernews.com/2026/07/how-pentera-turns-ai-security-workflows.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBkjrecx65rZWCn-e7KyG-ScNo2HupwMwFl9-XIOcdW1Pls-d0g80WyhkIHPCHTszjYDoUBtmpV_ystgF4Lc6z_noxysLX2xs11QU1jNALxkVa8gW6_QkevNLJkr8mCqupKYHRZSv518HoHlmwpnaYV-qMVyciXNsoMQAS8RrH1rLT2BsLS2t3u52Lrf8/s1600/pentera-main.jpg"
+  },
+  {
+    "title": "OAuth Client ID Spoofing Lets Attackers Validate Stolen Microsoft Entra Credentials",
+    "link": "https://thehackernews.com/2026/07/oauth-client-id-spoofing-lets-attackers.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmB1bLC9cna7xlnvFdK0hUnsi8jeo6E7jMh20nj4XTvsF9ogpjbnlPCxx9QYQ1O2aS7JiSDQi4swIRNG6-Xjg2TGR4bn4Zn-KBkjsLTYcKUrXOD-rlGu4XYsvRx06eRqrT4duW0xwklKeYjZvRV1VSarJBKldBzN4DNhkWudVCGRdKPi9uVGrqEwL66mz5/s1600/OAuth-ClientID.jpg"
   },
   {
     "title": "SAP Patches Critical Vulnerabilities in NetWeaver, Approuter, Commerce Cloud",
@@ -90,63 +145,8 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbZ5yNN1gA3Yzt-6i1sekVk3AFnHGEpas31-UowjFTXB9Rj4DhkS8H4cqjr655w9HCDKZIzcRAqn1NvLSmPLs_-oDDYpCteWgGlkUIpuyMkPIeXnfgxKCYRG54K8oV0j4vVaWj928DfJBsYJzR98e5BuZDp5OmoeFtDubZ90Qnz0a7G9VmukCII5kVE3rQ/s1600/macos-malware-1.jpg"
   },
   {
-    "title": "Google and Microsoft Pull ModHeader With 1.6 Million Installs After Dormant Collector Found",
-    "link": "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSvBtzUXyAbjgtvPJVS9zZ29ULkaIs0fMMa53ZKSip2pJbZ7_HMTGn3SV27X28JLwaq9atS1B_jvH_7qgfsjW0wyVDV_jGyqFSyO-z_vHuoigCy14xfb7DKuuWGIMUVeLiOhnap1yICNPEC2OUkA0d_e8RXtPs7oTo3BAz9I2DTxRwg67vgObResLQ7c4/s1600/browser-edge.jpg"
-  },
-  {
     "title": "GigaWiper Lets Threat Actors Choose Their Own Destructive Attack",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/gigawiper-threat-actors-choose-their-own-destructive-attack",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteeacc770d8fb720d/6a54d144763fdbda3db4e01e/destruction-MasPix-alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "CISA warns of actively exploited RCE flaws in Joomla extensions",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-actively-exploited-rce-flaws-in-joomla-extensions/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/17/Joomla.jpg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: ShareFile Threat, Citrix Bleed 2 Ransomware, AI Coding Attacks, and More",
-    "link": "https://thehackernews.com/2026/07/weekly-recap-sharefile-threat-citrix.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuCIplQpj7CGra4jEeX4qO6DfR9_OazwL_c55clD60cy9pWK42qAsCmqrwe0YBUmPq0cg_6Gt52VlqoOGuigf4qwI8lazIdogbl8pjBDfprTbktGn96fxMbtCh06kyGFF9qCXg9PgMhSXu8V02QBxTmBArc-84ZI3jXwmoDQdj-SCp-_JY7z5XqrQR2IlP/s1600/monday-recap.jpg"
-  },
-  {
-    "title": "Hacker Conversations: Jesse McGraw (GhostExodus), From Blackhat Hacker to Redemption",
-    "link": "https://www.securityweek.com/hacker-conversations-jesse-mcgraw-ghostexodus-from-blackhat-hacker-to-redemption/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Hacker-Conversations-Jesse-McGraw.jpeg"
-  },
-  {
-    "title": "Lidl discloses online shop breach after service provider hack",
-    "link": "https://www.bleepingcomputer.com/news/security/lidl-discloses-online-shop-breach-after-service-provider-hack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/LIDL_headpic.jpg"
-  },
-  {
-    "title": "Breach at the Beach: Play the Ultimate Entra ID CTF",
-    "link": "https://www.bleepingcomputer.com/news/security/breach-at-the-beach-play-the-ultimate-entra-id-ctf/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/09/breach-at-the-beach.jpg"
-  },
-  {
-    "title": "New MemGhost Attack Plants Persistent False Memories in AI Agents Through One Email",
-    "link": "https://thehackernews.com/2026/07/new-memghost-attack-plants-persistent.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_pk3JKY3zis-iTRVKpcttwfy-GP-gEzPE_NQQpqDEaMvVs65uqa3v_dG7pD_DmZWLHcwBQzjFtTYqob5wWSgO2F-0-KkwZaahqTUpGP1xbvyifaf2UnMDzI8j9pnP9EWyARmN2SHHl0eBo4UszZx3VZvicjU_MMFOEA8sjcLvzBFzAkNeFg3GIR2yncA/s1600/memghost.jpg"
-  },
-  {
-    "title": "UK charges suspects linked to Russian Coms call spoofing platform",
-    "link": "https://www.bleepingcomputer.com/news/security/uk-charges-suspects-linked-to-russian-coms-call-spoofing-platform/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Hacker_phones.jpg"
-  },
-  {
-    "title": "Forg365 PhaaS Targets Microsoft 365 with Device Code and AitM Session Theft",
-    "link": "https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlR-dy6ENZN5NKa1_sViQqXH6fEfEROkwjKV9vTowPmCu_nOALJ89JzGg-ueVJMCAqDHHozMZGd8oWbIlAQDTI8anEd6A2ZK0MdBN_FiShR3UoHGL6Cf0Gbhv8dY9RkVlZxpOCmks29u8Fnmx-JcytGZlnKC_9EuColvIMY4Y5IXH91aRaN5HOgjvvSPEo/s1600/ms-device-code1.jpg"
-  },
-  {
-    "title": "Turning the Tables on Email Scammers With 'ScamBuster'",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/turning-tables-email-scammers-scambuster",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt40912afb4f0c60db/6a5108570c3eea0563b4d4fc/Womantyping_Rawpixel.com_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Cybersecurity M&A Roundup: 37 Deals Announced in June 2026",
-    "link": "https://www.securityweek.com/cybersecurity-ma-roundup-37-deals-announced-in-june-2026/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/MA-mergers-and-acquisitions.jpeg"
   }
 ]
