@@ -1,5 +1,10 @@
 [
   {
+    "title": "LastPass, Bitwarden users targeted with fake security alerts",
+    "link": "https://www.bleepingcomputer.com/news/security/lastpass-bitwarden-users-targeted-with-fake-security-alerts/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/23/lastpass.jpg"
+  },
+  {
     "title": "You Don't Have to Run an Exploit to Know If You're Vulnerable",
     "link": "https://www.bleepingcomputer.com/news/security/you-dont-have-to-run-an-exploit-to-know-if-youre-vulnerable/",
     "image": "https://www.bleepstatic.com/content/posts/2026/07/10/hourglass-header-image.jpg"
@@ -38,6 +43,26 @@
     "title": "11 Old Microsoft-Signed Linux UEFI Shims Could Let Attackers Bypass Secure Boot",
     "link": "https://thehackernews.com/2026/07/11-old-microsoft-signed-linux-uefi.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzgVI5ZeWhnWkl-lXmJYMLjAOXmxw21Y3sgxeF9rrOS_JqjQ7k_yyV_2KU_ELhmsm3nA3qNV0farc_31WCAhPPZRq7iIrYm90R_24lvc1f68Gv-yZPsM3bwDiUuCaCBAzq-S8ymLrrD7dx349vEjlR0eID2LXm5SO3Ocq1sG8sWkhAEG9RWX07avTOu3dW/s1600/shim.gif"
+  },
+  {
+    "title": "ABB T-MAC Plus",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-03",
+    "image": ""
+  },
+  {
+    "title": "Rockwell Automation 1715-AENTR EtherNet/IP Adapter",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-04",
+    "image": ""
+  },
+  {
+    "title": "ABB Ability Edgenius",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-02",
+    "image": ""
+  },
+  {
+    "title": "ABB Advant Master Online Builder",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-01",
+    "image": ""
   },
   {
     "title": "Study of 85 Crypto Wallet Extensions Finds Address Leaks and Cross-Site Tracking Risks",
@@ -123,30 +148,5 @@
     "title": "Japan's largest taxi operator shuts systems after cyberattack",
     "link": "https://www.bleepingcomputer.com/news/security/japans-largest-taxi-operator-shuts-systems-after-cyberattack/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/nihonkotsu.jpg"
-  },
-  {
-    "title": "Hackers backdoor Jscrambler npm package with infostealer malware",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-backdoor-jscrambler-npm-package-with-infostealer-malware/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/jscrambler.jpg"
-  },
-  {
-    "title": "New CrashStealer malware poses as Apple crash reporting tool",
-    "link": "https://www.bleepingcomputer.com/news/security/new-crashstealer-malware-poses-as-apple-crash-reporting-tool/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/macos.jpg"
-  },
-  {
-    "title": "'Yellow Teams' Are Defining the Future of AI Security",
-    "link": "https://www.darkreading.com/cybersecurity-operations/yellow-teams-defining-future-ai-security",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt218e5c012cf54dd1/6a467554b7e2490651e8adc8/Glasswing_butterfly-Jiri_Vlach-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "CrashStealer macOS Malware Uses Notarized Dropper to Pass Gatekeeper Checks",
-    "link": "https://thehackernews.com/2026/07/crashstealer-macos-malware-uses.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbZ5yNN1gA3Yzt-6i1sekVk3AFnHGEpas31-UowjFTXB9Rj4DhkS8H4cqjr655w9HCDKZIzcRAqn1NvLSmPLs_-oDDYpCteWgGlkUIpuyMkPIeXnfgxKCYRG54K8oV0j4vVaWj928DfJBsYJzR98e5BuZDp5OmoeFtDubZ90Qnz0a7G9VmukCII5kVE3rQ/s1600/macos-malware-1.jpg"
-  },
-  {
-    "title": "GigaWiper Lets Threat Actors Choose Their Own Destructive Attack",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/gigawiper-threat-actors-choose-their-own-destructive-attack",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteeacc770d8fb720d/6a54d144763fdbda3db4e01e/destruction-MasPix-alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
