@@ -1114,24 +1114,54 @@ loadSocTV();
        ENISA Threat Landscape →
     </a>
   </div>
-  <div id="radar"></div>
+
+  <!-- ⚠️ Contenitore corretto -->
+  <div id="tech-radar"></div>
 </section>
 
-<!-- Carico radar.js PRIMA della chiamata -->
-<script src="https://angelonline.altervista.org/js/radar.js"></script>
+<!-- ⚠️ RIMUOVERE QUESTO: rompe tutto -->
+<!-- <script src="https://angelonline.altervista.org/js/radar.js"></script> -->
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const radarBox = document.getElementById("radar");
+async function loadTechRadar() {
+  const radarBox = document.getElementById("tech-radar");
   if (!radarBox) return;
 
-  fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tech-radar.json?ts=" + Date.now())
-    .then(r => r.json())
-    .then(data => renderTechRadar(data))
-    .catch(err => {
-      radarBox.innerHTML = "<p style='color:#ff7b00;'>Impossibile caricare il Tech Radar.</p>";
-      console.error("Tech Radar error:", err);
+  try {
+    const res = await fetch(
+      "https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tech-radar.json?ts=" + Date.now()
+    );
+    const data = await res.json();
+
+    radarBox.innerHTML = "";
+
+    data.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "radar-item";
+
+      div.innerHTML = `
+        <h4 style="color:#00eaff;">${item.name}</h4>
+        <p style="color:#ccc;">
+          Quadrant: ${item.quadrant}<br>
+          Ring: ${item.ring}<br>
+          Fonte: ${item.source}<br>
+          Aggiornato: ${item.updated}
+        </p>
+        <a href="${item.url}" target="_blank" style="color:#ff7b00;">
+          Vai alla risorsa →
+        </a>
+      `;
+      radarBox.appendChild(div);
     });
-});
+
+  } catch (err) {
+    radarBox.innerHTML = "<p style='color:#ff7b00;'>Impossibile caricare il Tech Radar.</p>";
+    console.error("Tech Radar error:", err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadTechRadar);
+setInterval(loadTechRadar, 15000);
 </script>
 
 <section class="widget-large">
