@@ -1097,7 +1097,7 @@ async function loadSocTV() {
 loadSocTV();
 </script>
 
-<!-- ⭐ TECH RADAR (VERSIONE DINAMICA, UNICA, CORRETTA) -->
+<!-- ⭐ TECH RADAR -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
@@ -1153,6 +1153,7 @@ loadTechRadar();
 setInterval(loadTechRadar, 15000);
 </script>
 
+
 <!-- ⭐ AI TRENDS -->
 <section class="widget-large">
   <div class="box-title-row">
@@ -1166,7 +1167,7 @@ setInterval(loadTechRadar, 15000);
   <div id="ai-trends"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/ai-trends.js?v=1001"></script>
+<script src="https://angelonline.altervista.org/js/ai-trends.js"></script>
 <script>
 async function loadAITrends() {
   const aiBox = document.getElementById("ai-trends");
@@ -1200,7 +1201,7 @@ setInterval(loadAITrends, 15000);
   <div id="tools"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/tools.js?v=1001"></script>
+<script src="https://angelonline.altervista.org/js/tools.js"></script>
 <script>
 async function loadTools() {
   const toolsBox = document.getElementById("tools");
@@ -1232,7 +1233,7 @@ setInterval(loadTools, 15000);
   <div id="system-status-grid"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/system-status.js?v=1002"></script>
+<script src="https://angelonline.altervista.org/js/system-status.js"></script>
 <script>
 async function loadSystemStatus() {
   const box = document.getElementById("system-status-grid");
@@ -1263,7 +1264,7 @@ setInterval(loadSystemStatus, 15000);
   <div id="threat-monitor"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/threat-monitor.js?v=1001"></script>
+<script src="https://angelonline.altervista.org/js/threat-monitor.js"></script>
 <script>
 async function loadThreatMonitor() {
   const box = document.getElementById("threat-monitor");
@@ -1298,7 +1299,7 @@ setInterval(loadThreatMonitor, 15000);
   <div id="heatmap"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/heatmap.js?v=1001"></script>
+<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
 <script>
 async function loadHeatmap() {
   const box = document.getElementById("heatmap");
@@ -1320,10 +1321,15 @@ setInterval(loadHeatmap, 15000);
 </script>
 
 
-<!-- UI GENERALE -->
-<script src="https://angelonline.altervista.org/js/ui.js?v=1001"></script>
+<!-- ⭐ SIDEBAR -->
+<div id="sidebar"></div>
 
-<!-- BACK TO TOP -->
+<!-- ⭐ FOOTER -->
+<div id="footer"></div>
+
+<!-- ⭐ BACK TO TOP -->
+<button id="backToTop">↑</button>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
@@ -1339,5 +1345,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<!-- CALCOLATRICE -->
-<script src="https://angelonline.altervista.org/js/main.js?v=1001"></script>
+<!-- ⭐ CALCOLATRICE -->
+<script src="https://angelonline.altervista.org/js/main.js"></script>
+
