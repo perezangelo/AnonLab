@@ -1,5 +1,30 @@
 [
   {
+    "title": "Microsoft: Some Dell PCs shut down after recent Windows updates",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-some-dell-devices-shut-down-after-windows-update/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/14/Dell.jpg"
+  },
+  {
+    "title": "Nigeria Deepens Cybersecurity Efforts as Cybercriminals See More Profits",
+    "link": "https://www.darkreading.com/cyber-risk/nigeria-cybersecurity-efforts-cybercriminals-profits",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt087196a0da1528ae/6a56a815b887df4c99c0b0df/nigeria-flag-and-naira-esfera-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "US charges alleged operators of Russian bulletproof hosting service",
+    "link": "https://www.bleepingcomputer.com/news/security/us-charges-alleged-russian-bulletproof-hosting-service-operators/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/15/hackers-datacenter.jpg"
+  },
+  {
+    "title": "Critical Vulnerabilities Patched With Fresh Chrome 150, Firefox 152 Updates",
+    "link": "https://www.securityweek.com/critical-vulnerabilities-patched-with-fresh-chrome-150-firefox-152-updates/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Chrome-Firefox.jpeg"
+  },
+  {
+    "title": "Two SonicWall SMA 1000 Zero-Days Exploited, One Could Enable Admin Commands",
+    "link": "https://thehackernews.com/2026/07/two-sonicwall-sma-1000-zero-days.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0n94FUIdljCnLvlh0SNz5l8xDWbdDqmk7OesE7HAKxrRAMUMIfXpppuMBoI-7F0Q1PB7eXPRjrfg9fgZTTVj3JY5jKsr1Ebheb2mU65p4MUVYbs59lCPPWCBQ4LVYZnoZ0o6nRkoBQitrwwnyLVQc2oYJ41zVjPS6_HchwIR-U8EuWrOdPpl1-Y9Rw1Lm/s1600/sonicwall-patches.jpg"
+  },
+  {
     "title": "SonicWall Issues Urgent SMA Patch Warning for Two Zero-Day Exploits",
     "link": "https://www.securityweek.com/sonicwall-issues-urgent-sma-patch-warning-for-two-zero-day-exploits/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/08/SonicWall.jpg"
@@ -105,11 +130,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/23/lastpass.jpg"
   },
   {
-    "title": "You Don't Have to Run an Exploit to Know If You're Vulnerable",
-    "link": "https://www.bleepingcomputer.com/news/security/you-dont-have-to-run-an-exploit-to-know-if-youre-vulnerable/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/10/hourglass-header-image.jpg"
-  },
-  {
     "title": "7 Severe Vulnerabilities Patched in VMware Avi Load Balancer",
     "link": "https://www.securityweek.com/7-severe-vulnerabilities-patched-in-vmware-avi-load-balancer/",
     "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
@@ -128,25 +148,5 @@
     "title": "Unpatched Claude for Chrome Flaw Lets Extensions Read Gmail, Calendar",
     "link": "https://www.securityweek.com/unpatched-claude-for-chrome-flaw-lets-extensions-read-gmail-calendar/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Anthropic-Claude.jpeg"
-  },
-  {
-    "title": "Microsoft Entra ID gets passkeys default authentication starting September",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-entra-id-gets-passkeys-default-authentication-starting-september/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/12/Hacking_login.jpg"
-  },
-  {
-    "title": "11 Old Microsoft-Signed Linux UEFI Shims Could Let Attackers Bypass Secure Boot",
-    "link": "https://thehackernews.com/2026/07/11-old-microsoft-signed-linux-uefi.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzgVI5ZeWhnWkl-lXmJYMLjAOXmxw21Y3sgxeF9rrOS_JqjQ7k_yyV_2KU_ELhmsm3nA3qNV0farc_31WCAhPPZRq7iIrYm90R_24lvc1f68Gv-yZPsM3bwDiUuCaCBAzq-S8ymLrrD7dx349vEjlR0eID2LXm5SO3Ocq1sG8sWkhAEG9RWX07avTOu3dW/s1600/shim.gif"
-  },
-  {
-    "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "ABB Ability Edgenius",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-02",
-    "image": ""
   }
 ]
