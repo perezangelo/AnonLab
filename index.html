@@ -1241,12 +1241,13 @@ fetch("/partials/heatmap.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("heatmap").innerHTML = html;
-      initHeatmapMap();   // <-- NUOVO JS
+      initHeatmap();
   });
 </script>
 
-<script src="https://angelonline.altervista.org/js/heatmap-map.js"></script>
-    </section>><!-- /main-column -->
+<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
+
+</section> <!-- /main-column -->
 
 <div id="sidebar"></div>
 
@@ -1281,4 +1282,3 @@ fetch("/partials/heatmap.html")
 
 <!-- ⭐ CALCOLATRICE -->
 <script src="https://angelonline.altervista.org/js/main.js"></script>
-
