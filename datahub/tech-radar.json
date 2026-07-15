@@ -1,7 +1,66 @@
-[
-  {"title":"JavaScript","category":"Languages & Frameworks","url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript","source":"MDN","updated":"2026-07-15"},
-  {"title":"Python","category":"Languages & Frameworks","url":"https://www.python.org/","source":"Official","updated":"2026-07-15"},
-  {"title":"Docker","category":"Tools","url":"https://docs.docker.com/","source":"Docker Docs","updated":"2026-07-15"},
-  {"title":"Kubernetes","category":"Platforms","url":"https://kubernetes.io/docs/","source":"Official","updated":"2026-07-15"},
-  {"title":"OWASP Top 10","category":"Techniques","url":"https://owasp.org/www-project-top-ten/","source":"OWASP","updated":"2026-07-15"}
-]
+{
+  "rings": ["Adopt", "Trial", "Assess", "Hold"],
+  "quadrants": ["Languages & Frameworks", "Tools", "Platforms", "Techniques"],
+
+  "ringColors": {
+    "Adopt": "#00ff7f",
+    "Trial": "#ffcc00",
+    "Assess": "#ff7b00",
+    "Hold": "#ff0033"
+  },
+
+  "quadrantColors": {
+    "Languages & Frameworks": "#00eaff",
+    "Tools": "#ff7b00",
+    "Platforms": "#9b59b6",
+    "Techniques": "#e74c3c"
+  },
+
+  "items": [
+    {
+      "name": "JavaScript",
+      "quadrant": "Languages & Frameworks",
+      "ring": "Adopt",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "source": "MDN",
+      "updated": "2026-07-15",
+      "moved": 1
+    },
+    {
+      "name": "Python",
+      "quadrant": "Languages & Frameworks",
+      "ring": "Adopt",
+      "url": "https://www.python.org/",
+      "source": "Official",
+      "updated": "2026-07-15",
+      "moved": 0
+    },
+    {
+      "name": "Docker",
+      "quadrant": "Tools",
+      "ring": "Trial",
+      "url": "https://docs.docker.com/",
+      "source": "Docker Docs",
+      "updated": "2026-07-15",
+      "moved": -1
+    },
+    {
+      "name": "Kubernetes",
+      "quadrant": "Platforms",
+      "ring": "Assess",
+      "url": "https://kubernetes.io/docs/",
+      "source": "Official",
+      "updated": "2026-07-15",
+      "moved": 2
+    },
+    {
+      "name": "OWASP Top 10",
+      "quadrant": "Techniques",
+      "ring": "Adopt",
+      "url": "https://owasp.org/www-project-top-ten/",
+      "source": "OWASP",
+      "updated": "2026-07-15",
+      "moved": 0
+    }
+  ]
+}
