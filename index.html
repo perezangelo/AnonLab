@@ -998,7 +998,7 @@ setInterval(loadCyberAlerts, 60000);
   "></div>
 </div>
 
-   <!-- WIDGET ON AIR -->
+     <!-- WIDGET ON AIR -->
 <div id="on-air-widget" style="
   margin-top:15px;
   padding:10px;
@@ -1011,6 +1011,8 @@ setInterval(loadCyberAlerts, 60000);
   align-items:center;
   gap:10px;
 ">
+
+  <!-- LED ROSSO LAMPEGGIANTE -->
   <div style="
     width:12px;
     height:12px;
@@ -1018,9 +1020,11 @@ setInterval(loadCyberAlerts, 60000);
     border-radius:50%;
     animation:onAirBlink 1s infinite;
   "></div>
+
   <span>ON AIR — Trasmissione in diretta</span>
 </div>
 
+<!-- ANIMAZIONE LED -->
 <style>
 @keyframes onAirBlink {
   0%   { opacity: 1; }
@@ -1029,6 +1033,7 @@ setInterval(loadCyberAlerts, 60000);
 }
 </style>
 
+<!-- SOC-TV -->
 <script>
 async function loadSocTV() {
   const img = document.getElementById("soc-tv-img");
@@ -1092,8 +1097,7 @@ async function loadSocTV() {
 loadSocTV();
 </script>
 
-
-<!-- ⭐ TECH RADAR (VERSIONE CORRETTA) -->
+<!-- ⭐ TECH RADAR (VERSIONE DINAMICA, UNICA, CORRETTA) -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
@@ -1129,12 +1133,13 @@ async function loadTechRadar() {
           Quadrant: ${item.quadrant}<br>
           Ring: ${item.ring}<br>
           Fonte: ${item.source}<br>
-          Aggiornato: ${item.updated}
+          Ultimo aggiornamento: ${item.updated}
         </p>
         <a href="${item.url}" target="_blank" style="color:#ff7b00;">
           Vai alla risorsa →
         </a>
       `;
+
       radarBox.appendChild(div);
     });
 
@@ -1147,7 +1152,6 @@ async function loadTechRadar() {
 loadTechRadar();
 setInterval(loadTechRadar, 15000);
 </script>
-
 
 <!-- ⭐ AI TRENDS -->
 <section class="widget-large">
@@ -1162,19 +1166,25 @@ setInterval(loadTechRadar, 15000);
   <div id="ai-trends"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/ai-trends.js"></script>
+<script src="https://angelonline.altervista.org/js/ai-trends.js?v=1001"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+async function loadAITrends() {
   const aiBox = document.getElementById("ai-trends");
   if (!aiBox) return;
 
-  fetch("/partials/ai-trends.html")
-    .then(r => r.text())
-    .then(html => {
-      aiBox.innerHTML = html;
-      if (typeof initAITrends === "function") initAITrends();
-    });
-});
+  try {
+    const html = await fetch("/partials/ai-trends.html").then(r => r.text());
+    aiBox.innerHTML = html;
+
+    if (typeof initAITrends === "function") initAITrends();
+
+  } catch (err) {
+    console.error("AI Trends error:", err);
+  }
+}
+
+loadAITrends();
+setInterval(loadAITrends, 15000);
 </script>
 
 
@@ -1190,19 +1200,25 @@ document.addEventListener("DOMContentLoaded", () => {
   <div id="tools"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/tools.js"></script>
+<script src="https://angelonline.altervista.org/js/tools.js?v=1001"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+async function loadTools() {
   const toolsBox = document.getElementById("tools");
   if (!toolsBox) return;
 
-  fetch("/partials/tools.html")
-    .then(r => r.text())
-    .then(html => {
-      toolsBox.innerHTML = html;
-      if (typeof initTools === "function") initTools();
-    });
-});
+  try {
+    const html = await fetch("/partials/tools.html").then(r => r.text());
+    toolsBox.innerHTML = html;
+
+    if (typeof initTools === "function") initTools();
+
+  } catch (err) {
+    console.error("Tools error:", err);
+  }
+}
+
+loadTools();
+setInterval(loadTools, 15000);
 </script>
 
 
@@ -1212,22 +1228,29 @@ document.addEventListener("DOMContentLoaded", () => {
     <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
     <h2>System Status</h2>
   </div>
+
   <div id="system-status-grid"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/system-status.js"></script>
+<script src="https://angelonline.altervista.org/js/system-status.js?v=1002"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+async function loadSystemStatus() {
   const box = document.getElementById("system-status-grid");
   if (!box) return;
 
-  fetch("/partials/system-status.html")
-    .then(r => r.text())
-    .then(html => {
-      box.innerHTML = html;
-      if (typeof initSystemStatus === "function") initSystemStatus();
-    });
-});
+  try {
+    const html = await fetch("/partials/system-status.html").then(r => r.text());
+    box.innerHTML = html;
+
+    if (typeof initSystemStatus === "function") initSystemStatus();
+
+  } catch (err) {
+    console.error("System Status error:", err);
+  }
+}
+
+loadSystemStatus();
+setInterval(loadSystemStatus, 15000);
 </script>
 
 
@@ -1240,19 +1263,25 @@ document.addEventListener("DOMContentLoaded", () => {
   <div id="threat-monitor"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/threat-monitor.js"></script>
+<script src="https://angelonline.altervista.org/js/threat-monitor.js?v=1001"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+async function loadThreatMonitor() {
   const box = document.getElementById("threat-monitor");
   if (!box) return;
 
-  fetch("/partials/threat-monitor.html")
-    .then(r => r.text())
-    .then(html => {
-      box.innerHTML = html;
-      if (typeof initThreatMonitor === "function") initThreatMonitor();
-    });
-});
+  try {
+    const html = await fetch("/partials/threat-monitor.html").then(r => r.text());
+    box.innerHTML = html;
+
+    if (typeof initThreatMonitor === "function") initThreatMonitor();
+
+  } catch (err) {
+    console.error("Threat Monitor error:", err);
+  }
+}
+
+loadThreatMonitor();
+setInterval(loadThreatMonitor, 15000);
 </script>
 
 
@@ -1262,52 +1291,53 @@ document.addEventListener("DOMContentLoaded", () => {
     <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
     <h2>Hacker Activity Heatmap</h2>
     <a href="/cyber.html"
-       style="color:#ff7b00;">
+       style="color:#ff7b00; text-decoration:none;">
        Cyber Threat Intelligence →
     </a>
   </div>
   <div id="heatmap"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
+<script src="https://angelonline.altervista.org/js/heatmap.js?v=1001"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+async function loadHeatmap() {
   const box = document.getElementById("heatmap");
   if (!box) return;
 
-  fetch("/partials/heatmap.html")
-    .then(r => r.text())
-    .then(html => {
-      box.innerHTML = html;
-      if (typeof initHeatmapMap === "function") initHeatmapMap();
-    });
-});
+  try {
+    const html = await fetch("/partials/heatmap.html").then(r => r.text());
+    box.innerHTML = html;
+
+    if (typeof initHeatmapMap === "function") initHeatmapMap();
+
+  } catch (err) {
+    console.error("Heatmap error:", err);
+  }
+}
+
+loadHeatmap();
+setInterval(loadHeatmap, 15000);
 </script>
 
 
-<!-- ⭐ SIDEBAR -->
-<div id="sidebar"></div>
+<!-- UI GENERALE -->
+<script src="https://angelonline.altervista.org/js/ui.js?v=1001"></script>
 
-<!-- ⭐ FOOTER -->
-<div id="footer"></div>
-
-<!-- ⭐ BACK TO TOP -->
-<button id="backToTop">↑</button>
-
+<!-- BACK TO TOP -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("backToTop");
-  if (!btn) return;
+  const backToTop = document.getElementById("backToTop");
+  if (!backToTop) return;
 
   window.addEventListener("scroll", () => {
-    btn.style.display = window.scrollY > 400 ? "block" : "none";
+    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
   });
 
-  btn.addEventListener("click", () => {
+  backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
 </script>
 
-<!-- ⭐ CALCOLATRICE -->
-<script src="https://angelonline.altervista.org/js/main.js"></script>
+<!-- CALCOLATRICE -->
+<script src="https://angelonline.altervista.org/js/main.js?v=1001"></script>
