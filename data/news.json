@@ -1,5 +1,30 @@
 [
   {
+    "title": "White House Launches AI-Driven \u2018Gold Eagle\u2019 Vulnerability Coordination Initiative",
+    "link": "https://www.securityweek.com/white-house-launches-ai-driven-gold-eagle-vulnerability-coordination-initiative/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Whitehouse-Cybersecurity.jpg"
+  },
+  {
+    "title": "Progress Confirms Zero-Day Vulnerability Behind ShareFile Disruption",
+    "link": "https://www.securityweek.com/progress-confirms-zero-day-vulnerability-behind-sharefile-disruption/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/vulnerability-software-bug.webp"
+  },
+  {
+    "title": "CISA warns admins to patch actively exploited SharePoint flaws",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-patch-actively-exploited-sharepoint-flaws/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/01/13/CISA.jpg"
+  },
+  {
+    "title": "ICS Patch Tuesday: Vulnerabilities Fixed by Siemens, Schneider, Rockwell",
+    "link": "https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/11/ICS_Patches.jpg"
+  },
+  {
+    "title": "Compromised AsyncAPI npm Packages Deliver Multi-Stage Botnet Malware",
+    "link": "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXEluWW9TuNGlzu9wVHSDBzAeUuoRS9Om8kX9yzH-HwCjggh-N5ycLyuJ82oY3MP4Uvf9yF_PqwKhcZepDBEH_pOb3td4dPRuuGSWi5XndfpeuqiMipzKIq0Vofc-hOBGj4nWxmXbjMS7RvHkZCUSHloOpsS6m7jpwwFX-2KUkYwrQdt-ClrGXpt2C9TxC/s1600/async-npm.jpg"
+  },
+  {
     "title": "Microsoft: Some Dell PCs shut down after recent Windows updates",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-some-dell-devices-shut-down-after-windows-update/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/14/Dell.jpg"
@@ -123,30 +148,5 @@
     "title": "ClickFix's Mushrooming Ecosystem Demands New Defense Tactics",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/clickfixs-ecosystem-demands-new-defense",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt89ed69f46b66e8ed/6a565987201f4e6bf48f2ebe/mushrooms-maYcal-GettyImages-1048450740.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "LastPass, Bitwarden users targeted with fake security alerts",
-    "link": "https://www.bleepingcomputer.com/news/security/lastpass-bitwarden-users-targeted-with-fake-security-alerts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/23/lastpass.jpg"
-  },
-  {
-    "title": "7 Severe Vulnerabilities Patched in VMware Avi Load Balancer",
-    "link": "https://www.securityweek.com/7-severe-vulnerabilities-patched-in-vmware-avi-load-balancer/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
-  },
-  {
-    "title": "RabbitMQ Flaws Could Leak OAuth Secrets and Expose Cross-Tenant Queue Metadata",
-    "link": "https://thehackernews.com/2026/07/rabbitmq-flaws-could-leak-oauth-secrets.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhhRQ9rN4_5eYqXiJ7svWKwWY0dcPiiALZ6EkDG05ruFzTANJtwyw_w2Ht29dON1oFiLAkQkE0M75FYExbXmvFSr4jU0K0sNlwRxG3Q1rU51ouVIt3UtnrazRwhCer3coTHbU3So1dXx_8Frh1KhJKKXc7Lq2h5DZTGkBq35Y2ngnGVg6wAGubf8cVRx0F/s1600/rebbitmq.jpg"
-  },
-  {
-    "title": "Cursor IDE Auto-Executes Malicious Code in Poisoned Repos",
-    "link": "https://www.darkreading.com/application-security/cursor-ide-malicious-code-poisoned-repos",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9f5cd3865ee90857/6a553fc7f7c949a9a237e0f3/poison_bottle-Olga_Yastremska-Getty-2254109959.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Unpatched Claude for Chrome Flaw Lets Extensions Read Gmail, Calendar",
-    "link": "https://www.securityweek.com/unpatched-claude-for-chrome-flaw-lets-extensions-read-gmail-calendar/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Anthropic-Claude.jpeg"
   }
 ]
