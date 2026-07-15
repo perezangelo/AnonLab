@@ -1223,9 +1223,10 @@ fetch("/partials/threat-monitor.html")
   <div id="heatmap"></div>
 </section>
 
-<!-- Carico il JS PRIMA della chiamata -->
+<!-- 1️⃣ Carico heatmap.js PRIMA della chiamata -->
 <script src="https://angelonline.altervista.org/js/heatmap.js"></script>
 
+<!-- 2️⃣ Solo dopo carico il parziale e chiamo la funzione -->
 <script>
 fetch("/partials/heatmap.html")
   .then(r => r.text())
