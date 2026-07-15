@@ -1110,23 +1110,8 @@ loadSocTV();
   <div id="radar"></div>
 </section>
 
-<!-- ⚠️ Carico PRIMA radar.js -->
-<script src="https://angelonline.altervista.org/js/radar.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const radarBox = document.getElementById("radar");
-  if (!radarBox) return;
-
-  fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tech-radar.json?ts=" + Date.now())
-    .then(r => r.json())
-    .then(data => renderTechRadar(data))
-    .catch(err => {
-      radarBox.innerHTML = "<p style='color:#ff7b00;'>Impossibile caricare il Tech Radar.</p>";
-      console.error("Tech Radar error:", err);
-    });
-});
-</script>
+<!-- Carico radar.js -->
+<script src="https://angelonline.altervista.org/js/radar.js?v=1001"></script>
 
 <section class="widget-large">
   <div class="box-title-row">
