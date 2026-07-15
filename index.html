@@ -1097,7 +1097,8 @@ async function loadSocTV() {
 loadSocTV();
 </script>
 
-<!-- ⭐ TECH RADAR -->
+
+<!-- ⭐ TECH RADAR (VERSIONE DINAMICA, UNICA, CORRETTA) -->
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
@@ -1122,24 +1123,13 @@ async function loadTechRadar() {
     const data = await res.json();
 
     radarBox.innerHTML = "";
-
     data.slice(0, 20).forEach(item => {
       const div = document.createElement("div");
       div.className = "radar-item";
-
       div.innerHTML = `
-        <h4 style="color:#00eaff;">${item.name}</h4>
-        <p style="color:#ccc;">
-          Quadrant: ${item.quadrant}<br>
-          Ring: ${item.ring}<br>
-          Fonte: ${item.source}<br>
-          Ultimo aggiornamento: ${item.updated}
-        </p>
-        <a href="${item.url}" target="_blank" style="color:#ff7b00;">
-          Vai alla risorsa →
-        </a>
+        <h4>${item.title}</h4>
+        <p>${item.description}</p>
       `;
-
       radarBox.appendChild(div);
     });
 
@@ -1167,7 +1157,7 @@ setInterval(loadTechRadar, 15000);
   <div id="ai-trends"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/ai-trends.js"></script>
+<script src="https://angelonline.altervista.org/js/ai-trends.js?v=1001"></script>
 <script>
 async function loadAITrends() {
   const aiBox = document.getElementById("ai-trends");
@@ -1201,7 +1191,7 @@ setInterval(loadAITrends, 15000);
   <div id="tools"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/tools.js"></script>
+<script src="https://angelonline.altervista.org/js/tools.js?v=1001"></script>
 <script>
 async function loadTools() {
   const toolsBox = document.getElementById("tools");
@@ -1233,7 +1223,7 @@ setInterval(loadTools, 15000);
   <div id="system-status-grid"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/system-status.js"></script>
+<script src="https://angelonline.altervista.org/js/system-status.js?v=1002"></script>
 <script>
 async function loadSystemStatus() {
   const box = document.getElementById("system-status-grid");
@@ -1264,7 +1254,7 @@ setInterval(loadSystemStatus, 15000);
   <div id="threat-monitor"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/threat-monitor.js"></script>
+<script src="https://angelonline.altervista.org/js/threat-monitor.js?v=1001"></script>
 <script>
 async function loadThreatMonitor() {
   const box = document.getElementById("threat-monitor");
@@ -1299,7 +1289,7 @@ setInterval(loadThreatMonitor, 15000);
   <div id="heatmap"></div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
+<script src="https://angelonline.altervista.org/js/heatmap.js?v=1001"></script>
 <script>
 async function loadHeatmap() {
   const box = document.getElementById("heatmap");
@@ -1321,15 +1311,10 @@ setInterval(loadHeatmap, 15000);
 </script>
 
 
-<!-- ⭐ SIDEBAR -->
-<div id="sidebar"></div>
+<!-- UI GENERALE -->
+<script src="https://angelonline.altervista.org/js/ui.js?v=1001"></script>
 
-<!-- ⭐ FOOTER -->
-<div id="footer"></div>
-
-<!-- ⭐ BACK TO TOP -->
-<button id="backToTop">↑</button>
-
+<!-- BACK TO TOP -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
@@ -1345,6 +1330,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<!-- ⭐ CALCOLATRICE -->
-<script src="https://angelonline.altervista.org/js/main.js"></script>
+<!-- CALCOLATRICE -->
+<script src="https://angelonline.altervista.org/js/main.js?v=1001"></script>
 
