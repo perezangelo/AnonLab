@@ -1191,18 +1191,26 @@ document.addEventListener("DOMContentLoaded", () => {
   <div id="system-status-grid"></div>
 </section>
 
-<!-- Carico il JS PRIMA della chiamata -->
 <script src="https://angelonline.altervista.org/js/system-status.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const statusBox = document.getElementById("system-status");
-  if (!statusBox) return;
+  const statusBox = document.getElementById("system-status-grid");
+  if (!statusBox) {
+    console.error("System Status: #system-status-grid non trovato");
+    return;
+  }
 
   fetch("/partials/system-status.html")
     .then(r => r.text())
     .then(html => {
         statusBox.innerHTML = html;
-        if (typeof initSystemStatus === "function") initSystemStatus();
+
+        if (typeof initSystemStatus === "function") {
+            console.log("System Status: avvio initSystemStatus()");
+            initSystemStatus();
+        } else {
+            console.error("initSystemStatus non definita!");
+        }
     })
     .catch(err => console.error("System Status error:", err));
 });
