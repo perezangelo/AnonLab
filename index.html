@@ -1221,16 +1221,16 @@ fetch("/partials/threat-monitor.html")
   <div id="heatmap"></div>
 </section>
 
+<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
+
 <script>
 fetch("/partials/heatmap.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("heatmap").innerHTML = html;
-      initHeatmapMap();
+      initHeatmapMap();   // ✔ ORA LA FUNZIONE ESISTE
   });
 </script>
-
-<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
 
 </section> <!-- /main-column -->
 
