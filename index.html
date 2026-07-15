@@ -1241,11 +1241,11 @@ fetch("/partials/heatmap.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("heatmap").innerHTML = html;
-      initHeatmap();
+      initHeatmapMap();   <!-- IMPORTANTE -->
   });
 </script>
 
-<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
+<script src="https://angelonline.altervista.org/js/heatmap-map.js"></script>
 
 </section> <!-- /main-column -->
 
