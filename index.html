@@ -1227,7 +1227,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2>System Status</h2>
   </div>
 
-  <!-- Contenitore UNICO del widget -->
   <div id="system-status-grid"></div>
 </section>
 
@@ -1236,24 +1235,11 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const statusBox = document.getElementById("system-status-grid");
-  if (!statusBox) {
-    console.error("System Status: #system-status-grid non trovato");
-    return;
+  if (!statusBox) return;
+
+  if (typeof initSystemStatus === "function") {
+      initSystemStatus();
   }
-
-  fetch("/partials/system-status.html")
-    .then(r => r.text())
-    .then(html => {
-        statusBox.innerHTML = html;
-
-        if (typeof initSystemStatus === "function") {
-            console.log("System Status: avvio initSystemStatus()");
-            initSystemStatus();
-        } else {
-            console.error("initSystemStatus non definita!");
-        }
-    })
-    .catch(err => console.error("System Status error:", err));
 });
 </script>
 
