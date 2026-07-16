@@ -1276,7 +1276,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script src="https://angelonline.altervista.org/js/hacker-activity.js"></script>
 <script>
-initHackerActivity();
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof initHackerActivity === "function") {
+        initHackerActivity();
+    }
+});
 </script>
 
 </section> <!-- /main-column -->
