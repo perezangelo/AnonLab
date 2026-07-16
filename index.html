@@ -1263,7 +1263,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
-    <h2>Hacker Activity Heatmap</h2>
+    <h2>Hacker Activity Intelligence</h2>
     <a href="/cyber.html"
        style="color:#ff7b00; text-decoration:none;"
        onmouseover="this.style.color='#ff9a40'"
@@ -1271,24 +1271,12 @@ document.addEventListener("DOMContentLoaded", () => {
        Cyber Threat Intelligence →
     </a>
   </div>
-  <div id="heatmap"></div>
+  <div id="hacker-activity"></div>
 </section>
 
-<!-- Carico heatmap.js PRIMA della chiamata -->
-<script src="https://angelonline.altervista.org/js/heatmap.js"></script>
+<script src="/js/hacker-activity.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const heatmapBox = document.getElementById("heatmap");
-  if (!heatmapBox) return;
-
-  fetch("/partials/heatmap.html")
-    .then(r => r.text())
-    .then(html => {
-        heatmapBox.innerHTML = html;
-        if (typeof initHeatmapMap === "function") initHeatmapMap();
-    })
-    .catch(err => console.error("Heatmap error:", err));
-});
+initHackerActivity();
 </script>
 
 </section> <!-- /main-column -->
