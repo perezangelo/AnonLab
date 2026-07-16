@@ -1,13 +1,38 @@
 [
   {
+    "title": "Oak Emerges From Stealth Mode With $60 Million in Funding",
+    "link": "https://www.securityweek.com/oak-emerges-from-stealth-mode-with-60-million-in-funding/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
+  },
+  {
+    "title": "CISA orders feds to patch actively exploited Oracle flaw by Saturday",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-oracle-flaw-by-saturday/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/16/Oracle.jpg"
+  },
+  {
+    "title": "Splunk, Zoom Patch Critical Vulnerabilities",
+    "link": "https://www.securityweek.com/splunk-zoom-patch-critical-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/06/Zoom-Data-Security-Privacy.jpg"
+  },
+  {
     "title": "Russian hackers trojanize WebEx, Zoom apps to push Starland malware",
     "link": "https://www.bleepingcomputer.com/news/security/russian-hackers-trojanize-webex-zoom-apps-to-push-starland-malware/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
   },
   {
+    "title": "AI Can Find Bugs, But Human Knowledge Still Proves Them",
+    "link": "https://thehackernews.com/2026/07/ai-can-find-bugs-but-human-knowledge.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfFHlEVhBtz6htSsevgYmwuQZHGlEXKK9eqiOqgiXJ587449tNZfWR9y74kC9MfZ6CDSPx6IBloYogs0PBSeynORkAZsD6825INUqoJaIMwtAbBVkve-A8xBNmz6fNpxsuwjsF_jfXHqBumqTT9VY7Jn5gEP3C0fVLOtuVFZ2krUvHSagGvupLXQSH-YI/s1600/cvss.jpg"
+  },
+  {
     "title": "New Spirals ransomware encrypts victim network in under 24 hours",
     "link": "https://www.bleepingcomputer.com/news/security/new-spirals-ransomware-encrypts-victim-network-in-under-24-hours/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/28/ransomware.jpg"
+  },
+  {
+    "title": "Unpatched Shark Vacuum Flaw Could Let Attackers Control Other Vacuums Region-Wide",
+    "link": "https://thehackernews.com/2026/07/unpatched-shark-vacuum-flaw-could-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5tbAe6HgEiYpwgRNJ04jo1HJ_PV3INByd4ggz2t4h_dCa4u2zkCBimnzDZt7V-p208q7-BfaHSmR5_aXg6VvnnThfnc9_UX8oP0hnRa6rP1JVgKka-D76BpYUzhEuc3O0nbEGgoVeCQsTY2RBsVTrYnViTmGPqgPJ9e4lNeKWtxZNxKqvUajphbl-ENY/s1600/shark-hack.jpg"
   },
   {
     "title": "F5 Patches Multiple NGINX, BIG-IP Vulnerabilities",
@@ -123,30 +148,5 @@
     "title": "Firefox, Chrome, Adobe, and VMware Updates Fix Multiple Critical Security Flaws",
     "link": "https://thehackernews.com/2026/07/firefox-chrome-adobe-and-vmware-updates.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMjCjGBZhkRcB4m5BQu0Fcn-Qjs1_VPnfOlt3oFxu7CKMZ5Wc1JpvZEvhVSorBJW-AWV1pACLDkg4rFmCCcdH6vDk-pmD5ai0ZewlmPyeWPnfsmTcg-D3UJXdT902oUD32DjSm5CrBsnf2rcVTQPUo5o-LJRKUlsjOwPNfYMpN7kOfmNhnyw552cv-Gtqk/s1600/adobes.jpg"
-  },
-  {
-    "title": "2-Click Cursor Exploit Enables Dev Environment Takeover",
-    "link": "https://www.darkreading.com/application-security/2-click-cursor-exploit-dev-environment-takeover",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta5ab09b0e890490b/6a55516b36e15d4b2903ffa7/2_cursors-Andriy_Onufriyenko-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Windows Bind Link Attacks Can Hide Malware From EDR Tools",
-    "link": "https://www.securityweek.com/windows-bind-link-attacks-can-hide-malware-from-edr-tools/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Windows-Kernel-BSOD.jpg"
-  },
-  {
-    "title": "Virtual Event Today: Cloud & Data Security Summit",
-    "link": "https://www.securityweek.com/virtual-event-today-cloud-data-security-summit/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Cloud-Security-Event-Feature.jpg"
-  },
-  {
-    "title": "Establishing a Coordinated Vulnerability Disclosure Program to Work With Security Researchers",
-    "link": "https://www.cisa.gov/resources-tools/resources/establishing-coordinated-vulnerability-disclosure-program-work-security-researchers",
-    "image": ""
-  },
-  {
-    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/07/15/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-    "image": ""
   }
 ]
