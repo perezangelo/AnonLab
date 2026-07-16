@@ -1,5 +1,30 @@
 [
   {
+    "title": "Old UEFI Shims Expose Systems to Secure Boot Bypass",
+    "link": "https://www.securityweek.com/old-uefi-shims-expose-systems-to-secure-boot-bypass/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/UEFI-chip-BIOS.jpeg"
+  },
+  {
+    "title": "Zoom Patches Critical Windows Flaw That Could Enable Account Takeover",
+    "link": "https://thehackernews.com/2026/07/zoom-patches-critical-windows-flaw-that.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPR-qLKvfH8KZydz4_DnqiB9bJDjgFi6KdfrbbCHNkywiDcR_1SILe12UqjuyM_1yQXEDBok-ZeYRX0hEjIZpx-Dz2hnIW2xXnwAqrmA3voWWfG_vnGMavgE4-E_DFzICLfizByiwAis02VEJqSoxQrEECCMibS0X27D5k0o08IPp1JR0tVCnXwpj2u3e2/s1600/zoom.jpg"
+  },
+  {
+    "title": "Police Disrupt a \u20ac140M Cyber Fraud Ring in Spain",
+    "link": "https://www.darkreading.com/threat-intelligence/police-disrupt-140m-euro-cyber-fraud-ring-spain",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt996082756cf9a8dd/6a57d2c0e49c54dbbc77c175/Spain-Gwengoat-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Nightmare Eclipse Drops \u2018LegacyHive\u2019 Windows Zero-Day",
+    "link": "https://www.securityweek.com/nightmare-eclipse-drops-legacyhive-windows-zero-day/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Windows-10.jpeg"
+  },
+  {
+    "title": "Trend Micro, Tanium, ESET and Tenable Patch Severe Product Vulnerabilities",
+    "link": "https://www.securityweek.com/trend-micro-tanium-eset-and-tenable-patch-severe-product-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/05/firewall.jpeg"
+  },
+  {
     "title": "Dutch police bust investment fraud ring stealing over \u20ac100 million",
     "link": "https://www.bleepingcomputer.com/news/security/dutch-police-bust-investment-fraud-ring-stealing-over-100-million/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/15/politie.jpg"
@@ -123,30 +148,5 @@
     "title": "Vulnerabilities Patched by Fortinet, Ivanti, ServiceNow",
     "link": "https://www.securityweek.com/vulnerabilities-patched-by-fortinet-ivanti-servicenow/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/software-vulnerability-patch-update.jpg"
-  },
-  {
-    "title": "Cursor Flaw Lets Malicious Cloned Repositories Trigger Windows Code Execution",
-    "link": "https://thehackernews.com/2026/07/cursor-flaw-lets-malicious-cloned.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyFnrtjbcXdDBTEYOhVnUpFO4CSqhCGj5xdvaYlhih4oUCd3phzBQTjjMogZeFDlYqTiO8Xt2jaHevba5peaV76dT417Vq9W-DZFSpu2_cEbAMtGwz-mqKZJcYgAAXmZT_Rnkdc0f3jAW-eANKWd6XZZJvYfYCt6l5Pp-2ZKjlnn4zG7G6gS7ivWruzeU/s1600/git.png"
-  },
-  {
-    "title": "White House Launches AI-Driven \u2018Gold Eagle\u2019 Vulnerability Coordination Initiative",
-    "link": "https://www.securityweek.com/white-house-launches-ai-driven-gold-eagle-vulnerability-coordination-initiative/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Whitehouse-Cybersecurity.jpg"
-  },
-  {
-    "title": "Progress Confirms Zero-Day Vulnerability Behind ShareFile Disruption",
-    "link": "https://www.securityweek.com/progress-confirms-zero-day-vulnerability-behind-sharefile-disruption/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/vulnerability-software-bug.webp"
-  },
-  {
-    "title": "CISA warns admins to patch actively exploited SharePoint flaws",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-patch-actively-exploited-sharepoint-flaws/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/01/13/CISA.jpg"
-  },
-  {
-    "title": "ICS Patch Tuesday: Vulnerabilities Fixed by Siemens, Schneider, Rockwell",
-    "link": "https://www.securityweek.com/ics-patch-tuesday-vulnerabilities-fixed-by-siemens-schneider-rockwell/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/11/ICS_Patches.jpg"
   }
 ]
