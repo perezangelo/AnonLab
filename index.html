@@ -776,7 +776,8 @@ modal.onclick = () => modal.style.display = "none";
        Advisory CISA →
     </a>
   </div>
-  <ul class="alert-list" id="alert-live"></ul>
+
+  <ul class="alert-list" id="alert-live" style="list-style:none; padding:0; margin:0;"></ul>
 </section>
 
 <script>
@@ -788,9 +789,7 @@ function updateThreatLevelFromAlerts(data) {
 
   if (!levelSpan || !barSpan || !dynamicSpan || !updatedSpan) return;
 
-  let critical = 0;
-  let high = 0;
-  let moderate = 0;
+  let critical = 0, high = 0, moderate = 0;
 
   data.forEach(a => {
     const sev = (a.severity || "").toUpperCase();
@@ -803,74 +802,65 @@ function updateThreatLevelFromAlerts(data) {
   let bar = "█░░░░";
   let desc = "Attività nella norma";
 
-  // 🎨 Colori dinamici
-  let colorLevel = "#00ff99";   // verde
+  let colorLevel = "#00ff99";
   let colorBar   = "#00ff99";
-  let colorDesc  = "#b3ffcc";   // verde chiaro (DISTINTO)
+  let colorDesc  = "#b3ffcc";
   let colorTime  = "#00ff99";
 
   if (critical >= 1 || high >= 5) {
     levelText = "Critico";
     bar = "█████";
     desc = "Elevato numero di vulnerabilità gravi rilevate";
-
-    colorLevel = "#ff3333";  // rosso
+    colorLevel = "#ff3333";
     colorBar   = "#ff3333";
-    colorDesc  = "#ff9999";  // rosso chiaro (DISTINTO)
+    colorDesc  = "#ff9999";
     colorTime  = "#ff3333";
   } 
   else if (high >= 2 || moderate >= 5) {
     levelText = "Alto";
     bar = "████░";
     desc = "Aumento delle minacce ad alta severità";
-
-    colorLevel = "#ff7b00";  // arancione
+    colorLevel = "#ff7b00";
     colorBar   = "#ff7b00";
-    colorDesc  = "#ffb366";  // arancione chiaro (DISTINTO)
+    colorDesc  = "#ffb366";
     colorTime  = "#ff7b00";
   } 
   else if (moderate >= 2) {
     levelText = "Moderato";
     bar = "███░░";
     desc = "Presenza di vulnerabilità da monitorare";
-
-    colorLevel = "#ffcc00";  // giallo
+    colorLevel = "#ffcc00";
     colorBar   = "#ffcc00";
-    colorDesc  = "#ffe680";  // giallo chiaro (DISTINTO)
+    colorDesc  = "#ffe680";
     colorTime  = "#ffcc00";
   }
 
-  // 🔥 Aggiorna contenuti
   levelSpan.textContent = levelText;
   barSpan.textContent = bar;
   dynamicSpan.textContent = desc;
 
-  // 🔥 TIMESTAMP
   const now = new Date();
   updatedSpan.textContent =
     "Ultimo aggiornamento: " +
     now.toLocaleDateString("it-IT") + " " +
     now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
 
-  // 🔥 Applica i colori
   levelSpan.style.color = colorLevel;
   barSpan.style.color = colorBar;
   updatedSpan.style.color = colorTime;
-
-  // 👇 La descrizione ha un colore diverso per distinguersi
   dynamicSpan.style.color = colorDesc;
 }
- 
+
 async function loadCyberAlerts() {
   const container = document.getElementById("alert-live");
-  container.innerHTML = "<li>Caricamento in corso...</li>";
+  container.innerHTML = "<li style='color:#fff;'>Caricamento in corso...</li>";
 
   try {
     const r = await fetch("https://angelonline.altervista.org/api/cyber-alert.php");
     const data = await r.json();
 
     if (!Array.isArray(data)) {
-      container.innerHTML = "<li>Errore nel feed.</li>";
+      container.innerHTML = "<li style='color:#fff;'>Errore nel feed.</li>";
       return;
     }
 
@@ -878,34 +868,68 @@ async function loadCyberAlerts() {
 
     data.slice(0, 6).forEach(alert => {
       const li = document.createElement("li");
-      li.className = "alert-item";
-      li.style.borderLeft = "4px solid #ff7b00";
-      li.style.paddingLeft = "10px";
-      li.style.marginBottom = "10px";
+      li.style.marginBottom = "15px";
 
       li.innerHTML = `
-        <strong style="color:#ff7b00;">${alert.id} – ${alert.summary}</strong><br>
-        <span style="color:#ff7b00;">${new Date(alert.published).toLocaleDateString()}</span><br>
-        <a href="https://github.com/advisories/${alert.ghsa}" target="_blank" style="color:#ff7b00;">
-          Apri Advisory →
-        </a>
+        <div style="
+          background:#0d0d0d;
+          border:1px solid #1a1a1a;
+          border-left:4px solid #ff7b00;
+          border-radius:10px;
+          padding:15px;
+          box-shadow:0 0 12px rgba(0,255,255,0.08);
+          transition:transform .2s ease, box-shadow .2s ease;
+        ">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <svg width="22" height="22" fill="#00eaff">
+              <circle cx="11" cy="11" r="9"/>
+            </svg>
+
+            <strong style="color:#ffffff;font-size:1rem;">
+              ${alert.id}
+            </strong>
+          </div>
+
+          <p style="color:#ffffff;margin:0 0 10px 0;font-size:0.95rem;">
+            ${alert.summary}
+          </p>
+
+          <span style="color:#ff7b00;font-size:0.85rem;">
+            ${new Date(alert.published).toLocaleDateString()}
+          </span><br><br>
+
+          <a href="https://github.com/advisories/${alert.ghsa}" 
+             target="_blank" 
+             style="color:#ffffff;text-decoration:underline;font-size:0.9rem;">
+            Apri Advisory →
+          </a>
+        </div>
       `;
+
+      li.onmouseenter = () => {
+        li.firstElementChild.style.transform = "translateY(-4px)";
+        li.firstElementChild.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
+      };
+
+      li.onmouseleave = () => {
+        li.firstElementChild.style.transform = "translateY(0)";
+        li.firstElementChild.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+      };
 
       container.appendChild(li);
     });
 
-    // 🔥 Aggiorna il Cyber Threat Level
     updateThreatLevelFromAlerts(data);
 
   } catch (e) {
-    container.innerHTML = "<li>Impossibile caricare gli alert.</li>";
+    container.innerHTML = "<li style='color:#fff;'>Impossibile caricare gli alert.</li>";
   }
 }
 
 loadCyberAlerts();
 setInterval(loadCyberAlerts, 60000);
 </script>
-
+     
        <style>
 
       /* Effetto ON AIR */
