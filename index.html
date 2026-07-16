@@ -1255,7 +1255,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toolsBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
   toolsBox.style.gap = "20px";
 
-  fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tools.json?ts=" + Date.now())
+  fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/refs/heads/main/data/tools.json?ts=" + Date.now())
     .then(r => r.json())
     .then(data => {
 
