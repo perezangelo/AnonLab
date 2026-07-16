@@ -1,5 +1,30 @@
 [
   {
+    "title": "Russian hackers trojanize WebEx, Zoom apps to push Starland malware",
+    "link": "https://www.bleepingcomputer.com/news/security/russian-hackers-trojanize-webex-zoom-apps-to-push-starland-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
+  },
+  {
+    "title": "New Spirals ransomware encrypts victim network in under 24 hours",
+    "link": "https://www.bleepingcomputer.com/news/security/new-spirals-ransomware-encrypts-victim-network-in-under-24-hours/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/28/ransomware.jpg"
+  },
+  {
+    "title": "F5 Patches Multiple NGINX, BIG-IP Vulnerabilities",
+    "link": "https://www.securityweek.com/f5-patches-multiple-nginx-big-ip-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/F5-Vulnerability.jpg"
+  },
+  {
+    "title": "China\u2019s Top Cybersecurity Firms Hit by Mounting Military Procurement Bans",
+    "link": "https://www.securityweek.com/chinas-top-cybersecurity-firms-hit-by-mounting-military-procurement-bans/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/04/Chinese-Technology-Cyberwar.jpg"
+  },
+  {
+    "title": "OpenAI\u2019s GPT-Red Automates Prompt Injection Testing to Harden GPT-5.6 Sol",
+    "link": "https://thehackernews.com/2026/07/openais-gpt-red-automates-prompt.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSi9EGhWziKlNlaSAnaOE4OjgZ5pyqoajOxDz4zEQl77NDSF_Pf8ME6wfKfrmrTWhLy9jDR1wvmVb7gd5JLhyszunIomhOnyyHKuTfvBCjb8vGypAPXbQzTVG-n5wWUdsTToUXQ5z_uh3XPDX3KKzgZ8vDB9PZ40FOd6xGi2iALOu-wSqSoHpkpYf5eKjk/s1600/openai-gpt-red.jpg"
+  },
+  {
     "title": "Old UEFI Shims Expose Systems to Secure Boot Bypass",
     "link": "https://www.securityweek.com/old-uefi-shims-expose-systems-to-secure-boot-bypass/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/06/UEFI-chip-BIOS.jpeg"
@@ -123,30 +148,5 @@
     "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
     "link": "https://www.cisa.gov/news-events/alerts/2026/07/15/cisa-adds-two-known-exploited-vulnerabilities-catalog",
     "image": ""
-  },
-  {
-    "title": "US Charges Russian Individuals and Firms for Running Cybercrime Services",
-    "link": "https://www.securityweek.com/us-charges-russian-individuals-and-firms-for-running-cybercrime-services/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Russian-hacking.jpeg"
-  },
-  {
-    "title": "SASE Has An AI Blind Spot. Inspecting Packets Is No Longer Enough.",
-    "link": "https://thehackernews.com/2026/07/sase-has-ai-blind-spot-inspecting.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy5qXcxZFGTQiQ1Sb-SHAyKnjOmjdz1fA1FEFMLTVXd7Xcyr9aSptzafuOwTnzCkzHCqZCOV-z_tPKKeoeS6Rd2kYWtAL_IWTRXFaZkr8V371LH2Rbq0JHlLwCbkuhO_D-hRv73LHSQgEW9tfI9Oxj9jmh9ROMZLOAZFZztDH1qzHvO2uc7EO6AlxPh8Cl/s1600/island.jpg"
-  },
-  {
-    "title": "Researcher Drops New Windows Zero-Day PoC Hours After Microsoft Patch Tuesday",
-    "link": "https://thehackernews.com/2026/07/researcher-drops-new-windows-zero-day.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvtiVnhkF-YVsPEXyedqj9REY5pN1-KiSsf-rCeXK5yClGbAcsL1Tg7-9UDDA8VQg5RbM0uWkV23rDxqiFFIJ2RkpkY6cn90-5LPbZOC2oktF7_3FjD5La_FGkYdVBEKeXMJGiGRZfPvxmMBXd99tncWdEZ4HxX62hbxmWEnA02eu-LSVwZtmecjuykqDb/s1600/windows-0day.jpg"
-  },
-  {
-    "title": "New Webinar: Closing the Approval Gap in AI-Era Ad Tech",
-    "link": "https://thehackernews.com/2026/07/new-webinar-closing-approval-gap-in-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKYTg22vVssJ3SSHZzP0PtS8d5g8oCH2fU2IkXoBoIPOR4-XblNQ7Hg6S-qkO6bIB9JLC3yI4QdpQ4iNWsQsu9QnMpNbHdHzwHhRyX0zr-Vklk2DaCe3UlOd8M53pp5Uu_mfds265f_MsrF_RaQ-lnPEc3b5UoIVsTIV-On5qJ9DqMpk05AsKM3FhlgtXV/s1600/ref.jpg"
-  },
-  {
-    "title": "Vulnerabilities Patched by Fortinet, Ivanti, ServiceNow",
-    "link": "https://www.securityweek.com/vulnerabilities-patched-by-fortinet-ivanti-servicenow/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/software-vulnerability-patch-update.jpg"
   }
 ]
