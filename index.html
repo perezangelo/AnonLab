@@ -1139,17 +1139,19 @@ loadSocTV();
     </a>
   </div>
 
-  <!-- ⚠️ Contenitore corretto -->
+  <!-- Contenitore card -->
   <div id="tech-radar"></div>
 </section>
-
-<!-- ⚠️ RIMUOVERE QUESTO: rompe tutto -->
-<!-- <script src="https://angelonline.altervista.org/js/radar.js"></script> -->
 
 <script>
 async function loadTechRadar() {
   const radarBox = document.getElementById("tech-radar");
   if (!radarBox) return;
+
+  // Layout a card affiancate (grid responsive)
+  radarBox.style.display = "grid";
+  radarBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
+  radarBox.style.gap = "20px";
 
   try {
     const res = await fetch(
@@ -1160,22 +1162,43 @@ async function loadTechRadar() {
     radarBox.innerHTML = "";
 
     data.forEach(item => {
-      const div = document.createElement("div");
-      div.className = "radar-item";
+      const card = document.createElement("div");
 
-      div.innerHTML = `
-        <h4 style="color:#00eaff;">${item.name}</h4>
-        <p style="color:#ccc;">
-          Quadrant: ${item.quadrant}<br>
-          Ring: ${item.ring}<br>
-          Fonte: ${item.source}<br>
-          Aggiornato: ${item.updated}
+      card.style.background = "#0d0d0d";
+      card.style.border = "1px solid #1a1a1a";
+      card.style.borderRadius = "10px";
+      card.style.padding = "15px";
+      card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+      card.style.transition = "transform .2s ease, box-shadow .2s ease";
+
+      card.innerHTML = `
+        <h4 style="color:#00eaff;margin:0 0 10px 0;">
+          ${item.title}
+        </h4>
+
+        <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
+          <strong>Categoria:</strong> ${item.category}<br>
+          <strong>Fonte:</strong> ${item.source}<br>
+          <strong>Aggiornato:</strong> ${item.updated}
         </p>
-        <a href="${item.url}" target="_blank" style="color:#ff7b00;">
+
+        <a href="${item.url}" target="_blank" 
+           style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
           Vai alla risorsa →
         </a>
       `;
-      radarBox.appendChild(div);
+
+      // Animazione hover
+      card.onmouseenter = () => {
+        card.style.transform = "translateY(-4px)";
+        card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
+      };
+      card.onmouseleave = () => {
+        card.style.transform = "translateY(0)";
+        card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+      };
+
+      radarBox.appendChild(card);
     });
 
   } catch (err) {
