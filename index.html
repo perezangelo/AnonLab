@@ -1241,21 +1241,69 @@ document.addEventListener("DOMContentLoaded", () => {
        Vai alla pagina Tools →
     </a>
   </div>
+
   <div id="tools"></div>
 </section>
 
-<!-- Carico il JS PRIMA della chiamata -->
-<script src="https://angelonline.altervista.org/js/tools.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const toolsBox = document.getElementById("tools");
   if (!toolsBox) return;
 
-  fetch("/partials/tools.html")
-    .then(r => r.text())
-    .then(html => {
-        toolsBox.innerHTML = html;
-        if (typeof initTools === "function") initTools();
+  // Layout a card affiancate (grid responsive)
+  toolsBox.style.display = "grid";
+  toolsBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
+  toolsBox.style.gap = "20px";
+
+  fetch("/partials/tools.json")
+    .then(r => r.json())
+    .then(data => {
+
+      toolsBox.innerHTML = "";
+
+      data.forEach(tool => {
+        const card = document.createElement("div");
+
+        card.style.background = "#0d0d0d";
+        card.style.border = "1px solid #1a1a1a";
+        card.style.borderRadius = "10px";
+        card.style.padding = "15px";
+        card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+        card.style.transition = "transform .2s ease, box-shadow .2s ease";
+        card.style.color = "#ffffff";
+
+        card.innerHTML = `
+          <div style="display:flex;align-items:center;gap:15px;margin-bottom:10px;">
+            <img src="${tool.icon}" alt="${tool.name}" 
+                 style="width:48px;height:48px;border-radius:6px;">
+            <h4 style="color:#00eaff;margin:0;">${tool.name}</h4>
+          </div>
+
+          <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
+            ${tool.desc}
+          </p>
+
+          <a href="${tool.url}" target="_blank"
+             style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
+            Apri Tool →
+          </a>
+        `;
+
+        // Hover animato
+        card.onmouseenter = () => {
+          card.style.transform = "translateY(-4px)";
+          card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
+        };
+        card.onmouseleave = () => {
+          card.style.transform = "translateY(0)";
+          card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+        };
+
+        toolsBox.appendChild(card);
+      });
+
+      // Mantiene la logica originale (se esiste)
+      if (typeof initTools === "function") initTools();
     })
     .catch(err => console.error("Tools error:", err));
 });
