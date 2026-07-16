@@ -1255,7 +1255,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toolsBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
   toolsBox.style.gap = "20px";
 
-  fetch("/partials/tools.json")
+  fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tools.json?ts=" + Date.now())
     .then(r => r.json())
     .then(data => {
 
@@ -1301,9 +1301,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         toolsBox.appendChild(card);
       });
-
-      // Mantiene la logica originale (se esiste)
-      if (typeof initTools === "function") initTools();
     })
     .catch(err => console.error("Tools error:", err));
 });
