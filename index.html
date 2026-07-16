@@ -1180,16 +1180,9 @@ setInterval(loadTechRadar, 15000);
 <script src="https://angelonline.altervista.org/js/ai-trends.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const aiBox = document.getElementById("ai-trends");
-  if (!aiBox) return;
-
-  fetch("/partials/ai-trends.html")
-    .then(r => r.text())
-    .then(html => {
-        aiBox.innerHTML = html;
-        if (typeof initAITrends === "function") initAITrends();
-    })
-    .catch(err => console.error("AI Trends error:", err));
+    if (typeof initAITrends === "function") {
+        initAITrends();
+    }
 });
 </script>
 
