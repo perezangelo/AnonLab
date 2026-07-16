@@ -1231,16 +1231,8 @@ document.addEventListener("DOMContentLoaded", () => {
 </section>
 
 <script src="https://angelonline.altervista.org/js/system-status.js"></script>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const statusBox = document.getElementById("system-status-grid");
-  if (!statusBox) return;
-
-  if (typeof initSystemStatus === "function") {
-      initSystemStatus();
-  }
-});
+initSystemStatus();
 </script>
 
 <section class="widget-large">
