@@ -1,58 +1,7 @@
 [
-  {
-    "title": "JavaScript",
-    "category": "Languages & Frameworks",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    "source": "MDN",
-    "updated": "2026-07-16"
-  },
-  {
-    "title": "Python",
-    "category": "Languages & Frameworks",
-    "url": "https://www.python.org/",
-    "source": "Official",
-    "updated": "2026-07-16"
-  },
-  {
-    "title": "Docker",
-    "category": "Tools",
-    "url": "https://docs.docker.com/",
-    "source": "Docker Docs",
-    "updated": "2026-07-16"
-  },
-  {
-    "title": "Kubernetes",
-    "category": "Platforms",
-    "url": "https://kubernetes.io/docs/",
-    "source": "Official",
-    "updated": "2026-07-16"
-  },
-  {
-    "title": "OWASP Top 10",
-    "category": "Techniques",
-    "url": "https://owasp.org/www-project-top-ten/",
-    "source": "OWASP",
-    "updated": "2026-07-16"
-  },
-  {
-    "title": "ENISA: Related content",
-    "category": "Threat Intelligence",
-    "url": "https://www.enisa.europa.eu",
-    "source": "ENISA",
-    "updated": "2026-07-16"
-  },
-  {
-    "title": "ENISA: Subscribe",
-    "category": "Threat Intelligence",
-    "url": "https://www.enisa.europa.eu",
-    "source": "ENISA",
-    "updated": "2026-07-16"
-  },
-  {
-    "title": "ENISA: Publication details",
-    "category": "Threat Intelligence",
-    "url": "https://www.enisa.europa.eu",
-    "source": "ENISA",
-    "updated": "2026-07-16"
-  }
+  {"title":"JavaScript","category":"Languages & Frameworks","url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript","source":"MDN","updated":"2026-07-17"},
+  {"title":"Python","category":"Languages & Frameworks","url":"https://www.python.org/","source":"Official","updated":"2026-07-17"},
+  {"title":"Docker","category":"Tools","url":"https://docs.docker.com/","source":"Docker Docs","updated":"2026-07-17"},
+  {"title":"Kubernetes","category":"Platforms","url":"https://kubernetes.io/docs/","source":"Official","updated":"2026-07-17"},
+  {"title":"OWASP Top 10","category":"Techniques","url":"https://owasp.org/www-project-top-ten/","source":"OWASP","updated":"2026-07-17"}
 ]
