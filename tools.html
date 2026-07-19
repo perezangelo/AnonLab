@@ -39,6 +39,11 @@
             margin: 0 auto 40px auto;
         }
     </style>
+    <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
 </head>
 
 <body>
@@ -260,7 +265,7 @@ async function dnsLookup() {
 </script>
 
        <!-- IP Info -->
-<section class="tool-box" id="iplookup">
+<div class="widget-large tools-box" id="iplookup">
     <div class="box-title-row">
         <img src="/img/ip.png" class="box-title-icon">
         <h2>IP Information</h2>
@@ -623,7 +628,7 @@ async function startScan() {
 </script>
 
        <!-- HTTP Headers -->
-<div class="widget-large tools-box">
+<div class="widget-large tools-box" id="headerinspector">
     <div class="box-title-row">
         <img src="/img/http.png" class="box-title-icon">
         <h2>HTTP Headers</h2>
@@ -1111,6 +1116,21 @@ function runDiffLocal() {
     });
   });
 </script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
+
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    }
+  }
+});
+</script>
+</body>
 
 </body>
 </html>
