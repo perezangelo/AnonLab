@@ -2,7 +2,7 @@
 
     <!-- GLOBAL -->
     <div class="threat-row">
-        <span>Global Threat Level</span>
+        <span id="label-global">Global Threat Level</span>
         <div class="bar-container">
             <div id="bar-global" class="bar-fill"></div>
         </div>
@@ -10,7 +10,7 @@
 
     <!-- RANSOMWARE -->
     <div class="threat-row">
-        <span>Ransomware</span>
+        <span id="label-ransomware">Ransomware</span>
         <div class="bar-container">
             <div id="bar-ransomware" class="bar-fill"></div>
         </div>
@@ -18,7 +18,7 @@
 
     <!-- DDOS -->
     <div class="threat-row">
-        <span>DDoS Attacks</span>
+        <span id="label-ddos">DDoS Attacks</span>
         <div class="bar-container">
             <div id="bar-ddos" class="bar-fill"></div>
         </div>
@@ -26,7 +26,7 @@
 
     <!-- PHISHING -->
     <div class="threat-row">
-        <span>Phishing</span>
+        <span id="label-phishing">Phishing</span>
         <div class="bar-container">
             <div id="bar-phishing" class="bar-fill"></div>
         </div>
@@ -34,7 +34,7 @@
 
     <!-- BOTNET -->
     <div class="threat-row">
-        <span>Botnet Activity</span>
+        <span id="label-botnet">Botnet Activity</span>
         <div class="bar-container">
             <div id="bar-botnet" class="bar-fill"></div>
         </div>
@@ -42,42 +42,10 @@
 
     <!-- EXPLOIT -->
     <div class="threat-row">
-        <span>Exploit Attempts</span>
+        <span id="label-exploit">Exploit Attempts</span>
         <div class="bar-container">
             <div id="bar-exploit" class="bar-fill"></div>
         </div>
     </div>
 
 </div>
-
-<style>
-.threat-bars {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.threat-row {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    color: #fff;
-    font-size: 0.95rem;
-}
-
-.bar-container {
-    width: 100%;
-    height: 12px;
-    background: #222;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.bar-fill {
-    height: 100%;
-    width: 0%;
-    background: #00eaff;
-    transition: width 0.6s ease;
-}
-</style>
