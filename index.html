@@ -1273,21 +1273,21 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.color = "#ffffff";
 
         card.innerHTML = `
-          <div style="display:flex;align-items:center;gap:15px;margin-bottom:10px;">
-            <img src="${tool.icon}" alt="${tool.name}" 
-                 style="width:48px;height:48px;border-radius:6px;">
-            <h4 style="color:#00eaff;margin:0;">${tool.name}</h4>
-          </div>
+  <div style="display:flex;align-items:center;gap:15px;margin-bottom:10px;">
+    <img src="${tool.icon}" alt="${tool.name}" 
+         style="width:48px;height:48px;border-radius:6px;">
+    <h4 style="color:#00eaff;margin:0;">${tool.name}</h4>
+  </div>
 
-          <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
-            ${tool.desc}
-          </p>
+  <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
+    ${tool.desc}
+  </p>
 
-          <a href="${tool.url}" target="_blank"
-             style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
-            Apri Tool →
-          </a>
-        `;
+  <a href="https://anonlab.it/tools.html#${tool.id}" target="_blank"
+     style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
+    Apri Tool →
+  </a>
+`;
 
         // Hover animato
         card.onmouseenter = () => {
