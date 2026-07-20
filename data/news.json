@@ -1,5 +1,15 @@
 [
   {
+    "title": "New HollowGraph malware uses Microsoft Graph for stealthy C2 comms",
+    "link": "https://www.bleepingcomputer.com/news/security/new-hollowgraph-malware-uses-microsoft-graph-for-stealthy-c2-comms/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/Calendar.jpg"
+  },
+  {
+    "title": "Exposed Server Reveals AI-Assisted Phishing Toolkit Behind WebDAV Malware Campaign",
+    "link": "https://thehackernews.com/2026/07/exposed-server-reveals-ai-assisted.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJtNDirNuc1FHpVkk7dexa4KTcD8h3fSmxpGMZQeRtlzNpIhC5hOXVEu-aPc5tsCIi9-csPtQVmdoW9FeyyBytXkPWfbwYZEGSJrIiqSEqUsdQwGOepqr23C4pz6jnGWI5ledB7UC19S0ORrc_jyP6Lajqu0X4FsTX6ooTVJvJffKOjRmg2ndJLDj17-E/s1600/phishing-ai.jpg"
+  },
+  {
     "title": "Neo Emerges From Stealth With $100M to Control and Secure Enterprise AI Software",
     "link": "https://www.securityweek.com/neo-emerges-from-stealth-with-100m-to-control-and-secure-enterprise-ai-software/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-funding.jpeg"
@@ -122,17 +132,12 @@
   {
     "title": "Critical NGINX Vulnerability Can Crash Workers and May Allow Remote Code Execution",
     "link": "https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVv10OUCjBseEZieeN1rxtwm17pPCAoe6OC1jvCTXCumjIImhz5Y08lYWBpSIGBSkDJN-wBcGmUTmPEp8U74bgd2Cv3rwmSmtUDlmOYR7f-0Xs3xL_xkjpkNm8W8vzNvFNfmTNiqs9TNcNmT1bo8xWb9XGzPnuaByxKSl9_eOqg3yDbtAtYh0epFo-4Wg/s1600/nginx-rce-flaw.jpg"
+    "image": ""
   },
   {
     "title": "Hackers abuse ViPNet software to target Russian govt agencies",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-abuse-vipnet-software-to-target-russian-govt-agencies/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/03/24/hacker_box.jpg"
-  },
-  {
-    "title": "UAC-0145 Uses ClickFix CAPTCHAs to Infect Ukrainian Devices wih Malware",
-    "link": "https://thehackernews.com/2026/07/uac-0145-uses-clickfix-captchas-to.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzwz79enQjrnXLRTDKacoJm6HMEpOZX59zUr-X-czDXaohlQymWPOYcD0ERz14lU9Sp_6DubTeBvC1085D3vh6VwMqreCDn8F9ZKkcrvgSTlCfwS1RhmT7ubTPrc5VRd5tX7dHAJAu8n8PUy94X3a72vYU4vO769JGWttb3x9gp9lXUkilEnloggpXyk2p/s1600/click.jpg"
   },
   {
     "title": "Update now: 7-Zip fixes RCE flaw exploitable with malicious archives",
@@ -143,10 +148,5 @@
     "title": "WordPress Core \"wp2shell\" RCE flaws get public exploits, patch now",
     "link": "https://www.bleepingcomputer.com/news/security/wordpress-core-wp2shell-rce-flaws-get-public-exploits-patch-now/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/12/07/back.jpg"
-  },
-  {
-    "title": "Microsoft warns of surge in ACR Stealer attacks on customers",
-    "link": "https://www.bleepingcomputer.com/news/security/microsoft-warns-of-surge-in-acr-stealer-attacks-on-customers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/06/18/hand.jpg"
   }
 ]
