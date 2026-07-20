@@ -1,5 +1,30 @@
 [
   {
+    "title": "OpenSSL Silently Fixes \u2018HollowByte\u2019 DoS Vulnerability",
+    "link": "https://www.securityweek.com/openssl-silently-fixes-hollowbyte-dos-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/OpenSSL-communications-traffic.jpg"
+  },
+  {
+    "title": "Hugging Face discloses breach linked to autonomous AI agent",
+    "link": "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/Hugging-Face-headpic.jpg"
+  },
+  {
+    "title": "New Index Tracks Material Breaches \u2014 And Refuses to Add Up the Losses",
+    "link": "https://www.securityweek.com/new-index-tracks-material-breaches-and-refuses-to-add-up-the-losses/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
+  },
+  {
+    "title": "Ernst & Young Data Breach Affects Personal, Financial Information",
+    "link": "https://www.securityweek.com/ernst-young-data-breach-affects-personal-financial-information/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/EY-Ernst-Young.jpeg"
+  },
+  {
+    "title": "Microsoft confirms Windows Server Update Services sync delays",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-working-to-fix-wsus-server-sync-delays-and-timeouts/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/12/16/Windows.jpg"
+  },
+  {
     "title": "Watch on Demand: Cloud & Data Security Summit",
     "link": "https://www.securityweek.com/virtual-event-today-cloud-data-security-summit/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Cloud-Security-Event-Feature.jpg"
@@ -120,33 +145,8 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgA07xA1INXGKM7Z2LQ6zk2IFE_Hb_aDQNHmSfPtJkZY5Gzo2U2_cyflorBsU76hbXK8SwKXR5AmkK5dAAd9uw0wRh6gYaC-5ZPjT6kEdvE7rO-5G0TxXm8a-eytoygZOMuSG-aOnYkC_zTVbnxSq7zxaIFYyLcegbQ59WVztRO-y3MHmce7XuDz2SdVsKA/s1600/vite-npm.jpg"
   },
   {
-    "title": "HollowByte DDoS flaw bloats OpenSSL server memory with 11-byte payload",
-    "link": "https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/17/openssl-hollowbyte-headpic.jpg"
-  },
-  {
     "title": "The Real AI Threat Is Blind Trust",
     "link": "https://www.darkreading.com/application-security/real-ai-threat-blind-trust",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt34579512de050396/6a5a6336b09056633bee9fe7/trust_dial-NicoElNino-getty-2079838824.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Ernst & Young discloses data breach after support system hack",
-    "link": "https://www.bleepingcomputer.com/news/security/ernst-and-young-discloses-data-breach-after-support-system-hack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/17/ey.jpg"
-  },
-  {
-    "title": "In Other News: Iran Tracks US Military Phones, CrashStealer macOS Malware, CVD Blueprint",
-    "link": "https://www.securityweek.com/in-other-news-iran-tracks-us-military-phones-crashstealer-macos-malware-cvd-blueprint/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
-    "title": "Gold Eagle Clearinghouse Targets Security Gap, but How Is Unclear",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/gold-eagle-clearinghouse-targets-security-gap",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta7d85c41efe582eb/6a592f51435d222e500b875b/golden_eagle-Javier_Fernandez_Sanchez-Getty-578118565.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Podcast: Broken Governance, Agentic AI, and the MindStone Agent Exclusive",
-    "link": "https://www.securityweek.com/podcast-broken-governance-agentic-ai-and-the-mindstone-agent-exclusive/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
   }
 ]
