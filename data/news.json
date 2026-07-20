@@ -1,11 +1,36 @@
 [
   {
+    "title": "SonicWall Zero-Days Exploited to Deliver Custom Malware for Weeks Before Patch",
+    "link": "https://www.securityweek.com/sonicwall-zero-days-exploited-to-deliver-custom-malware-for-weeks-before-patch/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/04/Sonicwall-exploit.jpeg"
+  },
+  {
+    "title": "An AI SOC Evaluation Guide for Security Leaders",
+    "link": "https://www.bleepingcomputer.com/news/security/an-ai-soc-evaluation-guide-for-security-leaders/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/18/prophet-ai-header-image.jpg"
+  },
+  {
+    "title": "Cybersecurity Keeps Events 'Uneventful'",
+    "link": "https://www.darkreading.com/cyber-risk/cybersecurity-keeps-events-uneventful",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9ca17cbbd6fe254a/6a5a72ee004f2c1000c2b123/crowd-Oleh_Slobodeniuk-getty-1447355262.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "\u26a1 Weekly Recap: WordPress RCE, SonicWall 0-Days, AI Service Attacks, SharePoint 0-Day and More",
+    "link": "https://thehackernews.com/2026/07/weekly-recap-wordpress-rce-sonicwall-0.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjA-JVLR3XITNdsuoWZQFMu12z6UeqsAdKWjS4Iu6piGP-4Natjx3GZ4obTdwddY5YHPgNoYDJljFCpAh9YRUntTakZeiGikoJYjjgEcv2ZVPchuCuyIfRh_3aTJ64Ktke9RkdRxH7DalTVqGf0YgF3fDj2lHgvVyIDANaMn1KVy1d1CBXTZxAwyJBqEClL/s1600/cyberrecap.jpg"
+  },
+  {
     "title": "OpenSSL Silently Fixes \u2018HollowByte\u2019 DoS Vulnerability",
     "link": "https://www.securityweek.com/openssl-silently-fixes-hollowbyte-dos-vulnerability/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/10/OpenSSL-communications-traffic.jpg"
   },
   {
-    "title": "Hugging Face discloses breach linked to autonomous AI agent",
+    "title": "Russian Intelligence Hacks IP Cameras to Spy on Military Logistics Across NATO States and Ukraine",
+    "link": "https://thehackernews.com/2026/07/russian-intelligence-hacks-ip-cameras.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnZdcdM-XJQ9tmIQw7h4gqSDABg-Ip1mzizMoR9zRcyQmaG7OGlQSp1ad0RsZSflsvdKVn0bs4EXdPthnHgiC76as_RVG-W7vZ88AHvJ2HhCLEaQOlNukhrTl6NSq6sgAHGiGUXemDrbZePvUDIi2oxWb60rRX5lkxA5bsFBJplBkaVQTZ5R0EjOrJTaQ/s1600/ip-camera-hacking.jpg"
+  },
+  {
+    "title": "Hugging Face warns an autonomous AI agent hacked its network",
     "link": "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/Hugging-Face-headpic.jpg"
   },
@@ -13,6 +38,11 @@
     "title": "New Index Tracks Material Breaches \u2014 And Refuses to Add Up the Losses",
     "link": "https://www.securityweek.com/new-index-tracks-material-breaches-and-refuses-to-add-up-the-losses/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
+  },
+  {
+    "title": "Mythos Didn't Break Your Security Program. Your Exposure Window Could.",
+    "link": "https://thehackernews.com/2026/07/mythos-didnt-break-your-security.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPz_r-By1h0xZL5FiBqJIALstL79CJXVbUweKybWr0EG7qKcLPYSo750ATDQjzd9tE6piMt4-TkFY4mT87Q58Jg_0jHMCveyydooFMjk5hKUk0jQA_Uxp6WamlMsFIjXcws2ighKsjC907P45OIhcimimpm-ECyQ_bq5erQ2MTvH7HGwzGgXrxQSIBBx0/s1600/xmcyber.jpg"
   },
   {
     "title": "Ernst & Young Data Breach Affects Personal, Financial Information",
@@ -57,7 +87,7 @@
   {
     "title": "Russian-Speaking Hacker Uses Google Gemini CLI to Control Botnet of Eight Dental Clinic PCs",
     "link": "https://thehackernews.com/2026/07/russian-speaking-hacker-uses-google.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyO5FC_n2BBZmiHphtqs0UN5r3DPgtRvkrVfaHOW-1Fv2VPXZliRYDryKR5I-vdZxtmChQJB6eAlJsND-e47t5lLQQ4SWkSJ_D02SEL6nRBmnJ-klfjSSg7rjRyf5AfzX340_se2vNrobCydtV-NZPsDm8MvL9UG0atiMekaxCNzHwizxZFlRhvpuM8BjE/s1600/gemini-cc.jpg"
+    "image": ""
   },
   {
     "title": "Chrome 150 Update Patches Severe Memory Safety Bugs",
@@ -118,35 +148,5 @@
     "title": "The Future of Age Verification: Your Face Never Leaves Your Device",
     "link": "https://www.bleepingcomputer.com/news/security/the-future-of-age-verification-your-face-never-leaves-your-device/",
     "image": "https://www.bleepstatic.com/content/posts/2026/07/15/incode-on-device-age-estimation.jpg"
-  },
-  {
-    "title": "New wp2shell WordPress Core Flaw Lets Unauthenticated Attackers Run Code",
-    "link": "https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRULLT1q8L6AtUB7jgKywi_KSF8VGKkOF9yC3Snt81K1aD2XSEV1jgfIe331rXUWGqhmAyFgr1USssr4_CQmuE7HLAn0ShaQ0pHY_yvNYMjQdHtpV8i-vlk2ickhJSJDSN3amGox_DMR5hemMlrgXIk8kHoHlYKZncjpiV3ibF77ax1Yn0fEjxtgxy7tY/s1600/wordpress-core.jpg"
-  },
-  {
-    "title": "Abbott probes two cyber incidents amid extortion claims",
-    "link": "https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/17/abbott-logo.jpg"
-  },
-  {
-    "title": "OpenSSL HollowByte Flaw Could Freeze Server Memory with 11-Byte TLS Requests",
-    "link": "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhk66eU1Srifu4Rdpf7MZDjg3GdNMtQK6ZW-F283kxhZ7Z0W_8nWNJynZiQ7n0ov9OLNm315P4942h3-unMI0WZ1-LH8tdQ6sv2o6q0TxKT-bVKewzkQULKKXSJOee_oANuI3YquoDgSPHsPeXEdQcFRoy8czRQimH_f0sNHJ55-5LA153sQgUPkpBBEVE/s1600/openssl.jpg"
-  },
-  {
-    "title": "Inc Ransomware Exploits SonicWall SMA Zero-Days",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteaaf936e441aafd2/6a5a7c032292771ec0f65c59/Wall-PM_Images-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Seven Malicious Vite npm Packages Use Blockchain C2 to Deliver a RAT",
-    "link": "https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgA07xA1INXGKM7Z2LQ6zk2IFE_Hb_aDQNHmSfPtJkZY5Gzo2U2_cyflorBsU76hbXK8SwKXR5AmkK5dAAd9uw0wRh6gYaC-5ZPjT6kEdvE7rO-5G0TxXm8a-eytoygZOMuSG-aOnYkC_zTVbnxSq7zxaIFYyLcegbQ59WVztRO-y3MHmce7XuDz2SdVsKA/s1600/vite-npm.jpg"
-  },
-  {
-    "title": "The Real AI Threat Is Blind Trust",
-    "link": "https://www.darkreading.com/application-security/real-ai-threat-blind-trust",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt34579512de050396/6a5a6336b09056633bee9fe7/trust_dial-NicoElNino-getty-2079838824.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
