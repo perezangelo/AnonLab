@@ -1,5 +1,6 @@
 <div class="threat-bars">
 
+    <!-- GLOBAL -->
     <div class="threat-row">
         <span id="label-global">Global Threat Level: 0%</span>
         <div class="bar-container">
@@ -7,6 +8,7 @@
         </div>
     </div>
 
+    <!-- RANSOMWARE -->
     <div class="threat-row">
         <span id="label-ransomware">Ransomware: 0%</span>
         <div class="bar-container">
@@ -14,6 +16,7 @@
         </div>
     </div>
 
+    <!-- DDOS -->
     <div class="threat-row">
         <span id="label-ddos">DDoS Attacks: 0%</span>
         <div class="bar-container">
@@ -21,6 +24,7 @@
         </div>
     </div>
 
+    <!-- PHISHING -->
     <div class="threat-row">
         <span id="label-phishing">Phishing: 0%</span>
         <div class="bar-container">
@@ -28,6 +32,7 @@
         </div>
     </div>
 
+    <!-- BOTNET -->
     <div class="threat-row">
         <span id="label-botnet">Botnet Activity: 0%</span>
         <div class="bar-container">
@@ -35,6 +40,7 @@
         </div>
     </div>
 
+    <!-- EXPLOIT -->
     <div class="threat-row">
         <span id="label-exploit">Exploit Attempts: 0%</span>
         <div class="bar-container">
@@ -45,6 +51,9 @@
 </div>
 
 <style>
+/* ============================
+   STRUTTURA BASE (come la tua)
+   ============================ */
 .threat-bars {
     margin-top: 20px;
     display: flex;
@@ -56,28 +65,36 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    color: #fff;
     font-size: 0.95rem;
 }
 
-.bar-container {
-    width: 100%;
-    height: 20px; /* aumentata per mostrare il testo */
-    background: #222;
-    border-radius: 6px;
-    overflow: hidden;
+/* ============================
+   FIX PER IL TEMA CYBER
+   ============================ */
+.threat-row span {
+    color: #fff !important;
 }
 
+/* Contenitore barre */
+.bar-container {
+    width: 100%;
+    height: 20px !important;
+    background: #222 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+/* Barre interne */
 .bar-fill {
-    height: 100%;
+    height: 100% !important;
     width: 0%;
-    background: #00eaff;
-    display: flex;
-    align-items: center;
-    padding-left: 6px;
-    font-size: 11px;
-    font-weight: bold;
-    color: #000;
-    transition: width 0.6s ease, background-color 0.6s ease;
+    background: #00eaff !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 6px !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    transition: width 0.6s ease, background-color 0.6s ease !important;
 }
 </style>
