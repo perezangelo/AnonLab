@@ -1328,8 +1328,6 @@ initSystemStatus();
   <div id="threat-monitor"></div>
 </section>
 
-<!-- Carico il JS PRIMA della chiamata -->
-<script src="https://angelonline.altervista.org/js/threat-monitor.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const threatBox = document.getElementById("threat-monitor");
@@ -1339,7 +1337,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(r => r.text())
     .then(html => {
         threatBox.innerHTML = html;
-        if (typeof initThreatMonitor === "function") initThreatMonitor();
+
+        // CARICO IL JS DOPO che il partial è nel DOM
+        const script = document.createElement("script");
+        script.src = "https://angelonline.altervista.org/js/threat-monitor.js";
+        script.onload = () => initThreatMonitor();
+        document.body.appendChild(script);
     })
     .catch(err => console.error("Threat Monitor error:", err));
 });
