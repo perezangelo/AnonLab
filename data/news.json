@@ -1,5 +1,10 @@
 [
   {
+    "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
+    "link": "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEiY-8bLYm125By8D7AuLG0iHjE5hB2_ysYdB1WkSc0wxB_virPrL19JZ0Ow8Nzsu0DkoTWboikIsKEyDs9393o1yaFJ0LZMFy64Hzk4XGzOqnpjJMgptlxVsHnmDm6twDSVhCkT1HFTFVmDW2zvlmz3qvQP9vftatDZFCw_GvauRT_2yEF-REvZlXyb_I/s1600/sharepoint.jpg"
+  },
+  {
     "title": "Qilin Ransomware Attackers Exploit PAN-OS Authentication Bypass for Initial Access",
     "link": "https://thehackernews.com/2026/07/qilin-ransomware-attackers-exploit-pan.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgP1HNhUk3hMm0HOAQBAVExGT5-PQfrxeAtKrKRpG_eaXz5qEtVKiuH4-nOVMVdbtZ5XVzfk-hM-eFwpS0IAZNpGkp2DmE4wiNauEA3GT-t1UtLNGjtyVuDRPezJSyj4jEw8zeNgoPnyloZe_6K_vM1-nfYYoehFdoWRgVzVnmJUF3wwfamG0BgDdN1BvMJ/s1600/ransomware-attack.jpg"
@@ -28,6 +33,11 @@
     "title": "SecurityWeek Launches Critical Impact Awards to Recognize Excellence in Industrial Cybersecurity",
     "link": "https://www.securityweek.com/securityweek-launches-critical-impact-awards-to-recognize-excellence-in-industrial-cybersecurity/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/ICS_Security-Awards-Critical-Impact.jpg"
+  },
+  {
+    "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/07/21/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+    "image": ""
   },
   {
     "title": "Open-Source Android AI Agents Could Let Invisible Screen Text Run Code on Host PCs",
@@ -138,15 +148,5 @@
     "title": "Cursor, Codex, Gemini CLI, Antigravity hit by sandbox escapes",
     "link": "https://www.bleepingcomputer.com/news/security/cursor-codex-gemini-cli-antigravity-hit-by-sandbox-escapes/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/10/11/sandbox-escape.jpg"
-  },
-  {
-    "title": "JadePuffer agentic attacks now target AI model data with ransomware",
-    "link": "https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-attacks-now-target-ai-model-data-with-ransomware/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/puffer.jpg"
-  },
-  {
-    "title": "Remediating Vulnerabilities With LLMs: Inside Ivanti's Automation Push",
-    "link": "https://www.darkreading.com/cybersecurity-operations/remediating-vulnerabilities-llms-ivanti-automation",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb30ebf99943f9f9a/6a5e0e8c81d46ac05c6bf14f/llms-rawintanpin-Getty-2224684603.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
