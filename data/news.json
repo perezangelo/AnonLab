@@ -1,5 +1,30 @@
 [
   {
+    "title": "Exploitation of ServiceNow Vulnerability Seen Days After Disclosure",
+    "link": "https://www.securityweek.com/exploitation-of-servicenow-vulnerability-seen-days-after-disclosure/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/ServiceNow.webp"
+  },
+  {
+    "title": "Zimbra Update Patches Critical Vulnerabilities",
+    "link": "https://www.securityweek.com/zimbra-update-patches-critical-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/01/Veeam-backup-cloud-storage.jpeg"
+  },
+  {
+    "title": "Windows LegacyHive zero-day flaw gets free, unofficial patches",
+    "link": "https://www.bleepingcomputer.com/news/security/windows-legacyhive-zero-day-flaw-gets-free-unofficial-patches/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
+  },
+  {
+    "title": "New ENCFORGE Ransomware Targets AI Model Files in Langflow RCE Attack",
+    "link": "https://thehackernews.com/2026/07/new-encforge-ransomware-targets-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDTNXJkg3w9ziG7euHnlaoQkTjogtjIhtwE-ZudPv_9wOpJUCUNVc-i_BtBkDTCflKzRSfUOEp5xHyRWAOcQWv18pf2kv9-yuI75SOM52X3akV3VrguZf6GDH9MZejxFG7FoJGMIgARuiWyncCOmNznSofFT8Fn9Zu2ZGmk0V_Ni3niha2I9qAO59VKHw/s1600/ransomware-ai.jpg"
+  },
+  {
+    "title": "Critical ServiceNow AI Platform Flaw Exploited for Unauthenticated Code Execution",
+    "link": "https://thehackernews.com/2026/07/critical-servicenow-ai-platform-flaw.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAYYV6u5s-uKU-FXeqsoZ9Bk7nvzW1gPYVuoykmnuzLBQCK0jvX7rAO12mK5FVX06ovTJHZLUUXDkFmYk88oyKdFSYByRPSL5MUuAqikrTIVEpVzOcR9j4Rn0Fmje7-VwBAO09Yl8Y4cTUVNFwTXf2FV2c9C8oyNi5coAMCMLn5WF5Fbqtyt-tDZ3MVsO0/s1600/servicenow.jpg"
+  },
+  {
     "title": "Est\u00e9e Lauder discloses data breach via Oracle E-Business flaw",
     "link": "https://www.bleepingcomputer.com/news/security/est-e-lauder-discloses-data-breach-via-oracle-e-business-flaw/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/estee.jpg"
@@ -33,6 +58,11 @@
     "title": "Remediating Vulnerabilities With LLMs: Inside Ivanti's Automation Push",
     "link": "https://www.darkreading.com/cybersecurity-operations/remediating-vulnerabilities-llms-ivanti-automation",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb30ebf99943f9f9a/6a5e0e8c81d46ac05c6bf14f/llms-rawintanpin-Getty-2224684603.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "25 Years After Code Red: What the Worm Era Can Teach Us About AI Security",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/25-years-after-code-red-what-the-worm-era-can-teach-us-about-ai-security-2",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc94608acf452fd67/655cf371ab171e040a838b2a/329050_DR23_Graphics_Website_V5_Default_Image_v1.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "CISOs Feel the Heat Over AI Risk",
@@ -118,35 +148,5 @@
     "title": "Ernst & Young Data Breach Affects Personal, Financial Information",
     "link": "https://www.securityweek.com/ernst-young-data-breach-affects-personal-financial-information/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/EY-Ernst-Young.jpeg"
-  },
-  {
-    "title": "Microsoft confirms Windows Server Update Services sync delays",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-working-to-fix-wsus-server-sync-delays-and-timeouts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/12/16/Windows.jpg"
-  },
-  {
-    "title": "Watch on Demand: Cloud & Data Security Summit",
-    "link": "https://www.securityweek.com/virtual-event-today-cloud-data-security-summit/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Cloud-Security-Event-Feature.jpg"
-  },
-  {
-    "title": "Capital One Open Sources AI-Powered \u2018VulnHunter\u2019 Security Tool",
-    "link": "https://www.securityweek.com/capital-one-open-sources-ai-powered-vulnhunter-security-tool/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
-  },
-  {
-    "title": "Windows KB5121767 OOB update fixes shutdowns on some Dell PCs",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-windows-bug-causing-some-dell-pcs-to-shut-down/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/DELL.jpg"
-  },
-  {
-    "title": "Hugging Face Hacked in Autonomous AI Attack",
-    "link": "https://www.securityweek.com/hugging-face-hacked-in-autonomous-ai-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Hugging-Face.jpeg"
-  },
-  {
-    "title": "New 7-Zip Vulnerability Could Let Crafted XZ Archives Run Code During Extraction",
-    "link": "https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuAoanL7LxDYHynfggiOQo_RDymqYrFlfnRNrstIG6KgYuDWk2uR0eZDx_vCSLWsjTmP5LohkMSGQ_sc32hE4TGqqUCkGwsDlOUzP3bb-Ib-whRLliIb0YVozTMZF-lgSsPJr55l7GPjR1Xq-sH7dieWTBNnZsttdSfOxowTrEZImrcJ-_cI6i4zVFlII/s1600/7-zip.jpg"
   }
 ]
