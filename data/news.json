@@ -1,5 +1,20 @@
 [
   {
+    "title": "Critical wp2shell WordPress flaws exploited to install webshells",
+    "link": "https://www.bleepingcomputer.com/news/security/critical-wp2shell-wordpress-flaws-exploited-to-install-webshells/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/15/WordPress.jpg"
+  },
+  {
+    "title": "AWS Kiro Flaw Let a Poisoned Web Page Rewrite Its Config and Run Code",
+    "link": "https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJfMUQ_pVP5as41uM_4cR8oRUsCwuXPMLLG63jNd5Djqso9kJyQZLiZgQrMQzykhRaX8BQCydIMPokGoITYY30kc3dH-8iy4Bd-ux36RoIjyNYXtKwb1F1fPdP00hoHD-9Q9s5CGD30w58s5wfyzBGOQvnIxM8JlHkig881HSQQuu4Hk6GBiDJicUYE8o/s1600/AWS-Kiro.jpg"
+  },
+  {
+    "title": "Google Launches Gemini 3.5 Flash Cyber AI to Find and Fix Software Vulnerabilities",
+    "link": "https://thehackernews.com/2026/07/google-launches-gemini-35-flash-cyber.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEEErOjlKug3DfeSGwzEbvNrUSCkzDF0o7uAnDNHFuE5MWaTlnB8sSfYJ4VsQaG39Kv_-L50Zc5GOJrpLYvW_2i8TFFI1xAWMRnFa-M6smZrswwGgnUMmEe-F-FB5Hw3OQWxVdSfPAKCFidVnQODRBSDT9WbF4dZmfrOsvvvhHmIAnroCkyFmmhlc_YQyC/s1600/gemini-cyber-flash.jpg"
+  },
+  {
     "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
     "link": "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEiY-8bLYm125By8D7AuLG0iHjE5hB2_ysYdB1WkSc0wxB_virPrL19JZ0Ow8Nzsu0DkoTWboikIsKEyDs9393o1yaFJ0LZMFy64Hzk4XGzOqnpjJMgptlxVsHnmDm6twDSVhCkT1HFTFVmDW2zvlmz3qvQP9vftatDZFCw_GvauRT_2yEF-REvZlXyb_I/s1600/sharepoint.jpg"
@@ -20,7 +35,7 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih_Q67gFWBtG5q7zVuyna7iJj3lSm-UQRoMsami8jaf-WYMCXqQlVprQ_ifyXx-PqJg2chDHN3KrFppnZSvejTvSco4kN-P_S4U3vKQHNtvZ48g5wftlSILrMulX1WUMOeeybU4apJ5Iv8BM6ipceEVGSJucR7yRJZguIrfTUaCbbHqefGt6o2BkHrJqV0/s1600/zimbra.jpg"
   },
   {
-    "title": "Choose Wisely: AI-Generated Coding Risk Varies, A Lot",
+    "title": "Choose Wisely: AI-Generated Coding Risk Varies, a Lot",
     "link": "https://www.darkreading.com/application-security/choose-wisely-ai-generated-coding-risk-varies",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1c0e9544f78c82bf/6a5e8bfa651b136c90b23f50/door_choice-adventtr-GettyImages-2027127656.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
@@ -35,8 +50,53 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/ICS_Security-Awards-Critical-Impact.jpg"
   },
   {
+    "title": "Tycon Systems TPDIN-Monitor-WEB2",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-01",
+    "image": ""
+  },
+  {
+    "title": "Siemens SIDIS Secured SmartPlug",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-04",
+    "image": ""
+  },
+  {
     "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
     "link": "https://www.cisa.gov/news-events/alerts/2026/07/21/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
+    "title": "Siemens IAM Client",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-05",
+    "image": ""
+  },
+  {
+    "title": "Siemens RUGGEDCOM APE1808 with Palo Alto Networks Virtual NGFW",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-02",
+    "image": ""
+  },
+  {
+    "title": "Rockwell Automation 1734 POINT I/O",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-09",
+    "image": ""
+  },
+  {
+    "title": "Rockwell Automation 1718-AENTR/1719-AENTR",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-08",
+    "image": ""
+  },
+  {
+    "title": "Rockwell Automation Studio 5000 Logix Designer",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-10",
+    "image": ""
+  },
+  {
+    "title": "Siemens CADRA",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-06",
+    "image": ""
+  },
+  {
+    "title": "Rockwell Automation FactoryTalk Services Platform",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-07",
     "image": ""
   },
   {
@@ -88,65 +148,5 @@
     "title": "Clover Health Investments Discloses Data Breach",
     "link": "https://www.securityweek.com/clover-health-investments-discloses-data-breach/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
-  },
-  {
-    "title": "Microsoft shares manual fix for WSUS sync delays and timeouts",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-shares-manual-fix-for-wsus-sync-delays-and-timeouts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/28/Windows_headpic.jpg"
-  },
-  {
-    "title": "WordPress wp2shell Exploitation Grows as Public Exploit Fuels Mass Scanning",
-    "link": "https://thehackernews.com/2026/07/wordpress-wp2shell-exploitation-grows.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4qOga3YGcLZ3JclK_mkOkQ-pRmQowUUqu6Hp3fj1QTmsNuuhkSj4OiFqgAtL7e6yeGkv-K1jC0v4bRayI40oDQ8UMeYishuNzRap3E5RYmIEbjRbmq-uAk4iWKWwIfMdNi6owJrVWE_3fcWzj5lZgVm9P96ddcqghwnp3rGx3pM3N6hck6UiaFUgVRbtC/s1600/wordpress-ex.jpg"
-  },
-  {
-    "title": "Exploitation of ServiceNow Vulnerability Seen Days After Disclosure",
-    "link": "https://www.securityweek.com/exploitation-of-servicenow-vulnerability-seen-days-after-disclosure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/ServiceNow.webp"
-  },
-  {
-    "title": "Zimbra Update Patches Critical Vulnerabilities",
-    "link": "https://www.securityweek.com/zimbra-update-patches-critical-vulnerabilities/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/01/Veeam-backup-cloud-storage.jpeg"
-  },
-  {
-    "title": "Windows LegacyHive zero-day flaw gets free, unofficial patches",
-    "link": "https://www.bleepingcomputer.com/news/security/windows-legacyhive-zero-day-flaw-gets-free-unofficial-patches/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
-  },
-  {
-    "title": "New ENCFORGE Ransomware Targets AI Model Files in Langflow RCE Attack",
-    "link": "https://thehackernews.com/2026/07/new-encforge-ransomware-targets-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDTNXJkg3w9ziG7euHnlaoQkTjogtjIhtwE-ZudPv_9wOpJUCUNVc-i_BtBkDTCflKzRSfUOEp5xHyRWAOcQWv18pf2kv9-yuI75SOM52X3akV3VrguZf6GDH9MZejxFG7FoJGMIgARuiWyncCOmNznSofFT8Fn9Zu2ZGmk0V_Ni3niha2I9qAO59VKHw/s1600/ransomware-ai.jpg"
-  },
-  {
-    "title": "Critical ServiceNow AI Platform Flaw Exploited for Unauthenticated Code Execution",
-    "link": "https://thehackernews.com/2026/07/critical-servicenow-ai-platform-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAYYV6u5s-uKU-FXeqsoZ9Bk7nvzW1gPYVuoykmnuzLBQCK0jvX7rAO12mK5FVX06ovTJHZLUUXDkFmYk88oyKdFSYByRPSL5MUuAqikrTIVEpVzOcR9j4Rn0Fmje7-VwBAO09Yl8Y4cTUVNFwTXf2FV2c9C8oyNi5coAMCMLn5WF5Fbqtyt-tDZ3MVsO0/s1600/servicenow.jpg"
-  },
-  {
-    "title": "Est\u00e9e Lauder discloses data breach via Oracle E-Business flaw",
-    "link": "https://www.bleepingcomputer.com/news/security/est-e-lauder-discloses-data-breach-via-oracle-e-business-flaw/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/estee.jpg"
-  },
-  {
-    "title": "SonicWall SMA1000 flaws exploited as zero-days to push custom malware",
-    "link": "https://www.bleepingcomputer.com/news/security/sonicwall-sma1000-flaws-exploited-as-zero-days-to-push-custom-malware/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/05/13/SonicWall_logo.jpeg"
-  },
-  {
-    "title": "Hackers steal $23.7 million in crypto from Ostium in off-chain attack",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-steal-237-million-in-crypto-from-ostium-in-off-chain-attack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/10/0_Cryptocurrency_bitcoin.jpg"
-  },
-  {
-    "title": "'WP2Shell' Opens Millions of WordPress Sites to Remote Takeover",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/wp2shell-millions-wordpress-sites-remote-takeover",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb1df0898ba4c4a15/6a5e837c6c884d291eb9cdc9/wordpress_Silver_Wings_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Cursor, Codex, Gemini CLI, Antigravity hit by sandbox escapes",
-    "link": "https://www.bleepingcomputer.com/news/security/cursor-codex-gemini-cli-antigravity-hit-by-sandbox-escapes/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/10/11/sandbox-escape.jpg"
   }
 ]
