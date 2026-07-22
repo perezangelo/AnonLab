@@ -1,5 +1,25 @@
 [
   {
+    "title": "CISA orders urgent action on actively exploited Langflow RCE flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-langflow-rce-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/CISA.jpg"
+  },
+  {
+    "title": "EU Financial Institutions Leak Data Through Cookie Trackers",
+    "link": "https://www.darkreading.com/data-privacy/eu-financial-institutions-cookie-trackers",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte466ca4b83c014ee/6a5fc9fb674037145e17672e/Accept_cookies-faithiecannoise-Getty-1014415154.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Fourth SharePoint Vulnerability Exploited in Past Month\u2019s Wave of Attacks",
+    "link": "https://www.securityweek.com/fourth-sharepoint-vulnerability-exploited-in-past-months-wave-of-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/SharePoint.jpeg"
+  },
+  {
+    "title": "Why Modern SOCs Need Multi-Layered Detections",
+    "link": "https://thehackernews.com/2026/07/why-modern-socs-need-multi-layered.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgA_BCT5VYzHAi2ZYmYF84NAe3JitSR-U0uk4JZeuJf-hgHgwMXRj1_44z0DfwmtHqFZMxeEYGHR4AlvuIe-_4oAGvQlVnCm9peV1-H0nZ__XbPIcKlz_7RxoPuR7C2IMBZ7B27ABzkk9Zv08DOaKAefwt72n8H0WBP8Z8TBajQwEzBt10hFwE3-70o0A5V/s1600/corelight.jpg"
+  },
+  {
     "title": "Stop renting storage space \u2014 this lifetime 2TB plan is yours for $59",
     "link": "https://www.bleepingcomputer.com/news/security/stop-renting-storage-space-this-lifetime-2tb-plan-is-yours-for-59/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/05/04/filejump.jpg"
@@ -128,25 +148,5 @@
     "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
     "link": "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEiY-8bLYm125By8D7AuLG0iHjE5hB2_ysYdB1WkSc0wxB_virPrL19JZ0Ow8Nzsu0DkoTWboikIsKEyDs9393o1yaFJ0LZMFy64Hzk4XGzOqnpjJMgptlxVsHnmDm6twDSVhCkT1HFTFVmDW2zvlmz3qvQP9vftatDZFCw_GvauRT_2yEF-REvZlXyb_I/s1600/sharepoint.jpg"
-  },
-  {
-    "title": "Qilin Ransomware Attackers Exploit PAN-OS Authentication Bypass for Initial Access",
-    "link": "https://thehackernews.com/2026/07/qilin-ransomware-attackers-exploit-pan.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgP1HNhUk3hMm0HOAQBAVExGT5-PQfrxeAtKrKRpG_eaXz5qEtVKiuH4-nOVMVdbtZ5XVzfk-hM-eFwpS0IAZNpGkp2DmE4wiNauEA3GT-t1UtLNGjtyVuDRPezJSyj4jEw8zeNgoPnyloZe_6K_vM1-nfYYoehFdoWRgVzVnmJUF3wwfamG0BgDdN1BvMJ/s1600/ransomware-attack.jpg"
-  },
-  {
-    "title": "Closing the Identity Gaps in Critical Infrastructure Security",
-    "link": "https://www.bleepingcomputer.com/news/security/closing-the-identity-gaps-in-critical-infrastructure-security/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/18/specops-header-datacenter.jpg"
-  },
-  {
-    "title": "Zimbra Patches Critical SNMP Command Injection and Four XSS Vulnerabilities",
-    "link": "https://thehackernews.com/2026/07/zimbra-patches-critical-snmp-command.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih_Q67gFWBtG5q7zVuyna7iJj3lSm-UQRoMsami8jaf-WYMCXqQlVprQ_ifyXx-PqJg2chDHN3KrFppnZSvejTvSco4kN-P_S4U3vKQHNtvZ48g5wftlSILrMulX1WUMOeeybU4apJ5Iv8BM6ipceEVGSJucR7yRJZguIrfTUaCbbHqefGt6o2BkHrJqV0/s1600/zimbra.jpg"
-  },
-  {
-    "title": "Choose Wisely: AI-Generated Coding Risk Varies, a Lot",
-    "link": "https://www.darkreading.com/application-security/choose-wisely-ai-generated-coding-risk-varies",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1c0e9544f78c82bf/6a5e8bfa651b136c90b23f50/door_choice-adventtr-GettyImages-2027127656.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
