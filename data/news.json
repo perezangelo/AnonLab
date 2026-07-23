@@ -1,8 +1,38 @@
 [
   {
+    "title": "Upbound Group Says Data Breach Led to $13 Million in Fraudulent Contract Losses",
+    "link": "https://www.securityweek.com/upbound-group-says-data-breach-led-to-13-million-in-fraudulent-contract-losses/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "New msaRAT malware uses Chrome, Edge browsers to route C2 traffic",
+    "link": "https://www.bleepingcomputer.com/news/security/new-msarat-malware-uses-chrome-edge-browsers-to-route-c2-traffic/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/11/28/Google_Chrome.jpg"
+  },
+  {
+    "title": "Assaf Keren Appointed New CISO of Meta",
+    "link": "https://www.securityweek.com/assaf-keren-appointed-new-ciso-of-meta/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/03/Meta-Facebook-e1739539212391.jpg"
+  },
+  {
+    "title": "Microsoft working to fix Exchange Online mailbox quarantine issue",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-working-to-fix-exchange-online-mailbox-quarantine-issue/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/04/15/Exchange.jpg"
+  },
+  {
+    "title": "New Check Point Zero-Day Vulnerability Exploited in the Wild",
+    "link": "https://www.securityweek.com/new-check-point-zero-day-vulnerability-exploited-in-the-wild/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Check-Point-Software.jpg"
+  },
+  {
     "title": "Check Point warns of SmartConsole zero-day exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/23/Check-Point-headpic.jpg"
+  },
+  {
+    "title": "Nine-Year-Old RefluXFS Linux Flaw Gives Local Users Root on Default RHEL Installs",
+    "link": "https://thehackernews.com/2026/07/nine-year-old-refluxfs-linux-flaw-gives.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_70wKHw_bPdJz-ZYXpwrH7FBXem8uWKNtuBUyXDLbMld4PaBtBkw7Gpt9lRrVnki_eC21aw6sUezqM3-oFiTEviDqZECD20lmV3enwh0lDkRLAx38JlJYMoLzRpn-Ai4q1UbiIo8DTVjp4_blU5CM6AnW97jYgIblggBYgNIHdTE6t2Ec7by-N0Ly8YY/s1600/linux-root.jpg"
   },
   {
     "title": "Brazilian Banking Trojan Actively Spreading in Portugal",
@@ -118,35 +148,5 @@
     "title": "Hackers Exploit Windmill Flaw to Read Arbitrary Server Files Without Authentication",
     "link": "https://thehackernews.com/2026/07/hackers-exploit-windmill-flaw-to-read.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgnFuvwtbu7JlyR-HJX7Eyz41wIZYMuzDLiZ1XlV2ipWOE-d2aPRZkYZn8nCWJynhewu3iTAR8H15UaKqmeAMkb85_m2NpSjRyaNlp6gTgKwswcVtwzjQ8A6pQXESU-AIwRUf6qUkeVDewHfGovPjgN0lKC2lHBb3dkSJGs3NYhmv5_QawPER0P4xFGpHf/s1600/git.jpg"
-  },
-  {
-    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/07/22/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "The Fastest Path to AI Adoption Runs Through Security",
-    "link": "https://thehackernews.com/2026/07/the-fastest-path-to-ai-adoption-runs.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzhOo7Orml3Cc70jFGFxmIBeMgPE26To0_7N80uq7Ux9h7jIarD51mf18Ecq6bOfyaKpDTHp99pUmzrNECb2IklB0l0XdKjkszBLdhhgmw42OsYsqJQoxm74ci__fgn9n29j0YIr_HTlqT1-NyVyvbeB2t9pFRMVQT5GQlTMEOp-vkUFbha3SV-6cAXfYW/s1600/aa.jpg"
-  },
-  {
-    "title": "CISA orders urgent action on actively exploited Langflow RCE flaw",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-langflow-rce-flaw/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/CISA.jpg"
-  },
-  {
-    "title": "OpenAI Says Its AI Models Escaped Sandbox, Targeted Hugging Face to Cheat Benchmark",
-    "link": "https://thehackernews.com/2026/07/openai-says-its-own-ai-models-escaped.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ67gB4XtAR4QxYNABuJhWfBIduFUT7TMSA0K2c9TXbTTwqdfMJwBb5busuLeMPlrljP3xuTUrhbMQxwctepF9oPtgJkqo-RAxN86O2t25jcjIHfs5A8SVvG3Y8WJJa4pqAp0UiTBzAPZtzSaNcNceJokt7ATaoq7GTXYJjbsxaQfTEs4cwdaOz4Fg72nG/s1600/openai.jpg"
-  },
-  {
-    "title": "EU Financial Institutions Leak Data Through Cookie Trackers",
-    "link": "https://www.darkreading.com/data-privacy/eu-financial-institutions-cookie-trackers",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte466ca4b83c014ee/6a5fc9fb674037145e17672e/Accept_cookies-faithiecannoise-Getty-1014415154.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Fourth SharePoint Vulnerability Exploited in Past Month\u2019s Wave of Attacks",
-    "link": "https://www.securityweek.com/fourth-sharepoint-vulnerability-exploited-in-past-months-wave-of-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/SharePoint.jpeg"
   }
 ]
