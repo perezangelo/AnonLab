@@ -1,5 +1,25 @@
 [
   {
+    "title": "Microsoft 365 outage affects Teams, SharePoint and other services",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-365-outage-affects-teams-sharepoint-and-other-services/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/19/Microsoft365.jpg"
+  },
+  {
+    "title": "OpenAI Fixes ChatGPT Agent Flaw That Could Let Attackers Forge an AI Insider",
+    "link": "https://www.securityweek.com/openai-fixes-chatgpt-agent-flaw-that-could-let-attackers-forge-an-ai-insider/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Is Patching Dead? Vulnerability Management in the Post-Mythos Era",
+    "link": "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Agent-AI-Security.jpg"
+  },
+  {
+    "title": "Chick-fil-A Accounts Get Fried in Credential Stuffing Attack",
+    "link": "https://www.securityweek.com/chick-fil-a-accounts-get-fried-in-credential-stuffing-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Chick-fil-A.webp"
+  },
+  {
     "title": "FedRAMP Rev5 Is Ending: What the 20x Transition Really Requires",
     "link": "https://www.bleepingcomputer.com/news/security/fedramp-rev5-is-ending-what-the-20x-transition-really-requires/",
     "image": "https://www.bleepstatic.com/content/posts/2026/07/19/anecdotes-rev5.jpg"
@@ -10,6 +30,16 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
   },
   {
+    "title": "Claude Cowork Flaw Could Let AI Agent Escape Its VM and Access Mac Files",
+    "link": "https://thehackernews.com/2026/07/claude-cowork-flaw-could-let-ai-agent.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj5Vr8pje9uM-Ce6rzE-_hhU3HvR2NkKtYfaSrIXz3m0BbrC1ZNC9p4GW4GRQaAvFKPjE5kopXmdmcKcMb7_1dbOWvMO6_oe87HCj4TUXV1dWK99cz_OBcNHd81Ziat93g4wJcBdc3K1vq0IkwFL9DO9GlSrf_KxGi2hpg7VVsU9iTt7B2XByXL7nil86i/s1600/claude.gif"
+  },
+  {
+    "title": "Chaos Ransomware Uses msaRAT to Route C2 Traffic Through Headless Chrome and Edge",
+    "link": "https://thehackernews.com/2026/07/chaos-ransomware-uses-msarat-to-route.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpS2QJv9o35m4hpF1MjxwE07jbvy9d4kK2fiSsQKFYaYtlUFReQ0j1YQ7fdaOPUN9s3J5oBpHG9vPIbTu_HwdjSDoz8UdhlJOp6ys6uBJlQxTL5BQlxtcOU2aRS1aaPeVwqvfCqGFzXEmQm0is0azXtyPQ8cNN61LbHtCllseMZQoYlwyrL4FV6BrkgqE/s1600/chrome-headless.jpg"
+  },
+  {
     "title": "Nuclear-Sabotage Malware Benchmark Trips Up Most Frontier AI Models",
     "link": "https://www.securityweek.com/nuclear-sabotage-malware-benchmark-trips-up-most-frontier-ai-models/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
@@ -18,6 +48,16 @@
     "title": "EU fines Google $1 billion for search, app store antitrust violations",
     "link": "https://www.bleepingcomputer.com/news/google/eu-fines-google-1-billion-for-digital-markets-act-breaches-in-search-and-play-store/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/03/10/Google.jpg"
+  },
+  {
+    "title": "China-Nexus JadeProx Uses New TriBack Loader in Government and Healthcare Attacks",
+    "link": "https://thehackernews.com/2026/07/china-nexus-jadeprox-uses-new-triback.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-rvCSGHVd2nngnpcdcc8Eh-QFaxQrcyegoSIPhUeTpr5qrGHcHYIstDAj08yLDeYcNZkZ26Ta53fdYefY8NjW8MprrOL4lQ4VnDCMpBrsrSQccyUipoC3VvFtMNUxUpUzOYra58WqjRwn952-fvzZLpXtgeY8Ao660YY49FaqcTTjBrDN_DsFFnsftJ8/s1600/malware-attack.jpg"
+  },
+  {
+    "title": "Russian State-Supported Cyber Actors Conduct Phishing Campaign Targeting Users of Zimbra Collaboration Suite",
+    "link": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-204a",
+    "image": ""
   },
   {
     "title": "How Synthetic Identity Fraud is Coming for Machine Identities",
@@ -108,45 +148,5 @@
     "title": "Upbound says hack caused $13 million in fraudulent Acima leases",
     "link": "https://www.bleepingcomputer.com/news/security/upbound-says-hack-caused-13-million-in-fraudulent-acima-leases/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/upbound.jpg"
-  },
-  {
-    "title": "Attackers Are Learning to Live Off the AI Toolchain",
-    "link": "https://www.darkreading.com/cyber-risk/attackers-live-off-ai-toolchain",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt3487664d9c613ba9/6a61308f2c3e688b979308a0/ai_TSViPhoto_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "South Korea discloses data breach impacting diplomats worldwide",
-    "link": "https://www.bleepingcomputer.com/news/security/south-korea-discloses-data-breach-impacting-diplomats-worldwide/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/korea.jpg"
-  },
-  {
-    "title": "Fake Bahrain Alert App Deploys Android Surveillance Malware",
-    "link": "https://www.darkreading.com/mobile-security/fake-bahrain-alert-apps-android-surveillance-malware",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbfd2abd92ce58654/6a611f6de7ebfc13d44d6387/Bahrain_Manama_Skyline-trabantos-Getty-1140901617.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "GitHub Cuts Public Bug Bounty Payouts, Moves Top Rewards to VIP Tier",
-    "link": "https://thehackernews.com/2026/07/github-cuts-public-bug-bounty-payouts.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj_hf7CZEiSANTI34m9Js55tSVk79YZVYvTHW2LwHyOCuvdK-9KWDu3R3eKJDlYJucrv7cUuf7ogDSakCE53IJ56483ktg8xGepMnB6NUGokxPqDsXEuIRXV3R_-d32GgrNI19Y-TrxvVAR3bnOlfgvcDVZYBGs-j5p-VouykZ517zpJ5kUOhtIf6R2sL3/s1600/github-bugbounty.jpg"
-  },
-  {
-    "title": "Ubuntu snap-confine Flaw Could Give Local Users Root on Default Desktop Installs",
-    "link": "https://thehackernews.com/2026/07/ubuntu-snap-confine-flaw-could-give.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidNwrZh7WuJhViXJ0c2i53cRV82jkdqS1FS9vHeNyOd19AITMQIA03JOnpqLyp7eHJoqa8L_V-eimCMZQNyba09AUvDHQ_n1NdAzmMFOg5FPp7gSymlqtjMcJ5UdyHRtK67wQ9hhusynzExbC9AWstVxaR9koev6e0PhySMPElKOFVwmge25lODZfyQkVD/s1600/ubuntu.jpg"
-  },
-  {
-    "title": "Swiss rail giant Stadler rejects $12.3M ransom demand after cyberattack",
-    "link": "https://www.bleepingcomputer.com/news/security/swiss-rail-giant-stadler-rejects-123m-ransom-demand-after-cyberattack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/stadler.jpg"
-  },
-  {
-    "title": "When AI Attacks: OpenAI Models Autonomously Hack Hugging Face",
-    "link": "https://www.darkreading.com/cyber-risk/openai-models-autonomously-hack-hugging-face",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd70f31deaf012f3a/6a60e27e0cab912020e949ed/alienattack-Devrimb-GettyImages-1159847076_(1).jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "How enterprise GenAI can amplify ransomware risk \u2014 and how to contain it",
-    "link": "https://www.bleepingcomputer.com/news/security/how-enterprise-genai-can-amplify-ransomware-risk-and-how-to-contain-it/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/22/ai-prompt-acronis.jpeg"
   }
 ]
