@@ -1,5 +1,10 @@
 [
   {
+    "title": "Russian Espionage Group Exploited Zimbra Zero-Day to Steal Mail and 2FA Codes",
+    "link": "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzlA3Ln3fk8yzrfLwR9egB99u67BL7NlRui9XkKviyXhFmZ3sYVTF5laSjHTwyphN51YvL39R0irNNPn2hDpVcn6EFi_NmuuSH3XTS9I71aPdZvgZRTOxXczmyqbSkcpqSy2TgOzSSJ0RzAyeQA4YXED73kIChZFtiuZ1fIVzCFvDJK4bEJ5M6Sj-qPeI/s1600/zimbra-email.jpg"
+  },
+  {
     "title": "Russian hackers exploit Zimbra zero-click flaw for email theft",
     "link": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-zimbra-zero-click-flaw-for-email-theft/",
     "image": "https://www.bleepstatic.com/content/hl-images/2021/04/16/malware-phishing-header.jpg"
@@ -70,8 +75,38 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-rvCSGHVd2nngnpcdcc8Eh-QFaxQrcyegoSIPhUeTpr5qrGHcHYIstDAj08yLDeYcNZkZ26Ta53fdYefY8NjW8MprrOL4lQ4VnDCMpBrsrSQccyUipoC3VvFtMNUxUpUzOYra58WqjRwn952-fvzZLpXtgeY8Ao660YY49FaqcTTjBrDN_DsFFnsftJ8/s1600/malware-attack.jpg"
   },
   {
+    "title": "Weintek cMT3092X",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-03",
+    "image": ""
+  },
+  {
     "title": "Russian State-Supported Cyber Actors Conduct Phishing Campaign Targeting Users of Zimbra Collaboration Suite",
     "link": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-204a",
+    "image": ""
+  },
+  {
+    "title": "Johnson Controls XAAP Android",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-02",
+    "image": ""
+  },
+  {
+    "title": "MZ Automation libIEC61850",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-06",
+    "image": ""
+  },
+  {
+    "title": "MZ Automation lib60870",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-07",
+    "image": ""
+  },
+  {
+    "title": "Johnson Controls C-CURE 9000 and Victor application server",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01",
+    "image": ""
+  },
+  {
+    "title": "Panduit IntraVUE",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-04",
     "image": ""
   },
   {
@@ -113,40 +148,5 @@
     "title": "Assaf Keren Appointed New CISO of Meta",
     "link": "https://www.securityweek.com/assaf-keren-appointed-new-ciso-of-meta/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/03/Meta-Facebook-e1739539212391.jpg"
-  },
-  {
-    "title": "Microsoft working to fix Exchange Online mailbox quarantine issue",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-working-to-fix-exchange-online-mailbox-quarantine-issue/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/04/15/Exchange.jpg"
-  },
-  {
-    "title": "New Check Point Zero-Day Vulnerability Exploited in the Wild",
-    "link": "https://www.securityweek.com/new-check-point-zero-day-vulnerability-exploited-in-the-wild/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Check-Point-Software.jpg"
-  },
-  {
-    "title": "Check Point warns of SmartConsole zero-day exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/23/Check-Point-headpic.jpg"
-  },
-  {
-    "title": "Nine-Year-Old RefluXFS Linux Flaw Gives Local Users Root on Default RHEL Installs",
-    "link": "https://thehackernews.com/2026/07/nine-year-old-refluxfs-linux-flaw-gives.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_70wKHw_bPdJz-ZYXpwrH7FBXem8uWKNtuBUyXDLbMld4PaBtBkw7Gpt9lRrVnki_eC21aw6sUezqM3-oFiTEviDqZECD20lmV3enwh0lDkRLAx38JlJYMoLzRpn-Ai4q1UbiIo8DTVjp4_blU5CM6AnW97jYgIblggBYgNIHdTE6t2Ec7by-N0Ly8YY/s1600/linux-root.jpg"
-  },
-  {
-    "title": "Brazilian Banking Trojan Actively Spreading in Portugal",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/brazilian-banking-trojan-spreading-portugal",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbac701ac3f586ad3/6a60fa60dc7d61d2e0f67dab/Lampion_Lisbon-Olena_Malik-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Check Point Patches Exploited SmartConsole Flaw Allowing Full Admin Access",
-    "link": "https://thehackernews.com/2026/07/check-point-patches-exploited.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTBN3LZDMeKkPoMsoNtsGp_s0KYwVrmhhKHQsQtqgtAN1WAKeS7L-aN1hiehoBwnPi6f1gziIEecy5GlPdAVlWKPlzVprrqHLTLE3tcMZu4NK8QDoRxxS22HEFxfIpyrXnqr8O9b9akb1VVr9dmmmdwzHmhTFTVX4Cpv6WkFwSpz62tr6XKEDvKp5m0aUu/s1600/checkpoint.jpg"
-  },
-  {
-    "title": "US Warns of Iranian Hackers Targeting Siemens, Schneider, and Rockwell ICS Devices",
-    "link": "https://www.securityweek.com/us-warns-of-iranian-hackers-targeting-siemens-schneider-and-rockwell-ics-devices/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/Iranian-Hackers.jpg"
   }
 ]
