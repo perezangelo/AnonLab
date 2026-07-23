@@ -1,5 +1,10 @@
 [
   {
+    "title": "Australian energy provider Origin says data breach exposes client data",
+    "link": "https://www.bleepingcomputer.com/news/security/australian-energy-provider-origin-says-data-breach-exposes-client-data/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/23/origin.jpg"
+  },
+  {
     "title": "Fake Claude app promoted by Bing ads pushes SectopRAT malware",
     "link": "https://www.bleepingcomputer.com/news/security/fake-claude-app-promoted-by-bing-ads-pushes-sectoprat-malware/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png"
@@ -85,6 +90,11 @@
     "image": ""
   },
   {
+    "title": "Rockwell Automation ThinManager",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-05",
+    "image": ""
+  },
+  {
     "title": "Russian State-Supported Cyber Actors Conduct Phishing Campaign Targeting Users of Zimbra Collaboration Suite",
     "link": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-204a",
     "image": ""
@@ -138,15 +148,5 @@
     "title": "Upbound Group Says Data Breach Led to $13 Million in Fraudulent Contract Losses",
     "link": "https://www.securityweek.com/upbound-group-says-data-breach-led-to-13-million-in-fraudulent-contract-losses/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/corporate-bank-fraud.jpeg"
-  },
-  {
-    "title": "Google Adds Selfie Video Recovery for Users Locked Out of Their Accounts",
-    "link": "https://thehackernews.com/2026/07/google-adds-selfie-video-recovery-for.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi33P1I6A4GNsGTrz72n-ZgaqJE-ksI5ub_5wWCmRVQhG7fikbuDtdu7inYjTOFVi9v1SukZnH_fWo2LiI-v6zkm2WwWrbaKGsKBK4Z6yHJvXkBX-m5HxX0VzG9Tv_Nz-17rbcUoql67ciu4oMYS2pNs946kSd95SaWvSM096CEeMaBLbSpXpA2KnZprzb-/s1600/google-account-recovery.jpg"
-  },
-  {
-    "title": "New msaRAT malware uses Chrome, Edge browsers to route C2 traffic",
-    "link": "https://www.bleepingcomputer.com/news/security/new-msarat-malware-uses-chrome-edge-browsers-to-route-c2-traffic/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/11/28/Google_Chrome.jpg"
   }
 ]
