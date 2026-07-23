@@ -1,8 +1,33 @@
 [
   {
+    "title": "How Synthetic Identity Fraud is Coming for Machine Identities",
+    "link": "https://thehackernews.com/2026/07/how-synthetic-identity-fraud-is-coming.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3CPk7mPjct6TcYwb9c1LBGjEBTkHjIkX-_CqYIrmdg3nJu-Vyjmc2qCT_cZbFEoUNaiIEQafCVxDDD0RZfflUs8LqGu9Ecx0N7Tu3nEzHXUW2nKLefXYKsRHfVtv-TZXw_WDILy6sKkE5kk3ts5cBTaSfq1mReYwo6Fb1ghPkg4Z4bLiNuAP4ehxqFG0/s1600/keeper.jpg"
+  },
+  {
+    "title": "New RefluXFS Linux flaw lets attackers gain root privileges",
+    "link": "https://www.bleepingcomputer.com/news/linux/new-refluxfs-linux-flaw-lets-attackers-gain-root-privileges/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/23/RefluXFS-Linux.jpg"
+  },
+  {
+    "title": "Attackers Weaponize GitHub Actions Runners to Target cPanel and WHM Servers",
+    "link": "https://thehackernews.com/2026/07/attackers-weaponize-github-actions.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrnUDzSA-4xfOL6dsXt2pFY9jJro2vbjOgvkTbiFMhSXz9Z-0WdDTORe9IPFfMr0DVr0PapP8lFuq8R12ZXRyDdMO-2v9ot7c2oy2WobbNwqn3jbKQC5XmNdgKWZB8ENBVQSADLuujJMKvd3DtNcpAFhDa5zihJDtYrQYRLMSCftHHmNg2bUiRC_gCQkFK/s1600/github-action.jpg"
+  },
+  {
+    "title": "Agentic AI Challenges Progress in Confidential Computing",
+    "link": "https://www.darkreading.com/endpoint-security/agentic-ai-challenges-progress-in-confidential-computing",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9e62e39ece6ef685/656a984ef3b292040a878813/confidentialai-everything_possible-alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Upbound Group Says Data Breach Led to $13 Million in Fraudulent Contract Losses",
     "link": "https://www.securityweek.com/upbound-group-says-data-breach-led-to-13-million-in-fraudulent-contract-losses/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/corporate-bank-fraud.jpeg"
+  },
+  {
+    "title": "Google Adds Selfie Video Recovery for Users Locked Out of Their Accounts",
+    "link": "https://thehackernews.com/2026/07/google-adds-selfie-video-recovery-for.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi33P1I6A4GNsGTrz72n-ZgaqJE-ksI5ub_5wWCmRVQhG7fikbuDtdu7inYjTOFVi9v1SukZnH_fWo2LiI-v6zkm2WwWrbaKGsKBK4Z6yHJvXkBX-m5HxX0VzG9Tv_Nz-17rbcUoql67ciu4oMYS2pNs946kSd95SaWvSM096CEeMaBLbSpXpA2KnZprzb-/s1600/google-account-recovery.jpg"
   },
   {
     "title": "New msaRAT malware uses Chrome, Edge browsers to route C2 traffic",
@@ -53,6 +78,11 @@
     "title": "Ransomware Attack Puts a Chill On Japanese Frozen-Food Chain",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/ransomware-attack-japanese-frozen-food-chain",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt67b28f8453d1c038/6a6128d36477bd5dab474c38/frozen-food-in-kanazawa-nihon-Pack-Shot-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Flaws in Passkey Implementation Show Old Attacks Still Work",
+    "link": "https://www.darkreading.com/identity-access-management-security/flaws-passkeys-implementation-old-attacks-work",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9550e8ba7752b437/6a5a40aa4a830941d7bdad92/GettyImages-147261287.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "Upbound says hack caused $13 million in fraudulent Acima leases",
@@ -118,35 +148,5 @@
     "title": "Flaw in Adobe Extension With 300M Installs Enabled WhatsApp Data Theft",
     "link": "https://www.securityweek.com/flaw-in-adobe-extension-with-300m-installs-enabled-whatsapp-data-theft/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/browsers-extensions-https.jpeg"
-  },
-  {
-    "title": "New InfraTrust report reveals infrastructure flaws admins should patch first",
-    "link": "https://www.bleepingcomputer.com/news/security/new-infratrust-report-reveals-infrastructure-flaws-admins-should-patch-first/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/21/infratrust.jpg"
-  },
-  {
-    "title": "When Identity Verification Fails: Lessons from a Real-World SIM Swap and Near Account Takeover",
-    "link": "https://www.securityweek.com/when-identity-verification-fails-lessons-from-a-real-world-sim-swap-and-near-account-takeover/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/telecoms-communications.jpeg"
-  },
-  {
-    "title": "Adobe Chrome extension flaw let sites access private WhatsApp chats",
-    "link": "https://www.bleepingcomputer.com/news/security/adobe-chrome-extension-flaw-let-sites-access-private-whatsapp-chats/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/13/Adobe.jpg"
-  },
-  {
-    "title": "StrongestLayer Raises $4.1 Million in Seed Funding Extension",
-    "link": "https://www.securityweek.com/strongestlayer-raises-4-1-million-in-seed-funding-extension/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
-  },
-  {
-    "title": "Vibe-Coded Apps Riddled With Exploitable Security Flaws",
-    "link": "https://www.securityweek.com/vibe-coded-apps-riddled-with-exploitable-security-flaws/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/08/Vibe-Coding-Security.jpg"
-  },
-  {
-    "title": "Hackers Exploit Windmill Flaw to Read Arbitrary Server Files Without Authentication",
-    "link": "https://thehackernews.com/2026/07/hackers-exploit-windmill-flaw-to-read.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgnFuvwtbu7JlyR-HJX7Eyz41wIZYMuzDLiZ1XlV2ipWOE-d2aPRZkYZn8nCWJynhewu3iTAR8H15UaKqmeAMkb85_m2NpSjRyaNlp6gTgKwswcVtwzjQ8A6pQXESU-AIwRUf6qUkeVDewHfGovPjgN0lKC2lHBb3dkSJGs3NYhmv5_QawPER0P4xFGpHf/s1600/git.jpg"
   }
 ]
