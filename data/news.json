@@ -1,5 +1,35 @@
 [
   {
+    "title": "Coca-Cola confirms data theft in Fairlife ransomware attack",
+    "link": "https://www.bleepingcomputer.com/news/security/coca-cola-confirms-data-theft-in-fairlife-ransomware-attack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/fairlife.jpg"
+  },
+  {
+    "title": "Ernst & Young data breach claimed by ShinyHunters extortion gang",
+    "link": "https://www.bleepingcomputer.com/news/security/ernst-and-young-data-breach-claimed-by-shinyhunters-extortion-gang/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/17/ey.jpg"
+  },
+  {
+    "title": "Public Exploit Released for Patched vBulletin Pre-Auth Code Execution Flaw",
+    "link": "https://thehackernews.com/2026/07/public-exploit-released-for-patched.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhy6sn1o691sSAfGgdjo_965YlKkz8ky30drnmHXJz3Y5wO6grXeyoDFvZGYeU-TS4IbxJUtrpqOy_Z2ropf7JAd-KpV6yYgQFo8YUREleUm2A39nchCOv8ydf5ZvOjpSHmDP_W1uJm_HvWK936xBi4xu_3VrHkiDB0MwX6qTdwjXHREYmSBIA0IzyqbVA/s1600/vBulletin.jpg"
+  },
+  {
+    "title": "New GitHub, PyPI Policies Boost Supply Chain Security",
+    "link": "https://www.securityweek.com/new-github-pypi-policies-boost-supply-chain-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/blockchain-cryptocurrency-Solana.jpeg"
+  },
+  {
+    "title": "\u26a1 Weekly Recap: Rogue AI Agents, Check Point Exploit, Slopsquatting, ClickFix Lures and More",
+    "link": "https://thehackernews.com/2026/07/weekly-recap-rogue-ai-agents-check.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZShQJv7u2hWKu_7xOJWw1-8rjxg7jwXoaFDJqqKPTzPa2-u608uDu_uxZ4fn2DmullQ7Kkx6YUIbjK0cKuZNxaQuirr5icArrmvx70FFuvnWkrxulAHi-_chuqNvTCWtBGyS7qkCnGh28qubTDmQC_YCmj8Q77Y_bp7McFTJlAv9oT5KqPRUGxlVoXli8/s1600/recap-thn.jpg"
+  },
+  {
+    "title": "Shadow AI agents are multiplying. Here's how to find and secure them.",
+    "link": "https://www.bleepingcomputer.com/news/security/shadow-ai-agents-are-multiplying-heres-how-to-find-and-secure-them/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/23/brwser-based-ai-agent-discovery-header.jpg"
+  },
+  {
     "title": "PTC Windchill Vulnerability Exploited in Ransomware Campaign",
     "link": "https://www.securityweek.com/ptc-windchill-vulnerability-exploited-in-ransomware-campaign/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/12/ransomware.jpeg"
@@ -70,11 +100,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFpE4BZgV3wILI8fonm9742zR85yLmBdM2ExXv-uTUS1StV04ZlNVVIwV6FjjhYLZUAFk-DAIInwp3mlXa2W2xekDA_EqSl1UiHrKCgocsjhVAKlvCD48QnlVdUdCIQia7T4ilS65ZFptdi_wox0Q9brVTdpoqDNTvpCjg0D6BslyCAPRzY7QMyUoYNkv-/s1600/gitbot.jpg"
   },
   {
-    "title": "MCBS Data Breach Affects 1.2 Million Individuals",
-    "link": "https://www.securityweek.com/mcbs-data-breach-affects-1-2-million-individuals/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
-  },
-  {
     "title": "GitHub, PyPI add time-based defenses against supply chain attacks",
     "link": "https://www.bleepingcomputer.com/news/security/github-pypi-add-time-absed-defenses-against-supply-chain-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/21/GitHub_headpic.jpg"
@@ -110,16 +135,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRIN1sheAdScq7AX9pLc07esRzQ18-0vBJ7hz9DlVhggVAImXrhYM_zxN0N6hJ2inDkBCnzRCXHR3Kv3I0QwyiVWkAMu7p949JSjgK611r48deMbrSN8iDD78aJdfxEeO_Jy6JFwOfPL_8M0RKEBl1RFO7ufvop1XG9-tdms7VRyvONXoteuCYp9Rg-FM/s1600/gitlab.gif"
   },
   {
-    "title": "CTM360 Research Reveals How Insurance Phishing Has Evolved Into Real-Time Account Hijacking",
-    "link": "https://thehackernews.com/2026/07/ctm360-research-reveals-how-insurance.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH4zKTZ_Lk6D_VXZEKWwF1k02-iDwrNY9MH7zrX_sotEB_f9m7-qvQkAbfTvW5YQyBVlVdSS3D4_0ky60KOzTABlPuPKEpDXwpnWO3eTtud33d8oxf54HilW5EgDJPwo0ea4rktguzjfMBnRy0yLGch1l2vLdY4GnG12imJqBIdZzhYRb04XcVP67KaxPM/s1600/insuretrap.jpg"
-  },
-  {
-    "title": "Cl0p Affiliates Target Internet-Exposed PTC Windchill and FlexPLM with Unauthenticated RCE",
-    "link": "https://thehackernews.com/2026/07/cl0p-affiliates-target-internet-exposed.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIGAlXgFCqm8atTe__HpWBiCWISmrPOazxOVBMF-_YNrP2goBbW_4PSwGzw1Ndyue4qrnQnqrQyAR4DTaAdaiJPlVUZi7M_iceb4fqofWK0sGRLO9CHnj0lngtxdlC-tKqrppqFaKIkct2vOtGn_o5kbNa4fj-dutt8PMjiO5TVBw895aLg0TOJb8TKKtv/s1600/cyberattack.jpg"
-  },
-  {
     "title": "OpenAI confirms ChatGPT is down worldwide",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-is-down-worldwide/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg"
@@ -133,20 +148,5 @@
     "title": "OnTrac notifies customers of data breach after network hack",
     "link": "https://www.bleepingcomputer.com/news/security/ontrac-notifies-customers-of-data-breach-after-network-hack/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/24/OnTrac.jpg"
-  },
-  {
-    "title": "Escape Artists: 'Incorrigible' AI Models Resist Rehabilitation",
-    "link": "https://www.darkreading.com/cybersecurity-operations/incorrigible-ai-models-resist-rehabilitation",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta3f49df1dd4f34a3/6a63a44a4fedb59e30067233/road-block-detour-signs-JJ_Gouin-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hermes AI agent used to automate attack on Thai Finance Ministry",
-    "link": "https://www.bleepingcomputer.com/news/security/hermes-ai-agent-used-to-automate-attack-on-thai-finance-ministry/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/05/12/evil-hacker-ai.jpg"
-  },
-  {
-    "title": "Hackers hijack hotel Wi-Fi DNS to steal Microsoft 365 accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/11/05/Credit-card-hacker.jpg"
   }
 ]
