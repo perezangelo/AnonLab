@@ -1,5 +1,45 @@
 [
   {
+    "title": "Coca-Cola Confirms Data Breach After Fairlife Ransomware Attack",
+    "link": "https://www.securityweek.com/coca-cola-confirms-data-breach-after-fairlife-ransomware-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Coca-Cola-Fairlife.webp"
+  },
+  {
+    "title": "Beelzebub Raises $3.4 Million for Hacker-Trapping Platform",
+    "link": "https://www.securityweek.com/beelzebub-raises-3-4-million-for-hacker-trapping-platform/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/funding-investment.jpeg"
+  },
+  {
+    "title": "What\u2019s Hiding in Your Mobile Apps? Lookout MSEC Aims to Find Out",
+    "link": "https://www.securityweek.com/whats-hiding-in-your-mobile-apps-lookout-msec-aims-to-find-out/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/mobile-device-security.jpg"
+  },
+  {
+    "title": "Hacked Public Wi-Fi Gateways Used to Harvest Corporate Credentials",
+    "link": "https://www.securityweek.com/hacked-public-wi-fi-gateways-used-to-harvest-corporate-credentials/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/02/Wi-Fi.jpeg"
+  },
+  {
+    "title": "Anthropic\u2019s Opus 5 Nears Mythos 5 on Finding Bugs, but Falls Short on Exploits",
+    "link": "https://www.securityweek.com/anthropics-opus-5-nears-mythos-5-on-finding-bugs-but-falls-short-on-exploits/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/Anthropic-AI_Military.jpg"
+  },
+  {
+    "title": "DentaQuest Data Breach Potentially Impacts Over 23 Million People",
+    "link": "https://www.securityweek.com/dentaquest-data-breach-potentially-impacts-over-23-million-people/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
+  },
+  {
+    "title": "TELESHIM Abuses Telegram for C2 in Attacks Against Middle East Governments",
+    "link": "https://thehackernews.com/2026/07/teleshim-abuses-telegram-for-c2-in.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikuWOQRYm6WQ1zHmOlYkI7jlVOUUKGBIlo68iWyUVuaZ5n3i7ODu8DYpntAk2aGZQ_7LsYpXpp5v0PcQMLxP8LQOajtKl-WaDBb7_wDpo8P3-iCcAwr74JY4rXNeHJJv9h6EB447wPEnrZE08YfDO_WI9N4B_C1lPvxILfvv00Z_J8yHntLSfNYbPVCDjS/s1600/telegram-c2.jpg"
+  },
+  {
+    "title": "GitHub Adds 3-Day Dependabot Cooldown to Limit Poisoned Package Adoption",
+    "link": "https://thehackernews.com/2026/07/github-adds-3-day-dependabot-cooldown.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFpE4BZgV3wILI8fonm9742zR85yLmBdM2ExXv-uTUS1StV04ZlNVVIwV6FjjhYLZUAFk-DAIInwp3mlXa2W2xekDA_EqSl1UiHrKCgocsjhVAKlvCD48QnlVdUdCIQia7T4ilS65ZFptdi_wox0Q9brVTdpoqDNTvpCjg0D6BslyCAPRzY7QMyUoYNkv-/s1600/gitbot.jpg"
+  },
+  {
     "title": "MCBS Data Breach Affects 1.2 Million Individuals",
     "link": "https://www.securityweek.com/mcbs-data-breach-affects-1-2-million-individuals/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
@@ -108,45 +148,5 @@
     "title": "Certighost Exploit Lets Low-Privileged Active Directory Users Impersonate a Domain Controller",
     "link": "https://thehackernews.com/2026/07/certighost-exploit-lets-low-privileged.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdJCaF3dwhncVhtS_dn9W8CUCwJSHRmtCVTK5_fXnS6RpDI4GaVTcSVoXvmo_JgxUyd-H5G3yQaRAg3Ahp__DMlq-M5r9ejhJTdk5QlVuv16HVXDWV7e3HJAijAVBRumD3XSyeyQ1O477nfXFfTvCwgFeXlYF8QIdfTN4mlYAu28JGFN7lOWTEoKwlG9g/s1600/certighost.jpg"
-  },
-  {
-    "title": "Chick-fil-A data breach affects more than 13,000 customers",
-    "link": "https://www.bleepingcomputer.com/news/security/chick-fil-a-data-breach-affects-more-than-13-000-customers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/Chick-fil-A_headpic.jpg"
-  },
-  {
-    "title": "Vatican's Official Prayer App Leaks 700K+ Global Users' PII",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/vatican-official-prayer-app-leaks-700k-pii",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf219cccb8d006239/6a62178fd61e3e49c64c9e23/Catholic-gelmold-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Default Azure Automation Setting Enables Cross-Tenant Identity Takeover",
-    "link": "https://www.darkreading.com/cloud-security/default-azure-automation-setting-cross-tenant-identity-takeover",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltee2b6459a49ecef3/64f171e51bf536263bbf9b29/Azure_SOPA_Images_Limited_Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "AegisAI Raises $36 Million for AI-Powered Email Security",
-    "link": "https://www.securityweek.com/aegisai-raises-36-million-for-ai-powered-email-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-4.jpeg"
-  },
-  {
-    "title": "ChatGPT AgentForger Flaw Could Deploy Rogue Workspace Agents via a Phishing Link",
-    "link": "https://thehackernews.com/2026/07/chatgpt-agentforger-flaw-could-deploy.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWjz4Sgp8xNXyO8juw5bycoRamRay35GLzSBPG3I3UWyuUovp8-qM8hMgxWiqIwW45q1cb17EkWhEYmP8ODPyhUTk1j7P2T92fjAW_R1WKleVJsywM7kzongXurU8N9olKf1F1jxpDnBKvY0s2F_wsgoGWYgRFrzN5zAoQZciTWQjLQw5NJRL66s3S1RaT/s1600/chatgpt.jpg"
-  },
-  {
-    "title": "Bing Images Flaws Let Crafted SVGs Run Commands as SYSTEM on Microsoft's Servers",
-    "link": "https://thehackernews.com/2026/07/bing-images-flaws-let-crafted-svgs-run.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirbs2h3QyfDG1ChFBHv8CQNwf9JrDdDWLaZ0AZ2WTiJrsjmmeQUXSFc8FM4OvPgxDig-z2H1Di7OMqCC_0mHbicAvDw6TGF-1jWihJ458GYQBKznb3VOehlOPqWfALnkz8k3DBfehWG2z5nmpu77OgRxJ1iQxL7lsrd1IH3YR6ZHPpSUns-tdmDYScHck/s1600/bing-image.jpg"
-  },
-  {
-    "title": "Industry Reactions to OpenAI Models Hacking Hugging Face: Feedback Friday",
-    "link": "https://www.securityweek.com/industry-reactions-to-openai-models-hacking-hugging-face-feedback-friday/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Feedback-Friday.jpeg"
-  },
-  {
-    "title": "Europe's Multilingual Reality Exposes AI Security Gaps",
-    "link": "https://www.darkreading.com/cybersecurity-operations/europes-multilingual-reality-exposes-ai-security-gaps",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb77a25dd6a60456c/6a62620cce520cc44cb61c92/Hello_in_three_languages-aluxum-Getty-183040723.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
