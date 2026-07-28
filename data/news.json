@@ -1,5 +1,25 @@
 [
   {
+    "title": "Over 24,000 exposed server BMCs leak password hash via decades-old flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/over-24-000-exposed-server-bmcs-leak-password-hash-via-decades-old-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/servers.jpg"
+  },
+  {
+    "title": "Microsoft Unveils MAI-Cyber-1-Flash, Its First Cybersecurity AI Model",
+    "link": "https://www.securityweek.com/microsoft-unveils-mai-cyber-1-flash-its-first-cybersecurity-ai-model/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
+  },
+  {
+    "title": "Hacker Conversations: Tal Kollander\u2019s Journey From Black Hat to Hack Blocker",
+    "link": "https://www.securityweek.com/hacker-conversations-tal-kollanders-journey-from-black-hat-to-hack-blocker/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Hacker-Conversations-Tal-Kollander.jpeg"
+  },
+  {
+    "title": "Act Security Emerges from Stealth to Fight the Patch Problem",
+    "link": "https://www.securityweek.com/act-security-emerges-from-stealth-to-fight-the-patch-problem/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
     "title": "Hush Security Raises $30 Million for AI Agent Governance",
     "link": "https://www.securityweek.com/hush-security-raises-30-million-for-ai-agent-governance/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Hush-Security-Funding.jpg"
@@ -70,6 +90,11 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/arista-logo-globe.jpg"
   },
   {
+    "title": "Agentic Browsers Rewind Web Security by 20 years",
+    "link": "https://www.darkreading.com/endpoint-security/agentic-browsers-rewind-web-security-20-years",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf459c9ff5d345e58/686d20d8a502a804ecf992c7/browser-security-Robert_Avgustin-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "New Dysphoria DDoS botnet spreads to 200k devices worldwide",
     "link": "https://www.bleepingcomputer.com/news/security/new-dysphoria-ddos-botnet-spreads-to-200k-devices-worldwide/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/botnet.jpg"
@@ -88,6 +113,11 @@
     "title": "FBI: Breaking Affiliate Trust Sped Along LockBit's Takedown",
     "link": "https://www.darkreading.com/cybersecurity-operations/fbi-breaking-affiliate-trust-lockbit-takedown",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1369910f8c4361ac/6a67667e18998400d30c8d1e/FBIhoody_jvphoto_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Why Resetting Passwords No Longer Stops Attackers",
+    "link": "https://www.darkreading.com/endpoint-security/why-resetting-passwords-no-longer-stop-attacks",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteef9f34649cb1353/6a5a7778892e6dc3e6015302/authenticate_janews_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "NVIDIA Forms 37-Member Open Secure AI Alliance and Open-Sources NOOA Framework",
@@ -118,35 +148,5 @@
     "title": "Ernst & Young data breach claimed by ShinyHunters extortion gang",
     "link": "https://www.bleepingcomputer.com/news/security/ernst-and-young-data-breach-claimed-by-shinyhunters-extortion-gang/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/17/ey.jpg"
-  },
-  {
-    "title": "Public Exploit Released for Patched vBulletin Pre-Auth Code Execution Flaw",
-    "link": "https://thehackernews.com/2026/07/public-exploit-released-for-patched.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhy6sn1o691sSAfGgdjo_965YlKkz8ky30drnmHXJz3Y5wO6grXeyoDFvZGYeU-TS4IbxJUtrpqOy_Z2ropf7JAd-KpV6yYgQFo8YUREleUm2A39nchCOv8ydf5ZvOjpSHmDP_W1uJm_HvWK936xBi4xu_3VrHkiDB0MwX6qTdwjXHREYmSBIA0IzyqbVA/s1600/vBulletin.jpg"
-  },
-  {
-    "title": "New GitHub, PyPI Policies Boost Supply Chain Security",
-    "link": "https://www.securityweek.com/new-github-pypi-policies-boost-supply-chain-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/blockchain-cryptocurrency-Solana.jpeg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: Rogue AI Agents, Check Point Exploit, Slopsquatting, ClickFix Lures and More",
-    "link": "https://thehackernews.com/2026/07/weekly-recap-rogue-ai-agents-check.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZShQJv7u2hWKu_7xOJWw1-8rjxg7jwXoaFDJqqKPTzPa2-u608uDu_uxZ4fn2DmullQ7Kkx6YUIbjK0cKuZNxaQuirr5icArrmvx70FFuvnWkrxulAHi-_chuqNvTCWtBGyS7qkCnGh28qubTDmQC_YCmj8Q77Y_bp7McFTJlAv9oT5KqPRUGxlVoXli8/s1600/recap-thn.jpg"
-  },
-  {
-    "title": "Shadow AI agents are multiplying. Here's how to find and secure them.",
-    "link": "https://www.bleepingcomputer.com/news/security/shadow-ai-agents-are-multiplying-heres-how-to-find-and-secure-them/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/23/brwser-based-ai-agent-discovery-header.jpg"
-  },
-  {
-    "title": "PTC Windchill Vulnerability Exploited in Ransomware Campaign",
-    "link": "https://www.securityweek.com/ptc-windchill-vulnerability-exploited-in-ransomware-campaign/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/ransomware.jpeg"
-  },
-  {
-    "title": "n8n Sandbox Escape Lets Workflow Editors Run OS Commands as the n8n Process",
-    "link": "https://thehackernews.com/2026/07/n8n-sandbox-escape-lets-workflow.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeKRvflcncQ0UoJ9jitnqLM9fezomqM-liKMmU5fccI5_lOaWwgmRYtpHiYQinkYD1fRUCH-wksW6bq8rWMMbKj3cdvaQ-GhA_CcUvcxCnZuzdkadQkIjZUUkVXawqqUZyYkvKO4Rg7IAmCNTBB6Ivu6yKYhBEegL68JmRFb9HimU1CKg2QyQByo8a0MQ/s1600/sandbox-flaw-n8n.jpg"
   }
 ]
