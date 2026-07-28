@@ -1,8 +1,53 @@
 [
   {
+    "title": "Cyera Acquiring Oasis Security in $1 Billion Deal",
+    "link": "https://www.securityweek.com/cyera-acquiring-oasis-security-in-1-billion-deal/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Apple Patches 87 Vulnerabilities in iOS, 155 in macOS Tahoe",
+    "link": "https://www.securityweek.com/apple-patches-87-vulnerabilities-in-ios-155-in-macos-tahoe/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
+  },
+  {
+    "title": "Is Your SSO Protected Against Modern Credential Attacks?",
+    "link": "https://www.bleepingcomputer.com/news/security/is-your-sso-protected-against-modern-credential-attacks/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/26/sso-header.jpg"
+  },
+  {
+    "title": "JFrog Confirms OpenAI Models Exploited Artifactory Zero-Day Before Hugging Face Breach",
+    "link": "https://thehackernews.com/2026/07/jfrog-confirms-openai-models-exploited.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVRTEATuhKwW2BlflaNjqHVV9mJlq6m3_rFzsUHv3RXATsLWdyJvG-XoWDftscxMF9r_-551JELumQMj7Jhp_iY-GTj79r3RxYKEEJkPo8B7Zd5SuiBnPRWjM1MBygMvV0Za1ZLItcoSjsCY4gDwbV-ZOkXLEzi2vohrqrlYSJL4Ut0GmmDvhEhiGti1U/s1600/openai-0day.jpg"
+  },
+  {
+    "title": "OT Security Startup Frenos Raises $1.52 Million",
+    "link": "https://www.securityweek.com/ot-security-startup-frenos-raises-1-52-million/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
+  },
+  {
+    "title": "Critical OpenWrt DHCPv6 Flaw Could Let Unauthenticated Attackers Run Code as Root",
+    "link": "https://thehackernews.com/2026/07/critical-openwrt-dhcpv6-flaw-could-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDmz4Rv-IWcHYP4Y_-WINLECGsPviBOTJXEPhvz2mO671_s8c1Rao7iErkNghWYtomczRf82scnXyzrBTAIc4urvwSlv3j4AK1XaEw75WVsIfXLfNDQd1JGUoVRWW50H48KA3VxzAbL1KTuf3sKCgzmSE3toXbqcIA-N5vwN4A_wcmRdwDLBSJbBpmmME/s1600/OpenWrt.jpg"
+  },
+  {
+    "title": "Former Citigroup CISO Blauner on What Makes A Great Security Leader",
+    "link": "https://www.darkreading.com/cybersecurity-operations/former-citigroup-ciso-blauner-great-security-leader",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt68d8e956799bc6e1/6a67b826d69290b8a1aaac6c/leader1800_studio-fi_GettyImages-1299087003_2.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Over 24,000 exposed server BMCs leak password hash via decades-old flaw",
     "link": "https://www.bleepingcomputer.com/news/security/over-24-000-exposed-server-bmcs-leak-password-hash-via-decades-old-flaw/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/servers.jpg"
+  },
+  {
+    "title": "CI Fortify \u2013 Advice for isolating vital systems",
+    "link": "https://www.cisa.gov/resources-tools/resources/ci-fortify-advice-isolating-vital-systems",
+    "image": ""
+  },
+  {
+    "title": "Nimbus Manticore Deploys NightLedger and Turns Victim Systems Into Covert Relays",
+    "link": "https://thehackernews.com/2026/07/nimbus-manticore-deploys-nightledger.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-Whbx97t7xBrrpM26fYSbwg29hdKR8zskNLIwlrWC0Jd3Rrf4INhiCTI3WMw8NzmJ1iETQlt-CKdUxBzL2hef4pgQBOoI1rrrtRbU96hJRUXtTGy5dT40mP2B1AshyphenhyphenM4mc1K1-IISWwY6PSPyGXNBHplHM8kuxX9e5Di6RmMybyO2Q7Guu__CK8jOOkja/s1600/proxy.jpg"
   },
   {
     "title": "Microsoft Unveils MAI-Cyber-1-Flash, Its First Cybersecurity AI Model",
@@ -60,19 +105,9 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwmG858LYHQA-u4cQupdhqsi5oUcvLaQdoorupsW3tzPZvDg7kwgRIewOBPVNvp3Szfqb4VFJ_j6caul2NTIlm69_-vskp4gYQwVkQA59LbsMhOEO3yr4C48nhrO177ORbi9uFc_oIOrcXnCBs_dmPhVDZVZx9F3Cyp4RQKi71EhvfZQqmUKat36cbqEE/s1600/MAI-Cyber-1-Flash.jpg"
   },
   {
-    "title": "Origin Energy Data Breach Affects 900,000 Australians",
-    "link": "https://www.securityweek.com/origin-energy-data-breach-affects-900000-australians/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Origin-Energy.jpeg"
-  },
-  {
     "title": "Attackers Exploit Arista VeloCloud Orchestrator Command Injection Flaw",
     "link": "https://thehackernews.com/2026/07/attackers-exploit-arista-velocloud.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_Rqy6Y9a8XU8InktsbP7Op6N-6ZSvEQl0MJ2PL6_gd_s2ij5aL2vZHlW3sgsqtQQCY47wAO4RxIqqSUkQ7kXeXbhzEJe0g9VCbkC9pwEcGqKybszrRurMZQPQHsy6o8YLXYOZk1F9Cyp7kBQTFXjIzngB0_Jche9kzCVE_XIL7W24A-3ARqgisnibgAvw/s1600/cyber.jpg"
-  },
-  {
-    "title": "For Some, So-Called \u2018Skynet Day\u2019 Came too Close to Sci-Fi After a Rogue Agent Hacked Into a Startup",
-    "link": "https://www.securityweek.com/for-some-so-called-skynet-day-came-too-close-to-sci-fi-after-a-rogue-agent-hacked-into-a-startup/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/SkyNet-AI.jpg"
   },
   {
     "title": "AI Agent Drives Espionage Attack on Thai Ministry of Finance",
@@ -113,40 +148,5 @@
     "title": "FBI: Breaking Affiliate Trust Sped Along LockBit's Takedown",
     "link": "https://www.darkreading.com/cybersecurity-operations/fbi-breaking-affiliate-trust-lockbit-takedown",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1369910f8c4361ac/6a67667e18998400d30c8d1e/FBIhoody_jvphoto_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Why Resetting Passwords No Longer Stops Attackers",
-    "link": "https://www.darkreading.com/endpoint-security/why-resetting-passwords-no-longer-stop-attacks",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteef9f34649cb1353/6a5a7778892e6dc3e6015302/authenticate_janews_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "NVIDIA Forms 37-Member Open Secure AI Alliance and Open-Sources NOOA Framework",
-    "link": "https://thehackernews.com/2026/07/nvidia-forms-37-member-open-secure-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEij-O7sLARD9c2QGCheTeoamew1jlKiNe2KRKqw4_8f6VTxZo0MHNIQdizHhyphenhyphen-Bchq9tTzlYBJrJcJDhhhzNB17wPMHDT00pAikN61fAgOh7AdibxKPt5fQ_1KwMvkUXx1J7IzZBbtONSSIAOjRV74KSkmlsKYB7hFWy17AaQu02BqwngqCzlubslSbKvg/s1600/nvidia.jpg"
-  },
-  {
-    "title": "Adversaries Don't Need a Zero-Day \u2014 They Read Your Rulebook",
-    "link": "https://www.darkreading.com/threat-intelligence/adversaries-do-not-need-zero-day-they-read-your-rulebook",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt45b631ddb7cee0fa/6a67994ec60e8f44ee7ac204/rulebook-filo-Getty-2256745097.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Apple sued over fake App Store crypto wallet app stealing $1.8M in Bitcoin",
-    "link": "https://www.bleepingcomputer.com/news/apple/apple-sued-over-fake-app-store-crypto-wallet-app-stealing-18m-in-bitcoin/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/18/Apple.jpg"
-  },
-  {
-    "title": "Dysphoria IoT Botnet Adds Blockchain C2 and Victim Relays After JackSkid Disruption",
-    "link": "https://thehackernews.com/2026/07/dysphoria-iot-botnet-adds-blockchain-c2.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIg3DnKkxpBnQZhAB8v4Wb9FDnDuh3ifKpBMF3kFhNr7_lYOk3S4CgvBoOxFD65FlCjRpoaoBNyH8zo8NtOhjTtTWriXHawlL9mndT3fd_7zlhUBU4mhjU4AvvYNzgV-PGsd52Ng0wnaDRAJMkRQtW4kUuMKlcrP0B71xxywX6cTICeHmMAjswmKhQJKo/s1600/blockchain-botnet.jpg"
-  },
-  {
-    "title": "Coca-Cola confirms data theft in Fairlife ransomware attack",
-    "link": "https://www.bleepingcomputer.com/news/security/coca-cola-confirms-data-theft-in-fairlife-ransomware-attack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/fairlife.jpg"
-  },
-  {
-    "title": "Ernst & Young data breach claimed by ShinyHunters extortion gang",
-    "link": "https://www.bleepingcomputer.com/news/security/ernst-and-young-data-breach-claimed-by-shinyhunters-extortion-gang/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/17/ey.jpg"
   }
 ]
