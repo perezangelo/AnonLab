@@ -1052,14 +1052,18 @@ startMalwareMonitor();
   </script>
 
 </div>
-  <script>
+<script>
 async function loadDashboardStatus() {
-    const res = await fetch("/backend/dashboard-status.php");
-    const data = await res.json();
+    try {
+        const res = await fetch("/backend/dashboard-status.php");
+        const data = await res.json();
 
-    document.getElementById("cpu-load").textContent = data.cpu + " ms";
-    document.getElementById("net-activity").textContent = data.network + " ms";
-    document.getElementById("fw-status").textContent = data.firewall;
+        document.getElementById("cpu-load").textContent = data.cpu + " ms";
+        document.getElementById("net-activity").textContent = data.network + " ms";
+        document.getElementById("fw-status").textContent = data.firewall;
+    } catch (err) {
+        console.error("Errore System Status:", err);
+    }
 }
 
 loadDashboardStatus();
