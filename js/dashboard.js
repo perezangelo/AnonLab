@@ -122,7 +122,7 @@ async function loadSystemStatus() {
     if (!cpuEl || !netEl || !fwEl) return;
 
     try {
-        const res = await fetch("https://angelonline.altervista.org/proxy.php?path=soc/system_status.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/system_status.php");
         const data = await res.json();
 
         // CPU
