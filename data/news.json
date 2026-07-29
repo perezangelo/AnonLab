@@ -1,8 +1,38 @@
 [
   {
+    "title": "Spur Raises $200 Million for IP Intelligence Platform",
+    "link": "https://www.securityweek.com/spur-raises-200-million-for-ip-intelligence-platform/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-funding.jpeg"
+  },
+  {
+    "title": "Public PoC Released for Exploited Check Point SmartConsole Authentication Bypass",
+    "link": "https://thehackernews.com/2026/07/rapid7-releases-poc-for-exploited-check.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIxq_zUC231fexQTfY9VPvqP7FWVRurT9fbUUS3YMpMX2SRmJu9eXIlH7v6fnvqJGtirQwXJVjs1h-hbUM7j-R6DlfpW7M4kt28q9EoxMt7jJFjUjaAoVsuTWSsBZOFcDj99U8ApvFR4B4sDQ37QHYeWXjJsowFBP3n8-TBfzcKB2Rl-de-OluIkzbJIYb/s1600/cp-poc.jpg"
+  },
+  {
+    "title": "JFrog Zero-Days Exploited in OpenAI-Hugging Face Hack",
+    "link": "https://www.securityweek.com/jfrog-zero-days-exploited-in-openai-hugging-face-hack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Hugging-Face.jpeg"
+  },
+  {
+    "title": "Dozens of Minnesota Water Utilities Targeted in Coordinated OT Attacks",
+    "link": "https://www.securityweek.com/dozens-of-minnesota-water-utilities-targeted-in-coordinated-ot-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/water-treatment-utility.jpeg"
+  },
+  {
     "title": "OpenAI Agent Used Exposed Credentials Across Four Services During Hugging Face Breach",
     "link": "https://thehackernews.com/2026/07/openai-agent-used-exposed-credentials.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqsDw-FCPzIqH_GCkBZgDD96kt0ZtwQzjSe3SOunA8WWGUTXqCB2FG_28DY0JgdD6zh07gHisKrTi2Wh5VVNAcoUMyJ9tZ_VGzPM73iid2PPg15oqKMbnRhk9CcTJlevxRQJL5Sq2MbJjYCIgQ_zOEsgyu_Jy72ubSLAvy_YK499pDr48Rp9Plh322h8_P/s1600/openai-breach.jpg"
+  },
+  {
+    "title": "New Gitea RCE Lets Repository Writers Plant a Git Hook to Run Shell Commands",
+    "link": "https://thehackernews.com/2026/07/new-gitea-rce-lets-repository-writers.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjm9I3aoAsUS5yCtKTvSX6LYxjKfJu-RShA1QmcUiBLu760VFfeqd6D4NfH3ttKHoQkfWT57oL0_4KJBovY7nshgiGQ4R5wimWh-2k48f9qjdlJtjKqK0oM5vxquJFPuguLbBkbqzA7xc4NgjQaxkcU7tVSQ0a3GyXreEyvdvR4NmERWPbkiR6Um2thKfY/s1600/Gitea-rce.jpg"
+  },
+  {
+    "title": "Flying Eagle Android RAT Traces Found on 170 Servers as Source Code Circulates",
+    "link": "https://thehackernews.com/2026/07/flying-eagle-android-rat-traces-found.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOpdosdOAoAjpR73DY5i_8YN9dHOY7KsBws53ivjlY3iVg0-EZAO6CliWbdg61_hT6eI9_Im9aiH_c312ttIHamIl4IIxe2omPSWjC4OaCfbNKZC7Gr85jXs12NObtpiSAK1PNljccRdmzvITRijNNh16c2IDK3kWmL5Ce3lbzQNCJaMy4wgKwWyB2oiI/s1600/android-rat.jpg"
   },
   {
     "title": "ShinyHunters Claims Ernst & Young Hack",
@@ -117,36 +147,6 @@
   {
     "title": "Siemens Mendix Runtime",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-02",
-    "image": ""
-  },
-  {
-    "title": "MikroTik RouterOS and Cloud Hosted Router",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-05",
-    "image": ""
-  },
-  {
-    "title": "CI Fortify \u2013 Advice for isolating vital systems",
-    "link": "https://www.cisa.gov/resources-tools/resources/ci-fortify-advice-isolating-vital-systems",
-    "image": ""
-  },
-  {
-    "title": "Siemens SIMATIC S7-PLCSIM Advanced",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-03",
-    "image": ""
-  },
-  {
-    "title": "Siemens Desigo CC",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-01",
-    "image": ""
-  },
-  {
-    "title": "Siemens SIMATIC S7-1500 CPU 1518(F)-4 PN/DP MFP",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-04",
-    "image": ""
-  },
-  {
-    "title": "ABB KNX Update Tool",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-07",
     "image": ""
   }
 ]
