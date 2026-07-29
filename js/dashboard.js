@@ -111,50 +111,6 @@ loadEventLog();
 setInterval(loadEventLog, 10000);
 
 /* ============================================================
-   SYSTEM STATUS — Versione Reale Altervista (compatibile con tuoi ID)
-============================================================ */
-
-async function loadSystemStatus() {
-    const cpuEl = document.getElementById("cpu-load");
-    const netEl = document.getElementById("net-activity");
-    const fwEl = document.getElementById("fw-status");
-
-    if (!cpuEl || !netEl || !fwEl) return;
-
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/system_status.php");
-        const data = await res.json();
-
-        // CPU
-        cpuEl.textContent = data.cpu + "%";
-
-        // Network
-        netEl.textContent = data.network + " kb/s";
-
-        // Firewall
-        fwEl.textContent = data.firewall;
-        fwEl.style.color = data.firewall === "ALLOW" ? "#00ff99" : "#ff3355";
-        fwEl.style.textShadow = `0 0 10px ${
-            data.firewall === "ALLOW" ? "#00ff99" : "#ff3355"
-        }`;
-
-    } catch (error) {
-        console.error("Errore System Status:", error);
-
-        cpuEl.textContent = "N/A";
-        netEl.textContent = "N/A";
-        fwEl.textContent = "N/A";
-        fwEl.style.color = "#888";
-        fwEl.style.textShadow = "none";
-    }
-}
-
-// Primo caricamento
-loadSystemStatus();
-
-// Aggiornamento automatico ogni 10 secondi
-setInterval(loadSystemStatus, 10000);
-/* ============================================================
    ATTIVITÀ SOSPETTE — Versione Reale Altervista
 ============================================================ */
 
