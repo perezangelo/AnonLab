@@ -1,5 +1,25 @@
 [
   {
+    "title": "Health-ISAC warns of rising ShinyHunters data theft attacks on healthcare",
+    "link": "https://www.bleepingcomputer.com/news/security/health-isac-warns-of-rising-shinyhunters-data-theft-attacks-on-healthcare/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/08/22/healthcare-cyber.jpg"
+  },
+  {
+    "title": "Who's Liable When AI Agents Escape? Hugging Face Breach Raises Hard Questions",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/liable-ai-agents-escape-hugging-face-breach-questions",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta214a48ce72c3ebd/6a690739208e6b500fcd14c1/huggingface_Tada_Images_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Hugging Face Hack Lessons for Cyber Defenders",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/hugging-face-hack-lessons-cyber-defenders",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0469f94bd17817ff/6642699959fdc64aa5f9c5fa/dark-reading-confidential-logo-sq.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "When AppSec Scanners Become a Supply Chain Attack Vector",
+    "link": "https://www.darkreading.com/application-security/when-appsec-scanners-become-supply-chain-attack-vector",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte3ee632c446d5f42/6a6a3d1bf118fd682ddbc4c8/supplychain_IncrediVFX_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "OpenAI agent used exposed credentials at 4 services in Hugging Face breach",
     "link": "https://www.bleepingcomputer.com/news/security/openai-agent-used-exposed-credentials-at-4-services-in-hugging-face-breach/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/29/openai-escape-sandbox.jpg"
@@ -15,7 +35,7 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLKz0u1mJIVvPAxiFFqsvkMVXxyXqS_paYhbtTRFLoIWyl5Q_FwIrJjruxEYH0LAdzJm38P48m_T_24ycKfjPs2bg6FUoy2IWVUxH7SpNtiSJuExOy3dDEAWprGwkvhY5005OPyFUzl2qJzAztAckgZNLVzqlp34s9HtQ3wrvq6lDCcXgYwfOXKF08wtdp/s1600/vmware.jpg"
   },
   {
-    "title": "Hackers target over 30 Minnesota water utilities in coordinated OT attack",
+    "title": "Hackers disrupt over 30 Minnesota water utilities in coordinated OT attack",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/29/Wastewater_Treatment.png"
   },
@@ -128,25 +148,5 @@
     "title": "OpenAI Agent Used Exposed Credentials Across Four Services During Hugging Face Breach",
     "link": "https://thehackernews.com/2026/07/openai-agent-used-exposed-credentials.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqsDw-FCPzIqH_GCkBZgDD96kt0ZtwQzjSe3SOunA8WWGUTXqCB2FG_28DY0JgdD6zh07gHisKrTi2Wh5VVNAcoUMyJ9tZ_VGzPM73iid2PPg15oqKMbnRhk9CcTJlevxRQJL5Sq2MbJjYCIgQ_zOEsgyu_Jy72ubSLAvy_YK499pDr48Rp9Plh322h8_P/s1600/openai-breach.jpg"
-  },
-  {
-    "title": "ShinyHunters Claims Ernst & Young Hack",
-    "link": "https://www.securityweek.com/shinyhunters-claims-ernst-young-hack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/EY-Ernst-Young.jpeg"
-  },
-  {
-    "title": "Ghost Credentials Expose Cloud Systems to Hidden Identity Risks",
-    "link": "https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt30bed8fd33fe3bfb/6888bea8af946d84d071204f/ghost-igor-Stevanovic-alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "CubePilot drone software dev hit by DNS hijacking to intercept traffic",
-    "link": "https://www.bleepingcomputer.com/news/security/cubepilot-drone-software-dev-hit-by-dns-hijacking-to-intercept-traffic/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/28/cubepilot.jpg"
-  },
-  {
-    "title": "Thousands of Data Center Controllers Open to Takeover",
-    "link": "https://www.darkreading.com/cyber-risk/flaw-exposes-data-centers-server-takeover",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt90b33999385a7980/6a69132925c14cdcb5cbf34f/datacenter_Gorodenkoff_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
