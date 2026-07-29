@@ -67,13 +67,15 @@ fetch("/partials/ticker.html")
           <div id="event-log" class="event-log"></div>
         </div>
 
+        <!-- SYSTEM STATUS -->
         <div class="soc-card">
-  <h2>System Status</h2>
-  
-          <iframe src="https://angelonline.altervista.org/widgets/dashboard-status.php"
-          style="width:100%; height:140px; border:none; overflow:hidden;">
-  </iframe>
-</div>
+          <h2>System Status</h2>
+          <ul class="system-status">
+            <li>CPU Load: <span id="cpu-load" class="dash-number">--%</span></li>
+            <li>Network Activity: <span id="net-activity" class="dash-number">-- kb/s</span></li>
+            <li>Firewall Status: <span id="fw-status" class="dash-number">--</span></li>
+          </ul>
+        </div>
 
         <!-- MINI THREAT MAP -->
         <div class="soc-card">
