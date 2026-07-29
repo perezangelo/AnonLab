@@ -1,8 +1,48 @@
 [
   {
+    "title": "Your AI Agents Are Guessing at Scale: Permissions Decide the Damage",
+    "link": "https://www.bleepingcomputer.com/news/security/your-ai-agents-are-guessing-at-scale-permissions-decide-the-damage/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/28/token-ai-vauum.jpg"
+  },
+  {
+    "title": "Windows 11 KB5101684 update released with 42 changes and fixes",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5101684-update-released-with-42-changes-and-fixes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows-11.jpg"
+  },
+  {
+    "title": "US Bans Foreign-Made Humanoid Robots, Targeting China Over National Security",
+    "link": "https://www.securityweek.com/us-bans-foreign-made-humanoid-robots-targeting-china-over-national-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/Humanoid-Robots-China-Ban.jpg"
+  },
+  {
+    "title": "Mate Security Raises $35 Million for Agentic SOC",
+    "link": "https://www.securityweek.com/mate-security-raises-35-million-for-agentic-soc/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/funding-round.jpeg"
+  },
+  {
+    "title": "ThreatLocker Raises $190 Million in Series F Funding",
+    "link": "https://www.securityweek.com/threatlocker-raises-190-million-in-series-f-funding/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/funding-investment.jpeg"
+  },
+  {
+    "title": "Mythos Asks the Right Question. It Doesn't Answer It.",
+    "link": "https://thehackernews.com/2026/07/mythos-asks-right-question-it-doesnt.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0mieQQ57yqCRvM0amMKsszEvpX9AK9C4fSA6fyD6rx9VpNdjgYpiFk2D_AfSYT386yNTNuL1-ki2llA_LR-LXYw9r0p0nb2FZCnnP-u33sN2McktovTGN13k_n_i7HExGQdX6GcRSG0uKJAawc_6wusYkt37jY5sTvjz7k8kLa8RTIZM_NABBL64mbnY/s1600/meshs.jpg"
+  },
+  {
+    "title": "Researchers Show a Single Malicious Webpage Visit Can Compromise Tor Browser",
+    "link": "https://thehackernews.com/2026/07/researchers-show-single-malicious.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOwFIxqT8kRBNj9LdZBZhO1g2RPJwUttxQosrS_mPoNXkIR-JB-yM87HPzuPZ1tazourGhRg9Sco6YQEGZkC77DSqXBYjp0DkNDAUHOaAOnIisRYNPAQfNWwqnmoILXOgR0wwyGVNlU3kSVRU6TcfyAx5ztaAWZfbKnCDJYgUeIVsM7n7O2zq7fGc-xnI/s1600/tor-exploit.gif"
+  },
+  {
     "title": "Critical VM Escape Vulnerability Patched in VMware ESXi",
     "link": "https://www.securityweek.com/critical-vm-escape-vulnerability-patched-in-vmware-esxi/",
     "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
+  },
+  {
+    "title": "73% of Organizations Say They Are Not Fully Ready for a Major Cyberattack",
+    "link": "https://thehackernews.com/2026/07/73-of-organizations-say-they-are-not.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixbolkSzPCa__qy94Mm27YfEsvVeyY94SOG5BrCQCGtAe-QenE0qDM5Tkbb7eOy0PwSCECFGMrZ7IG7lVePoMWjqMn8s_7-5_r8JUSQ7WVHsHAo-zZIhyphenhyphenyNW5aGTbFkpgtu99ucSeEgcJK75UdxkAsWKjXf_x8zEGpcDURPf9UJjcDz8JSHFD0uahDcOI5/s1600/ss.jpg"
   },
   {
     "title": "These near-mint ASUS Chromebook refurbs are only $145",
@@ -108,45 +148,5 @@
     "title": "CISA shares advice on isolating vital systems during cyberattacks",
     "link": "https://www.bleepingcomputer.com/news/security/cisa-shares-advice-on-isolating-vital-systems-during-cyberattacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/09/05/Airgapped.jpg"
-  },
-  {
-    "title": "vBulletin fixes critical pre-auth RCE flaw with public exploit",
-    "link": "https://www.bleepingcomputer.com/news/security/vbulletin-fixes-critical-pre-auth-rce-flaw-with-public-exploit/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/28/vbulletin.jpg"
-  },
-  {
-    "title": "'Certighost' Flaw Haunts Microsoft Active Directory Certificates",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/certighost-flaw-microsoft-active-directory-certificates",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt35fd3da4c4c2a452/6a68a091fd13417d8c592367/ghost-Connect_Images-Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Tengu Botnet Reboots Compromised Linux Devices When Defenders Kill Its Process",
-    "link": "https://thehackernews.com/2026/07/tengu-botnet-reboots-compromised-linux.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0zv7PihU6xAba7-fb5OY-Xv5YIEPM1HhmCu2ET65l5TSKYrPh6q4pYVQRNJtHb9RkvO1oNsBBrsxs50Hm_GRnPKCu4XoG1hhtPOoeGILfRHN99ICGSO72NOGQ6AdUc_haCrQvHRUn4YiyFmCy99WgH1v4-4GRLirZzsV1b5MmCjfTX3a2yWmg1tWOr38/s1600/tengu-botnet.jpg"
-  },
-  {
-    "title": "Cyera Acquiring Oasis Security in $1 Billion Deal",
-    "link": "https://www.securityweek.com/cyera-acquiring-oasis-security-in-1-billion-deal/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
-  },
-  {
-    "title": "24,650 Internet-Exposed BMCs Disclose IPMI Password Hashes Before Login",
-    "link": "https://thehackernews.com/2026/07/24650-internet-exposed-bmcs-disclose.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIZDJmL5vHIaEgakZEwVC-O1KGBidMz7xrUS6MQmj0Nfqx4_WzGlwmz4amGxIwYa2PEJTKr5UsFwkh8lEOoFkjAVwTm38bgmbc_gDW2-__9MBpP5Z6cWQrIjFTe3tKTMEhD2lX3XyTrIe0T4mQDruecN3nCWqHUpkU5NpW5OIzZFy5la9RQnMCsmGkt-n8/s1600/bmcs.jpg"
-  },
-  {
-    "title": "Apple Patches 87 Vulnerabilities in iOS, 155 in macOS Tahoe",
-    "link": "https://www.securityweek.com/apple-patches-87-vulnerabilities-in-ios-155-in-macos-tahoe/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
-  },
-  {
-    "title": "Is Your SSO Protected Against Modern Credential Attacks?",
-    "link": "https://www.bleepingcomputer.com/news/security/is-your-sso-protected-against-modern-credential-attacks/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/26/sso-header.jpg"
-  },
-  {
-    "title": "JFrog Confirms OpenAI Models Exploited Artifactory Zero-Day Before Hugging Face Breach",
-    "link": "https://thehackernews.com/2026/07/jfrog-confirms-openai-models-exploited.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVRTEATuhKwW2BlflaNjqHVV9mJlq6m3_rFzsUHv3RXATsLWdyJvG-XoWDftscxMF9r_-551JELumQMj7Jhp_iY-GTj79r3RxYKEEJkPo8B7Zd5SuiBnPRWjM1MBygMvV0Za1ZLItcoSjsCY4gDwbV-ZOkXLEzi2vohrqrlYSJL4Ut0GmmDvhEhiGti1U/s1600/openai-0day.jpg"
   }
 ]
