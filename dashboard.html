@@ -67,15 +67,46 @@ fetch("/partials/ticker.html")
           <div id="event-log" class="event-log"></div>
         </div>
 
-        <!-- SYSTEM STATUS -->
         <div class="soc-card">
-          <h2>System Status</h2>
-          <ul class="system-status">
-            <li>CPU Load: <span id="cpu-load" class="dash-number">--%</span></li>
-            <li>Network Activity: <span id="net-activity" class="dash-number">-- kb/s</span></li>
-            <li>Firewall Status: <span id="fw-status" class="dash-number">--</span></li>
-          </ul>
-        </div>
+  <h2>System Status</h2>
+
+  <ul class="system-status">
+
+    <!-- BADGE -->
+    <li>
+      <strong>Status:</strong>
+      <span id="sys-badge" class="dash-number"
+        style="padding:4px 10px; border-radius:4px; font-weight:bold;">
+        --
+      </span>
+    </li>
+
+    <!-- NETWORK SPEED -->
+    <li>
+      Network Speed:
+      <span id="net-speed" class="dash-number">-- Mb/s</span>
+
+      <div id="net-bar" style="height:6px; background:#111; border-radius:4px; margin-top:4px;">
+        <div id="net-fill" style="height:100%; width:0%; background:#00ff99; transition:width .4s;"></div>
+      </div>
+    </li>
+
+    <!-- LATENCY -->
+    <li>
+      Latency:
+      <span id="latency" class="dash-number">-- ms</span>
+
+      <canvas id="lat-chart" width="260" height="60" style="margin-top:6px;"></canvas>
+    </li>
+
+    <!-- FIREWALL -->
+    <li>
+      Firewall:
+      <span id="fw-status" class="dash-number">--</span>
+    </li>
+
+  </ul>
+</div>
 
         <!-- MINI THREAT MAP -->
         <div class="soc-card">
