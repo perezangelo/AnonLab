@@ -1,5 +1,20 @@
 [
   {
+    "title": "VMware fixes three critical flaws allowing auth bypass, VM escapes",
+    "link": "https://www.bleepingcomputer.com/news/security/vmware-fixes-three-critical-flaws-allowing-auth-bypass-vm-escapes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
+  },
+  {
+    "title": "Google says AI helped Chrome fix 1,072 security bugs in two releases",
+    "link": "https://www.bleepingcomputer.com/news/google/google-says-ai-helped-chrome-fix-1-072-security-bugs-in-two-releases/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/06/16/Google-Chrome-headpic.jpg"
+  },
+  {
+    "title": "ShinyHunters claims Brinks Home breach, threatens to leak stolen data",
+    "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-brinks-home-breach-threatens-to-leak-stolen-data/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/30/Brinks-Home-Security-System.png"
+  },
+  {
     "title": "Microsoft Teams vishing attacks lead to Chaos ransomware attacks",
     "link": "https://www.bleepingcomputer.com/news/security/microsoft-teams-vishing-attacks-lead-to-chaos-ransomware-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/02/17/Microsoft_Teams.jpg"
@@ -60,8 +75,53 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2024/02/DNS.jpeg"
   },
   {
+    "title": "NASA Core Flight System (cFS) Health & Safety (HS) Application",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-06",
+    "image": ""
+  },
+  {
+    "title": "Mitsubishi Electric CC-Link IE TSN Communication Protocol",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-07",
+    "image": ""
+  },
+  {
+    "title": "Schneider Electric IGSS",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-04",
+    "image": ""
+  },
+  {
+    "title": "MikroTik RouterOS",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-01",
+    "image": ""
+  },
+  {
+    "title": "Toptech Systems RCU II+ and Multiload II+",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-03",
+    "image": ""
+  },
+  {
+    "title": "Watchfire Controller Software",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-09",
+    "image": ""
+  },
+  {
+    "title": "Johnson Controls OpenBlue Employee",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-02",
+    "image": ""
+  },
+  {
+    "title": "MZ Automation GmbH libiec61850",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-10",
+    "image": ""
+  },
+  {
     "title": "Open Source Software: Security Principles and Practices",
     "link": "https://www.cisa.gov/resources-tools/resources/open-source-software-security-principles-and-practices",
+    "image": ""
+  },
+  {
+    "title": "MZ Automation lib60870",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-11",
     "image": ""
   },
   {
@@ -88,65 +148,5 @@
     "title": "SilverFox Targets Japanese Manufacturer with 3-Driver BYOVD Chain and ValleyRAT",
     "link": "https://thehackernews.com/2026/07/silverfox-targets-japanese-manufacturer.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzKpx1jDG3j0UsS5Ova8qJWV4gmJcez4M7iowp3M10Tvnvl1toUDwWI1igPQ_XK4-7IIuFXf7cTiKZ9QIRFco8PWFC4mRzBwGz81-8Ix95ujv3bVhshhFEAwjCNJR14ezza7kiAIalG3MjMQPPhH6rQP4lcZS4o1Vw9dO7ErrFmCvlrrd0ATiakQ_LeENQ/s1600/drivers.jpg"
-  },
-  {
-    "title": "Critical Ruflo Flaw Lets Attackers Spawn Rogue AI Swarms",
-    "link": "https://www.securityweek.com/critical-ruflo-flaw-lets-attackers-spawn-rogue-ai-swarms/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/Artificial-intelligence-AI.jpeg"
-  },
-  {
-    "title": "1 in 5 Data Center Assets Are Within Easy Reach of Attackers",
-    "link": "https://www.securityweek.com/1-in-5-data-center-assets-are-within-easy-reach-of-attackers/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Data-center-Cybersecurity-1.jpg"
-  },
-  {
-    "title": "US and Allies Update SBOM Guidance",
-    "link": "https://www.securityweek.com/us-and-allies-update-sbom-guidance/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/06/SBOM_Regulations-Function.jpg"
-  },
-  {
-    "title": "Russian Hackers Exploit Microsoft OWA Flaw to Keep Mailbox Access After Credential Rotation",
-    "link": "https://thehackernews.com/2026/07/russian-hackers-exploit-microsoft-owa.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAHLuK9rcrkKZxWdmWf50USFH75iYP3nViQrL7sP_6gBJUipIQfUTU0XmA2xnOTR57ZCQWd83Y2joLatEV3XVV10ph4uQV7LrrYLzDCfW4dBiDyvVtpyhD3fgrGY7J2hFbNtCzzp4CGU7DxDYCxnuzJtgCJKCMFuRxloks-iW4dXJlZADetaMQK5rZiUKF/s1600/outlook.jpg"
-  },
-  {
-    "title": "FCC Blocks New Foreign-Produced Robots and Power Inverters Over Cyber Risks",
-    "link": "https://thehackernews.com/2026/07/fcc-blocks-new-foreign-produced-robots.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipannhqI3vkI628-oBoMbtwDDVE4F2PpVmxVM9d10AE06EVVwZzrBde5sTZTddm_89YUCUkfopYwqVzuk2Y8I4g84Ete1SQLvrQ2gA8FVxyCt952gNJpTmXpReLiZZ6EIv33zLjDTFI-_KLydIHDGoIDkbv1ptGTXLdVf6NyeaKeWEEWX4yNsxx46-zyY/s1600/robots.jpg"
-  },
-  {
-    "title": "Amazon Links Debug and Chalk npm Hijack to North Korea\u2019s Sapphire Sleet",
-    "link": "https://thehackernews.com/2026/07/amazon-links-debug-and-chalk-npm-hijack.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgWsCKCTbRf4kZF1zcu1cmfHaf-pPPKTo2q21iPUibGu2jsDaxT92LByZdMAi0d_luVH-yt263qlWE5uDFAh4Ue21dIUk_eu08YXHqwgHI_R9bziAK9nBUiht_lMbaL9bqBH800A0HtxNSYNISi1sZ4SKv1DanwxXBPj4rd6OFBk3ogNn9iTUmsiISve0/s1600/northkorean-npm.jpg"
-  },
-  {
-    "title": "Cisco FMC Zero-Day Actively Exploited, Static Credentials Could Expose Sensitive Data",
-    "link": "https://thehackernews.com/2026/07/cisco-fmc-zero-day-actively-exploited.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFSDmsE6q7010reBwpOwS1ESkJSxlBlgRBbtjEVAdeClQFAkRfpriRQWUpL0Br8xnFdF1mctv4Ttj1Nv77MMIKm9qlNehPtTLYzOQwcZAWR4Vw1HzjAvItevYjwQkUo_2JNRluc2_OeJ3vOZ-P8meai9NLLWBvothfh7GDqoOpMPmKpOO-hjAeY-Pxa-BV/s1600/cisco.jpg"
-  },
-  {
-    "title": "SE Asian Cybercriminal Syndicates Become a Global Power",
-    "link": "https://www.darkreading.com/threat-intelligence/se-asian-cybercriminal-syndicates-global-power",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt375b31ff55356eb8/6a6a6c190179f65a251bb12d/industrial-cybercrime-technologies-TippaPatt-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "'Flying Eagle' Full-Service Mobile RAT Builder Wings Across China",
-    "link": "https://www.darkreading.com/endpoint-security/flying-eagle-mobile-rat-builder-china",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt64dd0d457b1c0a07/6a6a64473ece06782ad0a027/Eagle-Tatsuya_Sakamoto-GettyImages-2223926307.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Russian hackers exploit Exchange OWA zero-day for long-term mailbox access",
-    "link": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-exchange-owa-zero-day-for-long-term-mailbox-access/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/05/09/Russian__hackers.jpg"
-  },
-  {
-    "title": "Anthropic confirms Claude is down worldwide",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-is-down-worldwide/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/ClaudeChats.png"
-  },
-  {
-    "title": "Cisco warns of FMC static credential flaw exploited in zero-day attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/04/Cisco-headpic.jpg"
   }
 ]
