@@ -111,49 +111,116 @@ loadEventLog();
 setInterval(loadEventLog, 10000);
 
 /* ============================================================
-   SYSTEM STATUS — Versione Reale Altervista (compatibile con tuoi ID)
+   SYSTEM STATUS — Versione Definitiva (senza backend)
 ============================================================ */
 
-async function loadSystemStatus() {
-    const cpuEl = document.getElementById("cpu-load");
-    const netEl = document.getElementById("net-activity");
+function startSystemStatusUltimate() {
+    const netSpeedEl = document.getElementById("net-speed");
+    const netFill = document.getElementById("net-fill");
+    const latEl = document.getElementById("latency");
     const fwEl = document.getElementById("fw-status");
+    const badge = document.getElementById("sys-badge");
 
-    if (!cpuEl || !netEl || !fwEl) return;
+    /* === MINI GRAFICO LATENCY === */
+    const latCanvas = document.getElementById("lat-chart");
+    const latCtx = latCanvas.getContext("2d");
+    let latencyData = [];
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/system_status.php");
-        const data = await res.json();
+    function drawLatencyChart() {
+        latCtx.clearRect(0, 0, latCanvas.width, latCanvas.height);
+        latCtx.strokeStyle = "#00eaff";
+        latCtx.lineWidth = 2;
+        latCtx.beginPath();
 
-        // CPU
-        cpuEl.textContent = data.cpu + "%";
+        latencyData.forEach((v, i) => {
+            const x = (i / latencyData.length) * latCanvas.width;
+            const y = latCanvas.height - (v / 200) * latCanvas.height;
+            if (i === 0) latCtx.moveTo(x, y);
+            else latCtx.lineTo(x, y);
+        });
 
-        // Network
-        netEl.textContent = data.network + " kb/s";
-
-        // Firewall
-        fwEl.textContent = data.firewall;
-        fwEl.style.color = data.firewall === "ALLOW" ? "#00ff99" : "#ff3355";
-        fwEl.style.textShadow = `0 0 10px ${
-            data.firewall === "ALLOW" ? "#00ff99" : "#ff3355"
-        }`;
-
-    } catch (error) {
-        console.error("Errore System Status:", error);
-
-        cpuEl.textContent = "N/A";
-        netEl.textContent = "N/A";
-        fwEl.textContent = "N/A";
-        fwEl.style.color = "#888";
-        fwEl.style.textShadow = "none";
+        latCtx.stroke();
     }
+
+    /* === NETWORK SPEED === */
+    function updateNetwork() {
+        if (navigator.connection && navigator.connection.downlink) {
+            const speed = navigator.connection.downlink;
+            netSpeedEl.textContent = speed + " Mb/s";
+
+            const pct = Math.min(100, speed * 10);
+            netFill.style.width = pct + "%";
+
+            netFill.style.background =
+                speed >= 20 ? "#00ff99" :
+                speed >= 10 ? "#ffaa00" :
+                              "#ff0044";
+        } else {
+            netSpeedEl.textContent = "N/D";
+        }
+    }
+
+    /* === LATENCY === */
+    async function updateLatency() {
+        const start = performance.now();
+        try {
+            await fetch("https://angelonline.altervista.org/ping.txt", { cache: "no-store" });
+            const ms = performance.now() - start;
+            latEl.textContent = ms.toFixed(0) + " ms";
+
+            latencyData.push(ms);
+            if (latencyData.length > 50) latencyData.shift();
+            drawLatencyChart();
+        } catch {
+            latEl.textContent = "N/D";
+        }
+    }
+
+    /* === FIREWALL === */
+    async function updateFirewall() {
+        try {
+            await fetch("https://angelonline.altervista.org/ping.txt", { cache: "no-store" });
+            fwEl.textContent = "OK";
+            fwEl.style.color = "#00ff99";
+        } catch {
+            fwEl.textContent = "BLOCKED";
+            fwEl.style.color = "#ff0044";
+        }
+    }
+
+    /* === BADGE === */
+    function updateBadge() {
+        const speed = navigator.connection?.downlink || 0;
+        const latency = parseFloat(latEl.textContent) || 999;
+
+        let status = "CRITICAL";
+        let color = "#ff0044";
+
+        if (speed >= 20 && latency <= 60) {
+            status = "OK";
+            color = "#00ff99";
+        } else if (speed >= 10 && latency <= 120) {
+            status = "WARNING";
+            color = "#ffaa00";
+        }
+
+        badge.textContent = status;
+        badge.style.background = color;
+    }
+
+    /* === LOOP === */
+    updateNetwork();
+    updateLatency();
+    updateFirewall();
+    updateBadge();
+
+    setInterval(updateNetwork, 3000);
+    setInterval(updateLatency, 3000);
+    setInterval(updateFirewall, 5000);
+    setInterval(updateBadge, 3000);
 }
 
-// Primo caricamento
-loadSystemStatus();
-
-// Aggiornamento automatico ogni 10 secondi
-setInterval(loadSystemStatus, 10000);
+startSystemStatusUltimate();
 
 /* ============================================================
    ATTIVITÀ SOSPETTE — Versione Reale Altervista
