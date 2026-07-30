@@ -1,5 +1,30 @@
 [
   {
+    "title": "After the Break-In: What Attackers Do Once They're Already Inside",
+    "link": "https://www.bleepingcomputer.com/news/security/after-the-break-in-what-attackers-do-once-theyre-already-inside/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/07/28/20260727_Bleeping-Computer-Article_AftertheBreakIn_1600x900.png"
+  },
+  {
+    "title": "DataBahn Raises $40 Million for Agentic Data Pipeline Management",
+    "link": "https://www.securityweek.com/databahn-raises-40-million-for-agentic-data-pipeline-management/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-1.jpeg"
+  },
+  {
+    "title": "Azure Cosmos DB Flaw Exposed Platform-Wide Key That Could Access Any Database",
+    "link": "https://thehackernews.com/2026/07/azure-cosmos-db-flaw-exposed-platform.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_dFT-y76kGOf4rFOAu6NYNsE2s57G-7dl0a03tULY-f2ZGTbpPeEvu-NUCLVh-bgEdBvecIt28BJLQXUHclBc_IfGP9tBSZyMIm971Myrp2_zhSPyXhCJkhYmSfvLWNRewSsCip2YJfBEWocEEKdXPUL-y_mK8ZcHbBAaTWt8SzXmDJeQoYc6r5ceC6A/s1600/wiz-cosmodb.jpg"
+  },
+  {
+    "title": "Cantina Emerges From Stealth With $8 Million in Funding",
+    "link": "https://www.securityweek.com/cantina-emerges-from-stealth-with-8-million-in-funding/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
+  },
+  {
+    "title": "Discern Security Raises $13 Million in Series A Funding",
+    "link": "https://www.securityweek.com/discern-security-raises-13-million-in-series-a-funding/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-4.jpeg"
+  },
+  {
     "title": "Onyx Security Raises $113 Million to Control AI Agents in the Enterprise",
     "link": "https://www.securityweek.com/onyx-security-raises-113-million-to-control-ai-agents-in-the-enterprise/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cybersecurity-funding.jpeg"
@@ -8,6 +33,11 @@
     "title": "\u2018DangleGeddon\u2019: AI Could Weaponize Forgotten DNS Records at Global Scale",
     "link": "https://www.securityweek.com/danglegeddon-ai-could-weaponize-forgotten-dns-records-at-global-scale/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/02/DNS.jpeg"
+  },
+  {
+    "title": "Open Source Software: Security Principles and Practices",
+    "link": "https://www.cisa.gov/resources-tools/resources/open-source-software-security-principles-and-practices",
+    "image": ""
   },
   {
     "title": "Microsoft Copilot for Word Can Copy Hidden Prompts Into New Documents",
@@ -65,11 +95,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipannhqI3vkI628-oBoMbtwDDVE4F2PpVmxVM9d10AE06EVVwZzrBde5sTZTddm_89YUCUkfopYwqVzuk2Y8I4g84Ete1SQLvrQ2gA8FVxyCt952gNJpTmXpReLiZZ6EIv33zLjDTFI-_KLydIHDGoIDkbv1ptGTXLdVf6NyeaKeWEEWX4yNsxx46-zyY/s1600/robots.jpg"
   },
   {
-    "title": "Cisco Secure FMC Zero-Day Exploited in the Wild",
-    "link": "https://www.securityweek.com/cisco-secure-fmc-zero-day-exploited-in-the-wild/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Cisco-network-switch-exploit.webp"
-  },
-  {
     "title": "Amazon Links Debug and Chalk npm Hijack to North Korea\u2019s Sapphire Sleet",
     "link": "https://thehackernews.com/2026/07/amazon-links-debug-and-chalk-npm-hijack.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgWsCKCTbRf4kZF1zcu1cmfHaf-pPPKTo2q21iPUibGu2jsDaxT92LByZdMAi0d_luVH-yt263qlWE5uDFAh4Ue21dIUk_eu08YXHqwgHI_R9bziAK9nBUiht_lMbaL9bqBH800A0HtxNSYNISi1sZ4SKv1DanwxXBPj4rd6OFBk3ogNn9iTUmsiISve0/s1600/northkorean-npm.jpg"
@@ -110,7 +135,7 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteed6585fb356f055/6a6a5a483792ae4c0a587098/robot_skeleton-gremlin-Getty-531001422.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
-    "title": "Red Agents vs. Blue Agents: How to Make AI Better At Defense",
+    "title": "Red Agents vs. Blue Agents: How to Make AI Better at Defense",
     "link": "https://www.darkreading.com/cybersecurity-operations/red-agents-vs-blue-agents-make-ai-better-defense",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltda67aa668122e771/6a6a4b0db8ab35a066dea164/blueteam-sqback-Getty-2255978330.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
@@ -123,30 +148,5 @@
     "title": "Health-ISAC warns of rising ShinyHunters data theft attacks on healthcare",
     "link": "https://www.bleepingcomputer.com/news/security/health-isac-warns-of-rising-shinyhunters-data-theft-attacks-on-healthcare/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/08/22/healthcare-cyber.jpg"
-  },
-  {
-    "title": "Who's Liable When AI Agents Escape? Hugging Face Breach Raises Hard Questions",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/liable-ai-agents-escape-hugging-face-breach-questions",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta214a48ce72c3ebd/6a690739208e6b500fcd14c1/huggingface_Tada_Images_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hugging Face Hack Lessons for Cyber Defenders",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/hugging-face-hack-lessons-cyber-defenders",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0469f94bd17817ff/6642699959fdc64aa5f9c5fa/dark-reading-confidential-logo-sq.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "When AppSec Scanners Become a Supply Chain Attack Vector",
-    "link": "https://www.darkreading.com/application-security/when-appsec-scanners-become-supply-chain-attack-vector",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte3ee632c446d5f42/6a6a3d1bf118fd682ddbc4c8/supplychain_IncrediVFX_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI agent used exposed credentials at 4 services in Hugging Face breach",
-    "link": "https://www.bleepingcomputer.com/news/security/openai-agent-used-exposed-credentials-at-4-services-in-hugging-face-breach/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/29/openai-escape-sandbox.jpg"
-  },
-  {
-    "title": "Ruflo MCP Flaw Lets Unauthenticated Attackers Run Commands and Poison AI Memory",
-    "link": "https://thehackernews.com/2026/07/ruflo-mcp-flaw-lets-unauthenticated.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCgiIKxPiETcU1yIlU2RFsHgjXg2uLgbzaJ-98y7sPuujYarFbc0FdMqSRLIKJ1hYrsGLCZTCf5k40RtQ2PgwmA2L6tLAidOymHNIduXN3vtU0u0BsI37PLgWK8gwla3oTYkdD8ggssjMfF_5PuC9-exVYpBcqjg9tvscJ7XNAaHJxeUmCj-WP8VttRSgy/s1600/mcp.jpg"
   }
 ]
