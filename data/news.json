@@ -1,5 +1,25 @@
 [
   {
+    "title": "Onyx Security Raises $113 Million to Control AI Agents in the Enterprise",
+    "link": "https://www.securityweek.com/onyx-security-raises-113-million-to-control-ai-agents-in-the-enterprise/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cybersecurity-funding.jpeg"
+  },
+  {
+    "title": "\u2018DangleGeddon\u2019: AI Could Weaponize Forgotten DNS Records at Global Scale",
+    "link": "https://www.securityweek.com/danglegeddon-ai-could-weaponize-forgotten-dns-records-at-global-scale/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/02/DNS.jpeg"
+  },
+  {
+    "title": "Microsoft Copilot for Word Can Copy Hidden Prompts Into New Documents",
+    "link": "https://thehackernews.com/2026/07/microsoft-copilot-for-word-can-copy.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-BgxoTGLqXYzQh4HW0TUm-hbX0ApFizzFtFkKe5mb3fKS_yn6Zzpj_Uvivxi7VCwEUOuJx3Bg1XHpHWq9tbZh5xBrAHT4gBG2DYyqvFkVKmWIRiF_zCpXIG5bTs7HfsV1pjM2EsTm-e7WttN-iB57p0n4ki2Vs7vXyB6rTF9mSqlwPu3h7KHocg0mWcI/s1600/copilot-word.jpg"
+  },
+  {
+    "title": "The Network Has Become the Control Plane for AI Security",
+    "link": "https://thehackernews.com/2026/07/the-network-has-become-control-plane.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCMiEYFcCrvL7s-o_ZApEbF6gP4J5FpWseBSQN2iP5bBIXP51mVR8QDnUmxDHBrMr0ta6ucsouVsVnWg8mGPeRvwkx09PCddi0pWLYzOpeA7NnrKUaeVhypXKK9rBJSfminUSBH9cz4YTelqUFMU-VZU2G-mkKFhb1pMQsGcAqtuT4btXzbbgb4pD1Mdfi/s1600/checkpoint-main.jpg"
+  },
+  {
     "title": "Semiconductor Firm Analog Devices Discloses Data Breach",
     "link": "https://www.securityweek.com/semiconductor-firm-analog-devices-discloses-data-breach/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/03/quantum-computing-chip.jpeg"
@@ -128,25 +148,5 @@
     "title": "Ruflo MCP Flaw Lets Unauthenticated Attackers Run Commands and Poison AI Memory",
     "link": "https://thehackernews.com/2026/07/ruflo-mcp-flaw-lets-unauthenticated.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCgiIKxPiETcU1yIlU2RFsHgjXg2uLgbzaJ-98y7sPuujYarFbc0FdMqSRLIKJ1hYrsGLCZTCf5k40RtQ2PgwmA2L6tLAidOymHNIduXN3vtU0u0BsI37PLgWK8gwla3oTYkdD8ggssjMfF_5PuC9-exVYpBcqjg9tvscJ7XNAaHJxeUmCj-WP8VttRSgy/s1600/mcp.jpg"
-  },
-  {
-    "title": "Three Critical VMware Flaws Allow Auth Bypass, Code Execution, and VM Escape",
-    "link": "https://thehackernews.com/2026/07/three-critical-vmware-flaws-allow-auth.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLKz0u1mJIVvPAxiFFqsvkMVXxyXqS_paYhbtTRFLoIWyl5Q_FwIrJjruxEYH0LAdzJm38P48m_T_24ycKfjPs2bg6FUoy2IWVUxH7SpNtiSJuExOy3dDEAWprGwkvhY5005OPyFUzl2qJzAztAckgZNLVzqlp34s9HtQ3wrvq6lDCcXgYwfOXKF08wtdp/s1600/vmware.jpg"
-  },
-  {
-    "title": "Hackers disrupt over 30 Minnesota water utilities in coordinated OT attack",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-target-over-30-minnesota-water-utilities-in-coordinated-ot-attack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/29/Wastewater_Treatment.png"
-  },
-  {
-    "title": "Patch-Resistant 'RufRoot' Flaw Can Unleash Malicious AI Agent Swarms",
-    "link": "https://www.darkreading.com/cyber-risk/patch-resistant-rufroot-flaw-malicious-ai-agent-swarms",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc48aaf4c329f0fbe/6a69d8d89d447d1bec077dc5/AI_agent_concept_Brain_light_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Your AI Agents Are Guessing at Scale: Permissions Decide the Damage",
-    "link": "https://www.bleepingcomputer.com/news/security/your-ai-agents-are-guessing-at-scale-permissions-decide-the-damage/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/07/28/token-ai-vauum.jpg"
   }
 ]
