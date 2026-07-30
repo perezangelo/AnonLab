@@ -114,6 +114,25 @@ setInterval(loadEventLog, 10000);
    SYSTEM STATUS — Versione Definitiva (senza backend)
 ============================================================ */
 
+/* === SPEEDTEST REALE === */
+async function measureRealSpeed() {
+    const start = performance.now();
+
+    const response = await fetch("https://angelonline.altervista.org/speedtest.bin", {
+        cache: "no-store"
+    });
+
+    const blob = await response.blob();
+    const sizeMB = blob.size / (1024 * 1024);
+
+    const ms = performance.now() - start;
+    const seconds = ms / 1000;
+
+    const mbps = (sizeMB / seconds) * 8; // MB/s → Mb/s
+
+    return mbps.toFixed(1);
+}
+
 function startSystemStatusUltimate() {
     const netSpeedEl = document.getElementById("net-speed");
     const netFill = document.getElementById("net-fill");
@@ -142,20 +161,20 @@ function startSystemStatusUltimate() {
         latCtx.stroke();
     }
 
-    /* === NETWORK SPEED === */
-    function updateNetwork() {
-        if (navigator.connection && navigator.connection.downlink) {
-            const speed = navigator.connection.downlink;
+    /* === NETWORK SPEED REALE === */
+    async function updateNetwork() {
+        try {
+            const speed = await measureRealSpeed();
             netSpeedEl.textContent = speed + " Mb/s";
 
-            const pct = Math.min(100, speed * 10);
+            const pct = Math.min(100, speed / 2);
             netFill.style.width = pct + "%";
 
             netFill.style.background =
-                speed >= 20 ? "#00ff99" :
-                speed >= 10 ? "#ffaa00" :
-                              "#ff0044";
-        } else {
+                speed >= 500 ? "#00ff99" :   // fibra 1–2.5 Gb/s
+                speed >= 100 ? "#ffaa00" :   // buono
+                               "#ff0044";    // lento
+        } catch {
             netSpeedEl.textContent = "N/D";
         }
     }
@@ -190,16 +209,16 @@ function startSystemStatusUltimate() {
 
     /* === BADGE === */
     function updateBadge() {
-        const speed = navigator.connection?.downlink || 0;
+        const speed = parseFloat(netSpeedEl.textContent) || 0;
         const latency = parseFloat(latEl.textContent) || 999;
 
         let status = "CRITICAL";
         let color = "#ff0044";
 
-        if (speed >= 20 && latency <= 60) {
+        if (speed >= 500 && latency <= 60) {
             status = "OK";
             color = "#00ff99";
-        } else if (speed >= 10 && latency <= 120) {
+        } else if (speed >= 100 && latency <= 120) {
             status = "WARNING";
             color = "#ffaa00";
         }
@@ -214,7 +233,7 @@ function startSystemStatusUltimate() {
     updateFirewall();
     updateBadge();
 
-    setInterval(updateNetwork, 3000);
+    setInterval(updateNetwork, 8000);
     setInterval(updateLatency, 3000);
     setInterval(updateFirewall, 5000);
     setInterval(updateBadge, 3000);
