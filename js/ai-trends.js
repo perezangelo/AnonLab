@@ -1,4 +1,4 @@
-fetch('/api/ai-trends.php')
+fetch('https://angelonline.altervista.org/api/ai-trends.php')
   .then(r => r.json())
   .then(data => {
     const box = document.getElementById('ai-trends');
