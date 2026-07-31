@@ -9,7 +9,7 @@ async function initThreatMonitor() {
 
     async function loadThreat() {
         try {
-            const res = await fetch("/api/threat-nvd.php?ts=" + Date.now());
+            const res = await fetch("https://angelonline.altervista.org/api/threat-nvd.php?ts=" + Date.now());
             const data = await res.json();
 
             const keys = ["global", "ransomware", "exploit", "ddos", "phishing", "botnet"];
