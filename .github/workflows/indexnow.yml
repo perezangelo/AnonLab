@@ -1,0 +1,24 @@
+name: IndexNow Submission
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit URLs to IndexNow
+        run: |
+          curl -X POST "https://api.indexnow.org/indexnow" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "host": "anonlab.it",
+            "key": "f3b9e4c2d7a14e8fb92c6d1a3f7e5c4b",
+            "keyLocation": "https://anonlab.it/indexnow-key.txt",
+            "urlList": [
+              "https://anonlab.it/",
+              "https://anonlab.it/dashboard.html"
+            ]
+          }'
