@@ -1340,7 +1340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // CARICO IL JS DOPO che il partial è nel DOM
         const script = document.createElement("script");
-        script.src = "https://angelonline.altervista.org/js/threat-monitor.js";
+        script.src = "https://angelonline.altervista.org/js/threat-monitor.js?v=" + Date.now();
         script.onload = () => initThreatMonitor();
         document.body.appendChild(script);
     })
