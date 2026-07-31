@@ -2,7 +2,7 @@
 
     <!-- GLOBAL -->
     <div class="threat-row">
-        <span id="label-global">Global Threat Level: 0%</span>
+        <span id="label-global" data-title="Global Threat Level">Global Threat Level: 0%</span>
         <div class="bar-container">
             <div id="bar-global" class="bar-fill">0%</div>
         </div>
@@ -10,7 +10,7 @@
 
     <!-- RANSOMWARE -->
     <div class="threat-row">
-        <span id="label-ransomware">Ransomware: 0%</span>
+        <span id="label-ransomware" data-title="Ransomware">Ransomware: 0%</span>
         <div class="bar-container">
             <div id="bar-ransomware" class="bar-fill">0%</div>
         </div>
@@ -18,7 +18,7 @@
 
     <!-- DDOS -->
     <div class="threat-row">
-        <span id="label-ddos">DDoS Attacks: 0%</span>
+        <span id="label-ddos" data-title="DDoS Attacks">DDoS Attacks: 0%</span>
         <div class="bar-container">
             <div id="bar-ddos" class="bar-fill">0%</div>
         </div>
@@ -26,7 +26,7 @@
 
     <!-- PHISHING -->
     <div class="threat-row">
-        <span id="label-phishing">Phishing: 0%</span>
+        <span id="label-phishing" data-title="Phishing">Phishing: 0%</span>
         <div class="bar-container">
             <div id="bar-phishing" class="bar-fill">0%</div>
         </div>
@@ -34,7 +34,7 @@
 
     <!-- BOTNET -->
     <div class="threat-row">
-        <span id="label-botnet">Botnet Activity: 0%</span>
+        <span id="label-botnet" data-title="Botnet Activity">Botnet Activity: 0%</span>
         <div class="bar-container">
             <div id="bar-botnet" class="bar-fill">0%</div>
         </div>
@@ -42,7 +42,7 @@
 
     <!-- EXPLOIT -->
     <div class="threat-row">
-        <span id="label-exploit">Exploit Attempts: 0%</span>
+        <span id="label-exploit" data-title="Exploit Attempts">Exploit Attempts: 0%</span>
         <div class="bar-container">
             <div id="bar-exploit" class="bar-fill">0%</div>
         </div>
@@ -51,9 +51,6 @@
 </div>
 
 <style>
-/* ============================
-   STRUTTURA BASE (come la tua)
-   ============================ */
 .threat-bars {
     margin-top: 20px;
     display: flex;
@@ -68,14 +65,10 @@
     font-size: 0.95rem;
 }
 
-/* ============================
-   FIX PER IL TEMA CYBER
-   ============================ */
 .threat-row span {
     color: #fff !important;
 }
 
-/* Contenitore barre */
 .bar-container {
     width: 100%;
     height: 20px !important;
@@ -84,7 +77,6 @@
     overflow: hidden !important;
 }
 
-/* Barre interne */
 .bar-fill {
     height: 100% !important;
     width: 0%;
