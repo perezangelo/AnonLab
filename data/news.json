@@ -1,5 +1,10 @@
 [
   {
+    "title": "Rails patches critical Active Storage flaw with RCE potential",
+    "link": "https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/31/rails.jpg"
+  },
+  {
     "title": "Balance Theory Raises $19 Million to Help Enterprises Manage Cybersecurity Investments",
     "link": "https://www.securityweek.com/balance-theory-raises-19-million-to-help-enterprises-manage-cybersecurity-investments/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
@@ -143,10 +148,5 @@
     "title": "Prompted by OpenAI Disclosure, Anthropic Finds Its Own Models Hacked 3 Organizations",
     "link": "https://www.securityweek.com/after-openai-disclosure-anthropic-finds-its-own-models-hacked-3-organizations/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Anthropic-Claude.jpeg"
-  },
-  {
-    "title": "Critical Flaw Allowed to Azure Cosmos DB Pwnage",
-    "link": "https://www.securityweek.com/critical-flaw-led-to-azure-cosmos-db-pwnage/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Microsoft-Azure.jpeg"
   }
 ]
