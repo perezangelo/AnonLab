@@ -1,92 +1,89 @@
-<div class="threat-bars">
+.threat-update {
+    color: #00eaff;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
 
-    <!-- GLOBAL -->
-    <div class="threat-row">
-        <span id="label-global" data-title="Global Threat Level">Global Threat Level: 0%</span>
-        <div class="bar-container">
-            <div id="bar-global" class="bar-fill">0%</div>
-        </div>
-    </div>
-
-    <!-- RANSOMWARE -->
-    <div class="threat-row">
-        <span id="label-ransomware" data-title="Ransomware">Ransomware: 0%</span>
-        <div class="bar-container">
-            <div id="bar-ransomware" class="bar-fill">0%</div>
-        </div>
-    </div>
-
-    <!-- DDOS -->
-    <div class="threat-row">
-        <span id="label-ddos" data-title="DDoS Attacks">DDoS Attacks: 0%</span>
-        <div class="bar-container">
-            <div id="bar-ddos" class="bar-fill">0%</div>
-        </div>
-    </div>
-
-    <!-- PHISHING -->
-    <div class="threat-row">
-        <span id="label-phishing" data-title="Phishing">Phishing: 0%</span>
-        <div class="bar-container">
-            <div id="bar-phishing" class="bar-fill">0%</div>
-        </div>
-    </div>
-
-    <!-- BOTNET -->
-    <div class="threat-row">
-        <span id="label-botnet" data-title="Botnet Activity">Botnet Activity: 0%</span>
-        <div class="bar-container">
-            <div id="bar-botnet" class="bar-fill">0%</div>
-        </div>
-    </div>
-
-    <!-- EXPLOIT -->
-    <div class="threat-row">
-        <span id="label-exploit" data-title="Exploit Attempts">Exploit Attempts: 0%</span>
-        <div class="bar-container">
-            <div id="bar-exploit" class="bar-fill">0%</div>
-        </div>
-    </div>
-
-</div>
-
-<style>
 .threat-bars {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 26px;
 }
 
 .threat-row {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    font-size: 0.95rem;
+    gap: 8px;
 }
 
-.threat-row span {
-    color: #fff !important;
+.threat-label {
+    color: #00eaff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .bar-container {
     width: 100%;
-    height: 20px !important;
-    background: #222 !important;
-    border-radius: 6px !important;
-    overflow: hidden !important;
+    height: 26px;
+    background: #0a0a0a;
+    border: 2px solid #00eaff;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
 }
 
 .bar-fill {
-    height: 100% !important;
+    height: 100%;
     width: 0%;
-    background: #00eaff !important;
-    display: flex !important;
-    align-items: center !important;
-    padding-left: 6px !important;
-    font-size: 11px !important;
-    font-weight: bold !important;
-    color: #000 !important;
-    transition: width 0.6s ease, background-color 0.6s ease !important;
+    background: linear-gradient(90deg, #00eaff, #0077ff);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    position: relative;
+    transition: width 0.6s ease;
 }
-</style>
+
+.bar-value {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    z-index: 2;
+}
+
+.sparkline {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.25;
+    z-index: 1;
+}
+
+.risk-badge {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+    color: #fff;
+    background: transparent;
+}
+
+.risk-high {
+    background: #f44336;
+}
+
+.risk-medium {
+    background: #ff9800;
+}
+
+.risk-low {
+    background: #4caf50;
+}
