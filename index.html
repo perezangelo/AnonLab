@@ -1326,54 +1326,80 @@ initSystemStatus();
     <h2>Cyber Threat Monitor</h2>
   </div>
 
-  <div id="threat-monitor">
+  <div id="threat-last-update" class="threat-update">Last Update: --:--:--</div>
+
+  <div class="threat-bars">
 
       <div class="threat-row">
-          <span id="label-global" data-title="Global Threat Level">Global Threat Level: 0%</span>
+          <span class="threat-label">Exploitability Score</span>
           <div class="bar-container">
-              <div id="bar-global" class="bar-fill">0%</div>
+              <div id="bar-exploit" class="bar-fill">
+                  <canvas id="spark-exploit" class="sparkline"></canvas>
+                  <span class="bar-value">0%</span>
+              </div>
           </div>
+          <span id="risk-exploit" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span id="label-ransomware" data-title="Ransomware">Ransomware: 0%</span>
+          <span class="threat-label">Impact Score</span>
           <div class="bar-container">
-              <div id="bar-ransomware" class="bar-fill">0%</div>
+              <div id="bar-impact" class="bar-fill">
+                  <canvas id="spark-impact" class="sparkline"></canvas>
+                  <span class="bar-value">0%</span>
+              </div>
           </div>
+          <span id="risk-impact" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span id="label-ddos" data-title="DDoS">DDoS: 0%</span>
+          <span class="threat-label">Network Exposure</span>
           <div class="bar-container">
-              <div id="bar-ddos" class="bar-fill">0%</div>
+              <div id="bar-network" class="bar-fill">
+                  <canvas id="spark-network" class="sparkline"></canvas>
+                  <span class="bar-value">0%</span>
+              </div>
           </div>
+          <span id="risk-network" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span id="label-phishing" data-title="Phishing">Phishing: 0%</span>
+          <span class="threat-label">Privilege Escalation</span>
           <div class="bar-container">
-              <div id="bar-phishing" class="bar-fill">0%</div>
+              <div id="bar-privEsc" class="bar-fill">
+                  <canvas id="spark-privEsc" class="sparkline"></canvas>
+                  <span class="bar-value">0%</span>
+              </div>
           </div>
+          <span id="risk-privEsc" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span id="label-botnet" data-title="Botnet">Botnet: 0%</span>
+          <span class="threat-label">User Interaction</span>
           <div class="bar-container">
-              <div id="bar-botnet" class="bar-fill">0%</div>
+              <div id="bar-userInt" class="bar-fill">
+                  <canvas id="spark-userInt" class="sparkline"></canvas>
+                  <span class="bar-value">0%</span>
+              </div>
           </div>
+          <span id="risk-userInt" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span id="label-exploit" data-title="Exploit Attempts">Exploit Attempts: 0%</span>
+          <span class="threat-label">Availability Impact</span>
           <div class="bar-container">
-              <div id="bar-exploit" class="bar-fill">0%</div>
+              <div id="bar-availability" class="bar-fill">
+                  <canvas id="spark-availability" class="sparkline"></canvas>
+                  <span class="bar-value">0%</span>
+              </div>
           </div>
+          <span id="risk-availability" class="risk-badge"></span>
       </div>
 
   </div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/threat-monitor.js?v=4"></script>
+<script src="https://angelonline.altervista.org/js/threat-monitor.js?v=6"></script>
 <script>
 document.addEventListener("DOMContentLoaded", initThreatMonitor);
 </script>
