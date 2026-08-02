@@ -1,4 +1,26 @@
+/* ============================================================
+   Threat Monitor – Versione compatibile con backend AlterVista
+   ============================================================ */
+
 async function initThreatMonitor() {
+
+    const bars = {
+        global: document.getElementById("bar-global"),
+        exploit: document.getElementById("bar-exploit"),
+        ransomware: document.getElementById("bar-ransomware"),
+        ddos: document.getElementById("bar-ddos"),
+        phishing: document.getElementById("bar-phishing"),
+        botnet: document.getElementById("bar-botnet")
+    };
+
+    const labels = {
+        global: document.getElementById("label-global"),
+        exploit: document.getElementById("label-exploit"),
+        ransomware: document.getElementById("label-ransomware"),
+        ddos: document.getElementById("label-ddos"),
+        phishing: document.getElementById("label-phishing"),
+        botnet: document.getElementById("label-botnet")
+    };
 
     function getThreatColor(value) {
         if (value <= 30) return "#4caf50";
@@ -12,40 +34,31 @@ async function initThreatMonitor() {
             const res = await fetch("https://angelonline.altervista.org/api/threat-nvd.php?ts=" + Date.now());
             const data = await res.json();
 
-            const mapping = {
-                global: "Global Threat Level",
-                high: "High Severity CVE",
-                critical: "Critical Severity CVE",
-                avgScore: "Average CVSS Score",
-                recent: "Recent CVE (7 days)",
-                vendor: "Microsoft Exposure",
-                topCwe: "Most Common CWE"
+            const values = {
+                global: data.global ?? 0,
+                exploit: data.exploit ?? 0,
+                ransomware: data.ransomware ?? 0,
+                ddos: data.ddos ?? 0,
+                phishing: data.phishing ?? 0,
+                botnet: data.botnet ?? 0
             };
 
-            Object.keys(mapping).forEach(key => {
-                const bar = document.getElementById("bar-" + key);
-                const label = document.getElementById("label-" + key);
-                const value = data[key];
+            Object.keys(values).forEach(key => {
+                const bar = bars[key];
+                const label = labels[key];
+                const value = values[key];
 
                 if (!bar || !label) return;
-
-                if (key === "topCwe") {
-                    bar.style.width = "100%";
-                    bar.style.backgroundColor = "#00eaff";
-                    bar.textContent = data[key];
-                    label.textContent = mapping[key] + ": " + data[key];
-                    return;
-                }
 
                 bar.style.width = value + "%";
                 bar.style.backgroundColor = getThreatColor(value);
                 bar.textContent = value + "%";
 
-                label.textContent = mapping[key] + ": " + value + "%";
+                label.textContent = label.dataset.title + ": " + value + "%";
             });
 
         } catch (err) {
-            console.error("Threat Monitor error:", err);
+            console.error("Errore Threat Monitor:", err);
         }
     }
 
