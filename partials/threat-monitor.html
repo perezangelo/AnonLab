@@ -1,89 +1,52 @@
-.threat-update {
-    color: #00eaff;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
+<div class="threat-bars">
 
-.threat-bars {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-}
+    <div class="threat-row">
+        <span id="label-global" class="threat-label">Global Threat Level</span>
+        <div class="bar-container">
+            <div id="bar-global" class="bar-fill"><span class="bar-value">0%</span></div>
+        </div>
+    </div>
 
-.threat-row {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+    <div class="threat-row">
+        <span id="label-high" class="threat-label">High Severity CVE</span>
+        <div class="bar-container">
+            <div id="bar-high" class="bar-fill"><span class="bar-value">0%</span></div>
+        </div>
+    </div>
 
-.threat-label {
-    color: #00eaff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
+    <div class="threat-row">
+        <span id="label-critical" class="threat-label">Critical Severity CVE</span>
+        <div class="bar-container">
+            <div id="bar-critical" class="bar-fill"><span class="bar-value">0%</span></div>
+        </div>
+    </div>
 
-.bar-container {
-    width: 100%;
-    height: 26px;
-    background: #0a0a0a;
-    border: 2px solid #00eaff;
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-}
+    <div class="threat-row">
+        <span id="label-avgScore" class="threat-label">Average CVSS Score</span>
+        <div class="bar-container">
+            <div id="bar-avgScore" class="bar-fill"><span class="bar-value">0%</span></div>
+        </div>
+    </div>
 
-.bar-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #00eaff, #0077ff);
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 8px;
-    position: relative;
-    transition: width 0.6s ease;
-}
+    <div class="threat-row">
+        <span id="label-recent" class="threat-label">Recent CVE (7 days)</span>
+        <div class="bar-container">
+            <div id="bar-recent" class="bar-fill"><span class="bar-value">0%</span></div>
+        </div>
+    </div>
 
-.bar-value {
-    font-size: 12px;
-    font-weight: bold;
-    color: #000;
-    z-index: 2;
-}
+    <div class="threat-row">
+        <span id="label-vendor" class="threat-label">Microsoft Exposure</span>
+        <div class="bar-container">
+            <div id="bar-vendor" class="bar-fill"><span class="bar-value">0%</span></div>
+        </div>
+    </div>
 
-.sparkline {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0.25;
-    z-index: 1;
-}
+    <div class="threat-row">
+        <span id="label-topCwe" class="threat-label">Most Common CWE</span>
+        <div class="bar-container">
+            <div id="bar-topCwe" class="bar-fill"><span class="bar-value">N/A</span></div>
+        </div>
+    </div>
 
-.risk-badge {
-    margin-top: 4px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 4px;
-    display: inline-block;
-    width: fit-content;
-    color: #fff;
-    background: transparent;
-}
-
-.risk-high {
-    background: #f44336;
-}
-
-.risk-medium {
-    background: #ff9800;
-}
-
-.risk-low {
-    background: #4caf50;
-}
+</div>
