@@ -30,14 +30,17 @@ function updateThreatWidget(data) {
         if (v < 0) v = 0;
         if (v > 100) v = 100;
 
+        // aggiorna larghezza barra
         bar.style.width = v + "%";
 
+        // aggiorna valore dentro la barra
         const valSpan = bar.querySelector(".bar-value");
         if (valSpan) valSpan.textContent = v + "%";
 
+        // aggiorna SOLO il titolo, senza percentuale
         if (label) {
             const base = label.getAttribute("data-title") || label.textContent;
-            label.textContent = base + ": " + v + "%";
+            label.textContent = base;
         }
     }
 
