@@ -1325,27 +1325,57 @@ initSystemStatus();
     <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
     <h2>Cyber Threat Monitor</h2>
   </div>
-  <div id="threat-monitor"></div>
+
+  <div id="threat-monitor">
+
+      <div class="threat-row">
+          <span id="label-global" data-title="Global Threat Level">Global Threat Level: 0%</span>
+          <div class="bar-container">
+              <div id="bar-global" class="bar-fill">0%</div>
+          </div>
+      </div>
+
+      <div class="threat-row">
+          <span id="label-ransomware" data-title="Ransomware">Ransomware: 0%</span>
+          <div class="bar-container">
+              <div id="bar-ransomware" class="bar-fill">0%</div>
+          </div>
+      </div>
+
+      <div class="threat-row">
+          <span id="label-ddos" data-title="DDoS">DDoS: 0%</span>
+          <div class="bar-container">
+              <div id="bar-ddos" class="bar-fill">0%</div>
+          </div>
+      </div>
+
+      <div class="threat-row">
+          <span id="label-phishing" data-title="Phishing">Phishing: 0%</span>
+          <div class="bar-container">
+              <div id="bar-phishing" class="bar-fill">0%</div>
+          </div>
+      </div>
+
+      <div class="threat-row">
+          <span id="label-botnet" data-title="Botnet">Botnet: 0%</span>
+          <div class="bar-container">
+              <div id="bar-botnet" class="bar-fill">0%</div>
+          </div>
+      </div>
+
+      <div class="threat-row">
+          <span id="label-exploit" data-title="Exploit Attempts">Exploit Attempts: 0%</span>
+          <div class="bar-container">
+              <div id="bar-exploit" class="bar-fill">0%</div>
+          </div>
+      </div>
+
+  </div>
 </section>
 
+<script src="https://angelonline.altervista.org/js/threat-monitor.js?v=4"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const threatBox = document.getElementById("threat-monitor");
-  if (!threatBox) return;
-
-  fetch("/partials/threat-monitor.html")
-    .then(r => r.text())
-    .then(html => {
-        threatBox.innerHTML = html;
-
-        // CARICO IL JS DOPO che il partial è nel DOM
-        const script = document.createElement("script");
-        script.src = "https://angelonline.altervista.org/js/threat-monitor.js?v=" + Date.now();
-        script.onload = () => initThreatMonitor();
-        document.body.appendChild(script);
-    })
-    .catch(err => console.error("Threat Monitor error:", err));
-});
+document.addEventListener("DOMContentLoaded", initThreatMonitor);
 </script>
 
 <section class="widget-large">
