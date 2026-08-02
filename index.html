@@ -1331,75 +1331,51 @@ initSystemStatus();
   <div class="threat-bars">
 
       <div class="threat-row">
-          <span class="threat-label">Exploitability Score</span>
+          <span id="label-global" data-title="Global Threat Level" class="threat-label">Global Threat Level</span>
           <div class="bar-container">
-              <div id="bar-exploit" class="bar-fill">
-                  <canvas id="spark-exploit" class="sparkline"></canvas>
-                  <span class="bar-value">0%</span>
-              </div>
+              <div id="bar-global" class="bar-fill"><span class="bar-value">0%</span></div>
           </div>
-          <span id="risk-exploit" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span class="threat-label">Impact Score</span>
+          <span id="label-exploit" data-title="Exploit Activity" class="threat-label">Exploit Activity</span>
           <div class="bar-container">
-              <div id="bar-impact" class="bar-fill">
-                  <canvas id="spark-impact" class="sparkline"></canvas>
-                  <span class="bar-value">0%</span>
-              </div>
+              <div id="bar-exploit" class="bar-fill"><span class="bar-value">0%</span></div>
           </div>
-          <span id="risk-impact" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span class="threat-label">Network Exposure</span>
+          <span id="label-ransomware" data-title="Ransomware Risk" class="threat-label">Ransomware Risk</span>
           <div class="bar-container">
-              <div id="bar-network" class="bar-fill">
-                  <canvas id="spark-network" class="sparkline"></canvas>
-                  <span class="bar-value">0%</span>
-              </div>
+              <div id="bar-ransomware" class="bar-fill"><span class="bar-value">0%</span></div>
           </div>
-          <span id="risk-network" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span class="threat-label">Privilege Escalation</span>
+          <span id="label-ddos" data-title="DDoS Exposure" class="threat-label">DDoS Exposure</span>
           <div class="bar-container">
-              <div id="bar-privEsc" class="bar-fill">
-                  <canvas id="spark-privEsc" class="sparkline"></canvas>
-                  <span class="bar-value">0%</span>
-              </div>
+              <div id="bar-ddos" class="bar-fill"><span class="bar-value">0%</span></div>
           </div>
-          <span id="risk-privEsc" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span class="threat-label">User Interaction</span>
+          <span id="label-phishing" data-title="Phishing Risk" class="threat-label">Phishing Risk</span>
           <div class="bar-container">
-              <div id="bar-userInt" class="bar-fill">
-                  <canvas id="spark-userInt" class="sparkline"></canvas>
-                  <span class="bar-value">0%</span>
-              </div>
+              <div id="bar-phishing" class="bar-fill"><span class="bar-value">0%</span></div>
           </div>
-          <span id="risk-userInt" class="risk-badge"></span>
       </div>
 
       <div class="threat-row">
-          <span class="threat-label">Availability Impact</span>
+          <span id="label-botnet" data-title="Botnet Activity" class="threat-label">Botnet Activity</span>
           <div class="bar-container">
-              <div id="bar-availability" class="bar-fill">
-                  <canvas id="spark-availability" class="sparkline"></canvas>
-                  <span class="bar-value">0%</span>
-              </div>
+              <div id="bar-botnet" class="bar-fill"><span class="bar-value">0%</span></div>
           </div>
-          <span id="risk-availability" class="risk-badge"></span>
       </div>
 
   </div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/threat-monitor.js"></script>
+<script src="https://angelonline.altervista.org/js/threat-monitor.js?v=7"></script>
 <script>
 document.addEventListener("DOMContentLoaded", initThreatMonitor);
 </script>
