@@ -6,15 +6,19 @@ async function loadTechRadar() {
         const box = document.getElementById("tech-radar");
         if (!box) return;
 
-        box.innerHTML = "";
+        box.innerHTML = ""; // pulizia
 
-        data.slice(0, 20).forEach(item => {
+        data.forEach(item => {
             const div = document.createElement("div");
             div.className = "radar-item";
+
             div.innerHTML = `
-                <h4>${item.title}</h4>
-                <p>${item.description}</p>
+                <h3>${item.title}</h3>
+                <p><strong>Categoria:</strong> ${item.category}</p>
+                <p><strong>Fonte:</strong> ${item.source}</p>
+                <a href="${item.url}" target="_blank">Documentazione</a>
             `;
+
             box.appendChild(div);
         });
 
@@ -23,5 +27,8 @@ async function loadTechRadar() {
     }
 }
 
+// avvio immediato
 loadTechRadar();
+
+// aggiornamento ogni 15 secondi
 setInterval(loadTechRadar, 15000);
