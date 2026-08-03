@@ -1,5 +1,15 @@
 [
   {
+    "title": "New Tool Traces AI Videos Back to Their Source",
+    "link": "https://www.darkreading.com/cyber-risk/new-tool-advances-ai-generated-video-detection",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb9546018118863fd/6a70ff2fbe6c657faa5a6e3b/GettyImages-1136317674.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Anthropic: AI Attacks Result of Security Gaps, Not Model Issues",
+    "link": "https://www.darkreading.com/cyber-risk/anthropic-ai-issues-result-security-gaps",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5c93a3d3405d789d/6a70e02ffbf44d4210bb1101/claude2_Samuel_Boivin_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "New DOUBLECUP ClickFix service hides malware in browser cache images",
     "link": "https://www.bleepingcomputer.com/news/security/new-doublecup-clickfix-service-hides-malware-in-browser-cache-images/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/03/header-browser-cache-malware.jpg"
@@ -37,7 +47,7 @@
   {
     "title": "Chinese Actor Weaponizes Deepseek AI Agent to Attack Security Firm",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/chinese-actor-deepseek-ai-agent-attack-security-firm",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blteed6585fb356f055/6a6a5a483792ae4c0a587098/robot_skeleton-gremlin-Getty-531001422.jpg?disable=upscale&width=1200&height=630&fit=crop"
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5b326661c25a73c5/6a70f5e542103f14fb72de26/aiagents-wildpixel-Getty-1499492092.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "Visa to Acquire Fraud Intelligence Firm BioCatch for $2.4 Billion",
@@ -83,6 +93,11 @@
     "title": "N\u2011able Patches Vulnerability Exploited to Hack N-central Servers",
     "link": "https://www.securityweek.com/n-able-patches-vulnerability-exploited-to-hack-n-central-servers/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
+  },
+  {
+    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/08/03/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "image": ""
   },
   {
     "title": "Brinks Home Discloses Data Breach as Hackers Leak Files",
@@ -133,20 +148,5 @@
     "title": "Hugging Face Diffusers Flaws Could Let Model Repositories Execute Arbitrary Code",
     "link": "https://thehackernews.com/2026/08/hugging-face-diffusers-flaws-could-let.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWQmUt2QHxTfiXiolir9akmVh8dT5di3UBDtD7H2IJlkWQ4x4VmeTUEZo8CUvz2q2FXCvxTJDHenWPzqPeSbnlCYSRTNGULKdWRJnsmVg7SVJT_BBPABxqRuvr22Z9V2C6P51fRjSGzgAlHMzEn-MjA4yTMfCaM91ujVajF8GJqYg9ZaZELXsCc-GMnYq8/s1600/hugging.jpg"
-  },
-  {
-    "title": "OpenAI teases Astra, its next major AI model, after it solves 10 long-standing math problems",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg"
-  },
-  {
-    "title": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
-    "link": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Cryptocurrency-bitcoin-theft.jpg"
-  },
-  {
-    "title": "Google Chrome may soon block New Tab hijacker extensions by default",
-    "link": "https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/29/Google-Chrome.jpg"
   }
 ]
