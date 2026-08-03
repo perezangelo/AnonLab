@@ -1,8 +1,33 @@
 [
   {
+    "title": "Is There Really a Fix for CISO Fatigue?",
+    "link": "https://www.darkreading.com/cybersecurity-operations/fix-for-ciso-fatigue",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9bd4cb621eab153c/6a6ce7295c6370055b106be4/burnout-Moor_Studio-_Getty-1445628897.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "River Bank Says Hackers Deleted Data Stolen in Ransomware Attack",
+    "link": "https://www.securityweek.com/river-bank-says-hackers-deleted-data-stolen-in-ransomware-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Open-Banking-Cybersecurity.jpg"
+  },
+  {
+    "title": "Horizon3 Raises $250 Million to Fund Continuing Growth",
+    "link": "https://www.securityweek.com/horizon3-raises-250-million-to-fund-continuing-growth/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Horizon3-AI-logo.png"
+  },
+  {
+    "title": "N\u2011able Patches Vulnerability Exploited to Hack N-central Servers",
+    "link": "https://www.securityweek.com/n-able-patches-vulnerability-exploited-to-hack-n-central-servers/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
+  },
+  {
     "title": "Brinks Home Discloses Data Breach as Hackers Leak Files",
     "link": "https://www.securityweek.com/brinks-home-discloses-data-breach-as-hackers-leak-files/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/08/home-security.jpeg"
+  },
+  {
+    "title": "FOMO in the SOC: Where AI Platforms like Claude Actually Fit",
+    "link": "https://thehackernews.com/2026/08/fomo-in-soc-where-ai-platforms-like.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvsPqZrMBUJ3CH2LqsxL_1HWV6F-qs8FbnvytY_bz9ZlSUptj-3SPJ-BAlDBrF9V39V2F_D35LPU8BgSdDNfyPi2tqESWH_g2qzP2ospA36aF2CexX2_bRw7ee6qG4uqAyI24lavgb5wER2wuKWYd6rOUpdG0pbhlR4aAtEvSTuAQYmv8a5izEpv63mcA/s1600/phish-main.jpg"
   },
   {
     "title": "Chinese Threat Actor Uses Leaked DarkSword Kit to Deploy GHOSTBLADE on iOS",
@@ -115,11 +140,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2023/11/08/ChatGPT.jpg"
   },
   {
-    "title": "Suspected Chinese-Speaking Hackers Target Central Asian Governments With OctLurk and SilkLurk",
-    "link": "https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmBagWdesuJqVgNAHPh7t75IGrajY_oJeL9HHI7r23AK7CuLUN22-GBwDCWJWTlIutBApsdhSGproqxtR6kV_Dg04FT2zc6vZXZCQed8Kx3bD-jw-VXkYfAHlJsNgcQOcqRFW8TTh1kyN34MisnGx3ImU9vejv_oNy4jN0sPNcPM7jclq7klrMmGrnROjk/s1600/chinese-hackers.jpg"
-  },
-  {
     "title": "CISA Issues Fresh SBOM Guidance. Did They Get It Right?",
     "link": "https://www.darkreading.com/cybersecurity-operations/cisa-issues-fresh-sbom-guidance",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8ea01097eb709f8a/6a6ce63bcc814023251d23dd/Long_list-erhui1979-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -128,25 +148,5 @@
     "title": "Hacker uses DeepSeek AI to autonomously attack vulnerable servers",
     "link": "https://www.bleepingcomputer.com/news/security/hacker-uses-deepseek-ai-to-autonomously-attack-vulnerable-servers/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/10/23/AI-2.jpg"
-  },
-  {
-    "title": "CISA warns of cyberattacks disrupting U.S. water utilities",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-cyberattacks-disrupting-us-water-utilities/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/08/11/industrial-control-system.jpg"
-  },
-  {
-    "title": "In Other News: OpenAI Open Source Tool, AWS Links Hacks to North Korea, Mythos Crypto Research",
-    "link": "https://www.securityweek.com/in-other-news-openai-open-source-tool-aws-links-hacks-to-north-korea-mythos-crypto-research/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
-    "title": "Cyberattacks on Minnesota Water Systems Investigated as Officials Warn About Iranian Hackers",
-    "link": "https://www.securityweek.com/cyberattacks-on-minnesota-water-systems-investigated-as-officials-warn-about-iranian-hackers/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Water-Utility-Cyberattack.jpg"
-  },
-  {
-    "title": "The Morning After We Pull a Root of Trust, Nobody Owns It",
-    "link": "https://www.darkreading.com/cyber-risk/morning-after-we-pull-root-of-trust-nobody-owns-it",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0708e08cf8273efe/6a6b94fd5c63704e75106890/trust-puzzle-yusnizam-getty-1409309926.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
