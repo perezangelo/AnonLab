@@ -1156,7 +1156,8 @@ async function loadTechRadar() {
 
   try {
     const res = await fetch(
-      "https://raw.githubusercontent.com/perezangelo/AnonLab/main/datahub/tech-radar.json?ts=" + Date.now()
+      "fetch("https://angelonline.altervista.org/api/tech-radar.php?ts=" + Date.now())
+?ts=" + Date.now()
     );
     const data = await res.json();
 
