@@ -1,5 +1,20 @@
 [
   {
+    "title": "New XCSSET variant targets macOS devs via compromised Xcode projects",
+    "link": "https://www.bleepingcomputer.com/news/security/new-xcsset-variant-targets-macos-devs-via-compromised-xcode-projects/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/18/Apple.jpg"
+  },
+  {
+    "title": "77 Open VSX extensions found harvesting developer info",
+    "link": "https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/04/malicious-extension-header.jpg"
+  },
+  {
+    "title": "Smoke#Screen RMM Takeover Gambit Exposes Threat Actor Playbook",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/latest-rmm-fueled-phishing-attack-exposes-threat-actor-playbook",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6b501fd239cea948/6a7205c2f2df87f4451c6c0b/Playbook(1800)_Ivelin_Radkov_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Greatness PhaaS Adds Device Code Phishing to Bypass MFA and Steal Tokens",
     "link": "https://thehackernews.com/2026/08/greatness-phaas-adds-device-code.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8YRyOCSodUbPpWMicgOiuGbEQWDBmu_W-47PAUFkS7yKEQe4Do6svH4cQb-U0tC53C9mqq8ijjlG9gwuzyqYfNwtS61WxvNxIgk1dVC7wX598rncb_MgQ5t4yxc8NUYVdb6PT5cu7ZXJ7w3KaYG_7vtU5xixHel1jSADbtR-GC1bmngZPArXw-NjkTH1x/s1600/Greatness.jpg"
@@ -70,6 +85,11 @@
     "image": ""
   },
   {
+    "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/08/04/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
     "title": "TP-Link Omada ZTP Vulnerabilities Chain Into Full Network Takeover",
     "link": "https://www.securityweek.com/tp-link-omada-ztp-vulnerabilities-chain-into-full-network-takeover/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Tp-Link.jpeg"
@@ -128,25 +148,5 @@
     "title": "New Pass-ta-key attacks let malware hijack Google-synced passkeys",
     "link": "https://www.bleepingcomputer.com/news/security/new-pass-ta-key-attacks-let-malware-hijack-google-synced-passkeys/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/03/hacker-passkey-bright.png"
-  },
-  {
-    "title": "Attackers Exploit N-able Patch Bypass Flaw on RMM Servers",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/attackers-exploit-n-able-patch-bypass-flaw",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt38063499658fdf3d/6a70e89e220415e290089159/N_able_Ontario_Office-JHVEPhoto-GettyImages-2153902736.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "New Tool Traces AI Videos Back to Their Source",
-    "link": "https://www.darkreading.com/cyber-risk/new-tool-advances-ai-generated-video-detection",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb9546018118863fd/6a70ff2fbe6c657faa5a6e3b/GettyImages-1136317674.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Anthropic: Claude Attacks Result of Security Gaps, Not Model Issues",
-    "link": "https://www.darkreading.com/cyber-risk/anthropic-ai-issues-result-security-gaps",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5c93a3d3405d789d/6a70e02ffbf44d4210bb1101/claude2_Samuel_Boivin_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "New DOUBLECUP ClickFix service hides malware in browser cache images",
-    "link": "https://www.bleepingcomputer.com/news/security/new-doublecup-clickfix-service-hides-malware-in-browser-cache-images/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/03/header-browser-cache-malware.jpg"
   }
 ]
