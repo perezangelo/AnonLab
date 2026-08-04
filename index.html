@@ -1140,7 +1140,6 @@ loadSocTV();
     </a>
   </div>
 
-  <!-- Contenitore card -->
   <div id="tech-radar"></div>
 </section>
 
@@ -1149,16 +1148,12 @@ async function loadTechRadar() {
   const radarBox = document.getElementById("tech-radar");
   if (!radarBox) return;
 
-  // Layout a card affiancate (grid responsive)
   radarBox.style.display = "grid";
   radarBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
   radarBox.style.gap = "20px";
 
   try {
-    const res = await fetch(
-      "fetch("https://angelonline.altervista.org/api/tech-radar.php?ts=" + Date.now())
-?ts=" + Date.now()
-    );
+    const res = await fetch("https://angelonline.altervista.org/api/tech-radar.php?ts=" + Date.now());
     const data = await res.json();
 
     radarBox.innerHTML = "";
@@ -1190,7 +1185,6 @@ async function loadTechRadar() {
         </a>
       `;
 
-      // Animazione hover
       card.onmouseenter = () => {
         card.style.transform = "translateY(-4px)";
         card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
