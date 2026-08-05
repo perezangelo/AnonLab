@@ -1,8 +1,23 @@
 [
   {
+    "title": "COLDCARD security audit phishing attack installs remote access tool",
+    "link": "https://www.bleepingcomputer.com/news/security/coldcard-security-audit-phishing-attack-installs-remote-access-tool/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/05/coldcard-header.jpg"
+  },
+  {
     "title": "CISA warns of hackers exploiting Langflow, N-central, Apache Tomcat flaws",
     "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-langflow-n-central-apache-tomcat-flaws/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/01/13/CISA_headpic.jpg"
+  },
+  {
+    "title": "Poison Claude Sells Discounted Claude Access While Its Operator Sees Every Customer Prompt",
+    "link": "https://thehackernews.com/2026/08/poison-claude-sells-discounted-claude.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhp3V9f5UsiH1E6dHfRvy0DEOYvcK14BatMbbLVfdPjLbu3PMInRmVXDi4xoGw-pSIuxUjZS1rdv4X7N1V9xRoV9RRVfaYdAWI6OTxKZzOhAlHYh6dKZNeAWCPkaPdGAvwgcOwFQ0atoRBUxKfE_KfhJpnm1yV1tXr5_Wv2yqND0vZCMMEfRB0V220SZbne/s1600/ai-access.jpg"
+  },
+  {
+    "title": "Paperclip AI Flaws Let Attackers Run Host Commands via Malicious Agent Imports",
+    "link": "https://thehackernews.com/2026/08/paperclip-ai-flaws-let-attackers-run.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnNyDWyCEMrA99LxVQMqKNr188rBBjKa6Kg3nHdjVLxWCCVgfqa0cChHo_JWbHgbSLHgZVpcgWn0kw0FUySWhScczQi6LNme-wY9rkUAxE-IvoFLvfum-zWxEnppDBu6bAHBO0ObN39kCDwSK4jnsqdCAOhCPGG0FtoLX_2vvCi2DcoWPmzGUk6Hs_gB4/s1600/paperclipai.jpg"
   },
   {
     "title": "Google Blogger locks hundreds of blogs in malware false positive",
@@ -25,7 +40,7 @@
     "image": "https://www.bleepstatic.com/content/posts/2026/08/04/header-image-ai.jpg"
   },
   {
-    "title": "Trojanized npm Packages Decode C2 IP From Ethereum Recipient Addresses",
+    "title": "Trojanized npm Packages Employ NullReceiver Tactic to Decode C2 IP from Blockchain",
     "link": "https://thehackernews.com/2026/08/trojanized-npm-packages-decode-c2-ip.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_jFD4wUBf7wKq8NwAgGKeKgJ3XIR82d26D7t5fNRBoDTOHcK5i66j4VqtLNAvK7Lkocc3lbW4SK33Ialb3F4EuB_k59ahZItRVdPsZ3RceScz5lEyR7gQHqqw221WMj6ArtKDUashxvrkYSPaE0b7ue8v-TkkT0IB8sPhgcCGIqN3mtfsjQ2MKztu5DkV/s1600/npm-c2.jpg"
   },
@@ -100,19 +115,9 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyvip0I7Uu7TeEHOGkVi4gl93ktZtzWF1krMsS1XPlRcql2xIf9UU4rXjDvdrF0HPPQaFCgNhhrrp9IM0HBJgHEzweJM41lccFe19e2DYqzkk5Au2STfT_Bjzzdfp_-UibeQ2o19Rh3OTtj5nOpbEn61gKQR4w7dPpOJ_5gP4Ob8KqqYLfWwAnoZ59FCo/s1600/claude-ai-agent.jpg"
   },
   {
-    "title": "CISA Flags Langflow RCE, Tomcat, and N-central Flaws as Actively Exploited",
-    "link": "https://thehackernews.com/2026/08/cisa-flags-langflow-rce-tomcat-and-n.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjU9CZ3zh4mWF0SVRdcylBR7IyGB6j797LrHqyND8vcsBbiE6mcDlqaufSOBg2Av4Ej_HZ_gMxbzR-KS6GvXX0hLPgSFlh5gwxKwhjx3FvcdsQ7XP65x70cxeadgTM7uETFglAUoZrxwq9Rmx6i1T4yS-E7c7Szx9igRmM_GqG-8L5xfKYk2i3fhQGEHjez/s1600/cisa.jpg"
-  },
-  {
     "title": "Water Sector Cyberattacks Reportedly Hit at Least 12 States",
     "link": "https://www.securityweek.com/water-sector-cyberattacks-reportedly-hit-at-least-12-states/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/06/Water-System-Cybersecurity.jpg"
-  },
-  {
-    "title": "QuickFox Supply Chain Attack Delivers FDMTP Backdoor via Trojanized Windows Installer",
-    "link": "https://thehackernews.com/2026/08/quickfox-supply-chain-attack-delivers.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFQzlCdxoVUtdNgowwmPFaISlBF7Y2HsG1BQf3b-UJDQzRbPB249_W6rwU_-TSW1NES4OI-12R1z3tXQ-QlZv8cEaagpyLJVYz48Etb9W0MtuNp9BTL_13-5Wg95kz-Ey5iZ288mTkPt_5pbsxoh7Kv2KrmHqj_Tqb0KR9NSzz-jO2DuoTLthh6Dn3FUIh/s1600/quick.jpg"
   },
   {
     "title": "OpenAI, Anthropic AI agents targeted real people and systems in cyber tests",
@@ -143,10 +148,5 @@
     "title": "Smoke#Screen RMM Takeover Gambit Exposes Threat Actor Playbook",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/latest-rmm-fueled-phishing-attack-exposes-threat-actor-playbook",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6b501fd239cea948/6a7205c2f2df87f4451c6c0b/Playbook(1800)_Ivelin_Radkov_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Black Hat USA 2026 \u2013 Summary of Vendor Announcements (Part 2)",
-    "link": "https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-2/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/08/Black-Hat-News.jpg"
   }
 ]
