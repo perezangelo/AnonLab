@@ -931,42 +931,9 @@ loadCyberAlerts();
 setInterval(loadCyberAlerts, 60000);
 </script>
      
-       <style>
-
-      /* Effetto ON AIR */
-@keyframes onAirBlink {
-  from { opacity: 1; }
-  to   { opacity: 0.4; }
-}
-
-/* Barra neon di caricamento */
-@keyframes loadbar {
-  0%   { margin-left:-40%; }
-  100% { margin-left:100%; }
-}
-
-/* Fade-in / Fade-out tra notizie */
-.soc-fade {
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.soc-visible {
-  opacity: 1;
-}
-</style>
-
-<!-- FEED DAL MONDO -->
-<section class="widget-large">
-  <h2>Feed dal Mondo</h2>
-
-  <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-    Approfondisci su DarkReading →
-  </a>
-  <div id="world-feed"></div>
-</section>
-   
-    <div id="soc-tv" style="
+      <style>
+/* CRT vintage */
+#soc-tv {
   background:#000;
   border:2px solid #333;
   padding:10px;
@@ -974,7 +941,67 @@ setInterval(loadCyberAlerts, 60000);
   border-radius:8px;
   position:relative;
   overflow:hidden;
-">
+  box-shadow:0 0 20px #0ff2, inset 0 0 40px #001a;
+  filter:contrast(1.2) brightness(1.05);
+}
+
+/* Linee scan CRT */
+#soc-tv::after {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:linear-gradient(
+    rgba(255,255,255,0.03) 50%,
+    rgba(0,0,0,0.05) 50%
+  );
+  background-size:100% 3px;
+  pointer-events:none;
+}
+
+/* Fade-in / Fade-out */
+.soc-fade {
+  opacity:0;
+  transition:opacity 0.8s ease-in-out;
+}
+.soc-visible {
+  opacity:1;
+}
+
+/* Ticker stile TV */
+#soc-tv-ticker {
+  margin-top:10px;
+  width:100%;
+  overflow:hidden;
+  white-space:nowrap;
+  border-top:1px solid #333;
+  padding-top:6px;
+  color:#00eaff;
+  font-size:0.85rem;
+  font-weight:bold;
+}
+
+#soc-tv-ticker span {
+  display:inline-block;
+  padding-left:100%;
+  animation:tickerMove 18s linear infinite;
+}
+
+@keyframes tickerMove {
+  from { transform:translateX(0); }
+  to   { transform:translateX(-100%); }
+}
+
+/* Logo fonte */
+.soc-tv-logo {
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  margin-right:8px;
+  vertical-align:middle;
+}
+</style>
+<div id="soc-tv">
 
   <div id="soc-tv-loading" style="
     padding:40px 20px;
@@ -1021,83 +1048,63 @@ setInterval(loadCyberAlerts, 60000);
     font-size:0.9rem;
     display:none;
   "></div>
+
+  <!-- Ticker stile TV -->
+  <div id="soc-tv-ticker">
+    <span id="soc-tv-ticker-text"></span>
+  </div>
+
 </div>
-
-     <!-- WIDGET ON AIR -->
-<div id="on-air-widget" style="
-  margin-top:15px;
-  padding:10px;
-  background:#111;
-  border:2px solid #ff0033;
-  border-radius:8px;
-  color:#ff0033;
-  font-weight:bold;
-  display:flex;
-  align-items:center;
-  gap:10px;
-">
-
-  <!-- LED ROSSO LAMPEGGIANTE -->
-  <div style="
-    width:12px;
-    height:12px;
-    background:#ff0033;
-    border-radius:50%;
-    animation:onAirBlink 1s infinite;
-  "></div>
-
-  <span>ON AIR — Trasmissione in diretta</span>
-</div>
-
-<!-- ANIMAZIONE LED -->
-<style>
-@keyframes onAirBlink {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.2; }
-  100% { opacity: 1; }
+     <script>
+async function fetchSocTV() {
+  const url = "https://angelonline.altervista.org/soc-tv.php?ts=" + Date.now();
+  const r = await fetch(url, { headers:{ "Accept":"application/json" } });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return r.json();
 }
-</style>
 
-   <script>
 async function loadSocTV() {
-  const img = document.getElementById("soc-tv-img");
-  const title = document.getElementById("soc-tv-title");
+  const img    = document.getElementById("soc-tv-img");
+  const title  = document.getElementById("soc-tv-title");
   const source = document.getElementById("soc-tv-source");
+  const ticker = document.getElementById("soc-tv-ticker-text");
   const loading = document.getElementById("soc-tv-loading");
 
   try {
-    const r = await fetch("https://angelonline.altervista.org/soc-tv.php");
-    const data = await r.json();
+    const data = await fetchSocTV();
 
-    if (!Array.isArray(data) || data.length === 0) {
+    if (!data.items || data.items.length === 0) {
       loading.textContent = "Nessuna notizia disponibile";
       return;
     }
 
-    // Nasconde loading e mostra la TV
+    const items = data.items;
+    let index = 0;
+
     loading.style.display = "none";
     img.style.display = "block";
     title.style.display = "block";
     source.style.display = "block";
 
-    // Applica classi per fade
     img.classList.add("soc-fade");
     title.classList.add("soc-fade");
     source.classList.add("soc-fade");
 
-    let index = 0;
+    function getLogo(host) {
+      if (host.includes("ansa")) return "https://www.ansa.it/webimages/img_ansa_logo.png";
+      if (host.includes("bbc")) return "https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif";
+      if (host.includes("darkreading")) return "https://asset.brandfetch.io/idO5gtb9Md/idMG_qxtCK.jpeg";
+      return "/img/cyber-circuit.png";
+    }
 
     function showNews() {
-      const item = data[index];
+      const item = items[index];
 
-      // Fade-out
       img.classList.remove("soc-visible");
       title.classList.remove("soc-visible");
       source.classList.remove("soc-visible");
 
       setTimeout(() => {
-
-        // Fallback immagine
         let imgUrl = item.image;
         if (!imgUrl || imgUrl.trim() === "" || imgUrl.length < 5) {
           imgUrl = "/img/cyber-circuit.png";
@@ -1105,29 +1112,37 @@ async function loadSocTV() {
 
         img.src = imgUrl;
 
-        // Aggiorna testo
-        title.textContent = item.title;
-        source.textContent = "Fonte: " + item.source;
+        const logo = getLogo(item.source);
 
-        // Fade-in
+        title.innerHTML =
+          `<img src="${logo}" class="soc-tv-logo"> ${item.title}`;
+
+        source.textContent =
+          "Fonte: " + item.source + " — " + data.updated;
+
+        ticker.textContent = item.title + " — " + item.source;
+
         img.classList.add("soc-visible");
         title.classList.add("soc-visible");
         source.classList.add("soc-visible");
 
       }, 400);
 
-      index = (index + 1) % data.length;
+      index = (index + 1) % items.length;
     }
 
     showNews();
     setInterval(showNews, 8000);
 
+    setInterval(loadSocTV, 60000);
+
   } catch (e) {
     loading.textContent = "Errore nel caricamento del feed";
+    console.error("SOC-TV error:", e);
   }
 }
 
-loadSocTV();
+document.addEventListener("DOMContentLoaded", loadSocTV);
 </script>
 
 <section class="widget-large">
