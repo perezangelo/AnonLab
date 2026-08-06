@@ -1,4 +1,4 @@
-name: Deploy AnonLab
+name: Deploy AnonLab (Ultra Optimized)
 
 on:
   push:
@@ -26,6 +26,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+          check-latest: true
+
+      - name: Cache GitHub Actions
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+          key: ${{ runner.os }}-anonlab-${{ hashFiles('**/*') }}
+          restore-keys: |
+            ${{ runner.os }}-anonlab-
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
