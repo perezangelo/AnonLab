@@ -261,26 +261,26 @@ fetch("/partials/ticker.html")
                         return;
                     }
 
-                    window.netTrafficChartInstance = new Chart(ctx, {
-                        type: "bar",
-                        data: {
-                            labels: data.labels,
-                            datasets: [{
-                                label: "KB/s",
-                                data: data.values,
-                                backgroundColor: "#00eaffaa"
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                x: { ticks: { color: "#fff" } },
-                                y: { ticks: { color: "#fff" } }
-                            }
-                        }
-                    });
-
+                   window.netTrafficChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: data.labels,
+        datasets: [{
+            label: "KB/s",
+            data: data.values,
+            backgroundColor: "#00eaffaa"
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,   // 🔥 FIX DEFINITIVO SENZA CSS
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { ticks: { color: "#fff" } },
+            y: { ticks: { color: "#fff" } }
+        }
+    }
+});
                 } catch (error) {
                     console.error("Errore Network Traffic:", error);
                 }
