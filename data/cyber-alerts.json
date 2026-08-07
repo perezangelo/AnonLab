@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "id": "GHSA-957r-qf9p-67xw",
+    "summary": "Craft CMS: Arbitrary file read via SplFileObject in non-sandboxed template contexts",
+    "severity": "MODERATE",
+    "published": "2026-08-06T21:54:45Z",
+    "ghsa": "GHSA-957r-qf9p-67xw"
+  },
+  {
+    "id": "CVE-2026-71554",
+    "summary": "h2: Duplicate Host header could facilitate request smuggling",
+    "severity": "MODERATE",
+    "published": "2026-08-06T21:53:41Z",
+    "ghsa": "GHSA-6hr6-w5qg-qmwg"
+  },
+  {
+    "id": "GHSA-596p-6jv8-775v",
+    "summary": "Craft CMS: Authenticated leak of secret environment variables",
+    "severity": "MODERATE",
+    "published": "2026-08-06T21:53:31Z",
+    "ghsa": "GHSA-596p-6jv8-775v"
+  },
+  {
+    "id": "GHSA-rvmm-v933-jgxq",
+    "summary": "Craft CMS: Missing authorization check allows non-admin control panel users access to user registration metrics",
+    "severity": "MODERATE",
+    "published": "2026-08-06T21:42:58Z",
+    "ghsa": "GHSA-rvmm-v933-jgxq"
+  },
+  {
+    "id": "GHSA-7hxc-f267-h5q7",
+    "summary": "Craft CMS: Incorrect path validation could potentially lead to path traversal",
+    "severity": "LOW",
+    "published": "2026-08-06T21:36:11Z",
+    "ghsa": "GHSA-7hxc-f267-h5q7"
+  },
+  {
+    "id": "GHSA-2rp4-x2j7-qmcc",
+    "summary": "Craft CMS: Stored XSS in the control panel via unescaped draft name",
+    "severity": "MODERATE",
+    "published": "2026-08-06T21:33:15Z",
+    "ghsa": "GHSA-2rp4-x2j7-qmcc"
+  },
+  {
+    "id": "CVE-2026-67434",
+    "summary": "PHP_CodeSniffer gitblame report command injection via crafted filename",
+    "severity": "HIGH",
+    "published": "2026-08-06T21:31:34Z",
+    "ghsa": "GHSA-hmqg-cxww-wqhq"
+  },
+  {
+    "id": "CVE-2026-71498",
+    "summary": "node-re2: Out-of-bounds heap read in `replace`/`split` via a `Buffer` ending in a truncated multi-byte UTF-8 character → adjacent heap memory disclosed to JavaScript",
+    "severity": "MODERATE",
+    "published": "2026-08-06T21:26:14Z",
+    "ghsa": "GHSA-j4r3-hg7j-8chg"
+  },
+  {
+    "id": "CVE-2026-71430",
+    "summary": "node-re2: String.prototype.replace(re2, template) aborts the Node process (uncatchable ToLocalChecked on empty MaybeLocal) when the result exceeds V8's max string length",
+    "severity": "MODERATE",
+    "published": "2026-08-06T21:19:36Z",
+    "ghsa": "GHSA-8hcv-x26h-mcgp"
+  },
+  {
+    "id": "GHSA-w9hm-4m3m-fxmm",
+    "summary": "ngx-extended-pdf-viewer bundles a version of pdf.js vulnerable to CVE-2026-16633",
+    "severity": "HIGH",
+    "published": "2026-08-06T21:13:59Z",
+    "ghsa": "GHSA-w9hm-4m3m-fxmm"
+  }
+]
