@@ -1,5 +1,47 @@
 [
   {
+    "id": "GHSA-9rj7-rf2p-w77r",
+    "summary": "GitPython: Unguarded git option forwarding in Repo.init enables arbitrary command execution via --template clone hooks",
+    "severity": "HIGH",
+    "published": "2026-08-07T15:36:43Z",
+    "ghsa": "GHSA-9rj7-rf2p-w77r"
+  },
+  {
+    "id": "GHSA-4gmw-gg2m-w46p",
+    "summary": "GitPython: Unguarded git read-tree option forwarding in IndexFile.from_tree/reset/merge_tree enables arbitrary file overwrite",
+    "severity": "HIGH",
+    "published": "2026-08-07T15:33:57Z",
+    "ghsa": "GHSA-4gmw-gg2m-w46p"
+  },
+  {
+    "id": "GHSA-55q2-fjhq-7xh7",
+    "summary": "DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS",
+    "severity": "MODERATE",
+    "published": "2026-08-07T15:30:47Z",
+    "ghsa": "GHSA-55q2-fjhq-7xh7"
+  },
+  {
+    "id": "CVE-2026-62996",
+    "summary": "Smarty Security stream restriction bypass through stream: resource",
+    "severity": "MODERATE",
+    "published": "2026-08-07T15:10:51Z",
+    "ghsa": "GHSA-rjhh-76wf-8xmw"
+  },
+  {
+    "id": "CVE-2026-62992",
+    "summary": "Smarty: Symlink path traversal out of trusted directories",
+    "severity": "MODERATE",
+    "published": "2026-08-07T15:02:39Z",
+    "ghsa": "GHSA-f6wf-28g6-769x"
+  },
+  {
+    "id": "GHSA-wg23-69c2-gjc8",
+    "summary": "Craft CMS: Passkey login accepts replayed WebAuthn assertions",
+    "severity": "CRITICAL",
+    "published": "2026-08-07T14:57:29Z",
+    "ghsa": "GHSA-wg23-69c2-gjc8"
+  },
+  {
     "id": "GHSA-957r-qf9p-67xw",
     "summary": "Craft CMS: Arbitrary file read via SplFileObject in non-sandboxed template contexts",
     "severity": "MODERATE",
@@ -26,47 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-06T21:42:58Z",
     "ghsa": "GHSA-rvmm-v933-jgxq"
-  },
-  {
-    "id": "GHSA-7hxc-f267-h5q7",
-    "summary": "Craft CMS: Incorrect path validation could potentially lead to path traversal",
-    "severity": "LOW",
-    "published": "2026-08-06T21:36:11Z",
-    "ghsa": "GHSA-7hxc-f267-h5q7"
-  },
-  {
-    "id": "GHSA-2rp4-x2j7-qmcc",
-    "summary": "Craft CMS: Stored XSS in the control panel via unescaped draft name",
-    "severity": "MODERATE",
-    "published": "2026-08-06T21:33:15Z",
-    "ghsa": "GHSA-2rp4-x2j7-qmcc"
-  },
-  {
-    "id": "CVE-2026-67434",
-    "summary": "PHP_CodeSniffer gitblame report command injection via crafted filename",
-    "severity": "HIGH",
-    "published": "2026-08-06T21:31:34Z",
-    "ghsa": "GHSA-hmqg-cxww-wqhq"
-  },
-  {
-    "id": "CVE-2026-71498",
-    "summary": "node-re2: Out-of-bounds heap read in `replace`/`split` via a `Buffer` ending in a truncated multi-byte UTF-8 character → adjacent heap memory disclosed to JavaScript",
-    "severity": "MODERATE",
-    "published": "2026-08-06T21:26:14Z",
-    "ghsa": "GHSA-j4r3-hg7j-8chg"
-  },
-  {
-    "id": "CVE-2026-71430",
-    "summary": "node-re2: String.prototype.replace(re2, template) aborts the Node process (uncatchable ToLocalChecked on empty MaybeLocal) when the result exceeds V8's max string length",
-    "severity": "MODERATE",
-    "published": "2026-08-06T21:19:36Z",
-    "ghsa": "GHSA-8hcv-x26h-mcgp"
-  },
-  {
-    "id": "GHSA-w9hm-4m3m-fxmm",
-    "summary": "ngx-extended-pdf-viewer bundles a version of pdf.js vulnerable to CVE-2026-16633",
-    "severity": "HIGH",
-    "published": "2026-08-06T21:13:59Z",
-    "ghsa": "GHSA-w9hm-4m3m-fxmm"
   }
 ]
