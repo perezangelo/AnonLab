@@ -1,5 +1,47 @@
 [
   {
+    "id": "CVE-2026-71870",
+    "summary": "pypdf: Possible large memory usage for large /ToUnicode streams",
+    "severity": "MODERATE",
+    "published": "2026-08-07T19:29:09Z",
+    "ghsa": "GHSA-fp3f-mc75-235c"
+  },
+  {
+    "id": "CVE-2026-71852",
+    "summary": "pypdf: Possible long runtimes/large memory usage for large CID font width ranges",
+    "severity": "MODERATE",
+    "published": "2026-08-07T18:54:00Z",
+    "ghsa": "GHSA-fwg2-594c-jp42"
+  },
+  {
+    "id": "CVE-2026-71851",
+    "summary": "crypto-js: Insufficient Entropy in Cryptographic Secret Generation via Vulnerable CryptoJS Dependency Chain",
+    "severity": "CRITICAL",
+    "published": "2026-08-07T18:48:59Z",
+    "ghsa": "GHSA-rg76-677x-56q9"
+  },
+  {
+    "id": "CVE-2026-71850",
+    "summary": "Hono: `memo()` retains SSR output across requests, leading to cross-user data disclosure",
+    "severity": "MODERATE",
+    "published": "2026-08-07T18:42:01Z",
+    "ghsa": "GHSA-f23p-vx2j-j53r"
+  },
+  {
+    "id": "CVE-2026-71849",
+    "summary": "Hono: Proxy Helper does not remove response headers listed in the `Connection` header",
+    "severity": "LOW",
+    "published": "2026-08-07T18:38:48Z",
+    "ghsa": "GHSA-79qm-7rj5-m7r9"
+  },
+  {
+    "id": "CVE-2026-71848",
+    "summary": "Hono: Algorithmic Complexity DoS in Language Middleware",
+    "severity": "MODERATE",
+    "published": "2026-08-07T18:36:31Z",
+    "ghsa": "GHSA-54fx-42gc-7vw4"
+  },
+  {
     "id": "CVE-2026-71847",
     "summary": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams",
     "severity": "LOW",
@@ -26,47 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-07T18:23:46Z",
     "ghsa": "GHSA-hhmc-q9hp-r662"
-  },
-  {
-    "id": "CVE-2026-63221",
-    "summary": "CodeIgniter: SQL injection in Query Builder deleteBatch() when used with where() conditions",
-    "severity": "CRITICAL",
-    "published": "2026-08-07T18:22:59Z",
-    "ghsa": "GHSA-c9w5-rwh3-7pm9"
-  },
-  {
-    "id": "CVE-2026-63220",
-    "summary": "CodeIgniter: Spoofable forwarded HTTPS headers in IncomingRequest::isSecure()",
-    "severity": "MODERATE",
-    "published": "2026-08-07T18:21:54Z",
-    "ghsa": "GHSA-7wmf-pw8j-mc78"
-  },
-  {
-    "id": "CVE-2026-15895",
-    "summary": "jsii-diff: Command Injection via npm: package argument",
-    "severity": "HIGH",
-    "published": "2026-08-07T18:15:47Z",
-    "ghsa": "GHSA-wcx4-wpfv-mc5c"
-  },
-  {
-    "id": "CVE-2026-56818",
-    "summary": "Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state",
-    "severity": "MODERATE",
-    "published": "2026-08-07T17:16:13Z",
-    "ghsa": "GHSA-p9jm-q85p-7mcp"
-  },
-  {
-    "id": "CVE-2026-54164",
-    "summary": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the wrong resource type (type confusion)",
-    "severity": "MODERATE",
-    "published": "2026-08-07T16:54:42Z",
-    "ghsa": "GHSA-9rjg-x2p2-h68h"
-  },
-  {
-    "id": "CVE-2026-66062",
-    "summary": "SvelteKit: ReDoS (O(n^2)) in content negotiation — unauthenticated DoS via the Accept header",
-    "severity": "MODERATE",
-    "published": "2026-08-07T16:50:02Z",
-    "ghsa": "GHSA-29g2-3rmr-qm68"
   }
 ]
