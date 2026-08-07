@@ -1,5 +1,54 @@
 [
   {
+    "id": "CVE-2026-71847",
+    "summary": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams",
+    "severity": "LOW",
+    "published": "2026-08-07T18:33:12Z",
+    "ghsa": "GHSA-9hj4-r449-hfvc"
+  },
+  {
+    "id": "CVE-2026-67422",
+    "summary": "pymdown-extensions: exponential-backtracking ReDoS in caret, tilde, betterem, and magiclink inline processors",
+    "severity": "HIGH",
+    "published": "2026-08-07T18:26:07Z",
+    "ghsa": "GHSA-gm37-52c6-37mw"
+  },
+  {
+    "id": "CVE-2026-63223",
+    "summary": "CodeIgniter: Uploaded file extension validation bypass in `is_image` and `mime_in` rules",
+    "severity": "CRITICAL",
+    "published": "2026-08-07T18:24:21Z",
+    "ghsa": "GHSA-mmj4-63m4-r6h5"
+  },
+  {
+    "id": "CVE-2026-63222",
+    "summary": "CodeIgniter: Path traversal in UploadedFile::move() when using client-provided filenames",
+    "severity": "HIGH",
+    "published": "2026-08-07T18:23:46Z",
+    "ghsa": "GHSA-hhmc-q9hp-r662"
+  },
+  {
+    "id": "CVE-2026-63221",
+    "summary": "CodeIgniter: SQL injection in Query Builder deleteBatch() when used with where() conditions",
+    "severity": "CRITICAL",
+    "published": "2026-08-07T18:22:59Z",
+    "ghsa": "GHSA-c9w5-rwh3-7pm9"
+  },
+  {
+    "id": "CVE-2026-63220",
+    "summary": "CodeIgniter: Spoofable forwarded HTTPS headers in IncomingRequest::isSecure()",
+    "severity": "MODERATE",
+    "published": "2026-08-07T18:21:54Z",
+    "ghsa": "GHSA-7wmf-pw8j-mc78"
+  },
+  {
+    "id": "CVE-2026-15895",
+    "summary": "jsii-diff: Command Injection via npm: package argument",
+    "severity": "HIGH",
+    "published": "2026-08-07T18:15:47Z",
+    "ghsa": "GHSA-wcx4-wpfv-mc5c"
+  },
+  {
     "id": "CVE-2026-56818",
     "summary": "Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state",
     "severity": "MODERATE",
@@ -19,54 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-07T16:50:02Z",
     "ghsa": "GHSA-29g2-3rmr-qm68"
-  },
-  {
-    "id": "GHSA-7c4v-fwgw-9rf7",
-    "summary": "Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
-    "severity": "MODERATE",
-    "published": "2026-08-07T16:45:21Z",
-    "ghsa": "GHSA-7c4v-fwgw-9rf7"
-  },
-  {
-    "id": "CVE-2026-71557",
-    "summary": "go-git: Malicious reference names may modify files outside the reference storage",
-    "severity": "MODERATE",
-    "published": "2026-08-07T16:41:51Z",
-    "ghsa": "GHSA-qgq7-7hm3-q39j"
-  },
-  {
-    "id": "CVE-2026-71556",
-    "summary": "go-git: Worktree operations may follow symlinks",
-    "severity": "HIGH",
-    "published": "2026-08-07T16:38:15Z",
-    "ghsa": "GHSA-hc8v-wwc9-vgxm"
-  },
-  {
-    "id": "GHSA-wvpp-8hx9-p66j",
-    "summary": "GitPython: Unsafe git option guard bypass via split_single_char_options=False short-option token smuggling enables command execution",
-    "severity": "HIGH",
-    "published": "2026-08-07T15:49:07Z",
-    "ghsa": "GHSA-wvpp-8hx9-p66j"
-  },
-  {
-    "id": "GHSA-jm78-9fvv-mhgr",
-    "summary": "GitPython: git-config OPTION-name injection via =/#/whitespace bypasses name validator, enabling forged core.sshCommand/hooksPath (RCE)",
-    "severity": "HIGH",
-    "published": "2026-08-07T15:46:35Z",
-    "ghsa": "GHSA-jm78-9fvv-mhgr"
-  },
-  {
-    "id": "GHSA-hmq2-w58f-27jc",
-    "summary": "GitPython: Arbitrary Git Repository Creation Outside the Working Tree via Unvalidated .gitmodules Submodule Name in GitPython",
-    "severity": "HIGH",
-    "published": "2026-08-07T15:45:39Z",
-    "ghsa": "GHSA-hmq2-w58f-27jc"
-  },
-  {
-    "id": "GHSA-hh9p-6wh2-4mfc",
-    "summary": "GitPython: Arbitrary file read via --pathspec-from-file in IndexFile.remove() and Head.checkout()",
-    "severity": "MODERATE",
-    "published": "2026-08-07T15:43:56Z",
-    "ghsa": "GHSA-hh9p-6wh2-4mfc"
   }
 ]
