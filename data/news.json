@@ -1,5 +1,25 @@
 [
   {
+    "title": "Unlimited Technology Systems breach impacts 3.8 million people",
+    "link": "https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/01/03/healthcare.jpg"
+  },
+  {
+    "title": "Nearly 800 Malicious npm Packages Deliver Cross-Platform RAT and Infostealer",
+    "link": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIEXaa59LRblZ0rcBVbKDdH4w9Rszk27anNt20Onx7Li8D7FXbf3Ipod53uo3N2aa6Hj1QLJaNFDIBlrcgM3YZg0UJCsjI3maDKkFEdOeyhzis15St3QDg6WCXcYlbDRlw2WvgiOH-BL_v8I21QoSTE9kmJzzKqQwstqn11JWkAL1_9W41ZF04T-9ImaiL/s1600/npms.jpg"
+  },
+  {
+    "title": "ClickFix Attacks Deliver macOS Stealer That Can Drain Crypto Wallets",
+    "link": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKQGTQ6AquoAvAeMWXXITPacYsdChgFUpg7MLwKkfb2AylEuwQTk9av5GqMSdgtsB_tr_6QC70DrJkEo02t-Wo67z1gumix6FKKlOPSWo4fLEUHCibBoTrf1zCdmn72ESzo5CzCKKEgyETZ0FeVD_3QLfCNit7vIwlMA7MmwGYg2JGbeYOBrjSHmOnfpWl/s1600/macos.jpg"
+  },
+  {
+    "title": "UNC6671 Vishing Attacks Target Personal Phones to Steal SaaS Data",
+    "link": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiL6-qu-cN6glV6XSy1IS7siHKdKPFmzqT3X8TQjGCa0RD33kfIQ8NfEBR5r8dbQvj1OS8L6T083igxfS1VO98xlg7MHIMysbfR_cVpdmPMcYibuMwDZ6SssIi3iryUznGL14zUByy7oRrTJe0AjgGMNti_Rcqezh7dtfyU31vyo-zft3fvR56SCsAfeHrm/s1600/vishing.jpg"
+  },
+  {
     "title": "AI-Generated Patches Fail Half the Time",
     "link": "https://www.darkreading.com/application-security/ai-generated-patches-fail-half-time",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt51cfa43c126c431d/6a75005453cbbc62a56894c9/patches-in-denim-nnattalli-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -32,6 +52,11 @@
   {
     "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
     "link": "https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "image": ""
+  },
+  {
+    "title": "CPDLC over ATN-B1 Vulnerabilities",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-219-01",
     "image": ""
   },
   {
@@ -85,11 +110,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj81b6_YckjrqqfRrJQNRdIf3nu4xfqLNScukFYEao4VeF5QNlt16sbEwrdutizdB9Q1nOWRQpqeSZg4gYZsL8cIhRSJ43XJqMKWKgdKF28oeTl19HQQ75dnOKVHsa6DtXr4zhlmIF43nbUWV5jyEh4D1TjIvBKjgoAX2MpUbjJH3cN4hd4zDvIu_t4Jec/s1600/windows-hello-keys.jpg"
   },
   {
-    "title": "Claude Code and Gemini CLI Flaws Let a GitHub Issue Reach CI Workflow Secrets",
-    "link": "https://thehackernews.com/2026/08/claude-code-and-gemini-cli-flaws-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguukj-eRhx9RtAq9X96hAxHi0IU3ZWgM_W5XkdWhF8ezevuBQygkpv-ku5PSri9Gt5hRkNVxe6HmJJr5Mg33X_PhOGziqaho9bwm-mkRZSBl2jo94XF3jRwTZOb_PocueKWJkEtvl7kG_YqmbVfUxNht8_ODzLOERIqQteMdPxnWpobM-c9-fHhn0cLMQ/s1600/claude-github.jpg"
-  },
-  {
     "title": "3.8 Million Impacted by Unlimited Technology Systems Data Breach",
     "link": "https://www.securityweek.com/3-8-million-impacted-by-unlimited-technology-systems-data-breach/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
@@ -98,11 +118,6 @@
     "title": "Critical Vulnerabilities Patched With Chrome 151 Update",
     "link": "https://www.securityweek.com/critical-vulnerabilities-patched-with-chrome-151-update/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Chrome-Zero-Day-exploits.jpg"
-  },
-  {
-    "title": "TeamPCP Linked To Redis Attacks Dating Back To 2020 And Later Supply Chain Campaign",
-    "link": "https://thehackernews.com/2026/08/teampcp-linked-to-redis-attacks-dating.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicYXbdZUBG2jW8962nmphGWa0sWoq3jKe6HAT9wa6qlZdPPYBZRdw-uWjUbUv15BxaRgugcEAPXPZ2rMYx3RzM_vLVH18F6oTwwAklstzIRehnPJXwBs9b-d6NKjJZVhO5n1SRnBTlweRonaWCFogLrbJkyzs-F9K3lffy0tfqf2Vownwe9lj06rEe8Nn2/s1600/TeamPCP.jpg"
   },
   {
     "title": "OpenAI rolls out a major ChatGPT upgrade, even if you don\u2019t pay for it",
@@ -133,20 +148,5 @@
     "title": "Hedge fund cyberattacks tied to BlackFile-linked UNC6671 extortion group",
     "link": "https://www.bleepingcomputer.com/news/security/hedge-fund-cyberattacks-tied-to-blackfile-linked-unc6671-extortion-group/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/17/money-laundering-hackers.jpg"
-  },
-  {
-    "title": "From Bobmojis to Bobbleheads: How the Democratic Party Built a Security-First Culture",
-    "link": "https://www.darkreading.com/cybersecurity-operations/from-bobmojis-to-bobbleheads-how-the-democratic-party-built-a-security-first-culture",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta9b29fb5e05ae54b/6a74db9f0045cd127fea0cc4/Image_(11).jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Swiss government SharePoint breach compromised 200 accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/swiss-government-sharepoint-breach-compromised-200-accounts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/06/30/Switzerland-flag.jpg"
-  },
-  {
-    "title": "New TONTOU CPU attack bypasses Spectre v2 fixes, leaks Linux password hashes",
-    "link": "https://www.bleepingcomputer.com/news/security/new-tontou-cpu-attack-bypasses-spectre-v2-fixes-leaks-linux-password-hashes/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/18/CPU_attack.jpg"
   }
 ]
