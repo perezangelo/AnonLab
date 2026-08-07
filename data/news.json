@@ -1,5 +1,30 @@
 [
   {
+    "title": "New NatJack Attacks Hijack TCP Sessions and Spoof DNS by Manipulating NAT Tables",
+    "link": "https://thehackernews.com/2026/08/new-natjack-attacks-hijack-tcp-sessions.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjx8dmEkj0rsX2NREBfPOczKn7zadWRaVVOyVPVeaCPzCDdBAPhocCwP1CVbX_p1pj4Q7DVYsdusvWc9u9G7lO4BGYihT6BXnXY099zIs1B1PBefH71cXCHZucxaG2gEzqKdf9B3FVr9MJ34SntVezm4gNXWSxIMF05DpYUNF6qmfhb0hMiyNpsWDOtuRE/s1600/NatJack.jpg"
+  },
+  {
+    "title": "Black Hat USA 2026 \u2013 Summary of Vendor Announcements (Part 4)",
+    "link": "https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-4/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/08/Black-Hat-News.jpg"
+  },
+  {
+    "title": "Microsoft, Apple Release Fresh Security Updates",
+    "link": "https://www.securityweek.com/microsoft-apple-release-fresh-security-updates/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/update-patch-exploited.jpeg"
+  },
+  {
+    "title": "Malware Can Abuse Windows Hello for Business Keys for Persistent Entra ID Access",
+    "link": "https://thehackernews.com/2026/08/malware-can-abuse-windows-hello-for.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj81b6_YckjrqqfRrJQNRdIf3nu4xfqLNScukFYEao4VeF5QNlt16sbEwrdutizdB9Q1nOWRQpqeSZg4gYZsL8cIhRSJ43XJqMKWKgdKF28oeTl19HQQ75dnOKVHsa6DtXr4zhlmIF43nbUWV5jyEh4D1TjIvBKjgoAX2MpUbjJH3cN4hd4zDvIu_t4Jec/s1600/windows-hello-keys.jpg"
+  },
+  {
+    "title": "Claude Code and Gemini CLI Flaws Let a GitHub Issue Reach CI Workflow Secrets",
+    "link": "https://thehackernews.com/2026/08/claude-code-and-gemini-cli-flaws-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguukj-eRhx9RtAq9X96hAxHi0IU3ZWgM_W5XkdWhF8ezevuBQygkpv-ku5PSri9Gt5hRkNVxe6HmJJr5Mg33X_PhOGziqaho9bwm-mkRZSBl2jo94XF3jRwTZOb_PocueKWJkEtvl7kG_YqmbVfUxNht8_ODzLOERIqQteMdPxnWpobM-c9-fHhn0cLMQ/s1600/claude-github.jpg"
+  },
+  {
     "title": "3.8 Million Impacted by Unlimited Technology Systems Data Breach",
     "link": "https://www.securityweek.com/3-8-million-impacted-by-unlimited-technology-systems-data-breach/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
@@ -123,30 +148,5 @@
     "title": "CryptoJS Weak RNG Behind $5.7 Million in Drains Affects Five Crypto Wallet Apps",
     "link": "https://thehackernews.com/2026/08/cryptojs-weak-rng-behind-57-million-in.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOLyOOoRbj7XXsr5asbHmKbRetYhjWcAZap4b6VUBQ3ENWpeB46A78vztXFJGUDMDHNskXyUMH6yu9Quv-WLut657FS4Dk4-SICypcAVTLuI7fYUxC7Y4qEUI6A8NMIS-GZ8KkzjRULoNZAPD1TIamWyp-T5vgrjMDQKMD0lmR6pZU8P4VeOwWEo7KxWA/s1600/CRYPTOJS.jpg"
-  },
-  {
-    "title": "Apple iCloud Private Relay Can Expose Real IPs Through WebKit Proxy Bypasses",
-    "link": "https://thehackernews.com/2026/08/webkit-proxy-bypasses-can-expose-real.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi53VbynsVNPTCihg9qrqybX7Yu90yM3Tm7KlJnJCHz2_MOUQPyJys1uK6H5QkVqxGekck8qe-pA55tcy19IDYQ4_ndOKasvoaFiPJCI_NJClfHv6G14Ga5P_FPr0zyNijjRMBM-GBlt-XYRqCGAcrZxm9ETsAAu4kPh829ZKABQonHDlx2GuWG9-B-V383/s1600/apple-relay.jpg"
-  },
-  {
-    "title": "AI Recommendation Poisoning: How \"Ask AI\" Buttons Silently Alter LLM Memory",
-    "link": "https://thehackernews.com/2026/08/ai-recommendation-poisoning-how-ask-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgERF89TJZsy7Kq1JhEcPKC5ynyCNMv1JAObXj4W415ZbGwE-ZZplLbq5HEiBWi3ULKifDI7Tl440UrQvLFEmngeAHL4o2XfWKxTgb7CEsHmBqBt-w5qePo-BGmlDcu_vJtyfsh1CV5COMXpIUHRiw8WmPeitZAzEu3ugQJ90mDtOhlU0BzTaRDogTHg2Y/s1600/ask-ai.jpg"
-  },
-  {
-    "title": "Critical Paperclip Flaw Allowed Admin Access, Code Execution",
-    "link": "https://www.securityweek.com/critical-paperclip-flaw-allowed-admin-access-code-execution/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
-  },
-  {
-    "title": "Meta AI Hacked External Systems During Cybersecurity Testing",
-    "link": "https://www.securityweek.com/meta-ai-hacked-external-systems-during-cybersecurity-testing/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Meta-AI.jpeg"
-  },
-  {
-    "title": "Belarusian Ransom Cartel Mastermind Gets 16 Years in Prison",
-    "link": "https://www.securityweek.com/belarusian-ransom-cartel-mastermind-gets-16-years-in-prison/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/hacker-prison-sentence.jpeg"
   }
 ]
