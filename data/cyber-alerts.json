@@ -1,5 +1,40 @@
 [
   {
+    "id": "CVE-2026-56818",
+    "summary": "Netty: RedisArrayAggregator max-elements failure leaves retained partial aggregate state",
+    "severity": "MODERATE",
+    "published": "2026-08-07T17:16:13Z",
+    "ghsa": "GHSA-p9jm-q85p-7mcp"
+  },
+  {
+    "id": "CVE-2026-54164",
+    "summary": "API Platform Core: Relation IRIs are not type-checked: a related resource can be denormalised as the wrong resource type (type confusion)",
+    "severity": "MODERATE",
+    "published": "2026-08-07T16:54:42Z",
+    "ghsa": "GHSA-9rjg-x2p2-h68h"
+  },
+  {
+    "id": "CVE-2026-66062",
+    "summary": "SvelteKit: ReDoS (O(n^2)) in content negotiation — unauthenticated DoS via the Accept header",
+    "severity": "MODERATE",
+    "published": "2026-08-07T16:50:02Z",
+    "ghsa": "GHSA-29g2-3rmr-qm68"
+  },
+  {
+    "id": "GHSA-7c4v-fwgw-9rf7",
+    "summary": "Nuxt dev server discloses project root and workspace UUID via the Chrome DevTools workspace endpoint",
+    "severity": "MODERATE",
+    "published": "2026-08-07T16:45:21Z",
+    "ghsa": "GHSA-7c4v-fwgw-9rf7"
+  },
+  {
+    "id": "CVE-2026-71557",
+    "summary": "go-git: Malicious reference names may modify files outside the reference storage",
+    "severity": "MODERATE",
+    "published": "2026-08-07T16:41:51Z",
+    "ghsa": "GHSA-qgq7-7hm3-q39j"
+  },
+  {
     "id": "CVE-2026-71556",
     "summary": "go-git: Worktree operations may follow symlinks",
     "severity": "HIGH",
@@ -33,40 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-07T15:43:56Z",
     "ghsa": "GHSA-hh9p-6wh2-4mfc"
-  },
-  {
-    "id": "GHSA-9rj7-rf2p-w77r",
-    "summary": "GitPython: Unguarded git option forwarding in Repo.init enables arbitrary command execution via --template clone hooks",
-    "severity": "HIGH",
-    "published": "2026-08-07T15:36:43Z",
-    "ghsa": "GHSA-9rj7-rf2p-w77r"
-  },
-  {
-    "id": "GHSA-4gmw-gg2m-w46p",
-    "summary": "GitPython: Unguarded git read-tree option forwarding in IndexFile.from_tree/reset/merge_tree enables arbitrary file overwrite",
-    "severity": "HIGH",
-    "published": "2026-08-07T15:33:57Z",
-    "ghsa": "GHSA-4gmw-gg2m-w46p"
-  },
-  {
-    "id": "GHSA-55q2-fjhq-7xh7",
-    "summary": "DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS",
-    "severity": "MODERATE",
-    "published": "2026-08-07T15:30:47Z",
-    "ghsa": "GHSA-55q2-fjhq-7xh7"
-  },
-  {
-    "id": "CVE-2026-62996",
-    "summary": "Smarty Security stream restriction bypass through stream: resource",
-    "severity": "MODERATE",
-    "published": "2026-08-07T15:10:51Z",
-    "ghsa": "GHSA-rjhh-76wf-8xmw"
-  },
-  {
-    "id": "CVE-2026-62992",
-    "summary": "Smarty: Symlink path traversal out of trusted directories",
-    "severity": "MODERATE",
-    "published": "2026-08-07T15:02:39Z",
-    "ghsa": "GHSA-f6wf-28g6-769x"
   }
 ]
