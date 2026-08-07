@@ -1,0 +1,72 @@
+name: Cyber Alert Live
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # ogni ora
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-advisories:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch GitHub Security Advisories
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat > query.graphql << 'EOF'
+          {
+            securityAdvisories(first: 10, orderBy: {field: PUBLISHED_AT, direction: DESC}) {
+              nodes {
+                ghsaId
+                summary
+                severity
+                publishedAt
+                identifiers {
+                  type
+                  value
+                }
+              }
+            }
+          }
+          EOF
+
+          curl -s -H "Authorization: bearer $GITHUB_TOKEN" \
+                 -H "Content-Type: application/json" \
+                 -H "User-Agent: AnonLab-CyberAlert" \
+                 --data "{\"query\": \"$(tr '\n' ' ' < query.graphql)\"}" \
+                 https://api.github.com/graphql > advisories_raw.json
+
+          node << 'EOF'
+          const fs = require('fs');
+          const raw = JSON.parse(fs.readFileSync('advisories_raw.json', 'utf8'));
+
+          const nodes = raw.data.securityAdvisories.nodes || [];
+          const out = nodes.map(a => {
+            const cveId = (a.identifiers || []).find(id => id.type === 'CVE');
+            return {
+              id: cveId ? cveId.value : a.ghsaId,
+              summary: a.summary,
+              severity: a.severity,
+              published: a.publishedAt,
+              ghsa: a.ghsaId
+            };
+          });
+
+          fs.mkdirSync('data', { recursive: true });
+          fs.writeFileSync('data/cyber-alerts.json', JSON.stringify(out, null, 2));
+          EOF
+
+      - name: Commit JSON
+        run: |
+          git config user.name "AnonLab Bot"
+          git config user.email "bot@anonlab.local"
+          git add data/cyber-alerts.json
+          git commit -m "Update Cyber Alerts feed" || echo "No changes"
+          git push
