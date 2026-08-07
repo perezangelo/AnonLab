@@ -1,117 +1,165 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>AnonLab — Download Center</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
+    <title>Download Center | AnonLab</title>
+
+    <!-- SEO BASE -->
+    <meta name="description" content="Download Center AnonLab: immagini, loghi, strumenti, risorse e file utili per cybersecurity, analisi tecnica e SOC.">
+    <meta name="author" content="AnonLab">
+
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://anonlab.it/download.html">
+
+    <!-- INDEXING -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Download Center | AnonLab">
+    <meta property="og:description" content="Scarica risorse, immagini, strumenti e file utili per cybersecurity e analisi tecnica.">
+    <meta property="og:image" content="https://anonlab.it/img/eyes.png">
+    <meta property="og:url" content="https://anonlab.it/download.html">
+    <meta property="og:type" content="website">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
 </head>
+<body>
 
-<body class="dark-mode">
+    <!-- HEADER -->
+    <div id="header"></div>
 
-<div id="app" class="gpu-boost">
+    <!-- TICKER -->
+    <div id="ticker"></div>
 
-  <!-- HEADER -->
-  <div id="header"></div>
-
-  <!-- SIDEBAR -->
-  <div id="sidebar"></div>
-
-  <!-- TICKER -->
-  <div id="ticker"></div>
-
-  <!-- CARICAMENTO PARTIALS -->
-  <script>
-    fetch("/partials/header.html")
-      .then(r => r.text())
-      .then(h => document.getElementById("header").innerHTML = h);
-
-    fetch("/partials/sidebar.html")
-      .then(r => r.text())
-      .then(s => document.getElementById("sidebar").innerHTML = s);
-
+    <!-- CARICAMENTO TICKER -->
+    <script>
     fetch("/partials/ticker.html")
       .then(r => r.text())
-      .then(t => document.getElementById("ticker").innerHTML = t);
+      .then(html => {
+          document.getElementById("ticker").innerHTML = html;
+          if (typeof initTicker === "function") initTicker();
+      });
+    </script>
 
-    fetch("/partials/footer.html")
-      .then(r => r.text())
-      .then(f => document.getElementById("footer").innerHTML = f);
-  </script>
+    <!-- SCRIPT TICKER -->
+    <script src="/js/ticker.js"></script>
 
-  <main class="page">
+    <main class="page">
 
-    <section class="main-column">
+        <div class="main-column">
 
-      <h1 style="color:#00eaff; margin-bottom:20px;">📥 Download Center</h1>
-      <p style="color:#ccc; margin-bottom:25px;">
-        Risorse, immagini, strumenti e file utili per cybersecurity, analisi tecnica e SOC.
-      </p>
+            <!-- ⭐ TITOLO PAGINA -->
+            <section class="widget-large">
+                <h1 style="color:#00eaff;">📥 Download Center</h1>
+                <p style="color:#ccc;">
+                    Risorse, immagini, strumenti e file utili per cybersecurity, analisi tecnica e SOC.
+                </p>
+            </section>
 
-      <!-- GRID DOWNLOAD -->
-      <div style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-        gap:20px;
-      ">
+            <!-- ⭐ GRID DOWNLOAD -->
+            <section class="widget-large">
+                <h2 style="color:#00eaff;">Immagini & Loghi</h2>
 
-        <!-- CARD 1 -->
-        <div style="background:#0a0a0a; border:1px solid #00eaff; padding:20px; border-radius:10px;">
-          <h3 style="color:#00eaff;">Logo BleepingComputer</h3>
-          <p style="color:#ccc;">Versione ottimizzata e hostata su GitHub.</p>
-          <a href="https://raw.githubusercontent.com/perezangelo/AnonLab/main/img/Image_Bleeping-Computer.png" 
-             download
-             style="display:inline-block; padding:10px 15px; background:#00eaff; color:#000; border-radius:6px; font-weight:bold;">
-            Scarica PNG
-          </a>
+                <div style="
+                    display:grid;
+                    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+                    gap:20px;
+                ">
+
+                    <!-- CARD 1 -->
+                    <div class="download-card">
+                        <h3 style="color:#00eaff;">Logo BleepingComputer</h3>
+                        <p style="color:#ccc;">Versione ottimizzata.</p>
+                        <a href="https://raw.githubusercontent.com/perezangelo/AnonLab/main/img/Image_Bleeping-Computer.png"
+                           download
+                           class="download-btn">
+                           Scarica PNG
+                        </a>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="download-card">
+                        <h3 style="color:#00eaff;">Logo DarkReading</h3>
+                        <p style="color:#ccc;">Logo ufficiale.</p>
+                        <a href="https://asset.brandfetch.io/idO5gtb9Md/idMG_qxtCK.jpeg"
+                           download
+                           class="download-btn">
+                           Scarica JPEG
+                        </a>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="download-card">
+                        <h3 style="color:#00eaff;">Logo KrebsOnSecurity</h3>
+                        <p style="color:#ccc;">Logo stabile.</p>
+                        <a href="https://www.bitsight.com/sites/default/files/styles/news_grid/public/2023/03/10/KrebsOnSecurity-logo.png?itok=UxwtsMld"
+                           download
+                           class="download-btn">
+                           Scarica PNG
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ⭐ ALTRA SEZIONE -->
+            <section class="widget-large">
+                <h2 style="color:#00eaff;">Strumenti & Script</h2>
+
+                <div style="
+                    display:grid;
+                    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+                    gap:20px;
+                ">
+
+                    <div class="download-card">
+                        <h3 style="color:#00eaff;">SOC‑TV Backend (PHP)</h3>
+                        <p style="color:#ccc;">Versione aggiornata del backend.</p>
+                        <a href="https://raw.githubusercontent.com/perezangelo/AnonLab/main/tools/soc-tv.php"
+                           download
+                           class="download-btn">
+                           Scarica PHP
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
         </div>
 
-        <!-- CARD 2 -->
-        <div style="background:#0a0a0a; border:1px solid #00eaff; padding:20px; border-radius:10px;">
-          <h3 style="color:#00eaff;">Logo DarkReading</h3>
-          <p style="color:#ccc;">Logo ufficiale utilizzato nel SOC‑TV.</p>
-          <a href="https://asset.brandfetch.io/idO5gtb9Md/idMG_qxtCK.jpeg"
-             download
-             style="display:inline-block; padding:10px 15px; background:#00eaff; color:#000; border-radius:6px; font-weight:bold;">
-            Scarica JPEG
-          </a>
-        </div>
+        <!-- SIDEBAR -->
+        <div id="sidebar"></div>
 
-        <!-- CARD 3 -->
-        <div style="background:#0a0a0a; border:1px solid #00eaff; padding:20px; border-radius:10px;">
-          <h3 style="color:#00eaff;">Logo KrebsOnSecurity</h3>
-          <p style="color:#ccc;">Logo stabile e funzionante.</p>
-          <a href="https://www.bitsight.com/sites/default/files/styles/news_grid/public/2023/03/10/KrebsOnSecurity-logo.png?itok=UxwtsMld"
-             download
-             style="display:inline-block; padding:10px 15px; background:#00eaff; color:#000; border-radius:6px; font-weight:bold;">
-            Scarica PNG
-          </a>
-        </div>
+    </main>
 
-      </div>
+    <!-- FOOTER -->
+    <div id="footer"></div>
 
-    </section>
+    <!-- SCRIPT -->
+    <script src="/js/main.js"></script>
+    <script src="/js/ui.js"></script>
 
-  </main>
+    <!-- BACK TO TOP -->
+    <button id="backToTop">↑</button>
 
-  <!-- FOOTER -->
-  <div id="footer"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const backToTop = document.getElementById('backToTop');
+        backToTop.style.display = 'none';
 
-</div>
+        window.addEventListener('scroll', function () {
+          backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+        });
 
-</body>
-</html>
-</section>
-
-</main>
-
-<footer class="site-footer">
-  <p style="color:#888; text-align:center; margin-top:40px;">
-    AnonLab — Sede operativa: Varese (VA), Italia
-  </p>
-</footer>
+        backToTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    </script>
 
 </body>
 </html>
