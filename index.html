@@ -783,8 +783,8 @@ modal.onclick = () => modal.style.display = "none";
 
 <script>
 function updateThreatLevelFromAlerts(data) {
-  const levelSpan = document.querySelector(".threat-level");
-  const barSpan = document.querySelector(".threat-bar-text");
+  const levelSpan   = document.querySelector(".threat-level");
+  const barSpan     = document.querySelector(".threat-bar-text");
   const dynamicSpan = document.querySelector(".threat-dynamic");
   const updatedSpan = document.querySelector(".threat-updated");
 
@@ -816,8 +816,7 @@ function updateThreatLevelFromAlerts(data) {
     colorBar   = "#ff3333";
     colorDesc  = "#ff9999";
     colorTime  = "#ff3333";
-  } 
-  else if (high >= 2 || moderate >= 5) {
+  } else if (high >= 2 || moderate >= 5) {
     levelText = "Alto";
     bar = "████░";
     desc = "Aumento delle minacce ad alta severità";
@@ -825,19 +824,18 @@ function updateThreatLevelFromAlerts(data) {
     colorBar   = "#ff7b00";
     colorDesc  = "#ffb366";
     colorTime  = "#ff7b00";
-  } 
-  else if (moderate >= 2) {
+  } else if (moderate >= 2) {
     levelText = "Moderato";
     bar = "███░░";
     desc = "Presenza di vulnerabilità da monitorare";
     colorLevel = "#ffcc00";
-    colorBar   = "#ffcc00";
+    bar = "███░░";
     colorDesc  = "#ffe680";
     colorTime  = "#ffcc00";
   }
 
-  levelSpan.textContent = levelText;
-  barSpan.textContent = bar;
+  levelSpan.textContent   = levelText;
+  barSpan.textContent     = bar;
   dynamicSpan.textContent = desc;
 
   const now = new Date();
@@ -846,8 +844,8 @@ function updateThreatLevelFromAlerts(data) {
     now.toLocaleDateString("it-IT") + " " +
     now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
 
-  levelSpan.style.color = colorLevel;
-  barSpan.style.color = colorBar;
+  levelSpan.style.color   = colorLevel;
+  barSpan.style.color     = colorBar;
   updatedSpan.style.color = colorTime;
   dynamicSpan.style.color = colorDesc;
 }
@@ -857,11 +855,12 @@ async function loadCyberAlerts() {
   container.innerHTML = "<li style='color:#fff;'>Caricamento in corso...</li>";
 
   try {
-    const r = await fetch("https://angelonline.altervista.org/api/cyber-alert.php");
+    const r = await fetch("/data/cyber-alerts.json", { cache: "no-store" });
     const data = await r.json();
 
-    if (!Array.isArray(data)) {
-      container.innerHTML = "<li style='color:#fff;'>Errore nel feed.</li>";
+    if (!Array.isArray(data) || data.length === 0) {
+      container.innerHTML = "<li style='color:#fff;'>Nessun advisory disponibile.</li>";
+      updateThreatLevelFromAlerts([]);
       return;
     }
 
@@ -896,7 +895,7 @@ async function loadCyberAlerts() {
           </p>
 
           <span style="color:#ff7b00;font-size:0.85rem;">
-            ${new Date(alert.published).toLocaleDateString()}
+            ${new Date(alert.published).toLocaleDateString("it-IT")}
           </span><br><br>
 
           <a href="https://github.com/advisories/${alert.ghsa}" 
@@ -924,6 +923,7 @@ async function loadCyberAlerts() {
 
   } catch (e) {
     container.innerHTML = "<li style='color:#fff;'>Impossibile caricare gli alert.</li>";
+    updateThreatLevelFromAlerts([]);
   }
 }
 
