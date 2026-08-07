@@ -931,12 +931,12 @@ loadCyberAlerts();
 setInterval(loadCyberAlerts, 60000);
 </script>
      
-       <style>
-
-      /* Effetto ON AIR */
+      <style>
+/* Effetto ON AIR */
 @keyframes onAirBlink {
-  from { opacity: 1; }
-  to   { opacity: 0.4; }
+  0%   { opacity: 1; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 1; }
 }
 
 /* Barra neon di caricamento */
@@ -956,17 +956,77 @@ setInterval(loadCyberAlerts, 60000);
 }
 </style>
 
-<!-- FEED DAL MONDO -->
+<!-- FEED DAL MONDO + ON AIR -->
 <section class="widget-large">
-  <h2>Feed dal Mondo</h2>
 
-  <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
-    Approfondisci su DarkReading →
-  </a>
+  <!-- TITOLO + ON AIR SULLA STESSA RIGA -->
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+    
+    <h2 style="margin:0; color:#00eaff;">Feed dal Mondo</h2>
+
+    <div style="
+      padding:6px 12px;
+      background:#111;
+      border:2px solid #ff0033;
+      border-radius:8px;
+      color:#ff0033;
+      font-weight:bold;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    ">
+      <div style="
+        width:12px;
+        height:12px;
+        background:#ff0033;
+        border-radius:50%;
+        animation:onAirBlink 1s infinite;
+      "></div>
+
+      <span>ON AIR — Trasmissione in diretta</span>
+    </div>
+
+  </div>
+
+  <!-- LINK APPROFONDIMENTI FONTI -->
+  <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:10px;">
+
+    <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+      Approfondisci su DarkReading →
+    </a>
+
+    <a href="https://www.bbc.com/news/technology" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+      Approfondisci su BBC Technology →
+    </a>
+
+    <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+      Approfondisci su BleepingComputer →
+    </a>
+
+    <a href="https://krebsonsecurity.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+      Approfondisci su KrebsOnSecurity →
+    </a>
+
+    <a href="https://cyberscoop.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+      Approfondisci su CyberScoop →
+    </a>
+
+    <a href="https://www.securityweek.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+      Approfondisci su SecurityWeek →
+    </a>
+
+    <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+      Approfondisci su TheHackerNews →
+    </a>
+
+  </div>
+
   <div id="world-feed"></div>
 </section>
-   
-    <div id="soc-tv" style="
+
+
+<!-- BLOCCO SOC-TV -->
+<div id="soc-tv" style="
   background:#000;
   border:2px solid #333;
   padding:10px;
@@ -1023,42 +1083,7 @@ setInterval(loadCyberAlerts, 60000);
   "></div>
 </div>
 
-     <!-- WIDGET ON AIR -->
-<div id="on-air-widget" style="
-  margin-top:15px;
-  padding:10px;
-  background:#111;
-  border:2px solid #ff0033;
-  border-radius:8px;
-  color:#ff0033;
-  font-weight:bold;
-  display:flex;
-  align-items:center;
-  gap:10px;
-">
-
-  <!-- LED ROSSO LAMPEGGIANTE -->
-  <div style="
-    width:12px;
-    height:12px;
-    background:#ff0033;
-    border-radius:50%;
-    animation:onAirBlink 1s infinite;
-  "></div>
-
-  <span>ON AIR — Trasmissione in diretta</span>
-</div>
-
-<!-- ANIMAZIONE LED -->
-<style>
-@keyframes onAirBlink {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.2; }
-  100% { opacity: 1; }
-}
-</style>
-
-   <script>
+<script>
 async function loadSocTV() {
   const img = document.getElementById("soc-tv-img");
   const title = document.getElementById("soc-tv-title");
@@ -1074,13 +1099,11 @@ async function loadSocTV() {
       return;
     }
 
-    // Nasconde loading e mostra la TV
     loading.style.display = "none";
     img.style.display = "block";
     title.style.display = "block";
     source.style.display = "block";
 
-    // Applica classi per fade
     img.classList.add("soc-fade");
     title.classList.add("soc-fade");
     source.classList.add("soc-fade");
@@ -1090,14 +1113,11 @@ async function loadSocTV() {
     function showNews() {
       const item = data[index];
 
-      // Fade-out
       img.classList.remove("soc-visible");
       title.classList.remove("soc-visible");
       source.classList.remove("soc-visible");
 
       setTimeout(() => {
-
-        // Fallback immagine
         let imgUrl = item.image;
         if (!imgUrl || imgUrl.trim() === "" || imgUrl.length < 5) {
           imgUrl = "/img/cyber-circuit.png";
@@ -1105,11 +1125,9 @@ async function loadSocTV() {
 
         img.src = imgUrl;
 
-        // Aggiorna testo
         title.textContent = item.title;
         source.textContent = "Fonte: " + item.source;
 
-        // Fade-in
         img.classList.add("soc-visible");
         title.classList.add("soc-visible");
         source.classList.add("soc-visible");
