@@ -357,7 +357,9 @@
     </script>
 </div>
 
-<body class="dark-mode"><div id="app" class="gpu-boost"><main class="page"><section class="main-column"><!-- HERO PRINCIPALE --><section class="hero-big"></section><!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA --></section></main></div></body>`
+<body class="dark-mode">
+    <div id="app" class="gpu-boost"><main class="page">
+    <section class="main-column"><!-- HERO PRINCIPALE --><section class="hero-big"></section><!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA --></section></main></div></body>`
 CSS rules:
 `css
 /** For the <section class="hero-big"> element **/
@@ -486,6 +488,34 @@ background: var(--bg-main);
   "></div>
 
 </div>
+
+  .hero-big {
+    position: relative;
+    overflow: visible;
+    text-align: center;
+
+    /* DIMENSIONI */
+    min-height: 420px;
+    padding: 60px 20px;
+
+    /* SFONDO */
+    background-image: url('/img/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* BORDI */
+    border: 2px solid var(--border-subtle);
+    border-radius: 20px;
+
+    /* OMBRE */
+    box-shadow:
+        0 0 25px rgba(0,0,0,0.25),
+        0 0 22px rgba(0, 234, 255, 0.18);
+
+    margin-bottom: 30px;
+    z-index: 0;
+}  
 
 </body>
 </html>
