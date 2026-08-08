@@ -187,7 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadPartial("header", "/partials/header.html");
 
-    /* ⭐ FIX TICKER: parte SOLO dopo che il partial è stato caricato */
     loadPartial("ticker", "/partials/ticker.html").then(() => {
         if (typeof loadTickerNews === "function") {
             loadTickerNews();
@@ -196,10 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadPartial("sidebar", "/partials/sidebar.html");
     loadPartial("footer", "/partials/footer.html");
-   
-        loadMeteo(); // fallback
-    });
 
+    loadMeteo(); // fallback
 });
 
 /* ============================================================
