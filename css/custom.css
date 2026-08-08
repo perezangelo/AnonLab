@@ -871,39 +871,7 @@ canvas {
     box-shadow: 0 0 18px rgba(0,255,255,1);
     transform: translateY(-1px);
 }
-/* HERO — override sfondo */
-.hero-big {
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 420px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
 
-/* Titolo */
-.hero-big h1 {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    margin: 0;
-    font-size: 3.2rem;
-    z-index: 3;
-}
-
-/* Sottotitolo */
-.hero-big .hero-sub {
-    margin-top: 300px !important; /* prima 260px */
-    text-align: center;
-    display: block;
-}
-
-.hero-big .dropdown-news {
-    margin-top: 40px !important; /* prima 20px */
-    text-align: center;
-    display: block;
-}
 /* Google Search wrapper */
 .google-search-wrapper {
     display: flex;
