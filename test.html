@@ -146,30 +146,190 @@
     </div>
 </div>
 
-<!-- BOX 3: Pulsanti Neon -->
 <div class="test-box">
-    <h2 style="color:#00eaff;">🔘 Pulsanti Neon</h2>
-    <p>Test dei pulsanti neon senza CSS esterno.</p>
+    <h2 style="color:#00eaff;">🌀 Effetto Parallax</h2>
+    <p>Muovi il mouse sopra l’immagine.</p>
 
-    <a href="#" class="neon-btn">Pulsante Neon</a>
-    <a href="#" class="neon-btn">Download</a>
+    <div id="parallaxBox" style="
+        width:100%;
+        max-width:420px;
+        height:240px;
+        margin:0 auto;
+        border-radius:12px;
+        overflow:hidden;
+        position:relative;
+        background:url('/img/cyber-bg.png') center/cover no-repeat;
+        transform-style:preserve-3d;
+    "></div>
+
+    <script>
+    const pb = document.getElementById('parallaxBox');
+    pb.addEventListener('mousemove', e => {
+        const x = (e.clientX - pb.offsetLeft) / pb.offsetWidth - 0.5;
+        const y = (e.clientY - pb.offsetTop) / pb.offsetHeight - 0.5;
+        pb.style.transform = `rotateY(${x*10}deg) rotateX(${y*-10}deg)`;
+    });
+    pb.addEventListener('mouseleave', () => {
+        pb.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    });
+    </script>
 </div>
 
-<!-- BOX 4: Area libera per esperimenti -->
-<div class="test-box">
-    <h2 style="color:#00eaff;">🧪 Area Esperimenti</h2>
-    <p>Qui puoi incollare qualsiasi codice HTML/CSS/JS per testarlo senza rompere il sito.</p>
+  <div class="test-box">
+    <h2 style="color:#00eaff;">🔍 Effetto Zoom Hero</h2>
 
-    <textarea style="
+    <div style="
         width:100%;
-        height:200px;
-        background:#000;
-        color:#0f0;
-        border:1px solid #00eaff;
-        border-radius:8px;
-        padding:10px;
-        font-family:monospace;
-    " placeholder="Incolla qui il codice da testare..."></textarea>
+        max-width:420px;
+        height:240px;
+        margin:0 auto;
+        border-radius:12px;
+        overflow:hidden;
+        animation:zoomHero 10s infinite alternate;
+        background:url('/img/hero-bg.png') center/cover no-repeat;
+    "></div>
+
+    <style>
+    @keyframes zoomHero {
+        from { background-size:100%; }
+        to   { background-size:130%; }
+    }
+    </style>
+</div>
+
+    <div class="test-box">
+    <h2 style="color:#00eaff;">📜 Scroll Parallax</h2>
+
+    <div id="scrollPara" style="
+        width:100%;
+        max-width:420px;
+        height:240px;
+        margin:0 auto;
+        border-radius:12px;
+        overflow:hidden;
+        background:url('/img/cyber-bg.png') center/cover no-repeat;
+        position:relative;
+    "></div>
+
+    <script>
+    const sp = document.getElementById('scrollPara');
+    window.addEventListener('scroll', () => {
+        const offset = window.scrollY * 0.3;
+        sp.style.backgroundPositionY = `-${offset}px`;
+    });
+    </script>
+</div>
+
+ <div class="test-box">
+    <h2 style="color:#00eaff;">⚡ Effetto Glitch</h2>
+
+    <div style="
+        width:100%;
+        max-width:420px;
+        height:240px;
+        margin:0 auto;
+        border-radius:12px;
+        overflow:hidden;
+        position:relative;
+    ">
+        <img src="/img/cyber-bg.png" style="
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            animation:glitch 1s infinite;
+        ">
+    </div>
+
+    <style>
+    @keyframes glitch {
+        0% { clip-path: inset(0 0 0 0); }
+        20% { clip-path: inset(10% 0 40% 0); }
+        40% { clip-path: inset(30% 0 20% 0); }
+        60% { clip-path: inset(5% 0 60% 0); }
+        80% { clip-path: inset(40% 0 10% 0); }
+        100% { clip-path: inset(0 0 0 0); }
+    }
+    </style>
+</div>
+   
+<div class="test-box">
+    <h2 style="color:#00eaff;">🧊 Rotazione 3D Manuale</h2>
+
+    <div id="cube3d" style="
+        width:100%;
+        max-width:420px;
+        height:240px;
+        margin:0 auto;
+        border-radius:12px;
+        overflow:hidden;
+        background:url('/img/ai-soc.jpg') center/cover no-repeat;
+        transform-style:preserve-3d;
+        transition:0.1s;
+    "></div>
+
+    <script>
+    const c3d = document.getElementById('cube3d');
+    c3d.addEventListener('mousemove', e => {
+        const x = (e.clientX - c3d.offsetLeft) / c3d.offsetWidth - 0.5;
+        const y = (e.clientY - c3d.offsetTop) / c3d.offsetHeight - 0.5;
+        c3d.style.transform = `rotateY(${x*20}deg) rotateX(${y*-20}deg)`;
+    });
+    c3d.addEventListener('mouseleave', () => {
+        c3d.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    });
+    </script>
+</div>
+
+    <div class="test-box">
+    <h2 style="color:#00eaff;">🎥 Ken Burns Effect</h2>
+
+    <div style="
+        width:100%;
+        max-width:420px;
+        height:240px;
+        margin:0 auto;
+        border-radius:12px;
+        overflow:hidden;
+        animation:kenburns 12s infinite alternate;
+        background:url('/img/hero-bg.png') center/cover no-repeat;
+    "></div>
+
+    <style>
+    @keyframes kenburns {
+        from { background-size:110%; background-position:center; }
+        to   { background-size:140%; background-position:top; }
+    }
+    </style>
+</div>
+
+    <div class="test-box">
+    <h2 style="color:#00eaff;">🌈 Tilt Neon Glow</h2>
+
+    <div id="tiltGlow" style="
+        width:100%;
+        max-width:420px;
+        height:240px;
+        margin:0 auto;
+        border-radius:12px;
+        overflow:hidden;
+        background:url('/img/cyber-bg.png') center/cover no-repeat;
+        box-shadow:0 0 20px #00eaff55;
+        transition:0.2s;
+    "></div>
+
+    <script>
+    const tg = document.getElementById('tiltGlow');
+    tg.addEventListener('mousemove', e => {
+        const x = (e.clientX - tg.offsetLeft) / tg.offsetWidth - 0.5;
+        const y = (e.clientY - tg.offsetTop) / tg.offsetHeight - 0.5;
+        tg.style.transform = `rotateY(${x*10}deg) rotateX(${y*-10}deg)`;
+        tg.style.boxShadow = `0 0 40px rgba(0,234,255,0.6)`;
+    });
+    tg.addEventListener('mouseleave', () => {
+        tg.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        tg.style.boxShadow = `0 0 20px rgba(0,234,255,0.3)`;
+    });
+    </script>
 </div>
 
 </body>
