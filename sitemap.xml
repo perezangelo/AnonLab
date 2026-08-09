@@ -43,6 +43,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Download -->
+  <url>
+    <loc>https://anonlab.it/downloadd.html</loc>
+    <lastmod>2026-06-09T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Tools -->
   <url>
     <loc>https://anonlab.it/tools.html</loc>
