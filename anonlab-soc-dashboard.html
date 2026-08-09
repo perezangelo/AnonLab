@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnonLab SOC Dashboard — Architettura, Funzioni e Analisi Tecniche</title>
+
+<meta name="description" content="AnonLab SOC Dashboard: guida completa alla struttura, ai widget, alle API, al backend PHP e alle funzioni di monitoraggio. Una dashboard avanzata per cybersecurity, threat intelligence e analisi tecniche.">
+<link rel="canonical" href="https://anonlab.it/anonlab-soc-dashboard.html">
+
+<!-- SEO -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="AnonLab">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AnonLab SOC Dashboard — Architettura e Funzioni">
+<meta property="og:description" content="Analisi completa della dashboard SOC di AnonLab: widget, API, backend, threat intelligence e monitoraggio.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://anonlab.it/anonlab-soc-dashboard.html">
+<meta property="og:image" content="https://anonlab.it/img/eyes.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AnonLab SOC Dashboard — Architettura e Funzioni">
+<meta name="twitter:description" content="Dashboard SOC avanzata per cybersecurity e threat intelligence.">
+<meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-1655066977213725">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+<style>
+body {
+    background:#0a0a0a;
+    color:#e0e0e0;
+    font-family:Arial, sans-serif;
+    line-height:1.7;
+    padding:20px;
+}
+h1, h2, h3 {
+    color:#00eaff;
+    margin-top:40px;
+}
+a { color:#00eaff; }
+.section {
+    background:#111;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid #00eaff33;
+    margin-bottom:40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>AnonLab SOC Dashboard — Architettura, Funzioni e Analisi Tecniche</h1>
+
+<div class="section">
+<p>
+La <strong>AnonLab SOC Dashboard</strong> è una piattaforma avanzata progettata per offrire una visione completa e centralizzata delle attività di sicurezza informatica, threat intelligence e monitoraggio tecnico.  
+È costruita con un’architettura ibrida che combina:
+</p>
+
+<ul>
+<li><strong>Frontend statico</strong> su GitHub Pages</li>
+<li><strong>Backend dinamico</strong> su AlterVista (PHP + MySQL)</li>
+<li><strong>Widget interattivi</strong> in JavaScript</li>
+<li><strong>API personalizzate</strong> per dati real‑time</li>
+<li><strong>Stile cyber‑neon</strong> per una visualizzazione moderna</li>
+</ul>
+
+<p>
+Questa pagina spiega nel dettaglio come funziona la dashboard, quali componenti contiene e come viene utilizzata per analisi tecniche, monitoraggio e threat intelligence.
+</p>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="1122334455"
+     data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Architettura della Dashboard</h2>
+
+<h3>Frontend: GitHub Pages</h3>
+<p>
+Il frontend della dashboard è ospitato su GitHub Pages, una soluzione ideale per:
+</p>
+
+<ul>
+<li>velocità di caricamento</li>
+<li>affidabilità</li>
+<li>assenza di costi</li>
+<li>perfetta integrazione con HTML, CSS e JavaScript</li>
+</ul>
+
+<p>
+La parte visiva della dashboard include:
+</p>
+
+<ul>
+<li>blocchi neon</li>
+<li>widget interattivi</li>
+<li>grafici</li>
+<li>radar delle minacce</li>
+<li>pannelli informativi</li>
+</ul>
+
+<h3>Backend: AlterVista (PHP + MySQL)</h3>
+<p>
+AlterVista viene utilizzato come backend per:
+</p>
+
+<ul>
+<li>API PHP</li>
+<li>database MySQL</li>
+<li>gestione dei dati dinamici</li>
+<li>log tecnici</li>
+<li>endpoint per i widget</li>
+</ul>
+
+<p>
+Il sito anonlab.it punta a GitHub Pages, mentre AlterVista fornisce i dati tramite API come:
+</p>
+
+<pre>
+https://angelonline.altervista.org/api/get-threats.php
+https://angelonline.altervista.org/api/system-status.php
+https://angelonline.altervista.org/api/radar-data.php
+</pre>
+
+<p>
+Questa separazione garantisce sicurezza, modularità e performance.
+</p>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="9876543210"
+     data-ad-format="horizontal"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Componenti principali della SOC Dashboard</h2>
+
+<h3>1. System Status Widget</h3>
+<p>
+Mostra lo stato dei sistemi monitorati: uptime, risorse, servizi attivi, API funzionanti.  
+Utilizza chiamate AJAX verso AlterVista per ottenere dati aggiornati.
+</p>
+
+<h3>2. Threat Monitor</h3>
+<p>
+Analizza indicatori di compromissione (IOC), vulnerabilità recenti (CVE), feed di minacce e trend globali.  
+Il widget è progettato per essere leggero ma informativo.
+</p>
+
+<h3>3. Radar delle Minacce</h3>
+<p>
+Il radar è uno dei componenti più avanzati della dashboard.  
+Visualizza:
+</p>
+
+<ul>
+<li>livello di rischio</li>
+<li>categoria della minaccia</li>
+<li>origine</li>
+<li>trend temporale</li>
+</ul>
+
+<p>
+Il rendering è gestito da <strong>radar.js</strong>, un modulo personalizzato che interpreta i dati provenienti dal backend AlterVista.
+</p>
+
+<h3>4. OSINT Tools Panel</h3>
+<p>
+Una sezione dedicata agli strumenti OSINT integrati nella dashboard, con link rapidi e funzioni utili per investigazioni digitali.
+</p>
+
+<h3>5. Download Center</h3>
+<p>
+Un pannello che raccoglie software utili per cybersecurity, con link diretti e blocchi neon personalizzati.
+</p>
+
+<h3>6. Log Viewer</h3>
+<p>
+Permette di visualizzare log tecnici provenienti dal backend, utili per analisi e debugging.
+</p>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="5566778899"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Integrazione con API e Backend</h2>
+<p>
+La dashboard comunica con AlterVista tramite API PHP.  
+Ogni widget effettua richieste come:
+</p>
+
+<pre>
+fetch("https://angelonline.altervista.org/api/system-status.php")
+  .then(r => r.json())
+  .then(data => updateWidget(data));
+</pre>
+
+<p>
+Questa architettura permette:
+</p>
+
+<ul>
+<li>aggiornamenti real‑time</li>
+<li>separazione tra frontend e backend</li>
+<li>scalabilità</li>
+<li>sicurezza</li>
+<li>manutenzione semplificata</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Design Cyber‑Neon</h2>
+<p>
+La dashboard utilizza uno stile cyber‑neon con:
+</p>
+
+<ul>
+<li>colori blu elettrico</li>
+<li>glow effects</li>
+<li>pannelli scuri</li>
+<li>bordo luminoso</li>
+<li>animazioni leggere</li>
+</ul>
+
+<p>
+Questo stile non è solo estetico: migliora la leggibilità e rende la dashboard moderna e professionale.
+</p>
+</div>
+
+<div class="section">
+<h2>Funzioni avanzate</h2>
+
+<h3>Alerting</h3>
+<p>
+Il sistema può generare alert visivi quando rileva anomalie o minacce elevate.
+</p>
+
+<h3>Auto‑refresh</h3>
+<p>
+I widget possono aggiornarsi automaticamente ogni pochi secondi.
+</p>
+
+<h3>Data normalization</h3>
+<p>
+I dati provenienti dal backend vengono normalizzati per garantire coerenza e leggibilità.
+</p>
+
+<h3>Modularità</h3>
+<p>
+Ogni componente può essere aggiornato o sostituito senza modificare l’intera dashboard.
+</p>
+</div>
+
+<div class="section">
+<h2>Conclusione</h2>
+<p>
+La <strong>AnonLab SOC Dashboard</strong> è una piattaforma completa, moderna e altamente personalizzata per analisi tecniche, threat intelligence e monitoraggio.  
+La combinazione GitHub Pages + AlterVista + API + widget neon crea un ecosistema potente, veloce e professionale.
+</p>
+
+<p>
+Questa pagina fornisce una panoramica dettagliata della struttura e delle funzioni della dashboard, contribuendo a migliorare la qualità dei contenuti del sito e a soddisfare i requisiti di Google AdSense.
+</p>
+</div>
+
+</body>
+</html>
