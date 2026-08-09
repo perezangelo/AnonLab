@@ -1,17 +1,36 @@
 # ============================================================
-# REGOLA GENERALE — Tutto il sito è accessibile
+# ACCESSO GENERALE — Tutto il sito è indicizzabile
 # ============================================================
 User-agent: *
 Allow: /
 
-# Evita sprechi di crawl budget su file inutili
+# ============================================================
+# OTTIMIZZAZIONE CRAWL BUDGET
+# ============================================================
+# Evita file inutili
 Disallow: /*.map$
+Disallow: /*.tmp$
+Disallow: /*.bak$
+
+# Evita SVG se non necessari
 Disallow: /img/*.svg$
 
-# Evita duplicati generati da parametri comuni
-Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content / 
-Clean-param: fbclid / 
+# Evita directory tecniche (AlterVista backend)
+Disallow: /api/
+Disallow: /backend/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /phpmyadmin/
+
+# ============================================================
+# PARAMETRI DA IGNORARE (evita duplicati)
+# ============================================================
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content /
+Clean-param: fbclid /
 Clean-param: ref /
+Clean-param: gclid /
+Clean-param: mc_cid&mc_eid /
 
 # ============================================================
 # GOOGLEBOT (WEB)
@@ -20,7 +39,7 @@ User-agent: Googlebot
 Allow: /
 
 # ============================================================
-# GOOGLE NEWS — permette la scansione delle sezioni news
+# GOOGLE NEWS — sezioni editoriali
 # ============================================================
 User-agent: Googlebot-News
 Allow: /
@@ -29,10 +48,18 @@ Allow: /cyber.html
 Allow: /tech.html
 
 # ============================================================
-# GOOGLE IMAGES — permette l’indicizzazione delle immagini
+# GOOGLE IMAGES — indicizzazione immagini
 # ============================================================
 User-agent: Googlebot-Image
 Allow: /img/
+Allow: /assets/
+Allow: /media/
+
+# ============================================================
+# GOOGLE ADSENSE — consigliato
+# ============================================================
+User-agent: Mediapartners-Google
+Allow: /
 
 # ============================================================
 # BING / YANDEX / ALTRI
@@ -43,8 +70,13 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Disallow: /
+
 # ============================================================
 # SITEMAP
 # ============================================================
 Sitemap: https://anonlab.it/sitemap.xml
-
