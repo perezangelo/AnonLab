@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSINT Tools Explained — Raccolta e Analisi delle Informazioni | AnonLab</title>
+
+<meta name="description" content="OSINT Tools Explained: guida completa ai principali strumenti OSINT, tecniche di raccolta informazioni, analisi, intelligence e investigazioni digitali. Pagina tecnica aggiornata per professionisti e analisti.">
+<link rel="canonical" href="https://anonlab.it/osint-tools-explained.html">
+
+<!-- SEO -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="AnonLab">
+
+<!-- Open Graph -->
+<meta property="og:title" content="OSINT Tools Explained — Raccolta e Analisi delle Informazioni">
+<meta property="og:description" content="Guida completa agli strumenti OSINT moderni e alle tecniche di intelligence digitale.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://anonlab.it/osint-tools-explained.html">
+<meta property="og:image" content="https://anonlab.it/img/eyes.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OSINT Tools Explained — Raccolta e Analisi delle Informazioni">
+<meta name="twitter:description" content="Strumenti OSINT, tecniche di raccolta dati e investigazioni digitali.">
+<meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-1655066977213725">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+<style>
+body {
+    background:#0a0a0a;
+    color:#e0e0e0;
+    font-family:Arial, sans-serif;
+    line-height:1.7;
+    padding:20px;
+}
+h1, h2, h3 {
+    color:#00eaff;
+    margin-top:40px;
+}
+a { color:#00eaff; }
+.section {
+    background:#111;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid #00eaff33;
+    margin-bottom:40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>OSINT Tools Explained — Raccolta e Analisi delle Informazioni</h1>
+
+<div class="section">
+<p>
+L’OSINT (Open Source Intelligence) è la disciplina che si occupa della raccolta e analisi di informazioni provenienti da fonti pubbliche.  
+Nel 2026 l’OSINT è diventato uno dei pilastri fondamentali per investigatori digitali, analisti SOC, ricercatori di cybersecurity, giornalisti investigativi e forze dell’ordine.
+</p>
+
+<p>
+Questa pagina offre una panoramica completa e aggiornata sugli strumenti OSINT più utilizzati, sulle tecniche di raccolta dati e sulle metodologie di analisi.  
+È progettata per essere una risorsa di valore sia per professionisti che per utenti che vogliono comprendere il funzionamento dell’intelligence moderna.
+</p>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="1122334455"
+     data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Cos’è l’OSINT</h2>
+<p>
+L’OSINT consiste nell’analisi di informazioni disponibili pubblicamente, senza violare alcuna legge o sistema protetto.  
+Le fonti includono:
+</p>
+
+<ul>
+<li>siti web</li>
+<li>motori di ricerca</li>
+<li>social network</li>
+<li>database pubblici</li>
+<li>registri ufficiali</li>
+<li>forum e community</li>
+<li>dark web (solo fonti pubbliche e legali)</li>
+</ul>
+
+<p>
+L’obiettivo è trasformare dati grezzi in informazioni utili, contestualizzate e verificabili.
+</p>
+</div>
+
+<div class="section">
+<h2>Perché l’OSINT è fondamentale oggi</h2>
+<p>
+La quantità di dati disponibili online è cresciuta in modo esponenziale.  
+Ogni giorno vengono pubblicati:
+</p>
+
+<ul>
+<li>milioni di post social</li>
+<li>nuovi domini e sottodomini</li>
+<li>nuovi leak di dati</li>
+<li>nuovi indicatori di compromissione (IOC)</li>
+<li>nuovi report di minacce</li>
+</ul>
+
+<p>
+L’OSINT permette di:
+</p>
+
+<ul>
+<li>identificare minacce emergenti</li>
+<li>ricostruire attività sospette</li>
+<li>analizzare infrastrutture malevole</li>
+<li>verificare identità digitali</li>
+<li>supportare investigazioni tecniche</li>
+</ul>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="9876543210"
+     data-ad-format="horizontal"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Strumenti OSINT fondamentali</h2>
+
+<h3>1. Motori di ricerca avanzati</h3>
+<p>
+Google, Bing e DuckDuckGo sono strumenti OSINT potentissimi se utilizzati con operatori avanzati:
+</p>
+
+<ul>
+<li><code>site:</code> per filtrare domini</li>
+<li><code>filetype:</code> per trovare documenti specifici</li>
+<li><code>intitle:</code> per cercare parole nei titoli</li>
+<li><code>inurl:</code> per analizzare URL</li>
+</ul>
+
+<h3>2. WHOIS e DNS Intelligence</h3>
+<p>
+Strumenti come:
+</p>
+
+<ul>
+<li>WhoisXML</li>
+<li>ViewDNS</li>
+<li>DNSDumpster</li>
+<li>SecurityTrails</li>
+</ul>
+
+<p>
+permettono di analizzare domini, IP, sottodomini e infrastrutture correlate.
+</p>
+
+<h3>3. Social Media OSINT</h3>
+<p>
+I social network sono una miniera di informazioni.  
+Strumenti utili includono:
+</p>
+
+<ul>
+<li>SocialScan</li>
+<li>TweetDeck (ricerca avanzata)</li>
+<li>Meta OSINT tools</li>
+<li>Telegram OSINT bots</li>
+</ul>
+
+<h3>4. Data Breach Intelligence</h3>
+<p>
+Per analizzare credenziali compromesse e leak:
+</p>
+
+<ul>
+<li>HaveIBeenPwned</li>
+<li>DeHashed</li>
+<li>LeakCheck</li>
+<li>Intelligence X</li>
+</ul>
+
+<h3>5. File Metadata Analysis</h3>
+<p>
+Strumenti per estrarre metadati da documenti:
+</p>
+
+<ul>
+<li>ExifTool</li>
+<li>FOCA</li>
+<li>Metadata2Go</li>
+</ul>
+
+<h3>6. Dark Web OSINT</h3>
+<p>
+Solo fonti pubbliche e legali:
+</p>
+
+<ul>
+<li>Ahmia</li>
+<li>OnionSearch</li>
+<li>Tor directory indexes</li>
+</ul>
+
+<h3>7. OSINT Framework</h3>
+<p>
+Una delle risorse più complete per categorizzare strumenti OSINT:
+</p>
+
+<p><a href="https://osintframework.com" target="_blank">https://osintframework.com</a></p>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="5566778899"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Metodologie OSINT moderne</h2>
+
+<h3>Raccolta</h3>
+<p>
+La fase di raccolta prevede l’identificazione delle fonti e l’estrazione dei dati.  
+È fondamentale evitare bias e mantenere la qualità delle informazioni.
+</p>
+
+<h3>Analisi</h3>
+<p>
+I dati vengono correlati, filtrati e contestualizzati.  
+L’analisi moderna utilizza anche strumenti di machine learning per identificare pattern.
+</p>
+
+<h3>Verifica</h3>
+<p>
+Ogni informazione deve essere verificata tramite fonti indipendenti.  
+La verifica è essenziale per evitare conclusioni errate.
+</p>
+
+<h3>Reporting</h3>
+<p>
+La fase finale consiste nella creazione di report chiari, tecnici e utili per decision maker, SOC o investigatori.
+</p>
+</div>
+
+<div class="section">
+<h2>Best practice OSINT</h2>
+<ul>
+<li>Utilizza fonti affidabili</li>
+<li>Evita informazioni non verificabili</li>
+<li>Proteggi la tua identità digitale</li>
+<li>Non interagire con contenuti illegali</li>
+<li>Documenta ogni passaggio</li>
+<li>Usa VPN e browser sicuri</li>
+<li>Non lasciare tracce durante le analisi</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Conclusione</h2>
+<p>
+L’OSINT è una disciplina potente e in continua evoluzione.  
+Questa pagina offre una panoramica completa e aggiornata degli strumenti e delle tecniche più utilizzate nel 2026.  
+AnonLab integra elementi OSINT nei propri strumenti e nelle analisi tecniche, contribuendo a un ecosistema di intelligence moderno e professionale.
+</p>
+</div>
+
+</body>
+</html>
