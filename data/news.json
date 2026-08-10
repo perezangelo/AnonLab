@@ -1,5 +1,35 @@
 [
   {
+    "title": "CISA: SonicWall SMA1000 flaws now exploited by ransomware gangs",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-sonicwall-sma1000-flaws-now-exploited-by-ransomware-gangs/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/20/SonicWall.jpg"
+  },
+  {
+    "title": "OpenAI\u2019s Upcoming Astra Model Raises Autonomous Cyberattack Concerns",
+    "link": "https://www.securityweek.com/openais-upcoming-astra-model-raises-autonomous-cyberattack-concerns/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
+  },
+  {
+    "title": "Stealthium Targets Security Blind Spots in AI Accelerators and Neo-Clouds",
+    "link": "https://www.securityweek.com/stealthium-targets-security-blind-spots-in-ai-accelerators-and-neo-clouds/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Cisco Warns of High-Severity ClamAV Vulnerabilities With Public PoC",
+    "link": "https://www.securityweek.com/cisco-warns-of-high-severity-clamav-vulnerabilities-with-public-poc/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Cisco-company-logo.jpeg"
+  },
+  {
+    "title": "When Credentials Are No Longer Enough: Device Trust in the AI Era",
+    "link": "https://www.bleepingcomputer.com/news/security/when-credentials-are-no-longer-enough-device-trust-in-the-ai-era/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/08/04/specops-locks.jpg"
+  },
+  {
+    "title": "Kimsuky Builds Offline AI Stack to Boost Phishing and Automate Malware Development",
+    "link": "https://thehackernews.com/2026/08/kimsuky-builds-offline-ai-stack-that.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDgatgimOxtzWBp5R0l6yiMeoFVAeLE-hn-RGePbOlgUMgb3Vj9cEKav3AadjZBcppLfoDs4o-oREZ0OimLYX9WDnIRwebA4P7nVa-wh8KwHW-z7HUALW_bj2B-53kotBjkGw-6QXx-Awo3OxBlhjIwEIuueFEXLOgpT7cPpz5e_MSlD4l_FHgJocN6QA/s1600/north.jpg"
+  },
+  {
     "title": "\u2018Ghostjacking\u2019 Attack Uses Poisoned Logs to Turn AI Agents Bad",
     "link": "https://www.securityweek.com/ghostjacking-attack-uses-poisoned-logs-to-turn-ai-agents-bad/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/04/Artificial-intelligence-AI.jpeg"
@@ -85,11 +115,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/19/box.jpg"
   },
   {
-    "title": "Critical One-Click Vulnerability in Atlassian\u2019s Rovo AI Exposed Enterprise Data",
-    "link": "https://www.securityweek.com/critical-one-click-vulnerability-in-atlassians-rovo-ai-exposed-enterprise-data/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Atlassian-Rovo.webp"
-  },
-  {
     "title": "Atlassian Rovo Can Be Tricked Into Sending Jira and Confluence Data to Attackers",
     "link": "https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFYjJTxVoOMkR9DDRPZ5PkeR_EWAqmBScR3TPw3mlweipGlnQKq0OdfVqR2f26QIV3kBJWQIM65f8XwMSFq3zT6Bl4fsTvkPHxJiU2LilhK9s0tcreXt2gotEpE8sKoDrLQJ3SSVY9B-RS0FsS2dC480op8OV-caeaZvNyTiIipQbeNFJGMnAcjWEVq7g/s1600/rovo.jpg"
@@ -110,11 +135,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsaNpVaG83aDE1lJwcNllVSeS-ebafbbt4FgaKHH1_4dt1i4qvCtw-dYVrE_MiWf2GZ5vyGPhyphenhyphenCieChBz2IChMJew0I1Ze2HEYJpB-j3rB2VnfNrzbFpPDD7VFkWCkYBn2CJRLpOBIKNaeKPXlVPHpz7-1Wx9go7IfyUKSVNliDO644rNsoMmAk5a3Qf_W/s1600/nc.jpg"
   },
   {
-    "title": "Progress Kemp LoadMaster Flaw Hits CISA KEV After 792 Reported Exploit Attempts",
-    "link": "https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_DF22WirQj4KZe5A4NxYmG3UhC2o4BRQ4AybyFlmr80n5Wkf15sbtMn11P0msoMyAe65WBqMpL2XBsqTiHdDNNH1i6qz11ydD9X4AIOoiaSfCYb1MCe7dfJD0n4TEIc5_83tsMq5zJ5zVpGbpCq7b8rACen1oMvW8XGBbz3T4hy_9J6igpOk0oCDp6vkA/s1600/progress.jpg"
-  },
-  {
     "title": "Metabase SQLi zero-day exploited in customer data-theft attacks",
     "link": "https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/07/metabase-header.jpg"
@@ -128,25 +148,5 @@
     "title": "AI-Generated Patches Fail Half the Time",
     "link": "https://www.darkreading.com/application-security/ai-generated-patches-fail-half-time",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt51cfa43c126c431d/6a75005453cbbc62a56894c9/patches-in-denim-nnattalli-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Levi Strauss & Co. says hackers stole corporate data in cyberattack",
-    "link": "https://www.bleepingcomputer.com/news/security/levi-strauss-and-co-says-hackers-stole-corporate-data-in-cyberattack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/07/levis.jpg"
-  },
-  {
-    "title": "In Other News: AI Slop Limits Apple Bounties, North Carolina Port Attacks, Hackers Target Wall Street",
-    "link": "https://www.securityweek.com/in-other-news-ai-slop-limits-apple-bounties-north-carolina-port-attacks-hackers-target-wall-street/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
-    "title": "Real emails, hijacked payments: Two H1 2026 attack chains",
-    "link": "https://www.bleepingcomputer.com/news/security/real-emails-hijacked-payments-two-h1-2026-attack-chains/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/08/04/gendigital-cyber-shield.jpg"
-  },
-  {
-    "title": "North Carolina Ports confirms cyberattack disrupting operations",
-    "link": "https://www.bleepingcomputer.com/news/security/north-carolina-ports-confirms-cyberattack-disrupting-operations/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/07/northcarolina.jpg"
   }
 ]
