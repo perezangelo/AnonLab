@@ -1,5 +1,47 @@
 [
   {
+    "id": "CVE-2026-62871",
+    "summary": "Microsoft Security Advisory CVE-2026-62871 – .NET Elevation of Privilege Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-08-11T19:46:40Z",
+    "ghsa": "GHSA-vg44-h755-9hw7"
+  },
+  {
+    "id": "CVE-2026-62897",
+    "summary": "Microsoft Security Advisory CVE-2026-62897 – .NET Remote Code Execution Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-08-11T19:36:34Z",
+    "ghsa": "GHSA-fx4q-gjrx-2jw6"
+  },
+  {
+    "id": "CVE-2026-70354",
+    "summary": "Microsoft Security Advisory CVE-2026-70354 – .NET Core Remote Code Execution Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-08-11T19:24:47Z",
+    "ghsa": "GHSA-gg8c-3338-xw2f"
+  },
+  {
+    "id": "CVE-2026-62909",
+    "summary": "Microsoft Security Advisory CVE-2026-62909 – .NET Elevation of Privilege Vulnerability",
+    "severity": "MODERATE",
+    "published": "2026-08-11T19:04:21Z",
+    "ghsa": "GHSA-9mr8-pwpw-3j2w"
+  },
+  {
+    "id": "CVE-2026-62886",
+    "summary": "Microsoft Security Advisory CVE-2026-62886 – .NET Elevation of Privilege Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-08-11T18:58:08Z",
+    "ghsa": "GHSA-jqhp-238x-qhgf"
+  },
+  {
+    "id": "CVE-2026-62901",
+    "summary": "Microsoft Security Advisory CVE-2026-62901 – .NET Denial of Service Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-08-11T18:53:55Z",
+    "ghsa": "GHSA-m93f-wj8c-rp8p"
+  },
+  {
     "id": "CVE-2026-62899",
     "summary": "Microsoft Security Advisory CVE-2026-62899 – .NET Security Feature Bypass Vulnerability",
     "severity": "MODERATE",
@@ -26,47 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-07T19:29:09Z",
     "ghsa": "GHSA-fp3f-mc75-235c"
-  },
-  {
-    "id": "CVE-2026-71852",
-    "summary": "pypdf: Possible long runtimes/large memory usage for large CID font width ranges",
-    "severity": "MODERATE",
-    "published": "2026-08-07T18:54:00Z",
-    "ghsa": "GHSA-fwg2-594c-jp42"
-  },
-  {
-    "id": "CVE-2026-71851",
-    "summary": "crypto-js: Insufficient Entropy in Cryptographic Secret Generation via Vulnerable CryptoJS Dependency Chain",
-    "severity": "CRITICAL",
-    "published": "2026-08-07T18:48:59Z",
-    "ghsa": "GHSA-rg76-677x-56q9"
-  },
-  {
-    "id": "CVE-2026-71850",
-    "summary": "Hono: `memo()` retains SSR output across requests, leading to cross-user data disclosure",
-    "severity": "MODERATE",
-    "published": "2026-08-07T18:42:01Z",
-    "ghsa": "GHSA-f23p-vx2j-j53r"
-  },
-  {
-    "id": "CVE-2026-71849",
-    "summary": "Hono: Proxy Helper does not remove response headers listed in the `Connection` header",
-    "severity": "LOW",
-    "published": "2026-08-07T18:38:48Z",
-    "ghsa": "GHSA-79qm-7rj5-m7r9"
-  },
-  {
-    "id": "CVE-2026-71848",
-    "summary": "Hono: Algorithmic Complexity DoS in Language Middleware",
-    "severity": "MODERATE",
-    "published": "2026-08-07T18:36:31Z",
-    "ghsa": "GHSA-54fx-42gc-7vw4"
-  },
-  {
-    "id": "CVE-2026-71847",
-    "summary": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams",
-    "severity": "LOW",
-    "published": "2026-08-07T18:33:12Z",
-    "ghsa": "GHSA-9hj4-r449-hfvc"
   }
 ]
