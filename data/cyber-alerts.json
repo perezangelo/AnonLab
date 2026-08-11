@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-62902",
+    "summary": "Microsoft Security Advisory CVE-2026-62902 – .NET Information Disclosure Vulnerability",
+    "severity": "MODERATE",
+    "published": "2026-08-11T19:55:48Z",
+    "ghsa": "GHSA-9mrh-pw7c-9mqm"
+  },
+  {
     "id": "CVE-2026-62871",
     "summary": "Microsoft Security Advisory CVE-2026-62871 – .NET Elevation of Privilege Vulnerability",
     "severity": "HIGH",
@@ -61,12 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-08-11T15:58:23Z",
     "ghsa": "GHSA-87fv-vqqr-m4jr"
-  },
-  {
-    "id": "CVE-2026-71870",
-    "summary": "pypdf: Possible large memory usage for large /ToUnicode streams",
-    "severity": "MODERATE",
-    "published": "2026-08-07T19:29:09Z",
-    "ghsa": "GHSA-fp3f-mc75-235c"
   }
 ]
