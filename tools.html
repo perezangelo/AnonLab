@@ -93,7 +93,7 @@ fetch("/partials/ticker.html")
         <!-- WHOIS Lookup -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/whois.png" alt="Icona WHOIS Lookup" class="box-title-icon">
+        <img src="/img/whois.png" class="box-title-icon">
         <h2>WHOIS Lookup</h2>
     </div>
 
@@ -157,7 +157,7 @@ async function whoisLookup() {
         <!-- DNS Lookup -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/dns.png" alt="Icona DNS Lookup" class="box-title-icon">
+        <img src="/img/dns.png" class="box-title-icon">
         <h2>DNS Lookup</h2>
     </div>
 
@@ -268,7 +268,7 @@ async function dnsLookup() {
        <!-- IP Info -->
 <div class="widget-large tools-box" id="iplookup">
     <div class="box-title-row">
-        <img src="/img/ip.png" alt="Icona IP Information" class="box-title-icon">
+        <img src="/img/ip.png" class="box-title-icon">
         <h2>IP Information</h2>
     </div>
 
@@ -361,7 +361,7 @@ ${JSON.stringify(data, null, 2)}
         <!-- Password Generator -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
-                <img src="/img/password.png" alt="Icona Password Generator" class="box-title-icon">
+                <img src="/img/password.png" class="box-title-icon">
                 <h2>Password Generator</h2>
             </div>
             <iframe src="/tools/password.html" width="100%" height="180" frameborder="0"></iframe>
@@ -370,7 +370,7 @@ ${JSON.stringify(data, null, 2)}
         <!-- Hash Generator -->
 <div class="widget-large tools-box" id="hashanalyzer">
     <div class="box-title-row">
-        <img src="/img/hash.png" alt="Icona Hash Generator" class="box-title-icon">
+        <img src="/img/hash.png" class="box-title-icon">
         <h2>Hash Generator</h2>
     </div>
 
@@ -433,7 +433,7 @@ async function generateHash() {
 /* Implementazione MD5 in JS (versione compatta e stabile) */
 function md5(str) {
     function L(k, d) { return (k << d) | (k >>> (32 - d)); }
-    function K(G, k) { var I, d, F, H, x; F = (G & 2147483648); H = (k & 2147483648); I = (G & 1073741824); d = (k & 1073741824); x = (G & 1073741823) + (k & 1073741823); if (I & d) return (x ^ 214748[...]
+    function K(G, k) { var I, d, F, H, x; F = (G & 2147483648); H = (k & 2147483648); I = (G & 1073741824); d = (k & 1073741824); x = (G & 1073741823) + (k & 1073741823); if (I & d) return (x ^ 2147483648 ^ F ^ H); if (I | d) { if (x & 1073741824) return (x ^ 3221225472 ^ F ^ H); else return (x ^ 1073741824 ^ F ^ H); } else return (x ^ F ^ H); }
     function r(d, F, k) { return (d & F) | ((~d) & k); }
     function q(d, F, k) { return (d & k) | (F & (~k)); }
     function p(d, F, k) { return (d ^ F ^ k); }
@@ -535,7 +535,7 @@ function md5(str) {
         <!-- Base64 -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
-                <img src="/img/base64.png" alt="Icona Base64 Encode/Decode" class="box-title-icon">
+                <img src="/img/base64.png" class="box-title-icon">
                 <h2>Base64 Encode / Decode</h2>
             </div>
             <iframe src="/tools/base64.html" width="100%" height="180" frameborder="0"></iframe>
@@ -544,7 +544,7 @@ function md5(str) {
         <!-- Port Scanner -->
 <div class="widget-large tools-box" id="portscanner">
     <div class="box-title-row">
-        <img src="/img/port.png" alt="Icona Port Scanner" class="box-title-icon">
+        <img src="/img/port.png" class="box-title-icon">
         <h2>Port Scanner</h2>
     </div>
 
@@ -631,7 +631,7 @@ async function startScan() {
        <!-- HTTP Headers -->
 <div class="widget-large tools-box" id="headerinspector">
     <div class="box-title-row">
-        <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
+        <img src="/img/http.png" class="box-title-icon">
         <h2>HTTP Headers</h2>
     </div>
 
@@ -686,7 +686,7 @@ ${JSON.stringify(data.headers, null, 2)}
         <!-- URL Expander -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/url.png" alt="Icona URL Expander" class="box-title-icon">
+        <img src="/img/url.png" class="box-title-icon">
         <h2>URL Expander</h2>
     </div>
 
@@ -748,7 +748,7 @@ ${JSON.stringify(data, null, 2)}
        <!-- QR Code Generator -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/qr.png" alt="Icona QR Code Generator" class="box-title-icon">
+        <img src="/img/qr.png" class="box-title-icon">
         <h2>QR Code Generator</h2>
     </div>
 
@@ -787,7 +787,7 @@ async function generateQR() {
 
         output.innerHTML = `
             <h3 style="color:#00eaff;">QR Code Generato</h3>
-            <img src="${data.image}" alt="QR Code generato" style="width:200px; height:200px; border:1px solid #00eaff;">
+            <img src="${data.image}" style="width:200px; height:200px; border:1px solid #00eaff;">
             <p style="margin-top:10px; color:#0ff;">${data.input}</p>
         `;
     } catch (e) {
@@ -799,7 +799,7 @@ async function generateQR() {
        <!-- JSON Formatter -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/json.png" alt="Icona JSON Formatter" class="box-title-icon">
+        <img src="/img/json.png" class="box-title-icon">
         <h2>JSON Formatter</h2>
     </div>
 
@@ -846,7 +846,7 @@ function formatJSON() {
        <!-- Regex Tester -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/regex.png" alt="Icona Regex Tester" class="box-title-icon">
+        <img src="/img/regex.png" class="box-title-icon">
         <h2>Regex Tester</h2>
     </div>
 
@@ -910,7 +910,7 @@ function testRegex() {
        <!-- UUID Generator -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/uuid.png" alt="Icona UUID Generator" class="box-title-icon">
+        <img src="/img/uuid.png" class="box-title-icon">
         <h2>UUID Generator</h2>
     </div>
 
@@ -934,7 +934,7 @@ function genUUID() {
        <!-- Lorem Ipsum Generator -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/lorem.png" alt="Icona Lorem Ipsum Generator" class="box-title-icon">
+        <img src="/img/lorem.png" class="box-title-icon">
         <h2>Lorem Ipsum Generator</h2>
     </div>
 
@@ -963,7 +963,7 @@ nisi ut aliquip ex ea commodo consequat.`;
        <!-- Timestamp Converter -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/timestamp.png" alt="Icona Timestamp Converter" class="box-title-icon">
+        <img src="/img/timestamp.png" class="box-title-icon">
         <h2>Timestamp Converter</h2>
     </div>
 
@@ -1000,52 +1000,138 @@ function convertTimestamp() {
         return;
     }
 
-    const timestamp = parseInt(input);
-    const date = new Date(timestamp * 1000);
+    const date = new Date(parseInt(input) * 1000);
 
-    output.innerText = date.toLocaleString("it-IT");
+    output.innerText =
+        "Data locale: " + date.toLocaleString() + "\n" +
+        "ISO: " + date.toISOString() + "\n" +
+        "UTC: " + date.toUTCString();
 }
 
 function convertToTimestamp() {
     const input = document.getElementById("tsInput").value.trim();
     const output = document.getElementById("tsOutput");
 
-    try {
-        const date = new Date(input);
-        const timestamp = Math.floor(date.getTime() / 1000);
+    const date = new Date(input);
 
-        output.innerText = timestamp;
-    } catch (e) {
-        output.innerText = "Data non valida.";
+    if (date.toString() === "Invalid Date") {
+        output.innerText = "Inserisci una data valida (es: 2026-06-09 12:30).";
+        return;
     }
+
+    const ts = Math.floor(date.getTime() / 1000);
+
+    output.innerText =
+        "Timestamp UNIX: " + ts + "\n" +
+        "ISO: " + date.toISOString();
 }
 
 function nowTimestamp() {
     const output = document.getElementById("tsOutput");
     const now = Math.floor(Date.now() / 1000);
 
-    output.innerText = now;
+    output.innerText =
+        "Timestamp attuale: " + now + "\n" +
+        "ISO: " + new Date().toISOString();
+}
+</script>
+
+       <!-- Text Diff -->
+<div class="widget-large tools-box">
+    <div class="box-title-row">
+        <img src="/img/diff.png" class="box-title-icon">
+        <h2>Text Diff</h2>
+    </div>
+
+    <textarea id="diffA" placeholder="Testo A"
+        style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+
+    <textarea id="diffB" placeholder="Testo B"
+        style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+
+    <button onclick="runDiffLocal()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Confronta
+    </button>
+
+    <div id="diffResult" style="
+        background:#000; color:#0ff; padding:15px; margin-top:15px;
+        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+        white-space:pre-wrap;"></div>
+</div>
+
+<script>
+function runDiffLocal() {
+    const a = document.getElementById("diffA").value.split("\n");
+    const b = document.getElementById("diffB").value.split("\n");
+    const output = document.getElementById("diffResult");
+
+    let out = "";
+
+    for (let i = 0; i < Math.max(a.length, b.length); i++) {
+        if (a[i] !== b[i]) {
+            out += `- ${a[i] || ""}\n+ ${b[i] || ""}\n\n`;
+        }
+    }
+
+    output.innerText = out || "Nessuna differenza.";
 }
 </script>
 
     </section>
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar"></aside>
 
 </main>
 
 <!-- FOOTER -->
 <div id="footer"></div>
 
-<script>
-// Carica header
-fetch("/partials/header.html")
-  .then(r => r.text())
-  .then(html => document.getElementById("header").innerHTML = html);
+<!-- SCRIPT -->
+<script src="/js/main.js"></script>
+<script src="/js/ui.js"></script>
+    <!-- BACK TO TOP BUTTON -->
+<button id="backToTop">↑</button>
 
-// Carica footer
-fetch("/partials/footer.html")
-  .then(r => r.text())
-  .then(html => document.getElementById("footer").innerHTML = html);
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
+
+    backToTop.style.display = 'none';
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
 </script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
+
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    }
+  }
+});
+</script>
+</body>
 
 </body>
 </html>
