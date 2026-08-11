@@ -157,7 +157,7 @@ async function whoisLookup() {
         <!-- DNS Lookup -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/dns.png" class="box-title-icon">
+        <img src="/img/dns.png" alt="Icona DNS Lookup" class="box-title-icon">
         <h2>DNS Lookup</h2>
     </div>
 
@@ -265,10 +265,10 @@ async function dnsLookup() {
 }
 </script>
 
-       <!-- IP Info -->
+      <!-- IP Info -->
 <div class="widget-large tools-box" id="iplookup">
     <div class="box-title-row">
-        <img src="/img/ip.png" class="box-title-icon">
+        <img src="/img/ip.png" alt="Icona IP Information" class="box-title-icon">
         <h2>IP Information</h2>
     </div>
 
@@ -361,7 +361,7 @@ ${JSON.stringify(data, null, 2)}
         <!-- Password Generator -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
-                <img src="/img/password.png" class="box-title-icon">
+                <img src="/img/password.png" alt="Icona Password Generator" class="box-title-icon">
                 <h2>Password Generator</h2>
             </div>
             <iframe src="/tools/password.html" width="100%" height="180" frameborder="0"></iframe>
@@ -370,7 +370,7 @@ ${JSON.stringify(data, null, 2)}
         <!-- Hash Generator -->
 <div class="widget-large tools-box" id="hashanalyzer">
     <div class="box-title-row">
-        <img src="/img/hash.png" class="box-title-icon">
+        <img src="/img/hash.png" alt="Icona Hash Generator" class="box-title-icon">
         <h2>Hash Generator</h2>
     </div>
 
@@ -535,7 +535,7 @@ function md5(str) {
         <!-- Base64 -->
         <div class="widget-large tools-box">
             <div class="box-title-row">
-                <img src="/img/base64.png" class="box-title-icon">
+                <img src="/img/base64.png" alt="Icona Base64" class="box-title-icon">
                 <h2>Base64 Encode / Decode</h2>
             </div>
             <iframe src="/tools/base64.html" width="100%" height="180" frameborder="0"></iframe>
@@ -544,7 +544,7 @@ function md5(str) {
         <!-- Port Scanner -->
 <div class="widget-large tools-box" id="portscanner">
     <div class="box-title-row">
-        <img src="/img/port.png" class="box-title-icon">
+        <img src="/img/port.png" alt="Icona Port Scanner" class="box-title-icon">
         <h2>Port Scanner</h2>
     </div>
 
@@ -631,7 +631,7 @@ async function startScan() {
        <!-- HTTP Headers -->
 <div class="widget-large tools-box" id="headerinspector">
     <div class="box-title-row">
-        <img src="/img/http.png" class="box-title-icon">
+        <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
         <h2>HTTP Headers</h2>
     </div>
 
@@ -686,9 +686,9 @@ ${JSON.stringify(data.headers, null, 2)}
         <!-- URL Expander -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/url.png" class="box-title-icon">
+        <img src="/img/url.png" alt="Icona URL Expander" class="box-title-icon">
         <h2>URL Expander</h2>
-    </div>
+    </div
 
     <input id="expandInput" type="text" placeholder="es: https://bit.ly/3xyz"
            style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
@@ -748,7 +748,7 @@ ${JSON.stringify(data, null, 2)}
        <!-- QR Code Generator -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/qr.png" class="box-title-icon">
+        <img src="/img/qr.png" alt="Icona QR Code" class="box-title-icon">
         <h2>QR Code Generator</h2>
     </div>
 
@@ -787,7 +787,7 @@ async function generateQR() {
 
         output.innerHTML = `
             <h3 style="color:#00eaff;">QR Code Generato</h3>
-            <img src="${data.image}" style="width:200px; height:200px; border:1px solid #00eaff;">
+            <img src="${data.image}" alt="QR code generato per ${data.input}" style="width:200px; height:200px; border:1px solid #00eaff;">
             <p style="margin-top:10px; color:#0ff;">${data.input}</p>
         `;
     } catch (e) {
@@ -799,7 +799,7 @@ async function generateQR() {
        <!-- JSON Formatter -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/json.png" class="box-title-icon">
+        <img src="/img/json.png" alt="Icona JSON Formatter" class="box-title-icon">
         <h2>JSON Formatter</h2>
     </div>
 
@@ -846,7 +846,7 @@ function formatJSON() {
        <!-- Regex Tester -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/regex.png" class="box-title-icon">
+        <img src="/img/regex.png" alt="Icona Regex Tester" class="box-title-icon">
         <h2>Regex Tester</h2>
     </div>
 
@@ -907,10 +907,10 @@ function testRegex() {
 }
 </script>
 
-       <!-- UUID Generator -->
+      <!-- UUID Generator -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/uuid.png" class="box-title-icon">
+        <img src="/img/uuid.png" alt="Icona UUID Generator" class="box-title-icon">
         <h2>UUID Generator</h2>
     </div>
 
@@ -934,7 +934,7 @@ function genUUID() {
        <!-- Lorem Ipsum Generator -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/lorem.png" class="box-title-icon">
+        <img src="/img/lorem.png" alt="Icona Lorem Ipsum" class="box-title-icon">
         <h2>Lorem Ipsum Generator</h2>
     </div>
 
@@ -963,10 +963,9 @@ nisi ut aliquip ex ea commodo consequat.`;
        <!-- Timestamp Converter -->
 <div class="widget-large tools-box">
     <div class="box-title-row">
-        <img src="/img/timestamp.png" class="box-title-icon">
+        <img src="/img/timestamp.png" alt="Icona Timestamp Converter" class="box-title-icon">
         <h2>Timestamp Converter</h2>
     </div>
-
     <input id="tsInput" type="text" placeholder="Inserisci timestamp UNIX (es: 1717920000)"
            style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
