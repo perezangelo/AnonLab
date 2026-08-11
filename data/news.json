@@ -1,5 +1,30 @@
 [
   {
+    "title": "August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero-Day",
+    "link": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Microsoft-Security-leaders.jpg"
+  },
+  {
+    "title": "Sandworm-Linked UAC-0145 Uses Fake Job Interviews to Push VPN That Can Run Commands",
+    "link": "https://thehackernews.com/2026/08/sandworm-linked-uac-0145-uses-fake-job.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP9vK0AfjfbpQDa7i5il113N22qO5N-mxuOw7qoNVnvUOnQIYRjhuKA8rxdRhaZ13t0r5jZtsj1bjQQatdbdxi3L1Fso99wsDJIAKkw6NVklb6S2PBfipUtUm6qNdGofjKrmSAHUc0P4qgPRK2tDoGftkwyD17KQHQm6cYP80rT4dUH-tg0rnd5SSfQBJl/s1600/interview.jpg"
+  },
+  {
+    "title": "Delta probes Wi-Fi deauth attack on flight carrying DEF CON attendees",
+    "link": "https://www.bleepingcomputer.com/news/security/delta-probes-wi-fi-deauth-attack-on-flight-carrying-def-con-attendees/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/11/DeltaAirLine.png"
+  },
+  {
+    "title": "Microsoft releases Windows 10 KB5120249 extended security update",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-10-kb5120249-cumulative-update-released-with-fixes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/09/10/windows-10-gradient.jpg"
+  },
+  {
+    "title": "Microsoft August 2026 Patch Tuesday fixes 400 flaws, 3 zero-days",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/10/08/patch_tuesday_microsoft.jpg"
+  },
+  {
     "title": "Windows 11 KB5121003 & KB5120240 cumulative updates released",
     "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5121003-and-kb5120240-cumulative-updates-released/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows11.jpg"
@@ -123,30 +148,5 @@
     "title": "Malicious MCP Servers Can Split Instructions to Make AI Coding Agents Exfiltrate Secrets",
     "link": "https://thehackernews.com/2026/08/malicious-mcp-servers-can-split.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2hJoWr0m-Mx1rwaqZpbsdsQa5iSVY8J_jAnt0zKgBUlynOrS-NgEcINm3asfWZR-Ypx9y1iw28BOVud8sfaOQbiq4lmrvSnaZHUBlrkmkH9KXSPy4AXQkklS-AxG83dzpV8sSMj_uUDyVvZTgKs68EpYd18qHJTWF8s2NRaQIF80mh0e7mok6y0SqFi4/s1600/mcp-agent.jpg"
-  },
-  {
-    "title": "Hacker Conversations: Marcus Hutchins and the Journey From the Gray Zone to Redemption",
-    "link": "https://www.securityweek.com/hacker-conversations-marcus-hutchins/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Hacker-Conversations-Marcus-Hutchins.jpeg"
-  },
-  {
-    "title": "US and South Korea warn of Gunra ransomware targeting govt agencies",
-    "link": "https://www.bleepingcomputer.com/news/security/us-warns-of-gunra-ransomware-attacks-against-government-critical-infrastructure/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/11/Hacker.jpg"
-  },
-  {
-    "title": "OpenAI Unveils New Cybersecurity Model GPT-5.6-Cyber",
-    "link": "https://www.securityweek.com/openai-unveils-new-cybersecurity-model-gpt-5-6-cyber/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/OpenAI.jpeg"
-  },
-  {
-    "title": "Gunra Ransomware Exploits Fortinet and Schneider Electric Flaws to Breach Networks",
-    "link": "https://thehackernews.com/2026/08/gunra-ransomware-exploits-fortinet-and.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3nDJhjEnxo7k9DyrL4evBwNBVgGuv1CIsdfm0F5ed4HANv9HprVu790o5CVg8xQqft_tFRqLTrmQTrmkmZVTzEUZk08exDnnQjjnPLd4uhuicurtZbhpo-cMrv-yR_qIl58aJHvaPEP0aFgxpbnXYWKkk74qSytUvhk8LGSbewWumopWiQ6GECxsZ-1ff/s1600/ransomware-gunra.jpg"
-  },
-  {
-    "title": "Hackers Breach Polish Power Plant Controls via Private Cellular Network and Shut Turbine",
-    "link": "https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS_4KcVdL2QogjCtjg4yqVFuDNgQ9a8SYCzjsxUKME896DBso0Zwpvb8gH9T5gMPOqM2LU-A-7IyKOqKpKiXgLWAdiABf4RrVvAq9nNpDDC2TNppKWt9RKVXmNr2-Z9Y1kIBNVi8fETA6Aj6K2s_gU0Hmc8CKDi1q1wbqD9G9uUP5cPpuwk5h88mfD9I0/s1600/power-plant.jpg"
   }
 ]
