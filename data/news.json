@@ -1,8 +1,23 @@
 [
   {
+    "title": "Windows 11 KB5121003 & KB5120240 cumulative updates released",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5121003-and-kb5120240-cumulative-updates-released/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows11.jpg"
+  },
+  {
     "title": "Adobe Urges Immediate Patching of Critical ColdFusion, Campaign Classic Flaws",
     "link": "https://www.securityweek.com/adobe-urges-immediate-patching-of-critical-coldfusion-campaign-classic-flaws/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Adobe.jpg"
+  },
+  {
+    "title": "Researchers Disclose AI-Assisted SharePoint Exploit Chain Reaching Unauthenticated RCE",
+    "link": "https://thehackernews.com/2026/08/researchers-disclose-ai-assisted.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbDSDTAbeeAZ8pykGFRAGcCDs_3LZBuD8tYUJfh0jG35r_o84zM_bNo7q3TWcoEMPmZqvhzucujEF72b2c2HnzfDjowsj4Iw4psQEwcgADR_rVMCXVw18arcpSB0WLblkZeypa-bgJPsD0qwrqBUk2umKezFZTtuDpbi_kQlsGUSiveb2suBMRyc3oZhQ/s1600/admin.jpg"
+  },
+  {
+    "title": "DeadLock Ransomware Uses Polygon Smart Contracts to Make Extortion Infra Harder to Disrupt",
+    "link": "https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHe7Kt8X_4eEC2ICocbCp-eg1Vs7xknMUYEnZzepw5j6mg7v7C7DmPvzf4S-Z4wGhofTJco3eW95xPm3x7nDEzdfF9dpJAEriyIAGsXqNcLT02br6Em30kPnD5vYp4CrHHAR8TvvNr6glr8mIeRwhPANZqTSG7w_tR1-8QUNgYWg4AXgVPrmob7CFzwLmA/s1600/deadlock.jpg"
   },
   {
     "title": "Wesco confirms security incident after ExfilSquad claims data theft",
@@ -70,6 +85,21 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/01/funding-investment.jpeg"
   },
   {
+    "title": "Johnson Controls C-CURE 9000 and Victor application server (Update A)",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01",
+    "image": ""
+  },
+  {
+    "title": "Mira Hormone Monitor, Mira Android App",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-223-01",
+    "image": ""
+  },
+  {
+    "title": "Pulsetto Vagus Nerve Stimulator",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-223-02",
+    "image": ""
+  },
+  {
     "title": "Researchers Built a Fake Crypto Startup and Hired Three Suspected North Korean IT Workers",
     "link": "https://thehackernews.com/2026/08/researchers-built-fake-crypto-startup.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIGgelUshBcG56Nc5uWqBbhQwtUxWtNgSIRTCiJXZoJtkuTWeXEV0KiWRje-UhGGnrvf6wNOmmBGQ7yAxKNigAuJE00RicY4ris0k02Dd_1ch7_RcSM2aJtGvgf4miSazvFMNEqTmVDY3nlDT1zPwg5vkafqzMwbkFRZ1kO4xU2mzZgfxAEUTM0zObjGE/s1600/nk.jpg"
@@ -118,35 +148,5 @@
     "title": "Hackers Breach Polish Power Plant Controls via Private Cellular Network and Shut Turbine",
     "link": "https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS_4KcVdL2QogjCtjg4yqVFuDNgQ9a8SYCzjsxUKME896DBso0Zwpvb8gH9T5gMPOqM2LU-A-7IyKOqKpKiXgLWAdiABf4RrVvAq9nNpDDC2TNppKWt9RKVXmNr2-Z9Y1kIBNVi8fETA6Aj6K2s_gU0Hmc8CKDi1q1wbqD9G9uUP5cPpuwk5h88mfD9I0/s1600/power-plant.jpg"
-  },
-  {
-    "title": "Mozilla Issues New Firefox GPG Key Following Exposure",
-    "link": "https://www.securityweek.com/mozilla-issues-new-firefox-gpg-key-following-exposure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Firefox.jpeg"
-  },
-  {
-    "title": "BdThemes Supply Chain Attack Poisons JSON to Create Rogue WordPress Admins",
-    "link": "https://thehackernews.com/2026/08/bdthemes-supply-chain-attack-poisons.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh96gU64z_xM5LiLI39IXPndJ1felnUkfQmWxQ2sGfE9r_yYK6AKPLV3x6uVWeZxZoEsJwy0h7OUHILX1sAbwc6MYHpIeeTvCVeH52TnCInqqjjRPW4-Sx7gPPq4abN7ltCnClrjRhDDqyON8UBxcKFjoyubm7CeEgaZos3j4OCLJdRozfEOrDX1rPsnSoF/s1600/wordpress.jpg"
-  },
-  {
-    "title": "Hackers breached a small Polish energy plant via private APN last year",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-breached-a-small-polish-energy-plant-via-private-apn-last-year/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/10/factory.jpg"
-  },
-  {
-    "title": "'GhostJacking' Exposes Identity Governance Gaps in AI Agents",
-    "link": "https://www.darkreading.com/cyber-risk/ghostjacking-identity-governance-gaps-ai-agents",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt7efbf6a210292d1d/6a7a43503413ca658e4c0cb9/ghosts-MediaProduction-Getty-1437542277.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Multistate Water System Attacks Widen, Iran Suspected",
-    "link": "https://www.darkreading.com/ics-ot-security/multistate-water-system-attacks-widen-iran-suspected",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltfab47f61ab6fce61/6a7a20f413d9fd35582fc0f9/Engineer_checks_water_quality-DSCimage-GettyImages-1369464717.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "BdThemes plugins supply-chain hack creates rogue WordPress admins",
-    "link": "https://www.bleepingcomputer.com/news/security/bdthemes-plugins-supply-chain-hack-creates-rogue-wordpress-admins/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/18/WordPress.jpg"
   }
 ]
