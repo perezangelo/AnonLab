@@ -1,5 +1,10 @@
 [
   {
+    "title": "Cisco warns of ASA and FTD VPN flaw exploited to crash devices",
+    "link": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/04/Cisco_headpic.jpg"
+  },
+  {
     "title": "August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero-Day",
     "link": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Microsoft-Security-leaders.jpg"
@@ -115,13 +120,18 @@
     "image": ""
   },
   {
-    "title": "Mira Hormone Monitor, Mira Android App",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-223-01",
+    "title": "Pulsetto Vagus Nerve Stimulator",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-223-02",
     "image": ""
   },
   {
-    "title": "Pulsetto Vagus Nerve Stimulator",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-223-02",
+    "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
+    "title": "Mira Hormone Monitor, Mira Android App",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-223-01",
     "image": ""
   },
   {
@@ -135,18 +145,8 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Chrome.jpeg"
   },
   {
-    "title": "Cisco warns of high-severity ClamAV flaws with public exploits",
-    "link": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-high-severity-clamav-flaws-with-public-exploits/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/11/Cisco.jpg"
-  },
-  {
     "title": "Researchers Turn USB Auto-Install Into a Full SYSTEM Takeover on Windows 11",
     "link": "https://thehackernews.com/2026/08/researchers-turn-usb-auto-install-into.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIoEoCsvghUx_eKGXl-WAFq7pyoOLwg_Sk9a5Ne8vX1Cb7l_DOib3wtO_5NwoogbHqFvU_VWJZd3ceL5ftpWOX5qNx5HNJCmD4_RR7GaiExk0ph2F3sp5eKPthiuTcmnDlJQyvUdkTMfxBUsIlXp_I9-qkSi4zxwVnLPb9bG-T3zFC7oFCI1Mps4VJf1s/s1600/pnp.gif"
-  },
-  {
-    "title": "Malicious MCP Servers Can Split Instructions to Make AI Coding Agents Exfiltrate Secrets",
-    "link": "https://thehackernews.com/2026/08/malicious-mcp-servers-can-split.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2hJoWr0m-Mx1rwaqZpbsdsQa5iSVY8J_jAnt0zKgBUlynOrS-NgEcINm3asfWZR-Ypx9y1iw28BOVud8sfaOQbiq4lmrvSnaZHUBlrkmkH9KXSPy4AXQkklS-AxG83dzpV8sSMj_uUDyVvZTgKs68EpYd18qHJTWF8s2NRaQIF80mh0e7mok6y0SqFi4/s1600/mcp-agent.jpg"
   }
 ]
