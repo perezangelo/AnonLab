@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-55074",
+    "summary": "Ansible FreeBSD Jail Connection Plugin: Jail escape via symlink following in put_file (host-side root mv)",
+    "severity": "HIGH",
+    "published": "2026-08-12T23:21:06Z",
+    "ghsa": "GHSA-cxgv-hp74-jj7r"
+  },
+  {
     "id": "GHSA-pfvm-w89x-94jw",
     "summary": "SIPSorcery: Malformed UDP datagram crashes TurnServer receive loop with no restart, disabling TURN UDP relay for all clients (DoS)",
     "severity": "HIGH",
@@ -61,12 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-12T15:16:53Z",
     "ghsa": "GHSA-3763-qp59-59vf"
-  },
-  {
-    "id": "CVE-2026-45694",
-    "summary": "LibreNMS: Reflected XSS via Proxmox instance/vmid GET parameters injected into document.title JavaScript assignment",
-    "severity": "MODERATE",
-    "published": "2026-08-12T15:16:22Z",
-    "ghsa": "GHSA-jmqm-f8q4-v7wx"
   }
 ]
