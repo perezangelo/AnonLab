@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <title>Privacy Policy — AnonLab</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- SEO -->
-    <meta name="description" content="Informativa sulla Privacy di AnonLab: nessuna raccolta dati personali, nessun tracciamento, nessun cookie di profilazione.">
+    <meta name="description" content="Privacy Policy completa di AnonLab: gestione dei dati, sicurezza, cookie, diritti dell’utente, GDPR, protezione delle informazioni e trasparenza digitale.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://anonlab.it/privacy.html">
+
     <!-- OpenGraph -->
     <meta property="og:title" content="Privacy Policy — AnonLab">
-    <meta property="og:description" content="Informativa sulla gestione dei dati e sulla privacy su AnonLab.">
+    <meta property="og:description" content="Informativa completa sulla privacy, sicurezza dei dati e gestione delle informazioni su AnonLab.">
     <meta property="og:url" content="https://anonlab.it/privacy.html">
     <meta property="og:type" content="website">
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
+
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/custom.css">
-    
-    <!-- Correzione: Stili CSS racchiusi nel tag <style> all'interno dell'head -->
+
+    <!-- Stile neon -->
     <style>
-        /* ============================ PAGINA PRIVACY — NEON STYLE ============================ */
         .main-column h1 {
             color: #00eaff !important;
             text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
@@ -65,42 +68,147 @@
         "@type": "WebPage",
         "name": "Privacy Policy",
         "url": "https://anonlab.it/privacy.html",
-        "description": "Informativa sulla gestione dei dati e sulla privacy su AnonLab."
+        "description": "Informativa completa sulla privacy, sicurezza dei dati e gestione delle informazioni su AnonLab.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "AnonLab",
+            "url": "https://anonlab.it"
+        }
     }
     </script>
+
+    <!-- IUBENDA COOKIE SOLUTION -->
+    <script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
+
 </head>
 <body>
-    <div id="header" aria-label="Intestazione del sito"></div>
-    <div id="ticker" aria-label="Ticker informazioni"></div>
-<!-- CARICAMENTO TICKER -->
+
+<div id="header"></div>
+<div id="ticker"></div>
+
 <script>
 fetch("/partials/ticker.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("ticker").innerHTML = html;
-
-      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
-      if (typeof initTicker === "function") {
-          initTicker();
-      }
+      if (typeof initTicker === "function") initTicker();
   });
 </script>
 
-<!-- SCRIPT TICKER -->
 <script src="/js/ticker.js"></script>
-    
-    <main class="page">
-        <section class="main-column">
-            <!-- Esempio di struttura per il contenuto della Privacy Policy -->
-            <h1>Privacy Policy</h1>
-            <div class="privacy-box">
-                <h2>1. Trattamento dei dati</h2>
-                <p>AnonLab non raccoglie dati personali, non effettua tracciamenti e non utilizza cookie di profilazione.</p>
-            </div>
-        </section>
-    </main>
-    
-    <div id="footer" aria-label="Piè di pagina"></div>
-    <script src="/js/ui.js"></script>
+
+<main class="page">
+<section class="main-column">
+
+    <h1>Privacy Policy</h1>
+
+    <!-- INTRODUZIONE -->
+    <div class="privacy-box">
+        <h2>Introduzione</h2>
+        <p>
+            La presente Privacy Policy descrive in modo chiaro e trasparente come AnonLab gestisce i dati degli utenti,
+            quali informazioni vengono trattate, quali misure di sicurezza vengono adottate e quali diritti sono garantiti
+            ai visitatori del sito. La protezione dei dati è una componente essenziale della nostra missione: offrire
+            contenuti tecnici di qualità nel massimo rispetto della privacy.
+        </p>
+        <p>
+            AnonLab non raccoglie dati personali identificativi, non utilizza cookie di profilazione e non effettua
+            tracciamenti invasivi. Tuttavia, alcune informazioni tecniche possono essere raccolte automaticamente per
+            garantire il corretto funzionamento del sito.
+        </p>
+    </div>
+
+    <!-- DATI RACCOLTI -->
+    <div class="privacy-box">
+        <h2>Tipologie di dati raccolti</h2>
+        <p>
+            Durante la navigazione su AnonLab possono essere raccolti automaticamente alcuni dati tecnici non identificativi,
+            necessari per garantire la sicurezza e il funzionamento del sito:
+        </p>
+        <ul>
+            <li>Indirizzo IP anonimizzato</li>
+            <li>Informazioni sul browser e sul dispositivo</li>
+            <li>Pagine visitate e tempi di caricamento</li>
+            <li>Errori tecnici e log di sistema</li>
+        </ul>
+        <p>
+            Questi dati non permettono l’identificazione dell’utente e vengono utilizzati esclusivamente per finalità tecniche.
+        </p>
+    </div>
+
+    <!-- COOKIE -->
+    <div class="privacy-box">
+        <h2>Cookie e strumenti di tracciamento</h2>
+        <p>
+            AnonLab utilizza esclusivamente cookie tecnici necessari al funzionamento del sito. Non vengono utilizzati cookie
+            di profilazione, marketing o tracciamento comportamentale.
+        </p>
+        <p>
+            Il banner Iubenda presente sul sito permette di gestire il consenso in modo conforme al GDPR e blocca preventivamente
+            eventuali script di terze parti fino all’accettazione dell’utente.
+        </p>
+        <p>
+            Per maggiori informazioni consulta la nostra <a href="/cookies.html">Cookie Policy</a>.
+        </p>
+    </div>
+
+    <!-- FINALITÀ -->
+    <div class="privacy-box">
+        <h2>Finalità del trattamento</h2>
+        <p>I dati tecnici raccolti vengono utilizzati esclusivamente per:</p>
+        <ul>
+            <li>Garantire il corretto funzionamento del sito</li>
+            <li>Migliorare le performance e la sicurezza</li>
+            <li>Analizzare eventuali errori tecnici</li>
+            <li>Proteggere il sito da attività malevole</li>
+        </ul>
+    </div>
+
+    <!-- SICUREZZA -->
+    <div class="privacy-box">
+        <h2>Misure di sicurezza</h2>
+        <p>
+            AnonLab adotta misure tecniche e organizzative per proteggere i dati da accessi non autorizzati, alterazioni,
+            divulgazioni o distruzioni. Tra queste:
+        </p>
+        <ul>
+            <li>Connessione HTTPS con certificato SSL</li>
+            <li>Protezione da attacchi XSS e CSRF</li>
+            <li>Firewall applicativi e sistemi di monitoraggio</li>
+            <li>Backup periodici e ridondanza dei contenuti</li>
+        </ul>
+    </div>
+
+    <!-- DIRITTI -->
+    <div class="privacy-box">
+        <h2>Diritti dell’utente</h2>
+        <p>
+            Anche se AnonLab non raccoglie dati personali identificativi, l’utente ha comunque diritto a:
+        </p>
+        <ul>
+            <li>Richiedere informazioni sul trattamento dei dati tecnici</li>
+            <li>Richiedere la cancellazione di eventuali log associati alla sua sessione</li>
+            <li>Opporsi all’utilizzo di cookie non essenziali</li>
+            <li>Revocare il consenso tramite il banner Iubenda</li>
+        </ul>
+    </div>
+
+    <!-- CONTATTI -->
+    <div class="privacy-box">
+        <h2>Contatti</h2>
+        <p>
+            Per qualsiasi informazione relativa alla privacy puoi contattarci all’indirizzo:
+        </p>
+        <p><strong>Email:</strong> admin@anonlab.it</p>
+        <p><strong>Sede:</strong> Viale Ippodromo 44, Varese (VA), Italia</p>
+    </div>
+
+</section>
+</main>
+
+<div id="footer"></div>
+<script src="/js/ui.js"></script>
+
 </body>
 </html>
+
