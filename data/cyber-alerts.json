@@ -1,5 +1,33 @@
 [
   {
+    "id": "GHSA-pfvm-w89x-94jw",
+    "summary": "SIPSorcery: Malformed UDP datagram crashes TurnServer receive loop with no restart, disabling TURN UDP relay for all clients (DoS)",
+    "severity": "HIGH",
+    "published": "2026-08-12T19:31:48Z",
+    "ghsa": "GHSA-pfvm-w89x-94jw"
+  },
+  {
+    "id": "GHSA-jwjp-4649-v8jp",
+    "summary": "SIPSorcery vulnerable to Denial of Service via out-of-bounds read in SCTP SACK chunk parsing",
+    "severity": "HIGH",
+    "published": "2026-08-12T19:30:43Z",
+    "ghsa": "GHSA-jwjp-4649-v8jp"
+  },
+  {
+    "id": "CVE-2026-55071",
+    "summary": "MCP-for-Stata: Stata Command Injection via Unsanitized `package` in `ado_package_install`",
+    "severity": "HIGH",
+    "published": "2026-08-12T19:23:38Z",
+    "ghsa": "GHSA-49m4-vp58-wgc9"
+  },
+  {
+    "id": "CVE-2026-54917",
+    "summary": "SeaweedFS: Path traversal in the S3 and Iceberg REST gateways allows cross-bucket access",
+    "severity": "HIGH",
+    "published": "2026-08-12T19:19:54Z",
+    "ghsa": "GHSA-w62w-66v9-vvgv"
+  },
+  {
     "id": "CVE-2026-52776",
     "summary": "compliance-trestle has an URLSecurityValidator SSRF allowlist bypass via IPv4-mapped IPv6 and 0.0.0.0",
     "severity": "HIGH",
@@ -40,33 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-12T15:16:22Z",
     "ghsa": "GHSA-jmqm-f8q4-v7wx"
-  },
-  {
-    "id": "CVE-2026-35445",
-    "summary": "Winter: Authenticated backend users can bypass Users controller permission checks",
-    "severity": "HIGH",
-    "published": "2026-08-12T15:15:17Z",
-    "ghsa": "GHSA-j5jq-cr68-v2xx"
-  },
-  {
-    "id": "CVE-2026-32639",
-    "summary": "Winter: Broken access control in `Cms\\Controllers\\Index` allows cross-template actions and unauthorized asset uploads",
-    "severity": "MODERATE",
-    "published": "2026-08-12T15:14:47Z",
-    "ghsa": "GHSA-5c4f-9pq9-6c77"
-  },
-  {
-    "id": "CVE-2026-32593",
-    "summary": "Winter: SQL Injection in Backend Filter Widget numberrange Scope via numbersFromAjax",
-    "severity": "MODERATE",
-    "published": "2026-08-12T14:41:13Z",
-    "ghsa": "GHSA-m7jc-g4rc-jmvh"
-  },
-  {
-    "id": "CVE-2026-32258",
-    "summary": "Winter: Stored XSS through Editor Settings custom styles",
-    "severity": "HIGH",
-    "published": "2026-08-12T14:40:38Z",
-    "ghsa": "GHSA-vgp4-2fc4-qff2"
   }
 ]
