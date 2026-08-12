@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-62902",
-    "summary": "Microsoft Security Advisory CVE-2026-62902 – .NET Information Disclosure Vulnerability",
+    "id": "CVE-2026-52776",
+    "summary": "compliance-trestle has an URLSecurityValidator SSRF allowlist bypass via IPv4-mapped IPv6 and 0.0.0.0",
+    "severity": "HIGH",
+    "published": "2026-08-12T15:21:17Z",
+    "ghsa": "GHSA-h47f-gmjp-m7rr"
+  },
+  {
+    "id": "CVE-2026-48798",
+    "summary": "SSH.NET: ScpClient Recursive Download Allows Arbitrary File Write via Server-Controlled SCP Filenames",
+    "severity": "HIGH",
+    "published": "2026-08-12T15:19:10Z",
+    "ghsa": "GHSA-q939-rpr3-3284"
+  },
+  {
+    "id": "CVE-2026-48786",
+    "summary": "Fleet: Observer-class users can view team enroll secrets and credential-bearing configuration via target search endpoint",
     "severity": "MODERATE",
-    "published": "2026-08-11T19:55:48Z",
-    "ghsa": "GHSA-9mrh-pw7c-9mqm"
+    "published": "2026-08-12T15:18:13Z",
+    "ghsa": "GHSA-88p2-jj8w-j8qg"
   },
   {
-    "id": "CVE-2026-62871",
-    "summary": "Microsoft Security Advisory CVE-2026-62871 – .NET Elevation of Privilege Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-08-11T19:46:40Z",
-    "ghsa": "GHSA-vg44-h755-9hw7"
-  },
-  {
-    "id": "CVE-2026-62897",
-    "summary": "Microsoft Security Advisory CVE-2026-62897 – .NET Remote Code Execution Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-08-11T19:36:34Z",
-    "ghsa": "GHSA-fx4q-gjrx-2jw6"
-  },
-  {
-    "id": "CVE-2026-70354",
-    "summary": "Microsoft Security Advisory CVE-2026-70354 – .NET Core Remote Code Execution Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-08-11T19:24:47Z",
-    "ghsa": "GHSA-gg8c-3338-xw2f"
-  },
-  {
-    "id": "CVE-2026-62909",
-    "summary": "Microsoft Security Advisory CVE-2026-62909 – .NET Elevation of Privilege Vulnerability",
+    "id": "CVE-2026-47132",
+    "summary": "phpMyFAQ: SQL LIKE Wildcard Injection in Chat User Search Allows Authenticated User Enumeration",
     "severity": "MODERATE",
-    "published": "2026-08-11T19:04:21Z",
-    "ghsa": "GHSA-9mr8-pwpw-3j2w"
+    "published": "2026-08-12T15:17:54Z",
+    "ghsa": "GHSA-6pvm-2vjj-rx4w"
   },
   {
-    "id": "CVE-2026-62886",
-    "summary": "Microsoft Security Advisory CVE-2026-62886 – .NET Elevation of Privilege Vulnerability",
+    "id": "CVE-2026-46369",
+    "summary": "nimiq-blockchain: Validity store off by one error",
     "severity": "HIGH",
-    "published": "2026-08-11T18:58:08Z",
-    "ghsa": "GHSA-jqhp-238x-qhgf"
+    "published": "2026-08-12T15:16:53Z",
+    "ghsa": "GHSA-3763-qp59-59vf"
   },
   {
-    "id": "CVE-2026-62901",
-    "summary": "Microsoft Security Advisory CVE-2026-62901 – .NET Denial of Service Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-08-11T18:53:55Z",
-    "ghsa": "GHSA-m93f-wj8c-rp8p"
-  },
-  {
-    "id": "CVE-2026-62899",
-    "summary": "Microsoft Security Advisory CVE-2026-62899 – .NET Security Feature Bypass Vulnerability",
+    "id": "CVE-2026-45694",
+    "summary": "LibreNMS: Reflected XSS via Proxmox instance/vmid GET parameters injected into document.title JavaScript assignment",
     "severity": "MODERATE",
-    "published": "2026-08-11T18:40:35Z",
-    "ghsa": "GHSA-r6mh-95jw-g7qg"
+    "published": "2026-08-12T15:16:22Z",
+    "ghsa": "GHSA-jmqm-f8q4-v7wx"
   },
   {
-    "id": "CVE-2026-62898",
-    "summary": "Microsoft Security Advisory CVE-2026-62898 – .NET Information Disclosure Vulnerability",
+    "id": "CVE-2026-35445",
+    "summary": "Winter: Authenticated backend users can bypass Users controller permission checks",
     "severity": "HIGH",
-    "published": "2026-08-11T18:28:37Z",
-    "ghsa": "GHSA-c494-m2fq-59mx"
+    "published": "2026-08-12T15:15:17Z",
+    "ghsa": "GHSA-j5jq-cr68-v2xx"
   },
   {
-    "id": "CVE-2026-73080",
-    "summary": "SeaweedFS: Unauthenticated SSRF with response read-back via VolumeServer.FetchAndWriteNeedle",
-    "severity": "CRITICAL",
-    "published": "2026-08-11T15:58:23Z",
-    "ghsa": "GHSA-87fv-vqqr-m4jr"
+    "id": "CVE-2026-32639",
+    "summary": "Winter: Broken access control in `Cms\\Controllers\\Index` allows cross-template actions and unauthorized asset uploads",
+    "severity": "MODERATE",
+    "published": "2026-08-12T15:14:47Z",
+    "ghsa": "GHSA-5c4f-9pq9-6c77"
+  },
+  {
+    "id": "CVE-2026-32593",
+    "summary": "Winter: SQL Injection in Backend Filter Widget numberrange Scope via numbersFromAjax",
+    "severity": "MODERATE",
+    "published": "2026-08-12T14:41:13Z",
+    "ghsa": "GHSA-m7jc-g4rc-jmvh"
+  },
+  {
+    "id": "CVE-2026-32258",
+    "summary": "Winter: Stored XSS through Editor Settings custom styles",
+    "severity": "HIGH",
+    "published": "2026-08-12T14:40:38Z",
+    "ghsa": "GHSA-vgp4-2fc4-qff2"
   }
 ]
