@@ -1,5 +1,40 @@
 [
   {
+    "id": "GHSA-rm43-82j9-r4mj",
+    "summary": "atomic-agents-stack: Dashboard HTTP server path traversal allows arbitrary file read",
+    "severity": "HIGH",
+    "published": "2026-08-13T14:17:13Z",
+    "ghsa": "GHSA-rm43-82j9-r4mj"
+  },
+  {
+    "id": "CVE-2026-54249",
+    "summary": "Pydantic AI: Unvalidated UploadedFile references in UI adapters allow server-side file access using the application's credentials",
+    "severity": "MODERATE",
+    "published": "2026-08-13T14:16:26Z",
+    "ghsa": "GHSA-h7p7-w5gc-xj3w"
+  },
+  {
+    "id": "CVE-2026-54526",
+    "summary": "Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomplete fix for CVE-2026-31892)",
+    "severity": "HIGH",
+    "published": "2026-08-13T14:16:09Z",
+    "ghsa": "GHSA-48p8-g2fx-3wwm"
+  },
+  {
+    "id": "CVE-2026-55102",
+    "summary": "hashi-vault-js: Vault token and secret values exposed in thrown errors",
+    "severity": "MODERATE",
+    "published": "2026-08-13T14:14:32Z",
+    "ghsa": "GHSA-5pq8-3ffp-7w5m"
+  },
+  {
+    "id": "CVE-2026-55088",
+    "summary": "ep_etherpad-lite: Device-to-device author-token transfer endpoint is replayable, never expires, and exposes the cleartext author token",
+    "severity": "MODERATE",
+    "published": "2026-08-13T14:12:44Z",
+    "ghsa": "GHSA-vqfp-p66c-xrp9"
+  },
+  {
     "id": "CVE-2026-55086",
     "summary": "ep_etherpad-lite: Import/export uses Math.random() for temp file paths; predictable paths on shared /tmp enable symlink-based file overwrite",
     "severity": "MODERATE",
@@ -33,40 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-12T19:31:48Z",
     "ghsa": "GHSA-pfvm-w89x-94jw"
-  },
-  {
-    "id": "GHSA-jwjp-4649-v8jp",
-    "summary": "SIPSorcery vulnerable to Denial of Service via out-of-bounds read in SCTP SACK chunk parsing",
-    "severity": "HIGH",
-    "published": "2026-08-12T19:30:43Z",
-    "ghsa": "GHSA-jwjp-4649-v8jp"
-  },
-  {
-    "id": "CVE-2026-55071",
-    "summary": "MCP-for-Stata: Stata Command Injection via Unsanitized `package` in `ado_package_install`",
-    "severity": "HIGH",
-    "published": "2026-08-12T19:23:38Z",
-    "ghsa": "GHSA-49m4-vp58-wgc9"
-  },
-  {
-    "id": "CVE-2026-54917",
-    "summary": "SeaweedFS: Path traversal in the S3 and Iceberg REST gateways allows cross-bucket access",
-    "severity": "HIGH",
-    "published": "2026-08-12T19:19:54Z",
-    "ghsa": "GHSA-w62w-66v9-vvgv"
-  },
-  {
-    "id": "CVE-2026-52776",
-    "summary": "compliance-trestle has an URLSecurityValidator SSRF allowlist bypass via IPv4-mapped IPv6 and 0.0.0.0",
-    "severity": "HIGH",
-    "published": "2026-08-12T15:21:17Z",
-    "ghsa": "GHSA-h47f-gmjp-m7rr"
-  },
-  {
-    "id": "CVE-2026-48798",
-    "summary": "SSH.NET: ScpClient Recursive Download Allows Arbitrary File Write via Server-Controlled SCP Filenames",
-    "severity": "HIGH",
-    "published": "2026-08-12T15:19:10Z",
-    "ghsa": "GHSA-q939-rpr3-3284"
   }
 ]
