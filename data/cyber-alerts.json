@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-73654",
+    "summary": "Trigger.dev: Prototype pollution via run metadata operations → process-wide cross-tenant DoS",
+    "severity": "HIGH",
+    "published": "2026-08-13T20:54:11Z",
+    "ghsa": "GHSA-p28v-f755-9qrg"
+  },
+  {
+    "id": "CVE-2026-12243",
+    "summary": "nltk: Arbitrary File Read via Path Traversal in nltk.data.load() through Percent-Encoded Sequences",
+    "severity": "HIGH",
+    "published": "2026-08-13T20:45:05Z",
+    "ghsa": "GHSA-m42h-3232-vpv3"
+  },
+  {
     "id": "CVE-2026-73559",
     "summary": "vLLM: Completion prompt lists fan out into unbounded engine requests",
     "severity": "MODERATE",
@@ -54,19 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-13T13:46:07Z",
     "ghsa": "GHSA-fjgc-3mj7-8rg8"
-  },
-  {
-    "id": "CVE-2026-55072",
-    "summary": "Pimcore: ClassDefinition UID regex missing end anchor allows SQL injection via Block.php unquoted table name",
-    "severity": "HIGH",
-    "published": "2026-08-13T13:44:24Z",
-    "ghsa": "GHSA-2mhj-fhvg-v428"
-  },
-  {
-    "id": "CVE-2026-55074",
-    "summary": "Ansible FreeBSD Jail Connection Plugin: Jail escape via symlink following in put_file (host-side root mv)",
-    "severity": "HIGH",
-    "published": "2026-08-12T23:21:06Z",
-    "ghsa": "GHSA-cxgv-hp74-jj7r"
   }
 ]
