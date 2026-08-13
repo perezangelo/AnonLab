@@ -11,10 +11,10 @@ async function loadHomeNews() {
 
     // FEED MULTIPLI (via rss2json)
     const feeds = [
-    "https://angelonline.altervista.org/api/hackernews.php",
-    "https://angelonline.altervista.org/api/hackread.php",
-    "https://angelonline.altervista.org/api/darkreading.php"
-];
+        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.hackread.com/feed/",
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
+    ];
 
     // Link esterni personalizzati (in ordine)
     const externalLinks = [
@@ -150,4 +150,5 @@ const image =
 }
 
 document.addEventListener("DOMContentLoaded", loadHomeNews);
+
 
