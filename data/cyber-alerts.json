@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-55086",
+    "summary": "ep_etherpad-lite: Import/export uses Math.random() for temp file paths; predictable paths on shared /tmp enable symlink-based file overwrite",
+    "severity": "MODERATE",
+    "published": "2026-08-13T14:11:07Z",
+    "ghsa": "GHSA-2jwf-f4xq-f24h"
+  },
+  {
+    "id": "CVE-2026-55087",
+    "summary": "ep_etherpad-lite: Cache-poisoning Cross-site Scripting and Open Redirect via x-proxy-path Header",
+    "severity": "MODERATE",
+    "published": "2026-08-13T13:46:07Z",
+    "ghsa": "GHSA-fjgc-3mj7-8rg8"
+  },
+  {
+    "id": "CVE-2026-55072",
+    "summary": "Pimcore: ClassDefinition UID regex missing end anchor allows SQL injection via Block.php unquoted table name",
+    "severity": "HIGH",
+    "published": "2026-08-13T13:44:24Z",
+    "ghsa": "GHSA-2mhj-fhvg-v428"
+  },
+  {
     "id": "CVE-2026-55074",
     "summary": "Ansible FreeBSD Jail Connection Plugin: Jail escape via symlink following in put_file (host-side root mv)",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-12T15:19:10Z",
     "ghsa": "GHSA-q939-rpr3-3284"
-  },
-  {
-    "id": "CVE-2026-48786",
-    "summary": "Fleet: Observer-class users can view team enroll secrets and credential-bearing configuration via target search endpoint",
-    "severity": "MODERATE",
-    "published": "2026-08-12T15:18:13Z",
-    "ghsa": "GHSA-88p2-jj8w-j8qg"
-  },
-  {
-    "id": "CVE-2026-47132",
-    "summary": "phpMyFAQ: SQL LIKE Wildcard Injection in Chat User Search Allows Authenticated User Enumeration",
-    "severity": "MODERATE",
-    "published": "2026-08-12T15:17:54Z",
-    "ghsa": "GHSA-6pvm-2vjj-rx4w"
-  },
-  {
-    "id": "CVE-2026-46369",
-    "summary": "nimiq-blockchain: Validity store off by one error",
-    "severity": "HIGH",
-    "published": "2026-08-12T15:16:53Z",
-    "ghsa": "GHSA-3763-qp59-59vf"
   }
 ]
