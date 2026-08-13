@@ -12,7 +12,7 @@ async function loadHomeNews() {
     // FEED MULTIPLI (via rss2json)
     const feeds = [
         "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
-        "https://rss2json.io/api/v1?url=https://hackread.com/feed/",
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.hackread.com/feed/",
         "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
     ];
 
@@ -150,5 +150,6 @@ const image =
 }
 
 document.addEventListener("DOMContentLoaded", loadHomeNews);
+
 
 
