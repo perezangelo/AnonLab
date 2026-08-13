@@ -667,45 +667,46 @@ img, video {
   max-width: 100%;
   height: auto;
 }
-/* IMMAGINE EYES */
-/* HERO — centratura occhi nel cappuccio */
+/* ============================
+   HERO — OCCHI NEL CAPPUCCIO
+   ============================ */
+
 .hero-favicon {
   position: absolute;
   left: 50%;
-  top: 38%; /* centratura verticale fluida */
-  transform: translateX(-85%); /* centratura orizzontale perfetta */
-  width: 32%; /* proporzione ideale desktop */
+  top: 38%;
+  transform: translateX(-85%);
+  width: 32%;
   max-width: 260px;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
   z-index: 6;
-}
-.hero-favicon {
+
+  /* Maschera occhi */
   mask-image: radial-gradient(circle, black 50%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%);
 }
 
-/* MOBILE PICCOLO (correzione centratura) */
-@media (max-width: 480px) {
-  .hero-favicon {
-    top: 35%;
-    width: 42%; /* NON più 50% → era questo che li spingeva a destra */
-  }
-}
+/* ============================
+   MEDIA QUERY
+   ============================ */
 
 /* TABLET */
 @media (max-width: 992px) {
   .hero-big h1 { font-size: 3.2rem; }
-  .hero-favicon { width: 50%; } /* NON 65% → troppo largo */
+  .hero-favicon { width: 50%; }
 }
 
 /* MOBILE GRANDE */
 @media (max-width: 768px) {
   .hero-big h1 { font-size: 2.6rem; }
-  .hero-favicon { width: 55%; } /* NON 70% → spingeva a destra */
+  .hero-favicon { width: 55%; }
 }
 
-/* MOBILE PICCOLO (seconda fase) */
+/* MOBILE PICCOLO */
 @media (max-width: 480px) {
   .hero-big h1 { font-size: 2.2rem; }
-  .hero-favicon { width: 60%; } /* NON 80% → completamente fuori centro */
+  .hero-favicon {
+    top: 35%;
+    width: 60%;
+  }
 }
