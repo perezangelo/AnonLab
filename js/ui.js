@@ -395,6 +395,8 @@ function updateCounterUI(data) {
 
     const elTotal       = document.getElementById("visit-counter");
     const elPagesTotal  = document.getElementById("page-counter");
+
+    // ⭐ Elementi opzionali (non presenti nel DOM attuale)
     const elCurrentPage = document.getElementById("current-page-count");
     const elPagesList   = document.getElementById("pages-list");
 
@@ -426,7 +428,7 @@ function updateCounterUI(data) {
     if (elOnline) elOnline.textContent = Object.keys(data.online || {}).length;
 
     /* ============================================================
-       PAGINA CORRENTE
+       PAGINA CORRENTE (opzionale)
     ============================================================ */
     const currentPage = window.location.pathname.replace("/", "") || "index.html";
     const pageCount   = data.pages?.[currentPage] ?? 0;
@@ -434,7 +436,7 @@ function updateCounterUI(data) {
     if (elCurrentPage) elCurrentPage.textContent = pageCount;
 
     /* ============================================================
-       LISTA PAGINE VISITATE
+       LISTA PAGINE VISITATE (opzionale)
     ============================================================ */
     if (elPagesList) {
         elPagesList.innerHTML = "";
