@@ -11,10 +11,10 @@ async function loadHomeNews() {
 
     // FEED MULTIPLI (via rss2json)
     const feeds = [
-        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
-        "https://angelonline.altervista.org/api/hackread.php",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
-    ];
+    "https://angelonline.altervista.org/api/hackernews.php",
+    "https://angelonline.altervista.org/api/hackread.php",
+    "https://angelonline.altervista.org/api/darkreading.php"
+];
 
     // Link esterni personalizzati (in ordine)
     const externalLinks = [
