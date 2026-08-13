@@ -1,5 +1,15 @@
 [
   {
+    "title": "AI 'watermark removers' flood the web. Almost none can prove they work.",
+    "link": "https://www.bleepingcomputer.com/news/security/ai-watermark-removers-flood-the-web-almost-none-can-prove-they-work/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Claude_chats.jpg"
+  },
+  {
+    "title": "Critical VMware vCenter RCE flaw exploited for reverse SSH access",
+    "link": "https://www.bleepingcomputer.com/news/security/critical-vmware-vcenter-rce-flaw-exploited-for-reverse-ssh-access/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
+  },
+  {
     "title": "Trezor discloses data breach affecting nearly 14,000 customers",
     "link": "https://www.bleepingcomputer.com/news/security/trezor-discloses-data-breach-affecting-nearly-14-000-customers/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/13/Trezor.jpg"
@@ -28,6 +38,56 @@
     "title": "WordPress 7.0.4 Patches Remote Code Execution Vulnerability",
     "link": "https://www.securityweek.com/wordpress-7-0-4-patches-remote-code-execution-vulnerability/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+  },
+  {
+    "title": "Siemens Parasolid",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-10",
+    "image": ""
+  },
+  {
+    "title": "Siemens License Server (SLS)",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-07",
+    "image": ""
+  },
+  {
+    "title": "Siemens Desigo DXR and PXC Controllers",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-08",
+    "image": ""
+  },
+  {
+    "title": "Johnson Controls Inc. Airwall",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-03",
+    "image": ""
+  },
+  {
+    "title": "Johnson Controls Metasys",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-14",
+    "image": ""
+  },
+  {
+    "title": "Siemens Siveillance Video",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-09",
+    "image": ""
+  },
+  {
+    "title": "Flow Neuroscience FL-100",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-225-01",
+    "image": ""
+  },
+  {
+    "title": "Siemens LOGO! Soft Comfort",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-13",
+    "image": ""
+  },
+  {
+    "title": "ANDRITZ HIPASE-250 and 250 SCALA",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-05",
+    "image": ""
+  },
+  {
+    "title": "Siemens Solid Edge",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-12",
+    "image": ""
   },
   {
     "title": "WhatsApp rolls out new feature that flags potential scam messages",
@@ -88,65 +148,5 @@
     "title": "Long-running Data Theft Campaign Targeting Salesforce, ServiceNow",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/long-running-data-theft-campaign-salesforce-servicenow",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbcd2c419f66a3c63/6a3ae54669022cd7ac4f9ae3/datatheft-mikkelwilliam-Getty-2152310845.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hackers exploit critical Adobe Commerce flaw to hijack customer accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-adobe-commerce-flaw-to-hijack-customer-accounts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/25/Magento.jpg"
-  },
-  {
-    "title": "Hundreds of fake Chrome VPN extensions route traffic through a proxy",
-    "link": "https://www.bleepingcomputer.com/news/security/hundreds-of-fake-chrome-vpn-extensions-route-traffic-through-a-proxy/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/13/Google_Chrome.jpg"
-  },
-  {
-    "title": "Lazarus Exploits Windows Zero-Day to Gain SYSTEM Access and Deploy Backdoor",
-    "link": "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1jrzxrBozKDsDhAGM8SBKcqbTE4M0zWSJqfp709iguQU21GwUzshBdYSvKkicSkfQD1bNsYhROcsx5p5vAT3jyM90H6w6p8imCjtLbHySKnpGKlsQqfSS-BhcdHNuwJKFPZfBiVkh49xDvJbRI-rvfBKePL6CeHYIWOpwvGG0T-ha3x__xznmdsYybs9v/s1600/windows-shell.jpg"
-  },
-  {
-    "title": "Walmart Takes a 'Trusted Agent' Approach to Purple Teaming",
-    "link": "https://www.darkreading.com/cybersecurity-operations/walmart-trusted-agent-approach-purple-teaming",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbb5edf0a88cbf30a/65fca59bf356d6040a45b27b/collab-Aleksei_Gorodenkov-alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Plug and Pwn attack uses fake USB devices for Windows SYSTEM access",
-    "link": "https://www.bleepingcomputer.com/news/security/plug-and-pwn-attack-uses-fake-usb-devices-for-windows-system-access/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2021/09/01/usb-plug-and-play.jpg"
-  },
-  {
-    "title": "Lazarus hackers exploited Windows zero-day to target defense firms",
-    "link": "https://www.bleepingcomputer.com/news/security/lazarus-hackers-exploited-windows-zero-day-to-target-defense-firms/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/08/31/Lazarus-1.jpg"
-  },
-  {
-    "title": "SharePoint Vulnerability Exploited Shortly After PoC Release",
-    "link": "https://www.securityweek.com/sharepoint-vulnerability-exploited-shortly-after-poc-release/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/SharePoint.jpeg"
-  },
-  {
-    "title": "737 Chrome VPN Extensions Caught Routing Traffic Through Proxies. Check If You Have One",
-    "link": "https://thehackernews.com/2026/08/737-chrome-vpn-extensions-caught.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI8aMtoRcWh4THmHEumFrk1X_t6xuq3Z6RsJwVKoyozs0nuRDIc7ffcIFNr5dFuUgTeeKZ0KLdeFoeHRRSFgqcTvK4VaO54Js2FADwBztN4Qlf0L8viPKGCY7lVEHF50K2xOaopCphCPL0ooDKna2E3S_4R4UzOsuh9m8dK4XQMo98_b6GjKqHRi_lm38i/s1600/chrome-plugins.jpg"
-  },
-  {
-    "title": "Ransomware Hits Colombian Justice Ministry Days Before Presidential Transition",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/ransomware-hits-colombian-justice-ministry-presidential-transition",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltba3b338ea83088a3/6a7b96d08c0da329167a21fa/colombia-flag-digital-muhammadtoqeer-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Mindgard Raises $30 Million to Protect AI Systems",
-    "link": "https://www.securityweek.com/mindgard-raises-30-million-to-protect-ai-systems/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-1.jpeg"
-  },
-  {
-    "title": "Walmart Leaders Transform Security Operations Without Going Bananas",
-    "link": "https://www.darkreading.com/cybersecurity-operations/walmart-leaders-transform-security-operations-without-going-bananas",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2a664b4c9f102c54/67041e74357c961dfaad7427/Natee_Jindakum-CISO-icons-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI, Anthropic, Google API Flaw Let Weaker AI Models Decode Stronger Models' Reasoning",
-    "link": "https://thehackernews.com/2026/08/openai-anthropic-google-api-flaw-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZP21lJn1EY_0JXWBul8gpBgRD_ryI4ACYqFiu6icbKCgIMyta9UqjQrtnzjTkO1Yi9tdzTaQw6X949lzMwtQPKUPPIxA5_EwFjJqjMDwBtFSc56vaCyybwJNcsjVZMfMW4KHQ_VVCjz3AVeovFEtsI8ENZTQmQuc9rDIF5yd0n9uciJmwqlWS_EKf5mo/s1600/ai-models.jpg"
   }
 ]
