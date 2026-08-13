@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-73559",
+    "summary": "vLLM: Completion prompt lists fan out into unbounded engine requests",
+    "severity": "MODERATE",
+    "published": "2026-08-13T18:40:06Z",
+    "ghsa": "GHSA-87x5-vmc3-756j"
+  },
+  {
     "id": "GHSA-rm43-82j9-r4mj",
     "summary": "atomic-agents-stack: Dashboard HTTP server path traversal allows arbitrary file read",
     "severity": "HIGH",
@@ -61,12 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-12T23:21:06Z",
     "ghsa": "GHSA-cxgv-hp74-jj7r"
-  },
-  {
-    "id": "GHSA-pfvm-w89x-94jw",
-    "summary": "SIPSorcery: Malformed UDP datagram crashes TurnServer receive loop with no restart, disabling TURN UDP relay for all clients (DoS)",
-    "severity": "HIGH",
-    "published": "2026-08-12T19:31:48Z",
-    "ghsa": "GHSA-pfvm-w89x-94jw"
   }
 ]
