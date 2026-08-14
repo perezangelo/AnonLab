@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-10740",
+    "summary": "s2n-quic has excessive memory allocation",
+    "severity": "MODERATE",
+    "published": "2026-08-14T21:44:19Z",
+    "ghsa": "GHSA-9q54-f358-3fqf"
+  },
+  {
+    "id": "CVE-2026-55156",
+    "summary": "Token Optimizer MCP: Unauthenticated Path Traversal in Dashboard Session Log API Endpoints",
+    "severity": "MODERATE",
+    "published": "2026-08-14T21:43:54Z",
+    "ghsa": "GHSA-76pc-mqxp-3rq5"
+  },
+  {
+    "id": "CVE-2026-55157",
+    "summary": "Token Optimizer MCP: OS command injection in smart_user via username in get-user-info",
+    "severity": "HIGH",
+    "published": "2026-08-14T21:42:06Z",
+    "ghsa": "GHSA-49mq-fc6q-3h46"
+  },
+  {
     "id": "CVE-2026-53708",
     "summary": "ContextForge: DNS TOCTOU race condition causes SSRF protection bypass (`/admin/gateways/test`)",
     "severity": "MODERATE",
@@ -47,26 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-14T19:23:38Z",
     "ghsa": "GHSA-4x9g-vw65-vvf9"
-  },
-  {
-    "id": "CVE-2026-35219",
-    "summary": "Budibase: SSRF in Automation Steps - Webhook, Zapier, N8N, Slack, Discord Bypass IP Blacklist",
-    "severity": "HIGH",
-    "published": "2026-08-14T19:18:47Z",
-    "ghsa": "GHSA-5fpj-28rv-84r7"
-  },
-  {
-    "id": "CVE-2026-35511",
-    "summary": "Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts",
-    "severity": "HIGH",
-    "published": "2026-08-14T15:36:15Z",
-    "ghsa": "GHSA-29rf-f4vv-pvq6"
-  },
-  {
-    "id": "CVE-2026-73654",
-    "summary": "Trigger.dev: Prototype pollution via run metadata operations → process-wide cross-tenant DoS",
-    "severity": "HIGH",
-    "published": "2026-08-13T20:54:11Z",
-    "ghsa": "GHSA-p28v-f755-9qrg"
   }
 ]
