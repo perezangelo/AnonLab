@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-35511",
+    "summary": "Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts",
+    "severity": "HIGH",
+    "published": "2026-08-14T15:36:15Z",
+    "ghsa": "GHSA-29rf-f4vv-pvq6"
+  },
+  {
     "id": "CVE-2026-73654",
     "summary": "Trigger.dev: Prototype pollution via run metadata operations → process-wide cross-tenant DoS",
     "severity": "HIGH",
@@ -61,12 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-13T14:11:07Z",
     "ghsa": "GHSA-2jwf-f4xq-f24h"
-  },
-  {
-    "id": "CVE-2026-55087",
-    "summary": "ep_etherpad-lite: Cache-poisoning Cross-site Scripting and Open Redirect via x-proxy-path Header",
-    "severity": "MODERATE",
-    "published": "2026-08-13T13:46:07Z",
-    "ghsa": "GHSA-fjgc-3mj7-8rg8"
   }
 ]
