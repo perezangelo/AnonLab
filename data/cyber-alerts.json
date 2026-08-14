@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-53708",
+    "summary": "ContextForge: DNS TOCTOU race condition causes SSRF protection bypass (`/admin/gateways/test`)",
+    "severity": "MODERATE",
+    "published": "2026-08-14T19:49:14Z",
+    "ghsa": "GHSA-9hgc-g3w5-67cm"
+  },
+  {
+    "id": "GHSA-8rw6-p7m8-63jp",
+    "summary": "SurrealDB: Array element-level (field.*) SELECT permissions leak denied elements to record users",
+    "severity": "MODERATE",
+    "published": "2026-08-14T19:40:48Z",
+    "ghsa": "GHSA-8rw6-p7m8-63jp"
+  },
+  {
     "id": "CVE-2026-55153",
     "summary": "mchange-commons-java contains elements susceptible to abuse via JNDI injection and \"deserialization gadgets\"",
     "severity": "HIGH",
@@ -54,19 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-13T20:54:11Z",
     "ghsa": "GHSA-p28v-f755-9qrg"
-  },
-  {
-    "id": "CVE-2026-12243",
-    "summary": "nltk: Arbitrary File Read via Path Traversal in nltk.data.load() through Percent-Encoded Sequences",
-    "severity": "HIGH",
-    "published": "2026-08-13T20:45:05Z",
-    "ghsa": "GHSA-m42h-3232-vpv3"
-  },
-  {
-    "id": "CVE-2026-73559",
-    "summary": "vLLM: Completion prompt lists fan out into unbounded engine requests",
-    "severity": "MODERATE",
-    "published": "2026-08-13T18:40:06Z",
-    "ghsa": "GHSA-87x5-vmc3-756j"
   }
 ]
