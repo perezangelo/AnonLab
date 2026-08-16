@@ -106,9 +106,9 @@
 
 <pre style="color:#00eaff; text-shadow:0 0 6px #00eaff; font-weight:bold; margin:30px 0;">
 ──────────────────────────────────────────────
-┌─────────────────────────────────────────────┐
-│  MODULE: KNOWLEDGE BASE                     │
-└─────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+│  MODULE: KNOWLEDGE BASE                    │
+└────────────────────────────────────────────┘
 ──────────────────────────────────────────────
 </pre>
 
@@ -287,11 +287,11 @@
   <form action="https://angelonline.altervista.org/backend/send-info.php" method="POST">
       <input type="checkbox" name="botcheck" style="display:none;">
 
-      <input type="email" name="email" placeholder="La tua email" required>
+      <input type="email" name="email" placeholder="La tua email" required autocomplete="email">
 
-      <input type="text" name="question" placeholder="Oggetto della richiesta" required>
+      <input type="text" name="question" placeholder="Oggetto della richiesta" required autocomplete="off">
 
-      <textarea name="details" placeholder="Scrivi la tua richiesta..." required></textarea>
+      <textarea name="details" placeholder="Scrivi la tua richiesta..." required autocomplete="off"></textarea>
 
       <button type="submit">Invia</button>
   </form>
@@ -308,11 +308,11 @@
   <form action="https://angelonline.altervista.org/backend/send-faq.php" method="POST">
       <input type="checkbox" name="botcheck" style="display:none;">
 
-      <input type="email" name="email" placeholder="La tua email" required>
+      <input type="email" name="email" placeholder="La tua email" required autocomplete="email">
 
-      <input type="text" name="question" placeholder="La tua domanda" required>
+      <input type="text" name="question" placeholder="La tua domanda" required autocomplete="off">
 
-      <textarea name="details" placeholder="Dettagli aggiuntivi (opzionale)"></textarea>
+      <textarea name="details" placeholder="Dettagli aggiuntivi (opzionale)" autocomplete="off"></textarea>
 
       <button type="submit">Invia</button>
   </form>
@@ -333,9 +333,9 @@
   <form id="register-form" action="https://angelonline.altervista.org/backend/register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
       <input type="checkbox" name="botcheck" style="display:none;">
 
-      <input id="reg-nome" type="text" name="nome" placeholder="Nome" required>
-      <input id="reg-username" type="text" name="username" placeholder="Username" required>
-      <input id="reg-email" type="email" name="email" placeholder="Email" required>
+      <input id="reg-nome" type="text" name="nome" placeholder="Nome" required autocomplete="name">
+      <input id="reg-username" type="text" name="username" placeholder="Username" required autocomplete="username">
+      <input id="reg-email" type="email" name="email" placeholder="Email" required autocomplete="email">
 
       <button type="submit">Registrati</button>
   </form>
@@ -356,8 +356,8 @@
   <h3>Login</h3>
 
   <form action="https://angelonline.altervista.org/backend/login.php" method="POST">
-    <input type="text" name="username" placeholder="Username o Email" required>
-    <input type="password" name="password" placeholder="Password" required>
+    <input type="text" name="username" placeholder="Username o Email" required autocomplete="username">
+    <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
     <button type="submit">Accedi</button>
   </form>
 
