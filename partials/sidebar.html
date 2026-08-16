@@ -778,37 +778,37 @@
   <h3>Video Musicali</h3>
 
   <iframe
-      id="ytPlayer"
-      width="100%"
-      height="180"
-      src="https://www.youtube.com/embed/iYVEik7Lvc4"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin">
+    id="ytPlayer"
+    width="100%"
+    height="180"
+    src="https://www.youtube.com/embed/iYVEik7Lvc4"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin">
   </iframe>
 
   <select id="ytSelector" class="yt-select">
     <option value="">Seleziona un video…</option>
 
-    <!-- Video singoli -->
+    <!-- Video singolo -->
     <option value="iYVEik7Lvc4">U2 – Every Breaking Wave</option>
 
     <!-- ⭐ PLAYLIST COMPLETA DEL CONCERTO (FUNZIONANTE) -->
     <option value="videoseries?list=PLZaUkkLEN6LKG1c7k6kl9w0gOyhQBrR9J">
-      U2 – Slane Castle (Concerto Completo – Playlist Funzionante)
+      U2 – Slane Castle (Concerto Completo – Playlist)
     </option>
   </select>
 </div>
 
 <script>
 document.getElementById("ytSelector").addEventListener("change", function() {
-    const videoId = this.value;
-    if (videoId) {
-        document.getElementById("ytPlayer").src =
-            "https://www.youtube.com/embed/" + videoId;
-    }
+  const videoId = this.value;
+  if (videoId) {
+    document.getElementById("ytPlayer").src =
+      "https://www.youtube.com/embed/" + videoId;
+  }
 });
 </script>
 
