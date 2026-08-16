@@ -1,7 +1,7 @@
 /* ============================
    HOME NEWS — FEED MULTIPLO CYBER (versione migliore)
    - The Hacker News
-   - HackRead
+   - HackRead (patch AllOrigins RAW)
    - DarkReading
 ============================ */
 
@@ -13,8 +13,8 @@ async function loadHomeNews() {
     const feeds = [
         "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
 
-        // ⭐ PATCH: HackRead via corsproxy.io (RSS2JSON non funziona)
-        "https://corsproxy.io/?https://hackread.com/feed/",
+        // ⭐ PATCH DEFINITIVA HackRead via AllOrigins RAW
+        "https://api.allorigins.win/raw?url=https://hackread.com/feed/",
 
         "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
     ];
@@ -46,7 +46,7 @@ async function loadHomeNews() {
             try {
                 const res = await fetch(url);
 
-                // ⭐ PATCH: HackRead → XML parsing
+                // ⭐ PATCH: HackRead → XML parsing (AllOrigins RAW)
                 if (url.includes("hackread.com")) {
                     const xmlText = await res.text();
                     const xml = new DOMParser().parseFromString(xmlText, "text/xml");
@@ -171,3 +171,4 @@ async function loadHomeNews() {
 }
 
 document.addEventListener("DOMContentLoaded", loadHomeNews);
+
