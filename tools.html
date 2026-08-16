@@ -35,49 +35,54 @@
         margin-right: 12px;
     }
 
-    /* HERO CORRETTA — IMMAGINE GRANDE E ALLINEATA */
-    .tools-hero {
-        max-width: 540px;
-        margin: 0 auto 40px auto;
-        display: flex;
-        align-items: flex-start;
-        gap: 22px;
-    }
+/* HERO CORRETTA — IMMAGINE GRANDE E ALLINEATA */
+.tools-hero {
+    max-width: 540px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 26px;                 /* più spazio tra immagine e testo */
+}
 
-    .tools-hero-img {
-        width: 120px;              /* 🔥 IMMAGINE PIÙ GRANDE */
-        height: auto;
-        object-fit: contain;
-        margin-top: 0;             /* 🔥 ALLINEATA AL TITOLO */
-        filter: drop-shadow(0 0 6px #00eaff);
-    }
+/* IMMAGINE GRANDE E ALLINEATA PERFETTAMENTE */
+.tools-hero-img {
+    width: 140px;             /* 🔥 immagine molto più grande */
+    height: auto;
+    object-fit: contain;
+    margin-top: 0;            /* 🔥 allineata al titolo */
+    filter: drop-shadow(0 0 6px #00eaff);
+}
 
-    .tools-hero-text {
-        flex: 1;                   /* 🔥 TESTO A LARGHEZZA PIENA */
-    }
+/* TESTO A DESTRA, A LARGHEZZA PIENA */
+.tools-hero-text {
+    flex: 1;                  /* 🔥 occupa tutto lo spazio disponibile */
+}
 
-    .tools-hero-text h1 {
-        margin: 0;
-        color: #00eaff;
-        font-size: 1.9rem;         /* 🔥 TITOLO PIÙ GRANDE */
-        text-shadow: 0 0 5px #00eaff;
-    }
+/* TITOLO */
+.tools-hero-text h1 {
+    margin: 0;
+    color: #00eaff;
+    font-size: 2rem;          /* 🔥 più grande e proporzionato all’immagine */
+    text-shadow: 0 0 5px #00eaff;
+}
 
-    .tools-hero-text p {
-        margin-top: 8px;
-        color: #b8dfff;
-        font-size: 1.15rem;        /* 🔥 TESTO PIÙ GRANDE */
-        line-height: 1.6;
-        width: 100%;
-    }
+/* PARAGRAFO SOTTO IL TITOLO */
+.tools-hero-text p {
+    margin-top: 10px;
+    color: #b8dfff;
+    font-size: 1.2rem;        /* 🔥 più grande e leggibile */
+    line-height: 1.7;
+    width: 100%;              /* 🔥 occupa tutta la larghezza */
+}
 
-    .tools-links {
-        margin: 20px 0 28px;
-        font-size: 15px;
-        color: #7fdfff;
-        line-height: 1.6;
-        width: 100%;               /* 🔥 OCCUPA TUTTO LO SPAZIO */
-    }
+/* LINK BOX */
+.tools-links {
+    margin: 22px 0 28px;
+    font-size: 15px;
+    color: #7fdfff;
+    line-height: 1.6;
+    width: 100%;              /* 🔥 occupa tutto lo spazio */
+}
 
     html {
         scroll-behavior: smooth;
@@ -119,7 +124,7 @@ fetch("/partials/ticker.html")
     <section class="main-column">
 
         <!-- HERO -->
-      <section class="tools-hero">
+     <section class="tools-hero">
     <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
     <div class="tools-hero-text">
@@ -143,7 +148,7 @@ fetch("/partials/ticker.html")
             <br>
 
             <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —  
-            threat level, log eventi, attività sospette e metriche operative.
+            threat level, log eventi e attività sospette.
             <br>
 
             <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
@@ -171,6 +176,7 @@ fetch("/partials/ticker.html")
         </div>
     </div>
 </section>
+        
         <!-- ============================
              WIDGET TOOLS
         ============================= -->
