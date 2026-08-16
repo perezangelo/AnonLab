@@ -1,7 +1,7 @@
 /* ============================
-   HOME NEWS — FEED MULTIPLO CYBER (versione migliore)
+   HOME NEWS — FEED MULTIPLO CYBER (versione definitiva)
    - The Hacker News
-   - HackRead (patch AllOrigins RAW)
+   - HackRead (via proxy PHP AlterVista)
    - DarkReading
 ============================ */
 
@@ -9,12 +9,12 @@ async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    // FEED MULTIPLI (via rss2json + patch HackRead)
+    // FEED MULTIPLI (via rss2json + proxy PHP HackRead)
     const feeds = [
         "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
 
-        // ⭐ PATCH DEFINITIVA HackRead via AllOrigins RAW
-        "https://api.allorigins.win/raw?url=https://hackread.com/feed/",
+        // ⭐ PATCH DEFINITIVA HackRead via proxy PHP AlterVista
+        "https://angelonline.altervista.org/api/hackread.php",
 
         "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
     ];
@@ -46,8 +46,8 @@ async function loadHomeNews() {
             try {
                 const res = await fetch(url);
 
-                // ⭐ PATCH: HackRead → XML parsing (AllOrigins RAW)
-                if (url.includes("hackread.com")) {
+                // ⭐ PATCH: HackRead → XML parsing via proxy PHP
+                if (url.includes("hackread.php")) {
                     const xmlText = await res.text();
                     const xml = new DOMParser().parseFromString(xmlText, "text/xml");
 
@@ -171,4 +171,5 @@ async function loadHomeNews() {
 }
 
 document.addEventListener("DOMContentLoaded", loadHomeNews);
+
 
