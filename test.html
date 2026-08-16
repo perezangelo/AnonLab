@@ -1,215 +1,107 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnonLab — Test Lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test HERO — AnonLab</title>
 
-<!-- Stili isolati (non interferiscono con il sito) -->
-<style>
-    body {
-        background:#0a0a0a;
-        color:#e0e0e0;
-        font-family:Arial, sans-serif;
-        padding:20px;
-    }
+    <style>
+        body {
+            background: #05080c;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            color: #fff;
+        }
 
-    h1 {
-        text-align:center;
-        color:#00eaff;
-        margin-bottom:30px;
-        text-shadow:0 0 10px #00eaff;
-    }
+        /* HERO — STRUTTURA CORRETTA */
+        .tools-hero {
+            max-width: 540px;
+            margin: 0 auto 40px auto;
+        }
 
-    .test-box {
-        background:#111;
-        border:1px solid #00eaff;
-        border-radius:12px;
-        padding:20px;
-        margin-bottom:40px;
-        box-shadow:0 0 20px #00eaff33;
-    }
+        /* RIGA 1: IMMAGINE + TITOLO */
+        .tools-hero-top {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
 
-    /* Slider 3D */
-    .slider-3d-container {
-        perspective:1000px;
-        width:100%;
-        max-width:420px;
-        margin:0 auto;
-    }
+        /* IMMAGINE GRANDE */
+        .tools-hero-img {
+            width: 140px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 6px #00eaff);
+        }
 
-    .slider-3d {
-        width:100%;
-        height:240px;
-        border-radius:12px;
-        overflow:hidden;
-        transform-style:preserve-3d;
-        animation:spin3d 12s infinite linear;
-        position:relative;
-    }
+        /* TITOLO */
+        .tools-hero-title {
+            flex: 1;
+        }
 
-    .slider-3d img {
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        position:absolute;
-        top:0;
-        left:0;
-    }
+        .tools-hero-title h1 {
+            margin: 0;
+            color: #00eaff;
+            font-size: 2rem;
+            text-shadow: 0 0 5px #00eaff;
+        }
 
-    @keyframes spin3d {
-        0%   { transform:rotateY(0deg); }
-        33%  { transform:rotateY(120deg); }
-        66%  { transform:rotateY(240deg); }
-        100% { transform:rotateY(360deg); }
-    }
+        /* RIGA 2: TESTO A LARGHEZZA PIENA */
+        .tools-hero-desc {
+            margin-top: 12px;
+            color: #b8dfff;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            width: 100%;
+        }
 
-    /* Slider Fade */
-    .slider-fade {
-        width:100%;
-        max-width:420px;
-        height:240px;
-        margin:0 auto;
-        border-radius:12px;
-        overflow:hidden;
-        position:relative;
-    }
+        /* BOX TOOLS NEON CYBER (se vuoi testare anche un box) */
+        .tools-box {
+            max-width: 540px;
+            margin: 0 auto 40px auto;
+            background: #0a0f14;
+            border: 1px solid #00eaff55;
+            box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
+            border-radius: 10px;
+            padding: 20px;
+        }
 
-    .slider-fade img {
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        position:absolute;
-        animation:fadeHero 12s infinite;
-    }
+        .box-title-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
 
-    .slider-fade img:nth-child(2) { animation-delay:4s; }
-    .slider-fade img:nth-child(3) { animation-delay:8s; }
-
-    @keyframes fadeHero {
-        0% { opacity:1; }
-        25% { opacity:1; }
-        33% { opacity:0; }
-        90% { opacity:0; }
-        100% { opacity:1; }
-    }
-
-    /* Pulsanti neon */
-    .neon-btn {
-        display:inline-block;
-        padding:12px 20px;
-        background:#00eaff;
-        color:#000;
-        font-weight:bold;
-        border-radius:6px;
-        text-decoration:none;
-        box-shadow:0 0 10px #00eaffaa;
-        transition:0.2s;
-        margin-top:20px;
-    }
-
-    .neon-btn:hover {
-        background:#ff7b00;
-        box-shadow:0 0 14px #ff7b00aa;
-        transform:translateY(-2px);
-    }
-</style>
-
-    <!-- IUBENDA COOKIE SOLUTION -->
-  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
-
+        .box-title-icon {
+            width: 48px;
+            height: 48px;
+            margin-right: 12px;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>AnonLab — Test Lab</h1>
+    <!-- HERO COMPLETA -->
+    <section class="tools-hero">
 
-    <div class="test-box">
-    <h2 style="color:#00eaff;">🎥 Ken Burns Effect — Versione Premium</h2>
-    <p>Effetto cinematografico con zoom + pan.</p>
+        <!-- RIGA 1: IMMAGINE + TITOLO -->
+        <div class="tools-hero-top">
+            <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-    <div style="
-        width:100%;
-        max-width:420px;
-        height:240px;
-        margin:0 auto;
-        border-radius:12px;
-        overflow:hidden;
-        position:relative;
-    ">
-        <div style="
-            width:100%;
-            height:100%;
-            background:url('/img/hero-bg.png') center/cover no-repeat;
-            animation:kenburnsPremium 14s ease-in-out infinite;
-        "></div>
-    </div>
+            <div class="tools-hero-title">
+                <h1>Cyber Tools Center</h1>
+            </div>
+        </div>
 
-    <style>
-    @keyframes kenburnsPremium {
-        0% {
-            background-size:110%;
-            background-position:center;
-        }
-        25% {
-            background-size:120%;
-            background-position:top right;
-        }
-        50% {
-            background-size:130%;
-            background-position:center left;
-        }
-        75% {
-            background-size:140%;
-            background-position:bottom center;
-        }
-        100% {
-            background-size:110%;
-            background-position:center;
-        }
-    }
-    </style>
-</div>
+        <!-- RIGA 2: TESTO A LARGHEZZA PIENA -->
+        <p class="tools-hero-desc">
+            Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
+            Questa sezione è il punto di partenza per operazioni tecniche,
+            verifiche di rete, analisi di domini, IP, protocolli e molto altro.
+        </p>
 
-    
-<body class="dark-mode">
-<!-- ⭐ BLOCCO EYES FIXED — VERSIONE CALIBRATA -->
-<div style="
-    position:relative;
-    width:260px;
-    margin:20px auto 10px auto;
-    display:block;
-">
-
-    <!-- CAPPUCCIO -->
-    <img 
-        src="/img/eyes.png"
-        alt="AnonLab Eyes"
-        style="
-            width:260px;
-            height:auto;
-            display:block;
-            border-radius:10px;
-            filter:brightness(1.15);
-        "
-    >
-
-    <!-- OCCHI FISSI (CALIBRATI) -->
-    <div style="
-        position:absolute;
-        top:58%;        /* 🔥 più in basso */
-        left:50%;
-        width:55px;     /* 🔥 più stretti */
-        height:22px;    /* 🔥 proporzionati */
-        background:#00eaff;
-        border-radius:50%;
-        filter:blur(5px); /* 🔥 blur più naturale */
-        transform:translate(-50%, -50%);
-        opacity:0.9;
-        pointer-events:none;
-    "></div>
-
-</div>
+    </section>
 
 </body>
 </html>
