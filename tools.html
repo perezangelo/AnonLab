@@ -35,44 +35,46 @@
         margin-right: 12px;
     }
 
-/* HERO CORRETTA — IMMAGINE GRANDE E ALLINEATA */
+/* HERO CORRETTA — IMMAGINE + TITOLO IN UNA RIGA */
 .tools-hero {
     max-width: 540px;
     margin: 0 auto 40px auto;
-    display: flex;
-    align-items: flex-start;
-    gap: 26px;                 /* più spazio tra immagine e testo */
 }
 
-/* IMMAGINE GRANDE E ALLINEATA PERFETTAMENTE */
+/* RIGA SUPERIORE: IMMAGINE + TITOLO */
+.tools-hero-top {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+/* IMMAGINE GRANDE */
 .tools-hero-img {
-    width: 140px;             /* 🔥 immagine molto più grande */
+    width: 140px;
     height: auto;
     object-fit: contain;
-    margin-top: 0;            /* 🔥 allineata al titolo */
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* TESTO A DESTRA, A LARGHEZZA PIENA */
-.tools-hero-text {
-    flex: 1;                  /* 🔥 occupa tutto lo spazio disponibile */
+/* TITOLO */
+.tools-hero-title {
+    flex: 1;
 }
 
-/* TITOLO */
-.tools-hero-text h1 {
+.tools-hero-title h1 {
     margin: 0;
     color: #00eaff;
-    font-size: 2rem;          /* 🔥 più grande e proporzionato all’immagine */
+    font-size: 2rem;
     text-shadow: 0 0 5px #00eaff;
 }
 
-/* PARAGRAFO SOTTO IL TITOLO */
-.tools-hero-text p {
-    margin-top: 10px;
+/* TESTO SOTTO — A LARGHEZZA PIENA */
+.tools-hero-desc {
+    margin-top: 12px;
     color: #b8dfff;
-    font-size: 1.2rem;        /* 🔥 più grande e leggibile */
+    font-size: 1.2rem;
     line-height: 1.7;
-    width: 100%;              /* 🔥 occupa tutta la larghezza */
+    width: 100%;
 }
 
 /* LINK BOX */
@@ -81,7 +83,7 @@
     font-size: 15px;
     color: #7fdfff;
     line-height: 1.6;
-    width: 100%;              /* 🔥 occupa tutto lo spazio */
+    width: 100%;
 }
 
     html {
@@ -125,56 +127,62 @@ fetch("/partials/ticker.html")
 
         <!-- HERO -->
      <section class="tools-hero">
-    <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-    <div class="tools-hero-text">
-        <h1>Cyber Tools Center</h1>
+    <!-- RIGA SUPERIORE: IMMAGINE + TITOLO -->
+    <div class="tools-hero-top">
+        <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-        <p>
-            Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
-            Questa sezione è il punto di partenza per operazioni tecniche,
-            verifiche di rete, analisi di domini, IP, protocolli e molto altro.
-        </p>
-
-        <!-- BACKLINK CONTESTUALIZZATI -->
-        <div class="tools-links">
-            <p style="color:#ccc; margin-bottom:10px;">
-                Per approfondire la sicurezza informatica, il monitoraggio delle minacce
-                e le tecniche OSINT, puoi esplorare anche le sezioni correlate qui sotto:
-            </p>
-
-            <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
-            panoramica dello stato dei sistemi, indicatori cyber e attività di rete.
-            <br>
-
-            <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —  
-            threat level, log eventi e attività sospette.
-            <br>
-
-            <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
-            strumenti tecnici, VPN, browser tools e risorse cyber.
-            <br>
-
-            <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
-            articoli e approfondimenti sulla sicurezza informatica.
-            <br>
-
-            <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
-            guida agli strumenti OSINT e alle tecniche investigative.
-            <br>
-
-            <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
-            analisi tecniche delle vulnerabilità più rilevanti.
-            <br>
-
-            <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —  
-            report sulle minacce globali e indicatori di compromissione.
-            <br>
-
-            <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —  
-            indagine reale basata su tecniche OSINT.
+        <div class="tools-hero-title">
+            <h1>Cyber Tools Center</h1>
         </div>
     </div>
+
+    <!-- TESTO SOTTO A LARGHEZZA PIENA -->
+    <p class="tools-hero-desc">
+        Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
+        Questa sezione è il punto di partenza per operazioni tecniche,
+        verifiche di rete, analisi di domini, IP, protocolli e molto altro.
+    </p>
+
+    <!-- BACKLINK CONTESTUALIZZATI -->
+    <div class="tools-links">
+        <p style="color:#ccc; margin-bottom:10px;">
+            Per approfondire la sicurezza informatica, il monitoraggio delle minacce
+            e le tecniche OSINT, puoi esplorare anche le sezioni correlate qui sotto:
+        </p>
+
+        <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
+        panoramica dello stato dei sistemi, indicatori cyber e attività di rete.
+        <br>
+
+        <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —  
+        threat level, log eventi e attività sospette.
+        <br>
+
+        <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
+        strumenti tecnici, VPN, browser tools e risorse cyber.
+        <br>
+
+        <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
+        articoli e approfondimenti sulla sicurezza informatica.
+        <br>
+
+        <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
+        guida agli strumenti OSINT e alle tecniche investigative.
+        <br>
+
+        <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
+        analisi tecniche delle vulnerabilità più rilevanti.
+        <br>
+
+        <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —  
+        report sulle minacce globali e indicatori di compromissione.
+        <br>
+
+        <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —  
+        indagine reale basata su tecniche OSINT.
+    </div>
+
 </section>
         
         <!-- ============================
