@@ -1,99 +1,38 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta name="description" content="Raccolta di strumenti cyber di AnonLab: scanner, analizzatori, utility di rete e tool per la sicurezza informatica.">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools — Cyber Operations Center | AnonLab</title>
+<!DOCTYPE html> <html lang="it"> <head> <meta name="description" content="Raccolta di strumenti cyber di AnonLab: scanner, analizzatori, utility di rete e tool per la sicurezza informatica."> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Tools — Cyber Operations Center | AnonLab</title>
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/custom.css">
+<style>
+    /* BOX TOOLS NEON CYBER */
+    .tools-box {
+        max-width: 540px;
+        margin: 0 auto 40px auto;
+        width: 100%;
+        background: #0a0f14;
+        border: 1px solid #00eaff55;
+        box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
+        border-radius: 10px;
+        padding: 20px;
+    }
 
-    <style>
-        /* BOX TOOLS NEON CYBER */
-        .tools-box {
-            max-width: 540px;
-            margin: 0 auto 40px auto;
-            width: 100%;
-            background: #0a0f14;
-            border: 1px solid #00eaff55;
-            box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
-            border-radius: 10px;
-            padding: 20px;
-        }
+    .box-title-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
 
-        .box-title-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+    .box-title-icon {
+        width: 48px;
+        height: 48px;
+        margin-right: 12px;
+    }
 
-        .box-title-icon {
-            width: 48px;
-            height: 48px;
-            margin-right: 12px;
-        }
-
-        /* HERO — STRUTTURA CORRETTA */
-        .tools-hero {
-            max-width: 540px;
-            margin: 0 auto 40px auto;
-        }
-
-        /* RIGA 1: IMMAGINE + TITOLO */
-        .tools-hero-top {
-            display: flex;
-            align-items: center;
-            gap: 22px;
-        }
-
-        /* IMMAGINE GRANDE */
-        .tools-hero-img {
-            width: 140px;
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 6px #00eaff);
-        }
-
-        /* TITOLO */
-        .tools-hero-title {
-            flex: 1;
-        }
-
-        .tools-hero-title h1 {
-            margin: 0;
-            color: #00eaff;
-            font-size: 2rem;
-            text-shadow: 0 0 5px #00eaff;
-        }
-
-        /* TESTO SOTTO A LARGHEZZA PIENA */
-        .tools-hero-desc {
-            margin-top: 12px;
-            color: #b8dfff;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            width: 100%;
-        }
-
-        /* BACKLINK BOX */
-        .tools-links {
-            margin: 18px 0 28px;
-            font-size: 15px;
-            color: #7fdfff;
-            line-height: 1.6;
-        }
-
-        .tools-links a {
-            color: #00eaff;
-            font-weight: bold;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    .tools-hero {
+        max-width: 540px;
+        margin: 0 auto 40px auto;
+    }
+</style>
 <style>
 html { scroll-behavior: smooth; } </style>
 <!-- IUBENDA COOKIE SOLUTION -->
@@ -113,66 +52,14 @@ html { scroll-behavior: smooth; } </style>
 ============================= -->
 <section class="main-column">
 
-    <!-- HERO COMPLETA -->
+    <!-- HERO -->
     <section class="tools-hero">
+        <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-        <!-- RIGA 1: IMMAGINE + TITOLO -->
-        <div class="tools-hero-top">
-            <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
-
-            <div class="tools-hero-title">
-                <h1>Cyber Tools Center</h1>
-            </div>
+        <div class="tools-hero-text">
+            <h1>Cyber Tools Center</h1>
+            <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
         </div>
-
-        <!-- RIGA 2: TESTO A LARGHEZZA PIENA -->
-        <p class="tools-hero-desc">
-            Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
-            Questa sezione è il punto di partenza per operazioni tecniche,
-            verifiche di rete, analisi di domini, IP, protocolli e molto altro.
-        </p>
-
-        <!-- RIGA 3: BACKLINK ORIGINALI -->
-        <div class="tools-links">
-          <p style="color:#ccc; margin-bottom:10px;">
-            Questa sezione raccoglie strumenti operativi utili per analisi di rete, diagnostica,
-            sicurezza informatica e attività OSINT.  
-            Se ti servono approfondimenti, dashboard avanzate o contenuti tecnici correlati,
-            puoi esplorare anche le sezioni qui sotto:
-          </p>
-
-          <a href="/dashboard.html">Dashboard Principale</a> —  
-          panoramica generale dello stato dei sistemi e indicatori cyber.
-          <br>
-
-          <a href="/anonlab-soc-dashboard.html">SOC Dashboard</a> —  
-          monitoraggio avanzato, threat level, log eventi e attività sospette.
-          <br>
-
-          <a href="/lab-resources.html">Lab Resources</a> —  
-          raccolta completa di strumenti, VPN, browser tools e risorse tecniche.
-          <br>
-
-          <a href="/cyber.html">Cybersecurity</a> —  
-          articoli e contenuti dedicati alla sicurezza informatica.
-          <br>
-
-          <a href="/osint-tools-explained.html">OSINT</a> —  
-          guida completa agli strumenti OSINT e alle tecniche investigative.
-          <br>
-
-          <a href="/vulnerabilities-cve-analysis.html">CVE Analysis</a> —  
-          analisi tecniche delle vulnerabilità più rilevanti.
-          <br>
-
-          <a href="/threat-intelligence-report.html">Threat Intelligence</a> —  
-          report sulle minacce attuali e indicatori di compromissione.
-          <br>
-
-          <a href="/osint-investigation-case-study.html">Case Study OSINT</a> —  
-          indagine reale basata su tecniche OSINT.
-        </div>
-
     </section>
 
     <!-- ============================
@@ -1208,7 +1095,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-</body>
 
 </body>
 </html>
