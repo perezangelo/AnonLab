@@ -9,10 +9,13 @@ async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    // FEED MULTIPLI (via rss2json)
+    // FEED MULTIPLI (via rss2json + patch HackRead)
     const feeds = [
         "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.hackread.com/feed/",
+
+        // ⭐ PATCH: HackRead via corsproxy.io (RSS2JSON non funziona)
+        "https://corsproxy.io/?https://hackread.com/feed/",
+
         "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
     ];
 
@@ -42,6 +45,25 @@ async function loadHomeNews() {
         for (const url of feeds) {
             try {
                 const res = await fetch(url);
+
+                // ⭐ PATCH: HackRead → XML parsing
+                if (url.includes("hackread.com")) {
+                    const xmlText = await res.text();
+                    const xml = new DOMParser().parseFromString(xmlText, "text/xml");
+
+                    const items = [...xml.querySelectorAll("item")].map(item => ({
+                        title: item.querySelector("title")?.textContent || "",
+                        link: item.querySelector("link")?.textContent || "",
+                        description: item.querySelector("description")?.textContent || "",
+                        pubDate: item.querySelector("pubDate")?.textContent || "",
+                        categories: [...item.querySelectorAll("category")].map(c => c.textContent)
+                    }));
+
+                    allItems = allItems.concat(items);
+                    continue; // evita JSON rss2json
+                }
+
+                // ⭐ Feed normali via RSS2JSON
                 const data = await res.json();
 
                 if (data.items && Array.isArray(data.items)) {
@@ -95,12 +117,11 @@ async function loadHomeNews() {
                         : "News";
 
                 // FIX IMMAGINI MANCANTI / NON VALIDE / BLOCCATE
-                // Fallback personalizzato SOLO quando il feed non fornisce alcuna immagine
-const image =
-    (item.thumbnail && item.thumbnail.startsWith("http")) ? item.thumbnail :
-    (item.image && item.image.startsWith("http")) ? item.image :
-    (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http")) ? item.enclosure.link :
-    "/img/cloud-hosting.jpg";
+                const image =
+                    (item.thumbnail && item.thumbnail.startsWith("http")) ? item.thumbnail :
+                    (item.image && item.image.startsWith("http")) ? item.image :
+                    (item.enclosure && item.enclosure.link && item.enclosure.link.startsWith("http")) ? item.enclosure.link :
+                    "/img/cloud-hosting.jpg";
 
                 const excerpt = item.description
                     ? item.description.replace(/<[^>]+>/g, "").slice(0, 160) + "..."
@@ -150,6 +171,3 @@ const image =
 }
 
 document.addEventListener("DOMContentLoaded", loadHomeNews);
-
-
-
