@@ -10,40 +10,68 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/custom.css">
 
-    <style>
-        /* BOX TOOLS NEON CYBER */
-        .tools-box {
-            max-width: 540px;
-            margin: 0 auto 40px auto;
-            width: 100%;
-            background: #0a0f14;
-            border: 1px solid #00eaff55;
-            box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
-            border-radius: 10px;
-            padding: 20px;
-        }
+<style>
+    /* BOX TOOLS NEON CYBER */
+    .tools-box {
+        max-width: 540px;
+        margin: 0 auto 40px auto;
+        width: 100%;
+        background: #0a0f14;
+        border: 1px solid #00eaff55;
+        box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
+        border-radius: 10px;
+        padding: 20px;
+    }
 
-        .box-title-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+    .box-title-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
 
-        .box-title-icon {
-            width: 48px;
-            height: 48px;
-            margin-right: 12px;
-        }
+    .box-title-icon {
+        width: 48px;
+        height: 48px;
+        margin-right: 12px;
+    }
 
-        .tools-hero {
-            max-width: 540px;
-            margin: 0 auto 40px auto;
-        }
-    </style>
-    <style>
-  html {
-    scroll-behavior: smooth;
-  }
+    /* HERO CORRETTA */
+    .tools-hero {
+        max-width: 540px;
+        margin: 0 auto 40px auto;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .tools-hero-img {
+        width: 70px;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 0 6px #00eaff);
+    }
+
+    .tools-hero-text {
+        flex: 1;
+    }
+
+    .tools-hero-text h1 {
+        margin: 0;
+        color: #00eaff;
+        font-size: 1.6rem;
+        text-shadow: 0 0 5px #00eaff;
+    }
+
+    .tools-hero-text p {
+        margin-top: 4px;
+        color: #b8dfff;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
 </style>
 
     <!-- IUBENDA COOKIE SOLUTION -->
@@ -81,60 +109,55 @@ fetch("/partials/ticker.html")
     <section class="main-column">
 
         <!-- HERO -->
-        <section class="tools-hero">
-            <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
+       <section class="tools-hero">
+    <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-            <div class="tools-hero-text">
-                <h1>Cyber Tools Center</h1>
-                <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
-                <div class="tools-links" style="margin:18px 0 28px; font-size:15px; color:#7fdfff; line-height:1.6;">
-  <p style="color:#ccc; margin-bottom:10px;">
-    Oltre agli strumenti presenti in questa pagina, AnonLab offre anche dashboard operative,
-    analisi tecniche e contenuti editoriali utili per approfondire la sicurezza informatica,
-    l’OSINT e il monitoraggio delle minacce.  
-    Se vuoi espandere la tua attività cyber, esplora anche le sezioni correlate qui sotto:
-  </p>
+    <div class="tools-hero-text">
+        <h1>Cyber Tools Center</h1>
+        <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
 
-  <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
-  panoramica dello stato dei sistemi, indicatori cyber e attività di rete.
+        <!-- BACKLINK CONTESTUALIZZATI -->
+        <div class="tools-links" style="margin:18px 0 28px; font-size:15px; color:#7fdfff; line-height:1.6;">
+            <p style="color:#ccc; margin-bottom:10px;">
+                Oltre agli strumenti presenti in questa pagina, AnonLab offre anche dashboard operative,
+                analisi tecniche e contenuti editoriali utili per approfondire la sicurezza informatica,
+                l’OSINT e il monitoraggio delle minacce.  
+                Se vuoi espandere la tua attività cyber, esplora anche le sezioni correlate qui sotto:
+            </p>
 
-  <br>
+            <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
+            panoramica dello stato dei sistemi, indicatori cyber e attività di rete.
+            <br>
 
-  <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —  
-  threat level, log eventi, attività sospette e metriche operative.
+            <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —  
+            threat level, log eventi, attività sospette e metriche operative.
+            <br>
 
-  <br>
+            <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
+            raccolta completa di strumenti tecnici, VPN, browser tools e risorse cyber.
+            <br>
 
-  <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
-  raccolta completa di strumenti tecnici, VPN, browser tools e risorse cyber.
+            <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
+            articoli, guide e approfondimenti sulla sicurezza informatica.
+            <br>
 
-  <br>
+            <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
+            guida agli strumenti OSINT e alle tecniche investigative digitali.
+            <br>
 
-  <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
-  articoli, guide e approfondimenti sulla sicurezza informatica.
+            <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
+            analisi tecniche delle vulnerabilità più rilevanti.
+            <br>
 
-  <br>
+            <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —  
+            report sulle minacce globali e indicatori di compromissione.
+            <br>
 
-  <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
-  guida agli strumenti OSINT e alle tecniche investigative digitali.
-
-  <br>
-
-  <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
-  analisi tecniche delle vulnerabilità più rilevanti.
-
-  <br>
-
-  <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —  
-  report sulle minacce globali e indicatori di compromissione.
-
-  <br>
-
-  <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —  
-  indagine reale basata su tecniche OSINT.
-</div>
-            </div>
-        </section>
+            <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —  
+            indagine reale basata su tecniche OSINT.
+        </div>
+    </div>
+</section>
 
         <!-- ============================
              WIDGET TOOLS
