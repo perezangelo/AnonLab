@@ -32,48 +32,13 @@
         max-width: 540px;
         margin: 0 auto 40px auto;
     }
-
-    .tools-hero-top {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
-
-.tools-hero-img {
-    width: 140px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 6px #00eaff);
-}
-
-.tools-hero-title {
-    flex: 1;
-}
-
-.tools-hero-title h1 {
-    margin: 0;
-    color: #00eaff;
-    font-size: 2rem;
-    text-shadow: 0 0 5px #00eaff;
-}
-
-.tools-hero-desc {
-    margin-top: 12px;
-    color: #b8dfff;
-    font-size: 1.2rem;
-    line-height: 1.7;
-}
-
 </style>
-
-    <style>
+<style>
 html { scroll-behavior: smooth; } </style>
 <!-- IUBENDA COOKIE SOLUTION -->
 <script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
-
 </head>
-
-    <body>
+<body>
 <!-- PARTIALS --> <div id="header"></div> <div id="ticker" aria-label="Ticker informazioni"></div> <!-- CARICAMENTO TICKER --> <script> fetch("/partials/ticker.html") .then(r => r.text()) .then(html => { document.getElementById("ticker").innerHTML = html;
   // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
   if (typeof initTicker === "function") {
@@ -89,26 +54,13 @@ html { scroll-behavior: smooth; } </style>
 
     <!-- HERO -->
     <section class="tools-hero">
-
-    <div class="tools-hero-top">
         <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-        <div class="tools-hero-title">
+        <div class="tools-hero-text">
             <h1>Cyber Tools Center</h1>
+            <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
         </div>
-    </div>
-
-    <p class="tools-hero-desc">
-        Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
-        Questa sezione è il punto di partenza per operazioni tecniche,
-        verifiche di rete, analisi di domini, IP, protocolli e molto altro.
-    </p>
-
-    <div class="tools-links">
-        … backlink …
-    </div>
-
-</section>
+    </section>
 
     <!-- ============================
          WIDGET TOOLS
