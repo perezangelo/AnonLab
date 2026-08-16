@@ -35,38 +35,48 @@
         margin-right: 12px;
     }
 
-    /* HERO CORRETTA */
+    /* HERO CORRETTA — IMMAGINE GRANDE E ALLINEATA */
     .tools-hero {
         max-width: 540px;
         margin: 0 auto 40px auto;
         display: flex;
-        align-items: center;
-        gap: 18px;
+        align-items: flex-start;
+        gap: 22px;
     }
 
     .tools-hero-img {
-        width: 70px;
+        width: 120px;              /* 🔥 IMMAGINE PIÙ GRANDE */
         height: auto;
         object-fit: contain;
+        margin-top: 0;             /* 🔥 ALLINEATA AL TITOLO */
         filter: drop-shadow(0 0 6px #00eaff);
     }
 
     .tools-hero-text {
-        flex: 1;
+        flex: 1;                   /* 🔥 TESTO A LARGHEZZA PIENA */
     }
 
     .tools-hero-text h1 {
         margin: 0;
         color: #00eaff;
-        font-size: 1.6rem;
+        font-size: 1.9rem;         /* 🔥 TITOLO PIÙ GRANDE */
         text-shadow: 0 0 5px #00eaff;
     }
 
     .tools-hero-text p {
-        margin-top: 4px;
+        margin-top: 8px;
         color: #b8dfff;
-        font-size: 1.05rem;
+        font-size: 1.15rem;        /* 🔥 TESTO PIÙ GRANDE */
         line-height: 1.6;
+        width: 100%;
+    }
+
+    .tools-links {
+        margin: 20px 0 28px;
+        font-size: 15px;
+        color: #7fdfff;
+        line-height: 1.6;
+        width: 100%;               /* 🔥 OCCUPA TUTTO LO SPAZIO */
     }
 
     html {
@@ -109,20 +119,23 @@ fetch("/partials/ticker.html")
     <section class="main-column">
 
         <!-- HERO -->
-       <section class="tools-hero">
+      <section class="tools-hero">
     <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
     <div class="tools-hero-text">
         <h1>Cyber Tools Center</h1>
-        <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
+
+        <p>
+            Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
+            Questa sezione è il punto di partenza per operazioni tecniche,
+            verifiche di rete, analisi di domini, IP, protocolli e molto altro.
+        </p>
 
         <!-- BACKLINK CONTESTUALIZZATI -->
-        <div class="tools-links" style="margin:18px 0 28px; font-size:15px; color:#7fdfff; line-height:1.6;">
+        <div class="tools-links">
             <p style="color:#ccc; margin-bottom:10px;">
-                Oltre agli strumenti presenti in questa pagina, AnonLab offre anche dashboard operative,
-                analisi tecniche e contenuti editoriali utili per approfondire la sicurezza informatica,
-                l’OSINT e il monitoraggio delle minacce.  
-                Se vuoi espandere la tua attività cyber, esplora anche le sezioni correlate qui sotto:
+                Per approfondire la sicurezza informatica, il monitoraggio delle minacce
+                e le tecniche OSINT, puoi esplorare anche le sezioni correlate qui sotto:
             </p>
 
             <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
@@ -134,15 +147,15 @@ fetch("/partials/ticker.html")
             <br>
 
             <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
-            raccolta completa di strumenti tecnici, VPN, browser tools e risorse cyber.
+            strumenti tecnici, VPN, browser tools e risorse cyber.
             <br>
 
             <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
-            articoli, guide e approfondimenti sulla sicurezza informatica.
+            articoli e approfondimenti sulla sicurezza informatica.
             <br>
 
             <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
-            guida agli strumenti OSINT e alle tecniche investigative digitali.
+            guida agli strumenti OSINT e alle tecniche investigative.
             <br>
 
             <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
@@ -158,7 +171,6 @@ fetch("/partials/ticker.html")
         </div>
     </div>
 </section>
-
         <!-- ============================
              WIDGET TOOLS
         ============================= -->
