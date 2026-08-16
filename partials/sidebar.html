@@ -777,7 +777,7 @@
 <div class="sidebar-box yt-box">
   <h3>Video Musicali</h3>
 
-  <!-- WRAPPER ANTI-CLONE -->
+  <!-- WRAPPER BLINDATO ANTI-CLONE / ANTI-ADS -->
   <div id="ytWrapper" style="position:relative; z-index:999999;">
     <iframe
         id="ytPlayer"
@@ -789,22 +789,32 @@
         allowfullscreen
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
-        sandbox="allow-scripts allow-same-origin"
-        style="position:relative; z-index:999999; pointer-events:auto !important;">
+        style="position:relative; z-index:999999; pointer-events:auto !important;"
+        data-protect="true">
     </iframe>
   </div>
 
   <select id="ytSelector" class="yt-select">
     <option value="">Seleziona un video…</option>
     <option value="iYVEik7Lvc4">U2 – Every Breaking Wave</option>
-
-    <!-- ⭐ VIDEO CONCERTO FUNZIONANTE -->
     <option value="ZVvjXJentik">U2 – Live at Slane Castle (Full Concert)</option>
   </select>
 </div>
 
-<!-- CSS ANTI-CMP / ANTI-CLONE -->
+<!-- CSS ANTI-CLONE / ANTI-GOOGLE ADS -->
 <style>
+/* Nasconde iframe creati da Google Ads */
+iframe[data-google-container], 
+iframe[id^="google_ads_iframe"],
+iframe[src*="doubleclick"],
+iframe[src*="ads"] {
+    display:none !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+}
+
+/* Nasconde iframe CMP/Iubenda */
 iframe._iub_cs_activate,
 iframe.cmplazyload,
 iframe[data-cmp-src],
