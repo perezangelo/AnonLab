@@ -793,8 +793,19 @@
   <select id="ytSelector" class="yt-select">
     <option value="">Seleziona un video…</option>
     <option value="iYVEik7Lvc4">U2 – Every Breaking Wave</option>
+    <option value="ZVvjXJentik">U2 – Live at Slane Castle (Full Concert)</option>
   </select>
 </div>
+
+<script>
+document.getElementById("ytSelector").addEventListener("change", function() {
+    const videoId = this.value;
+    if (videoId) {
+        document.getElementById("ytPlayer").src =
+            "https://www.youtube.com/embed/" + videoId;
+    }
+});
+</script>
 
 <!-- MISURAINTERNET (Versione PRO Sidebar) -->
 <div class="sidebar-box misura-box" aria-label="MisuraInternet AGCOM">
