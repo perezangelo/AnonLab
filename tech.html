@@ -142,19 +142,19 @@ function loadFeed(endpoint, target) {
 }
 
 // Caricamento iniziale
-loadFeed("tech-news.php", "tech-news");
-loadFeed("ai-trends.php", "ai-trends");
-loadFeed("hardware.php", "hardware-feed");
-loadFeed("software.php", "software-feed");
-loadFeed("innovation.php", "innovation-feed");
+loadFeed("tech/tech-news.php", "tech-news");
+loadFeed("tech/tech-ai.php", "ai-trends");
+loadFeed("tech/tech-hardware.php", "hardware-feed");
+loadFeed("tech/tech-software.php", "software-feed");
+loadFeed("tech/tech-innovation.php", "innovation-feed");
 
 // Aggiornamento automatico ogni 60 secondi
 setInterval(() => {
-    loadFeed("tech-news.php", "tech-news");
-    loadFeed("ai-trends.php", "ai-trends");
-    loadFeed("hardware.php", "hardware-feed");
-    loadFeed("software.php", "software-feed");
-    loadFeed("innovation.php", "innovation-feed");
+    loadFeed("tech/tech-news.php", "tech-news");
+loadFeed("tech/tech-ai.php", "ai-trends");
+loadFeed("tech/tech-hardware.php", "hardware-feed");
+loadFeed("tech/tech-software.php", "software-feed");
+loadFeed("tech/tech-innovation.php", "innovation-feed");
 }, 60000);
 </script>
 
