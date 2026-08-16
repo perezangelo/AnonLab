@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta name="description" content="Raccolta di strumenti cyber di AnonLab: scanner, analizzatori, utility di rete e tool per la sicurezza informatica.">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools — Cyber Operations Center | AnonLab</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/custom.css">
+<!DOCTYPE html> <html lang="it"> <head> <meta name="description" content="Raccolta di strumenti cyber di AnonLab: scanner, analizzatori, utility di rete e tool per la sicurezza informatica."> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Tools — Cyber Operations Center | AnonLab</title>
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 <style>
     /* BOX TOOLS NEON CYBER */
@@ -35,223 +28,96 @@
         margin-right: 12px;
     }
 
-/* HERO — STRUTTURA CORRETTA */
-.tools-hero {
-    max-width: 540px;
-    margin: 0 auto 40px auto;
-}
-
-/* RIGA 1: IMMAGINE + TITOLO */
-.tools-hero-top {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
-
-/* IMMAGINE GRANDE */
-.tools-hero-img {
-    width: 140px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 6px #00eaff);
-}
-
-/* TITOLO */
-.tools-hero-title {
-    flex: 1;
-}
-
-.tools-hero-title h1 {
-    margin: 0;
-    color: #00eaff;
-    font-size: 2rem;
-    text-shadow: 0 0 5px #00eaff;
-}
-
-/* RIGA 2: TESTO A LARGHEZZA PIENA */
-.tools-hero-desc {
-    margin-top: 12px;
-    color: #b8dfff;
-    font-size: 1.2rem;
-    line-height: 1.7;
-    width: 100%;
-}
-
-/* LINK BOX */
-.tools-links {
-    margin: 22px 0 28px;
-    font-size: 15px;
-    color: #7fdfff;
-    line-height: 1.6;
-    width: 100%;
-}
-
-    html {
-        scroll-behavior: smooth;
+    .tools-hero {
+        max-width: 540px;
+        margin: 0 auto 40px auto;
     }
 </style>
-
-    <!-- IUBENDA COOKIE SOLUTION -->
-  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
-
+<style>
+html { scroll-behavior: smooth; } </style>
+<!-- IUBENDA COOKIE SOLUTION -->
+<script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
 </head>
-
 <body>
-
-<!-- PARTIALS -->
-<div id="header"></div>
-<div id="ticker" aria-label="Ticker informazioni"></div>
-<!-- CARICAMENTO TICKER -->
-<script>
-fetch("/partials/ticker.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("ticker").innerHTML = html;
-
-      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
-      if (typeof initTicker === "function") {
-          initTicker();
-      }
-  });
-</script>
-
-<!-- SCRIPT TICKER -->
-<script src="/js/ticker.js"></script>
-
+<!-- PARTIALS --> <div id="header"></div> <div id="ticker" aria-label="Ticker informazioni"></div> <!-- CARICAMENTO TICKER --> <script> fetch("/partials/ticker.html") .then(r => r.text()) .then(html => { document.getElementById("ticker").innerHTML = html;
+  // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
+  if (typeof initTicker === "function") {
+      initTicker();
+  }
+}); </script>
+<!-- SCRIPT TICKER --> <script src="/js/ticker.js"></script>
 <main class="page">
+<!-- ============================
+     COLONNA PRINCIPALE
+============================= -->
+<section class="main-column">
 
-    <!-- ============================
-         COLONNA PRINCIPALE
-    ============================= -->
-    <section class="main-column">
-
-        <!-- HERO -->
+    <!-- HERO -->
     <section class="tools-hero">
-
-    <!-- RIGA 1: IMMAGINE + TITOLO -->
-    <div class="tools-hero-top">
         <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
 
-        <div class="tools-hero-title">
+        <div class="tools-hero-text">
             <h1>Cyber Tools Center</h1>
+            <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.</p>
         </div>
-    </div>
+    </section>
 
-    <!-- RIGA 2: TESTO A LARGHEZZA PIENA -->
-    <p class="tools-hero-desc">
-        Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
-        Questa sezione è il punto di partenza per operazioni tecniche,
-        verifiche di rete, analisi di domini, IP, protocolli e molto altro.
-    </p>
-        
-    <!-- BACKLINK CONTESTUALIZZATI -->
-    <div class="tools-links">
-        <p style="color:#ccc; margin-bottom:10px;">
-            Per approfondire la sicurezza informatica, il monitoraggio delle minacce
-            e le tecniche OSINT, puoi esplorare anche le sezioni correlate qui sotto:
-        </p>
+    <!-- ============================
+         WIDGET TOOLS
+    ============================= -->
 
-        <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
-        panoramica dello stato dei sistemi, indicatori cyber e attività di rete.
-        <br>
+    <!-- WHOIS Lookup -->
+<div class="widget-large tools-box"> <div class="box-title-row"> <img src="/img/whois.png" alt="Icona WHOIS Lookup" class="box-title-icon"> <h2>WHOIS Lookup</h2> </div>
+<input id="whoisInput" type="text" placeholder="es: anonlab.it"
+       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-        <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —  
-        threat level, log eventi e attività sospette.
-        <br>
+<button onclick="whoisLookup()" style="
+    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
+">Cerca WHOIS</button>
 
-        <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
-        strumenti tecnici, VPN, browser tools e risorse cyber.
-        <br>
-
-        <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
-        articoli e approfondimenti sulla sicurezza informatica.
-        <br>
-
-        <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
-        guida agli strumenti OSINT e alle tecniche investigative.
-        <br>
-
-        <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
-        analisi tecniche delle vulnerabilità più rilevanti.
-        <br>
-
-        <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —  
-        report sulle minacce globali e indicatori di compromissione.
-        <br>
-
-        <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —  
-        indagine reale basata su tecniche OSINT.
-    </div>
-
-</section>
-        
-        <!-- ============================
-             WIDGET TOOLS
-        ============================= -->
-
-        <!-- WHOIS Lookup -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/whois.png" alt="Icona WHOIS Lookup" class="box-title-icon">
-        <h2>WHOIS Lookup</h2>
-    </div>
-
-    <input id="whoisInput" type="text" placeholder="es: anonlab.it"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
-
-    <button onclick="whoisLookup()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
-    ">Cerca WHOIS</button>
-
-    <pre id="whoisResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:300px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;
-    "></pre>
+<pre id="whoisResult" style="
+    background:#000; color:#0ff; padding:15px; margin-top:15px;
+    max-height:300px; overflow-y:auto; border:1px solid #00eaff;
+    white-space:pre-wrap;
+"></pre>
 </div>
+<script> async function whoisLookup() { const dominio = document.getElementById("whoisInput").value.trim(); const output = document.getElementById("whoisResult");
+if (!dominio) {
+    output.innerText = "Inserisci un dominio valido.";
+    return;
+}
 
-<script>
-async function whoisLookup() {
-    const dominio = document.getElementById("whoisInput").value.trim();
-    const output = document.getElementById("whoisResult");
+output.innerText = "Caricamento WHOIS...";
 
-    if (!dominio) {
-        output.innerText = "Inserisci un dominio valido.";
+try {
+    const res = await fetch("https://angelonline.altervista.org/widgets/whois.php?domain=" + dominio);
+    const data = await res.json();
+
+    if (data.error) {
+        output.innerText = "Errore WHOIS: " + data.error;
         return;
     }
 
-    output.innerText = "Caricamento WHOIS...";
+    const status = Array.isArray(data.domain_status)
+        ? data.domain_status.join(", ")
+        : (data.domain_status || "Non disponibile");
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/whois.php?domain=" + dominio);
-        const data = await res.json();
+    const raw = data.raw_text || "Non disponibile";
 
-        if (data.error) {
-            output.innerText = "Errore WHOIS: " + data.error;
-            return;
-        }
+    output.innerText =
+        "Dominio: " + (data.domain || "Non disponibile") + "\n" +
+        "Stato: " + status + "\n" +
+        "Creato: " + (data.create_date || "Non disponibile") + "\n" +
+        "Aggiornato: " + (data.update_date || "Non disponibile") + "\n" +
+        "Scadenza: " + (data.expire_date || "Non disponibile") + "\n" +
+        "Registrar: " + (data.registrar?.name || "Non disponibile") + "\n" +
+        "\n--- RAW WHOIS ---\n\n" +
+        raw;
 
-        const status = Array.isArray(data.domain_status)
-            ? data.domain_status.join(", ")
-            : (data.domain_status || "Non disponibile");
-
-        const raw = data.raw_text || "Non disponibile";
-
-        output.innerText =
-            "Dominio: " + (data.domain || "Non disponibile") + "\n" +
-            "Stato: " + status + "\n" +
-            "Creato: " + (data.create_date || "Non disponibile") + "\n" +
-            "Aggiornato: " + (data.update_date || "Non disponibile") + "\n" +
-            "Scadenza: " + (data.expire_date || "Non disponibile") + "\n" +
-            "Registrar: " + (data.registrar?.name || "Non disponibile") + "\n" +
-            "\n--- RAW WHOIS ---\n\n" +
-            raw;
-
-    } catch (e) {
-        output.innerText = "Errore durante la richiesta WHOIS.";
-    }
+} catch (e) {
+    output.innerText = "Errore durante la richiesta WHOIS.";
 }
-</script>
+} </script>
         
         <!-- DNS Lookup -->
 <div class="widget-large tools-box">
