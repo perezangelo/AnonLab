@@ -55,27 +55,17 @@
             width: 100%;
         }
 
-        /* BOX TOOLS NEON CYBER (se vuoi testare anche un box) */
-        .tools-box {
-            max-width: 540px;
-            margin: 0 auto 40px auto;
-            background: #0a0f14;
-            border: 1px solid #00eaff55;
-            box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
-            border-radius: 10px;
-            padding: 20px;
+        /* BACKLINK BOX */
+        .tools-links {
+            margin-top: 22px;
+            font-size: 15px;
+            color: #7fdfff;
+            line-height: 1.6;
         }
 
-        .box-title-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .box-title-icon {
-            width: 48px;
-            height: 48px;
-            margin-right: 12px;
+        .tools-links a {
+            color: #00eaff;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -101,7 +91,24 @@
             verifiche di rete, analisi di domini, IP, protocolli e molto altro.
         </p>
 
+        <!-- RIGA 3: BACKLINK -->
+        <div class="tools-links">
+            <p style="color:#ccc; margin-bottom:10px;">
+                Sezioni correlate del Cyber Operations Center:
+            </p>
+
+            <a href="/dashboard.html">Dashboard Principale</a> — panoramica sistemi, indicatori cyber.<br>
+            <a href="/anonlab-soc-dashboard.html">SOC Dashboard</a> — threat level, log eventi, attività sospette.<br>
+            <a href="/lab-resources.html">Lab Resources</a> — strumenti tecnici, VPN, browser tools.<br>
+            <a href="/cyber.html">Cybersecurity</a> — articoli e approfondimenti tecnici.<br>
+            <a href="/osint-tools-explained.html">OSINT</a> — guida agli strumenti investigativi.<br>
+            <a href="/vulnerabilities-cve-analysis.html">CVE Analysis</a> — vulnerabilità e analisi tecniche.<br>
+            <a href="/threat-intelligence-report.html">Threat Intelligence</a> — minacce globali e indicatori IOC.<br>
+            <a href="/osint-investigation-case-study.html">Case Study OSINT</a> — indagine reale basata su OSINT.<br>
+        </div>
+
     </section>
 
 </body>
 </html>
+
