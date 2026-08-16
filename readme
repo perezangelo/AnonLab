@@ -6,24 +6,113 @@ AnonLab è un progetto indipendente dedicato alla sperimentazione digitale, alla
 Il sito è costruito senza framework pesanti, senza database, senza cookie di profilazione e senza alcun tipo di tracciamento.  
 Solo HTML, CSS e un tocco di JavaScript essenziale.
 
+🔗 **Sito ufficiale:** https://anonlab.it  
+🔗 **Risorse tecniche:** https://anonlab.it/lab-resources.html  
+🔗 **Dashboard SOC:** https://anonlab.it/anonlab-soc-dashboard.html  
+
 ---
 
 ## 🧩 Filosofia del progetto
 
-- **Privacy-first**  
-  Nessun tracciamento, nessuna profilazione, nessun analytics.
-
-- **Minimalismo funzionale**  
-  Codice pulito, leggibile, essenziale.  
-  Zero dipendenze superflue.
-
-- **Indipendenza totale**  
-  Nessuna piattaforma esterna, nessuna pubblicità, nessun vendor lock-in.
-
-- **Accessibilità e leggerezza**  
-  Pagine veloci, responsive e prive di rumore visivo.
+- **Privacy-first** — Nessun tracciamento, nessuna profilazione, nessun analytics.  
+- **Minimalismo funzionale** — Codice pulito, leggibile, essenziale.  
+- **Indipendenza totale** — Nessuna piattaforma esterna, nessuna pubblicità.  
+- **Accessibilità e leggerezza** — Pagine veloci, responsive e prive di rumore visivo.
 
 ---
 
 ## 📁 Struttura del repository
+
+### Pagine principali
+- `/index.html` — Home minimal  
+- `/news.html` — Feed notizie cyber  
+- `/cyber.html` — Sezione cybersecurity  
+- `/tech.html` — Risorse tech e software  
+- `/dashboard.html` — Dashboard principale  
+- `/anonlab-soc-dashboard.html` — SOC Dashboard avanzata  
+- `/lab-resources.html` — Raccolta strumenti, software, guide  
+- `/tools.html` — Utility e strumenti digitali  
+- `/about.html` — Informazioni sul progetto  
+- `/contatti.html` — Contatti  
+- `/privacy.html` — Informativa privacy
+
+### Pagine editoriali (SEO)
+- `/cybersecurity-basics.html` — Fondamenti di cybersecurity  
+- `/osint-tools-explained.html` — OSINT & analisi  
+- `/vulnerabilities-cve-analysis.html` — Analisi CVE  
+- `/threat-intelligence-report.html` — Threat Intelligence  
+- `/osint-investigation-case-study.html` — Caso studio OSINT
+
+### File tecnici
+- `/robots.txt`  
+- `/sitemap.xml`  
+- `/indexnow-key.txt`  
+- `/ads.txt`  
+- `/BingSiteAuth.xml`  
+- `/CNAME`  
+- `/favicon.ico`, `/favicon.png`, `/favicon.svg`  
+- `/apple-touch-icon.png`  
+- `/googlebfe8d294a2023e16.html`  
+- `/yandex_a7f6e10820111245.html`
+
+---
+
+## 🔐 VPN & Cybersecurity
+
+AnonLab include una sezione dedicata a:
+
+- WireGuard  
+- OpenVPN  
+- SoftEther  
+- Split Tunneling  
+- Browser sicuri  
+- Strumenti OSINT  
+- Dashboard SOC  
+- Threat Intelligence  
+
+🔗 https://anonlab.it/lab-resources.html#vpn
+
+---
+
+## 🛰 OSINT & Threat Intelligence
+
+Strumenti, guide e analisi:
+
+- OSINT Tools  
+- Case Study  
+- CVE Analysis  
+- Threat Intelligence Report  
+
+🔗 https://anonlab.it/osint-tools-explained.html
+
+---
+
+## 🛠 Tools & Utility
+
+- Browser Tools  
+- VPN Tools  
+- AI Tools  
+- Script  
+- PDF tecnici  
+
+🔗 https://anonlab.it/tools.html
+
+---
+
+## 📡 Missione
+
+Costruire un ambiente digitale:
+
+- leggero  
+- sicuro  
+- indipendente  
+- privo di tracciamento  
+- orientato alla cultura cyber  
+
+---
+
+## 📬 Contatti
+
+📧 https://anonlab.it/contatti.html
+
 
