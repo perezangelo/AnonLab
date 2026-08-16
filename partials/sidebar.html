@@ -777,22 +777,17 @@
 <div class="sidebar-box yt-box">
   <h3>Video Musicali</h3>
 
-  <!-- WRAPPER BLINDATO ANTI-CLONE / ANTI-ADS -->
-  <div id="ytWrapper" style="position:relative; z-index:999999;">
-    <iframe
-        id="ytPlayer"
-        width="100%"
-        height="180"
-        src="https://www.youtube.com/embed/iYVEik7Lvc4"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        style="position:relative; z-index:999999; pointer-events:auto !important;"
-        data-protect="true">
-    </iframe>
-  </div>
+  <iframe
+      id="ytPlayer"
+      width="100%"
+      height="180"
+      src="https://www.youtube.com/embed/iYVEik7Lvc4"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin">
+  </iframe>
 
   <select id="ytSelector" class="yt-select">
     <option value="">Seleziona un video…</option>
@@ -801,32 +796,6 @@
   </select>
 </div>
 
-<!-- CSS ANTI-CLONE / ANTI-GOOGLE ADS -->
-<style>
-/* Nasconde iframe creati da Google Ads */
-iframe[data-google-container], 
-iframe[id^="google_ads_iframe"],
-iframe[src*="doubleclick"],
-iframe[src*="ads"] {
-    display:none !important;
-    visibility:hidden !important;
-    opacity:0 !important;
-    pointer-events:none !important;
-}
-
-/* Nasconde iframe CMP/Iubenda */
-iframe._iub_cs_activate,
-iframe.cmplazyload,
-iframe[data-cmp-src],
-iframe[data-suppressedsrc] {
-    display:none !important;
-    visibility:hidden !important;
-    opacity:0 !important;
-    pointer-events:none !important;
-}
-</style>
-
-<!-- SCRIPT CAMBIO VIDEO -->
 <script>
 document.getElementById("ytSelector").addEventListener("change", function() {
     const videoId = this.value;
