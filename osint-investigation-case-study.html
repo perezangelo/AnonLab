@@ -45,6 +45,15 @@ pre { background:#000; padding:15px; border-radius:8px; border:1px solid #00eaff
 Questo caso di studio OSINT mostra come raccogliere, analizzare, verificare e correlare informazioni pubbliche per ricostruire attività sospette.  
 L’indagine è completamente legale e basata su fonti pubbliche.
 </p>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti OSINT investigative</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🔍 <a href="https://www.bellingcat.com/category/investigations/" target="_blank" style="color:#00eaff;">Bellingcat Investigations</a></li>
+    <li>🔍 <a href="https://www.graphika.com/reports/" target="_blank" style="color:#00eaff;">Graphika Network Analysis</a></li>
+    <li>🔍 <a href="https://www.circl.lu/services/passive-dns/" target="_blank" style="color:#00eaff;">CIRCL Passive DNS</a></li>
+  </ul>
+</div>
 </div>
 
 <!-- AdSense -->
@@ -57,13 +66,20 @@ L’indagine è completamente legale e basata su fonti pubbliche.
 Un dominio sospetto viene segnalato da un feed di threat intelligence.  
 Obiettivo: determinare se il dominio è parte di un’infrastruttura malevola.
 </p>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti per analisi domini</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🌐 <a href="https://dnstwister.report" target="_blank" style="color:#00eaff;">DNSTwister — Domain Variants</a></li>
+    <li>🌐 <a href="https://urlscan.io" target="_blank" style="color:#00eaff;">URLScan.io — Domain Scanning</a></li>
+    <li>🌐 <a href="https://crt.sh" target="_blank" style="color:#00eaff;">crt.sh — Certificate Transparency</a></li>
+  </ul>
+</div>
 </div>
 
 <div class="section">
 <h2>Fase 1 — Raccolta</h2>
-<p>
-Strumenti utilizzati:
-</p>
+<p>Strumenti utilizzati:</p>
 
 <ul>
 <li>WHOIS</li>
@@ -73,54 +89,81 @@ Strumenti utilizzati:
 <li>Shodan</li>
 </ul>
 
-<p>
-Risultati:
-</p>
+<p>Risultati:</p>
 
 <ul>
 <li>registrazione recente</li>
 <li>IP condiviso con altri domini sospetti</li>
 <li>server con porte aperte non standard</li>
 </ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti OSINT tecniche</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🛠️ <a href="https://viz.greynoise.io" target="_blank" style="color:#00eaff;">GreyNoise Visualizer</a></li>
+    <li>🛠️ <a href="https://www.onyphe.io" target="_blank" style="color:#00eaff;">Onyphe Cyber Defense Search</a></li>
+    <li>🛠️ <a href="https://www.netlas.io" target="_blank" style="color:#00eaff;">Netlas — Internet Scanning</a></li>
+  </ul>
+</div>
 </div>
 
 <div class="section">
 <h2>Fase 2 — Analisi</h2>
-<p>
-Correlazione dei dati:
-</p>
+<p>Correlazione dei dati:</p>
 
 <ul>
 <li>IP utilizzato in precedenti campagne phishing</li>
 <li>certificato SSL self‑signed</li>
 <li>hosting su VPS low‑cost</li>
 </ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti di correlazione</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>📡 <a href="https://www.abuseipdb.com" target="_blank" style="color:#00eaff;">AbuseIPDB — IP Reputation</a></li>
+    <li>📡 <a href="https://www.virustotal.com/gui/home/search" target="_blank" style="color:#00eaff;">VirusTotal — Domain/IP Analysis</a></li>
+    <li>📡 <a href="https://www.threatminer.org" target="_blank" style="color:#00eaff;">ThreatMiner — IOC Correlation</a></li>
+  </ul>
+</div>
 </div>
 
 <div class="section">
 <h2>Fase 3 — Verifica</h2>
-<p>
-Verifica tramite fonti indipendenti:
-</p>
+<p>Verifica tramite fonti indipendenti:</p>
 
 <ul>
 <li>feed OSINT pubblici</li>
 <li>report di sicurezza</li>
 <li>analisi passive DNS</li>
 </ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti di verifica</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🔎 <a href="https://www.phishtank.com" target="_blank" style="color:#00eaff;">PhishTank — Phishing Verification</a></li>
+    <li>🔎 <a href="https://checkphish.ai" target="_blank" style="color:#00eaff;">CheckPhish — URL Risk Analysis</a></li>
+    <li>🔎 <a href="https://www.openintel.nl" target="_blank" style="color:#00eaff;">OpenINTEL — DNS Intelligence</a></li>
+  </ul>
+</div>
 </div>
 
 <div class="section">
 <h2>Fase 4 — Reporting</h2>
-<p>
-Il dominio viene classificato come:
-</p>
+<p>Il dominio viene classificato come:</p>
 
 <ul>
 <li><strong>High Risk</strong></li>
 <li>probabile infrastruttura phishing</li>
 <li>correlato a campagne precedenti</li>
 </ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti per reporting</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>📝 <a href="https://www.mitre.org/publications" target="_blank" style="color:#00eaff;">MITRE Publications</a></li>
+    <li>📝 <a href="https://www.enisa.europa.eu/publications" target="_blank" style="color:#00eaff;">ENISA Cybersecurity Reports</a></li>
+  </ul>
+</div>
 </div>
 
 <div class="section">
@@ -129,6 +172,14 @@ Il dominio viene classificato come:
 Questo caso di studio mostra come l’OSINT possa identificare infrastrutture malevole senza violare alcun sistema.  
 AnonLab integra tecniche OSINT nella dashboard SOC per migliorare la threat intelligence.
 </p>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti finali</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>📚 <a href="https://www.secjuice.com/tag/osint/" target="_blank" style="color:#00eaff;">SecJuice — OSINT Case Studies</a></li>
+    <li>📚 <a href="https://www.digitalinvestigator.com" target="_blank" style="color:#00eaff;">Digital Investigator — OSINT Techniques</a></li>
+  </ul>
+</div>
 </div>
 
 </body>
