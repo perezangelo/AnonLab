@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta name="description" content="Accedi alla dashboard cyber di AnonLab per monitorare minacce, rete e strumenti di sicurezza in tempo reale.">
   <meta charset="UTF-8">
+  <meta name="description" content="Accedi alla dashboard cyber di AnonLab per monitorare minacce, rete e strumenti di sicurezza in tempo reale.">
   <title>Accesso Utente | Pannello di Controllo Cyber AnonLab</title>
+
 <style>
 body {
   background:#050510;
@@ -11,34 +12,74 @@ body {
   font-family:Consolas, monospace;
   padding:20px;
 }
+
 .box {
-  max-width:400px;
-  margin:auto;
-  padding:20px;
+  max-width:420px;
+  margin:60px auto;
+  padding:30px;
   border:1px solid #0ff4;
-  border-radius:8px;
+  border-radius:10px;
   background:#0a0a20;
-  box-shadow:0 0 15px #0ff3;
+  box-shadow:0 0 18px #0ff3;
 }
+
+.box h1 {
+  text-align:center;
+  color:#0ff;
+  text-shadow:0 0 12px #0ff;
+  margin-bottom:10px;
+}
+
+.box h2 {
+  text-align:center;
+  margin-bottom:15px;
+  color:#7dfcff;
+}
+
 input {
   width:100%;
-  padding:10px;
-  margin:8px 0;
+  padding:12px;
+  margin:10px 0;
   background:#02020a;
   border:1px solid #0ff4;
   color:#0ff;
   border-radius:4px;
+  font-size:15px;
 }
+
 button {
   width:100%;
-  padding:10px;
+  padding:12px;
   background:#0ff;
   border:none;
   border-radius:4px;
   cursor:pointer;
   font-weight:bold;
+  color:#000;
+  font-size:15px;
+  margin-top:10px;
 }
-button:hover { opacity:0.8; }
+
+button:hover {
+  opacity:0.85;
+}
+
+.links {
+  margin-top:20px;
+  text-align:center;
+}
+
+.links a {
+  color:#7dfcff;
+  text-decoration:none;
+  font-size:14px;
+  display:block;
+  margin:6px 0;
+}
+
+.links a:hover {
+  text-shadow:0 0 8px #0ff;
+}
 </style>
 
 <!-- IUBENDA COOKIE SOLUTION -->
@@ -49,24 +90,42 @@ button:hover { opacity:0.8; }
 
 <div class="box">
 
-  <!-- H1 richiesto da Bing -->
   <h1>Accesso Area Riservata AnonLab</h1>
-
   <h2>Login</h2>
 
-  <p>Accedi alla tua area riservata AnonLab per monitorare la dashboard SOC, gli strumenti cyber e le funzioni dedicate alla sicurezza informatica.</p>
+  <p>Accedi alla tua area riservata per monitorare la dashboard SOC, gli strumenti cyber e le funzioni dedicate alla sicurezza informatica.</p>
 
   <form action="https://angelonline.altervista.org/backend/login.php" method="POST">
-      <input type="text" name="username" placeholder="Username o Email" required>
-      <input type="password" name="password" placeholder="Password" required>
+
+      <input type="text" 
+             name="username" 
+             placeholder="Username o Email" 
+             required 
+             autocomplete="username"
+             autofocus
+             inputmode="text"
+             aria-label="Inserisci il tuo username o email">
+
+      <input type="password" 
+             name="password" 
+             placeholder="Password" 
+             required 
+             autocomplete="current-password"
+             inputmode="text"
+             aria-label="Inserisci la tua password">
+
       <button type="submit">Accedi</button>
   </form>
 
-  <p style="margin-top:10px; font-size:12px;">
-    Se è la prima volta che accedi, ti verrà chiesto di cambiare la password.
-  </p>
+  <div class="links">
+    <a href="/recupera.html">Password dimenticata?</a>
+    <a href="/register.html">Registrati</a>
+    <a href="/index.html">Torna alla Home</a>
+  </div>
+
 </div>
 
 </body>
 </html>
+
 
