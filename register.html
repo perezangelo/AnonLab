@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Registrazione - AnonLab</title>
+
 <style>
 body {
   background:#050510;
@@ -10,38 +11,68 @@ body {
   font-family:Consolas, monospace;
   padding:20px;
 }
+
 .box {
-  max-width:400px;
-  margin:auto;
-  padding:20px;
+  max-width:420px;
+  margin:60px auto;
+  padding:30px;
   border:1px solid #0ff4;
-  border-radius:8px;
+  border-radius:10px;
   background:#0a0a20;
-  box-shadow:0 0 15px #0ff3;
+  box-shadow:0 0 18px #0ff3;
 }
+
+.box h2 {
+  text-align:center;
+  color:#0ff;
+  text-shadow:0 0 12px #0ff;
+  margin-bottom:10px;
+}
+
+.box p {
+  text-align:center;
+  color:#7dfcff;
+  margin-bottom:15px;
+}
+
 input {
   width:100%;
-  padding:10px;
-  margin:8px 0;
+  padding:12px;
+  margin:10px 0;
   background:#02020a;
   border:1px solid #0ff4;
   color:#0ff;
   border-radius:4px;
+  font-size:15px;
 }
+
 button {
   width:100%;
-  padding:10px;
+  padding:12px;
   background:#0ff;
   border:none;
   border-radius:4px;
   cursor:pointer;
   font-weight:bold;
+  color:#000;
+  font-size:15px;
+  margin-top:10px;
 }
-button:hover { opacity:0.8; }
+
+button:hover {
+  opacity:0.85;
+}
+
+#userCheck, #emailCheck {
+  font-size:12px;
+  color:#f55;
+  display:none;
+  margin-top:-5px;
+}
 </style>
 
-  <!-- IUBENDA COOKIE SOLUTION -->
-  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
+<!-- IUBENDA COOKIE SOLUTION -->
+<script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
 
 </head>
 <body>
@@ -51,10 +82,46 @@ button:hover { opacity:0.8; }
   <p>Riceverai una password temporanea via email.</p>
 
   <form action="https://angelonline.altervista.org/backend/register.php" method="POST">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="email" name="email" placeholder="Email" required>
-    <p id="userCheck" style="font-size:12px; color:#f55; display:none;"></p>
-<p id="emailCheck" style="font-size:12px; color:#f55; display:none;"></p>
+
+      <input type="text"
+             name="username"
+             placeholder="Username"
+             required
+             autocomplete="username"
+             inputmode="text"
+             aria-label="Inserisci il tuo username">
+
+      <p id="userCheck"></p>
+
+      <input type="email"
+             name="email"
+             placeholder="Email"
+             required
+             autocomplete="email"
+             inputmode="email"
+             aria-label="Inserisci la tua email">
+
+      <p id="emailCheck"></p>
+
+      <button type="submit">Registrati</button>
+  </form>
+</div>
+
+<div id="confirmBox" style="
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    border:1px solid #0ff4;
+    background:#0a0a20;
+    color:#0ff;
+    border-radius:6px;
+    box-shadow:0 0 12px #0ff6;
+    text-align:center;
+    font-size:14px;
+">
+    Registrazione completata! Controlla la tua email per la password temporanea.
+</div>
+
 <script>
 const userField = document.querySelector("input[name='username']");
 const emailField = document.querySelector("input[name='email']");
@@ -86,25 +153,7 @@ emailField.addEventListener("input", () => {
         }
     });
 });
-</script>
-      <button type="submit">Registrati</button>
-  </form>
-</div>
-  <div id="confirmBox" style="
-    display:none;
-    margin-top:15px;
-    padding:15px;
-    border:1px solid #0ff4;
-    background:#0a0a20;
-    color:#0ff;
-    border-radius:6px;
-    box-shadow:0 0 12px #0ff6;
-    text-align:center;
-    font-size:14px;
-">
-    Registrazione completata! Controlla la tua email per la password temporanea.
-</div>
-<script>
+
 document.querySelector("form").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -127,3 +176,4 @@ document.querySelector("form").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
