@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-59903",
-    "summary": "Netty Vulnerable to Cache Poisoning and Information Disclosure via CORS Vary Header Overwrite",
+    "id": "CVE-2026-69148",
+    "summary": "MLflow: CreateModelVersion source validation does not check READ permission on referenced run_id",
+    "severity": "HIGH",
+    "published": "2026-08-17T21:59:09Z",
+    "ghsa": "GHSA-gqch-g4w5-7qcw"
+  },
+  {
+    "id": "CVE-2026-69146",
+    "summary": "MLflow: LogInputs endpoint bypasses per-run UPDATE authorization in basic-auth",
     "severity": "MODERATE",
-    "published": "2026-08-17T18:24:26Z",
-    "ghsa": "GHSA-8c42-7qj2-3j46"
+    "published": "2026-08-17T21:59:01Z",
+    "ghsa": "GHSA-3p64-6gvh-82v5"
   },
   {
-    "id": "CVE-2026-59902",
-    "summary": "Netty: Memory Exhaustion in SctpMessageCompletionHandler",
+    "id": "CVE-2026-64849",
+    "summary": "MLflow: Unauthenticated full-read SSRF in webhook delivery: _validate_webhook_url bypassed via unvalidated HTTP redirects (and DNS rebinding)",
+    "severity": "CRITICAL",
+    "published": "2026-08-17T21:58:51Z",
+    "ghsa": "GHSA-7gwp-5pfp-969j"
+  },
+  {
+    "id": "CVE-2026-56677",
+    "summary": "9Router: Authenticated Server-Side Request Forgery (SSRF) via OIDC Provider Test Endpoint",
     "severity": "HIGH",
-    "published": "2026-08-17T17:50:49Z",
-    "ghsa": "GHSA-2qj4-mmr9-4v2f"
+    "published": "2026-08-17T21:58:43Z",
+    "ghsa": "GHSA-8g4w-4ffg-8vgx"
   },
   {
-    "id": "GHSA-fhgh-wq4q-r37x",
-    "summary": "uniget CLI: Metadata signature verification only runs when UNIGET_IGNORE_METADATA_SIGNATURE is set",
+    "id": "CVE-2026-54148",
+    "summary": "http4k: `DigestAuthProvider.verify` did not bind to request URI",
     "severity": "HIGH",
-    "published": "2026-08-17T17:50:34Z",
-    "ghsa": "GHSA-fhgh-wq4q-r37x"
+    "published": "2026-08-17T21:57:41Z",
+    "ghsa": "GHSA-p28p-j94q-pg32"
   },
   {
-    "id": "CVE-2026-59893",
-    "summary": "sqlparse: Inefficient Regex Handling of Dollar-Quoted SQL Literals Leads to ReDoS (Denial of Service)",
-    "severity": "HIGH",
-    "published": "2026-08-17T17:49:55Z",
-    "ghsa": "GHSA-prg7-hcfm-mfcr"
-  },
-  {
-    "id": "CVE-2026-54284",
-    "summary": "sqlparse: TokenList.__init__ materializes O(subtree) value per group, causing CPU DoS before depth/token caps trigger",
-    "severity": "HIGH",
-    "published": "2026-08-17T17:49:47Z",
-    "ghsa": "GHSA-pwgv-4x5q-6m9f"
-  },
-  {
-    "id": "CVE-2026-55090",
-    "summary": "Etherpad has stored XSS in HTML export via unescaped attribute-pool values",
-    "severity": "HIGH",
-    "published": "2026-08-17T17:49:38Z",
-    "ghsa": "GHSA-2jp7-wwpg-3p9w"
-  },
-  {
-    "id": "GHSA-92hr-gmr6-h8cp",
-    "summary": "Etherpad addressed weak token RNG, login timing, plugin path handling, API request handling",
+    "id": "CVE-2026-54147",
+    "summary": "http4k: `DigestAuthProvider.verify` ignored configured algorithm and did not bind to request URI",
     "severity": "MODERATE",
-    "published": "2026-08-17T17:49:21Z",
-    "ghsa": "GHSA-92hr-gmr6-h8cp"
+    "published": "2026-08-17T21:56:58Z",
+    "ghsa": "GHSA-vxxm-wwqh-mh47"
   },
   {
-    "id": "CVE-2026-55062",
-    "summary": "uniget CLI has Path Traversal in Hook Files - Directory Escape Vulnerability",
+    "id": "CVE-2026-53766",
+    "summary": "chrome-devtools-mcp: validatePath() does not canonicalize symlinks before enforcing roots",
     "severity": "MODERATE",
-    "published": "2026-08-17T17:46:33Z",
-    "ghsa": "GHSA-m6jg-wr9m-cg2f"
+    "published": "2026-08-17T21:56:12Z",
+    "ghsa": "GHSA-8qf9-62x2-82pp"
   },
   {
-    "id": "CVE-2026-55061",
-    "summary": "uniget CLI has an EDITOR Command Injection",
+    "id": "GHSA-mpwr-8vm7-h73f",
+    "summary": "package pkcs12: Authentication bypass in Decode functions",
     "severity": "MODERATE",
-    "published": "2026-08-17T17:46:05Z",
-    "ghsa": "GHSA-qmcq-xw74-w667"
+    "published": "2026-08-17T21:56:01Z",
+    "ghsa": "GHSA-mpwr-8vm7-h73f"
   },
   {
-    "id": "GHSA-v836-6xw4-9cx3",
-    "summary": "vm2 has Memory Exhaustion DoS via bufferAllocLimit Bypass",
+    "id": "CVE-2026-53752",
+    "summary": "docx4j: Stack Overflow via Cyclic `w:basedOn` Style Chain leads to Denial of Service",
     "severity": "HIGH",
-    "published": "2026-08-17T17:32:57Z",
-    "ghsa": "GHSA-v836-6xw4-9cx3"
+    "published": "2026-08-17T21:55:49Z",
+    "ghsa": "GHSA-gc95-3vw8-vg43"
+  },
+  {
+    "id": "CVE-2026-53659",
+    "summary": "http4k: Unbounded gzip decompression in `ServerFilters.GZip` / `RequestFilters.GunZip` allowed memory-exhaustion DoS",
+    "severity": "HIGH",
+    "published": "2026-08-17T21:52:27Z",
+    "ghsa": "GHSA-g4w2-6h2r-3m3w"
   }
 ]
