@@ -2,11 +2,78 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Reimposta Password</title>
+<title>Reimposta Password — AnonLab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="/css/style.css">
 
-  <!-- IUBENDA COOKIE SOLUTION -->
-  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
+<!-- IUBENDA COOKIE SOLUTION -->
+<script type="text/javascript" src="https://embeds.iubenda.com/widgets/bb10e382-ea45-4e9d-802f-5257ea8d5348.js"></script>
+
+<style>
+body {
+  background:#050510;
+  color:#0ff;
+  font-family:Consolas, monospace;
+  padding:20px;
+}
+
+.sidebar-box {
+  max-width:420px;
+  margin:60px auto;
+  padding:30px;
+  border:1px solid #0ff4;
+  border-radius:10px;
+  background:#0a0a20;
+  box-shadow:0 0 18px #0ff3;
+  text-align:center;
+}
+
+.sidebar-box h3 {
+  color:#0ff;
+  text-shadow:0 0 12px #0ff;
+  margin-bottom:15px;
+}
+
+.sidebar-icon {
+  width:64px;
+  margin-bottom:15px;
+}
+
+input {
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  background:#02020a;
+  border:1px solid #0ff4;
+  color:#0ff;
+  border-radius:4px;
+  font-size:15px;
+}
+
+button {
+  width:100%;
+  padding:12px;
+  background:#0ff;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  font-weight:bold;
+  color:#000;
+  font-size:15px;
+  margin-top:10px;
+}
+
+button:hover {
+  opacity:0.85;
+}
+
+#reset-status {
+  margin-top:15px;
+  font-size:14px;
+  color:#7dfcff;
+}
+</style>
 
 </head>
 <body>
@@ -17,8 +84,21 @@
 
   <form id="reset-password-form">
 
-    <input type="password" id="new-password" placeholder="Nuova password" required>
-    <input type="password" id="confirm-password" placeholder="Conferma password" required>
+    <input type="password"
+           id="new-password"
+           placeholder="Nuova password"
+           required
+           autocomplete="new-password"
+           inputmode="text"
+           aria-label="Inserisci la nuova password">
+
+    <input type="password"
+           id="confirm-password"
+           placeholder="Conferma password"
+           required
+           autocomplete="new-password"
+           inputmode="text"
+           aria-label="Conferma la nuova password">
 
     <button type="submit">Aggiorna Password</button>
   </form>
@@ -30,3 +110,4 @@
 
 </body>
 </html>
+
