@@ -1,5 +1,61 @@
 [
   {
+    "id": "CVE-2026-68517",
+    "summary": "Glances: REST API CORS Credentials Guard Uses Exact-Match Instead of Membership Test — Bypassed by Any Multi-Origin Allowlist Containing the Wildcard",
+    "severity": "MODERATE",
+    "published": "2026-08-17T17:04:51Z",
+    "ghsa": "GHSA-fp27-88fp-2phg"
+  },
+  {
+    "id": "CVE-2026-45099",
+    "summary": "Terragrunt: Arbitrary File Deletion via Malicious Module Manifest",
+    "severity": "MODERATE",
+    "published": "2026-08-17T16:37:34Z",
+    "ghsa": "GHSA-8394-6f8r-whxg"
+  },
+  {
+    "id": "CVE-2026-68518",
+    "summary": "Glances has a command injection bypass of action-template sanitizer via cross-field shell-operator reconstruction",
+    "severity": "HIGH",
+    "published": "2026-08-17T16:36:37Z",
+    "ghsa": "GHSA-qcpp-8x79-hhp3"
+  },
+  {
+    "id": "CVE-2026-64865",
+    "summary": "New API: Redis user quota cache overwrite via PUT /api/user/self allows quota bypass",
+    "severity": "MODERATE",
+    "published": "2026-08-17T16:36:19Z",
+    "ghsa": "GHSA-j6gc-4893-qwmp"
+  },
+  {
+    "id": "CVE-2026-71479",
+    "summary": "New API: Integer overflow in quota billing yields negative charges (self-crediting)",
+    "severity": "CRITICAL",
+    "published": "2026-08-17T16:36:13Z",
+    "ghsa": "GHSA-8r8v-xf7q-rcpr"
+  },
+  {
+    "id": "CVE-2026-64866",
+    "summary": "New API: Admin can reset passkeys for same-level or higher-privileged users",
+    "severity": "MODERATE",
+    "published": "2026-08-17T16:36:05Z",
+    "ghsa": "GHSA-p845-629j-rcj6"
+  },
+  {
+    "id": "CVE-2026-64868",
+    "summary": "New API: Unauthenticated payment webhooks allow memory and disk DoS via unbounded body reads and full-body logging",
+    "severity": "HIGH",
+    "published": "2026-08-17T16:35:58Z",
+    "ghsa": "GHSA-v828-m3pf-vq9q"
+  },
+  {
+    "id": "CVE-2026-64859",
+    "summary": "New API: User List API Leaks Root User Access Token Leading to Privilege Escalation",
+    "severity": "CRITICAL",
+    "published": "2026-08-17T16:35:50Z",
+    "ghsa": "GHSA-6x2c-phff-wx57"
+  },
+  {
     "id": "CVE-2026-53728",
     "summary": "Medplum: Improper Validation of Redirect URI in External Auth Callback allows Authorization Code Leakage",
     "severity": "HIGH",
@@ -12,61 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-08-17T13:35:07Z",
     "ghsa": "GHSA-2qvg-qr73-mqxp"
-  },
-  {
-    "id": "CVE-2026-40345",
-    "summary": "DeepmergeTS has stack exhaustion when merging recursive object graphs",
-    "severity": "HIGH",
-    "published": "2026-08-17T13:32:13Z",
-    "ghsa": "GHSA-ggr8-5vv4-36mx"
-  },
-  {
-    "id": "CVE-2026-10740",
-    "summary": "s2n-quic has excessive memory allocation",
-    "severity": "MODERATE",
-    "published": "2026-08-14T21:44:19Z",
-    "ghsa": "GHSA-9q54-f358-3fqf"
-  },
-  {
-    "id": "CVE-2026-55156",
-    "summary": "Token Optimizer MCP: Unauthenticated Path Traversal in Dashboard Session Log API Endpoints",
-    "severity": "MODERATE",
-    "published": "2026-08-14T21:43:54Z",
-    "ghsa": "GHSA-76pc-mqxp-3rq5"
-  },
-  {
-    "id": "CVE-2026-55157",
-    "summary": "Token Optimizer MCP: OS command injection in smart_user via username in get-user-info",
-    "severity": "HIGH",
-    "published": "2026-08-14T21:42:06Z",
-    "ghsa": "GHSA-49mq-fc6q-3h46"
-  },
-  {
-    "id": "CVE-2026-53708",
-    "summary": "ContextForge: DNS TOCTOU race condition causes SSRF protection bypass (`/admin/gateways/test`)",
-    "severity": "MODERATE",
-    "published": "2026-08-14T19:49:14Z",
-    "ghsa": "GHSA-9hgc-g3w5-67cm"
-  },
-  {
-    "id": "GHSA-8rw6-p7m8-63jp",
-    "summary": "SurrealDB: Array element-level (field.*) SELECT permissions leak denied elements to record users",
-    "severity": "MODERATE",
-    "published": "2026-08-14T19:40:48Z",
-    "ghsa": "GHSA-8rw6-p7m8-63jp"
-  },
-  {
-    "id": "CVE-2026-55153",
-    "summary": "mchange-commons-java contains elements susceptible to abuse via JNDI injection and \"deserialization gadgets\"",
-    "severity": "HIGH",
-    "published": "2026-08-14T19:29:20Z",
-    "ghsa": "GHSA-h84g-69h7-mw6v"
-  },
-  {
-    "id": "CVE-2026-53660",
-    "summary": "OpenAM Insecure SSO Cookie Initialization",
-    "severity": "HIGH",
-    "published": "2026-08-14T19:25:57Z",
-    "ghsa": "GHSA-fpmh-vx4h-xc33"
   }
 ]
