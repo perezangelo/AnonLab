@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-53728",
+    "summary": "Medplum: Improper Validation of Redirect URI in External Auth Callback allows Authorization Code Leakage",
+    "severity": "HIGH",
+    "published": "2026-08-17T13:36:17Z",
+    "ghsa": "GHSA-m44r-7c5h-m6mj"
+  },
+  {
+    "id": "CVE-2026-55158",
+    "summary": "conflibot vulnerable to command injection via crafted pull request branch names under pull_request_target",
+    "severity": "CRITICAL",
+    "published": "2026-08-17T13:35:07Z",
+    "ghsa": "GHSA-2qvg-qr73-mqxp"
+  },
+  {
+    "id": "CVE-2026-40345",
+    "summary": "DeepmergeTS has stack exhaustion when merging recursive object graphs",
+    "severity": "HIGH",
+    "published": "2026-08-17T13:32:13Z",
+    "ghsa": "GHSA-ggr8-5vv4-36mx"
+  },
+  {
     "id": "CVE-2026-10740",
     "summary": "s2n-quic has excessive memory allocation",
     "severity": "MODERATE",
@@ -47,26 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-14T19:25:57Z",
     "ghsa": "GHSA-fpmh-vx4h-xc33"
-  },
-  {
-    "id": "CVE-2026-53658",
-    "summary": "Fabric CA Developer's Guide: LDAP Injection via Unescaped Username in GetUser Filter",
-    "severity": "MODERATE",
-    "published": "2026-08-14T19:24:57Z",
-    "ghsa": "GHSA-xghw-p77p-3r7x"
-  },
-  {
-    "id": "CVE-2026-53657",
-    "summary": "Lima: An arbitrary user in a QEMU VM could gain the root privilege in the VM via the guest agent socket",
-    "severity": "HIGH",
-    "published": "2026-08-14T19:24:33Z",
-    "ghsa": "GHSA-2j9v-p4xj-cjw2"
-  },
-  {
-    "id": "CVE-2026-53653",
-    "summary": "Grav: Unauthenticated denial of service via unbounded image derivative dimensions",
-    "severity": "HIGH",
-    "published": "2026-08-14T19:23:38Z",
-    "ghsa": "GHSA-4x9g-vw65-vvf9"
   }
 ]
