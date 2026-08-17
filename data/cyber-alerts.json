@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-68517",
-    "summary": "Glances: REST API CORS Credentials Guard Uses Exact-Match Instead of Membership Test — Bypassed by Any Multi-Origin Allowlist Containing the Wildcard",
+    "id": "CVE-2026-59903",
+    "summary": "Netty Vulnerable to Cache Poisoning and Information Disclosure via CORS Vary Header Overwrite",
     "severity": "MODERATE",
-    "published": "2026-08-17T17:04:51Z",
-    "ghsa": "GHSA-fp27-88fp-2phg"
+    "published": "2026-08-17T18:24:26Z",
+    "ghsa": "GHSA-8c42-7qj2-3j46"
   },
   {
-    "id": "CVE-2026-45099",
-    "summary": "Terragrunt: Arbitrary File Deletion via Malicious Module Manifest",
-    "severity": "MODERATE",
-    "published": "2026-08-17T16:37:34Z",
-    "ghsa": "GHSA-8394-6f8r-whxg"
-  },
-  {
-    "id": "CVE-2026-68518",
-    "summary": "Glances has a command injection bypass of action-template sanitizer via cross-field shell-operator reconstruction",
+    "id": "CVE-2026-59902",
+    "summary": "Netty: Memory Exhaustion in SctpMessageCompletionHandler",
     "severity": "HIGH",
-    "published": "2026-08-17T16:36:37Z",
-    "ghsa": "GHSA-qcpp-8x79-hhp3"
+    "published": "2026-08-17T17:50:49Z",
+    "ghsa": "GHSA-2qj4-mmr9-4v2f"
   },
   {
-    "id": "CVE-2026-64865",
-    "summary": "New API: Redis user quota cache overwrite via PUT /api/user/self allows quota bypass",
-    "severity": "MODERATE",
-    "published": "2026-08-17T16:36:19Z",
-    "ghsa": "GHSA-j6gc-4893-qwmp"
-  },
-  {
-    "id": "CVE-2026-71479",
-    "summary": "New API: Integer overflow in quota billing yields negative charges (self-crediting)",
-    "severity": "CRITICAL",
-    "published": "2026-08-17T16:36:13Z",
-    "ghsa": "GHSA-8r8v-xf7q-rcpr"
-  },
-  {
-    "id": "CVE-2026-64866",
-    "summary": "New API: Admin can reset passkeys for same-level or higher-privileged users",
-    "severity": "MODERATE",
-    "published": "2026-08-17T16:36:05Z",
-    "ghsa": "GHSA-p845-629j-rcj6"
-  },
-  {
-    "id": "CVE-2026-64868",
-    "summary": "New API: Unauthenticated payment webhooks allow memory and disk DoS via unbounded body reads and full-body logging",
+    "id": "GHSA-fhgh-wq4q-r37x",
+    "summary": "uniget CLI: Metadata signature verification only runs when UNIGET_IGNORE_METADATA_SIGNATURE is set",
     "severity": "HIGH",
-    "published": "2026-08-17T16:35:58Z",
-    "ghsa": "GHSA-v828-m3pf-vq9q"
+    "published": "2026-08-17T17:50:34Z",
+    "ghsa": "GHSA-fhgh-wq4q-r37x"
   },
   {
-    "id": "CVE-2026-64859",
-    "summary": "New API: User List API Leaks Root User Access Token Leading to Privilege Escalation",
-    "severity": "CRITICAL",
-    "published": "2026-08-17T16:35:50Z",
-    "ghsa": "GHSA-6x2c-phff-wx57"
-  },
-  {
-    "id": "CVE-2026-53728",
-    "summary": "Medplum: Improper Validation of Redirect URI in External Auth Callback allows Authorization Code Leakage",
+    "id": "CVE-2026-59893",
+    "summary": "sqlparse: Inefficient Regex Handling of Dollar-Quoted SQL Literals Leads to ReDoS (Denial of Service)",
     "severity": "HIGH",
-    "published": "2026-08-17T13:36:17Z",
-    "ghsa": "GHSA-m44r-7c5h-m6mj"
+    "published": "2026-08-17T17:49:55Z",
+    "ghsa": "GHSA-prg7-hcfm-mfcr"
   },
   {
-    "id": "CVE-2026-55158",
-    "summary": "conflibot vulnerable to command injection via crafted pull request branch names under pull_request_target",
-    "severity": "CRITICAL",
-    "published": "2026-08-17T13:35:07Z",
-    "ghsa": "GHSA-2qvg-qr73-mqxp"
+    "id": "CVE-2026-54284",
+    "summary": "sqlparse: TokenList.__init__ materializes O(subtree) value per group, causing CPU DoS before depth/token caps trigger",
+    "severity": "HIGH",
+    "published": "2026-08-17T17:49:47Z",
+    "ghsa": "GHSA-pwgv-4x5q-6m9f"
+  },
+  {
+    "id": "CVE-2026-55090",
+    "summary": "Etherpad has stored XSS in HTML export via unescaped attribute-pool values",
+    "severity": "HIGH",
+    "published": "2026-08-17T17:49:38Z",
+    "ghsa": "GHSA-2jp7-wwpg-3p9w"
+  },
+  {
+    "id": "GHSA-92hr-gmr6-h8cp",
+    "summary": "Etherpad addressed weak token RNG, login timing, plugin path handling, API request handling",
+    "severity": "MODERATE",
+    "published": "2026-08-17T17:49:21Z",
+    "ghsa": "GHSA-92hr-gmr6-h8cp"
+  },
+  {
+    "id": "CVE-2026-55062",
+    "summary": "uniget CLI has Path Traversal in Hook Files - Directory Escape Vulnerability",
+    "severity": "MODERATE",
+    "published": "2026-08-17T17:46:33Z",
+    "ghsa": "GHSA-m6jg-wr9m-cg2f"
+  },
+  {
+    "id": "CVE-2026-55061",
+    "summary": "uniget CLI has an EDITOR Command Injection",
+    "severity": "MODERATE",
+    "published": "2026-08-17T17:46:05Z",
+    "ghsa": "GHSA-qmcq-xw74-w667"
+  },
+  {
+    "id": "GHSA-v836-6xw4-9cx3",
+    "summary": "vm2 has Memory Exhaustion DoS via bufferAllocLimit Bypass",
+    "severity": "HIGH",
+    "published": "2026-08-17T17:32:57Z",
+    "ghsa": "GHSA-v836-6xw4-9cx3"
   }
 ]
