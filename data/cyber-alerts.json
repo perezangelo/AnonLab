@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-c7hr-448w-65px",
-    "summary": "MeshCentral has unsanitized data fields",
+    "id": "CVE-2026-71417",
+    "summary": "Lemur: Any user can revoke arbitrary certificates at the CA by uploading a duplicate record and revoking it",
     "severity": "HIGH",
-    "published": "2026-08-18T20:09:35Z",
-    "ghsa": "GHSA-c7hr-448w-65px"
+    "published": "2026-08-18T20:51:48Z",
+    "ghsa": "GHSA-pxmc-2ffp-8j67"
   },
   {
-    "id": "CVE-2026-68922",
-    "summary": "MobSF Vulnerable to Arbitrary File Read via Path Traversal in ZIP Uploads",
+    "id": "CVE-2026-71322",
+    "summary": "Lemur: Missing authorization check on POST /certificates/<id>/export for plugins with requires_key = False",
     "severity": "MODERATE",
-    "published": "2026-08-18T18:01:26Z",
-    "ghsa": "GHSA-8j49-mmcx-4mp5"
+    "published": "2026-08-18T20:51:42Z",
+    "ghsa": "GHSA-4h97-p9wq-chqj"
   },
   {
-    "id": "CVE-2026-68923",
-    "summary": "MobSF's CSRF checks not enforced after Django migration",
+    "id": "CVE-2026-71317",
+    "summary": "Lemur: Sub-CA creation never checks `AuthorityPermission` on the parent authority",
     "severity": "MODERATE",
-    "published": "2026-08-18T18:01:13Z",
-    "ghsa": "GHSA-3p54-567p-2wpr"
+    "published": "2026-08-18T20:51:37Z",
+    "ghsa": "GHSA-g7p5-89mh-248h"
   },
   {
-    "id": "CVE-2026-68927",
-    "summary": "MobSF has SSRF port restriction bypass in assetlinks_check",
-    "severity": "LOW",
-    "published": "2026-08-18T18:01:03Z",
-    "ghsa": "GHSA-95px-34x5-p37h"
-  },
-  {
-    "id": "CVE-2026-68924",
-    "summary": "MobSF Vulnerable to Zip Bomb Denial of Service via Per-File Size Limit Bypass in ZIP/APK Extraction",
-    "severity": "MODERATE",
-    "published": "2026-08-18T18:00:47Z",
-    "ghsa": "GHSA-x768-8642-mmq9"
-  },
-  {
-    "id": "CVE-2026-63640",
-    "summary": "MagicMirror socket payload secret placeholder expansion can disclose SECRET_* environment variables",
-    "severity": "MODERATE",
-    "published": "2026-08-18T18:00:16Z",
-    "ghsa": "GHSA-q4gh-4ffp-5cg8"
-  },
-  {
-    "id": "CVE-2026-55178",
-    "summary": "GeoLens: Cross-dataset authorization bypass discloses private dataset metadata, schema, sample values, table rows, and raster/vector tile data",
+    "id": "CVE-2026-71308",
+    "summary": "Lemur: Unchecked `replaces[]` lets any user silence notifications and hijack auto-rotation for arbitrary certificates",
     "severity": "HIGH",
-    "published": "2026-08-18T18:00:07Z",
-    "ghsa": "GHSA-p23g-mvhj-jh3j"
+    "published": "2026-08-18T20:51:33Z",
+    "ghsa": "GHSA-cfh6-pv5c-38jv"
   },
   {
-    "id": "CVE-2026-55182",
-    "summary": "LibreNMS Vulnerable to Remote Code Execution by Signal Alert Transportation module",
+    "id": "CVE-2026-71307",
+    "summary": "Lemur: Authenticated low-privilege users can read plaintext destination credentials (SFTP password / private-key passphrase) via the destinations API",
     "severity": "HIGH",
-    "published": "2026-08-18T17:59:56Z",
-    "ghsa": "GHSA-c9fv-cgmm-2wg7"
+    "published": "2026-08-18T20:51:26Z",
+    "ghsa": "GHSA-6c8m-q6g9-vrw3"
   },
   {
-    "id": "CVE-2026-63643",
-    "summary": "MagicMirror: ssrf calendar .js",
-    "severity": "MODERATE",
-    "published": "2026-08-18T17:26:51Z",
-    "ghsa": "GHSA-w6x9-28jw-hq7j"
+    "id": "CVE-2026-71303",
+    "summary": "Lemur: Incomplete fix for GHSA-v2wp-frmc-5q3v -- ACME authority update endpoint allows non-admin to replace `acme_url` with internal IP, bypassing allowlist",
+    "severity": "HIGH",
+    "published": "2026-08-18T20:51:21Z",
+    "ghsa": "GHSA-v5rc-cpwc-cfpr"
   },
   {
-    "id": "CVE-2026-63642",
-    "summary": "MagicMirror newsfeed Socket.IO notification allows blind server-side request forgery",
+    "id": "CVE-2026-70667",
+    "summary": "Lemur: SSRF protection in certificate revocation checking bypassable via HTTP redirects and DNS rebinding (incomplete fix for GHSA-54vg-pfh7-jq95)",
     "severity": "MODERATE",
-    "published": "2026-08-18T17:26:46Z",
-    "ghsa": "GHSA-998g-7v5w-cr7g"
+    "published": "2026-08-18T20:51:12Z",
+    "ghsa": "GHSA-f3qq-49m6-rw8f"
+  },
+  {
+    "id": "CVE-2026-70666",
+    "summary": "Lemur: Server-Side Request Forgery via the ACME client following server-controlled URLs",
+    "severity": "HIGH",
+    "published": "2026-08-18T20:51:07Z",
+    "ghsa": "GHSA-xpmj-wjcp-6pww"
+  },
+  {
+    "id": "CVE-2026-62988",
+    "summary": "Froxlor: Credential and 2FA secret disclosure via Froxlor API endpoints",
+    "severity": "CRITICAL",
+    "published": "2026-08-18T20:48:35Z",
+    "ghsa": "GHSA-7788-ghfq-c6mh"
+  },
+  {
+    "id": "CVE-2026-55593",
+    "summary": "Froxlor has CSRF Vulnerability in AJAX Endpoint — Missing Cross-Site Request Forgery Protection",
+    "severity": "MODERATE",
+    "published": "2026-08-18T20:48:30Z",
+    "ghsa": "GHSA-xpr4-8vp6-c87j"
   }
 ]
