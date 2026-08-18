@@ -1,5 +1,40 @@
 [
   {
+    "id": "CVE-2026-73974",
+    "summary": "linuxfabrik-lib: Arbitrary root file read via live --test argument (lib.lftest) across sudoers-whitelisted plugins (LPE)",
+    "severity": "MODERATE",
+    "published": "2026-08-18T21:18:59Z",
+    "ghsa": "GHSA-rh9c-rqvg-f7pr"
+  },
+  {
+    "id": "CVE-2026-17106",
+    "summary": "moby/go-archive: Crafted tar archive can write outside the extraction directory",
+    "severity": "HIGH",
+    "published": "2026-08-18T21:17:29Z",
+    "ghsa": "GHSA-hfg8-hc9c-6c3h"
+  },
+  {
+    "id": "GHSA-7gww-x7fh-jf9j",
+    "summary": "LibreNMS: SSRF-driven stored XSS via Oxidized API response fields in device showconfig page",
+    "severity": "HIGH",
+    "published": "2026-08-18T21:17:23Z",
+    "ghsa": "GHSA-7gww-x7fh-jf9j"
+  },
+  {
+    "id": "GHSA-7cj5-v4pp-v632",
+    "summary": "LibreNMS: Stored XSS via graph_descr admin config settings echoed without escaping to all authenticated users",
+    "severity": "MODERATE",
+    "published": "2026-08-18T21:17:20Z",
+    "ghsa": "GHSA-7cj5-v4pp-v632"
+  },
+  {
+    "id": "GHSA-jf24-8g2h-2wg7",
+    "summary": "LibreNMS Vulnerable to Remote Code Execution via AboutController",
+    "severity": "MODERATE",
+    "published": "2026-08-18T21:17:11Z",
+    "ghsa": "GHSA-jf24-8g2h-2wg7"
+  },
+  {
     "id": "CVE-2026-71417",
     "summary": "Lemur: Any user can revoke arbitrary certificates at the CA by uploading a duplicate record and revoking it",
     "severity": "HIGH",
@@ -33,40 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-18T20:51:26Z",
     "ghsa": "GHSA-6c8m-q6g9-vrw3"
-  },
-  {
-    "id": "CVE-2026-71303",
-    "summary": "Lemur: Incomplete fix for GHSA-v2wp-frmc-5q3v -- ACME authority update endpoint allows non-admin to replace `acme_url` with internal IP, bypassing allowlist",
-    "severity": "HIGH",
-    "published": "2026-08-18T20:51:21Z",
-    "ghsa": "GHSA-v5rc-cpwc-cfpr"
-  },
-  {
-    "id": "CVE-2026-70667",
-    "summary": "Lemur: SSRF protection in certificate revocation checking bypassable via HTTP redirects and DNS rebinding (incomplete fix for GHSA-54vg-pfh7-jq95)",
-    "severity": "MODERATE",
-    "published": "2026-08-18T20:51:12Z",
-    "ghsa": "GHSA-f3qq-49m6-rw8f"
-  },
-  {
-    "id": "CVE-2026-70666",
-    "summary": "Lemur: Server-Side Request Forgery via the ACME client following server-controlled URLs",
-    "severity": "HIGH",
-    "published": "2026-08-18T20:51:07Z",
-    "ghsa": "GHSA-xpmj-wjcp-6pww"
-  },
-  {
-    "id": "CVE-2026-62988",
-    "summary": "Froxlor: Credential and 2FA secret disclosure via Froxlor API endpoints",
-    "severity": "CRITICAL",
-    "published": "2026-08-18T20:48:35Z",
-    "ghsa": "GHSA-7788-ghfq-c6mh"
-  },
-  {
-    "id": "CVE-2026-55593",
-    "summary": "Froxlor has CSRF Vulnerability in AJAX Endpoint — Missing Cross-Site Request Forgery Protection",
-    "severity": "MODERATE",
-    "published": "2026-08-18T20:48:30Z",
-    "ghsa": "GHSA-xpr4-8vp6-c87j"
   }
 ]
