@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-70657",
+    "summary": "Copyparty vulnerable to file/dirkey confusion",
+    "severity": "MODERATE",
+    "published": "2026-08-18T15:02:01Z",
+    "ghsa": "GHSA-x5pq-m9p8-f4vx"
+  },
+  {
     "id": "CVE-2026-69148",
     "summary": "MLflow: CreateModelVersion source validation does not check READ permission on referenced run_id",
     "severity": "HIGH",
@@ -61,12 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-17T21:55:49Z",
     "ghsa": "GHSA-gc95-3vw8-vg43"
-  },
-  {
-    "id": "CVE-2026-53659",
-    "summary": "http4k: Unbounded gzip decompression in `ServerFilters.GZip` / `RequestFilters.GunZip` allowed memory-exhaustion DoS",
-    "severity": "HIGH",
-    "published": "2026-08-17T21:52:27Z",
-    "ghsa": "GHSA-g4w2-6h2r-3m3w"
   }
 ]
