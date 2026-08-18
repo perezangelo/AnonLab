@@ -1,72 +1,72 @@
 [
   {
+    "id": "CVE-2026-61634",
+    "summary": "RabbitMQ Java client accepts broker frames larger than the negotiated AMQP frame_max",
+    "severity": "LOW",
+    "published": "2026-08-18T16:36:29Z",
+    "ghsa": "GHSA-5xwg-cfvj-gff5"
+  },
+  {
+    "id": "CVE-2026-63336",
+    "summary": "RabbitMQ Java client: TrustEverythingTrustManager used by default in useSslProtocol() enables MITM",
+    "severity": "MODERATE",
+    "published": "2026-08-18T16:32:59Z",
+    "ghsa": "GHSA-5m9f-rphj-c435"
+  },
+  {
+    "id": "CVE-2026-63335",
+    "summary": "RabbitMQ Java client malformed body frame triggers raw command assembler exception",
+    "severity": "MODERATE",
+    "published": "2026-08-18T16:32:42Z",
+    "ghsa": "GHSA-qx7j-jv8m-fppr"
+  },
+  {
+    "id": "CVE-2026-63337",
+    "summary": "RabbitMQ Java client: Unvalidated Class.forName in JSON-RPC ProcedureDescription enables arbitrary class loading",
+    "severity": "HIGH",
+    "published": "2026-08-18T16:32:29Z",
+    "ghsa": "GHSA-6g32-pxv4-2wfj"
+  },
+  {
+    "id": "CVE-2026-69219",
+    "summary": "RabbitMQ Java client ValueReader: Oversized LongString/bytes length triggers OOM via unchecked allocation",
+    "severity": "HIGH",
+    "published": "2026-08-18T16:32:20Z",
+    "ghsa": "GHSA-68mj-5wr7-6fgg"
+  },
+  {
+    "id": "CVE-2026-69220",
+    "summary": "RabbitMQ Java client ValueReader: Unbounded recursive table/array nesting causes StackOverflowError DoS",
+    "severity": "HIGH",
+    "published": "2026-08-18T16:32:12Z",
+    "ghsa": "GHSA-93j5-89vc-pph4"
+  },
+  {
+    "id": "CVE-2026-63328",
+    "summary": "Trivy Plugin Manager has Path Traversal that Allows Arbitrary File Write",
+    "severity": "MODERATE",
+    "published": "2026-08-18T16:32:02Z",
+    "ghsa": "GHSA-8rc5-4fr6-64pw"
+  },
+  {
+    "id": "CVE-2026-55839",
+    "summary": "Kestra vulnerable to stored XSS via custom Markdown [[link]] attribute injection",
+    "severity": "HIGH",
+    "published": "2026-08-18T16:31:38Z",
+    "ghsa": "GHSA-34pm-923j-7wf8"
+  },
+  {
+    "id": "GHSA-2mf3-mr2r-r4vf",
+    "summary": "@rhinostone/swig: arbitrary local file read via include/extends path traversal",
+    "severity": "HIGH",
+    "published": "2026-08-18T16:31:16Z",
+    "ghsa": "GHSA-2mf3-mr2r-r4vf"
+  },
+  {
     "id": "CVE-2026-70657",
     "summary": "Copyparty vulnerable to file/dirkey confusion",
     "severity": "MODERATE",
     "published": "2026-08-18T15:02:01Z",
     "ghsa": "GHSA-x5pq-m9p8-f4vx"
-  },
-  {
-    "id": "CVE-2026-69148",
-    "summary": "MLflow: CreateModelVersion source validation does not check READ permission on referenced run_id",
-    "severity": "HIGH",
-    "published": "2026-08-17T21:59:09Z",
-    "ghsa": "GHSA-gqch-g4w5-7qcw"
-  },
-  {
-    "id": "CVE-2026-69146",
-    "summary": "MLflow: LogInputs endpoint bypasses per-run UPDATE authorization in basic-auth",
-    "severity": "MODERATE",
-    "published": "2026-08-17T21:59:01Z",
-    "ghsa": "GHSA-3p64-6gvh-82v5"
-  },
-  {
-    "id": "CVE-2026-64849",
-    "summary": "MLflow: Unauthenticated full-read SSRF in webhook delivery: _validate_webhook_url bypassed via unvalidated HTTP redirects (and DNS rebinding)",
-    "severity": "CRITICAL",
-    "published": "2026-08-17T21:58:51Z",
-    "ghsa": "GHSA-7gwp-5pfp-969j"
-  },
-  {
-    "id": "CVE-2026-56677",
-    "summary": "9Router: Authenticated Server-Side Request Forgery (SSRF) via OIDC Provider Test Endpoint",
-    "severity": "HIGH",
-    "published": "2026-08-17T21:58:43Z",
-    "ghsa": "GHSA-8g4w-4ffg-8vgx"
-  },
-  {
-    "id": "CVE-2026-54148",
-    "summary": "http4k: `DigestAuthProvider.verify` did not bind to request URI",
-    "severity": "HIGH",
-    "published": "2026-08-17T21:57:41Z",
-    "ghsa": "GHSA-p28p-j94q-pg32"
-  },
-  {
-    "id": "CVE-2026-54147",
-    "summary": "http4k: `DigestAuthProvider.verify` ignored configured algorithm and did not bind to request URI",
-    "severity": "MODERATE",
-    "published": "2026-08-17T21:56:58Z",
-    "ghsa": "GHSA-vxxm-wwqh-mh47"
-  },
-  {
-    "id": "CVE-2026-53766",
-    "summary": "chrome-devtools-mcp: validatePath() does not canonicalize symlinks before enforcing roots",
-    "severity": "MODERATE",
-    "published": "2026-08-17T21:56:12Z",
-    "ghsa": "GHSA-8qf9-62x2-82pp"
-  },
-  {
-    "id": "GHSA-mpwr-8vm7-h73f",
-    "summary": "package pkcs12: Authentication bypass in Decode functions",
-    "severity": "MODERATE",
-    "published": "2026-08-17T21:56:01Z",
-    "ghsa": "GHSA-mpwr-8vm7-h73f"
-  },
-  {
-    "id": "CVE-2026-53752",
-    "summary": "docx4j: Stack Overflow via Cyclic `w:basedOn` Style Chain leads to Denial of Service",
-    "severity": "HIGH",
-    "published": "2026-08-17T21:55:49Z",
-    "ghsa": "GHSA-gc95-3vw8-vg43"
   }
 ]
