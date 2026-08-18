@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-61634",
-    "summary": "RabbitMQ Java client accepts broker frames larger than the negotiated AMQP frame_max",
+    "id": "CVE-2026-68922",
+    "summary": "MobSF Vulnerable to Arbitrary File Read via Path Traversal in ZIP Uploads",
+    "severity": "MODERATE",
+    "published": "2026-08-18T18:01:26Z",
+    "ghsa": "GHSA-8j49-mmcx-4mp5"
+  },
+  {
+    "id": "CVE-2026-68923",
+    "summary": "MobSF's CSRF checks not enforced after Django migration",
+    "severity": "MODERATE",
+    "published": "2026-08-18T18:01:13Z",
+    "ghsa": "GHSA-3p54-567p-2wpr"
+  },
+  {
+    "id": "CVE-2026-68927",
+    "summary": "MobSF has SSRF port restriction bypass in assetlinks_check",
     "severity": "LOW",
-    "published": "2026-08-18T16:36:29Z",
-    "ghsa": "GHSA-5xwg-cfvj-gff5"
+    "published": "2026-08-18T18:01:03Z",
+    "ghsa": "GHSA-95px-34x5-p37h"
   },
   {
-    "id": "CVE-2026-63336",
-    "summary": "RabbitMQ Java client: TrustEverythingTrustManager used by default in useSslProtocol() enables MITM",
+    "id": "CVE-2026-68924",
+    "summary": "MobSF Vulnerable to Zip Bomb Denial of Service via Per-File Size Limit Bypass in ZIP/APK Extraction",
     "severity": "MODERATE",
-    "published": "2026-08-18T16:32:59Z",
-    "ghsa": "GHSA-5m9f-rphj-c435"
+    "published": "2026-08-18T18:00:47Z",
+    "ghsa": "GHSA-x768-8642-mmq9"
   },
   {
-    "id": "CVE-2026-63335",
-    "summary": "RabbitMQ Java client malformed body frame triggers raw command assembler exception",
+    "id": "CVE-2026-63640",
+    "summary": "MagicMirror socket payload secret placeholder expansion can disclose SECRET_* environment variables",
     "severity": "MODERATE",
-    "published": "2026-08-18T16:32:42Z",
-    "ghsa": "GHSA-qx7j-jv8m-fppr"
+    "published": "2026-08-18T18:00:16Z",
+    "ghsa": "GHSA-q4gh-4ffp-5cg8"
   },
   {
-    "id": "CVE-2026-63337",
-    "summary": "RabbitMQ Java client: Unvalidated Class.forName in JSON-RPC ProcedureDescription enables arbitrary class loading",
+    "id": "CVE-2026-55178",
+    "summary": "GeoLens: Cross-dataset authorization bypass discloses private dataset metadata, schema, sample values, table rows, and raster/vector tile data",
     "severity": "HIGH",
-    "published": "2026-08-18T16:32:29Z",
-    "ghsa": "GHSA-6g32-pxv4-2wfj"
+    "published": "2026-08-18T18:00:07Z",
+    "ghsa": "GHSA-p23g-mvhj-jh3j"
   },
   {
-    "id": "CVE-2026-69219",
-    "summary": "RabbitMQ Java client ValueReader: Oversized LongString/bytes length triggers OOM via unchecked allocation",
+    "id": "CVE-2026-55182",
+    "summary": "LibreNMS Vulnerable to Remote Code Execution by Signal Alert Transportation module",
     "severity": "HIGH",
-    "published": "2026-08-18T16:32:20Z",
-    "ghsa": "GHSA-68mj-5wr7-6fgg"
+    "published": "2026-08-18T17:59:56Z",
+    "ghsa": "GHSA-c9fv-cgmm-2wg7"
   },
   {
-    "id": "CVE-2026-69220",
-    "summary": "RabbitMQ Java client ValueReader: Unbounded recursive table/array nesting causes StackOverflowError DoS",
-    "severity": "HIGH",
-    "published": "2026-08-18T16:32:12Z",
-    "ghsa": "GHSA-93j5-89vc-pph4"
-  },
-  {
-    "id": "CVE-2026-63328",
-    "summary": "Trivy Plugin Manager has Path Traversal that Allows Arbitrary File Write",
+    "id": "CVE-2026-63643",
+    "summary": "MagicMirror: ssrf calendar .js",
     "severity": "MODERATE",
-    "published": "2026-08-18T16:32:02Z",
-    "ghsa": "GHSA-8rc5-4fr6-64pw"
+    "published": "2026-08-18T17:26:51Z",
+    "ghsa": "GHSA-w6x9-28jw-hq7j"
   },
   {
-    "id": "CVE-2026-55839",
-    "summary": "Kestra vulnerable to stored XSS via custom Markdown [[link]] attribute injection",
-    "severity": "HIGH",
-    "published": "2026-08-18T16:31:38Z",
-    "ghsa": "GHSA-34pm-923j-7wf8"
-  },
-  {
-    "id": "GHSA-2mf3-mr2r-r4vf",
-    "summary": "@rhinostone/swig: arbitrary local file read via include/extends path traversal",
-    "severity": "HIGH",
-    "published": "2026-08-18T16:31:16Z",
-    "ghsa": "GHSA-2mf3-mr2r-r4vf"
-  },
-  {
-    "id": "CVE-2026-70657",
-    "summary": "Copyparty vulnerable to file/dirkey confusion",
+    "id": "CVE-2026-63642",
+    "summary": "MagicMirror newsfeed Socket.IO notification allows blind server-side request forgery",
     "severity": "MODERATE",
-    "published": "2026-08-18T15:02:01Z",
-    "ghsa": "GHSA-x5pq-m9p8-f4vx"
+    "published": "2026-08-18T17:26:46Z",
+    "ghsa": "GHSA-998g-7v5w-cr7g"
+  },
+  {
+    "id": "CVE-2026-63641",
+    "summary": "MagicMirror Socket.IO module namespaces bypass configured IP whitelist and allow unauthenticated server-side actions",
+    "severity": "LOW",
+    "published": "2026-08-18T17:26:41Z",
+    "ghsa": "GHSA-w26r-fwg8-rcp3"
   }
 ]
