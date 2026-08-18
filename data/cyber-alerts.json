@@ -1,5 +1,12 @@
 [
   {
+    "id": "GHSA-c7hr-448w-65px",
+    "summary": "MeshCentral has unsanitized data fields",
+    "severity": "HIGH",
+    "published": "2026-08-18T20:09:35Z",
+    "ghsa": "GHSA-c7hr-448w-65px"
+  },
+  {
     "id": "CVE-2026-68922",
     "summary": "MobSF Vulnerable to Arbitrary File Read via Path Traversal in ZIP Uploads",
     "severity": "MODERATE",
@@ -61,12 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-18T17:26:46Z",
     "ghsa": "GHSA-998g-7v5w-cr7g"
-  },
-  {
-    "id": "CVE-2026-63641",
-    "summary": "MagicMirror Socket.IO module namespaces bypass configured IP whitelist and allow unauthenticated server-side actions",
-    "severity": "LOW",
-    "published": "2026-08-18T17:26:41Z",
-    "ghsa": "GHSA-w26r-fwg8-rcp3"
   }
 ]
