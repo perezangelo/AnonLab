@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-63123",
+    "summary": "Tina: Cross-origin `POST /media/upload/*` requests can write arbitrary files into the Tina dev server media root",
+    "severity": "MODERATE",
+    "published": "2026-08-19T21:56:36Z",
+    "ghsa": "GHSA-rgr9-r7mj-mf6x"
+  },
+  {
+    "id": "CVE-2026-59992",
+    "summary": "Tina: Broken Access Control: arbitrary bucket-key write/delete in `next-tinacms-s3` (and sibling production media adapters)",
+    "severity": "MODERATE",
+    "published": "2026-08-19T21:56:30Z",
+    "ghsa": "GHSA-8mq9-5fw2-5rm4"
+  },
+  {
     "id": "CVE-2026-63188",
     "summary": "logto-tunnel serves files outside --experience-path via path traversal",
     "severity": "HIGH",
@@ -54,19 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-19T19:32:18Z",
     "ghsa": "GHSA-3hgv-jr5j-cg9x"
-  },
-  {
-    "id": "CVE-2024-45747",
-    "summary": "GeoServer has a Server-Side Template Injection (SSTI) vulnerability in processing FreeMarker templates",
-    "severity": "HIGH",
-    "published": "2026-08-19T19:31:54Z",
-    "ghsa": "GHSA-wf6j-gr27-g7ch"
-  },
-  {
-    "id": "CVE-2026-54689",
-    "summary": "SearXNG MCP Server: Additional hardened-mode SSRF bypasses",
-    "severity": "MODERATE",
-    "published": "2026-08-19T19:23:16Z",
-    "ghsa": "GHSA-wppf-h75h-6pm6"
   }
 ]
