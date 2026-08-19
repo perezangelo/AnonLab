@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-63188",
+    "summary": "logto-tunnel serves files outside --experience-path via path traversal",
+    "severity": "HIGH",
+    "published": "2026-08-19T20:24:06Z",
+    "ghsa": "GHSA-rxjr-6c9q-h67x"
+  },
+  {
+    "id": "CVE-2026-61712",
+    "summary": "BuildKit has a possible runtime DoS via unbounded group parsing",
+    "severity": "LOW",
+    "published": "2026-08-19T20:24:01Z",
+    "ghsa": "GHSA-72x6-4j93-7w86"
+  },
+  {
+    "id": "CVE-2026-61711",
+    "summary": "BuildKit: Custom frontend could bypass Seccomp/AppArmor",
+    "severity": "MODERATE",
+    "published": "2026-08-19T20:23:50Z",
+    "ghsa": "GHSA-7236-3392-c5c6"
+  },
+  {
     "id": "GHSA-hjwh-xvfw-qrwj",
     "summary": "SearXNG Basic Authentication Credentials Exposed Through MCP Logs and JSON-RPC Error Responses",
     "severity": "MODERATE",
@@ -47,26 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-19T19:23:16Z",
     "ghsa": "GHSA-wppf-h75h-6pm6"
-  },
-  {
-    "id": "CVE-2026-54688",
-    "summary": "SearXNG MCP Server is Vulnerable to SSRF in web_url_read: the internal-address guard is disabled by default (MCP_HTTP_HARDEN off)",
-    "severity": "MODERATE",
-    "published": "2026-08-19T19:23:08Z",
-    "ghsa": "GHSA-q87f-qc2r-2gw4"
-  },
-  {
-    "id": "GHSA-p77j-g7h5-r2vw",
-    "summary": "GeoLens's authorization and cache-scope flaws disclose private dataset data and metadata to unauthorized users (fixed in 1.2.4)",
-    "severity": "HIGH",
-    "published": "2026-08-19T19:22:59Z",
-    "ghsa": "GHSA-p77j-g7h5-r2vw"
-  },
-  {
-    "id": "CVE-2026-53966",
-    "summary": "XWiki Platform Live Data Live Table Connector has privilege escalation from edit to script right through Live Data editing",
-    "severity": "HIGH",
-    "published": "2026-08-19T19:18:04Z",
-    "ghsa": "GHSA-45ph-gxxr-gwgw"
   }
 ]
