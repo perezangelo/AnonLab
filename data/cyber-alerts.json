@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-qwgh-2vcv-g2f7",
-    "summary": "block_buffer: panic corrupts inline buffer position",
+    "id": "GHSA-hjwh-xvfw-qrwj",
+    "summary": "SearXNG Basic Authentication Credentials Exposed Through MCP Logs and JSON-RPC Error Responses",
     "severity": "MODERATE",
-    "published": "2026-08-19T19:15:34Z",
-    "ghsa": "GHSA-qwgh-2vcv-g2f7"
+    "published": "2026-08-19T19:32:46Z",
+    "ghsa": "GHSA-hjwh-xvfw-qrwj"
   },
   {
-    "id": "GHSA-rr55-jp92-8wp2",
-    "summary": "claude-faf-mcp has an arbitrary local file read/write via unconfined `path` argument in FAF tools",
+    "id": "CVE-2026-62673",
+    "summary": "Grav: .htaccess file extension rules bypass via case variation on case-insensitive filesystems",
     "severity": "HIGH",
-    "published": "2026-08-19T19:15:25Z",
-    "ghsa": "GHSA-rr55-jp92-8wp2"
+    "published": "2026-08-19T19:32:38Z",
+    "ghsa": "GHSA-vwg3-w8w3-pc79"
   },
   {
-    "id": "GHSA-j4r7-8ph4-43g3",
-    "summary": "faf-mcp has an arbitrary local file read/write via unconfined `path` argument in FAF tools",
-    "severity": "HIGH",
-    "published": "2026-08-19T19:15:13Z",
-    "ghsa": "GHSA-j4r7-8ph4-43g3"
-  },
-  {
-    "id": "GHSA-cc2g-gq8c-r332",
-    "summary": "grok-faf-mcp has an arbitrary local file read via unconfined `path` argument in FAF tools",
-    "severity": "HIGH",
-    "published": "2026-08-19T19:15:01Z",
-    "ghsa": "GHSA-cc2g-gq8c-r332"
-  },
-  {
-    "id": "CVE-2026-55236",
-    "summary": "langgraph-api: Incomplete assistant authorization in LangGraph Server run creation",
+    "id": "CVE-2026-61807",
+    "summary": "Snipe-IT: Stored DOM XSS via table selected-count IDs",
     "severity": "MODERATE",
-    "published": "2026-08-19T18:56:03Z",
-    "ghsa": "GHSA-jfj5-wrj9-63x4"
+    "published": "2026-08-19T19:32:32Z",
+    "ghsa": "GHSA-c8qc-wf67-342w"
   },
   {
-    "id": "CVE-2026-55235",
-    "summary": "langgraph-api: Relative webhook targets in LangGraph Server can reach in-process routes without authentication",
+    "id": "CVE-2026-55703",
+    "summary": "Snipe-IT: Maintenance Record Disclosure via Missing Authorization on GET",
     "severity": "MODERATE",
-    "published": "2026-08-19T18:55:57Z",
-    "ghsa": "GHSA-2c9q-c2q9-qgqv"
+    "published": "2026-08-19T19:32:25Z",
+    "ghsa": "GHSA-r9r3-g9fp-3q4q"
   },
   {
-    "id": "CVE-2026-73974",
-    "summary": "linuxfabrik-lib: Arbitrary root file read via live --test argument (lib.lftest) across sudoers-whitelisted plugins (LPE)",
-    "severity": "MODERATE",
-    "published": "2026-08-18T21:18:59Z",
-    "ghsa": "GHSA-rh9c-rqvg-f7pr"
-  },
-  {
-    "id": "CVE-2026-17106",
-    "summary": "moby/go-archive: Crafted tar archive can write outside the extraction directory",
+    "id": "CVE-2026-55694",
+    "summary": "Snipe-IT: Chained Information Disclosure and IDOR Leads to Full EULA File Takeover",
     "severity": "HIGH",
-    "published": "2026-08-18T21:17:29Z",
-    "ghsa": "GHSA-hfg8-hc9c-6c3h"
+    "published": "2026-08-19T19:32:18Z",
+    "ghsa": "GHSA-3hgv-jr5j-cg9x"
   },
   {
-    "id": "GHSA-7gww-x7fh-jf9j",
-    "summary": "LibreNMS: SSRF-driven stored XSS via Oxidized API response fields in device showconfig page",
+    "id": "CVE-2024-45747",
+    "summary": "GeoServer has a Server-Side Template Injection (SSTI) vulnerability in processing FreeMarker templates",
     "severity": "HIGH",
-    "published": "2026-08-18T21:17:23Z",
-    "ghsa": "GHSA-7gww-x7fh-jf9j"
+    "published": "2026-08-19T19:31:54Z",
+    "ghsa": "GHSA-wf6j-gr27-g7ch"
   },
   {
-    "id": "GHSA-7cj5-v4pp-v632",
-    "summary": "LibreNMS: Stored XSS via graph_descr admin config settings echoed without escaping to all authenticated users",
+    "id": "CVE-2026-54689",
+    "summary": "SearXNG MCP Server: Additional hardened-mode SSRF bypasses",
     "severity": "MODERATE",
-    "published": "2026-08-18T21:17:20Z",
-    "ghsa": "GHSA-7cj5-v4pp-v632"
+    "published": "2026-08-19T19:23:16Z",
+    "ghsa": "GHSA-wppf-h75h-6pm6"
+  },
+  {
+    "id": "CVE-2026-54688",
+    "summary": "SearXNG MCP Server is Vulnerable to SSRF in web_url_read: the internal-address guard is disabled by default (MCP_HTTP_HARDEN off)",
+    "severity": "MODERATE",
+    "published": "2026-08-19T19:23:08Z",
+    "ghsa": "GHSA-q87f-qc2r-2gw4"
+  },
+  {
+    "id": "GHSA-p77j-g7h5-r2vw",
+    "summary": "GeoLens's authorization and cache-scope flaws disclose private dataset data and metadata to unauthorized users (fixed in 1.2.4)",
+    "severity": "HIGH",
+    "published": "2026-08-19T19:22:59Z",
+    "ghsa": "GHSA-p77j-g7h5-r2vw"
+  },
+  {
+    "id": "CVE-2026-53966",
+    "summary": "XWiki Platform Live Data Live Table Connector has privilege escalation from edit to script right through Live Data editing",
+    "severity": "HIGH",
+    "published": "2026-08-19T19:18:04Z",
+    "ghsa": "GHSA-45ph-gxxr-gwgw"
   }
 ]
