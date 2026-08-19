@@ -1,8 +1,18 @@
 [
   {
+    "title": "Cloudflare Workers Spectre Attack Leaks JWT From Co-Located Worker at 12 Bits/Second",
+    "link": "https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi50HcHSWt796lc8zQ8Anp_fHUqgV-BM0xiS1NxJW8zRDgBRJ9ovZOECiIhdQt0aVTUdhduJYP1o5wTa5RpDoCwhihq8rKqWmh73E9E8UzafyDcq1n1khCEIDCikK2L6NEt1mbIuMRm6F36bap74JtZawFqqCPvWF72SAm25BzREVerWYaRIDEo1O89V4k/s1600/jwt.jpg"
+  },
+  {
     "title": "Hackers compromise 14,500 Dahua web cameras in 35-day campaign",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-compromise-14-500-dahua-web-cameras-in-35-day-campaign/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/12/02/camera.jpg"
+  },
+  {
+    "title": "OpenAI Pauses Frontier RL Training as It Tightens Defenses Against Unsafe AI Behavior",
+    "link": "https://thehackernews.com/2026/08/openai-pauses-frontier-rl-training-as.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6Ar7QFukiqBWatGeVdffG393l7GwFmzYBSWvv6Um7gPNIzeL8p3gfO_2C1rvVGPSUh00KWZAB8wFs9Xdz6h7uWDd7MYyWuuzLciO6NX1Y4mln1LqxK-skWP7VEdFD3BOhP1msTaM7F1ZgBeGyDUuLUaNlXAroEXHH6aYPgWluliMNUrozkKKeGK9kf-Ri/s1600/open.jpg"
   },
   {
     "title": "US warns of AI-powered attacks on Siemens PLCs in critical infrastructure",
@@ -138,15 +148,5 @@
     "title": "Critical GitLab Zero-Click Flaw Poses Mitigation Challenges",
     "link": "https://www.darkreading.com/application-security/critical-gitlab-zero-click-flaw-mitigation-challenges",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2a4148f110e1cfe1/6a85e47e0d336431ba15fdc0/gitlab_bella1105_shutterstock-REVISED_FOR_16X9.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "'CoSnitch' Attack Tricked Copilot Into Mapping Out Architecture",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/cosnitch-attack-copilot-mapping-out-architecture",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltcaf5eccbac802b13/6a84a0beeed7cf792c0eeed7/AI_apps-alexsl-GettyImages-2213179432.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Comcast turns your Xfinity WiFi into a home motion detector",
-    "link": "https://www.bleepingcomputer.com/news/security/comcast-turns-your-xfinity-wifi-into-a-home-motion-detector/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/08/18/xfinity-wifi-motion-header.jpg"
   }
 ]
