@@ -1,5 +1,47 @@
 [
   {
+    "id": "GHSA-qwgh-2vcv-g2f7",
+    "summary": "block_buffer: panic corrupts inline buffer position",
+    "severity": "MODERATE",
+    "published": "2026-08-19T19:15:34Z",
+    "ghsa": "GHSA-qwgh-2vcv-g2f7"
+  },
+  {
+    "id": "GHSA-rr55-jp92-8wp2",
+    "summary": "claude-faf-mcp has an arbitrary local file read/write via unconfined `path` argument in FAF tools",
+    "severity": "HIGH",
+    "published": "2026-08-19T19:15:25Z",
+    "ghsa": "GHSA-rr55-jp92-8wp2"
+  },
+  {
+    "id": "GHSA-j4r7-8ph4-43g3",
+    "summary": "faf-mcp has an arbitrary local file read/write via unconfined `path` argument in FAF tools",
+    "severity": "HIGH",
+    "published": "2026-08-19T19:15:13Z",
+    "ghsa": "GHSA-j4r7-8ph4-43g3"
+  },
+  {
+    "id": "GHSA-cc2g-gq8c-r332",
+    "summary": "grok-faf-mcp has an arbitrary local file read via unconfined `path` argument in FAF tools",
+    "severity": "HIGH",
+    "published": "2026-08-19T19:15:01Z",
+    "ghsa": "GHSA-cc2g-gq8c-r332"
+  },
+  {
+    "id": "CVE-2026-55236",
+    "summary": "langgraph-api: Incomplete assistant authorization in LangGraph Server run creation",
+    "severity": "MODERATE",
+    "published": "2026-08-19T18:56:03Z",
+    "ghsa": "GHSA-jfj5-wrj9-63x4"
+  },
+  {
+    "id": "CVE-2026-55235",
+    "summary": "langgraph-api: Relative webhook targets in LangGraph Server can reach in-process routes without authentication",
+    "severity": "MODERATE",
+    "published": "2026-08-19T18:55:57Z",
+    "ghsa": "GHSA-2c9q-c2q9-qgqv"
+  },
+  {
     "id": "CVE-2026-73974",
     "summary": "linuxfabrik-lib: Arbitrary root file read via live --test argument (lib.lftest) across sudoers-whitelisted plugins (LPE)",
     "severity": "MODERATE",
@@ -26,47 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-18T21:17:20Z",
     "ghsa": "GHSA-7cj5-v4pp-v632"
-  },
-  {
-    "id": "GHSA-jf24-8g2h-2wg7",
-    "summary": "LibreNMS Vulnerable to Remote Code Execution via AboutController",
-    "severity": "MODERATE",
-    "published": "2026-08-18T21:17:11Z",
-    "ghsa": "GHSA-jf24-8g2h-2wg7"
-  },
-  {
-    "id": "CVE-2026-71417",
-    "summary": "Lemur: Any user can revoke arbitrary certificates at the CA by uploading a duplicate record and revoking it",
-    "severity": "HIGH",
-    "published": "2026-08-18T20:51:48Z",
-    "ghsa": "GHSA-pxmc-2ffp-8j67"
-  },
-  {
-    "id": "CVE-2026-71322",
-    "summary": "Lemur: Missing authorization check on POST /certificates/<id>/export for plugins with requires_key = False",
-    "severity": "MODERATE",
-    "published": "2026-08-18T20:51:42Z",
-    "ghsa": "GHSA-4h97-p9wq-chqj"
-  },
-  {
-    "id": "CVE-2026-71317",
-    "summary": "Lemur: Sub-CA creation never checks `AuthorityPermission` on the parent authority",
-    "severity": "MODERATE",
-    "published": "2026-08-18T20:51:37Z",
-    "ghsa": "GHSA-g7p5-89mh-248h"
-  },
-  {
-    "id": "CVE-2026-71308",
-    "summary": "Lemur: Unchecked `replaces[]` lets any user silence notifications and hijack auto-rotation for arbitrary certificates",
-    "severity": "HIGH",
-    "published": "2026-08-18T20:51:33Z",
-    "ghsa": "GHSA-cfh6-pv5c-38jv"
-  },
-  {
-    "id": "CVE-2026-71307",
-    "summary": "Lemur: Authenticated low-privilege users can read plaintext destination credentials (SFTP password / private-key passphrase) via the destinations API",
-    "severity": "HIGH",
-    "published": "2026-08-18T20:51:26Z",
-    "ghsa": "GHSA-6c8m-q6g9-vrw3"
   }
 ]
