@@ -1,5 +1,10 @@
 [
   {
+    "title": "Calling on Cyber Pros to Help Defend City Hall",
+    "link": "https://www.darkreading.com/cyber-risk/calling-on-cyber-pros-to-help-city-hall",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8bf82558cb508927/6a874c7440ec6f0ef030335e/city_hall-sshepard-getty-184661001.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Hackers poison arrayref Rust crate to push infostealer malware",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-poison-arrayref-rust-crate-to-push-infostealer-malware/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/04/09/Rust-headpic-red.jpg"
@@ -8,6 +13,16 @@
     "title": "N-able Bug Exposes Password Vault Master Keys",
     "link": "https://www.darkreading.com/vulnerabilities-threats/n-able-bug-password-vault-master-keys",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0a77c38c9943dba1/6a7ccfe21978b46e991f0379/Vault-Dragon_Claws-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Money and Mindset: The Two Biggest Roadblocks to Cyber Policing",
+    "link": "https://www.darkreading.com/cybersecurity-operations/money-and-mindset-the-two-biggest-roadblocks-to-cyber-policing",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta7ace73c64110fdb/6a873d0883b3a602b22efba9/GettyImages-2226845743.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "ThreatsDay: Gogs 10.0 RCE, n8n Workflow-to-RCE, $10M Reward, GLM-5.3 AI Exploit and More",
+    "link": "https://thehackernews.com/2026/08/threatsday-gogs-100-rce-n8n-workflow-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrmpCA-Pjqqy5BQaFvVtYqPZocJNkI4XUD8bcD9KrGaBcLyKd3J-aWVUtB8HwTiVqrFSI8U5wtTPhtjowrBWukeoUwSM5Y0-YKY535m1iDdQCXLYbSlx-qS-2TzZUpWVghvC3b9qWHxPoY4b-d3uUn3E4jeeW6iPt6Klxte-iNHfbq7K4aUpKH-EfhZV69/s1600/threatsday-main.png"
   },
   {
     "title": "AI-Generated Exploit Scripts Target Siemens S7 PLCs in U.S. Critical Infrastructure",
@@ -130,23 +145,8 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/20/0_MLflow.jpg"
   },
   {
-    "title": "NASA AIT-GUI Flaws Could Let Unauthenticated Attackers Issue Spacecraft Commands",
-    "link": "https://thehackernews.com/2026/08/nasa-ait-gui-flaws-could-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0aHi13XpphD98KUUKTJJB0T5eJW8TLe8qecYWanC8lqujxWOn4dtJUXThwqpfnrd9daSkiLMxXb7r6EFFbYY2fy3qSZteMtPB5Sl5t4K01MKoHywiyohPzUQX17h3oj126zywGtTEP8twGQnbs0wjaecaY8nLhAWXLw0anuJuL2iSJmKBVnzlZhy842E/s1600/nasa.jpg"
-  },
-  {
     "title": "OpenAI Overhauls Model Security With Sandboxing, 30-Minute Alerts, and Training Pauses",
     "link": "https://www.securityweek.com/openai-overhauls-model-security-with-sandboxing-30-minute-alerts-and-training-pauses/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
-  },
-  {
-    "title": "New Manic Android malware can exfiltrate data through nearby devices",
-    "link": "https://www.bleepingcomputer.com/news/security/new-manic-android-malware-can-exfiltrate-data-through-nearby-devices/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/android.jpg"
-  },
-  {
-    "title": "Critical Zimbra RCE flaw now actively exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/critical-zimbra-rce-flaw-now-actively-exploited-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Zimbra-headpic.jpg"
   }
 ]
