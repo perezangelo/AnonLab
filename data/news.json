@@ -1,5 +1,10 @@
 [
   {
+    "title": "Hackers poison arrayref Rust crate to push infostealer malware",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-poison-arrayref-rust-crate-to-push-infostealer-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/04/09/Rust-headpic-red.jpg"
+  },
+  {
     "title": "N-able Bug Exposes Password Vault Master Keys",
     "link": "https://www.darkreading.com/vulnerabilities-threats/n-able-bug-password-vault-master-keys",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0a77c38c9943dba1/6a7ccfe21978b46e991f0379/Vault-Dragon_Claws-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -85,6 +90,11 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsJMUJluWegBU4C6RiZ4QHg6rTqhFHMt5JJt3RR2K7l06c3FOFlnq8gIVuBqVUX8qsJFiAh6KKAlDXpVAydAoC2rM0dUKUayta50sqRXoW36_V2OgSXJBKaaAFY4boBYhtHkqeyBaBZavbo7bz3S8otNwyb3NUmW9j88edph6zAfnyJikYhLBrAHuCdBA/s1600/visa.jpg"
   },
   {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/08/20/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
     "title": "Johnson Controls Simplex Incident Manager",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-232-01",
     "image": ""
@@ -138,15 +148,5 @@
     "title": "Critical Zimbra RCE flaw now actively exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/critical-zimbra-rce-flaw-now-actively-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Zimbra-headpic.jpg"
-  },
-  {
-    "title": "Exploitation Expected for Critical Authentication Bypass Patched in Citrix NetScaler",
-    "link": "https://www.securityweek.com/exploitation-expected-for-critical-authentication-bypass-patched-in-citrix-netscaler/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Citrix-zero-day.jpg"
-  },
-  {
-    "title": "Critical GitLab Flaw Exploited Shortly After Disclosure",
-    "link": "https://www.securityweek.com/critical-gitlab-flaw-exploited-shortly-after-disclosure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/GitLab.jpeg"
   }
 ]
