@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-67448",
+    "summary": "Mailpit: WebSocket origin check bypass via percent-encoded path (regression of CVE-2026-22689)",
+    "severity": "MODERATE",
+    "published": "2026-08-20T21:34:58Z",
+    "ghsa": "GHSA-8r62-w5wh-fc5m"
+  },
+  {
+    "id": "CVE-2026-67447",
+    "summary": "Mailpit: SMTP DATA line reader buffers over-limit input before size enforcement",
+    "severity": "MODERATE",
+    "published": "2026-08-20T21:34:52Z",
+    "ghsa": "GHSA-r553-m4fv-5v97"
+  },
+  {
     "id": "CVE-2026-55451",
     "summary": "gettext-converter: Prototype pollution in js2i18next() via crafted translation keys",
     "severity": "MODERATE",
@@ -54,19 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-20T18:44:54Z",
     "ghsa": "GHSA-5cwr-5jxg-pcf6"
-  },
-  {
-    "id": "GHSA-fm29-4mq3-phg6",
-    "summary": "Winter: ImportExportController AJAX handlers bypass granular import/export permission gate",
-    "severity": "MODERATE",
-    "published": "2026-08-20T18:44:50Z",
-    "ghsa": "GHSA-fm29-4mq3-phg6"
-  },
-  {
-    "id": "GHSA-mpmw-f6h6-3g26",
-    "summary": "Winter: My Account preview exposes another backend user's profile by record ID",
-    "severity": "MODERATE",
-    "published": "2026-08-20T18:44:45Z",
-    "ghsa": "GHSA-mpmw-f6h6-3g26"
   }
 ]
