@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-55253",
-    "summary": "LangChain MongoDB has NoSQL Operator Injection in MongoDBSaver.list() leading to cross-tenant data exposure",
-    "severity": "HIGH",
-    "published": "2026-08-20T17:29:14Z",
-    "ghsa": "GHSA-533j-2v4q-mw5h"
-  },
-  {
-    "id": "CVE-2026-54061",
-    "summary": "Dgraph Alpha group stores can be replaced via unauthenticated external snapshot import",
-    "severity": "CRITICAL",
-    "published": "2026-08-20T17:29:00Z",
-    "ghsa": "GHSA-rrwh-6jrq-wp5v"
-  },
-  {
-    "id": "CVE-2026-55244",
-    "summary": "asteval has a Sandbox Escape via BaseException Subclasses",
+    "id": "GHSA-jm5p-837g-rv8g",
+    "summary": "Wagtail: Improper restriction handling on Page translation API endpoint",
     "severity": "MODERATE",
-    "published": "2026-08-20T17:28:52Z",
-    "ghsa": "GHSA-89v8-rhwq-hf77"
+    "published": "2026-08-20T18:45:27Z",
+    "ghsa": "GHSA-jm5p-837g-rv8g"
   },
   {
-    "id": "GHSA-9w56-46f6-3qhx",
-    "summary": "asteval Sandbox Escape: arbitrary native memory read/write via numpy ctypes in default asteval Interpreter",
+    "id": "GHSA-x5cx-w6p2-mxf2",
+    "summary": "Wagtail: Improper permission handling when copying snippets",
     "severity": "MODERATE",
-    "published": "2026-08-20T17:26:52Z",
-    "ghsa": "GHSA-9w56-46f6-3qhx"
+    "published": "2026-08-20T18:45:23Z",
+    "ghsa": "GHSA-x5cx-w6p2-mxf2"
   },
   {
-    "id": "CVE-2026-55149",
-    "summary": "vouch-proxy has an Unbounded Multipart Cookie Allocation DoS",
-    "severity": "HIGH",
-    "published": "2026-08-20T17:26:39Z",
-    "ghsa": "GHSA-qqff-5854-px68"
-  },
-  {
-    "id": "CVE-2026-45404",
-    "summary": "OpenTelemetry-Go: Unsynchronized baggage map can panic under concurrent access",
+    "id": "GHSA-c2xx-cjmh-9q8f",
+    "summary": "Wagtail: Improper restriction handling on descendant collections in Documents and Images API",
     "severity": "MODERATE",
-    "published": "2026-08-20T17:26:14Z",
-    "ghsa": "GHSA-42cj-99w8-cp2p"
+    "published": "2026-08-20T18:45:14Z",
+    "ghsa": "GHSA-c2xx-cjmh-9q8f"
   },
   {
-    "id": "CVE-2026-32637",
-    "summary": "Velero vulnerable to file path traversal when extracting from backup's tarball",
+    "id": "GHSA-92hv-j533-69wc",
+    "summary": "Wagtail: Identification of documents by SHA1 hash",
+    "severity": "LOW",
+    "published": "2026-08-20T18:45:09Z",
+    "ghsa": "GHSA-92hv-j533-69wc"
+  },
+  {
+    "id": "GHSA-hq84-x37p-j6q5",
+    "summary": "Winter: Reflected XSS through the search query parameter in the backend Table widget",
     "severity": "MODERATE",
-    "published": "2026-08-20T17:26:07Z",
-    "ghsa": "GHSA-j2g6-362q-6qc6"
+    "published": "2026-08-20T18:45:04Z",
+    "ghsa": "GHSA-hq84-x37p-j6q5"
   },
   {
-    "id": "CVE-2026-63123",
-    "summary": "Tina: Cross-origin `POST /media/upload/*` requests can write arbitrary files into the Tina dev server media root",
+    "id": "GHSA-p2ch-c2c3-4xm5",
+    "summary": "Winter: CSRF through AJAX handler names reachable as backend page actions",
     "severity": "MODERATE",
-    "published": "2026-08-19T21:56:36Z",
-    "ghsa": "GHSA-rgr9-r7mj-mf6x"
+    "published": "2026-08-20T18:44:59Z",
+    "ghsa": "GHSA-p2ch-c2c3-4xm5"
   },
   {
-    "id": "CVE-2026-59992",
-    "summary": "Tina: Broken Access Control: arbitrary bucket-key write/delete in `next-tinacms-s3` (and sibling production media adapters)",
+    "id": "GHSA-5cwr-5jxg-pcf6",
+    "summary": "Winter: Stored XSS through cached Brand Settings and Editor Settings custom styles",
     "severity": "MODERATE",
-    "published": "2026-08-19T21:56:30Z",
-    "ghsa": "GHSA-8mq9-5fw2-5rm4"
+    "published": "2026-08-20T18:44:54Z",
+    "ghsa": "GHSA-5cwr-5jxg-pcf6"
   },
   {
-    "id": "CVE-2026-63188",
-    "summary": "logto-tunnel serves files outside --experience-path via path traversal",
-    "severity": "HIGH",
-    "published": "2026-08-19T20:24:06Z",
-    "ghsa": "GHSA-rxjr-6c9q-h67x"
+    "id": "GHSA-fm29-4mq3-phg6",
+    "summary": "Winter: ImportExportController AJAX handlers bypass granular import/export permission gate",
+    "severity": "MODERATE",
+    "published": "2026-08-20T18:44:50Z",
+    "ghsa": "GHSA-fm29-4mq3-phg6"
+  },
+  {
+    "id": "GHSA-mpmw-f6h6-3g26",
+    "summary": "Winter: My Account preview exposes another backend user's profile by record ID",
+    "severity": "MODERATE",
+    "published": "2026-08-20T18:44:45Z",
+    "ghsa": "GHSA-mpmw-f6h6-3g26"
+  },
+  {
+    "id": "GHSA-7mpf-4465-7fc2",
+    "summary": "Winter: Stored XSS through Backend List widget image columns",
+    "severity": "LOW",
+    "published": "2026-08-20T18:44:41Z",
+    "ghsa": "GHSA-7mpf-4465-7fc2"
   }
 ]
