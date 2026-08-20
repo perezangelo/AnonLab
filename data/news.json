@@ -1,5 +1,20 @@
 [
   {
+    "title": "CISA warns of hackers exploiting critical MLflow vulnerability",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-mlflow-vulnerability/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/20/0_MLflow.jpg"
+  },
+  {
+    "title": "NASA AIT-GUI Flaws Could Let Unauthenticated Attackers Issue Spacecraft Commands",
+    "link": "https://thehackernews.com/2026/08/nasa-ait-gui-flaws-could-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0aHi13XpphD98KUUKTJJB0T5eJW8TLe8qecYWanC8lqujxWOn4dtJUXThwqpfnrd9daSkiLMxXb7r6EFFbYY2fy3qSZteMtPB5Sl5t4K01MKoHywiyohPzUQX17h3oj126zywGtTEP8twGQnbs0wjaecaY8nLhAWXLw0anuJuL2iSJmKBVnzlZhy842E/s1600/nasa.jpg"
+  },
+  {
+    "title": "ToxicPanda 2.0 and GoldDigger Expand Android Banking Attacks with On-Device Fraud",
+    "link": "https://thehackernews.com/2026/08/toxicpanda-20-and-golddigger-expand.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhq19iWDNnvPUAAC2_MJN09g-1SHoPWQv82zvmQGTvrniDXm9BUWK73QrKCNCgxk0uGp6MrKF8cDQrigQCI3CW1G8V8GNltJ0GRc-yBjt69zPem4YW_b0XCZwsIFhWiOoul7eIhEOjb_F0X9A9B_DOmQNbCWHF6AzqDro4U0XjH_CgtJ_J0MVZjDPmyDL1p/s1600/android-banking-malware.jpg"
+  },
+  {
     "title": "OpenAI Overhauls Model Security With Sandboxing, 30-Minute Alerts, and Training Pauses",
     "link": "https://www.securityweek.com/openai-overhauls-model-security-with-sandboxing-30-minute-alerts-and-training-pauses/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
@@ -13,6 +28,11 @@
     "title": "Critical Zimbra RCE flaw now actively exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/critical-zimbra-rce-flaw-now-actively-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/10/Zimbra-headpic.jpg"
+  },
+  {
+    "title": "40 Malicious Firefox Extensions Pose as Web3 Products to Steal Wallet Secrets",
+    "link": "https://thehackernews.com/2026/08/40-malicious-firefox-extensions-pose-as.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA5ySurVDL2oPvG7l78G22fbZEDplybrP5KX79GCEuhHybqkIgDGWDY_iHNfSLhKMt4sxn51CF33lRNwyjQy-l4Zajbkl9qUFxsjHEIoVsFhWBcGoHavMzOnmbWAI-8VHreBmZhuoCPs_N5KAKLFccr-bFLhzvJq12bvhvp5upRSkZulRN4tUDUTkfTRqo/s1600/firefox.png"
   },
   {
     "title": "Exploitation Expected for Critical Authentication Bypass Patched in Citrix NetScaler",
@@ -65,6 +85,11 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/19/CareCloud.jpg"
   },
   {
+    "title": "Agentic AI Presents New Insider Threat Model for Orgs",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/agentic-ai-new-insider-threat-model",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd0c2b7a8187293ac/6a837f44db552afa32e2f029/katie_mo_and_Rob_Wright.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Cloudflare Workers Spectre Attack Leaks JWT From Co-Located Worker at 12 Bits/Second",
     "link": "https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi50HcHSWt796lc8zQ8Anp_fHUqgV-BM0xiS1NxJW8zRDgBRJ9ovZOECiIhdQt0aVTUdhduJYP1o5wTa5RpDoCwhihq8rKqWmh73E9E8UzafyDcq1n1khCEIDCikK2L6NEt1mbIuMRm6F36bap74JtZawFqqCPvWF72SAm25BzREVerWYaRIDEo1O89V4k/s1600/jwt.jpg"
@@ -88,11 +113,6 @@
     "title": "SilkParasite Threatens Central Asian Orgs With Flurry of RATs",
     "link": "https://www.darkreading.com/threat-intelligence/silkparasite-central-asian-orgs-flurry-rats",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf72b6d96243f3ad0/6a85b7da026bc525d4e194a5/rats-Andyworks-Getty-2192975649.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "US charges Iranian hackers over $3.4 billion intellectual property theft",
-    "link": "https://www.bleepingcomputer.com/news/security/us-charges-iranian-hackers-over-34-billion-intellectual-property-theft/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/06/24/justice-3.jpg"
   },
   {
     "title": "Virtual Event Today: CodeSecCon \u2013 Secure Your Code and Applications",
@@ -128,25 +148,5 @@
     "title": "US Charges 17 Iranian Hackers, Offers $10 Million Rewards for 5 of Them",
     "link": "https://www.securityweek.com/us-charges-17-iranian-hackers-offers-10-million-rewards-for-5-of-them/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/03/Irianian-cyberattacks-hacks.jpg"
-  },
-  {
-    "title": "Phishing 3.0: The Fight Moves to Agent Versus Agent",
-    "link": "https://thehackernews.com/2026/08/phishing-30-fight-moves-to-agent-versus.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQNc2xSAgLu-A9p7sNrEqSu_NjH29MY18RsTwxzLEGW1a1qUJIMSu5RlZg1V8tPxQg55hqA94wYqBiD74lF3l6XXYB43oM_xalMLq8_uRR1xAuSX6dop3Cdmg3lwljU1Nl4aqsKHHDr1Ju4n5Q6j_0LqbGqX8coexq7DaRU9IzRZDHKbDqQoNYD1CRcNg/s1600/iron.jpg"
-  },
-  {
-    "title": "StopAndProtect Uses Nearly 2,000 Hacked WordPress Sites to Spread Malware and Steal Data",
-    "link": "https://thehackernews.com/2026/08/stopandprotect-uses-nearly-2000-hacked.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHtWFBMa_xYpIkK39I2gvAJrksqJBAkRSnEZ-WjwpQtbV9mgfPRzWp3qtdhk_v1yOG67pAZ5H3DAFRVv7rEzbns9IuAa4_DV-MUBDIb6fuWzLyRvFXyC1fOaTUPbwxdoY4cykbPy3wXEn3HvlnbjbqH37vkLKMSJA799pVeD50RqMGlJJztFJZcFzR2xTf/s1600/wordpress-hacks.jpg"
-  },
-  {
-    "title": "Cl0p Ransomware Group Names Over 40 Victims of PTC Windchill Campaign",
-    "link": "https://www.securityweek.com/cl0p-ransomware-group-names-over-40-victims-of-ptc-windchill-campaign/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/cleo-file-transfer-exploit-attack.jpeg"
-  },
-  {
-    "title": "Critical macOS, SharePoint, vCenter, and Microsoft IKE Flaws Under Active Exploitation",
-    "link": "https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJDdcdHtgq-nTzruVpw0hyZmBZtfG4iwLgi_nfw6A70e_mXt7LUSnyTQ7ZdgclMUypEe7s8s-LDmykPATeFixDXHEP_j1zhheNBnHA1TebBqoYtw1-3g_-LqlSuk8MczmJ3BtD6MO4TL1FVdLEcZXVKn_Rd7ucsm0Imb8QTjxJXZY52RkgfUd26FPQanbZ/s1600/kev.jpg"
   }
 ]
