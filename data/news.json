@@ -1,8 +1,28 @@
 [
   {
+    "title": "How MSPs can catch phishing attacks email filters miss",
+    "link": "https://www.bleepingcomputer.com/news/security/how-msps-can-catch-phishing-attacks-email-filters-miss/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2021/04/16/malware-phishing-header.jpg"
+  },
+  {
+    "title": "Isolated-vm Flaw Lets Sandboxed JavaScript Escape to Host for Potential RCE",
+    "link": "https://thehackernews.com/2026/08/isolated-vm-flaw-lets-sandboxed.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJ3-aEfGwe03ZMojsoiYaQ4TNjUiAPEFK-m68uY5JSlF8knbnGWOcBrqiB_4s6J47lPjyhQEuWdUMHnktRU6YfOcltn7_lXga77C8TNH4GOVAPrmIH_T0MsFKFkmQSMnvf42bnLlH0pC4BVMEpAZJLLTH51GpgfZybiZ_UWNLhKxx1oGi8PyD3bOUGG0_F/s1600/nodejs.jpg"
+  },
+  {
+    "title": "Critical NetScaler Flaw Can Bypass Authentication on Certain Gateway and AAA Servers",
+    "link": "https://thehackernews.com/2026/08/critical-netscaler-flaw-can-bypass.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoCXrYMA_j7aJrrdIZKt2gQwTWYXhhHZTfBvrNcgpLLBTa5hzcmDNguBKwBhiD8p7kO5K2OeQYVbIPg2HHDBwu9LNzR6oAFE-znmFWIgjY_XzA0qdy-rA8XzV_uGvsxLWRNXCyyOlUKdDV0LGrXPN15wxYsTuZslyecGQ1cqE2OKdX5cocpp74uXenwdj0/s1600/citrix.jpg"
+  },
+  {
     "title": "'Grandoreiro' Malware Resurfaces With Mexico Campaign",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/grandoreiro-resurfaces-mexico-campaign",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt50f50e8c15e845b6/6a85ffe726ec483bdf64f4e9/mexico_VictorImages_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Attackers Exploit Zimbra SNMP Flaw for Unauthenticated Remote Code Execution",
+    "link": "https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5vbtHH6C3JbT58Yghw2KNalqy-xoKLuJlsV9AGd_j2mQj4NKzVgWiOc9CDvUsT2JY0AchCk5140WhvNgZdKY2fwmeGEEi9FMvSSJvrBYVWndOKV9R47OEMZ59OOjv56DkPgpKo55fvHT7JSRW4yvh9_Xp5KBbw9xyJg2EGStHzg8ctloKfsJJPDLss1xR/s1600/zimbra.jpg"
   },
   {
     "title": "Threat Actor Hacks 14,000 IP Cameras in Ukraine and Russia",
@@ -110,11 +130,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/20/game-over.jpg"
   },
   {
-    "title": "Elementor Pro Flaw Could Let Unauthenticated Attackers Upload PHP and Execute Code",
-    "link": "https://thehackernews.com/2026/08/elementor-pro-flaw-could-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitKWjeNJOL_DEahUmMAYpH9qh94s2iFi8igtfSlAzOVWiUBU-EIM0MWMsFYPmA5NDL6Rs9E-w9vvCmw3Cc6Og0q-TDt87Q2hwYIePNAQ0xQ3OJYHzgCizDFm-YK9SxW4ncWnuVLaOzgb3SPO7Qpx17zHMaFzBQfYllgz5IP-p1jMALgWlasRkj1nV3Tq3G/s1600/wordpress.jpg"
-  },
-  {
     "title": "OpenAI confirms ChatGPT is down as logins and signups fail",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-is-down-as-logins-and-signups-fail/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT.jpg"
@@ -133,20 +148,5 @@
     "title": "No-Filter 'Kriminal' AI Platform Raises Cybercrime Concerns",
     "link": "https://www.darkreading.com/application-security/no-filter-kriminal-ai-platform-cybercrime-concerns",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt85eae7cdd5f0ecc5/6a86044bc3ca75985c01a97b/person_in_handcuffs-AnnaStills-GettyImages-2229493276.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Healthtech firm CareCloud data breach impacts 3.7 million patients",
-    "link": "https://www.bleepingcomputer.com/news/security/healthtech-firm-carecloud-data-breach-impacts-37-million-patients/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/19/CareCloud.jpg"
-  },
-  {
-    "title": "Agentic AI Presents New Insider Threat Model for Orgs",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/agentic-ai-new-insider-threat-model",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd0c2b7a8187293ac/6a837f44db552afa32e2f029/katie_mo_and_Rob_Wright.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Cloudflare Workers Spectre Attack Leaks JWT From Co-Located Worker at 12 Bits/Second",
-    "link": "https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi50HcHSWt796lc8zQ8Anp_fHUqgV-BM0xiS1NxJW8zRDgBRJ9ovZOECiIhdQt0aVTUdhduJYP1o5wTa5RpDoCwhihq8rKqWmh73E9E8UzafyDcq1n1khCEIDCikK2L6NEt1mbIuMRm6F36bap74JtZawFqqCPvWF72SAm25BzREVerWYaRIDEo1O89V4k/s1600/jwt.jpg"
   }
 ]
