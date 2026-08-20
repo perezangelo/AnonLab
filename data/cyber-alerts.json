@@ -1,5 +1,54 @@
 [
   {
+    "id": "CVE-2026-55253",
+    "summary": "LangChain MongoDB has NoSQL Operator Injection in MongoDBSaver.list() leading to cross-tenant data exposure",
+    "severity": "HIGH",
+    "published": "2026-08-20T17:29:14Z",
+    "ghsa": "GHSA-533j-2v4q-mw5h"
+  },
+  {
+    "id": "CVE-2026-54061",
+    "summary": "Dgraph Alpha group stores can be replaced via unauthenticated external snapshot import",
+    "severity": "CRITICAL",
+    "published": "2026-08-20T17:29:00Z",
+    "ghsa": "GHSA-rrwh-6jrq-wp5v"
+  },
+  {
+    "id": "CVE-2026-55244",
+    "summary": "asteval has a Sandbox Escape via BaseException Subclasses",
+    "severity": "MODERATE",
+    "published": "2026-08-20T17:28:52Z",
+    "ghsa": "GHSA-89v8-rhwq-hf77"
+  },
+  {
+    "id": "GHSA-9w56-46f6-3qhx",
+    "summary": "asteval Sandbox Escape: arbitrary native memory read/write via numpy ctypes in default asteval Interpreter",
+    "severity": "MODERATE",
+    "published": "2026-08-20T17:26:52Z",
+    "ghsa": "GHSA-9w56-46f6-3qhx"
+  },
+  {
+    "id": "CVE-2026-55149",
+    "summary": "vouch-proxy has an Unbounded Multipart Cookie Allocation DoS",
+    "severity": "HIGH",
+    "published": "2026-08-20T17:26:39Z",
+    "ghsa": "GHSA-qqff-5854-px68"
+  },
+  {
+    "id": "CVE-2026-45404",
+    "summary": "OpenTelemetry-Go: Unsynchronized baggage map can panic under concurrent access",
+    "severity": "MODERATE",
+    "published": "2026-08-20T17:26:14Z",
+    "ghsa": "GHSA-42cj-99w8-cp2p"
+  },
+  {
+    "id": "CVE-2026-32637",
+    "summary": "Velero vulnerable to file path traversal when extracting from backup's tarball",
+    "severity": "MODERATE",
+    "published": "2026-08-20T17:26:07Z",
+    "ghsa": "GHSA-j2g6-362q-6qc6"
+  },
+  {
     "id": "CVE-2026-63123",
     "summary": "Tina: Cross-origin `POST /media/upload/*` requests can write arbitrary files into the Tina dev server media root",
     "severity": "MODERATE",
@@ -19,54 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-19T20:24:06Z",
     "ghsa": "GHSA-rxjr-6c9q-h67x"
-  },
-  {
-    "id": "CVE-2026-61712",
-    "summary": "BuildKit has a possible runtime DoS via unbounded group parsing",
-    "severity": "LOW",
-    "published": "2026-08-19T20:24:01Z",
-    "ghsa": "GHSA-72x6-4j93-7w86"
-  },
-  {
-    "id": "CVE-2026-61711",
-    "summary": "BuildKit: Custom frontend could bypass Seccomp/AppArmor",
-    "severity": "MODERATE",
-    "published": "2026-08-19T20:23:50Z",
-    "ghsa": "GHSA-7236-3392-c5c6"
-  },
-  {
-    "id": "GHSA-hjwh-xvfw-qrwj",
-    "summary": "SearXNG Basic Authentication Credentials Exposed Through MCP Logs and JSON-RPC Error Responses",
-    "severity": "MODERATE",
-    "published": "2026-08-19T19:32:46Z",
-    "ghsa": "GHSA-hjwh-xvfw-qrwj"
-  },
-  {
-    "id": "CVE-2026-62673",
-    "summary": "Grav: .htaccess file extension rules bypass via case variation on case-insensitive filesystems",
-    "severity": "HIGH",
-    "published": "2026-08-19T19:32:38Z",
-    "ghsa": "GHSA-vwg3-w8w3-pc79"
-  },
-  {
-    "id": "CVE-2026-61807",
-    "summary": "Snipe-IT: Stored DOM XSS via table selected-count IDs",
-    "severity": "MODERATE",
-    "published": "2026-08-19T19:32:32Z",
-    "ghsa": "GHSA-c8qc-wf67-342w"
-  },
-  {
-    "id": "CVE-2026-55703",
-    "summary": "Snipe-IT: Maintenance Record Disclosure via Missing Authorization on GET",
-    "severity": "MODERATE",
-    "published": "2026-08-19T19:32:25Z",
-    "ghsa": "GHSA-r9r3-g9fp-3q4q"
-  },
-  {
-    "id": "CVE-2026-55694",
-    "summary": "Snipe-IT: Chained Information Disclosure and IDOR Leads to Full EULA File Takeover",
-    "severity": "HIGH",
-    "published": "2026-08-19T19:32:18Z",
-    "ghsa": "GHSA-3hgv-jr5j-cg9x"
   }
 ]
