@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-55451",
+    "summary": "gettext-converter: Prototype pollution in js2i18next() via crafted translation keys",
+    "severity": "MODERATE",
+    "published": "2026-08-20T20:11:13Z",
+    "ghsa": "GHSA-f4jp-rw7w-ccwg"
+  },
+  {
     "id": "GHSA-jm5p-837g-rv8g",
     "summary": "Wagtail: Improper restriction handling on Page translation API endpoint",
     "severity": "MODERATE",
@@ -61,12 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-20T18:44:45Z",
     "ghsa": "GHSA-mpmw-f6h6-3g26"
-  },
-  {
-    "id": "GHSA-7mpf-4465-7fc2",
-    "summary": "Winter: Stored XSS through Backend List widget image columns",
-    "severity": "LOW",
-    "published": "2026-08-20T18:44:41Z",
-    "ghsa": "GHSA-7mpf-4465-7fc2"
   }
 ]
