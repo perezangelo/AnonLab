@@ -1,5 +1,33 @@
 [
   {
+    "id": "GHSA-8hgv-xc77-jmcr",
+    "summary": "Grav: Page editors can inject arbitrary script into rendered pages via the Twig sandbox's assets.addJs/addCss allowlist, escalating to super-admin",
+    "severity": "MODERATE",
+    "published": "2026-08-21T19:14:59Z",
+    "ghsa": "GHSA-8hgv-xc77-jmcr"
+  },
+  {
+    "id": "CVE-2026-63466",
+    "summary": "Unleash: Global Mustache.escape override disables HTML escaping process-wide, enabling Slack/Teams link-injection via unrestricted username",
+    "severity": "MODERATE",
+    "published": "2026-08-21T19:14:52Z",
+    "ghsa": "GHSA-w4mq-xh27-6xpx"
+  },
+  {
+    "id": "CVE-2026-63004",
+    "summary": "Unleash: Addon webhook URL is dialed server-side with no internal-address filtering, enabling SSRF to internal services / cloud metadata and exfiltration of configured request headers",
+    "severity": "MODERATE",
+    "published": "2026-08-21T19:14:45Z",
+    "ghsa": "GHSA-5vf6-jrqr-78fj"
+  },
+  {
+    "id": "CVE-2026-63462",
+    "summary": "Unleash: Unauthenticated single-request DoS via OpenAPI validation error formatter",
+    "severity": "HIGH",
+    "published": "2026-08-21T19:14:37Z",
+    "ghsa": "GHSA-r5pq-6chh-j3xp"
+  },
+  {
     "id": "CVE-2026-67448",
     "summary": "Mailpit: WebSocket origin check bypass via percent-encoded path (regression of CVE-2026-22689)",
     "severity": "MODERATE",
@@ -40,33 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-20T18:45:14Z",
     "ghsa": "GHSA-c2xx-cjmh-9q8f"
-  },
-  {
-    "id": "GHSA-92hv-j533-69wc",
-    "summary": "Wagtail: Identification of documents by SHA1 hash",
-    "severity": "LOW",
-    "published": "2026-08-20T18:45:09Z",
-    "ghsa": "GHSA-92hv-j533-69wc"
-  },
-  {
-    "id": "GHSA-hq84-x37p-j6q5",
-    "summary": "Winter: Reflected XSS through the search query parameter in the backend Table widget",
-    "severity": "MODERATE",
-    "published": "2026-08-20T18:45:04Z",
-    "ghsa": "GHSA-hq84-x37p-j6q5"
-  },
-  {
-    "id": "GHSA-p2ch-c2c3-4xm5",
-    "summary": "Winter: CSRF through AJAX handler names reachable as backend page actions",
-    "severity": "MODERATE",
-    "published": "2026-08-20T18:44:59Z",
-    "ghsa": "GHSA-p2ch-c2c3-4xm5"
-  },
-  {
-    "id": "GHSA-5cwr-5jxg-pcf6",
-    "summary": "Winter: Stored XSS through cached Brand Settings and Editor Settings custom styles",
-    "severity": "MODERATE",
-    "published": "2026-08-20T18:44:54Z",
-    "ghsa": "GHSA-5cwr-5jxg-pcf6"
   }
 ]
