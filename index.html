@@ -1423,6 +1423,19 @@ async function loadTechRadar() {
 document.addEventListener("DOMContentLoaded", loadTechRadar);
 setInterval(loadTechRadar, 15000);
 </script>
+      <script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+        for (let reg of registrations) {
+            reg.unregister();
+        }
+    });
+    caches.keys().then(keys => {
+        keys.forEach(key => caches.delete(key));
+    });
+}
+</script>
+
 
 <section class="widget-large">
   <div class="box-title-row">
