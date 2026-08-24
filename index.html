@@ -147,9 +147,9 @@
     
     <section class="main-column">
       
-      <!-- HERO PRINCIPALE -->
+     <!-- HERO PRINCIPALE -->
 <section class="hero-big">
-  <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
+  <h1 data-text="ANONLAB" class="hero-title">ANONLAB</h1>
 
   <img 
     src="img/eyes.png" 
@@ -163,99 +163,40 @@
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
-<div style="position:relative; margin-top:25px; display:inline-block;">
+<!-- MENU NEWS SOTTO HERO -->
+<div class="news-menu-wrapper">
 
-  <!-- BOTTONE -->
-  <button id="newsToggle"
-          style="
-            cursor:pointer;
-            background:none;
-            border:none;
-            font-size:1.2rem;
-            font-weight:bold;
-            color:#ff7b00;
-            text-shadow:0 0 8px #ff7b00;
-            white-space:nowrap;
-          ">
+  <button id="newsToggle" class="news-toggle-btn">
     Esplora le ultime news ▾
   </button>
 
-  <!-- MENU A TENDINA -->
-  <div id="newsPanel"
-       style="
-         display:none;
-         opacity:0;
-         transform:translateY(-10px);
-         transition:opacity 0.25s ease, transform 0.25s ease;
-
-         position:absolute;
-         top:40px;
-         left:0;
-
-         width:260px;
-         background:#000;
-         border:1px solid #ff7b00aa;
-         border-radius:8px;
-         box-shadow:0 0 18px #ff7b00aa;
-         padding:15px;
-         z-index:9999;
-       ">
-
-    <a href='https://thehackernews.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>TheHackerNews</a>
-
-    <a href='https://www.bleepingcomputer.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>BleepingComputer</a>
-
-    <a href='https://www.darkreading.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>DarkReading</a>
-
-    <a href='https://www.securityweek.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>SecurityWeek</a>
-
+  <div id="newsPanel" class="news-panel">
+    <a href="https://thehackernews.com" target="_blank">TheHackerNews</a>
+    <a href="https://www.bleepingcomputer.com" target="_blank">BleepingComputer</a>
+    <a href="https://www.darkreading.com" target="_blank">DarkReading</a>
+    <a href="https://www.securityweek.com" target="_blank">SecurityWeek</a>
   </div>
 </div>
-      <!-- DASH ADMIN IMAGE BUTTON -->
-<div style="text-align:right; margin-bottom:20px; width:100%; position:relative; z-index:20;">
-    <a href="https://anonlab.it/login.html" style="display:inline-block;">
-        <img src="/img/OIP.png"
-             alt="Admin Access"
-             style="width:150px; filter:drop-shadow(0 0 12px #ff0000); transition:0.2s;"
-             onmouseover="this.style.filter='drop-shadow(0 0 18px #ff3333)';"
-             onmouseout="this.style.filter='drop-shadow(0 0 12px #ff0000)';">
-    </a>
+
+<!-- ADMIN ACCESS IMAGE -->
+<div class="admin-access-wrapper">
+  <a href="https://anonlab.it/login.html">
+    <img src="/img/OIP.png" alt="Admin Access" class="admin-access-img">
+  </a>
 </div>
 
 <!-- IMMAGINE SOTTO IL MENU -->
-<img src="img/ai-soc.jpg"
-     alt="AI SOC"
-     style="
-       width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
-       height:auto;
-       margin-top:0px;   /* leggero rialzo */
-       margin-bottom:25px; /* 🔥 stacco dal box sottostante */
-       border-radius:6px;
-       box-shadow:0 0 12px #ff7b00aa;
-       display:block;
-     ">
+<img src="img/ai-soc.jpg" alt="AI SOC" class="ai-soc-img">
 
 <script>
 const toggle = document.getElementById("newsToggle");
 const panel = document.getElementById("newsPanel");
 
 toggle.addEventListener("click", () => {
-  if (panel.style.display === "none") {
-    panel.style.display = "block";
-    requestAnimationFrame(() => {
-      panel.style.opacity = "1";
-      panel.style.transform = "translateY(0)";
-    });
-  } else {
-    panel.style.opacity = "0";
-    panel.style.transform = "translateY(-10px)";
-    setTimeout(() => panel.style.display = "none", 250);
-  }
+  const isHidden = panel.style.display === "none" || panel.style.display === "";
+  panel.style.display = isHidden ? "block" : "none";
+  panel.style.opacity = isHidden ? "1" : "0";
+  panel.style.transform = isHidden ? "translateY(0)" : "translateY(-10px)";
 });
 
 document.addEventListener("click", (e) => {
