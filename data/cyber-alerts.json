@@ -1,5 +1,26 @@
 [
   {
+    "id": "GHSA-fx4f-mhw4-qm7j",
+    "summary": "vibeio-http has a DoS vulnerability in HTTP/1.x chunked encoding parser triggered by maliciously crafted chunk lengths",
+    "severity": "MODERATE",
+    "published": "2026-08-24T22:05:02Z",
+    "ghsa": "GHSA-fx4f-mhw4-qm7j"
+  },
+  {
+    "id": "GHSA-w8j7-39hp-8x59",
+    "summary": "Cloudreve's remote download file paths can escape the selected destination directory",
+    "severity": "MODERATE",
+    "published": "2026-08-24T22:03:33Z",
+    "ghsa": "GHSA-w8j7-39hp-8x59"
+  },
+  {
+    "id": "GHSA-vx2m-jpxr-xv7w",
+    "summary": "Cloudreve has Broken Access Control - Revoked Share Access Still Allows Signed File URL Generation via Cached context_hint",
+    "severity": "MODERATE",
+    "published": "2026-08-24T22:01:03Z",
+    "ghsa": "GHSA-vx2m-jpxr-xv7w"
+  },
+  {
     "id": "CVE-2026-55477",
     "summary": "3X-UI Vulnerable to Authenticated Arbitrary File Write via Database Import and Xray Log Path Manipulation",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-24T19:47:49Z",
     "ghsa": "GHSA-rgqc-3x5p-6gwg"
-  },
-  {
-    "id": "GHSA-5x78-73v4-xg6w",
-    "summary": "postgres-protocol: Unbounded SCRAM iteration count allows a malicious server to cause CPU-exhaustion denial of service",
-    "severity": "HIGH",
-    "published": "2026-08-24T19:43:31Z",
-    "ghsa": "GHSA-5x78-73v4-xg6w"
-  },
-  {
-    "id": "CVE-2026-54050",
-    "summary": "Sakai Profile Image Deletion has an IDOR",
-    "severity": "MODERATE",
-    "published": "2026-08-24T19:40:37Z",
-    "ghsa": "GHSA-9284-fjc3-fmmj"
-  },
-  {
-    "id": "CVE-2026-54049",
-    "summary": "Sakai Conversations has a Stored XSS Issue",
-    "severity": "HIGH",
-    "published": "2026-08-24T19:37:53Z",
-    "ghsa": "GHSA-w2x5-gv52-9ccv"
   }
 ]
