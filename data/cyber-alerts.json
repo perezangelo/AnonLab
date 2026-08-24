@@ -1,5 +1,54 @@
 [
   {
+    "id": "CVE-2026-54625",
+    "summary": "django CMS: Page cache ignores plugin-declared Vary headers (disclosure & poisoning)",
+    "severity": "MODERATE",
+    "published": "2026-08-24T20:09:51Z",
+    "ghsa": "GHSA-fwjf-m4qw-9f2x"
+  },
+  {
+    "id": "CVE-2026-54623",
+    "summary": "django CMS: Plugin move endpoint allows cyclic reparenting (DoS)",
+    "severity": "HIGH",
+    "published": "2026-08-24T20:09:43Z",
+    "ghsa": "GHSA-8jj7-4v57-frf5"
+  },
+  {
+    "id": "GHSA-3gjw-f78c-vvpw",
+    "summary": "tokio-postgres: Panic on a `DataRow` with fewer fields than columns allows denial of service",
+    "severity": "MODERATE",
+    "published": "2026-08-24T19:49:17Z",
+    "ghsa": "GHSA-3gjw-f78c-vvpw"
+  },
+  {
+    "id": "GHSA-rgqc-3x5p-6gwg",
+    "summary": "postgres-protocol: Panic decoding a malformed `hstore` value allows denial of service",
+    "severity": "MODERATE",
+    "published": "2026-08-24T19:47:49Z",
+    "ghsa": "GHSA-rgqc-3x5p-6gwg"
+  },
+  {
+    "id": "GHSA-5x78-73v4-xg6w",
+    "summary": "postgres-protocol: Unbounded SCRAM iteration count allows a malicious server to cause CPU-exhaustion denial of service",
+    "severity": "HIGH",
+    "published": "2026-08-24T19:43:31Z",
+    "ghsa": "GHSA-5x78-73v4-xg6w"
+  },
+  {
+    "id": "CVE-2026-54050",
+    "summary": "Sakai Profile Image Deletion has an IDOR",
+    "severity": "MODERATE",
+    "published": "2026-08-24T19:40:37Z",
+    "ghsa": "GHSA-9284-fjc3-fmmj"
+  },
+  {
+    "id": "CVE-2026-54049",
+    "summary": "Sakai Conversations has a Stored XSS Issue",
+    "severity": "HIGH",
+    "published": "2026-08-24T19:37:53Z",
+    "ghsa": "GHSA-w2x5-gv52-9ccv"
+  },
+  {
     "id": "CVE-2026-77415",
     "summary": "JSONata vulnerable to Arbitrary Code Execution via crafted JSONata expressions",
     "severity": "CRITICAL",
@@ -19,54 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-21T20:57:31Z",
     "ghsa": "GHSA-2cp2-2r3c-7p7r"
-  },
-  {
-    "id": "CVE-2026-63135",
-    "summary": "YOURLS has stored XSS in referrer statistics chart via crafted Referer header",
-    "severity": "HIGH",
-    "published": "2026-08-21T20:57:23Z",
-    "ghsa": "GHSA-5h77-88j3-r659"
-  },
-  {
-    "id": "CVE-2026-77413",
-    "summary": "JSONata: Arbitrary Code Execution via crafted JSONata expressions",
-    "severity": "CRITICAL",
-    "published": "2026-08-21T20:57:07Z",
-    "ghsa": "GHSA-8gq3-vp5j-2grp"
-  },
-  {
-    "id": "CVE-2026-77354",
-    "summary": "kin-openapi has uncontrolled resource consumption in openapi3filter deepObject query parameter decoding",
-    "severity": "HIGH",
-    "published": "2026-08-21T20:56:56Z",
-    "ghsa": "GHSA-xhj3-7xw9-vr34"
-  },
-  {
-    "id": "CVE-2026-61539",
-    "summary": "Xinference vulnerable to remote code execution via unsafe `eval()` in Llama3 tool-call parsing",
-    "severity": "CRITICAL",
-    "published": "2026-08-21T20:56:37Z",
-    "ghsa": "GHSA-x2rj-828p-hx9m"
-  },
-  {
-    "id": "CVE-2026-59989",
-    "summary": "Phalcon Volt compiler `join` filter compile-time PHP code injection (SSTI leads to RCE)",
-    "severity": "CRITICAL",
-    "published": "2026-08-21T20:55:56Z",
-    "ghsa": "GHSA-hrwp-4hh9-c8r8"
-  },
-  {
-    "id": "CVE-2026-76905",
-    "summary": "kin-openapi openai3filter: nil-pointer panic in ConvertErrors on malformed multipart/form-data body enables unauthenticated DoS",
-    "severity": "HIGH",
-    "published": "2026-08-21T20:55:46Z",
-    "ghsa": "GHSA-mmfr-pmjx-hw9w"
-  },
-  {
-    "id": "CVE-2026-64679",
-    "summary": "Atlantis Workspace Handling has Path Traversal that Allows Out-of-Bounds Directory Deletion/Creation",
-    "severity": "HIGH",
-    "published": "2026-08-21T20:55:33Z",
-    "ghsa": "GHSA-26w5-6g95-gj28"
   }
 ]
