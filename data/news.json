@@ -1,8 +1,38 @@
 [
   {
+    "title": "Uber Fined Nearly $1 Billion by Dutch Regulators Over Automated Suspensions of Driver Accounts",
+    "link": "https://www.securityweek.com/uber-fined-nearly-1-billion-by-dutch-regulators-over-automated-suspensions-of-driver-accounts/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Uber-CSO_Convicted-Joe-Sullivan.jpg"
+  },
+  {
+    "title": "Microsoft: August updates break printing, PDF export in WPF apps",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-august-updates-break-printing-pdf-export-in-wpf-apps/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/24/Printer-printing-error.jpg"
+  },
+  {
     "title": "91 Vulnerabilities Patched in Spring Application Framework",
     "link": "https://www.securityweek.com/91-vulnerabilities-patched-in-spring-application-framework/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/12/Code-3rd-Party-Risk.jpg"
+  },
+  {
+    "title": "Shipping More AI Code Than You Can Secure? Watch How to Control Remediation Debt",
+    "link": "https://thehackernews.com/2026/08/shipping-more-ai-code-than-you-can.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1E-F55owwrRxUZE2CT3U8U-Ibj1rhbLpTmF0diYP4-uP6clImo12GvOHx7X-W4KPLl1F_OXiXjkRqSjuAOn0Sh6kMjPFbh5c09h4Ua3TNfLI7_P87UrGtuTypzdlpgVAazbD2qXvesRgxLW1cPBkADNMaGDh06-9wPXSVwltxeR7e5ejENDWcHXssP3M/s1600/ai-webinar.jpg"
+  },
+  {
+    "title": "Critical Keycloak Password Reset Flaw Could Let Unauthenticated Attackers Take Over Any Account",
+    "link": "https://thehackernews.com/2026/08/critical-keycloak-password-reset-flaw.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhB3jURz2EzucPTALqHju1yDNnbHFvawrKxEfvNEprkdA3QIDyOjuUqvHOyTyiZuYJR-4KwewHnd8CdT37TDxBMBK3OLknOxym2a0klblR6rNUc2lqXHdAQUl1JO8uE7bGupO-WqsaEM0UDLUGyWICu5fkA6x4GwNUCo_w3quxp8joYWhNX8grP55eVg8/s1600/keylock.jpg"
+  },
+  {
+    "title": "Operation QUICSILVER Targets Myanmar Government and IT with QUICAgent Backdoor",
+    "link": "https://thehackernews.com/2026/08/operation-quicsilver-targets-myanmar.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAU29lFKKhJ4-37mroz3wn9p8YejZSqMG70AcTu4Z_FLB6hhof-kGO8-6KOfJcE5TXPvrziWpqDpLu_Mi64u8ilPMtdicwexovYdtmVQhhFOTlAeEamKEccbGQf4Y15ufNQRggwtyzLJy32qocItBHu4FX7FLYDYbnjBXuYMtflnNB4ttrzIdynMPcquxs/s1600/silver.jpg"
+  },
+  {
+    "title": "The Outsized Shadow: Why 5% of AI Users Are Your Biggest Security Risk",
+    "link": "https://thehackernews.com/2026/08/the-outsized-shadow-why-5-of-ai-users.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieDz2kEMi471xtnJ2B7i_ZktQTUHhbJAIOlNAaFfVdJVPWDC-3EqH2REiyGuaUl95lmXvtcl-oPpQy3MO0-5uulT4L4Uyheni6apbwxzycAw7yVmuYqAWaSjYbEw_BaJKsmGhrUPrb6hVeatf488NrNMVX-xorjY66ZIG9wR50pUdFBOs9avzlu9b91iw/s1600/ai-usage.jpg"
   },
   {
     "title": "Venezuelan Gets Record Federal Prison Term for ATM Jackpotting",
@@ -12,7 +42,7 @@
   {
     "title": "CISA orders urgent patching of actively exploited Zimbra flaw",
     "link": "https://www.bleepingcomputer.com/news/security/cisa-orders-urgent-patching-of-actively-exploited-zimbra-flaw/",
-    "image": ""
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/24/Zimbra.jpg"
   },
   {
     "title": "Personal Information Exposed in Apollo Global Data Breach",
@@ -62,12 +92,12 @@
   {
     "title": "Hackers infect Android car head units with proxy botnet malware",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/",
-    "image": ""
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/21/car.jpg"
   },
   {
     "title": "Named Pipes Under Attack: Securing Windows Interprocess Communication",
     "link": "https://www.bleepingcomputer.com/news/security/named-pipes-under-attack-securing-windows-interprocess-communication/",
-    "image": ""
+    "image": "https://www.bleepstatic.com/content/posts/2026/08/18/0_named-pipe-header-image.jpg"
   },
   {
     "title": "Banking Trojans Manic, Grandoreiro, ToxicPanda 2.0 in the Spotlight",
@@ -115,38 +145,8 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1EQE-DqLXTzpjwGf3nQnM4CTnjibkKl_2ersn8abw3Gmqoc5MUaFC2LvkA7c6Xoa0XBPZeHL4wHHiXU7Pc9nGLcI1zTorwFTwvYXfww4Q68oSUrgcQhmBzQBNqYp-woIZFK_I1OOsnBNptiwA90VHhpE_hvlz3qdFomOmOMLreYe5YCenvR2CeawvRrMU/s1600/car.png"
   },
   {
-    "title": "In Other News: Zombie Card Attack, T-Mobile Cut Cable to Stop Hackers, GitHub Denies AI Caused Bug",
-    "link": "https://www.securityweek.com/in-other-news-zombie-card-attack-t-mobile-cut-cable-to-stop-hackers-github-denies-ai-caused-bug/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
     "title": "Microsoft blames Windows gaming issues on RGB lighting devices",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-blames-windows-gaming-issues-on-rgb-lighting-devices/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/03/11/gamer.jpg"
-  },
-  {
-    "title": "Is Online Privacy Possible? How Digital Identities Can Help",
-    "link": "https://www.bleepingcomputer.com/news/security/is-online-privacy-possible-how-digital-identities-can-help/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/08/18/zoomed-header.jpg"
-  },
-  {
-    "title": "Calling on Cyber Pros to Help Defend City Hall",
-    "link": "https://www.darkreading.com/cyber-risk/cyber-pros-help-city-hall",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8bf82558cb508927/6a874c7440ec6f0ef030335e/city_hall-sshepard-getty-184661001.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Microsoft rolls out Classic Outlook theme for New Outlook users",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-rolls-out-classic-outlook-theme-for-new-outlook-users/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/04/29/Outlook.jpg"
-  },
-  {
-    "title": "OpenAI Adds Controls That Should've Been There Already",
-    "link": "https://www.darkreading.com/application-security/openai-adds-controls-already",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt21d988f2eb8aaa24/6a87514642723529ba68dda7/metal_guardrails-viti-GettyImages-897806150.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hardware Makers Implement Post-Quantum Cryptography as Security Threats Near",
-    "link": "https://www.darkreading.com/cyber-risk/hardware-makers-implement-post-quantum-cryptography",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt56d7eb4c7df48fbf/69cc3e534642d5f509411508/quantum_computing1800_jvphoto_alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
