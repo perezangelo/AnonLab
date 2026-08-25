@@ -269,166 +269,78 @@ document.addEventListener("click", (e) => {
 });
 </script>
       
-<!-- WRAPPER ALLINEATO A DESTRA (GOOGLE SEARCH + NEWSLETTER) -->
-<div style="
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    gap:18px;
-    margin-top:-120px;
-    margin-bottom:80px;
-    width:100%;
-">
+<!-- WRAPPER GOOGLE SEARCH + NEWSLETTER -->
+<div class="search-news-wrapper">
 
-    <!-- GOOGLE SEARCH -->
-    <div style="
-        display:flex;
-        justify-content:flex-end;
-        align-items:center;
-        gap:15px;
-        width:100%;
-    ">
-        <img src="img/gears.png"
-             alt="Gears Icon"
-             style="
-                width:42px;
-                height:42px;
-                filter:drop-shadow(0 0 10px #00eaff);
-             ">
+  <!-- GOOGLE SEARCH -->
+  <div class="search-box">
+    <img src="img/gears.png" alt="Ricerca Google" class="search-icon">
 
-        <form action="https://www.google.com/search" method="GET"
-              style="
-                display:flex;
-                gap:8px;
-                width:100%;
-                max-width:300px;
-                justify-content:flex-end;
-              ">
-            <input type="text" name="q"
-                   placeholder="Cerca su Google..."
-                   style="
-                     width:100%;
-                     padding:10px 12px;
-                     font-size:1rem;
-                     border-radius:8px;
-                     border:1px solid #00eaff;
-                     background:#000814;
-                     color:#e0faff;
-                     box-shadow:0 0 10px #00eaff55;
-                   ">
-
-            <button type="submit"
-                    style="
-                      padding:10px 14px;
-                      background:#00eaff;
-                      color:#000;
-                      font-weight:bold;
-                      border:none;
-                      border-radius:8px;
-                      cursor:pointer;
-                      box-shadow:0 0 10px #00eaffaa;
-                    ">
-              Cerca
-            </button>
-        </form>
-    </div>
-
-<!-- NEWSLETTER -->
-<div style="
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:15px;
-    width:100%;
-">
-    <img src="img/newsletter.png"
-         alt="Newsletter Icon"
-         style="
-            width:42px;
-            height:42px;
-            filter:drop-shadow(0 0 10px #00eaff);
-         ">
-
-    <form onsubmit="return sendNewsletter(event)"
-          style="
-            display:flex;
-            gap:8px;
-            width:100%;
-            max-width:300px;
-            justify-content:flex-end;
-          ">
-
-        <input type="email" id="newsletterEmail"
-               name="email"
-               placeholder="La tua email"
-               required
-               style="
-                 width:100%;
-                 padding:10px 12px;
-                 font-size:1rem;
-                 border-radius:8px;
-                 border:1px solid #00eaff;
-                 background:#000814;
-                 color:#e0faff;
-                 box-shadow:0 0 10px #00eaff55;
-               ">
-
-        <button type="submit"
-                style="
-                  padding:10px 14px;
-                  background:#00eaff;
-                  color:#000;
-                  font-weight:bold;
-                  border:none;
-                  border-radius:8px;
-                  cursor:pointer;
-                  box-shadow:0 0 10px #00eaffaa;
-                ">
-          Iscriviti gratis alle newsletter
-        </button>
+    <form action="https://www.google.com/search"
+          method="GET"
+          class="search-form"
+          role="search">
+      <input
+        type="search"
+        name="q"
+        placeholder="Cerca su Google..."
+        autocomplete="search"
+        aria-label="Cerca su Google"
+        class="search-input"
+      >
+      <button type="submit" class="search-button">
+        Cerca
+      </button>
     </form>
-</div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-box">
+    <img src="img/newsletter.png" alt="Newsletter" class="search-icon">
+
+    <form onsubmit="return sendNewsletter(event)" class="newsletter-form">
+      <input
+        type="email"
+        id="newsletterEmail"
+        name="email"
+        placeholder="La tua email"
+        required
+        autocomplete="email"
+        aria-label="Iscrizione newsletter"
+        class="newsletter-input"
+      >
+      <button type="submit" class="newsletter-button">
+        Iscriviti gratis alle newsletter
+      </button>
+    </form>
+  </div>
+
 </div>
 
 <script>
 async function sendNewsletter(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const email = document.getElementById("newsletterEmail").value;
+  const email = document.getElementById("newsletterEmail").value;
 
-    const res = await fetch("https://angelonline.altervista.org/backend/newsletter_add.php", {
+  const res = await fetch("https://angelonline.altervista.org/backend/newsletter_add.php", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     mode: "cors",
     credentials: "omit",
     body: "email=" + encodeURIComponent(email)
-});
+  });
 
-    const data = await res.json();
+  const data = await res.json();
 
-    if (data.status === "success") {
-        window.location.href = "https://anonlab.it/grazie.html";
-    } else {
-        alert(data.message);
-    }
+  if (data.status === "success") {
+    window.location.href = "https://anonlab.it/grazie.html";
+  } else {
+    alert(data.message);
+  }
 }
 </script>
-      
-<!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
-<style>
-@media (max-width: 480px) {
-  .google-wrapper {
-    max-width: 260px !important; /* allinea tutto alla colonna */
-  }
-  .google-wrapper input {
-    padding: 10px !important;
-    font-size: 0.95rem !important;
-  }
-  .google-wrapper button {
-    padding: 10px 14px !important;
-  }
-}
-</style>
+
       <style>
 @media (max-width: 480px) {
   .ai-soc-img {
