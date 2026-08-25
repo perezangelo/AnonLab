@@ -1,72 +1,72 @@
 [
   {
+    "id": "CVE-2026-45018",
+    "summary": "Chainlit has command injection via MCP stdio transport that allows unauthenticated remote code execution",
+    "severity": "CRITICAL",
+    "published": "2026-08-25T19:19:28Z",
+    "ghsa": "GHSA-w3fx-mc44-mf6j"
+  },
+  {
+    "id": "CVE-2026-55605",
+    "summary": "@arikusi/deepseek-mcp-server: Missing Authentication on Self-Hosted HTTP MCP Endpoint",
+    "severity": "MODERATE",
+    "published": "2026-08-25T18:38:30Z",
+    "ghsa": "GHSA-72f3-6w86-7rv3"
+  },
+  {
+    "id": "CVE-2026-55604",
+    "summary": "@arikusi/deepseek-mcp-server has an Authorization Bypass Through User-Controlled Key",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:37:27Z",
+    "ghsa": "GHSA-fh3r-g96v-f578"
+  },
+  {
+    "id": "CVE-2026-55609",
+    "summary": "consciousness-explorer / sublinear-time-solver MCP export_state has an arbitrary file write",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:35:32Z",
+    "ghsa": "GHSA-xc9g-j69q-37xw"
+  },
+  {
+    "id": "CVE-2026-55629",
+    "summary": "Whistle vulnerable to path traversal",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:32:06Z",
+    "ghsa": "GHSA-3vfr-4gwf-qxfp"
+  },
+  {
+    "id": "CVE-2026-55620",
+    "summary": "eml_parser vulnerable to DoS via deeply nested parens in Received headers",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:27:18Z",
+    "ghsa": "GHSA-g7gc-gmgp-wgqg"
+  },
+  {
+    "id": "CVE-2026-55619",
+    "summary": "eml_parser has parser DoS via deeply nested parentheses in e-mail headers",
+    "severity": "MODERATE",
+    "published": "2026-08-25T18:25:47Z",
+    "ghsa": "GHSA-m66c-fw79-6359"
+  },
+  {
+    "id": "CVE-2026-55618",
+    "summary": "eml_parser has a URL extraction bypass via HTML entities in URLs",
+    "severity": "MODERATE",
+    "published": "2026-08-25T18:23:16Z",
+    "ghsa": "GHSA-fxgq-9m89-cxj9"
+  },
+  {
+    "id": "CVE-2026-49757",
+    "summary": "AshAuthentication vulnerable to OAuth2/OIDC account takeover via email-based user matching",
+    "severity": "CRITICAL",
+    "published": "2026-08-25T18:20:27Z",
+    "ghsa": "GHSA-777c-2fxx-qr28"
+  },
+  {
     "id": "CVE-2026-55663",
     "summary": "mediasoup: SCTP state cookie lacks cryptographic authentication, enabling unauthorized association establishment (RFC 9260 violation)",
     "severity": "MODERATE",
     "published": "2026-08-25T18:17:21Z",
     "ghsa": "GHSA-p7x2-g5cq-fhmq"
-  },
-  {
-    "id": "CVE-2026-53430",
-    "summary": "gRPC Erlang package has unbounded gzip decompression (decompression bomb)",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:12:58Z",
-    "ghsa": "GHSA-6ccx-9c9f-327w"
-  },
-  {
-    "id": "CVE-2026-48854",
-    "summary": "gRPC Erlang package has unbounded request body accumulation in `read_full_body/3`",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:12:05Z",
-    "ghsa": "GHSA-q8gf-9rvj-gmgj"
-  },
-  {
-    "id": "CVE-2026-48599",
-    "summary": "gRPC Erlang package's path bindings are overridable by query string and request body",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:11:15Z",
-    "ghsa": "GHSA-mwr4-5g34-j5cq"
-  },
-  {
-    "id": "CVE-2026-48853",
-    "summary": "gRPC Erlang package vulnerable to Remote Code Execution with attacker-controlled gRPC payloads",
-    "severity": "CRITICAL",
-    "published": "2026-08-25T18:09:53Z",
-    "ghsa": "GHSA-grp7-v8xh-rj7h"
-  },
-  {
-    "id": "CVE-2026-55637",
-    "summary": "genieacs-mcp: DNS rebinding reaches local GenieACS MCP Streamable HTTP transport",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:05:28Z",
-    "ghsa": "GHSA-cmwv-wf9p-p8wx"
-  },
-  {
-    "id": "GHSA-vwf3-4xxj-qg6h",
-    "summary": "mcp-contextforge-gateway has Server-Side Template Injection (SSTI) leading to Remote Code Execution in `PromptService._render_template` via unsandboxed Jinja2 Environment",
-    "severity": "HIGH",
-    "published": "2026-08-25T17:42:11Z",
-    "ghsa": "GHSA-vwf3-4xxj-qg6h"
-  },
-  {
-    "id": "CVE-2026-55419",
-    "summary": "reachy_mini Allows Unrestricted Upload of File with Dangerous Type",
-    "severity": "MODERATE",
-    "published": "2026-08-25T17:38:43Z",
-    "ghsa": "GHSA-m2pc-3q4q-w6jr"
-  },
-  {
-    "id": "CVE-2026-55092",
-    "summary": "Trivy has a path traversal via a crafted vulnerability database or other downloaded artifacts",
-    "severity": "HIGH",
-    "published": "2026-08-25T17:33:02Z",
-    "ghsa": "GHSA-mcj4-mphf-j9ff"
-  },
-  {
-    "id": "GHSA-pg62-f8g4-4wqh",
-    "summary": "phpMyFAQ privilege escalation: GroupController::updatePermissions lets a GROUP_EDIT admin grant rights they do not hold",
-    "severity": "HIGH",
-    "published": "2026-08-25T17:32:07Z",
-    "ghsa": "GHSA-pg62-f8g4-4wqh"
   }
 ]
