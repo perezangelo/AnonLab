@@ -1,5 +1,30 @@
 [
   {
+    "title": "Alice Raises $140M to Expand AI Model Defenses and Enterprise Guardrails",
+    "link": "https://www.securityweek.com/alice-raises-140m-to-expand-ai-model-defenses-and-enterprise-guardrails/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
+  },
+  {
+    "title": "From Fake Workers to Account Recovery: The Growing Identity Verification Risk",
+    "link": "https://www.bleepingcomputer.com/news/security/from-fake-workers-to-account-recovery-the-growing-identity-verification-risk/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/08/19/specops-lock-laptop.jpg"
+  },
+  {
+    "title": "Microsoft PowerToys adds Alt+Tab-style switching for an app's windows",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-powertoys-adds-alt-plustab-style-switching-for-an-apps-windows/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/25/0_Windows.jpg"
+  },
+  {
+    "title": "WordPress Websites Targeted via MiniOrange Plugin Vulnerabilities",
+    "link": "https://www.securityweek.com/wordpress-websites-targeted-via-miniorange-plugin-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+  },
+  {
+    "title": "WhatsApp Adds Multiple Passkeys for Phishing-Resistant Sign-Ins Across iOS and Android",
+    "link": "https://thehackernews.com/2026/08/whatsapp-adds-multiple-passkeys-for.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqyjfLJEnp8xcmcz9iVBOKykdcxx36J8KgONSwImU9YSYuvWD_uzKDaGkJre9D_8P1XLdE8vPHqNyBUKOvjYPLJj_oZ1T-pfUxdOm-bZTtaz4LC2eVcuFloJTtEE7IWVnOaVJIEtFUoPKfOn9xeBASQG7e7X2-wA7P-hwGIzqP7G_-Ot2BOpj-OSO0tUBh/s1600/whatsapp.jpg"
+  },
+  {
     "title": "WhatsApp adds stronger two-step verification, multiple passkeys",
     "link": "https://www.bleepingcomputer.com/news/security/whatsapp-adds-stronger-two-step-verification-multiple-passkeys/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/03/26/whatsapp.jpg"
@@ -15,9 +40,19 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/08/ICS-Training-1-Image.png"
   },
   {
+    "title": "Marimo Notebook Flaw Could Run MCP Commands Before Cells Execute in Edit Mode",
+    "link": "https://thehackernews.com/2026/08/marimo-notebook-flaw-could-run-mcp.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpC_dsMXsEscdzMT8fjZ3uZ86XgjBqYcYWA7ZodJJUvbK6vnmafx_dANiNsjoAeqYwDxzqeTerWaWEIMIZSmp7CqfynzhkfKEnuGIoizK5vihRhSJIeOVn4cK3CdIFjnURkvQvI1VX-Gm11mqNmxOQPVK5loEBRZ2ELFzLc1Y8C_z_ajrA5beUowEfwg0/s1600/marimo.jpg"
+  },
+  {
     "title": "Hackers breached over 270 Zimbra servers in ongoing attacks",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-breached-over-270-zimbra-servers-in-ongoing-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/25/Zimbra.jpg"
+  },
+  {
+    "title": "A Tale of Two SOCs: Insights From Two Red Team Assessments",
+    "link": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a",
+    "image": ""
   },
   {
     "title": "Mirage2FA Surge Hits 4,500 US and EU Companies, Abusing Microsoft 365 Login Flows",
@@ -113,40 +148,5 @@
     "title": "ReliaQuest Confirms ShinyHunters Hack, but Says Impact Was Limited",
     "link": "https://www.securityweek.com/reliaquest-confirms-shinyhunters-hack-but-says-impact-was-limited/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/08/ReliaQuest.jpeg"
-  },
-  {
-    "title": "ReliaQuest confirms failed data-theft attack after ShinyHunters breach",
-    "link": "https://www.bleepingcomputer.com/news/security/reliaquest-confirms-failed-data-theft-attack-after-shinyhunters-breach/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/11/Hacker.jpg"
-  },
-  {
-    "title": "Tricky 'SynkLoader' Multitool May Herald Ransomware",
-    "link": "https://www.darkreading.com/threat-intelligence/tricky-synkloader-multitool-ransomware",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt4791042d5aa25a17/6a88a5d2e27d718cb883bc1e/Sink-Des_Green-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "ToxicPanda Banking Trojan Matures Into Enterprise Threat",
-    "link": "https://www.darkreading.com/mobile-security/toxicpanda-banking-trojan-matures-enterprise-threat",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd1dbd4251686aed8/6a8c90973725ccfa2c8aef7d/panda_Oneinchpunch_Alamy_16_X_9_VERSION.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: AI-Powered PLC Attacks, GitLab Attacks, Stripe Key Leaks and More",
-    "link": "https://thehackernews.com/2026/08/weekly-recap-ai-powered-plc-attacks.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBxfnZQzz7hUDdRKPJM-KWXJAJemk0-S3QlOB71Z1Bq9nVxHA4G0VtkwUUVJjgO-2gtDImMt-ktLnUQd3rkScujv0fWVlfc_tr3qO7sZ-MI2QDtoyT8pKx4q_ZCndRyxhPQcNtZB70fZ4VlaBuE3YaMcE__MWrRtngOU0rTHcSmOXsGkhlARwfUkIBUj9Q/s1600/recap-n.jpg"
-  },
-  {
-    "title": "Microsoft Teams now lets admins block external bots from meetings",
-    "link": "https://www.bleepingcomputer.com/news/security/microsoft-teams-now-lets-admins-block-external-bots-from-meetings/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/11/13/Microsoft_Teams.jpg"
-  },
-  {
-    "title": "South Korean startup platform breach exposes key management failures",
-    "link": "https://www.bleepingcomputer.com/news/security/south-korean-startup-platform-breach-exposes-key-management-failures/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/08/21/penta-cyber-keys.jpg"
-  },
-  {
-    "title": "The Vulnerability Gap: Why Discovery Is Outrunning Repair",
-    "link": "https://www.darkreading.com/cybersecurity-operations/vulnerability-gap-why-discovery-is-outrunning-repair",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt198046baa5588c01/6a8893cf43e45d54ab5d69fd/gap-DNY59-Getty-1406960089.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
