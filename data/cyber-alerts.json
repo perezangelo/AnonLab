@@ -1,5 +1,40 @@
 [
   {
+    "id": "CVE-2026-55528",
+    "summary": "praisonaiagents: AgentServer declares auth_token but never enforces it on any route",
+    "severity": "HIGH",
+    "published": "2026-08-25T14:31:52Z",
+    "ghsa": "GHSA-7g3p-92qq-8wvh"
+  },
+  {
+    "id": "CVE-2026-55529",
+    "summary": "PraisonAI has an origin validation bypass in MCP HTTP Stream transport that allows browser-mediated unauthenticated tool execution on local MCP server",
+    "severity": "MODERATE",
+    "published": "2026-08-25T14:26:26Z",
+    "ghsa": "GHSA-wj6g-v78p-6fx3"
+  },
+  {
+    "id": "CVE-2026-55523",
+    "summary": "praisonaiagents has a `web_crawl` SSRF protection bypass via unchecked redirect targets",
+    "severity": "HIGH",
+    "published": "2026-08-25T14:18:40Z",
+    "ghsa": "GHSA-8hjw-25cg-g52h"
+  },
+  {
+    "id": "CVE-2026-55522",
+    "summary": "PraisonAI workflow include bypasses tools.py autoload opt-in and executes included recipe code",
+    "severity": "HIGH",
+    "published": "2026-08-25T14:15:27Z",
+    "ghsa": "GHSA-hxmv-c4g6-5fqc"
+  },
+  {
+    "id": "CVE-2026-55525",
+    "summary": "praisonaiagents web_crawl vulnerable to SSRF via redirect-following",
+    "severity": "HIGH",
+    "published": "2026-08-25T14:05:38Z",
+    "ghsa": "GHSA-5r34-2g38-6569"
+  },
+  {
     "id": "GHSA-fx4f-mhw4-qm7j",
     "summary": "vibeio-http has a DoS vulnerability in HTTP/1.x chunked encoding parser triggered by maliciously crafted chunk lengths",
     "severity": "MODERATE",
@@ -33,40 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-24T21:00:54Z",
     "ghsa": "GHSA-w67g-5rqw-f597"
-  },
-  {
-    "id": "GHSA-4ph6-mjv7-3fq6",
-    "summary": "netfoil vulnerable to improper handling of untrusted DoH response data",
-    "severity": "LOW",
-    "published": "2026-08-24T20:43:08Z",
-    "ghsa": "GHSA-4ph6-mjv7-3fq6"
-  },
-  {
-    "id": "CVE-2026-54625",
-    "summary": "django CMS: Page cache ignores plugin-declared Vary headers (disclosure & poisoning)",
-    "severity": "MODERATE",
-    "published": "2026-08-24T20:09:51Z",
-    "ghsa": "GHSA-fwjf-m4qw-9f2x"
-  },
-  {
-    "id": "CVE-2026-54623",
-    "summary": "django CMS: Plugin move endpoint allows cyclic reparenting (DoS)",
-    "severity": "HIGH",
-    "published": "2026-08-24T20:09:43Z",
-    "ghsa": "GHSA-8jj7-4v57-frf5"
-  },
-  {
-    "id": "GHSA-3gjw-f78c-vvpw",
-    "summary": "tokio-postgres: Panic on a `DataRow` with fewer fields than columns allows denial of service",
-    "severity": "MODERATE",
-    "published": "2026-08-24T19:49:17Z",
-    "ghsa": "GHSA-3gjw-f78c-vvpw"
-  },
-  {
-    "id": "GHSA-rgqc-3x5p-6gwg",
-    "summary": "postgres-protocol: Panic decoding a malformed `hstore` value allows denial of service",
-    "severity": "MODERATE",
-    "published": "2026-08-24T19:47:49Z",
-    "ghsa": "GHSA-rgqc-3x5p-6gwg"
   }
 ]
