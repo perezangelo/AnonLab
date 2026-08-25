@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-55596",
-    "summary": "Plate: Media embed provider metadata can bypass URL sanitization and execute iframe JavaScript",
-    "severity": "HIGH",
-    "published": "2026-08-25T16:29:25Z",
-    "ghsa": "GHSA-qj6x-xx2h-8hvv"
-  },
-  {
-    "id": "CVE-2026-55557",
-    "summary": "browse-mcp has an arbitrary file write via unconfined download and state paths",
-    "severity": "HIGH",
-    "published": "2026-08-25T16:28:32Z",
-    "ghsa": "GHSA-m9mq-7m7q-xc6p"
-  },
-  {
-    "id": "CVE-2026-55585",
-    "summary": "qwed Vulnerable to Authenticated Remote Code Execution via Unsafe SymPy `parse_expr()`",
-    "severity": "HIGH",
-    "published": "2026-08-25T16:25:19Z",
-    "ghsa": "GHSA-q27q-98j4-9pfv"
-  },
-  {
-    "id": "CVE-2026-55553",
-    "summary": "urllib's cross-origin redirects preserve credential-bearing request headers, leading to potential credential leakage",
-    "severity": "HIGH",
-    "published": "2026-08-25T16:19:32Z",
-    "ghsa": "GHSA-hq3h-g68c-hp78"
-  },
-  {
-    "id": "CVE-2026-55677",
-    "summary": "Echo: Encoded slash (%2F) bypasses route-level protection and exposes static files",
-    "severity": "HIGH",
-    "published": "2026-08-25T16:13:29Z",
-    "ghsa": "GHSA-vfp3-v2gw-7wfq"
-  },
-  {
-    "id": "CVE-2026-55571",
-    "summary": "djust authentication bypass: a login_required / on_mount LiveView mount redirect does not close the WebSocket, allowing an unauthenticated client to dispatch event-handler calls",
-    "severity": "HIGH",
-    "published": "2026-08-25T16:06:31Z",
-    "ghsa": "GHSA-xx4j-w367-7247"
-  },
-  {
-    "id": "CVE-2026-55640",
-    "summary": "nextcloud-mcp-server: Unauthenticated `POST /webhooks/nextcloud` allows arbitrary vector data deletion when `WEBHOOK_SECRET` is unset ( default )",
-    "severity": "CRITICAL",
-    "published": "2026-08-25T16:04:15Z",
-    "ghsa": "GHSA-8vh3-g2qg-2h2c"
-  },
-  {
-    "id": "GHSA-8qx3-8gm5-9cj2",
-    "summary": "pickem vulnerable to terminal escape-sequence injection via unsanitized item text",
-    "severity": "HIGH",
-    "published": "2026-08-25T15:59:11Z",
-    "ghsa": "GHSA-8qx3-8gm5-9cj2"
-  },
-  {
-    "id": "GHSA-8cp3-qxj6-px34",
-    "summary": "utcp-http has an OAuth2 `tokenUrl` Trust Boundary Bypass in OpenAPI Conversion",
-    "severity": "HIGH",
-    "published": "2026-08-25T15:57:03Z",
-    "ghsa": "GHSA-8cp3-qxj6-px34"
-  },
-  {
-    "id": "GHSA-ppx3-28rw-8fpf",
-    "summary": "utcp-gql SSRF: CVE-2026-44661 fix not applied to the GraphQL and WebSocket plugins",
+    "id": "CVE-2026-55663",
+    "summary": "mediasoup: SCTP state cookie lacks cryptographic authentication, enabling unauthorized association establishment (RFC 9260 violation)",
     "severity": "MODERATE",
-    "published": "2026-08-25T15:52:30Z",
-    "ghsa": "GHSA-ppx3-28rw-8fpf"
+    "published": "2026-08-25T18:17:21Z",
+    "ghsa": "GHSA-p7x2-g5cq-fhmq"
+  },
+  {
+    "id": "CVE-2026-53430",
+    "summary": "gRPC Erlang package has unbounded gzip decompression (decompression bomb)",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:12:58Z",
+    "ghsa": "GHSA-6ccx-9c9f-327w"
+  },
+  {
+    "id": "CVE-2026-48854",
+    "summary": "gRPC Erlang package has unbounded request body accumulation in `read_full_body/3`",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:12:05Z",
+    "ghsa": "GHSA-q8gf-9rvj-gmgj"
+  },
+  {
+    "id": "CVE-2026-48599",
+    "summary": "gRPC Erlang package's path bindings are overridable by query string and request body",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:11:15Z",
+    "ghsa": "GHSA-mwr4-5g34-j5cq"
+  },
+  {
+    "id": "CVE-2026-48853",
+    "summary": "gRPC Erlang package vulnerable to Remote Code Execution with attacker-controlled gRPC payloads",
+    "severity": "CRITICAL",
+    "published": "2026-08-25T18:09:53Z",
+    "ghsa": "GHSA-grp7-v8xh-rj7h"
+  },
+  {
+    "id": "CVE-2026-55637",
+    "summary": "genieacs-mcp: DNS rebinding reaches local GenieACS MCP Streamable HTTP transport",
+    "severity": "HIGH",
+    "published": "2026-08-25T18:05:28Z",
+    "ghsa": "GHSA-cmwv-wf9p-p8wx"
+  },
+  {
+    "id": "GHSA-vwf3-4xxj-qg6h",
+    "summary": "mcp-contextforge-gateway has Server-Side Template Injection (SSTI) leading to Remote Code Execution in `PromptService._render_template` via unsandboxed Jinja2 Environment",
+    "severity": "HIGH",
+    "published": "2026-08-25T17:42:11Z",
+    "ghsa": "GHSA-vwf3-4xxj-qg6h"
+  },
+  {
+    "id": "CVE-2026-55419",
+    "summary": "reachy_mini Allows Unrestricted Upload of File with Dangerous Type",
+    "severity": "MODERATE",
+    "published": "2026-08-25T17:38:43Z",
+    "ghsa": "GHSA-m2pc-3q4q-w6jr"
+  },
+  {
+    "id": "CVE-2026-55092",
+    "summary": "Trivy has a path traversal via a crafted vulnerability database or other downloaded artifacts",
+    "severity": "HIGH",
+    "published": "2026-08-25T17:33:02Z",
+    "ghsa": "GHSA-mcj4-mphf-j9ff"
+  },
+  {
+    "id": "GHSA-pg62-f8g4-4wqh",
+    "summary": "phpMyFAQ privilege escalation: GroupController::updatePermissions lets a GROUP_EDIT admin grant rights they do not hold",
+    "severity": "HIGH",
+    "published": "2026-08-25T17:32:07Z",
+    "ghsa": "GHSA-pg62-f8g4-4wqh"
   }
 ]
