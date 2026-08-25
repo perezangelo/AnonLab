@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-55596",
+    "summary": "Plate: Media embed provider metadata can bypass URL sanitization and execute iframe JavaScript",
+    "severity": "HIGH",
+    "published": "2026-08-25T16:29:25Z",
+    "ghsa": "GHSA-qj6x-xx2h-8hvv"
+  },
+  {
+    "id": "CVE-2026-55557",
+    "summary": "browse-mcp has an arbitrary file write via unconfined download and state paths",
+    "severity": "HIGH",
+    "published": "2026-08-25T16:28:32Z",
+    "ghsa": "GHSA-m9mq-7m7q-xc6p"
+  },
+  {
+    "id": "CVE-2026-55585",
+    "summary": "qwed Vulnerable to Authenticated Remote Code Execution via Unsafe SymPy `parse_expr()`",
+    "severity": "HIGH",
+    "published": "2026-08-25T16:25:19Z",
+    "ghsa": "GHSA-q27q-98j4-9pfv"
+  },
+  {
     "id": "CVE-2026-55553",
     "summary": "urllib's cross-origin redirects preserve credential-bearing request headers, leading to potential credential leakage",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-25T15:52:30Z",
     "ghsa": "GHSA-ppx3-28rw-8fpf"
-  },
-  {
-    "id": "GHSA-9qhg-99ww-9mqc",
-    "summary": "utcp-http SSRF: HTTP tool invocation follows redirects without re-validating the target",
-    "severity": "HIGH",
-    "published": "2026-08-25T15:48:51Z",
-    "ghsa": "GHSA-9qhg-99ww-9mqc"
-  },
-  {
-    "id": "CVE-2026-55580",
-    "summary": "mcp-shell — Security Disabled by Default in Bare-Binary Deploy Path + Shell Interpreter in Secure-Mode Allowlist",
-    "severity": "HIGH",
-    "published": "2026-08-25T15:46:50Z",
-    "ghsa": "GHSA-f5pj-2738-996m"
-  },
-  {
-    "id": "CVE-2026-55581",
-    "summary": "mcp-shell has a Secure Mode Allowlist Bypass via Default `/bin/bash` Executable",
-    "severity": "HIGH",
-    "published": "2026-08-25T15:41:30Z",
-    "ghsa": "GHSA-3x77-wg38-92r3"
   }
 ]
