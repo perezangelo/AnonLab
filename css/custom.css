@@ -1417,3 +1417,106 @@ details textarea,
 details input {
     margin-top: 15px;
 }
+
+/* WRAPPER GENERALE */
+.search-news-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+/* BOX GOOGLE + NEWSLETTER */
+.search-box,
+.newsletter-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+/* ICONA */
+.search-icon {
+  width: 42px;
+  height: 42px;
+  filter: drop-shadow(0 0 10px #00eaff);
+}
+
+/* FORM */
+.search-form,
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+  justify-content: flex-end;
+}
+
+/* INPUT */
+.search-input,
+.newsletter-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #00eaff;
+  background: #000814;
+  color: #e0faff;
+  box-shadow: 0 0 10px #00eaff55;
+}
+
+/* BUTTON */
+.search-button,
+.newsletter-button {
+  padding: 10px 14px;
+  background: #00eaff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00eaffaa;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .search-news-wrapper {
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .search-box,
+  .newsletter-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .search-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 2px;
+  }
+
+  .search-form,
+  .newsletter-form {
+    max-width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .search-button,
+  .newsletter-button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .search-input,
+  .newsletter-input {
+    font-size: 0.95rem;
+  }
+}
