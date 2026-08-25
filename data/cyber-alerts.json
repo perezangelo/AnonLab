@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-55528",
-    "summary": "praisonaiagents: AgentServer declares auth_token but never enforces it on any route",
+    "id": "CVE-2026-55546",
+    "summary": "qwed-mcp has Unsafe SymPy `parse_expr()` Remote Code Execution via Unsanitized Math Expression Input",
+    "severity": "CRITICAL",
+    "published": "2026-08-25T15:26:43Z",
+    "ghsa": "GHSA-mw6r-2hvm-4rp2"
+  },
+  {
+    "id": "CVE-2026-55536",
+    "summary": "PraisonAI has a Browser Server WebSocket origin validation bypass via unanchored regex (patch bypass of CVE-2026-40289 / GHSA-8x8f-54wf-vv92)",
+    "severity": "CRITICAL",
+    "published": "2026-08-25T15:22:16Z",
+    "ghsa": "GHSA-6g6r-q6gw-w8fg"
+  },
+  {
+    "id": "CVE-2026-55532",
+    "summary": "PraisonAI: Origin-validation bypass (startswith prefix match) enables unauthenticated cross-site request forgery against the PraisonAI MCP HTTP server",
     "severity": "HIGH",
-    "published": "2026-08-25T14:31:52Z",
-    "ghsa": "GHSA-7g3p-92qq-8wvh"
+    "published": "2026-08-25T15:18:20Z",
+    "ghsa": "GHSA-pvph-5j39-v8qc"
   },
   {
-    "id": "CVE-2026-55529",
-    "summary": "PraisonAI has an origin validation bypass in MCP HTTP Stream transport that allows browser-mediated unauthenticated tool execution on local MCP server",
-    "severity": "MODERATE",
-    "published": "2026-08-25T14:26:26Z",
-    "ghsa": "GHSA-wj6g-v78p-6fx3"
-  },
-  {
-    "id": "CVE-2026-55523",
-    "summary": "praisonaiagents has a `web_crawl` SSRF protection bypass via unchecked redirect targets",
+    "id": "CVE-2026-55533",
+    "summary": "PraisonAI: Authentication fail-open in Recipe server allows unauthenticated access when API key or JWT auth is configured without a secret",
     "severity": "HIGH",
-    "published": "2026-08-25T14:18:40Z",
-    "ghsa": "GHSA-8hjw-25cg-g52h"
+    "published": "2026-08-25T15:15:54Z",
+    "ghsa": "GHSA-gfq8-hmph-9gjv"
   },
   {
-    "id": "CVE-2026-55522",
-    "summary": "PraisonAI workflow include bypasses tools.py autoload opt-in and executes included recipe code",
+    "id": "CVE-2026-55539",
+    "summary": "PraisonAI: [Auth Bypass] PraisonAI async Jobs API (`/api/v1/runs`) has no authentication — unauthenticated job execution, result theft, cancel and delete",
     "severity": "HIGH",
-    "published": "2026-08-25T14:15:27Z",
-    "ghsa": "GHSA-hxmv-c4g6-5fqc"
+    "published": "2026-08-25T15:14:27Z",
+    "ghsa": "GHSA-2jgc-f764-c5r2"
   },
   {
-    "id": "CVE-2026-55525",
-    "summary": "praisonaiagents web_crawl vulnerable to SSRF via redirect-following",
+    "id": "CVE-2026-55527",
+    "summary": "praisonaiagents vulnerable to arbitrary file write via unsanitized `user_id` in `FileMemory.__init__()` — path traversal to any writable location",
     "severity": "HIGH",
-    "published": "2026-08-25T14:05:38Z",
-    "ghsa": "GHSA-5r34-2g38-6569"
+    "published": "2026-08-25T15:09:54Z",
+    "ghsa": "GHSA-gxmw-5f7x-6g22"
   },
   {
-    "id": "GHSA-fx4f-mhw4-qm7j",
-    "summary": "vibeio-http has a DoS vulnerability in HTTP/1.x chunked encoding parser triggered by maliciously crafted chunk lengths",
-    "severity": "MODERATE",
-    "published": "2026-08-24T22:05:02Z",
-    "ghsa": "GHSA-fx4f-mhw4-qm7j"
-  },
-  {
-    "id": "GHSA-w8j7-39hp-8x59",
-    "summary": "Cloudreve's remote download file paths can escape the selected destination directory",
-    "severity": "MODERATE",
-    "published": "2026-08-24T22:03:33Z",
-    "ghsa": "GHSA-w8j7-39hp-8x59"
-  },
-  {
-    "id": "GHSA-vx2m-jpxr-xv7w",
-    "summary": "Cloudreve has Broken Access Control - Revoked Share Access Still Allows Signed File URL Generation via Cached context_hint",
-    "severity": "MODERATE",
-    "published": "2026-08-24T22:01:03Z",
-    "ghsa": "GHSA-vx2m-jpxr-xv7w"
-  },
-  {
-    "id": "CVE-2026-55477",
-    "summary": "3X-UI Vulnerable to Authenticated Arbitrary File Write via Database Import and Xray Log Path Manipulation",
+    "id": "CVE-2026-55541",
+    "summary": "PraisonAI: `--api-key` flag on `praisonai serve` is not properly enforced",
     "severity": "HIGH",
-    "published": "2026-08-24T21:05:14Z",
-    "ghsa": "GHSA-jm48-m3rr-9hgg"
+    "published": "2026-08-25T15:06:09Z",
+    "ghsa": "GHSA-pvxx-r596-f5qj"
   },
   {
-    "id": "GHSA-w67g-5rqw-f597",
-    "summary": "Gorilla WebSocket Uses Cryptographically Weak PRNG for WebSocket Mask Key",
+    "id": "CVE-2026-55535",
+    "summary": "PraisonAI vulnerable to Server-Side Request Forgery via DNS rebinding bypass in webhook_url validation",
     "severity": "MODERATE",
-    "published": "2026-08-24T21:00:54Z",
-    "ghsa": "GHSA-w67g-5rqw-f597"
+    "published": "2026-08-25T15:02:04Z",
+    "ghsa": "GHSA-hmfx-4v44-9qw9"
+  },
+  {
+    "id": "CVE-2026-55537",
+    "summary": "PraisonAI: Webhook SSRF via DNS fail-open in `JobSubmitRequest.validate_webhook_url()` — bypass of CVE-2026-40114",
+    "severity": "HIGH",
+    "published": "2026-08-25T14:59:44Z",
+    "ghsa": "GHSA-rg5q-pp8p-f7jm"
+  },
+  {
+    "id": "CVE-2026-55538",
+    "summary": "PraisonAI: [Auth Bypass] `praisonai serve agents --api-key` is silently ignored — agent-invocation routes (`POST /agents`, `POST /agents/{agent_name}`) run unauthenticated",
+    "severity": "HIGH",
+    "published": "2026-08-25T14:56:59Z",
+    "ghsa": "GHSA-r7v3-x45f-g7hp"
   }
 ]
