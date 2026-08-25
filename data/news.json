@@ -1,5 +1,10 @@
 [
   {
+    "title": "AnonyMousKIT PhaaS uses voice AI agents to phish iPhone passcodes",
+    "link": "https://www.bleepingcomputer.com/news/security/anonymouskit-phaas-uses-voice-ai-agents-to-phish-iphone-passcodes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/06/10/apple-iphone.jpg"
+  },
+  {
     "title": "Finding Nemo(Claw): Networking Issue Allows for LLM Poisoning in OpenClaw",
     "link": "https://www.darkreading.com/cyber-risk/nemo-claw-networking-llm-poisoning-openclaw",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd29ebaa9ac3f0fdd/6a8d90fa24739f39a5e9ecd4/openclaw_Koshiro_K_shutterstock.png?disable=upscale&width=1200&height=630&fit=crop"
@@ -85,13 +90,48 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/25/Zimbra.jpg"
   },
   {
+    "title": "Ebyte NE2-D11",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-06",
+    "image": ""
+  },
+  {
     "title": "A Tale of Two SOCs: Insights From Two Red Team Assessments",
     "link": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a",
     "image": ""
   },
   {
+    "title": "Rently Smart Home",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-01",
+    "image": ""
+  },
+  {
     "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
     "link": "https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "image": ""
+  },
+  {
+    "title": "PayRange API",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-04",
+    "image": ""
+  },
+  {
+    "title": "Zoneminder",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-02",
+    "image": ""
+  },
+  {
+    "title": "Siemens SIMATIC IoT2050 Advanced",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-03",
+    "image": ""
+  },
+  {
+    "title": "FURUNO FA-50 Class B AIS Transponder",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-07",
+    "image": ""
+  },
+  {
+    "title": "Bendix EC80 Brake ECU",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-05",
     "image": ""
   },
   {
@@ -108,45 +148,5 @@
     "title": "E4del and PINHOLE RATs Turn FTP Banners Into Dead Drops for Malware Commands",
     "link": "https://thehackernews.com/2026/08/e4del-and-pinhole-rats-turn-ftp-banners.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2i7P2s27TjJNZnYUm7sRvosSHWRKaS2x-ITabU2QoWKkFiXRH1ggmPOby95djEZo62zvTn3LviG9HuetNXjY9km-dk9XqX_yNzD0Vh6yUfisio5rUP7c0DPDhW_1J877JL4RVY0QjM2vDXXH62rGegDhL0sSPedL99_Rw8P_z-LM67zUFXCiSI1mXGhoM/s1600/ftp-server.jpg"
-  },
-  {
-    "title": "First Malware Built Specifically for Car Head Units Fuels Botnet",
-    "link": "https://www.securityweek.com/first-malware-built-specifically-for-car-head-units-fuels-botnet/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2020/01/car-interior-e1787656605560.jpg"
-  },
-  {
-    "title": "Frontier AI: Vulnerability Management's Systemic Revolution",
-    "link": "https://thehackernews.com/2026/08/frontier-ai-vulnerability-managements.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw3Y0aFTDbQ21xc915TfR8Ij8yXtuti3S7fG8opbdhlekh0FmwKsgWcuHXs8kCr01WBmZCInn_OldVjnXtLed_aDiCd41L1kkup8-CXGOkc4YLfZq7dmlkSNiaT4EHNMqcoA10SOr018r6ZElA3HMOOLWi9Ye-99WlJzKtX4vdDgPZSWwfpgT9Eo8mres/s1600/sans.jpg"
-  },
-  {
-    "title": "Police arrests dozens of suspects in global cybercrime crackdown",
-    "link": "https://www.bleepingcomputer.com/news/security/police-arrests-dozens-of-suspects-in-global-cybercrime-crackdown/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/29/Law_enforcement_arrest.jpg"
-  },
-  {
-    "title": "Silent Patches Don\u2019t Stop Attackers \u2013 They Blind Defenders",
-    "link": "https://www.securityweek.com/silent-patches-dont-stop-attackers-they-blind-defenders/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
-  },
-  {
-    "title": "Attackers Target miniOrange SAML Flaws That Can Grant WordPress Admin Access",
-    "link": "https://thehackernews.com/2026/08/attackers-target-miniorange-saml-flaws.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtxn6tX1r1BmVfN_4cdoh6p5jmcAe3D9ckNhjscacXx5HpxZJAdb1SvIWo404cGlwahzCLyFIRB-MdUjGcQdBLLC5pMwaCB75e9AT5jKvC49cvIP5jGIOB4IjcQGaOpibWbIPKj929DICeMilGRZn5JmVIcVslRm2hWgz5RTXIZK5d2b2N5dlEnRBBwWVO/s1600/wordpress-hack.jpg"
-  },
-  {
-    "title": "Taiwan Charges 9 Over Illegal AI Server Exports to China, Including Nvidia and Super Micro Staff",
-    "link": "https://www.securityweek.com/taiwan-charges-9-over-illegal-ai-server-exports-to-china-including-nvidia-and-super-micro-staff/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "CISA Warns of Exploited Oracle WebLogic Vulnerability",
-    "link": "https://www.securityweek.com/cisa-warns-of-exploited-oracle-weblogic-vulnerability/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/CISA-Agency-Cybersecurity.jpg"
-  },
-  {
-    "title": "Actively Exploited Oracle WebLogic Flaw Lets Unauthenticated Attackers Access Critical Data",
-    "link": "https://thehackernews.com/2026/08/actively-exploited-oracle-weblogic-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgl_xYf_N0l1MVU0TVJFootEd6UCngqtfmbbEKRc06D7-0-ehjKU2SrBoA3qKaSkUWrOzgAu6hkbtimW8U7M4zgfH_6jXzgy6w7aQEGQKni-doNdQFCmAm9_vI_Zq4I6tx7lO2q533pbWWOLKBuUUYLGdY9O7SfBcwcGrqvsMLaFMPL09xXK86vRu38JfEp/s1600/oracle.jpg"
   }
 ]
