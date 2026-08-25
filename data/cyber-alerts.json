@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-54338",
+    "summary": "JupyterHub has Unauthenticated Denial of Service via Unbounded Username Logging on Failed Login",
+    "severity": "MODERATE",
+    "published": "2026-08-25T19:29:19Z",
+    "ghsa": "GHSA-p43p-whwx-q52h"
+  },
+  {
+    "id": "CVE-2026-55099",
+    "summary": "icalendar has Algorithmic Complexity in Equality",
+    "severity": "HIGH",
+    "published": "2026-08-25T19:27:31Z",
+    "ghsa": "GHSA-cv84-9p8j-fj68"
+  },
+  {
+    "id": "CVE-2026-45019",
+    "summary": "Chainlist has SSRF via MCP SSE and streamable-http transports that allows unauthenticated internal network access",
+    "severity": "HIGH",
+    "published": "2026-08-25T19:21:40Z",
+    "ghsa": "GHSA-hvfh-5mj3-5f3j"
+  },
+  {
     "id": "CVE-2026-45018",
     "summary": "Chainlit has command injection via MCP stdio transport that allows unauthenticated remote code execution",
     "severity": "CRITICAL",
@@ -47,26 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-25T18:25:47Z",
     "ghsa": "GHSA-m66c-fw79-6359"
-  },
-  {
-    "id": "CVE-2026-55618",
-    "summary": "eml_parser has a URL extraction bypass via HTML entities in URLs",
-    "severity": "MODERATE",
-    "published": "2026-08-25T18:23:16Z",
-    "ghsa": "GHSA-fxgq-9m89-cxj9"
-  },
-  {
-    "id": "CVE-2026-49757",
-    "summary": "AshAuthentication vulnerable to OAuth2/OIDC account takeover via email-based user matching",
-    "severity": "CRITICAL",
-    "published": "2026-08-25T18:20:27Z",
-    "ghsa": "GHSA-777c-2fxx-qr28"
-  },
-  {
-    "id": "CVE-2026-55663",
-    "summary": "mediasoup: SCTP state cookie lacks cryptographic authentication, enabling unauthorized association establishment (RFC 9260 violation)",
-    "severity": "MODERATE",
-    "published": "2026-08-25T18:17:21Z",
-    "ghsa": "GHSA-p7x2-g5cq-fhmq"
   }
 ]
