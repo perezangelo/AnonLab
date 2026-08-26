@@ -1,13 +1,33 @@
 [
   {
+    "title": "Ubiquiti patches three max severity security vulnerabilities",
+    "link": "https://www.bleepingcomputer.com/news/security/ubiquiti-patches-three-max-severity-security-vulnerabilities/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/08/Ubiquiti-headpic.jpg"
+  },
+  {
+    "title": "Adobe and Nvidia Patch Dozens of Vulnerabilities",
+    "link": "https://www.securityweek.com/adobe-and-nvidia-patch-dozens-of-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/software-vulnerability-patch-update.jpg"
+  },
+  {
     "title": "Microsoft tests new privacy controls for Windows 11 desktop apps",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-tests-new-privacy-controls-for-windows-11-desktop-apps/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/04/02/Windows-11.jpg"
   },
   {
+    "title": "Unpatched Kaltura mwEmbed Flaws Could Let Remote Attackers Read Files and Run Code",
+    "link": "https://thehackernews.com/2026/08/unpatched-kaltura-mwembed-flaws-could.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4vWsyC0OylljN3m8OwCHpDKLPXe9Sw7VI5ddPEuRswkrrsHlTyfbfkXAKOTX7jemZjktTQh1IlD1hjeWsOJwZm2aSe4OtppGdqTBMUCxgFAPIfI2RY-jAdZD5hfHsj7KpRexnN4SbfUJ8nsLB8w6P_me_L8xM00ZjskYgpyEbMkDBC5hSt5FAuLbFaK0/s1600/kaltura.jpg"
+  },
+  {
     "title": "Imagine the SOC Without a Queue: From Alert Backlog to AI Hypothesis Engine",
     "link": "https://thehackernews.com/2026/08/imagine-soc-without-queue-from-alert.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZq8QFTxW4LuCB6uU-05X_ZcT88PxrCrq4S8Tlt-ntdFViEUD7XTOuFp0Ep2oNd61UEYcnfV0dFYW7E1jzogc2t4fm3R2CU7I45rc9bF2fAPi85MeDbxGio5jRIK_8jmMeI9A6hU_laVDVcU5yvODt55syFnI0F4cHX0N1Wul8IGg9A_PbkM_sOHoSFds/s1600/Corelight.jpg"
+  },
+  {
+    "title": "'NovaCookies' Kit Steals Microsoft 365 Sessions for $320 a Month",
+    "link": "https://www.darkreading.com/endpoint-security/novacookies-steals-microsoft-365-sessions-320-a-month",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt96335316773d01f2/64f1723c4be8f94ae717439d/cookie_monster-dpa_picture_alliance-Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "CISA: Over 100 Internet-Exposed Water Systems Targeted in July Cyberattacks",
@@ -60,7 +80,7 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
   },
   {
-    "title": "Newly SLEEPWALKER Backdoor Waits for One Crafted Packet, Then Runs Its Own Bytecode",
+    "title": "New SLEEPWALKER Backdoor Waits for One Crafted Packet, Then Runs Its Own Bytecode",
     "link": "https://thehackernews.com/2026/08/newly-sleepwalker-backdoor-waits-for.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSnbO35IDgg9dQouCuUCpAko8PiGwwI3lhn7I68m0Ok-PGL84lR1CU0sKk5rWfurFY7u1Fz-9U0-CXi1VCuAVpZDpKF3uDnvtyb062Kls6vW8L7xkTnZBPPJteihNrIWV3C__6JMphWMC7ER4_2bsgKDfzIuq5naTBB3pgZvKvD2v4djmpMh96F62y8Qg/s1600/sleepwalker.jpg"
   },
@@ -128,25 +148,5 @@
     "title": "Hospital operator Nutex Health says data stolen in cyberattack",
     "link": "https://www.bleepingcomputer.com/news/security/hospital-operator-nutex-health-says-data-stolen-in-cyberattack/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/25/nutex.jpg"
-  },
-  {
-    "title": "Alice Raises $140M to Expand AI Model Defenses and Enterprise Guardrails",
-    "link": "https://www.securityweek.com/alice-raises-140m-to-expand-ai-model-defenses-and-enterprise-guardrails/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
-  },
-  {
-    "title": "A Malicious Webpage Could Poison Your Local AI Model Behind NVIDIA NemoClaw",
-    "link": "https://thehackernews.com/2026/08/a-malicious-webpage-could-poison-your.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMaJs9yp_YLYc3dgsmzjU4_ma-6DC3KNpG4d3KhKtoIuhtpbYSnK0Wed5_8a0Jm6epc_RdLE9PVMO0FnkH7DFwRAI7lBZBXImFEu1emv-OarT-LPYE-QymTXPMkmDsYBXsz1TB3gASsiAEgZ4Jvt1YzQM3KHYpV0HMck686hTcXB7pn7uqLu2uTLVgPyE/s1600/nvidia.jpg"
-  },
-  {
-    "title": "From Fake Workers to Account Recovery: The Growing Identity Verification Risk",
-    "link": "https://www.bleepingcomputer.com/news/security/from-fake-workers-to-account-recovery-the-growing-identity-verification-risk/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/08/19/specops-lock-laptop.jpg"
-  },
-  {
-    "title": "Microsoft PowerToys adds Alt+Tab-style switching for an app's windows",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-powertoys-adds-alt-plustab-style-switching-for-an-apps-windows/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/25/0_Windows.jpg"
   }
 ]
