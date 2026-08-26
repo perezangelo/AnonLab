@@ -1709,6 +1709,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- ⭐ CALCOLATRICE -->
 <script src="https://angelonline.altervista.org/js/main.js"></script>
+  <!-- SCRIPT: AnonLab_SidebarFormAutoScroll -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Attende che la sidebar sia caricata nel DOM
+    const waitForSidebar = setInterval(() => {
+        const regForm = document.querySelector("#register-form");
+        const loginForm = document.querySelector("#login-form");
+
+        // Quando i form esistono, può scrollare
+        if (regForm || loginForm) {
+            clearInterval(waitForSidebar);
+
+            // Scroll verso il form di registrazione
+            if (window.location.hash === "#register-form" && regForm) {
+                regForm.scrollIntoView({ behavior: "smooth" });
+            }
+
+            // Scroll verso il form di login
+            if (window.location.hash === "#login-form" && loginForm) {
+                loginForm.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, 100);
+
+});
+</script>
+
 
 
 
