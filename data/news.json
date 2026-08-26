@@ -1,8 +1,33 @@
 [
   {
+    "title": "Hackers target Microsoft SharePoint RCE chain with PoC exploit",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-target-microsoft-sharepoint-rce-chain-with-poc-exploit/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/26/Microsoft-SharePoint.jpg"
+  },
+  {
+    "title": "FBI disrupts proxy network enabling Chinese espionage operations",
+    "link": "https://www.bleepingcomputer.com/news/security/fbi-disrupts-proxy-network-enabling-chinese-espionage-operations/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/04/25/FBI.jpg"
+  },
+  {
+    "title": "Snowflake ends service-account passwords. Now comes the hard part",
+    "link": "https://www.bleepingcomputer.com/news/security/snowflake-ends-service-account-passwords-now-comes-the-hard-part/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/08/25/token-key-rack.jpg"
+  },
+  {
+    "title": "NovaCookies Campaigns Abuse Genuine Docusign Notifications to Steal Microsoft 365 Sessions",
+    "link": "https://thehackernews.com/2026/08/novacookies-campaigns-abuse-genuine.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiz4GD3giiT1DIPT5Q13XvCZcwC8-STaGCZ3KbqUzQ5Q9oniGfA0Odbqfmwva6B-xSSTD2QG1wdqu5fFOleaBVFSA-t3ZfeqpcrYOEomdygWsZOONJXYcpxhRdT-EbTS_DZ0zYLrH_-1YN7TjXCsDuIj0I2G53mFT0df1HC3tjUdUQ5MCdHdEo27rDE2QEm/s1600/docusign.jpg"
+  },
+  {
     "title": "Ubiquiti patches three max severity security vulnerabilities",
     "link": "https://www.bleepingcomputer.com/news/security/ubiquiti-patches-three-max-severity-security-vulnerabilities/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/08/Ubiquiti-headpic.jpg"
+  },
+  {
+    "title": "CISA Red Team Compromised Two Critical Infrastructure Orgs, One Detected Nothing",
+    "link": "https://thehackernews.com/2026/08/cisa-red-team-compromised-two-critical.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW3w9bF-wcalV_4xeymOZiHzRSkeBfz8Vh1B58JkthAgonYo-DGr3kWwNQ8ia760jX1kfC7NTkitD9rWxJNSNzMZWTAVWqrmJQXL7-1rOHbmC7mKSmfArdBAp5s4phuF3SlKr20agmwKrpI56a9SijzuYLnhYlb3R4l7uhb4S0Na0d3_OplvHmbC1EDCk/s1600/cisa-hack.jpg"
   },
   {
     "title": "Adobe and Nvidia Patch Dozens of Vulnerabilities",
@@ -13,6 +38,11 @@
     "title": "Microsoft tests new privacy controls for Windows 11 desktop apps",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-tests-new-privacy-controls-for-windows-11-desktop-apps/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/04/02/Windows-11.jpg"
+  },
+  {
+    "title": "CISA Vulnerability Review",
+    "link": "https://www.cisa.gov/resources-tools/resources/cisa-vulnerability-review",
+    "image": ""
   },
   {
     "title": "Unpatched Kaltura mwEmbed Flaws Could Let Remote Attackers Read Files and Run Code",
@@ -118,35 +148,5 @@
     "title": "AnonyMousKIT PhaaS uses voice AI agents to phish iPhone passcodes",
     "link": "https://www.bleepingcomputer.com/news/security/anonymouskit-phaas-uses-voice-ai-agents-to-phish-iphone-passcodes/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/06/10/apple-iphone.jpg"
-  },
-  {
-    "title": "Finding Nemo(Claw): Networking Issue Allows for LLM Poisoning in OpenClaw",
-    "link": "https://www.darkreading.com/cyber-risk/nemo-claw-networking-llm-poisoning-openclaw",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd29ebaa9ac3f0fdd/6a8d90fa24739f39a5e9ecd4/openclaw_Koshiro_K_shutterstock.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "U.S. Sanctions Iran-Linked Hackers Behind Critical Infrastructure Breaches",
-    "link": "https://thehackernews.com/2026/08/us-sanctions-iran-linked-hackers-behind.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_Uq1yn-ay_vU25xZUbhhvnVMHSWo2rQwy4HhIfNIdnk-MIF-cbtytzKqkvrcBNIGy6fDgW22x0dMZiNhTmvTY_V6SxK-FE6VificiC99BkJMHaWdJB_-tSZeNeM96lL-HaG4VvrBRuA3JmPlkL3sE_F6kfJYhW_ZaXXQK0dses4BK6A2G4yF9GsHUrgXo/s1600/iranian-hackers.jpg"
-  },
-  {
-    "title": "Linux Foundation to Govern TRACE, an Open Standard for AI Runtime Attestation",
-    "link": "https://www.securityweek.com/linux-foundation-to-govern-trace-an-open-standard-for-ai-runtime-attestation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-alliance.webp"
-  },
-  {
-    "title": "Massive DDoS attack disrupts Norway\u2019s government digital services",
-    "link": "https://www.bleepingcomputer.com/news/security/massive-ddos-attack-disrupts-norways-government-digital-services/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/25/0_norway.jpg"
-  },
-  {
-    "title": "Is Cyber Facing an Affordability Crisis?",
-    "link": "https://www.darkreading.com/cybersecurity-operations/is-cyber-facing-an-affordability-crisis-",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2d6c1792a2093976/6a8daf2931dc781c97eef199/GettyImages-147695159.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hospital operator Nutex Health says data stolen in cyberattack",
-    "link": "https://www.bleepingcomputer.com/news/security/hospital-operator-nutex-health-says-data-stolen-in-cyberattack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/25/nutex.jpg"
   }
 ]
