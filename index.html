@@ -1709,35 +1709,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- ⭐ CALCOLATRICE -->
 <script src="https://angelonline.altervista.org/js/main.js"></script>
+ 
   <!-- SCRIPT: AnonLab_SidebarFormAutoScroll -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Attende che la sidebar sia caricata nel DOM
+    let attempts = 0;
+
     const waitForSidebar = setInterval(() => {
         const regForm = document.querySelector("#register-form");
         const loginForm = document.querySelector("#login-form");
 
-        // Quando i form esistono, può scrollare
+        // Sidebar caricata?
         if (regForm || loginForm) {
+
+            // Aspetta che il layout si stabilizzi (radio, widget, ecc.)
+            setTimeout(() => {
+
+                if (window.location.hash === "#register-form" && regForm) {
+                    regForm.scrollIntoView({ behavior: "smooth" });
+                }
+
+                if (window.location.hash === "#login-form" && loginForm) {
+                    loginForm.scrollIntoView({ behavior: "smooth" });
+                }
+
+            }, 300); // 300ms = sidebar completamente renderizzata
+
             clearInterval(waitForSidebar);
-
-            // Scroll verso il form di registrazione
-            if (window.location.hash === "#register-form" && regForm) {
-                regForm.scrollIntoView({ behavior: "smooth" });
-            }
-
-            // Scroll verso il form di login
-            if (window.location.hash === "#login-form" && loginForm) {
-                loginForm.scrollIntoView({ behavior: "smooth" });
-            }
         }
-    }, 100);
 
+        // Evita loop infiniti
+        if (++attempts > 50) clearInterval(waitForSidebar);
+
+    }, 100);
 });
 </script>
-
-
-
-
-
