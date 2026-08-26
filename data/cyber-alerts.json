@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-44701",
+    "summary": "OpenSTAManager has HTML Injection in modules/utenti/edit.php",
+    "severity": "LOW",
+    "published": "2026-08-26T18:12:25Z",
+    "ghsa": "GHSA-crx4-7mmq-j74j"
+  },
+  {
+    "id": "GHSA-7w8c-qgxg-m7jx",
+    "summary": "LibreNMS — Stored XSS via SNMP/Syslog Data in Legacy Templates",
+    "severity": "HIGH",
+    "published": "2026-08-26T18:05:46Z",
+    "ghsa": "GHSA-7w8c-qgxg-m7jx"
+  },
+  {
     "id": "CVE-2026-54591",
     "summary": "asyncssh has SCP Path Traversal to Arbitrary File Write",
     "severity": "HIGH",
@@ -54,19 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-08-26T14:36:45Z",
     "ghsa": "GHSA-93qj-5q5v-3c2h"
-  },
-  {
-    "id": "CVE-2026-55688",
-    "summary": "AsyncHttpClient stores cookie for an unrelated domain (cookie tossing) via ThreadSafeCookieStore",
-    "severity": "MODERATE",
-    "published": "2026-08-26T14:35:52Z",
-    "ghsa": "GHSA-m452-q8c9-rg2f"
-  },
-  {
-    "id": "CVE-2026-54786",
-    "summary": "Wasmtime has a leak in WASIp1 `fd_renumber` implementation",
-    "severity": "LOW",
-    "published": "2026-08-26T14:30:10Z",
-    "ghsa": "GHSA-3p27-qvp9-27qf"
   }
 ]
