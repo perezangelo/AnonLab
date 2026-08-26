@@ -1,72 +1,72 @@
 [
   {
+    "id": "CVE-2026-54591",
+    "summary": "asyncssh has SCP Path Traversal to Arbitrary File Write",
+    "severity": "HIGH",
+    "published": "2026-08-26T15:34:22Z",
+    "ghsa": "GHSA-2wxc-x7rj-hg8f"
+  },
+  {
+    "id": "CVE-2026-54590",
+    "summary": "asyncssh has an incomplete fix for CVE-2026-45309 — AuthorizedKeysFile %u still escapes the intended directory via a leading ~ (and weakly via ${ENV}) username substitution",
+    "severity": "MODERATE",
+    "published": "2026-08-26T15:32:00Z",
+    "ghsa": "GHSA-qr67-gv47-xwwh"
+  },
+  {
+    "id": "CVE-2026-54614",
+    "summary": "cakephp/debug_kit: MailPreview contains unsafe reflection",
+    "severity": "MODERATE",
+    "published": "2026-08-26T15:31:01Z",
+    "ghsa": "GHSA-p46m-g734-vpc4"
+  },
+  {
+    "id": "CVE-2026-54569",
+    "summary": "senaite.core Vulnerable to Eval Injection and Missing Authorization",
+    "severity": "CRITICAL",
+    "published": "2026-08-26T15:28:47Z",
+    "ghsa": "GHSA-jrw6-7x4q-w25j"
+  },
+  {
+    "id": "CVE-2026-54606",
+    "summary": "SunEditor Embed Plugin has DOM XSS via External Script Element After Iframe Embed",
+    "severity": "HIGH",
+    "published": "2026-08-26T15:26:24Z",
+    "ghsa": "GHSA-w93q-cq9w-58p7"
+  },
+  {
+    "id": "CVE-2026-54563",
+    "summary": "Cloudreve WebDAV (`/dav`) has Path Traversal / Broken Access Control — scoped DAV credential escapes its configured account root",
+    "severity": "HIGH",
+    "published": "2026-08-26T15:22:12Z",
+    "ghsa": "GHSA-w5fv-7x5q-g8qp"
+  },
+  {
+    "id": "GHSA-x287-5c68-36wp",
+    "summary": "OpenWISP IPAM has broken object-level authorization: ExportSubnetView lets a member of one organization export another organization's subnet and all its IP addresses",
+    "severity": "MODERATE",
+    "published": "2026-08-26T14:38:10Z",
+    "ghsa": "GHSA-x287-5c68-36wp"
+  },
+  {
+    "id": "GHSA-93qj-5q5v-3c2h",
+    "summary": "Trojanized pantheon-agents 0.6.1 and 0.6.2 on PyPI ship a credential stealer (supply-chain account compromise)",
+    "severity": "CRITICAL",
+    "published": "2026-08-26T14:36:45Z",
+    "ghsa": "GHSA-93qj-5q5v-3c2h"
+  },
+  {
+    "id": "CVE-2026-55688",
+    "summary": "AsyncHttpClient stores cookie for an unrelated domain (cookie tossing) via ThreadSafeCookieStore",
+    "severity": "MODERATE",
+    "published": "2026-08-26T14:35:52Z",
+    "ghsa": "GHSA-m452-q8c9-rg2f"
+  },
+  {
     "id": "CVE-2026-54786",
     "summary": "Wasmtime has a leak in WASIp1 `fd_renumber` implementation",
     "severity": "LOW",
     "published": "2026-08-26T14:30:10Z",
     "ghsa": "GHSA-3p27-qvp9-27qf"
-  },
-  {
-    "id": "CVE-2026-54511",
-    "summary": "@logtape/syslog: syslog log injection via unescaped control characters and unvalidated SD-NAME keys",
-    "severity": "HIGH",
-    "published": "2026-08-26T14:28:04Z",
-    "ghsa": "GHSA-8h6h-x5pq-56fq"
-  },
-  {
-    "id": "CVE-2026-54550",
-    "summary": "IzPack has Path Traversal in UnpackerBase that allows writing files outside the installation directory via malicious pack entries",
-    "severity": "HIGH",
-    "published": "2026-08-26T14:24:40Z",
-    "ghsa": "GHSA-f63g-88cj-hjf9"
-  },
-  {
-    "id": "CVE-2026-54523",
-    "summary": "Kyverno's NamespacedGeneratingPolicy generator.apply() namespace argument unvalidated -- background controller creates RoleBindings in any namespace including kube-system",
-    "severity": "CRITICAL",
-    "published": "2026-08-26T14:21:54Z",
-    "ghsa": "GHSA-79gf-7frw-68m9"
-  },
-  {
-    "id": "CVE-2026-54548",
-    "summary": "kas Persistently Disables SSH Host Key Checking",
-    "severity": "LOW",
-    "published": "2026-08-26T14:18:24Z",
-    "ghsa": "GHSA-mv8m-v9v6-5f94"
-  },
-  {
-    "id": "CVE-2026-54553",
-    "summary": "Starlette-Admin's unvalidated `order_by` parameter allows ordering by hidden columns (info-exposure oracle) and HTTP 500 DoS",
-    "severity": "MODERATE",
-    "published": "2026-08-26T14:14:37Z",
-    "ghsa": "GHSA-6753-gr46-6wpr"
-  },
-  {
-    "id": "CVE-2026-54556",
-    "summary": "http4s has HTTP/2 Denial of Service with Ember Backend",
-    "severity": "HIGH",
-    "published": "2026-08-26T14:10:59Z",
-    "ghsa": "GHSA-vmm3-xgcx-67hm"
-  },
-  {
-    "id": "CVE-2026-54356",
-    "summary": "Budibase authenticated arbitrary S3 signed upload URL issuance via `/api/attachments/:datasourceId/url`",
-    "severity": "HIGH",
-    "published": "2026-08-26T14:07:26Z",
-    "ghsa": "GHSA-6x9p-4r67-5gjx"
-  },
-  {
-    "id": "CVE-2026-54338",
-    "summary": "JupyterHub has Unauthenticated Denial of Service via Unbounded Username Logging on Failed Login",
-    "severity": "MODERATE",
-    "published": "2026-08-25T19:29:19Z",
-    "ghsa": "GHSA-p43p-whwx-q52h"
-  },
-  {
-    "id": "CVE-2026-55099",
-    "summary": "icalendar has Algorithmic Complexity in Equality",
-    "severity": "HIGH",
-    "published": "2026-08-25T19:27:31Z",
-    "ghsa": "GHSA-cv84-9p8j-fj68"
   }
 ]
