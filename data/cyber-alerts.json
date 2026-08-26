@@ -1,5 +1,61 @@
 [
   {
+    "id": "CVE-2026-54786",
+    "summary": "Wasmtime has a leak in WASIp1 `fd_renumber` implementation",
+    "severity": "LOW",
+    "published": "2026-08-26T14:30:10Z",
+    "ghsa": "GHSA-3p27-qvp9-27qf"
+  },
+  {
+    "id": "CVE-2026-54511",
+    "summary": "@logtape/syslog: syslog log injection via unescaped control characters and unvalidated SD-NAME keys",
+    "severity": "HIGH",
+    "published": "2026-08-26T14:28:04Z",
+    "ghsa": "GHSA-8h6h-x5pq-56fq"
+  },
+  {
+    "id": "CVE-2026-54550",
+    "summary": "IzPack has Path Traversal in UnpackerBase that allows writing files outside the installation directory via malicious pack entries",
+    "severity": "HIGH",
+    "published": "2026-08-26T14:24:40Z",
+    "ghsa": "GHSA-f63g-88cj-hjf9"
+  },
+  {
+    "id": "CVE-2026-54523",
+    "summary": "Kyverno's NamespacedGeneratingPolicy generator.apply() namespace argument unvalidated -- background controller creates RoleBindings in any namespace including kube-system",
+    "severity": "CRITICAL",
+    "published": "2026-08-26T14:21:54Z",
+    "ghsa": "GHSA-79gf-7frw-68m9"
+  },
+  {
+    "id": "CVE-2026-54548",
+    "summary": "kas Persistently Disables SSH Host Key Checking",
+    "severity": "LOW",
+    "published": "2026-08-26T14:18:24Z",
+    "ghsa": "GHSA-mv8m-v9v6-5f94"
+  },
+  {
+    "id": "CVE-2026-54553",
+    "summary": "Starlette-Admin's unvalidated `order_by` parameter allows ordering by hidden columns (info-exposure oracle) and HTTP 500 DoS",
+    "severity": "MODERATE",
+    "published": "2026-08-26T14:14:37Z",
+    "ghsa": "GHSA-6753-gr46-6wpr"
+  },
+  {
+    "id": "CVE-2026-54556",
+    "summary": "http4s has HTTP/2 Denial of Service with Ember Backend",
+    "severity": "HIGH",
+    "published": "2026-08-26T14:10:59Z",
+    "ghsa": "GHSA-vmm3-xgcx-67hm"
+  },
+  {
+    "id": "CVE-2026-54356",
+    "summary": "Budibase authenticated arbitrary S3 signed upload URL issuance via `/api/attachments/:datasourceId/url`",
+    "severity": "HIGH",
+    "published": "2026-08-26T14:07:26Z",
+    "ghsa": "GHSA-6x9p-4r67-5gjx"
+  },
+  {
     "id": "CVE-2026-54338",
     "summary": "JupyterHub has Unauthenticated Denial of Service via Unbounded Username Logging on Failed Login",
     "severity": "MODERATE",
@@ -12,61 +68,5 @@
     "severity": "HIGH",
     "published": "2026-08-25T19:27:31Z",
     "ghsa": "GHSA-cv84-9p8j-fj68"
-  },
-  {
-    "id": "CVE-2026-45019",
-    "summary": "Chainlist has SSRF via MCP SSE and streamable-http transports that allows unauthenticated internal network access",
-    "severity": "HIGH",
-    "published": "2026-08-25T19:21:40Z",
-    "ghsa": "GHSA-hvfh-5mj3-5f3j"
-  },
-  {
-    "id": "CVE-2026-45018",
-    "summary": "Chainlit has command injection via MCP stdio transport that allows unauthenticated remote code execution",
-    "severity": "CRITICAL",
-    "published": "2026-08-25T19:19:28Z",
-    "ghsa": "GHSA-w3fx-mc44-mf6j"
-  },
-  {
-    "id": "CVE-2026-55605",
-    "summary": "@arikusi/deepseek-mcp-server: Missing Authentication on Self-Hosted HTTP MCP Endpoint",
-    "severity": "MODERATE",
-    "published": "2026-08-25T18:38:30Z",
-    "ghsa": "GHSA-72f3-6w86-7rv3"
-  },
-  {
-    "id": "CVE-2026-55604",
-    "summary": "@arikusi/deepseek-mcp-server has an Authorization Bypass Through User-Controlled Key",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:37:27Z",
-    "ghsa": "GHSA-fh3r-g96v-f578"
-  },
-  {
-    "id": "CVE-2026-55609",
-    "summary": "consciousness-explorer / sublinear-time-solver MCP export_state has an arbitrary file write",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:35:32Z",
-    "ghsa": "GHSA-xc9g-j69q-37xw"
-  },
-  {
-    "id": "CVE-2026-55629",
-    "summary": "Whistle vulnerable to path traversal",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:32:06Z",
-    "ghsa": "GHSA-3vfr-4gwf-qxfp"
-  },
-  {
-    "id": "CVE-2026-55620",
-    "summary": "eml_parser vulnerable to DoS via deeply nested parens in Received headers",
-    "severity": "HIGH",
-    "published": "2026-08-25T18:27:18Z",
-    "ghsa": "GHSA-g7gc-gmgp-wgqg"
-  },
-  {
-    "id": "CVE-2026-55619",
-    "summary": "eml_parser has parser DoS via deeply nested parentheses in e-mail headers",
-    "severity": "MODERATE",
-    "published": "2026-08-25T18:25:47Z",
-    "ghsa": "GHSA-m66c-fw79-6359"
   }
 ]
