@@ -1,5 +1,45 @@
 [
   {
+    "title": "Nearly 700 rogue AI agents coordinated in the Hugging Face attack",
+    "link": "https://www.bleepingcomputer.com/news/security/nearly-700-rogue-ai-agents-coordinated-in-the-hugging-face-attack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/01/11/female-robot-hacker.jpg"
+  },
+  {
+    "title": "Chinese Routers Sold Worldwide Contain Backdoors",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/chinese-routers-sold-worldwide-backdoors",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt330ea172d982d2e3/6a907cb7e135de47e5ed61e2/Router-Deagreez-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "OpenAI Says Reward Hacking Drove AI Agents to Exploit Zero-Days and Breach Hugging Face",
+    "link": "https://thehackernews.com/2026/08/openai-says-reward-hacking-drove-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpo4ImsmaHcawsJN9e4E5SzjUF-nbgOxCyybx3DIguSY_exMP1jhR2BZJ3yE2ZqGOE5c6_NvldW6id4Nm_NgcVrrRPALnw1fNbiisTiy8QFiIKriNiWRq6JMb5QcQTcDBaV_T3r6QYR9VC_FwtLg-G6lSYNM0F3n7q_HXI7aScGzMNB-OwLs6U9iqdk7Gs/s1600/openai.jpg"
+  },
+  {
+    "title": "Agentic AI Risks, CVE Program Concerns Permeate Black Hat USA 2026",
+    "link": "https://www.darkreading.com/cybersecurity-operations/agentic-ai-risks-cve-program-concerns-black-hat-usa-2026",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltce924127fd8e0803/6a8f2fc0c3a51d86ffd17b48/Digital_Cat-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "PaperCut warns of NG, MF flaw exploited in zero-day attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/papercut-warns-of-ng-mf-flaw-exploited-in-zero-day-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/07/28/PaperCut.jpg"
+  },
+  {
+    "title": "Manchester Airports Group says hackers stole travelers' data",
+    "link": "https://www.bleepingcomputer.com/news/security/manchester-airports-group-says-hackers-stole-travelers-data/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/airport.jpg"
+  },
+  {
+    "title": "Next.js Patches Critical AVIF and Windows Flaws Enabling Unauthenticated RCE",
+    "link": "https://thehackernews.com/2026/08/nextjs-patches-critical-avif-and.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYbQmCgjQOeGU5sXrRRnYNbfxDed_Evv1vYrDL4L4NOguQ5wIxE6glQW7yQvhR1Dzs4Gbddc2ktadXWc2VkaGHE4pvMmjaXHMRuepjwrzefXNHb6B3Shk51VRBQw0etS5WWsS9JuNN4q_Y8lDSFtzKNEgi2X-NvAllwzw5_03HwGdC7iNJc6METEjcUNc/s1600/nodejs.gif"
+  },
+  {
+    "title": "ThreatsDay: 296K IoT Botnet, 100+ Water Systems Targeted, SharePoint RCE Chain + 27 New Stories",
+    "link": "https://thehackernews.com/2026/08/threatsday-296k-iot-botnet-100-water.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwWCb2shFhaav60Wjr2-8DoStCVaQrYqkE6EBZ8F5sREap-Khi19y-w9NVmFHyHosV6xVB0fTeN_DcSpGIyCZ621SnjqZozRVG70ceOey_D8djA5r5rpP9tFkRSESgs4kHZilTMoz2y8uqX-iTLR0JjjZkhypYjCCAEvQKzyU7xarQpt3sYvJc-fnWSWlb/s1600/threats.jpg"
+  },
+  {
     "title": "Trump Order Aims to Block Foreign Backdoors in US Power Grid Gear",
     "link": "https://www.securityweek.com/trump-order-aims-to-block-foreign-backdoors-in-us-power-grid-gear/",
     "image": "https://www.securityweek.com/wp-content/uploads/2021/01/Powerplant.jpg"
@@ -13,6 +53,11 @@
     "title": "Android 17 adds ECH support to make web browsing harder to track",
     "link": "https://www.bleepingcomputer.com/news/security/android-17-adds-ech-support-to-make-web-browsing-harder-to-track/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Android.jpg"
+  },
+  {
+    "title": "Amazon Kiro Prompt Injection Can Exfiltrate Sensitive Data Through Kiro Powers",
+    "link": "https://thehackernews.com/2026/08/amazon-kiro-prompt-injection-can.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUdyQnHdjoEXFnc-5nB-6oglAbvpOYwuWqfjYkgeKH6HaqUjosKOHhmEQ_7StMkMBv53gz27Ilg-15yRaQ-hxoYi0ASuRMOCuPTHa8gP6a6PzYSewTWsDkKAx8dsMByZXDYDlRE1wRYoCvE7NuYqXdCpZ8_Y4E4tAUy0SBFl0S_XxLvpnjFRbqat0EwggW/s1600/kiro-amazon.jpg"
   },
   {
     "title": "Australia arrests alleged TeamPCP hackers behind supply-chain attacks",
@@ -33,6 +78,46 @@
     "title": "Webinar: How Google Workspace breaches happen and what to do next",
     "link": "https://www.bleepingcomputer.com/news/security/webinar-how-google-workspace-breaches-happen-and-what-to-do-next/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/06/29/Google_Workspace.jpg"
+  },
+  {
+    "title": "Rockwell Automation OTTO Fleet Manager",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-03",
+    "image": ""
+  },
+  {
+    "title": "Xiiaozet LK100W",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-01",
+    "image": ""
+  },
+  {
+    "title": "Mitsubishi Electric CNC Series (Update A)",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05",
+    "image": ""
+  },
+  {
+    "title": "Mitsubishi Electric Multiple FA Products (Update D)",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-128-03",
+    "image": ""
+  },
+  {
+    "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
+    "title": "Ebyte NA111-M",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-05",
+    "image": ""
+  },
+  {
+    "title": "All-Line Equipment Company Fuel-Boss",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-02",
+    "image": ""
+  },
+  {
+    "title": "Applied Systems Engineering ASE2000 V2 Communications Test Set",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-04",
+    "image": ""
   },
   {
     "title": "OpenAI Agents Coordinated via Makeshift Message Board Ahead of Hugging Face Hack",
@@ -63,90 +148,5 @@
     "title": "Russian Hackers Phish EU Officials Over Messaging Apps",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-phish-eu-officials-messaging-apps",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt66b18b75cdbfa7d7/6a8f19f65ca78e255c17b9b2/EU_messaging-simarik-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "CISO Conversations: Chris Wheeler \u2013 Trust Is the Job, From the Navy to the C-Suite",
-    "link": "https://www.securityweek.com/ciso-conversations-chris-wheeler-trust-is-the-job-from-the-navy-to-the-c-suite/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/CISO-Chris-Wheeler.jpeg"
-  },
-  {
-    "title": "Carhartt data breach exposes information of 12.9 million accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/carhartt-data-breach-exposes-information-of-129-million-accounts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Carhartt.jpg"
-  },
-  {
-    "title": "Spark RAT Targets Cambodia, Abuses Vulnerable OPSWAT Driver to Disable Security Tools",
-    "link": "https://thehackernews.com/2026/08/spark-rat-targets-cambodia-abuses.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvqqkrFYi_Np3w-hHvDbFZqWnf1qCrkS6zwJARAyiKX99YdH2w37pqvD-Zy1HPAYdbJbFu3Tztap9lcuv-lkq8wd9elTkfK0NWN5a9J8218OE9btcQHMdyM93GiuYLuj5mC_TPFBXnVZkUEckgARKceSsJKRqHDeW-U_tsDcPscO3-s2Oid28OEZTz7cIw/s1600/combo-malware.jpg"
-  },
-  {
-    "title": "Cyberattack Causes Global Disruption at Boston Scientific",
-    "link": "https://www.securityweek.com/cyberattack-causes-global-disruption-at-boston-scientific/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Boston-Scientific.jpeg"
-  },
-  {
-    "title": "The Future of AI-Driven Security Depends on Complete Data",
-    "link": "https://www.securityweek.com/the-future-of-ai-driven-security-depends-on-complete-data/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Cybersecurity-Professionalization.jpg"
-  },
-  {
-    "title": "GoCaracal Malware Uses Ethereum Smart Contract to Fetch Replacement C2 Address",
-    "link": "https://thehackernews.com/2026/08/gocaracal-malware-uses-ethereum-smart.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieDE2TgdHU9cQ1MQ7milMPfNWnlskvIWM9VB_9t59o4zxCWPtZY5yyhrJ9Pc558pdVGdapBNcv9SP38IyfrHp0KIgLQeYlAQIPGwopzDvg2WimSzte5wkju-6YypllUrEr8-yto3Bx8mZAhfs7Hf64MTLwyDqAUCPEFlSey89QZx3L-xmHFzVBBwQmRVU/s1600/go.jpg"
-  },
-  {
-    "title": "CISA orders feds to patch Citrix NetScaler RCE flaw by Saturday",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploiting-citrix-netscaler-rce-flaw-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Citrix.jpg"
-  },
-  {
-    "title": "US Disrupts Chinese Hacking Platform Used in Military and Critical Infrastructure Attacks",
-    "link": "https://www.securityweek.com/us-disrupts-chinese-hacking-platform-used-in-military-and-critical-infrastructure-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/02/VC-Funding_China-tech.jpg"
-  },
-  {
-    "title": "ATF confirms \u201cmajor incident\u201d after recent Qilin breach claims",
-    "link": "https://www.bleepingcomputer.com/news/security/atf-confirms-major-incident-after-recent-qilin-breach-claims/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/08/Qilin.jpg"
-  },
-  {
-    "title": "New GPUThor Rowhammer Defeats ECC on NVIDIA RTX A6000 to Gain Host Root Access",
-    "link": "https://thehackernews.com/2026/08/gputhor-rowhammer-defeats-ecc-on-nvidia.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2AxQ4SD6_1WKkpvBVi_M7oKLMeBAiKU4Ek4HbnJXHLX5xSbUg7ky1ITdUJY91n-zZGyK55-qQRd24PWRymLmik7cRl4CYPoaeZL5JuLedlsOTJGHChwF1eQWGhUE6AhOZUSW7CoajwQcKCu8E_zrYn8I6203Nrvr9NvheYL-5ISm0fs1xdWNiKGWqIs0/s1600/nvidia-bits.jpg"
-  },
-  {
-    "title": "Pro-Russian Hackers Claim Responsibility for Major Cyberattack on Norway\u2019s Public Digital Services",
-    "link": "https://www.securityweek.com/pro-russian-hackers-claim-responsibility-for-major-cyberattack-on-norways-public-digital-services/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Digdir-cyberattack.jpg"
-  },
-  {
-    "title": "CISA Adds Six Exploited Flaws to KEV, Including NetScaler, Linux, and SQL Server Bugs",
-    "link": "https://thehackernews.com/2026/08/cisa-adds-six-exploited-flaws-to-kev.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsOm0ydTRNpwfiKMNN7TGZyoellV9LHrcra7ES8hU8PvT6haNsS-QQ5IlystrzP1eq5jiIRfyykIZyB5JKrya5K4ryBRp9gKAmsoVW7OMis-YT4T6jnpbN11M8mUnPn-2yY-caG31-iXmDAhJ9CTbRg8r1UPWWqCob_S8St7McsKCM-4I36jD_xqE8D3BS/s1600/cisa-flaws.jpg"
-  },
-  {
-    "title": "Recent Citrix NetScaler Vulnerability Exploited in the Wild",
-    "link": "https://www.securityweek.com/recent-citrix-netscaler-vulnerability-exploited-in-the-wild/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Citrix-vulnerability.jpeg"
-  },
-  {
-    "title": "Critical Avada WordPress theme flaw enables zero-click RCE",
-    "link": "https://www.bleepingcomputer.com/news/security/critical-avada-wordpress-theme-flaw-enables-zero-click-rce/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/14/wordpress.jpg"
-  },
-  {
-    "title": "Dark Caracal Adds New Malware to Cyber Espionage Arsenal",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/dark-caracal-adds-new-malware-cyber-espionage-arsenal",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt47e8a731e9364c4c/6a8f4b1bd21c5bf1f56d2ce9/caracal_Szikorka_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "'HTTP Terminator' Hunts for Novel Desync Attacks",
-    "link": "https://www.darkreading.com/application-security/http-terminator-hunts-novel-desync-attacks",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt23656fc5f4eecff8/6a8f5fe500c0a24f20a52813/kettle.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Red Flags That Expose Fake North Korean IT Workers",
-    "link": "https://www.darkreading.com/insider-threats/red-flags-expose-fake-north-korean-it-workers",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt471900825b42f17b/6a8f3ea6171bd746c49ac049/red_flags-mozcann-GettyImages-184940696.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
