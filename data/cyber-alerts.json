@@ -1,72 +1,72 @@
 [
   {
+    "id": "CVE-2026-54770",
+    "summary": "WebOb: Open redirect in Location header normalization via leading C0 control / space characters",
+    "severity": "MODERATE",
+    "published": "2026-08-27T22:10:07Z",
+    "ghsa": "GHSA-6hx8-3wjj-gr8g"
+  },
+  {
+    "id": "GHSA-mf7q-r4rv-jv94",
+    "summary": "Crossplane's TOCTOU between cosign verification and image fetch in xpkg.CachedClient allows tag-based package install to bypass signature check",
+    "severity": "HIGH",
+    "published": "2026-08-27T17:25:25Z",
+    "ghsa": "GHSA-mf7q-r4rv-jv94"
+  },
+  {
+    "id": "CVE-2026-54732",
+    "summary": "libreoffice-convert vulnerable to path traversal / arbitrary file write",
+    "severity": "MODERATE",
+    "published": "2026-08-27T17:23:16Z",
+    "ghsa": "GHSA-gmxc-r82q-347r"
+  },
+  {
+    "id": "CVE-2026-54718",
+    "summary": "silverstripe-advancedworkflow vulnerable to remote code execution via advanced workflow email template",
+    "severity": "HIGH",
+    "published": "2026-08-27T17:20:40Z",
+    "ghsa": "GHSA-39mm-rwm3-29jp"
+  },
+  {
+    "id": "CVE-2026-42350",
+    "summary": "Kargo has Open Redirect in UI OIDC Login Flow via redirectTo Query Parameter",
+    "severity": "LOW",
+    "published": "2026-08-27T17:17:36Z",
+    "ghsa": "GHSA-g7gw-m874-7rmf"
+  },
+  {
+    "id": "CVE-2026-54687",
+    "summary": "n8n-nodes-sqlite3 vulnerable to path traversal via user-controlled database file path (db_path parameter)",
+    "severity": "MODERATE",
+    "published": "2026-08-27T17:06:55Z",
+    "ghsa": "GHSA-q7m3-rhxg-7vxr"
+  },
+  {
+    "id": "CVE-2026-54713",
+    "summary": "cakephp/queue's Incomplete Comparison in getUniqueId vulnerable to collisions",
+    "severity": "LOW",
+    "published": "2026-08-27T17:03:56Z",
+    "ghsa": "GHSA-r5pm-vrc5-3m73"
+  },
+  {
+    "id": "CVE-2026-54721",
+    "summary": "silverstripe/userforms vulnerable to remote code execution via userforms email subject",
+    "severity": "HIGH",
+    "published": "2026-08-27T16:53:17Z",
+    "ghsa": "GHSA-g8wr-r2v2-vqc6"
+  },
+  {
+    "id": "CVE-2026-54720",
+    "summary": "Silverstripe Framework: Possible XSS attack through media embed",
+    "severity": "MODERATE",
+    "published": "2026-08-27T16:49:47Z",
+    "ghsa": "GHSA-gvrw-qqp5-jgc5"
+  },
+  {
     "id": "CVE-2026-44701",
     "summary": "OpenSTAManager has HTML Injection in modules/utenti/edit.php",
     "severity": "LOW",
     "published": "2026-08-26T18:12:25Z",
     "ghsa": "GHSA-crx4-7mmq-j74j"
-  },
-  {
-    "id": "GHSA-7w8c-qgxg-m7jx",
-    "summary": "LibreNMS — Stored XSS via SNMP/Syslog Data in Legacy Templates",
-    "severity": "HIGH",
-    "published": "2026-08-26T18:05:46Z",
-    "ghsa": "GHSA-7w8c-qgxg-m7jx"
-  },
-  {
-    "id": "CVE-2026-54591",
-    "summary": "asyncssh has SCP Path Traversal to Arbitrary File Write",
-    "severity": "HIGH",
-    "published": "2026-08-26T15:34:22Z",
-    "ghsa": "GHSA-2wxc-x7rj-hg8f"
-  },
-  {
-    "id": "CVE-2026-54590",
-    "summary": "asyncssh has an incomplete fix for CVE-2026-45309 — AuthorizedKeysFile %u still escapes the intended directory via a leading ~ (and weakly via ${ENV}) username substitution",
-    "severity": "MODERATE",
-    "published": "2026-08-26T15:32:00Z",
-    "ghsa": "GHSA-qr67-gv47-xwwh"
-  },
-  {
-    "id": "CVE-2026-54614",
-    "summary": "cakephp/debug_kit: MailPreview contains unsafe reflection",
-    "severity": "MODERATE",
-    "published": "2026-08-26T15:31:01Z",
-    "ghsa": "GHSA-p46m-g734-vpc4"
-  },
-  {
-    "id": "CVE-2026-54569",
-    "summary": "senaite.core Vulnerable to Eval Injection and Missing Authorization",
-    "severity": "CRITICAL",
-    "published": "2026-08-26T15:28:47Z",
-    "ghsa": "GHSA-jrw6-7x4q-w25j"
-  },
-  {
-    "id": "CVE-2026-54606",
-    "summary": "SunEditor Embed Plugin has DOM XSS via External Script Element After Iframe Embed",
-    "severity": "HIGH",
-    "published": "2026-08-26T15:26:24Z",
-    "ghsa": "GHSA-w93q-cq9w-58p7"
-  },
-  {
-    "id": "CVE-2026-54563",
-    "summary": "Cloudreve WebDAV (`/dav`) has Path Traversal / Broken Access Control — scoped DAV credential escapes its configured account root",
-    "severity": "HIGH",
-    "published": "2026-08-26T15:22:12Z",
-    "ghsa": "GHSA-w5fv-7x5q-g8qp"
-  },
-  {
-    "id": "GHSA-x287-5c68-36wp",
-    "summary": "OpenWISP IPAM has broken object-level authorization: ExportSubnetView lets a member of one organization export another organization's subnet and all its IP addresses",
-    "severity": "MODERATE",
-    "published": "2026-08-26T14:38:10Z",
-    "ghsa": "GHSA-x287-5c68-36wp"
-  },
-  {
-    "id": "GHSA-93qj-5q5v-3c2h",
-    "summary": "Trojanized pantheon-agents 0.6.1 and 0.6.2 on PyPI ship a credential stealer (supply-chain account compromise)",
-    "severity": "CRITICAL",
-    "published": "2026-08-26T14:36:45Z",
-    "ghsa": "GHSA-93qj-5q5v-3c2h"
   }
 ]
