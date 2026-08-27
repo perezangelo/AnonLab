@@ -1,83 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- ABOUT -->
-  <url>
-    <loc>https://anonlab.it/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  <sitemap>
+    <loc>https://anonlab.it/sitemap-static.xml</loc>
+  </sitemap>
 
-  <!-- BLOG -->
-  <url>
-    <loc>https://angelonline.altervista.org/blog</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <sitemap>
+    <loc>https://angelonline.altervista.org/sitemap.php</loc>
+  </sitemap>
 
-  <!-- CONTATTI -->
-  <url>
-    <loc>https://anonlab.it/contatti.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- CYBER -->
-  <url>
-    <loc>https://anonlab.it/cyber.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- DASHBOARD -->
-  <url>
-    <loc>https://anonlab.it/dashboard.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- FORUM -->
-  <url>
-    <loc>https://angelonline.altervista.org/forum</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- HOME -->
-  <url>
-    <loc>https://anonlab.it/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- LAB RESOURCES -->
-  <url>
-    <loc>https://anonlab.it/lab-resources.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- NEWS -->
-  <url>
-    <loc>https://anonlab.it/news.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- TECH -->
-  <url>
-    <loc>https://anonlab.it/tech.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- TOOLS -->
-  <url>
-    <loc>https://anonlab.it/tools.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-</urlset>
+</sitemapindex>
