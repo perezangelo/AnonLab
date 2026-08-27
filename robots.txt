@@ -77,6 +77,16 @@ User-agent: Baiduspider
 Disallow: /
 
 # ============================================================
-# SITEMAP (ordinata alfabeticamente come la navbar)
+# SITEMAP PRINCIPALE (sitemapindex)
 # ============================================================
 Sitemap: https://anonlab.it/sitemap.xml
+
+# ============================================================
+# SITEMAP STATICA (pagine GitHub Pages)
+# ============================================================
+Sitemap: https://anonlab.it/sitemap-static.xml
+
+# ============================================================
+# SITEMAP DINAMICA (blog + forum AlterVista)
+# ============================================================
+Sitemap: https://angelonline.altervista.org/sitemap.php
