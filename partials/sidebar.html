@@ -260,7 +260,94 @@
   </div>
 </div>
 
-<div class="sidebar-box" style="padding:18px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+<!-- FORM — RICHIESTA INFO -->
+<div class="sidebar-box" aria-label="Richiesta informazioni">
+  <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
+  <h3>Richiedi Informazioni</h3>
+
+  <form action="https://angelonline.altervista.org/backend/send-info.php" method="POST">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <input type="email" name="email" placeholder="La tua email" required autocomplete="email">
+
+      <input type="text" name="question" placeholder="Oggetto della richiesta" required autocomplete="off">
+
+      <textarea name="details" placeholder="Scrivi la tua richiesta..." required autocomplete="off"></textarea>
+
+      <button type="submit">Invia</button>
+  </form>
+
+  <p id="info-status"></p>
+</div>
+
+<!-- FORM — FAQ & DOMANDE -->
+<div class="sidebar-box" aria-label="FAQ e domande">
+  <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
+  <h3>FAQ & Domande</h3>
+
+  <form action="https://angelonline.altervista.org/backend/send-faq.php" method="POST">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <input type="email" name="email" placeholder="La tua email" required autocomplete="email">
+
+      <input type="text" name="question" placeholder="La tua domanda" required autocomplete="off">
+
+      <textarea name="details" placeholder="Dettagli aggiuntivi (opzionale)" autocomplete="off"></textarea>
+
+      <button type="submit">Invia</button>
+  </form>
+
+  <p id="faq-status"></p>
+</div>
+
+
+<!-- GLI SCRIPT VANNO QUI, FUORI DAI FORM -->
+<script src="/js/new-ticket.js"></script>
+
+
+<!-- FORM — REGISTRAZIONE UTENTE -->
+<div class="sidebar-box" aria-label="Registrazione utente">
+  <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
+  <h3>Registrazione Utente</h3>
+
+  <form id="register-form" action="https://angelonline.altervista.org/backend/register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <input id="reg-nome" type="text" name="nome" placeholder="Nome" required autocomplete="name">
+      <input id="reg-username" type="text" name="username" placeholder="Username" required autocomplete="username">
+      <input id="reg-email" type="email" name="email" placeholder="Email" required autocomplete="email">
+
+      <button type="submit">Registrati</button>
+  </form>
+
+  <div class="recover-links">
+    <p><a href="/recupera.html">Hai dimenticato la username?</a></p>
+    <p><a href="/recupera.html">Hai dimenticato la password?</a></p>
+    <p><a href="/recupera.html">Hai dimenticato entrambi?</a></p>
+  </div>
+
+  <p id="register-status"></p>
+</div>
+
+<!-- FORM — LOGIN -->
+<div class="sidebar-box" aria-label="Login utente">
+  <img src="/img/Pc.png" class="sidebar-icon" alt="Icona login">
+  <h3>Login</h3>
+
+  <form id="login-form" action="https://angelonline.altervista.org/backend/login.php" method="POST">
+    <input type="text" name="username" placeholder="Username o Email" required autocomplete="username">
+    <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+    <button type="submit">Accedi</button>
+  </form>
+
+  <div class="recover-links">
+    <p><a href="/recupera.html">Recupera username</a></p>
+    <p><a href="/recupera.html">Recupera password</a></p>
+    <p><a href="/recupera.html">Recupera entrambi</a></p>
+  </div>
+</div>
+
+    <div class="sidebar-box" style="padding:18px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
 
   <h3 style="color:#00eaff; margin-bottom:10px; font-size:18px; letter-spacing:0.5px;">
     ⚡ Risorse utili
@@ -471,95 +558,6 @@
 
   </ul>
 
-</div>
-
-<!-- FORM — RICHIESTA INFO -->
-<div class="sidebar-box" aria-label="Richiesta informazioni">
-  <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
-  <h3>Richiedi Informazioni</h3>
-
-  <form action="https://angelonline.altervista.org/backend/send-info.php" method="POST">
-      <input type="checkbox" name="botcheck" style="display:none;">
-
-      <input type="email" name="email" placeholder="La tua email" required autocomplete="email">
-
-      <input type="text" name="question" placeholder="Oggetto della richiesta" required autocomplete="off">
-
-      <textarea name="details" placeholder="Scrivi la tua richiesta..." required autocomplete="off"></textarea>
-
-      <button type="submit">Invia</button>
-  </form>
-
-  <p id="info-status"></p>
-</div>
-
-
-<!-- FORM — FAQ & DOMANDE -->
-<div class="sidebar-box" aria-label="FAQ e domande">
-  <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
-  <h3>FAQ & Domande</h3>
-
-  <form action="https://angelonline.altervista.org/backend/send-faq.php" method="POST">
-      <input type="checkbox" name="botcheck" style="display:none;">
-
-      <input type="email" name="email" placeholder="La tua email" required autocomplete="email">
-
-      <input type="text" name="question" placeholder="La tua domanda" required autocomplete="off">
-
-      <textarea name="details" placeholder="Dettagli aggiuntivi (opzionale)" autocomplete="off"></textarea>
-
-      <button type="submit">Invia</button>
-  </form>
-
-  <p id="faq-status"></p>
-</div>
-
-
-<!-- GLI SCRIPT VANNO QUI, FUORI DAI FORM -->
-<script src="/js/new-ticket.js"></script>
-
-
-<!-- FORM — REGISTRAZIONE UTENTE -->
-<div class="sidebar-box" aria-label="Registrazione utente">
-  <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
-  <h3>Registrazione Utente</h3>
-
-  <form id="register-form" action="https://angelonline.altervista.org/backend/register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
-      <input type="checkbox" name="botcheck" style="display:none;">
-
-      <input id="reg-nome" type="text" name="nome" placeholder="Nome" required autocomplete="name">
-      <input id="reg-username" type="text" name="username" placeholder="Username" required autocomplete="username">
-      <input id="reg-email" type="email" name="email" placeholder="Email" required autocomplete="email">
-
-      <button type="submit">Registrati</button>
-  </form>
-
-  <div class="recover-links">
-    <p><a href="/recupera.html">Hai dimenticato la username?</a></p>
-    <p><a href="/recupera.html">Hai dimenticato la password?</a></p>
-    <p><a href="/recupera.html">Hai dimenticato entrambi?</a></p>
-  </div>
-
-  <p id="register-status"></p>
-</div>
-
-
-<!-- FORM — LOGIN -->
-<div class="sidebar-box" aria-label="Login utente">
-  <img src="/img/Pc.png" class="sidebar-icon" alt="Icona login">
-  <h3>Login</h3>
-
-  <form id="login-form" action="https://angelonline.altervista.org/backend/login.php" method="POST">
-    <input type="text" name="username" placeholder="Username o Email" required autocomplete="username">
-    <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
-    <button type="submit">Accedi</button>
-  </form>
-
-  <div class="recover-links">
-    <p><a href="/recupera.html">Recupera username</a></p>
-    <p><a href="/recupera.html">Recupera password</a></p>
-    <p><a href="/recupera.html">Recupera entrambi</a></p>
-  </div>
 </div>
 
 <!-- FEED DAL MONDO -->
