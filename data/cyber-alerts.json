@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-55558",
-    "summary": "aiosmtplib: STARTTLS response injection",
+    "id": "GHSA-73p9-6hrp-8qhr",
+    "summary": "AIIR verification and policy gates could report success without enforcing the control (fail-open)",
     "severity": "MODERATE",
-    "published": "2026-08-27T23:32:22Z",
-    "ghsa": "GHSA-vxj7-4xrp-5vr4"
+    "published": "2026-08-28T19:20:32Z",
+    "ghsa": "GHSA-73p9-6hrp-8qhr"
   },
   {
-    "id": "CVE-2026-54770",
-    "summary": "WebOb: Open redirect in Location header normalization via leading C0 control / space characters",
-    "severity": "MODERATE",
-    "published": "2026-08-27T22:10:07Z",
-    "ghsa": "GHSA-6hx8-3wjj-gr8g"
-  },
-  {
-    "id": "GHSA-mf7q-r4rv-jv94",
-    "summary": "Crossplane's TOCTOU between cosign verification and image fetch in xpkg.CachedClient allows tag-based package install to bypass signature check",
+    "id": "CVE-2026-55484",
+    "summary": "alos-http has unauthenticated remote DoS: malformed path starting with \"?\" triggers out-of-bounds panic in sanitizeRequestPath, crashing entire server",
     "severity": "HIGH",
-    "published": "2026-08-27T17:25:25Z",
-    "ghsa": "GHSA-mf7q-r4rv-jv94"
+    "published": "2026-08-28T19:19:38Z",
+    "ghsa": "GHSA-hr6j-w4mw-g9mj"
   },
   {
-    "id": "CVE-2026-54732",
-    "summary": "libreoffice-convert vulnerable to path traversal / arbitrary file write",
-    "severity": "MODERATE",
-    "published": "2026-08-27T17:23:16Z",
-    "ghsa": "GHSA-gmxc-r82q-347r"
+    "id": "CVE-2026-55634",
+    "summary": "Pimcore Vulnerable to Remote Code Execution via DataObject Class-Definition Field Name",
+    "severity": "CRITICAL",
+    "published": "2026-08-28T19:17:42Z",
+    "ghsa": "GHSA-9x44-4gxf-8c25"
   },
   {
-    "id": "CVE-2026-54718",
-    "summary": "silverstripe-advancedworkflow vulnerable to remote code execution via advanced workflow email template",
+    "id": "CVE-2026-55220",
+    "summary": "Pimcore Hotspotimage getDataFromResource() unrestricted Serialize::unserialize over object-store column (PHP Object Injection, CWE-502)",
+    "severity": "CRITICAL",
+    "published": "2026-08-28T19:13:25Z",
+    "ghsa": "GHSA-w23p-wrp7-ch38"
+  },
+  {
+    "id": "CVE-2026-55212",
+    "summary": "Pimcore: Insufficient Permission Check on Class Definition Creation Endpoint Allows Privilege Escalation",
     "severity": "HIGH",
-    "published": "2026-08-27T17:20:40Z",
-    "ghsa": "GHSA-39mm-rwm3-29jp"
+    "published": "2026-08-28T19:05:25Z",
+    "ghsa": "GHSA-f97c-ph8j-8vff"
   },
   {
-    "id": "CVE-2026-42350",
-    "summary": "Kargo has Open Redirect in UI OIDC Login Flow via redirectTo Query Parameter",
-    "severity": "LOW",
-    "published": "2026-08-27T17:17:36Z",
-    "ghsa": "GHSA-g7gw-m874-7rmf"
-  },
-  {
-    "id": "CVE-2026-54687",
-    "summary": "n8n-nodes-sqlite3 vulnerable to path traversal via user-controlled database file path (db_path parameter)",
-    "severity": "MODERATE",
-    "published": "2026-08-27T17:06:55Z",
-    "ghsa": "GHSA-q7m3-rhxg-7vxr"
-  },
-  {
-    "id": "CVE-2026-54713",
-    "summary": "cakephp/queue's Incomplete Comparison in getUniqueId vulnerable to collisions",
-    "severity": "LOW",
-    "published": "2026-08-27T17:03:56Z",
-    "ghsa": "GHSA-r5pm-vrc5-3m73"
-  },
-  {
-    "id": "CVE-2026-54721",
-    "summary": "silverstripe/userforms vulnerable to remote code execution via userforms email subject",
+    "id": "CVE-2026-55208",
+    "summary": "Pimcore: SQL Injection via Column Name in DateFilter allows authenticated user to extract arbitrary database data including admin password hashes",
     "severity": "HIGH",
-    "published": "2026-08-27T16:53:17Z",
-    "ghsa": "GHSA-g8wr-r2v2-vqc6"
+    "published": "2026-08-28T19:04:54Z",
+    "ghsa": "GHSA-79cw-hfcc-7mw9"
   },
   {
-    "id": "CVE-2026-54720",
-    "summary": "Silverstripe Framework: Possible XSS attack through media embed",
-    "severity": "MODERATE",
-    "published": "2026-08-27T16:49:47Z",
-    "ghsa": "GHSA-gvrw-qqp5-jgc5"
+    "id": "CVE-2026-55207",
+    "summary": "Pimcore: Account Takeover via Password Reset URL Injection allows unauthenticated attacker to hijack any admin account with 2FA bypass",
+    "severity": "HIGH",
+    "published": "2026-08-28T19:04:16Z",
+    "ghsa": "GHSA-h854-c3m3-mh5v"
+  },
+  {
+    "id": "CVE-2026-55215",
+    "summary": "MariaDB's connector leaks the cleartext password to an MitM despite `ssl: true`",
+    "severity": "HIGH",
+    "published": "2026-08-28T19:03:38Z",
+    "ghsa": "GHSA-cqhc-2h57-wpxf"
+  },
+  {
+    "id": "CVE-2026-55247",
+    "summary": "plone.app.event vulnerable to denial of service via iCalendar import",
+    "severity": "CRITICAL",
+    "published": "2026-08-28T18:59:42Z",
+    "ghsa": "GHSA-r82h-mqw3-fc56"
+  },
+  {
+    "id": "CVE-2026-55622",
+    "summary": "Incus has a project restriction bypass in instance copy across projects",
+    "severity": "HIGH",
+    "published": "2026-08-28T18:57:27Z",
+    "ghsa": "GHSA-c9f5-j9c3-mhrg"
   }
 ]
