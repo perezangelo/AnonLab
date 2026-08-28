@@ -1,5 +1,145 @@
 [
   {
+    "title": "PaperCut releases second emergency patch for exploited flaws",
+    "link": "https://www.bleepingcomputer.com/news/security/papercut-releases-second-emergency-patch-for-exploited-flaws/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/04/19/papercut-jeader.jpg"
+  },
+  {
+    "title": "Offensive Security Investments Surge as AI Threats Increase",
+    "link": "https://www.darkreading.com/cybersecurity-operations/offensive-security-investments-surge-ai-threats-increase",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt95f718d0e919dd49/6a91bb856ab06b3d40bc21f3/lanowitz.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "GiveWP WordPress donation plugin flaw lets hackers execute server commands",
+    "link": "https://www.bleepingcomputer.com/news/security/givewp-wordpress-donation-plugin-flaw-lets-hackers-execute-server-commands/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/12/07/back-2.jpg"
+  },
+  {
+    "title": "Attackers Chain Two PaperCut Flaws to Execute Code Without Authentication",
+    "link": "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdtPabCvuR_F2UFdCw8LS5eoXtD-jOpbuCy8WZYRycSP2vu_6yQK45qTehHimhoS-eXFPMTwg5jNM3m_X7ma5ELVz60Rjt3rlQhrqE4iTz8ggysLCt388GyaBVQbT28sGDv9a6drKNZooBiQNy0L3v8Gc3vxB9JILUD-eTtj5LZAlBbA3EyLlp5SkgIKPG/s1600/1000103914.jpg"
+  },
+  {
+    "title": "68-year-old imprisoned after making $1.3 million by pirating IPTV services",
+    "link": "https://www.bleepingcomputer.com/news/security/68-year-old-imprisoned-after-making-13-million-by-pirating-iptv-services/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/27/pirate-on-a-laptop.jpg"
+  },
+  {
+    "title": "Android 17 Adds OS-Wide ECH to Hide Website Visits From Network Providers",
+    "link": "https://thehackernews.com/2026/08/android-17-adds-os-wide-ech-to-hide.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHdeGqGafTZXNtGvV_-qR7K3QId_-DpEfOzetKbhVQvNdNyTMAy-6gLXVFlkMHsGDN2wKK8v1ZMeOKe9_3XVYAY5TVkqH2heesi0c_QmJzLpDX1M-XfOtI_W4Qe8OM8Yhin40QWvN0XHvU9cqDlZH3eeZY_18euIxiBdcbhWMVnXct-x84k2gvchQYSiuN/s1600/1000103901.jpg"
+  },
+  {
+    "title": "ownCloud Flaw Exploited to Steal Nuclear Records From Philippine Research Body",
+    "link": "https://thehackernews.com/2026/08/snowflake-github-actions-flaw-lets.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZPm0X6hW-nz0AFZIB6eOBMEssN6dF5qeh2EOIBm1-ftaBEqcvJC5M0r_g3j-6Sp9x4sUnxVeOToWN_bFbr6T9flaScRcze4DRga0nqNe3LeQSvZaNPTiZC2C8GUeWWxMmIF1mybwuDaq5ZZummYiynDkf_1evTLKPicf4f2UUUb2d-0MMG6Ix-00ImwFN/s1600/1000103895.jpg"
+  },
+  {
+    "title": "In Other News: Log4j RCE Scare, Minimus Shutdown, Iranian Hacker Sanctions",
+    "link": "https://www.securityweek.com/in-other-news-log4j-rce-scare-minimus-shutdown-iranian-hacker-sanctions/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "19 Chrome and Edge Extensions Found With Wallet-Stealing and Crypto-Draining Code",
+    "link": "https://thehackernews.com/2026/08/19-chrome-and-edge-extensions-found.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_QtvF-9M9imh55UP7qeyFUNhKknBwEcmcbIa34vndzIHinEk754vasbvTqILRNrtp6BDpuR8VzAyk0_Wt1tJB4hjUlgaO5Rb6Wru-WoXlrCPIXLr0I_oBhA7BwQDoO3MH82uloaG-qXyHAloI7r2zuWNfygFNeiSYAZeWyDn8_smuzrgvsvk0eQEX5klW/s1600/1000103889.jpg"
+  },
+  {
+    "title": "AI Is Accelerating Vulnerability Discovery. Can Defenders Keep Up?",
+    "link": "https://www.bleepingcomputer.com/news/security/ai-is-accelerating-vulnerability-discovery-can-defenders-keep-up/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/08/27/ai-pressing-button-header.jpg"
+  },
+  {
+    "title": "You Need Cyber Deception for OT",
+    "link": "https://www.darkreading.com/ics-ot-security/you-need-cyber-deception-ot",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt497112cb6290f58c/6a907362bec2b81057f31da2/deception-Moor_Studio-getty-2184657782.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "ATF Confirms Cyber Incident After Ransomware Group Claims Attack",
+    "link": "https://www.securityweek.com/atf-confirms-cyber-incident-after-ransomware-group-claims-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/05/Ransomware-Alert-threat.jpg"
+  },
+  {
+    "title": "Defining an AI Kill Switch Is Hard, but Necessary",
+    "link": "https://www.darkreading.com/cybersecurity-operations/defining-ai-kill-switch-hard-but-necessary",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt56383bd74ac17bbe/6a90a3f14885757c1a5662f0/AI-hand-security-Summit_Art_Creations-shutterstockjpg.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "The Vulnpocalypse Is Repricing the Bug Bounty Economy",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/vulnpocalypse-repricing-bug-bounty-economy",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5e076a0c3ac1a94e/6a90582107463c489bf30d27/New_York_flooding-jcrosemann-GettyImages-115026197.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Over 8,300 Gitea servers vulnerable to code execution attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/over-8-300-gitea-servers-vulnerable-to-code-execution-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/28/Gitea.jpg"
+  },
+  {
+    "title": "OpenAI Agents Exploited Linux Kernel Flaw on Company\u2019s Own Systems",
+    "link": "https://www.securityweek.com/openai-agents-exploited-linux-kernel-flaw-on-companys-own-systems/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Linux.jpeg"
+  },
+  {
+    "title": "Two Unitree G1 EDU Humanoid Robot Flaws Enable Root RCE, One Starts Over Bluetooth",
+    "link": "https://thehackernews.com/2026/08/two-unitree-g1-edu-humanoid-robot-flaws.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKqNVrCXSaUDXfrGPJkoRoXBPQW4qwhdYqm2SMVaunZNwBrQ4FbURK-gtVawzaje20fK_m9q2dKepfj-dxmkvfKL4se3ZQ1YAI3iogqCft1UjVadJa_uBoQxFuoBpWfx2Dh3S4-jQLa7c4E9OOyQfVAT5BVKVShPykiPWEuYcchIPHFC4e5GduyW4iBio/s1600/Humanoid.jpg"
+  },
+  {
+    "title": "Toy-making giant Hasbro disclose data breach affecting employees",
+    "link": "https://www.bleepingcomputer.com/news/security/toy-making-giant-hasbro-disclose-data-breach-affecting-employees/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/28/Hasbro.jpg"
+  },
+  {
+    "title": "Key Reasons Why Identity Fabric Matters in 2026",
+    "link": "https://thehackernews.com/2026/08/key-reasons-why-identity-fabric-matters.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtiQiqrq5S2ip1c5QHUZaJADW3_fskqNx6rhLXi2mGqOH5NGwuTwmFXPtqLpFKXDLVMtG-rZTTVlRh8ZVJON5DFBxdE7RwCN8_Fh0Y_mypooHEo4yZeYB-FoGinET6wHzTwgYWDMeZxVT9b-uCQSJ7bLEZdzRUglWWuOY5ItZyGC94Xo85iFck6FMmUmY/s1600/orchid-main.jpg"
+  },
+  {
+    "title": "Three CVSS 10.0 ServiceNow Flaws Could Let Unauthenticated Attackers Execute Code and SQL",
+    "link": "https://thehackernews.com/2026/08/three-cvss-100-servicenow-flaws-could.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitiido-BqtV-H4U0qEAovU_m3NGb3PHF5O3IEh53W_rllGDplhA8aluEKIUULFq3L7iNQue-NLxQDR3wSF7PaaAhGg14rWdqHoB6jBZC1YfslM0wyj5xhESZKTbIxgjO_lnZqVOrKx_E2hK-wXtE85EPJW-pV8D3eMv9CWgMF8eXzsJgq3xevdBY9hCs0/s1600/servicenow.jpg"
+  },
+  {
+    "title": "Tech, Cybersecurity Giants Unite Behind OpenAI-Led Cyber Defense Pledge",
+    "link": "https://www.securityweek.com/tech-cybersecurity-giants-unite-behind-openai-led-cyber-defense-pledge/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/Artificial-intelligence-AI.jpeg"
+  },
+  {
+    "title": "China-Made ZBT Routers Ship With Two Implants Giving Unauthenticated Attackers Root Access",
+    "link": "https://thehackernews.com/2026/08/china-made-zbt-routers-ship-with-two.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0i2viN2zKBeSxzTqoxZkPNq_6lPMDBLb18zbLPwufsY4mFm494ydDDAWi6gGwy6PsmRGublHFmdmcEiGKViLuUgaJwWux_YUW7HQHuGbbf04HGNpoZa6QLmvf1IHE04TeTT89Yc1_jo0z6mptCbX-fIhVEVQzg5GnfU2Uya4HHASHbttTBGMxl7KMkbM/s1600/router-malware.jpg"
+  },
+  {
+    "title": "Think You\u2019ve Eliminated Chinese AI? Check the Model\u2019s Lineage, Cisco Says",
+    "link": "https://www.securityweek.com/think-youve-eliminated-chinese-ai-check-the-models-lineage-cisco-says/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
+  },
+  {
+    "title": "ServiceNow warns of three max severity security vulnerabilities",
+    "link": "https://www.bleepingcomputer.com/news/security/servicenow-warns-of-three-max-severity-security-vulnerabilities/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/servicenow-headpic.jpg"
+  },
+  {
+    "title": "Critical cPanel Flaw Could Let One Hosting Customer Take Root Control of a Whole Server",
+    "link": "https://thehackernews.com/2026/08/critical-cpanel-flaw-could-let-one.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtKp2lGcxPfp8ymA88FIBXB0Bn9fcUSaU_UIl1pfAjDSC2usRwUE73vhQEeP6jar9U9k10yotgyYl_tIk6dQA-MFIr2bJ3LN_azGt9kDU6hpW448HgmBuJbc6TWSo1vfpmhoK0J3_5rhF6VIpWd7NYf0G1YSYHdqKubWgQwa1yU6KRAL-bnDGd8HmCmPk/s1600/cpanel-root.jpg"
+  },
+  {
+    "title": "Windows 11 KB5120998 update released with 35 changes and fixes",
+    "link": "https://www.bleepingcomputer.com/news/security/windows-11-kb5120998-update-released-with-35-changes-and-fixes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/27/Windows_11.jpg"
+  },
+  {
+    "title": "PaperCut Releases Emergency Patch for Exploited Zero-Day",
+    "link": "https://www.securityweek.com/papercut-releases-emergency-patch-for-exploited-zero-day/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/PaperCut-print-management.jpeg"
+  },
+  {
+    "title": "PaperCut Zero-Day Exploited in Attacks, Affecting All NG and MF Versions",
+    "link": "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3avAnoYOOKqF8JpZv9Lng1lKE0AqmHOqM-Mq2T297NQrtDBM90yMYIzzVMHgzqytcCvFz7LuBXoPp-d9mRh0_dywBaM8NxZaiKPG0gDuYbSt2oRJdxSkHG5tWjxAMKvWUYZe6YINf_-7i5zUS7xGrDcaXulRvT5jVihWDJzAHSlaXQ6UYlHa6cPMpxbDC/s1600/papercut.jpg"
+  },
+  {
     "title": "Nearly 700 rogue AI agents coordinated in the Hugging Face attack",
     "link": "https://www.bleepingcomputer.com/news/security/nearly-700-rogue-ai-agents-coordinated-in-the-hugging-face-attack/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/01/11/female-robot-hacker.jpg"
@@ -8,145 +148,5 @@
     "title": "Chinese Routers Sold Worldwide Contain Backdoors",
     "link": "https://www.darkreading.com/vulnerabilities-threats/chinese-routers-sold-worldwide-backdoors",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt330ea172d982d2e3/6a907cb7e135de47e5ed61e2/Router-Deagreez-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI Says Reward Hacking Drove AI Agents to Exploit Zero-Days and Breach Hugging Face",
-    "link": "https://thehackernews.com/2026/08/openai-says-reward-hacking-drove-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpo4ImsmaHcawsJN9e4E5SzjUF-nbgOxCyybx3DIguSY_exMP1jhR2BZJ3yE2ZqGOE5c6_NvldW6id4Nm_NgcVrrRPALnw1fNbiisTiy8QFiIKriNiWRq6JMb5QcQTcDBaV_T3r6QYR9VC_FwtLg-G6lSYNM0F3n7q_HXI7aScGzMNB-OwLs6U9iqdk7Gs/s1600/openai.jpg"
-  },
-  {
-    "title": "Agentic AI Risks, CVE Program Concerns Permeate Black Hat USA 2026",
-    "link": "https://www.darkreading.com/cybersecurity-operations/agentic-ai-risks-cve-program-concerns-black-hat-usa-2026",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltce924127fd8e0803/6a8f2fc0c3a51d86ffd17b48/Digital_Cat-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "PaperCut warns of NG, MF flaw exploited in zero-day attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/papercut-warns-of-ng-mf-flaw-exploited-in-zero-day-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/07/28/PaperCut.jpg"
-  },
-  {
-    "title": "Manchester Airports Group says hackers stole travelers' data",
-    "link": "https://www.bleepingcomputer.com/news/security/manchester-airports-group-says-hackers-stole-travelers-data/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/airport.jpg"
-  },
-  {
-    "title": "Next.js Patches Critical AVIF and Windows Flaws Enabling Unauthenticated RCE",
-    "link": "https://thehackernews.com/2026/08/nextjs-patches-critical-avif-and.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYbQmCgjQOeGU5sXrRRnYNbfxDed_Evv1vYrDL4L4NOguQ5wIxE6glQW7yQvhR1Dzs4Gbddc2ktadXWc2VkaGHE4pvMmjaXHMRuepjwrzefXNHb6B3Shk51VRBQw0etS5WWsS9JuNN4q_Y8lDSFtzKNEgi2X-NvAllwzw5_03HwGdC7iNJc6METEjcUNc/s1600/nodejs.gif"
-  },
-  {
-    "title": "ThreatsDay: 296K IoT Botnet, 100+ Water Systems Targeted, SharePoint RCE Chain + 27 New Stories",
-    "link": "https://thehackernews.com/2026/08/threatsday-296k-iot-botnet-100-water.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwWCb2shFhaav60Wjr2-8DoStCVaQrYqkE6EBZ8F5sREap-Khi19y-w9NVmFHyHosV6xVB0fTeN_DcSpGIyCZ621SnjqZozRVG70ceOey_D8djA5r5rpP9tFkRSESgs4kHZilTMoz2y8uqX-iTLR0JjjZkhypYjCCAEvQKzyU7xarQpt3sYvJc-fnWSWlb/s1600/threats.jpg"
-  },
-  {
-    "title": "Trump Order Aims to Block Foreign Backdoors in US Power Grid Gear",
-    "link": "https://www.securityweek.com/trump-order-aims-to-block-foreign-backdoors-in-us-power-grid-gear/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2021/01/Powerplant.jpg"
-  },
-  {
-    "title": "How Threat Research and MDR Help SMBs Build a Defensive Edge",
-    "link": "https://www.bleepingcomputer.com/news/security/how-threat-research-and-mdr-help-smbs-build-a-defensive-edge/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/08/26/eset-someone-on-a-computer.jpg"
-  },
-  {
-    "title": "Android 17 adds ECH support to make web browsing harder to track",
-    "link": "https://www.bleepingcomputer.com/news/security/android-17-adds-ech-support-to-make-web-browsing-harder-to-track/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Android.jpg"
-  },
-  {
-    "title": "Amazon Kiro Prompt Injection Can Exfiltrate Sensitive Data Through Kiro Powers",
-    "link": "https://thehackernews.com/2026/08/amazon-kiro-prompt-injection-can.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUdyQnHdjoEXFnc-5nB-6oglAbvpOYwuWqfjYkgeKH6HaqUjosKOHhmEQ_7StMkMBv53gz27Ilg-15yRaQ-hxoYi0ASuRMOCuPTHa8gP6a6PzYSewTWsDkKAx8dsMByZXDYDlRE1wRYoCvE7NuYqXdCpZ8_Y4E4tAUy0SBFl0S_XxLvpnjFRbqat0EwggW/s1600/kiro-amazon.jpg"
-  },
-  {
-    "title": "Australia arrests alleged TeamPCP hackers behind supply-chain attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/australia-arrests-alleged-teampcp-hackers-behind-supply-chain-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/teampcp-header.jpg"
-  },
-  {
-    "title": "Australia Arrests 2 Alleged TeamPCP Hackers",
-    "link": "https://www.securityweek.com/australia-arrests-2-alleged-teampcp-hackers/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/hacker-arrested.jpeg"
-  },
-  {
-    "title": "Microsoft rolls out fix for Windows 11 crashes, gaming issues",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-rolls-out-fix-for-windows-11-crashes-gaming-issues/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Windows11.jpg"
-  },
-  {
-    "title": "Webinar: How Google Workspace breaches happen and what to do next",
-    "link": "https://www.bleepingcomputer.com/news/security/webinar-how-google-workspace-breaches-happen-and-what-to-do-next/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/06/29/Google_Workspace.jpg"
-  },
-  {
-    "title": "Rockwell Automation OTTO Fleet Manager",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-03",
-    "image": ""
-  },
-  {
-    "title": "Xiiaozet LK100W",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-01",
-    "image": ""
-  },
-  {
-    "title": "Mitsubishi Electric CNC Series (Update A)",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05",
-    "image": ""
-  },
-  {
-    "title": "Mitsubishi Electric Multiple FA Products (Update D)",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-128-03",
-    "image": ""
-  },
-  {
-    "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "Ebyte NA111-M",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-05",
-    "image": ""
-  },
-  {
-    "title": "All-Line Equipment Company Fuel-Boss",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-02",
-    "image": ""
-  },
-  {
-    "title": "Applied Systems Engineering ASE2000 V2 Communications Test Set",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-04",
-    "image": ""
-  },
-  {
-    "title": "OpenAI Agents Coordinated via Makeshift Message Board Ahead of Hugging Face Hack",
-    "link": "https://www.securityweek.com/openai-agents-coordinated-via-makeshift-message-board-ahead-of-hugging-face-hack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/rogue-AI-artificial-intelligence.jpeg"
-  },
-  {
-    "title": "Learn How to Build Security Operations Ready for AI-Powered Attacks",
-    "link": "https://thehackernews.com/2026/08/learn-how-to-build-security-operations.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRqwLeHISYWaiVNUxkANuqw6ob8Exu7_9CIEt6uHbsNa7mcNUkSWZqNZHEL3_kqPPHXVq4RGTxqZZhMdybwcVVT28qCihLUi0I5ghW9Xk5sVDB2u2kJqULx-_FEcsEHuTCU5vIwReQZghbj8HjQD4zq8H1yiGSYNlmNC25YkViZxlqndOhIp1CD2s_sLlc/s1600/wiz-webinar.jpg"
-  },
-  {
-    "title": "Alleged TeamPCP Hackers Charged in Australia Over Major Supply Chain Attacks",
-    "link": "https://thehackernews.com/2026/08/alleged-teampcp-hackers-charged-in.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6Ze_JyLo4PQxJMbwu8Mn_aCoLWiD2dgbGmzOPcYcdrN8wunKZu2SZll2fiHcAOFoA0h9N5TYPOY_IvrPpGqTpnXdyd5bXHRtyHqb3t3junXDMotOAD43Y0jzA9wkCSjoOIo1knFjtTVRAeOSjpHqLzfMGceCcHYGb6cE1HD-Y5mtY9hyphenhyphenHT9PeUk3TV68/s1600/TeamPCP-arrest.gif"
-  },
-  {
-    "title": "Okta Shares Surge on Strong Earnings, Growing Demand for AI Identity Security",
-    "link": "https://www.securityweek.com/okta-shares-surge-on-strong-earnings-growing-demand-for-ai-identity-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Okta-Cybersecurity.jpg"
-  },
-  {
-    "title": "What the Data Says About AI in Security Operations in 2026",
-    "link": "https://thehackernews.com/2026/08/what-data-says-about-ai-in-security.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYbYBAkf_-8-lUShFafJ32AYAo_yzwmPmpMcUgd5i9SUaCA8V0t-66WEu2B5U8KLbJ1ie3T-IudVRd73Arprc2iNUqTweYzHN_POtzXr-nJICrNkK_R5dDKr3k5sklozyuO11Y9Av55Git8fvydO3HAAcwgT6sk2gvXzmH5qz-qTMuzQfAmu7EedWV9dE/s1600/pro.jpg"
-  },
-  {
-    "title": "Russian Hackers Phish EU Officials Over Messaging Apps",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-phish-eu-officials-messaging-apps",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt66b18b75cdbfa7d7/6a8f19f65ca78e255c17b9b2/EU_messaging-simarik-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
