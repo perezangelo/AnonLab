@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://anonlab.it/about.html</loc></url>
-  <url><loc>https://angelonline.altervista.org/blog</loc></url>
-  <url><loc>https://anonlab.it/contatti.html</loc></url>
-  <url><loc>https://anonlab.it/cyber.html</loc></url>
-  <url><loc>https://anonlab.it/dashboard.html</loc></url>
-  <url><loc>https://angelonline.altervista.org/forum</loc></url>
+  <!-- HOME -->
   <url><loc>https://anonlab.it/</loc></url>
-  <url><loc>https://anonlab.it/lab-resources.html</loc></url>
+
+  <!-- PAGINE PRINCIPALI -->
+  <url><loc>https://anonlab.it/about.html</loc></url>
+  <url><loc>https://anonlab.it/contatti.html</loc></url>
   <url><loc>https://anonlab.it/news.html</loc></url>
+  <url><loc>https://anonlab.it/cyber.html</loc></url>
   <url><loc>https://anonlab.it/tech.html</loc></url>
   <url><loc>https://anonlab.it/tools.html</loc></url>
+  <url><loc>https://anonlab.it/dashboard.html</loc></url>
+  <url><loc>https://anonlab.it/lab-resources.html</loc></url>
+
+  <!-- PAGINE LEGALI -->
+  <url><loc>https://anonlab.it/privacy.html</loc></url>
+  <url><loc>https://anonlab.it/cookies.html</loc></url>
+  <url><loc>https://anonlab.it/termini.html</loc></url>
+
+  <!-- PAGINE TECNICHE (ADSENSE / SEO) -->
+  <url><loc>https://anonlab.it/cybersecurity-basics.html</loc></url>
+  <url><loc>https://anonlab.it/osint-tools-explained.html</loc></url>
+  <url><loc>https://anonlab.it/osint-investigation-case-study.html</loc></url>
+  <url><loc>https://anonlab.it/vulnerabilities-cve-analysis.html</loc></url>
+  <url><loc>https://anonlab.it/threat-intelligence-report.html</loc></url>
+  <url><loc>https://anonlab.it/soc-dashboard.html</loc></url>
 
 </urlset>
