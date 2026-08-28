@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-55558",
+    "summary": "aiosmtplib: STARTTLS response injection",
+    "severity": "MODERATE",
+    "published": "2026-08-27T23:32:22Z",
+    "ghsa": "GHSA-vxj7-4xrp-5vr4"
+  },
+  {
     "id": "CVE-2026-54770",
     "summary": "WebOb: Open redirect in Location header normalization via leading C0 control / space characters",
     "severity": "MODERATE",
@@ -61,12 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-27T16:49:47Z",
     "ghsa": "GHSA-gvrw-qqp5-jgc5"
-  },
-  {
-    "id": "CVE-2026-44701",
-    "summary": "OpenSTAManager has HTML Injection in modules/utenti/edit.php",
-    "severity": "LOW",
-    "published": "2026-08-26T18:12:25Z",
-    "ghsa": "GHSA-crx4-7mmq-j74j"
   }
 ]
