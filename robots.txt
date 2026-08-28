@@ -7,15 +7,10 @@ Allow: /
 # ============================================================
 # OTTIMIZZAZIONE CRAWL BUDGET
 # ============================================================
-# Evita file inutili
 Disallow: /*.map$
 Disallow: /*.tmp$
 Disallow: /*.bak$
-
-# Evita SVG se non necessari
 Disallow: /img/*.svg$
-
-# Evita directory tecniche (AlterVista backend)
 Disallow: /api/
 Disallow: /backend/
 Disallow: /private/
@@ -85,8 +80,3 @@ Sitemap: https://anonlab.it/sitemap.xml
 # SITEMAP STATICA (pagine GitHub Pages)
 # ============================================================
 Sitemap: https://anonlab.it/sitemap-static.xml
-
-# ============================================================
-# SITEMAP DINAMICA (blog + forum AlterVista)
-# ============================================================
-Sitemap: https://angelonline.altervista.org/sitemap.php
