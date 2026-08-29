@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-73p9-6hrp-8qhr",
-    "summary": "AIIR verification and policy gates could report success without enforcing the control (fail-open)",
+    "id": "CVE-2026-55855",
+    "summary": "MariaDB has  possible SQL injection in Buffer parameter escaping under big5/gbk/sjis/cp932/gb18030 client charsets",
     "severity": "MODERATE",
-    "published": "2026-08-28T19:20:32Z",
-    "ghsa": "GHSA-73p9-6hrp-8qhr"
+    "published": "2026-08-28T22:53:12Z",
+    "ghsa": "GHSA-g5xc-5w98-jfvm"
   },
   {
-    "id": "CVE-2026-55484",
-    "summary": "alos-http has unauthenticated remote DoS: malformed path starting with \"?\" triggers out-of-bounds panic in sanitizeRequestPath, crashing entire server",
+    "id": "CVE-2026-55830",
+    "summary": "RestrictedPython guard hooks can be shadowed via positional-only arguments",
     "severity": "HIGH",
-    "published": "2026-08-28T19:19:38Z",
-    "ghsa": "GHSA-hr6j-w4mw-g9mj"
+    "published": "2026-08-28T22:51:35Z",
+    "ghsa": "GHSA-ffg3-p8fm-mjx2"
   },
   {
-    "id": "CVE-2026-55634",
-    "summary": "Pimcore Vulnerable to Remote Code Execution via DataObject Class-Definition Field Name",
-    "severity": "CRITICAL",
-    "published": "2026-08-28T19:17:42Z",
-    "ghsa": "GHSA-9x44-4gxf-8c25"
+    "id": "CVE-2026-55860",
+    "summary": "org.mariadb:r2dbc-mariadb vulnerable to cleartext password disclosure to a man-in-the-middle server (clear-text auth plugins not gated on a secure transport)",
+    "severity": "MODERATE",
+    "published": "2026-08-28T22:50:56Z",
+    "ghsa": "GHSA-c857-9x2m-cvh2"
   },
   {
-    "id": "CVE-2026-55220",
-    "summary": "Pimcore Hotspotimage getDataFromResource() unrestricted Serialize::unserialize over object-store column (PHP Object Injection, CWE-502)",
-    "severity": "CRITICAL",
-    "published": "2026-08-28T19:13:25Z",
-    "ghsa": "GHSA-w23p-wrp7-ch38"
+    "id": "CVE-2026-55859",
+    "summary": "org.mariadb:r2dbc-mariadb has Inappropriate Encoding for Output Context and Improper Encoding or Escaping of Output",
+    "severity": "MODERATE",
+    "published": "2026-08-28T22:49:03Z",
+    "ghsa": "GHSA-5rqc-86vf-g8r2"
   },
   {
-    "id": "CVE-2026-55212",
-    "summary": "Pimcore: Insufficient Permission Check on Class Definition Creation Endpoint Allows Privilege Escalation",
+    "id": "CVE-2026-55858",
+    "summary": "org.mariadb.jdbc:mariadb-java-client has Inappropriate Encoding for Output Context",
+    "severity": "MODERATE",
+    "published": "2026-08-28T22:47:19Z",
+    "ghsa": "GHSA-xvr9-35cr-46v9"
+  },
+  {
+    "id": "CVE-2026-55857",
+    "summary": "org.mariadb.jdbc:mariadb-java-client has Cleartext Transmission of Sensitive Information and Insufficiently Protected Credentials",
+    "severity": "MODERATE",
+    "published": "2026-08-28T22:45:01Z",
+    "ghsa": "GHSA-qxvw-fvwx-5cp7"
+  },
+  {
+    "id": "CVE-2026-55856",
+    "summary": "MariaDB has cleartext password disclosure to a MITM on the initial-handshake",
+    "severity": "MODERATE",
+    "published": "2026-08-28T22:41:56Z",
+    "ghsa": "GHSA-g9jj-cgmh-9f38"
+  },
+  {
+    "id": "CVE-2026-55843",
+    "summary": "Snipe-IT has an Improper Privilege Management issue",
     "severity": "HIGH",
-    "published": "2026-08-28T19:05:25Z",
-    "ghsa": "GHSA-f97c-ph8j-8vff"
+    "published": "2026-08-28T22:37:24Z",
+    "ghsa": "GHSA-j5g3-42wp-gqm3"
   },
   {
-    "id": "CVE-2026-55208",
-    "summary": "Pimcore: SQL Injection via Column Name in DateFilter allows authenticated user to extract arbitrary database data including admin password hashes",
+    "id": "CVE-2026-55848",
+    "summary": "MapFish Print has XXE that allows reading arbitrary files of certain types",
     "severity": "HIGH",
-    "published": "2026-08-28T19:04:54Z",
-    "ghsa": "GHSA-79cw-hfcc-7mw9"
+    "published": "2026-08-28T22:33:35Z",
+    "ghsa": "GHSA-5v29-34h8-v68r"
   },
   {
-    "id": "CVE-2026-55207",
-    "summary": "Pimcore: Account Takeover via Password Reset URL Injection allows unauthenticated attacker to hijack any admin account with 2FA bypass",
-    "severity": "HIGH",
-    "published": "2026-08-28T19:04:16Z",
-    "ghsa": "GHSA-h854-c3m3-mh5v"
-  },
-  {
-    "id": "CVE-2026-55215",
-    "summary": "MariaDB's connector leaks the cleartext password to an MitM despite `ssl: true`",
-    "severity": "HIGH",
-    "published": "2026-08-28T19:03:38Z",
-    "ghsa": "GHSA-cqhc-2h57-wpxf"
-  },
-  {
-    "id": "CVE-2026-55247",
-    "summary": "plone.app.event vulnerable to denial of service via iCalendar import",
-    "severity": "CRITICAL",
-    "published": "2026-08-28T18:59:42Z",
-    "ghsa": "GHSA-r82h-mqw3-fc56"
-  },
-  {
-    "id": "CVE-2026-55622",
-    "summary": "Incus has a project restriction bypass in instance copy across projects",
-    "severity": "HIGH",
-    "published": "2026-08-28T18:57:27Z",
-    "ghsa": "GHSA-c9f5-j9c3-mhrg"
+    "id": "CVE-2026-55785",
+    "summary": "free5GC AUSF uses non-constant-time authentication comparisons and logs XRES* in 5G-AKA",
+    "severity": "LOW",
+    "published": "2026-08-28T22:26:16Z",
+    "ghsa": "GHSA-fp46-6vfw-gc9c"
   }
 ]
