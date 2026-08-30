@@ -1709,38 +1709,52 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- ⭐ CALCOLATRICE -->
 <script src="https://angelonline.altervista.org/js/main.js"></script>
  
-  <!-- SCRIPT: AnonLab_SidebarFormAutoScroll -->
+<!-- SCRIPT: AnonLab_SidebarFormAutoScroll v2 -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Evita che il browser cerchi di gestire lo scroll da solo
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+
+    const TARGETS = {
+        "#login-form": null,
+        "#register-form": null
+    };
+
     let attempts = 0;
 
-    const waitForSidebar = setInterval(() => {
-        const regForm = document.querySelector("#register-form");
-        const loginForm = document.querySelector("#login-form");
+    const interval = setInterval(() => {
 
-        // Sidebar caricata?
-        if (regForm || loginForm) {
+        // Cerca i form nella sidebar
+        TARGETS["#login-form"] = document.querySelector("#login-form");
+        TARGETS["#register-form"] = document.querySelector("#register-form");
 
-            // Aspetta che il layout si stabilizzi (radio, widget, ecc.)
-            setTimeout(() => {
+        const hash = window.location.hash;
 
-                if (window.location.hash === "#register-form" && regForm) {
-                    regForm.scrollIntoView({ behavior: "smooth" });
-                }
+        // Se sidebar caricata e hash valido
+        if (hash && TARGETS[hash]) {
 
-                if (window.location.hash === "#login-form" && loginForm) {
-                    loginForm.scrollIntoView({ behavior: "smooth" });
-                }
+            // Aspetta che il layout sia stabile
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    TARGETS[hash].scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }, 150); // più rapido e stabile
+            });
 
-            }, 300); // 300ms = sidebar completamente renderizzata
-
-            clearInterval(waitForSidebar);
+            clearInterval(interval);
         }
 
-        // Evita loop infiniti
-        if (++attempts > 50) clearInterval(waitForSidebar);
+        // Stop di sicurezza
+        if (++attempts > 40) {
+            clearInterval(interval);
+        }
 
-    }, 100);
+    }, 80); // più reattivo del tuo 100ms
 });
 </script>
+
