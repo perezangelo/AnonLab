@@ -1690,27 +1690,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
      </section> <!-- /main-column -->
 
-<!-- SIDEBAR -->
 <div id="sidebar" class="sidebar"></div>
 
-<!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
-<script>
-fetch("/partials/sidebar.html")
-  .then(response => response.text())
-  .then(data => {
-      document.getElementById("sidebar").innerHTML = data;
+    <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
+ <script>
+    fetch("/partials/sidebar.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("sidebar").innerHTML = data;
 
-      initCalculator();
-      initRadio();
-      initYouTubePlayer();
-      initOroscopo();
+        initCalculator();
+        initRadio();
+        initYouTubePlayer();
+        initOroscopo();
 
-      console.log("Sidebar caricata — Widget inizializzati");
-  });
+        console.log("Sidebar caricata — Widget inizializzati");
+    });
 </script>
 
-<!-- FOOTER -->
+</main>
+
 <div id="footer"></div>
+
+<!-- PULSANTE BACK TO TOP -->
+<button id="backToTop">↑</button>
 
 <!-- SCRIPT ORDINATI CORRETTAMENTE -->
 <script src="https://angelonline.altervista.org/js/news.js"></script>
@@ -1719,55 +1722,32 @@ fetch("/partials/sidebar.html")
 <!-- UI GENERALE -->
 <script src="https://angelonline.altervista.org/js/ui.js"></script>
 
-<!-- BACK TO TOP BUTTON -->
-<button id="backToTop">↑</button>
-
 <!-- SCRIPT BACK TO TOP -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
   if (!backToTop) return;
 
-  // Mostra / nasconde il pulsante
   window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    backToTop.style.display = scrollTop > 50 ? "block" : "none";
+    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
   });
 
-  // Scrolla davvero la pagina
   backToTop.addEventListener("click", () => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-    document.body.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-
-  // ⭐ FURBATA: posiziona il pulsante sopra il logo Iubenda
-  function adjustBackToTopPosition() {
-    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
-
-    if (iubendaLogo) {
-      const rect = iubendaLogo.getBoundingClientRect();
-      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
-      backToTop.style.bottom = offset + "px";
-    } else {
-      backToTop.style.bottom = "80px"; // fallback
-    }
-  }
-
-  // Controllo iniziale
-  adjustBackToTopPosition();
-
-  // Il CMP appare dopo → serve un controllo ripetuto
-  setInterval(adjustBackToTopPosition, 800);
 });
 </script>
 
+</div> <!-- /#app GPU WRAPPER -->
+
 <!-- ⭐ CALCOLATRICE -->
 <script src="https://angelonline.altervista.org/js/main.js"></script>
-
+ 
 <!-- SCRIPT: AnonLab_SidebarFormAutoScroll v2 -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Evita che il browser cerchi di gestire lo scroll da solo
     if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
     }
@@ -1781,34 +1761,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const interval = setInterval(() => {
 
+        // Cerca i form nella sidebar
         TARGETS["#login-form"] = document.querySelector("#login-form");
         TARGETS["#register-form"] = document.querySelector("#register-form");
 
         const hash = window.location.hash;
 
+        // Se sidebar caricata e hash valido
         if (hash && TARGETS[hash]) {
 
+            // Aspetta che il layout sia stabile
             requestAnimationFrame(() => {
                 setTimeout(() => {
                     TARGETS[hash].scrollIntoView({
                         behavior: "smooth",
                         block: "start"
                     });
-                }, 150);
+                }, 150); // più rapido e stabile
             });
 
             clearInterval(interval);
         }
 
+        // Stop di sicurezza
         if (++attempts > 40) {
             clearInterval(interval);
         }
 
-    }, 80);
+    }, 80); // più reattivo del tuo 100ms
 });
 </script>
 
-<!-- POPUP PROMO BLOG + FORUM -->
+	<!-- POPUP PROMO BLOG + FORUM -->
 <div id="promo-popup" style="
     position:fixed;
     bottom:30px;
@@ -1870,5 +1854,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 20000);
 });
 </script>
-
-</main> <!-- CHIUSURA CORRETTA DI MAIN -->
