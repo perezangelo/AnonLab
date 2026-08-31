@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-59724",
+    "summary": "Socket.IO: Engine.IO WebTransport SID DoS",
+    "severity": "HIGH",
+    "published": "2026-08-31T21:28:12Z",
+    "ghsa": "GHSA-gr94-w7qr-f4j3"
+  },
+  {
+    "id": "CVE-2026-81888",
+    "summary": "@hono/oauth-providers: OAuth state check fails open on omitted state, enabling login CSRF and forced account linking",
+    "severity": "MODERATE",
+    "published": "2026-08-31T20:30:50Z",
+    "ghsa": "GHSA-fm3f-ch8h-qw8q"
+  },
+  {
+    "id": "CVE-2026-81889",
+    "summary": "elFinder: SSRF protection bypass via DNS rebinding in the `fsock_get_contents()` fallback",
+    "severity": "HIGH",
+    "published": "2026-08-31T20:28:06Z",
+    "ghsa": "GHSA-8x3q-jpjh-qh5c"
+  },
+  {
+    "id": "CVE-2026-15305",
+    "summary": "TYPO3 CMS - Unrestricted File Upload in Form Framework",
+    "severity": "MODERATE",
+    "published": "2026-08-31T19:53:59Z",
+    "ghsa": "GHSA-mfqj-cqv3-h7xw"
+  },
+  {
     "id": "CVE-2026-55855",
     "summary": "MariaDB has  possible SQL injection in Buffer parameter escaping under big5/gbk/sjis/cp932/gb18030 client charsets",
     "severity": "MODERATE",
@@ -40,33 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-28T22:45:01Z",
     "ghsa": "GHSA-qxvw-fvwx-5cp7"
-  },
-  {
-    "id": "CVE-2026-55856",
-    "summary": "MariaDB has cleartext password disclosure to a MITM on the initial-handshake",
-    "severity": "MODERATE",
-    "published": "2026-08-28T22:41:56Z",
-    "ghsa": "GHSA-g9jj-cgmh-9f38"
-  },
-  {
-    "id": "CVE-2026-55843",
-    "summary": "Snipe-IT has an Improper Privilege Management issue",
-    "severity": "HIGH",
-    "published": "2026-08-28T22:37:24Z",
-    "ghsa": "GHSA-j5g3-42wp-gqm3"
-  },
-  {
-    "id": "CVE-2026-55848",
-    "summary": "MapFish Print has XXE that allows reading arbitrary files of certain types",
-    "severity": "HIGH",
-    "published": "2026-08-28T22:33:35Z",
-    "ghsa": "GHSA-5v29-34h8-v68r"
-  },
-  {
-    "id": "CVE-2026-55785",
-    "summary": "free5GC AUSF uses non-constant-time authentication comparisons and logs XRES* in 5G-AKA",
-    "severity": "LOW",
-    "published": "2026-08-28T22:26:16Z",
-    "ghsa": "GHSA-fp46-6vfw-gc9c"
   }
 ]
