@@ -1690,26 +1690,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
      </section> <!-- /main-column -->
 
+<!-- SIDEBAR -->
 <div id="sidebar" class="sidebar"></div>
 
-    <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
- <script>
-    fetch("/partials/sidebar.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("sidebar").innerHTML = data;
+<!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
+<script>
+fetch("/partials/sidebar.html")
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
 
-        initCalculator();
-        initRadio();
-        initYouTubePlayer();
-        initOroscopo();
+      initCalculator();
+      initRadio();
+      initYouTubePlayer();
+      initOroscopo();
 
-        console.log("Sidebar caricata — Widget inizializzati");
-    });
+      console.log("Sidebar caricata — Widget inizializzati");
+  });
 </script>
 
-</main>
-
+<!-- FOOTER -->
 <div id="footer"></div>
 
 <!-- SCRIPT ORDINATI CORRETTAMENTE -->
@@ -1719,41 +1719,39 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- UI GENERALE -->
 <script src="https://angelonline.altervista.org/js/ui.js"></script>
 
-	 <!-- BACK TO TOP BUTTON -->
+<!-- BACK TO TOP BUTTON -->
 <button id="backToTop">↑</button>
 
+<!-- SCRIPT BACK TO TOP -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const backToTop = document.getElementById('backToTop');
-    if (!backToTop) return;
+document.addEventListener('DOMContentLoaded', function () {
+  const backToTop = document.getElementById('backToTop');
+  if (!backToTop) return;
 
-    backToTop.style.display = 'none';
+  backToTop.style.display = 'none';
 
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
-
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 50) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
   });
+
+  backToTop.addEventListener('click', function () {
+    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
 </script>
 
 <!-- ⭐ CALCOLATRICE -->
 <script src="https://angelonline.altervista.org/js/main.js"></script>
- 
+
 <!-- SCRIPT: AnonLab_SidebarFormAutoScroll v2 -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Evita che il browser cerchi di gestire lo scroll da solo
     if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
     }
@@ -1767,38 +1765,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const interval = setInterval(() => {
 
-        // Cerca i form nella sidebar
         TARGETS["#login-form"] = document.querySelector("#login-form");
         TARGETS["#register-form"] = document.querySelector("#register-form");
 
         const hash = window.location.hash;
 
-        // Se sidebar caricata e hash valido
         if (hash && TARGETS[hash]) {
 
-            // Aspetta che il layout sia stabile
             requestAnimationFrame(() => {
                 setTimeout(() => {
                     TARGETS[hash].scrollIntoView({
                         behavior: "smooth",
                         block: "start"
                     });
-                }, 150); // più rapido e stabile
+                }, 150);
             });
 
             clearInterval(interval);
         }
 
-        // Stop di sicurezza
         if (++attempts > 40) {
             clearInterval(interval);
         }
 
-    }, 80); // più reattivo del tuo 100ms
+    }, 80);
 });
 </script>
 
-	<!-- POPUP PROMO BLOG + FORUM -->
+<!-- POPUP PROMO BLOG + FORUM -->
 <div id="promo-popup" style="
     position:fixed;
     bottom:30px;
@@ -1861,4 +1855,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
+</main> <!-- CHIUSURA CORRETTA DI MAIN -->
