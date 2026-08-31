@@ -1728,13 +1728,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
   if (!backToTop) return;
 
+  // Mostra / nasconde il pulsante
   window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
+    backToTop.style.display = window.scrollY > 50 ? "block" : "none";
   });
 
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // ⭐ FURBATA: posiziona il pulsante sopra il logo Iubenda
+  function adjustBackToTopPosition() {
+    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+
+    if (iubendaLogo) {
+      const rect = iubendaLogo.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
+
+      backToTop.style.bottom = offset + "px";
+    } else {
+      // fallback se il logo non è ancora apparso
+      backToTop.style.bottom = "80px";
+    }
+  }
+
+  // Controllo iniziale
+  adjustBackToTopPosition();
+
+  // Controllo ripetuto (il CMP può apparire dopo)
+  setInterval(adjustBackToTopPosition, 800);
 });
 </script>
 
