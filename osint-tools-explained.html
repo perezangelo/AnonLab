@@ -358,5 +358,35 @@ Questa pagina offre una panoramica completa e aggiornata degli strumenti e delle
 </div>
 </div>
 
+		<!-- ⭐ FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("/partials/footer.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("footer").innerHTML = html;
+  });
+</script>
+	<!-- ⭐ BACK TO TOP -->
+<button id="backToTop">↑</button>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTop = document.getElementById("backToTop");
+  if (!backToTop) return;
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    backToTop.style.display = scrollTop > 50 ? "block" : "none";
+  });
+
+  backToTop.addEventListener("click", () => {
+    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    document.body.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+</script>
+
 </body>
 </html>
