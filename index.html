@@ -1724,24 +1724,40 @@ fetch("/partials/sidebar.html")
 
 <!-- SCRIPT BACK TO TOP -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const backToTop = document.getElementById('backToTop');
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTop = document.getElementById("backToTop");
   if (!backToTop) return;
 
-  backToTop.style.display = 'none';
+  // Mostra / nasconde il pulsante
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    backToTop.style.display = scrollTop > 50 ? "block" : "none";
+  });
 
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 50) {
-      backToTop.style.display = 'block';
+  // Scrolla davvero la pagina
+  backToTop.addEventListener("click", () => {
+    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    document.body.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // ⭐ FURBATA: posiziona il pulsante sopra il logo Iubenda
+  function adjustBackToTopPosition() {
+    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+
+    if (iubendaLogo) {
+      const rect = iubendaLogo.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
+      backToTop.style.bottom = offset + "px";
     } else {
-      backToTop.style.display = 'none';
+      backToTop.style.bottom = "80px"; // fallback
     }
-  });
+  }
 
-  backToTop.addEventListener('click', function () {
-    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
-    document.body.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  // Controllo iniziale
+  adjustBackToTopPosition();
+
+  // Il CMP appare dopo → serve un controllo ripetuto
+  setInterval(adjustBackToTopPosition, 800);
 });
 </script>
 
