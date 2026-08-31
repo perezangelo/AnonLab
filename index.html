@@ -1719,47 +1719,31 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- UI GENERALE -->
 <script src="https://angelonline.altervista.org/js/ui.js"></script>
 
-	<!-- PULSANTE BACK TO TOP -->
+	 <!-- BACK TO TOP BUTTON -->
 <button id="backToTop">↑</button>
 
-	<!-- SCRIPT BACK TO TOP -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const backToTop = document.getElementById("backToTop");
-  if (!backToTop) return;
+  document.addEventListener('DOMContentLoaded', function () {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
 
-  // scegliamo l'elemento che scrolla davvero
-  const scroller =
-    document.querySelector(".page") ||
-    document.querySelector(".main-column") ||
-    window;
+    backToTop.style.display = 'none';
 
-  // mostra / nasconde il pulsante in base allo scroll reale
-  const getScrollTop = () =>
-    scroller === window ? window.scrollY : scroller.scrollTop;
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
 
-  const onScroll = () => {
-    backToTop.style.display = getScrollTop() > 50 ? "block" : "none";
-  };
-
-  // listener sul giusto elemento
-  if (scroller === window) {
-    window.addEventListener("scroll", onScroll);
-  } else {
-    scroller.addEventListener("scroll", onScroll);
-  }
-
-  backToTop.addEventListener("click", () => {
-    if (scroller === window) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      scroller.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   });
-
-  // inizializza stato
-  onScroll();
-});
 </script>
 
 <!-- ⭐ CALCOLATRICE -->
