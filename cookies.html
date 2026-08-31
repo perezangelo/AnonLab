@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Cookie Policy — AnonLab</title>
+  <title>Cookie Policy AnonLab — Cookie tecnici, GDPR e gestione del consenso</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
@@ -12,7 +12,7 @@
 
   <!-- OpenGraph -->
   <meta property="og:title" content="Cookie Policy — AnonLab">
-  <meta property="og:description" content="Informazioni complete sui cookie tecnici utilizzati da AnonLab e sulla gestione del consenso.">
+  <meta property="og:description" content="Informazioni complete sui cookie tecnici utilizzati da AnonLab e sulla gestione del consenso GDPR.">
   <meta property="og:url" content="https://anonlab.it/cookies.html">
   <meta property="og:type" content="website">
 
@@ -61,232 +61,229 @@
     }
   </style>
 
-  <!-- JSON-LD -->
+  <!-- Schema.org avanzato -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Cookie Policy",
+    "@type": "CookiePolicy",
+    "name": "Cookie Policy AnonLab",
     "url": "https://anonlab.it/cookies.html",
-    "description": "Informazioni complete sui cookie tecnici utilizzati da AnonLab e sulla gestione del consenso."
+    "description": "Cookie Policy completa di AnonLab: cookie tecnici, gestione del consenso, sicurezza e conformità GDPR.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AnonLab",
+      "url": "https://anonlab.it",
+      "logo": "https://anonlab.it/img/logo.png"
+    },
+    "inLanguage": "it-IT"
   }
   </script>
 
+  <!-- CMP Iubenda -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
-</script>                 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
+
   <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
-<script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-<script>
-(_iub=self._iub||[]).csConfiguration={
-	cookiePolicyId: 12413505,
-	siteId: 4661380,
-	localConsentDomain: 'angelonline.altervista.org',
-	timeoutLoadConfiguration: 30000,
-	lang: 'it',
-	enableTcf: true,
-	tcfVersion: 2,
-	tcfPurposes: {
-		 "2": "consent_only",
-		 "3": "consent_only",
-		 "4": "consent_only",
-		 "5": "consent_only",
-		 "6": "consent_only",
-		 "7": "consent_only",
-		 "8": "consent_only",
-		 "9": "consent_only",
-		"10": "consent_only"
-	},
-	invalidateConsentWithoutLog: true,
-	googleAdditionalConsentMode: true,
-	consentOnContinuedBrowsing: false,
-	banner: {
-		position: "top",
-		acceptButtonDisplay: true,
-		customizeButtonDisplay: true,
-		closeButtonDisplay: true,
-		closeButtonRejects: true,
-		fontSizeBody: "14px",
-	},
-}
-</script>
-<script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
+  <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
+  <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+
+  <script>
+  (_iub=self._iub||[]).csConfiguration={
+    cookiePolicyId: 12413505,
+    siteId: 4661380,
+    localConsentDomain: 'angelonline.altervista.org',
+    timeoutLoadConfiguration: 30000,
+    lang: 'it',
+    enableTcf: true,
+    tcfVersion: 2,
+    tcfPurposes: {
+      "2": "consent_only",
+      "3": "consent_only",
+      "4": "consent_only",
+      "5": "consent_only",
+      "6": "consent_only",
+      "7": "consent_only",
+      "8": "consent_only",
+      "9": "consent_only",
+      "10": "consent_only"
+    },
+    invalidateConsentWithoutLog: true,
+    googleAdditionalConsentMode: true,
+    consentOnContinuedBrowsing: false,
+    banner: {
+      position: "top",
+      acceptButtonDisplay: true,
+      customizeButtonDisplay: true,
+      closeButtonDisplay: true,
+      closeButtonRejects: true,
+      fontSizeBody: "14px",
+    },
+  }
+  </script>
+
+  <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 </head>
 
 <body>
 
-  <div id="header"></div>
-  <div id="ticker"></div>
+<div id="header"></div>
+<div id="ticker"></div>
 
-  <!-- CARICAMENTO TICKER -->
-  <script>
-  fetch("/partials/ticker.html")
-    .then(r => r.text())
-    .then(html => {
-        document.getElementById("ticker").innerHTML = html;
-        if (typeof initTicker === "function") initTicker();
-    });
-  </script>
+<script>
+fetch("/partials/ticker.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("ticker").innerHTML = html;
+      if (typeof initTicker === "function") initTicker();
+  });
+</script>
 
-  <script src="/js/ticker.js"></script>
+<script src="/js/ticker.js"></script>
 
-  <main class="page">
-    <section class="main-column">
+<main class="page">
+<section class="main-column">
 
-      <h1>Cookie Policy</h1>
+  <h1>Cookie Policy</h1>
 
-      <!-- INTRODUZIONE -->
-      <div class="cookie-box">
-        <h2>Introduzione</h2>
-        <p>
-          Questa Cookie Policy descrive in modo chiaro e completo quali cookie vengono utilizzati da AnonLab,
-          per quali finalità e come l’utente può gestirli. La trasparenza è un valore fondamentale del progetto:
-          ogni tecnologia utilizzata sul sito è documentata e spiegata in modo semplice e comprensibile.
-        </p>
-        <p>
-          AnonLab utilizza esclusivamente cookie tecnici necessari al funzionamento del sito. Non vengono utilizzati
-          cookie di profilazione, marketing o tracciamento comportamentale.
-        </p>
-      </div>
+  <!-- TOC -->
+  <div class="cookie-box" id="toc">
+    <h2>Indice dei contenuti</h2>
+    <ul>
+      <li><a href="#introduzione">Introduzione</a></li>
+      <li><a href="#cosa-sono">Cosa sono i cookie</a></li>
+      <li><a href="#cookie-utilizzati">Cookie utilizzati da AnonLab</a></li>
+      <li><a href="#consenso">Gestione del consenso (CMP)</a></li>
+      <li><a href="#disattivazione">Come disattivare i cookie</a></li>
+      <li><a href="#faq">FAQ Cookie</a></li>
+      <li><a href="#info">Maggiori informazioni</a></li>
+    </ul>
+  </div>
 
-      <!-- COSA SONO I COOKIE -->
-      <div class="cookie-box">
-        <h2>1. Cosa sono i cookie</h2>
-        <p>
-          I cookie sono piccoli file di testo che i siti web memorizzano nel browser dell’utente per migliorare
-          l’esperienza di navigazione, garantire funzionalità essenziali e ottimizzare le performance.
-        </p>
-        <p>
-          Esistono diverse tipologie di cookie:
-        </p>
-        <ul>
-          <li><strong>Cookie tecnici</strong>: necessari al funzionamento del sito.</li>
-          <li><strong>Cookie analitici</strong>: utilizzati per statistiche anonime.</li>
-          <li><strong>Cookie di profilazione</strong>: utilizzati per marketing e pubblicità.</li>
-        </ul>
-        <p>
-          AnonLab utilizza esclusivamente la prima categoria.
-        </p>
-      </div>
+  <!-- INTRODUZIONE -->
+  <div class="cookie-box">
+    <h2 id="introduzione">Introduzione</h2>
+    <p>
+      Questa Cookie Policy descrive in modo chiaro e completo quali cookie vengono utilizzati da AnonLab,
+      per quali finalità e come l’utente può gestirli. La trasparenza è un valore fondamentale del progetto.
+    </p>
+    <p>
+      AnonLab utilizza esclusivamente cookie tecnici necessari al funzionamento del sito. Non vengono utilizzati
+      cookie di profilazione, marketing o tracciamento comportamentale.
+    </p>
+  </div>
 
-      <!-- COOKIE UTILIZZATI -->
-      <div class="cookie-box">
-        <h2>2. Cookie utilizzati da AnonLab</h2>
-        <p>
-          Il sito utilizza esclusivamente cookie tecnici, necessari per:
-        </p>
-        <ul>
-          <li>caricare correttamente le pagine</li>
-          <li>gestire la sicurezza del sito</li>
-          <li>memorizzare preferenze essenziali</li>
-          <li>garantire la compatibilità con dispositivi mobile</li>
-        </ul>
-        <p>
-          Non vengono utilizzati cookie di:
-        </p>
-        <ul>
-          <li>profilazione</li>
-          <li>marketing</li>
-          <li>tracciamento</li>
-          <li>terze parti</li>
-        </ul>
-      </div>
+  <!-- COSA SONO -->
+  <div class="cookie-box">
+    <h2 id="cosa-sono">1. Cosa sono i cookie</h2>
+    <p>
+      I cookie sono piccoli file di testo che i siti web memorizzano nel browser dell’utente per migliorare
+      l’esperienza di navigazione, garantire funzionalità essenziali e ottimizzare le performance.
+    </p>
+    <p>Tipologie principali:</p>
+    <ul>
+      <li><strong>Cookie tecnici</strong>: necessari al funzionamento del sito.</li>
+      <li><strong>Cookie analitici</strong>: utilizzati per statistiche anonime.</li>
+      <li><strong>Cookie di profilazione</strong>: utilizzati per marketing e pubblicità.</li>
+    </ul>
+    <p>AnonLab utilizza esclusivamente cookie tecnici.</p>
+  </div>
 
-      <!-- IUBENDA -->
-      <div class="cookie-box">
-        <h2>3. Gestione del consenso tramite Iubenda</h2>
-        <p>
-          Il sito integra la <strong>Cookie Solution di Iubenda</strong>, che permette di:
-        </p>
-        <ul>
-          <li>mostrare un banner conforme al GDPR</li>
-          <li>bloccare preventivamente gli script non tecnici</li>
-          <li>gestire il consenso dell’utente</li>
-          <li>permettere la revoca del consenso in qualsiasi momento</li>
-        </ul>
-        <p>
-          Il banner è presente su tutte le pagine del sito e garantisce la massima trasparenza.
-        </p>
-      </div>
+  <!-- COOKIE UTILIZZATI -->
+  <div class="cookie-box">
+    <h2 id="cookie-utilizzati">2. Cookie utilizzati da AnonLab</h2>
+    <p>Il sito utilizza esclusivamente cookie tecnici, necessari per:</p>
+    <ul>
+      <li>caricare correttamente le pagine</li>
+      <li>gestire la sicurezza del sito</li>
+      <li>memorizzare preferenze essenziali</li>
+      <li>garantire compatibilità con dispositivi mobile</li>
+    </ul>
+    <p>Non vengono utilizzati cookie di terze parti, marketing o profilazione.</p>
+  </div>
 
-		<div class="cookie-box">
-  <h2>3.1 Informativa completa e gestione del consenso</h2>
-  <p>
-    Per garantire la massima trasparenza, AnonLab mette a disposizione la 
-    <strong>Cookie Policy ufficiale generata tramite Iubenda</strong>, che contiene
-    tutti i dettagli tecnici e legali relativi ai cookie utilizzati sul sito.
-  </p>
+  <!-- CONSENSO -->
+  <div class="cookie-box">
+    <h2 id="consenso">3. Gestione del consenso tramite Iubenda</h2>
+    <p>
+      Il sito integra la <strong>Cookie Solution di Iubenda</strong>, che permette di:
+    </p>
+    <ul>
+      <li>mostrare un banner conforme al GDPR</li>
+      <li>bloccare preventivamente gli script non tecnici</li>
+      <li>gestire il consenso dell’utente</li>
+      <li>permettere la revoca del consenso in qualsiasi momento</li>
+    </ul>
+    <p>
+      Puoi consultare la Cookie Policy ufficiale:
+      <br>
+      <a href="https://www.iubenda.com/privacy-policy/12413505/cookie-policy" target="_blank">
+        ➤ Cookie Policy completa (Iubenda)
+      </a>
+    </p>
+    <p>
+      Puoi modificare le tue preferenze:
+      <br>
+      <a href="#" class="iubenda-advertising-preferences-link">
+        ➤ Apri pannello preferenze cookie (CMP)
+      </a>
+    </p>
+  </div>
 
-  <p>
-    Puoi consultarla qui:
-    <br>
-    <a href="https://www.iubenda.com/privacy-policy/12413505/cookie-policy"
-       target="_blank"
-       style="color:#ff7b00; text-shadow:0 0 8px rgba(255,123,0,0.6);">
-       ➤ Cookie Policy completa (Iubenda)
-    </a>
-  </p>
+  <!-- DISATTIVAZIONE -->
+  <div class="cookie-box">
+    <h2 id="disattivazione">4. Come disattivare i cookie</h2>
+    <p>
+      L’utente può disabilitare o eliminare i cookie tramite le impostazioni del proprio browser.
+      Tuttavia, la disattivazione dei cookie tecnici potrebbe compromettere alcune funzionalità essenziali del sito.
+    </p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/it/kb/gestione-dei-cookie" target="_blank">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
+      <li><a href="https://support.microsoft.com/it-it/microsoft-edge" target="_blank">Microsoft Edge</a></li>
+    </ul>
+  </div>
 
-  <p>
-    Inoltre, puoi <strong>modificare in qualsiasi momento le tue preferenze di tracciamento</strong>
-    riaprendo il pannello di gestione del consenso:
-    <br>
-    <a href="#"
-       class="iubenda-advertising-preferences-link"
-       style="color:#ff7b00; text-shadow:0 0 8px rgba(255,123,0,0.6);">
-       ➤ Apri pannello preferenze cookie (CMP)
-    </a>
-  </p>
+  <!-- FAQ -->
+  <div class="cookie-box">
+    <h2 id="faq">FAQ Cookie</h2>
 
-  <p>
-    Per maggiori informazioni sul trattamento dei dati personali, consulta anche la nostra
-    <a href="/privacy.html"
-       style="color:#ff7b00; text-shadow:0 0 8px rgba(255,123,0,0.6);">
-       Privacy Policy completa
-    </a>.
-  </p>
-</div>
+    <p><strong>AnonLab utilizza cookie di profilazione?</strong><br>
+    No, solo cookie tecnici essenziali.</p>
 
-      <!-- COME DISATTIVARE -->
-      <div class="cookie-box">
-        <h2>4. Come disattivare i cookie</h2>
-        <p>
-          L’utente può disabilitare o eliminare i cookie tramite le impostazioni del proprio browser.
-          Tuttavia, la disattivazione dei cookie tecnici potrebbe compromettere alcune funzionalità essenziali del sito.
-        </p>
-        <p>
-          Di seguito alcuni link utili:
-        </p>
-        <ul>
-          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
-          <li><a href="https://support.mozilla.org/it/kb/gestione-dei-cookie" target="_blank">Mozilla Firefox</a></li>
-          <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
-          <li><a href="https://support.microsoft.com/it-it/microsoft-edge" target="_blank">Microsoft Edge</a></li>
-        </ul>
-      </div>
+    <p><strong>Il banner Iubenda è presente su tutte le pagine?</strong><br>
+    Sì, per garantire conformità GDPR.</p>
 
-      <!-- MAGGIORI INFORMAZIONI -->
-      <div class="cookie-box">
-        <h2>5. Maggiori informazioni</h2>
-        <p>
-          Per ulteriori dettagli sulla gestione dei dati, consulta la nostra
-          <a href="/privacy.html">Privacy Policy</a>.
-        </p>
-      </div>
+    <p><strong>Posso revocare il consenso?</strong><br>
+    Sì, tramite il pannello CMP.</p>
 
-    </section>
-  </main>
+    <p><strong>Il sito utilizza cookie di terze parti?</strong><br>
+    No, nessun cookie di terze parti è attivo.</p>
+  </div>
 
-  <div id="footer"></div>
-  <script src="/js/ui.js"></script>
+  <!-- INFO -->
+  <div class="cookie-box">
+    <h2 id="info">5. Maggiori informazioni</h2>
+    <p>
+      Per ulteriori dettagli sulla gestione dei dati, consulta la nostra
+      <a href="/privacy.html">Privacy Policy</a>.
+    </p>
+  </div>
+
+</section>
+</main>
+
+<div id="footer"></div>
+<script src="/js/ui.js"></script>
 
 </body>
 </html>
+
 
