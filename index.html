@@ -1728,31 +1728,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
   if (!backToTop) return;
 
-  // Mostra / nasconde il pulsante
-  window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 50 ? "block" : "none";
-  });
+  // scegliamo l'elemento che scrolla davvero
+  const scroller =
+    document.querySelector(".page") ||
+    document.querySelector(".main-column") ||
+    window;
 
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  // mostra / nasconde il pulsante in base allo scroll reale
+  const getScrollTop = () =>
+    scroller === window ? window.scrollY : scroller.scrollTop;
 
-  // ⭐ FURBATA: posiziona il pulsante sopra il logo Iubenda
-  function adjustBackToTopPosition() {
-    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+  const onScroll = () => {
+    backToTop.style.display = getScrollTop() > 50 ? "block" : "none";
+  };
 
-    if (iubendaLogo) {
-      const rect = iubendaLogo.getBoundingClientRect();
-      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
-
-      backToTop.style.bottom = offset + "px";
-    } else {
-      backToTop.style.bottom = "80px"; // fallback
-    }
+  // listener sul giusto elemento
+  if (scroller === window) {
+    window.addEventListener("scroll", onScroll);
+  } else {
+    scroller.addEventListener("scroll", onScroll);
   }
 
-  adjustBackToTopPosition();
-  setInterval(adjustBackToTopPosition, 800); // CMP appare dopo
+  backToTop.addEventListener("click", () => {
+    if (scroller === window) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      scroller.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
+  // inizializza stato
+  onScroll();
 });
 </script>
 
