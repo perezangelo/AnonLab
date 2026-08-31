@@ -1,30 +1,65 @@
-<footer class="site-footer">
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Termini di Servizio — AnonLab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="description" content="Termini di Servizio di AnonLab: condizioni d’uso, limitazioni di responsabilità, proprietà intellettuale e aggiornamenti.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://anonlab.it/termini.html">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Termini di Servizio — AnonLab">
+  <meta property="og:description" content="Condizioni d’uso del sito AnonLab, responsabilità, proprietà intellettuale e aggiornamenti.">
+  <meta property="og:url" content="https://anonlab.it/termini.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Termini di Servizio",
+    "url": "https://anonlab.it/termini.html",
+    "description": "Condizioni d’uso del sito AnonLab, responsabilità, proprietà intellettuale e aggiornamenti."
+  }
+  </script>
+  
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y46cg93s3m");
+</script>              
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
+     crossorigin="anonymous"></script>
+  <footer class="site-footer">
     <div class="footer-links">
 
-        <!-- Privacy -->
-        <a href="/privacy.html">Privacy Policy</a>
+        <!-- Link ufficiali Iubenda -->
         <a href="https://www.iubenda.com/privacy-policy/12413505"
            rel="noreferrer nofollow"
            target="_blank">
-           Privacy Policy ufficiale
+           Privacy Policy
         </a>
 
-        <!-- Cookie -->
-        <a href="/cookies.html">Cookie Policy</a>
-        <a href="https://www.iubenda.com/privacy-policy/12413505/cookie-policy"
-           rel="noreferrer nofollow"
-           target="_blank">
-           Cookie Policy ufficiale
-        </a>
-
-        <!-- CMP -->
         <a href="#"
            role="button"
            class="iubenda-advertising-preferences-link">
            Personalizza tracciamento pubblicitario
         </a>
 
-        <!-- Link tuoi -->
+        <!-- I tuoi link che vanno mantenuti -->
         <a href="/termini.html">Termini di Servizio</a>
         <a href="/contatti.html">Contatti</a>
     </div>
@@ -33,3 +68,80 @@
         © 2026 AnonLab — All rights reserved — Cybersecurity & Cultura Digitale
     </p>
 </footer>
+
+<!-- CARICAMENTO JAVASCRIPT DEL SITO -->
+<script src="/js/main.js"></script>
+
+</head>
+
+<body>
+
+  <div id="header" aria-label="Intestazione del sito"></div>
+  <div id="ticker" aria-label="Ticker informazioni"></div>
+  <!-- CARICAMENTO TICKER -->
+<script>
+fetch("/partials/ticker.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("ticker").innerHTML = html;
+
+      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
+      if (typeof initTicker === "function") {
+          initTicker();
+      }
+  });
+</script>
+
+<!-- SCRIPT TICKER -->
+<script src="/js/ticker.js"></script>
+
+  <main class="page">
+    <section class="main-column">
+
+     <h1 class="page-title">Termini di Servizio</h1>
+
+<div class="terms-box">
+
+    <p>
+        L’accesso e l’utilizzo del sito <strong>AnonLab</strong> implicano l’accettazione delle presenti condizioni.
+    </p>
+
+    <h2>1. Utilizzo del sito</h2>
+    <p>
+        AnonLab fornisce contenuti informativi relativi a cybersecurity, tecnologia e cultura digitale.
+        L’utente si impegna a utilizzare il sito in modo lecito e conforme alle normative vigenti.
+    </p>
+
+    <h2>2. Limitazioni di responsabilità</h2>
+    <p>
+        I contenuti presenti sul sito sono forniti “così come sono”, senza garanzie di accuratezza, completezza o aggiornamento.
+        AnonLab non è responsabile per eventuali danni derivanti dall’uso delle informazioni pubblicate.
+    </p>
+
+    <h2>3. Assenza di raccolta dati</h2>
+    <p>
+        Il sito non raccoglie dati personali e non utilizza cookie di profilazione.
+        Per maggiori dettagli consulta la <a href="/privacy.html">Privacy Policy</a>.
+    </p>
+
+    <h2>4. Proprietà intellettuale</h2>
+    <p>
+        I contenuti originali pubblicati su AnonLab sono protetti da copyright.
+        È vietata la riproduzione non autorizzata.
+    </p>
+
+    <h2>5. Modifiche ai termini</h2>
+    <p>
+        AnonLab può aggiornare i presenti Termini di Servizio in qualsiasi momento.
+        Le modifiche diventano effettive al momento della pubblicazione.
+    </p>
+
+</div>
+  </main>
+
+  <div id="footer" aria-label="Piè di pagina"></div>
+
+  <script src="/js/ui.js"></script>
+
+</body>
+</html>
