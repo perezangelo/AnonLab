@@ -242,20 +242,42 @@ fetch("/partials/footer.html")
 	<!-- ⭐ BACK TO TOP -->
 <button id="backToTop">↑</button>
 
+<!-- SCRIPT BACK TO TOP -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
   if (!backToTop) return;
 
+  // Mostra / nasconde il pulsante
   window.addEventListener("scroll", () => {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     backToTop.style.display = scrollTop > 50 ? "block" : "none";
   });
 
+  // Scrolla davvero la pagina
   backToTop.addEventListener("click", () => {
     document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
     document.body.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // ⭐ Posiziona il pulsante sopra il badge Iubenda
+  function adjustBackToTopPosition() {
+    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+
+    if (iubendaLogo) {
+      const rect = iubendaLogo.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
+      backToTop.style.bottom = offset + "px";
+    } else {
+      backToTop.style.bottom = "80px"; // fallback sicuro
+    }
+  }
+
+  // Controllo iniziale
+  adjustBackToTopPosition();
+
+  // Il CMP appare dopo → serve un controllo ripetuto
+  setInterval(adjustBackToTopPosition, 800);
 });
 </script>
 
