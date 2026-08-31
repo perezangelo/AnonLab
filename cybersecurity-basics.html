@@ -104,10 +104,6 @@ a { color:#00eaff; }
 </head>
 
 <body>
-	<!-- ⭐ TICKER BREAKING NEWS -->
-<div id="breaking-news"></div>
-<script src="https://angelonline.altervista.org/js/news.js"></script>
-<script src="https://angelonline.altervista.org/js/home-news.js?v=1003"></script>
 
 <h1>Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale</h1>
 
@@ -317,22 +313,7 @@ AnonLab continua a evolversi come osservatorio tecnico sulle minacce digitali.
   </ul>
 </div>
 </div>
-	<!-- ⭐ SIDEBAR -->
-<div id="sidebar" class="sidebar"></div>
-
-<script>
-fetch("/partials/sidebar.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("sidebar").innerHTML = html;
-
-      // Inizializzazione widget sidebar
-      initCalculator();
-      initRadio();
-      initYouTubePlayer();
-      initOroscopo();
-  });
-</script>
+	
 	<!-- ⭐ FOOTER -->
 <div id="footer"></div>
 
@@ -342,6 +323,25 @@ fetch("/partials/footer.html")
   .then(html => {
       document.getElementById("footer").innerHTML = html;
   });
+</script>
+	<!-- ⭐ BACK TO TOP -->
+<button id="backToTop">↑</button>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTop = document.getElementById("backToTop");
+  if (!backToTop) return;
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    backToTop.style.display = scrollTop > 50 ? "block" : "none";
+  });
+
+  backToTop.addEventListener("click", () => {
+    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    document.body.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
 </script>
 
 </body>
