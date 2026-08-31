@@ -1747,16 +1747,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       backToTop.style.bottom = offset + "px";
     } else {
-      // fallback se il logo non è ancora apparso
-      backToTop.style.bottom = "80px";
+      backToTop.style.bottom = "80px"; // fallback
     }
   }
 
-  // Controllo iniziale
   adjustBackToTopPosition();
-
-  // Controllo ripetuto (il CMP può apparire dopo)
-  setInterval(adjustBackToTopPosition, 800);
+  setInterval(adjustBackToTopPosition, 800); // CMP appare dopo
 });
 </script>
 
