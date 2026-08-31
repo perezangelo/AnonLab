@@ -104,6 +104,10 @@ a { color:#00eaff; }
 </head>
 
 <body>
+	<!-- ⭐ TICKER BREAKING NEWS -->
+<div id="breaking-news"></div>
+<script src="https://angelonline.altervista.org/js/news.js"></script>
+<script src="https://angelonline.altervista.org/js/home-news.js?v=1003"></script>
 
 <h1>Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale</h1>
 
@@ -313,6 +317,32 @@ AnonLab continua a evolversi come osservatorio tecnico sulle minacce digitali.
   </ul>
 </div>
 </div>
+	<!-- ⭐ SIDEBAR -->
+<div id="sidebar" class="sidebar"></div>
+
+<script>
+fetch("/partials/sidebar.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("sidebar").innerHTML = html;
+
+      // Inizializzazione widget sidebar
+      initCalculator();
+      initRadio();
+      initYouTubePlayer();
+      initOroscopo();
+  });
+</script>
+	<!-- ⭐ FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("/partials/footer.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("footer").innerHTML = html;
+  });
+</script>
 
 </body>
 </html>
