@@ -1,5 +1,40 @@
 [
   {
+    "id": "CVE-2026-73089",
+    "summary": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
+    "severity": "HIGH",
+    "published": "2026-09-01T16:42:13Z",
+    "ghsa": "GHSA-c83g-rgw3-j3cx"
+  },
+  {
+    "id": "CVE-2026-73088",
+    "summary": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
+    "severity": "HIGH",
+    "published": "2026-09-01T16:41:54Z",
+    "ghsa": "GHSA-73wf-gq98-2v4g"
+  },
+  {
+    "id": "GHSA-3f6p-5ww8-9rcr",
+    "summary": "MySQL2: Auth Plugin Downgrade to mysql_clear_password Leaks Plaintext Credentials",
+    "severity": "HIGH",
+    "published": "2026-09-01T16:40:34Z",
+    "ghsa": "GHSA-3f6p-5ww8-9rcr"
+  },
+  {
+    "id": "CVE-2026-62993",
+    "summary": "Smarty: SSRF via redirect bypass of trusted_uri using {fetch}",
+    "severity": "MODERATE",
+    "published": "2026-09-01T16:38:22Z",
+    "ghsa": "GHSA-cq55-c7wv-pxmq"
+  },
+  {
+    "id": "CVE-2026-69127",
+    "summary": "Kirby: System path exposure from error messages in the REST API",
+    "severity": "MODERATE",
+    "published": "2026-09-01T16:37:47Z",
+    "ghsa": "GHSA-rf2p-vh74-7vvh"
+  },
+  {
     "id": "CVE-2026-71415",
     "summary": "Kirby: File upload permissions are not checked during processing of chunk data",
     "severity": "HIGH",
@@ -33,40 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-31T20:30:50Z",
     "ghsa": "GHSA-fm3f-ch8h-qw8q"
-  },
-  {
-    "id": "CVE-2026-81889",
-    "summary": "elFinder: SSRF protection bypass via DNS rebinding in the `fsock_get_contents()` fallback",
-    "severity": "HIGH",
-    "published": "2026-08-31T20:28:06Z",
-    "ghsa": "GHSA-8x3q-jpjh-qh5c"
-  },
-  {
-    "id": "CVE-2026-15305",
-    "summary": "TYPO3 CMS - Unrestricted File Upload in Form Framework",
-    "severity": "MODERATE",
-    "published": "2026-08-31T19:53:59Z",
-    "ghsa": "GHSA-mfqj-cqv3-h7xw"
-  },
-  {
-    "id": "CVE-2026-55855",
-    "summary": "MariaDB has  possible SQL injection in Buffer parameter escaping under big5/gbk/sjis/cp932/gb18030 client charsets",
-    "severity": "MODERATE",
-    "published": "2026-08-28T22:53:12Z",
-    "ghsa": "GHSA-g5xc-5w98-jfvm"
-  },
-  {
-    "id": "CVE-2026-55830",
-    "summary": "RestrictedPython guard hooks can be shadowed via positional-only arguments",
-    "severity": "HIGH",
-    "published": "2026-08-28T22:51:35Z",
-    "ghsa": "GHSA-ffg3-p8fm-mjx2"
-  },
-  {
-    "id": "CVE-2026-55860",
-    "summary": "org.mariadb:r2dbc-mariadb vulnerable to cleartext password disclosure to a man-in-the-middle server (clear-text auth plugins not gated on a secure transport)",
-    "severity": "MODERATE",
-    "published": "2026-08-28T22:50:56Z",
-    "ghsa": "GHSA-c857-9x2m-cvh2"
   }
 ]
