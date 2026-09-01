@@ -554,13 +554,39 @@ setInterval(loadAttackMap, 15000);
           <div class="ti-section" style="margin-top:25px;">
             <h4 class="ti-title">Threat Distribution</h4>
 
-            <div style="display:flex; gap:10px; margin-top:10px;">
-              <div style="flex:1; height:80px; background:#ff0044;"></div>
-              <div style="flex:1; height:60px; background:#ff7b00;"></div>
-              <div style="flex:1; height:100px; background:#ffaa00;"></div>
-              <div style="flex:1; height:50px; background:#00eaff;"></div>
-              <div style="flex:1; height:70px; background:#00ff99;"></div>
-            </div>
+            <div id="threatBars" style="display:flex; gap:10px; margin-top:10px; align-items:flex-end;">
+  <div id="bar-ransomware" style="flex:1; background:#ff0044; height:10px;"></div>
+  <div id="bar-phishing"   style="flex:1; background:#ff7b00; height:10px;"></div>
+  <div id="bar-exploit"    style="flex:1; background:#ffaa00; height:10px;"></div>
+  <div id="bar-vulns"      style="flex:1; background:#00eaff; height:10px;"></div>
+  <div id="bar-botnet"     style="flex:1; background:#00ff99; height:10px;"></div>
+</div>
+
+<script>
+async function loadThreatDistribution() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/threat-distribution.php");
+        const data = await res.json();
+
+        function setBar(id, value) {
+            const bar = document.getElementById(id);
+            bar.style.height = (value * 2) + "px"; // 0–200px
+        }
+
+        setBar("bar-ransomware", data.ransomware);
+        setBar("bar-phishing",   data.phishing);
+        setBar("bar-exploit",    data.exploit);
+        setBar("bar-vulns",      data.vulns);
+        setBar("bar-botnet",     data.botnet);
+
+    } catch (e) {
+        console.error("Threat Distribution Error:", e);
+    }
+}
+
+loadThreatDistribution();
+setInterval(loadThreatDistribution, 60000);
+</script>
 
             <p style="color:#ccc; margin-top:10px;">
               Distribuzione delle principali categorie di minacce rilevate questa settimana.
