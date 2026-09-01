@@ -659,207 +659,24 @@
 
 </div>
 
-<div id="widgetCyberMeteoPlus"></div>
+<div class="sidebar-box" aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
+    <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff; margin-bottom:10px;">
+        Meteo Italia – 7 Giorni
+    </h3>
 
-<script>
-// Config città (puoi aggiungerne altre)
-const cities = [
-  { name: "Varese", lat: 45.82, lon: 8.83 },
-  { name: "Milano", lat: 45.46, lon: 9.19 },
-  { name: "Roma", lat: 41.90, lon: 12.49 },
-  { name: "Torino", lat: 45.07, lon: 7.68 }
-];
+    <iframe 
+        src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e/ffffff/it/0/1"
+        width="100%"
+        height="340"
+        frameborder="0"
+        scrolling="no">
+    </iframe>
 
-function buildUrl(lat, lon) {
-  return `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&timezone=Europe/Rome`;
-}
-
-// Icone meteo neon animate
-const neonIcons = {
-  0: `<svg width="40" height="40">
-        <circle cx="20" cy="20" r="12" fill="#ff6a00">
-          <animate attributeName="r" values="12;14;12" dur="2s" repeatCount="indefinite"/>
-        </circle>
-      </svg>`,
-  2: `<svg width="40" height="40">
-        <ellipse cx="20" cy="24" rx="14" ry="9" fill="#888"/>
-        <ellipse cx="20" cy="24" rx="14" ry="9" fill="#00eaff55">
-          <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
-        </ellipse>
-      </svg>`,
-  3: `<svg width="40" height="40">
-        <ellipse cx="20" cy="24" rx="16" ry="10" fill="#555"/>
-      </svg>`,
-  61: `<svg width="40" height="40">
-        <line x1="16" y1="10" x2="16" y2="32" stroke="#00eaff" stroke-width="3">
-          <animate attributeName="y2" values="32;36;32" dur="0.5s" repeatCount="indefinite"/>
-        </line>
-        <line x1="24" y1="10" x2="24" y2="32" stroke="#00eaff" stroke-width="3">
-          <animate attributeName="y2" values="32;36;32" dur="0.5s" repeatCount="indefinite" begin="0.2s"/>
-        </line>
-      </svg>`,
-  71: `<svg width="40" height="40">
-        <circle cx="20" cy="20" r="10" fill="#fff"/>
-        <circle cx="20" cy="20" r="10" fill="#00eaff55">
-          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite"/>
-        </circle>
-      </svg>`
-};
-
-// Frame cyber + scanline
-const frameStyle = `
-  background: radial-gradient(circle at top, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
-  border: 2px solid #00eaff;
-  box-shadow: 0 0 20px #00eaff, inset 0 0 15px #ff6a00;
-  border-radius: 12px;
-  padding: 18px;
-  color: #00eaff;
-  font-family: 'Orbitron', sans-serif;
-  position: relative;
-  overflow: hidden;
-`;
-
-const scanline = `
-  <div style="
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.03),
-      rgba(255,255,255,0.03) 2px,
-      rgba(0,0,0,0.05) 4px
-    );
-    pointer-events:none;
-    animation: scan 6s linear infinite;
-  "></div>
-  <style>
-    @keyframes scan {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100%); }
-    }
-  </style>
-`;
-
-function renderWidget(cityIndex = 0) {
-  const city = cities[cityIndex];
-  fetch(buildUrl(city.lat, city.lon))
-    .then(r => r.json())
-    .then(data => {
-      const current = data.current_weather;
-      const daily = data.daily;
-
-      let html = `
-        <div style="${frameStyle}">
-          ${scanline}
-
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <h2 style="margin:0; text-shadow:0 0 8px #00eaff;">
-              METEO CYBER – ${city.name.toUpperCase()}
-            </h2>
-            <div style="font-size:11px; opacity:0.8;">
-              LAT: ${city.lat.toFixed(2)} | LON: ${city.lon.toFixed(2)}
-            </div>
-          </div>
-
-          <div style="margin-bottom:10px;">
-            <select onchange="renderWidget(this.selectedIndex)" style="
-              background: rgba(0,0,0,0.7);
-              border: 1px solid #00eaff;
-              color: #00eaff;
-              font-family: 'Orbitron', sans-serif;
-              font-size:11px;
-              padding:4px 6px;
-            ">
-      `;
-
-      cities.forEach((c, idx) => {
-        html += `<option value="${idx}" ${idx === cityIndex ? "selected" : ""}>${c.name}</option>`;
-      });
-
-      html += `
-            </select>
-          </div>
-
-          <div style="display:flex; align-items:center; gap:18px; margin-top:8px;">
-            ${neonIcons[current.weathercode] || neonIcons[2]}
-            <div>
-              <div style="font-size:30px; color:#ff6a00; text-shadow:0 0 10px #ff6a00;">
-                ${current.temperature}°C
-              </div>
-              <div style="opacity:0.85;">Vento: ${current.windspeed} km/h</div>
-            </div>
-          </div>
-
-          <hr style="border:1px solid #00eaff55; margin:16px 0;">
-
-          <div style="display:flex; gap:12px; margin-bottom:16px;">
-            <div style="
-              flex:1;
-              border:1px solid #00eaff55;
-              border-radius:8px;
-              padding:8px;
-            ">
-              <div style="font-size:11px; opacity:0.8;">RADAR METEO (STILIZZATO)</div>
-              <svg width="100%" height="80">
-                <circle cx="50%" cy="50%" r="26" stroke="#00eaff" stroke-width="1" fill="none"/>
-                <circle cx="50%" cy="50%" r="18" stroke="#00eaff55" stroke-width="1" fill="none"/>
-                <circle cx="50%" cy="50%" r="10" stroke="#00eaff33" stroke-width="1" fill="none"/>
-                <line x1="50%" y1="50%" x2="90%" y2="20%" stroke="#ff6a00" stroke-width="2">
-                  <animate attributeName="x2" values="90%;20%;90%" dur="4s" repeatCount="indefinite"/>
-                  <animate attributeName="y2" values="20%;80%;20%" dur="4s" repeatCount="indefinite"/>
-                </line>
-              </svg>
-            </div>
-
-            <div style="
-              flex:1;
-              border:1px solid #00eaff55;
-              border-radius:8px;
-              padding:8px;
-            ">
-              <div style="font-size:11px; opacity:0.8;">STATO SISTEMA</div>
-              <div style="font-size:11px;">
-                • LINK METEO: ONLINE<br>
-                • AGGIORNAMENTO: LIVE<br>
-                • MODALITÀ: CYBER-OPS
-              </div>
-            </div>
-          </div>
-
-          <h3 style="margin:0 0 8px 0;">Previsioni 7 Giorni</h3>
-          <div>
-      `;
-
-      for (let i = 0; i < daily.time.length; i++) {
-        html += `
-          <div style="
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:6px 0;
-            border-bottom:1px solid #00eaff22;
-            font-size:11px;
-          ">
-            <span>${daily.time[i]}</span>
-            <span>${neonIcons[daily.weathercode[i]] || neonIcons[2]}</span>
-            <span style="color:#ff6a00; text-shadow:0 0 6px #ff6a00;">
-              ${daily.temperature_2m_max[i]}° / ${daily.temperature_2m_min[i]}°
-            </span>
-          </div>
-        `;
-      }
-
-      html += `</div></div>`;
-      document.getElementById("widgetCyberMeteoPlus").innerHTML = html;
-    });
-}
-
-// inizializza su Varese
-renderWidget(0);
-</script>
+    <a href="https://www.3bmeteo.com/meteo/italia"
+       style="color:#00eaff; text-decoration:none; font-size:13px;">
+       Previsioni complete →
+    </a>
+</div>
 
 <!-- CALCOLATRICE CYBER NEON -->
 <div class="sidebar-box" aria-label="Calcolatrice"
