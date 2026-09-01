@@ -1664,6 +1664,13 @@ initSystemStatus();
 </section>
 
 <script src="/js/threat-monitor.js"></script>
+		<script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof initThreatMonitor === "function") {
+        initThreatMonitor();
+    }
+});
+</script>
      
 <section class="widget-large">
   <div class="box-title-row">
