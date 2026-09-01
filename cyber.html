@@ -184,8 +184,26 @@ fetch("/partials/ticker.html")
     <p style="color:#ccc;margin-bottom:15px;">Riepilogo delle principali minacce attive rilevate nelle ultime 24 ore.</p>
 
     <ul id="tiSummaryBox" style="color:#fff;line-height:1.8;">
-      <li>Caricamento dati...</li>
-    </ul>
+  <li><strong>Threat Level:</strong> <span id="ti-threat-level">--</span>%</li>
+  <li><strong>Zero‑Day Attivi:</strong> <span id="ti-zero-day">--</span></li>
+  <li><strong>Exploit Pubblici:</strong> <span id="ti-exploits">--</span></li>
+  <li style="color:#aaa;font-size:12px;">Last Update: <span id="ti-last-update">--:--:--</span></li>
+</ul>
+	  <script>
+function loadThreatIntel() {
+    fetch("https://angelonline.altervista.org/api/threat-intel.php?ts=" + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("ti-threat-level").textContent = data.threatLevel;
+            document.getElementById("ti-zero-day").textContent = data.zeroDay;
+            document.getElementById("ti-exploits").textContent = data.exploits;
+            document.getElementById("ti-last-update").textContent = data.updated;
+        })
+        .catch(err => console.error("TI error:", err));
+}
+
+document.addEventListener("DOMContentLoaded", loadThreatIntel);
+</script>
   </div>     
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
   <h3 style="color:#00eaff;">MITRE ATT&CK Techniques</h3>
