@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-71415",
+    "summary": "Kirby: File upload permissions are not checked during processing of chunk data",
+    "severity": "HIGH",
+    "published": "2026-08-31T22:14:05Z",
+    "ghsa": "GHSA-67mx-6wf2-92xp"
+  },
+  {
+    "id": "CVE-2026-75594",
+    "summary": "Kirby: Access to image files and limited access to JSON files outside of the site root via path traversal in the media handling",
+    "severity": "HIGH",
+    "published": "2026-08-31T22:12:45Z",
+    "ghsa": "GHSA-9vx2-j98c-p72w"
+  },
+  {
+    "id": "CVE-2026-45822",
+    "summary": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+    "severity": "MODERATE",
+    "published": "2026-08-31T22:10:20Z",
+    "ghsa": "GHSA-vcc3-ghjq-m6fr"
+  },
+  {
     "id": "CVE-2026-59724",
     "summary": "Socket.IO: Engine.IO WebTransport SID DoS",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-08-28T22:50:56Z",
     "ghsa": "GHSA-c857-9x2m-cvh2"
-  },
-  {
-    "id": "CVE-2026-55859",
-    "summary": "org.mariadb:r2dbc-mariadb has Inappropriate Encoding for Output Context and Improper Encoding or Escaping of Output",
-    "severity": "MODERATE",
-    "published": "2026-08-28T22:49:03Z",
-    "ghsa": "GHSA-5rqc-86vf-g8r2"
-  },
-  {
-    "id": "CVE-2026-55858",
-    "summary": "org.mariadb.jdbc:mariadb-java-client has Inappropriate Encoding for Output Context",
-    "severity": "MODERATE",
-    "published": "2026-08-28T22:47:19Z",
-    "ghsa": "GHSA-xvr9-35cr-46v9"
-  },
-  {
-    "id": "CVE-2026-55857",
-    "summary": "org.mariadb.jdbc:mariadb-java-client has Cleartext Transmission of Sensitive Information and Insufficiently Protected Credentials",
-    "severity": "MODERATE",
-    "published": "2026-08-28T22:45:01Z",
-    "ghsa": "GHSA-qxvw-fvwx-5cp7"
   }
 ]
