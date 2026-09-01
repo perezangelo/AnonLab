@@ -770,7 +770,26 @@ setInterval(loadThreatDistribution, 60000);
 
           <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Zero‑day attivi</h4>
-            <p style="color:#ccc; font-size:22px; margin-top:10px;">3</p>
+            <p id="zeroDayValue" style="color:#ccc; font-size:22px; margin-top:10px;">--</p>
+<p id="zeroDayUpdate" style="color:#666; font-size:12px; margin-top:5px;">Aggiornamento: --</p>
+
+<script>
+async function loadZeroDay() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/zero-day.php");
+        const data = await res.json();
+
+        document.getElementById("zeroDayValue").textContent = data.zeroDay;
+        document.getElementById("zeroDayUpdate").textContent = "Aggiornamento: " + data.updated;
+
+    } catch (e) {
+        document.getElementById("zeroDayValue").textContent = "ERR";
+    }
+}
+
+loadZeroDay();
+setInterval(loadZeroDay, 60000);
+</script>
           </div>
 
         </div>
