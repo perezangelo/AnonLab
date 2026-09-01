@@ -342,13 +342,35 @@ document.addEventListener("DOMContentLoaded", loadThreatIntel);
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
   <h3 style="color:#ff0044;">Malware Activity Monitor</h3>
   <p style="color:#ccc;margin-bottom:15px;">Distribuzione dei principali malware rilevati.</p>
-  <ul style="color:#fff;line-height:1.8;">
-    <li><strong>Ransomware:</strong> 35%</li>
-    <li><strong>Trojan:</strong> 25%</li>
-    <li><strong>Spyware:</strong> 15%</li>
-    <li><strong>Worm:</strong> 10%</li>
-    <li><strong>Backdoor:</strong> 15%</li>
-  </ul>
+<ul id="malwareActivityBox" style="color:#fff;line-height:1.8;">
+  <li><strong>Ransomware:</strong> <span id="mal-ransomware">--</span>%</li>
+  <li><strong>Trojan:</strong> <span id="mal-trojan">--</span>%</li>
+  <li><strong>Spyware:</strong> <span id="mal-spyware">--</span>%</li>
+  <li><strong>Worm:</strong> <span id="mal-worm">--</span>%</li>
+  <li><strong>Backdoor:</strong> <span id="mal-backdoor">--</span>%</li>
+</ul>
+
+<script>
+async function loadMalwareActivity() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/malware-activity.php");
+        const data = await res.json();
+
+        document.getElementById("mal-ransomware").textContent = data.ransomware;
+        document.getElementById("mal-trojan").textContent     = data.trojan;
+        document.getElementById("mal-spyware").textContent    = data.spyware;
+        document.getElementById("mal-worm").textContent       = data.worm;
+        document.getElementById("mal-backdoor").textContent   = data.backdoor;
+
+    } catch (e) {
+        document.getElementById("malwareActivityBox").innerHTML =
+            "<li>Errore caricamento dati</li>";
+    }
+}
+
+loadMalwareActivity();
+setInterval(loadMalwareActivity, 60000);
+</script>
 </div>
 <div class="cyber-box" style="background:#000814;border:1px solid #7a00ffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #7a00ffaa;">
   <h3 style="color:#b366ff;">Data Exfiltration Monitor</h3>
