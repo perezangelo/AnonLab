@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-73228",
-    "summary": "Django REST framework: Potential bypass of Django `DATA_UPLOAD_MAX_MEMORY_SIZE` when parsing oversized JSON and urlencoded request bodies via DRF `request.data`",
+    "id": "CVE-2026-84304",
+    "summary": "gRPC-Go: Heap Memory Exhaustion (OOM) via HTTP/2 DATA Frame Fragmentation",
+    "severity": "HIGH",
+    "published": "2026-09-01T21:32:41Z",
+    "ghsa": "GHSA-vp52-pcj8-j9qc"
+  },
+  {
+    "id": "CVE-2026-19418",
+    "summary": "TYPO3 CMS - Broken Access Control in Backend and Install Tool",
+    "severity": "HIGH",
+    "published": "2026-09-01T21:31:42Z",
+    "ghsa": "GHSA-68jx-f42c-7599"
+  },
+  {
+    "id": "CVE-2026-84306",
+    "summary": "Filament: Multi-factor authentication (app) codes can still be used after a newer code has been used",
     "severity": "MODERATE",
-    "published": "2026-09-01T19:24:51Z",
-    "ghsa": "GHSA-2m8g-3cmr-wg3w"
+    "published": "2026-09-01T21:29:43Z",
+    "ghsa": "GHSA-r3j6-gpjw-qfjr"
   },
   {
-    "id": "CVE-2026-73229",
-    "summary": "Django REST framework: AdminRenderer may disclose GET-protected data when rendering invalid write requests",
+    "id": "CVE-2026-84307",
+    "summary": "Filament: Password validity disclosure for accounts denied panel access on login page",
+    "severity": "LOW",
+    "published": "2026-09-01T21:29:00Z",
+    "ghsa": "GHSA-xwpv-pqxp-5v36"
+  },
+  {
+    "id": "CVE-2026-77567",
+    "summary": "Filament: Multi-factor authentication (app) can be bypassed when recovery codes are enabled",
+    "severity": "HIGH",
+    "published": "2026-09-01T21:28:47Z",
+    "ghsa": "GHSA-52xp-w8hr-xv3c"
+  },
+  {
+    "id": "CVE-2026-84310",
+    "summary": "pypdf: Possible long runtimes/large memory usage when retrieving outlines",
     "severity": "MODERATE",
-    "published": "2026-09-01T19:24:29Z",
-    "ghsa": "GHSA-g47c-3xmw-q6m2"
+    "published": "2026-09-01T21:28:37Z",
+    "ghsa": "GHSA-23w6-3w8w-8484"
   },
   {
-    "id": "CVE-2026-73086",
-    "summary": "nanoid: Integer Overflow or Wraparound",
-    "severity": "HIGH",
-    "published": "2026-09-01T19:23:45Z",
-    "ghsa": "GHSA-xwg4-73v4-xw9w"
-  },
-  {
-    "id": "GHSA-vx52-2968-3vc6",
-    "summary": "pnpm: Environment secrets exfiltrated via env-placeholder expansion in proxy settings read from an untrusted pnpm-workspace.yaml",
-    "severity": "HIGH",
-    "published": "2026-09-01T19:22:42Z",
-    "ghsa": "GHSA-vx52-2968-3vc6"
-  },
-  {
-    "id": "GHSA-2rx9-3g3h-c2jv",
-    "summary": "pnpm: pacquet trust-lockfile install can create dependency symlinks outside the project",
-    "severity": "HIGH",
-    "published": "2026-09-01T18:59:22Z",
-    "ghsa": "GHSA-2rx9-3g3h-c2jv"
-  },
-  {
-    "id": "CVE-2026-58191",
-    "summary": "Appium: Reflected XSS / arbitrary JS in @appium/base-driver /test/guinea-pig* routes",
+    "id": "CVE-2026-84311",
+    "summary": "pypdf: Possible long runtimes/large memory usage when extracting XForm objects",
     "severity": "MODERATE",
-    "published": "2026-09-01T18:54:53Z",
-    "ghsa": "GHSA-3wgp-x9p5-c7cc"
+    "published": "2026-09-01T21:27:22Z",
+    "ghsa": "GHSA-763m-79hh-57f2"
   },
   {
-    "id": "GHSA-gqvg-gmmx-x4hm",
-    "summary": "MLFLOW_ALLOW_PICKLE_DESERIALIZATION=False safety control bypassed by mlflow.statsmodels flavor — RCE via crafted model artifact",
-    "severity": "HIGH",
-    "published": "2026-09-01T17:04:30Z",
-    "ghsa": "GHSA-gqvg-gmmx-x4hm"
+    "id": "CVE-2026-84309",
+    "summary": "pypdf: Possible infinite loop for TreeObject.insert_child",
+    "severity": "MODERATE",
+    "published": "2026-09-01T21:20:20Z",
+    "ghsa": "GHSA-jp53-mhqp-8xcg"
   },
   {
-    "id": "CVE-2026-73089",
-    "summary": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
-    "severity": "HIGH",
-    "published": "2026-09-01T16:42:13Z",
-    "ghsa": "GHSA-c83g-rgw3-j3cx"
+    "id": "CVE-2026-84305",
+    "summary": "sqlparse: Reindentation of tuple lists causes near-cap quadratic CPU consumption",
+    "severity": "MODERATE",
+    "published": "2026-09-01T21:20:11Z",
+    "ghsa": "GHSA-cfqr-cjx5-5jcm"
   },
   {
-    "id": "CVE-2026-73088",
-    "summary": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
-    "severity": "HIGH",
-    "published": "2026-09-01T16:41:54Z",
-    "ghsa": "GHSA-73wf-gq98-2v4g"
-  },
-  {
-    "id": "GHSA-3f6p-5ww8-9rcr",
-    "summary": "MySQL2: Auth Plugin Downgrade to mysql_clear_password Leaks Plaintext Credentials",
-    "severity": "HIGH",
-    "published": "2026-09-01T16:40:34Z",
-    "ghsa": "GHSA-3f6p-5ww8-9rcr"
+    "id": "CVE-2026-84371",
+    "summary": "ApostropheCMS: Stored XSS via SVG SMIL URI-list scheme-policy bypass",
+    "severity": "MODERATE",
+    "published": "2026-09-01T21:20:01Z",
+    "ghsa": "GHSA-g8qq-57p8-ggw5"
   }
 ]
