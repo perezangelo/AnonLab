@@ -1,5 +1,54 @@
 [
   {
+    "id": "CVE-2026-73228",
+    "summary": "Django REST framework: Potential bypass of Django `DATA_UPLOAD_MAX_MEMORY_SIZE` when parsing oversized JSON and urlencoded request bodies via DRF `request.data`",
+    "severity": "MODERATE",
+    "published": "2026-09-01T19:24:51Z",
+    "ghsa": "GHSA-2m8g-3cmr-wg3w"
+  },
+  {
+    "id": "CVE-2026-73229",
+    "summary": "Django REST framework: AdminRenderer may disclose GET-protected data when rendering invalid write requests",
+    "severity": "MODERATE",
+    "published": "2026-09-01T19:24:29Z",
+    "ghsa": "GHSA-g47c-3xmw-q6m2"
+  },
+  {
+    "id": "CVE-2026-73086",
+    "summary": "nanoid: Integer Overflow or Wraparound",
+    "severity": "HIGH",
+    "published": "2026-09-01T19:23:45Z",
+    "ghsa": "GHSA-xwg4-73v4-xw9w"
+  },
+  {
+    "id": "GHSA-vx52-2968-3vc6",
+    "summary": "pnpm: Environment secrets exfiltrated via env-placeholder expansion in proxy settings read from an untrusted pnpm-workspace.yaml",
+    "severity": "HIGH",
+    "published": "2026-09-01T19:22:42Z",
+    "ghsa": "GHSA-vx52-2968-3vc6"
+  },
+  {
+    "id": "GHSA-2rx9-3g3h-c2jv",
+    "summary": "pnpm: pacquet trust-lockfile install can create dependency symlinks outside the project",
+    "severity": "HIGH",
+    "published": "2026-09-01T18:59:22Z",
+    "ghsa": "GHSA-2rx9-3g3h-c2jv"
+  },
+  {
+    "id": "CVE-2026-58191",
+    "summary": "Appium: Reflected XSS / arbitrary JS in @appium/base-driver /test/guinea-pig* routes",
+    "severity": "MODERATE",
+    "published": "2026-09-01T18:54:53Z",
+    "ghsa": "GHSA-3wgp-x9p5-c7cc"
+  },
+  {
+    "id": "GHSA-gqvg-gmmx-x4hm",
+    "summary": "MLFLOW_ALLOW_PICKLE_DESERIALIZATION=False safety control bypassed by mlflow.statsmodels flavor — RCE via crafted model artifact",
+    "severity": "HIGH",
+    "published": "2026-09-01T17:04:30Z",
+    "ghsa": "GHSA-gqvg-gmmx-x4hm"
+  },
+  {
     "id": "CVE-2026-73089",
     "summary": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
     "severity": "HIGH",
@@ -19,54 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-01T16:40:34Z",
     "ghsa": "GHSA-3f6p-5ww8-9rcr"
-  },
-  {
-    "id": "CVE-2026-62993",
-    "summary": "Smarty: SSRF via redirect bypass of trusted_uri using {fetch}",
-    "severity": "MODERATE",
-    "published": "2026-09-01T16:38:22Z",
-    "ghsa": "GHSA-cq55-c7wv-pxmq"
-  },
-  {
-    "id": "CVE-2026-69127",
-    "summary": "Kirby: System path exposure from error messages in the REST API",
-    "severity": "MODERATE",
-    "published": "2026-09-01T16:37:47Z",
-    "ghsa": "GHSA-rf2p-vh74-7vvh"
-  },
-  {
-    "id": "CVE-2026-71415",
-    "summary": "Kirby: File upload permissions are not checked during processing of chunk data",
-    "severity": "HIGH",
-    "published": "2026-08-31T22:14:05Z",
-    "ghsa": "GHSA-67mx-6wf2-92xp"
-  },
-  {
-    "id": "CVE-2026-75594",
-    "summary": "Kirby: Access to image files and limited access to JSON files outside of the site root via path traversal in the media handling",
-    "severity": "HIGH",
-    "published": "2026-08-31T22:12:45Z",
-    "ghsa": "GHSA-9vx2-j98c-p72w"
-  },
-  {
-    "id": "CVE-2026-45822",
-    "summary": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
-    "severity": "MODERATE",
-    "published": "2026-08-31T22:10:20Z",
-    "ghsa": "GHSA-vcc3-ghjq-m6fr"
-  },
-  {
-    "id": "CVE-2026-59724",
-    "summary": "Socket.IO: Engine.IO WebTransport SID DoS",
-    "severity": "HIGH",
-    "published": "2026-08-31T21:28:12Z",
-    "ghsa": "GHSA-gr94-w7qr-f4j3"
-  },
-  {
-    "id": "CVE-2026-81888",
-    "summary": "@hono/oauth-providers: OAuth state check fails open on omitted state, enabling login CSRF and forced account linking",
-    "severity": "MODERATE",
-    "published": "2026-08-31T20:30:50Z",
-    "ghsa": "GHSA-fm3f-ch8h-qw8q"
   }
 ]
