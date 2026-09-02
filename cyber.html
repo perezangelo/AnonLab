@@ -189,34 +189,20 @@ fetch("/partials/ticker.html")
   <li><strong>Exploit Pubblici:</strong> <span id="ti-exploits">--</span></li>
   <li style="color:#aaa;font-size:12px;">Last Update: <span id="ti-last-update">--:--:--</span></li>
 </ul>
-	 <script>
-document.addEventListener("DOMContentLoaded", function() {
+	  <script>
+function loadThreatIntel() {
+    fetch("https://angelonline.altervista.org/api/threat-intel.php?ts=" + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("ti-threat-level").textContent = data.threatLevel;
+            document.getElementById("ti-zero-day").textContent = data.zeroDay;
+            document.getElementById("ti-exploits").textContent = data.exploits;
+            document.getElementById("ti-last-update").textContent = data.updated;
+        })
+        .catch(err => console.error("TI error:", err));
+}
 
-    function loadThreatIntel() {
-        fetch("https://angelonline.altervista.org/api/threat-intel.php?ts=" + Date.now())
-            .then(r => r.json())
-            .then(data => {
-
-                const tl = document.getElementById("ti-threat-level");
-                const zd = document.getElementById("ti-zero-day");
-                const ex = document.getElementById("ti-exploits");
-                const lu = document.getElementById("ti-last-update");
-
-                // DOM‑STABLE — retry invisibile
-                if (!tl || !zd || !ex || !lu) {
-                    return setTimeout(loadThreatIntel, 500);
-                }
-
-                tl.textContent = data.threatLevel;
-                zd.textContent = data.zeroDay;
-                ex.textContent = data.exploits;
-                lu.textContent = data.updated;
-            })
-            .catch(err => console.error("TI error:", err));
-    }
-
-    loadThreatIntel();
-});
+document.addEventListener("DOMContentLoaded", loadThreatIntel);
 </script>
   </div>     
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
@@ -299,7 +285,58 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   </style>
 
-  <script src="/js/heatmap.js"></script>
+  <script>
+  /* ============================================================
+        GLOBAL THREAT HEATMAP — Versione Dinamica Finale
+     ============================================================ */
+
+  function startHeatmap() {
+      const canvas = document.getElementById("heatmap-canvas");
+      if (!canvas) return setTimeout(startHeatmap, 200);
+
+      const ctx = canvas.getContext("2d");
+
+      function resizeCanvas() {
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
+      }
+
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      async function loadHeatmap() {
+          try {
+              const res = await fetch("https://angelonline.altervista.org/soc/heatmap_data.php");
+              const points = await res.json();
+
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+              points.forEach(p => {
+                  const x = p.x * canvas.width;
+                  const y = p.y * canvas.height;
+                  const intensity = p.intensity;
+
+                  const gradient = ctx.createRadialGradient(x, y, 0, x, y, 60);
+                  gradient.addColorStop(0, `rgba(255,0,0,${intensity})`);
+                  gradient.addColorStop(1, "rgba(255,0,0,0)");
+
+                  ctx.fillStyle = gradient;
+                  ctx.beginPath();
+                  ctx.arc(x, y, 60, 0, Math.PI * 2);
+                  ctx.fill();
+              });
+
+          } catch (e) {
+              console.error("Errore Heatmap:", e);
+          }
+      }
+
+      loadHeatmap();
+      setInterval(loadHeatmap, 10000);
+  }
+
+  startHeatmap();
+  </script>
 </div>
 
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
@@ -381,15 +418,7 @@ setInterval(loadMalwareActivity, 60000);
 <script>
 async function loadAttackMap() {
     const canvas = document.getElementById("attackMapCanvas");
-
-    // SMART RETRY + SILENT MODE
-    if (!canvas) {
-        setTimeout(loadAttackMap, 300);
-        return;
-    }
-
-    // PERFORMANCE FIX
-    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    const ctx = canvas.getContext("2d");
 
     function resize() {
         canvas.width = canvas.offsetWidth;
@@ -398,29 +427,24 @@ async function loadAttackMap() {
     resize();
     window.addEventListener("resize", resize);
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/attack-map.php");
-        const points = await res.json();
+    const res = await fetch("https://angelonline.altervista.org/soc/attack-map.php");
+    const points = await res.json();
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        points.forEach(p => {
-            const x = (p.lon + 180) * (canvas.width / 360);
-            const y = (90 - p.lat) * (canvas.height / 180);
+    points.forEach(p => {
+        const x = (p.lon + 180) * (canvas.width / 360);
+        const y = (90 - p.lat) * (canvas.height / 180);
 
-            const g = ctx.createRadialGradient(x, y, 0, x, y, 40);
-            g.addColorStop(0, "rgba(255,0,0,0.6)");
-            g.addColorStop(1, "rgba(255,0,0,0)");
+        const g = ctx.createRadialGradient(x, y, 0, x, y, 40);
+        g.addColorStop(0, "rgba(255,0,0,0.6)");
+        g.addColorStop(1, "rgba(255,0,0,0)");
 
-            ctx.fillStyle = g;
-            ctx.beginPath();
-            ctx.arc(x, y, 40, 0, Math.PI * 2);
-            ctx.fill();
-        });
-
-    } catch (err) {
-        console.error("[AttackMap] Errore:", err);
-    }
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, 40, 0, Math.PI * 2);
+        ctx.fill();
+    });
 }
 
 loadAttackMap();
@@ -881,4 +905,5 @@ setInterval(loadTISummary, 30000);
 
 </body>
 </html>
+
 
