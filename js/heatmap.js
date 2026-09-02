@@ -1,6 +1,8 @@
 /* ============================================================
         GLOBAL THREAT HEATMAP — Versione Dinamica Finale
+        Dataset: FeodoTracker (Botnet reali)
    ============================================================ */
+
 async function startHeatmap() {
     const canvas = document.getElementById("heatmap-canvas");
     if (!canvas) return setTimeout(startHeatmap, 200);
@@ -15,25 +17,22 @@ async function startHeatmap() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    async function fetchMalwareIPs() {
+    async function fetchBotnetIPs() {
         try {
-            const res = await fetch("https://urlhaus.abuse.ch/downloads/json/");
+            const res = await fetch("https://feodotracker.abuse.ch/downloads/ipblocklist.json");
             const data = await res.json();
 
-            // Prendiamo i primi 50 URL malevoli
-            const entries = data.urls.slice(0, 50);
+            // Prendiamo i primi 40 IP malevoli
+            const entries = data.data.slice(0, 40);
 
             const points = [];
 
             for (const entry of entries) {
-                if (!entry.url) continue;
-
-                // Estrai IP dal dominio
-                const domain = entry.url.split("/")[2];
-                if (!domain) continue;
+                const ip = entry.ip_address;
+                if (!ip) continue;
 
                 try {
-                    const geo = await fetch(`https://ipapi.co/${domain}/json/`);
+                    const geo = await fetch(`https://ipapi.co/${ip}/json/`);
                     const geoData = await geo.json();
 
                     if (!geoData.latitude || !geoData.longitude) continue;
@@ -41,18 +40,18 @@ async function startHeatmap() {
                     points.push({
                         lat: geoData.latitude,
                         lon: geoData.longitude,
-                        intensity: 0.6
+                        intensity: 0.7
                     });
 
                 } catch (e) {
-                    console.warn("GeoIP fallito:", domain);
+                    console.warn("GeoIP fallito:", ip);
                 }
             }
 
             return points;
 
         } catch (e) {
-            console.error("Errore URLHaus:", e);
+            console.error("Errore FeodoTracker:", e);
             return [];
         }
     }
@@ -76,7 +75,7 @@ async function startHeatmap() {
     }
 
     async function updateHeatmap() {
-        const points = await fetchMalwareIPs();
+        const points = await fetchBotnetIPs();
         drawPoints(points);
     }
 
