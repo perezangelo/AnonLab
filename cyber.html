@@ -190,19 +190,31 @@ fetch("/partials/ticker.html")
   <li style="color:#aaa;font-size:12px;">Last Update: <span id="ti-last-update">--:--:--</span></li>
 </ul>
 	  <script>
-function loadThreatIntel() {
-    fetch("https://angelonline.altervista.org/api/threat-intel.php?ts=" + Date.now())
-        .then(r => r.json())
-        .then(data => {
-            document.getElementById("ti-threat-level").textContent = data.threatLevel;
-            document.getElementById("ti-zero-day").textContent = data.zeroDay;
-            document.getElementById("ti-exploits").textContent = data.exploits;
-            document.getElementById("ti-last-update").textContent = data.updated;
-        })
-        .catch(err => console.error("TI error:", err));
-}
-
 document.addEventListener("DOMContentLoaded", function() {
+
+    function loadThreatIntel() {
+        fetch("https://angelonline.altervista.org/api/threat-intel.php?ts=" + Date.now())
+            .then(r => r.json())
+            .then(data => {
+
+                const tl = document.getElementById("ti-threat-level");
+                const zd = document.getElementById("ti-zero-day");
+                const ex = document.getElementById("ti-exploits");
+                const lu = document.getElementById("ti-last-update");
+
+                if (!tl || !zd || !ex || !lu) {
+                    console.warn("⚠️ TI Summary: elementi DOM non trovati");
+                    return;
+                }
+
+                tl.textContent = data.threatLevel;
+                zd.textContent = data.zeroDay;
+                ex.textContent = data.exploits;
+                lu.textContent = data.updated;
+            })
+            .catch(err => console.error("TI error:", err));
+    }
+
     loadThreatIntel();
 });
 </script>
@@ -420,6 +432,11 @@ setInterval(loadMalwareActivity, 60000);
 <script>
 async function loadAttackMap() {
     const canvas = document.getElementById("attackMapCanvas");
+    if (!canvas) {
+        console.warn("⚠️ AttackMap: canvas non trovato nella pagina");
+        return;
+    }
+
     const ctx = canvas.getContext("2d");
 
     function resize() {
@@ -429,24 +446,28 @@ async function loadAttackMap() {
     resize();
     window.addEventListener("resize", resize);
 
-    const res = await fetch("https://angelonline.altervista.org/soc/attack-map.php");
-    const points = await res.json();
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/attack-map.php");
+        const points = await res.json();
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    points.forEach(p => {
-        const x = (p.lon + 180) * (canvas.width / 360);
-        const y = (90 - p.lat) * (canvas.height / 180);
+        points.forEach(p => {
+            const x = (p.lon + 180) * (canvas.width / 360);
+            const y = (90 - p.lat) * (canvas.height / 180);
 
-        const g = ctx.createRadialGradient(x, y, 0, x, y, 40);
-        g.addColorStop(0, "rgba(255,0,0,0.6)");
-        g.addColorStop(1, "rgba(255,0,0,0)");
+            const g = ctx.createRadialGradient(x, y, 0, x, y, 40);
+            g.addColorStop(0, "rgba(255,0,0,0.6)");
+            g.addColorStop(1, "rgba(255,0,0,0)");
 
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(x, y, 40, 0, Math.PI * 2);
-        ctx.fill();
-    });
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(x, y, 40, 0, Math.PI * 2);
+            ctx.fill();
+        });
+    } catch (err) {
+        console.error("[AttackMap] Errore:", err);
+    }
 }
 
 loadAttackMap();
