@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-75931",
-    "summary": "fast-uri vulnerable to host confusion via skipped IDN canonicalization on scheme-relative references",
+    "id": "CVE-2026-84366",
+    "summary": "Scrapy: S3DownloadHandler sends signed S3 requests over plaintext HTTP by default",
     "severity": "HIGH",
-    "published": "2026-09-02T15:44:30Z",
-    "ghsa": "GHSA-5jgf-p345-68v8"
+    "published": "2026-09-02T22:50:44Z",
+    "ghsa": "GHSA-76g3-c3x4-crvx"
   },
   {
-    "id": "CVE-2026-75975",
-    "summary": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
-    "severity": "HIGH",
-    "published": "2026-09-02T15:43:30Z",
-    "ghsa": "GHSA-f65p-4m7j-42xc"
-  },
-  {
-    "id": "CVE-2026-75899",
-    "summary": "fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding",
-    "severity": "HIGH",
-    "published": "2026-09-02T15:42:39Z",
-    "ghsa": "GHSA-fph4-wmhf-6fwf"
-  },
-  {
-    "id": "CVE-2026-76172",
-    "summary": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
-    "severity": "HIGH",
-    "published": "2026-09-02T15:41:53Z",
-    "ghsa": "GHSA-jqff-g426-hqxp"
-  },
-  {
-    "id": "CVE-2026-62388",
-    "summary": "NLTK: Default ENFORCE=False Disables All pathsec Security Controls",
-    "severity": "HIGH",
-    "published": "2026-09-02T15:40:33Z",
-    "ghsa": "GHSA-p3m8-78j2-g5p3"
-  },
-  {
-    "id": "CVE-2026-63311",
-    "summary": "NLTK: SSRF Fail-Open in validate_network_url() via DNS Resolution Failure",
+    "id": "CVE-2026-68921",
+    "summary": "DiceBear: SVG injection via the unescaped rotate option in @dicebear/core (and fontSize/fontWeight in @dicebear/initials)",
     "severity": "MODERATE",
-    "published": "2026-09-02T15:39:39Z",
-    "ghsa": "GHSA-3gqm-fcw5-w839"
+    "published": "2026-09-02T22:44:25Z",
+    "ghsa": "GHSA-gcr2-9v8m-gq45"
   },
   {
-    "id": "CVE-2026-83610",
-    "summary": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
-    "severity": "MODERATE",
-    "published": "2026-09-02T15:18:20Z",
-    "ghsa": "GHSA-6gmq-8vp8-gcm6"
-  },
-  {
-    "id": "CVE-2026-76098",
-    "summary": "Mistune: Denial of Service — RecursionError via Excessive Emphasis Markers in Markdown",
+    "id": "CVE-2026-62676",
+    "summary": "Omnigent Guardrail policy bypass: shell-command parser fails open in policies/builtins/_shell.py",
     "severity": "HIGH",
-    "published": "2026-09-02T15:14:55Z",
-    "ghsa": "GHSA-6m44-fpc8-c3rq"
+    "published": "2026-09-02T22:40:07Z",
+    "ghsa": "GHSA-7mqg-cx4g-x2rf"
   },
   {
-    "id": "CVE-2026-16732",
-    "summary": "fastify vulnerable to X-Forwarded-* spoofing under trustProxy hop-count",
-    "severity": "MODERATE",
-    "published": "2026-09-02T15:14:06Z",
-    "ghsa": "GHSA-3m5p-2c4r-xxw2"
+    "id": "CVE-2026-65842",
+    "summary": "Plate: SSRF with response disclosure in DOCX image embedding",
+    "severity": "HIGH",
+    "published": "2026-09-02T22:14:54Z",
+    "ghsa": "GHSA-4q39-2jhr-7qx8"
   },
   {
-    "id": "CVE-2026-18504",
-    "summary": "fastify vulnerable to schema validation bypass via root primitive coercion mismatch",
+    "id": "CVE-2026-63490",
+    "summary": "Handlebars.java: Arbitrary file read in `SpringTemplateLoader` via URL-fragment suffix bypass",
+    "severity": "HIGH",
+    "published": "2026-09-02T22:12:03Z",
+    "ghsa": "GHSA-g29j-rwfv-h99w"
+  },
+  {
+    "id": "CVE-2026-63481",
+    "summary": "Hurl: Cookies in Cookies section leak when redirecting to a different host",
     "severity": "MODERATE",
-    "published": "2026-09-02T15:13:23Z",
-    "ghsa": "GHSA-w2qp-rph6-63g4"
+    "published": "2026-09-02T22:11:11Z",
+    "ghsa": "GHSA-7w2g-9mf9-324m"
+  },
+  {
+    "id": "CVE-2026-63435",
+    "summary": "Mail: Email address spoofing via malformed RFC 2047 encoded-words",
+    "severity": "MODERATE",
+    "published": "2026-09-02T22:02:32Z",
+    "ghsa": "GHSA-mvxr-6m87-mv2q"
+  },
+  {
+    "id": "CVE-2026-62669",
+    "summary": "Grav: 2FA Bypass via 'login.regenerate2FASecret' - Secret Rotation During Pending Challenge",
+    "severity": "HIGH",
+    "published": "2026-09-02T22:01:25Z",
+    "ghsa": "GHSA-7mgc-c7pq-3rr3"
+  },
+  {
+    "id": "CVE-2026-62677",
+    "summary": "Omnigent: Unvalidated os_env.cwd in agent bundle yields arbitrary host filesystem access on runners without OMNIGENT_RUNNER_WORKSPACE",
+    "severity": "HIGH",
+    "published": "2026-09-02T22:00:54Z",
+    "ghsa": "GHSA-p8rw-8qj3-hf33"
+  },
+  {
+    "id": "CVE-2026-62674",
+    "summary": "Omnigent: Shared Agent Bundle Overwrite Leads to Authenticated Runner RCE",
+    "severity": "CRITICAL",
+    "published": "2026-09-02T21:55:11Z",
+    "ghsa": "GHSA-jrrm-9hc7-2v3h"
   }
 ]
