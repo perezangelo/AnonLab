@@ -1,3 +1,6 @@
+/* ============================================================
+        GLOBAL THREAT HEATMAP — Versione Dinamica Finale
+   ============================================================ */
 async function startHeatmap() {
     const canvas = document.getElementById("heatmap-canvas");
     if (!canvas) return setTimeout(startHeatmap, 200);
