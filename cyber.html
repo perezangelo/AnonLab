@@ -189,7 +189,7 @@ fetch("/partials/ticker.html")
   <li><strong>Exploit Pubblici:</strong> <span id="ti-exploits">--</span></li>
   <li style="color:#aaa;font-size:12px;">Last Update: <span id="ti-last-update">--:--:--</span></li>
 </ul>
-	  <script>
+	 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
     function loadThreatIntel() {
@@ -202,10 +202,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 const ex = document.getElementById("ti-exploits");
                 const lu = document.getElementById("ti-last-update");
 
-                // SMART RETRY
+                // SMART RETRY — versione stabile
                 if (!tl || !zd || !ex || !lu) {
-                    console.warn("⚠️ TI Summary: elementi DOM non trovati — retry...");
-                    setTimeout(loadThreatIntel, 200);
+                    setTimeout(loadThreatIntel, 500);   // ← aumento a 500ms
                     return;
                 }
 
