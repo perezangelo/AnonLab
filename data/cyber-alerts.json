@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-84304",
-    "summary": "gRPC-Go: Heap Memory Exhaustion (OOM) via HTTP/2 DATA Frame Fragmentation",
+    "id": "CVE-2026-82417",
+    "summary": "qs: Denial of Service via Attacker Controlled isBuffer",
+    "severity": "MODERATE",
+    "published": "2026-09-02T14:45:13Z",
+    "ghsa": "GHSA-4mjr-xmp4-gh2g"
+  },
+  {
+    "id": "GHSA-cp6q-959q-f8rh",
+    "summary": "Tiptap: mergeAttributes() turns an own __proto__ key into inherited executable DOM attributes",
+    "severity": "MODERATE",
+    "published": "2026-09-02T14:44:39Z",
+    "ghsa": "GHSA-cp6q-959q-f8rh"
+  },
+  {
+    "id": "CVE-2026-81892",
+    "summary": "EasyAdmin custom-action dispatcher bypasses access_control on other routes",
     "severity": "HIGH",
-    "published": "2026-09-01T21:32:41Z",
-    "ghsa": "GHSA-vp52-pcj8-j9qc"
+    "published": "2026-09-02T14:39:11Z",
+    "ghsa": "GHSA-g2fm-8hr4-j82h"
   },
   {
-    "id": "CVE-2026-19418",
-    "summary": "TYPO3 CMS - Broken Access Control in Backend and Install Tool",
+    "id": "CVE-2026-81887",
+    "summary": "Livewire DOM-based cross-site scripting during client-side state handling",
+    "severity": "MODERATE",
+    "published": "2026-09-02T14:38:58Z",
+    "ghsa": "GHSA-g3hc-697w-wm82"
+  },
+  {
+    "id": "CVE-2026-82397",
+    "summary": " Tornado: Urlencoded body parsing omits max_num_fields, so one request can stall the event loop",
     "severity": "HIGH",
-    "published": "2026-09-01T21:31:42Z",
-    "ghsa": "GHSA-68jx-f42c-7599"
+    "published": "2026-09-02T14:38:43Z",
+    "ghsa": "GHSA-mpf4-983q-p7j4"
   },
   {
-    "id": "CVE-2026-84306",
-    "summary": "Filament: Multi-factor authentication (app) codes can still be used after a newer code has been used",
+    "id": "CVE-2026-71492",
+    "summary": "Banks: Path traversal in `DirectoryPromptRegistry.set()` allows arbitrary file write outside the registry root",
     "severity": "MODERATE",
-    "published": "2026-09-01T21:29:43Z",
-    "ghsa": "GHSA-r3j6-gpjw-qfjr"
+    "published": "2026-09-02T14:38:24Z",
+    "ghsa": "GHSA-x8wg-4xgc-vr54"
   },
   {
-    "id": "CVE-2026-84307",
-    "summary": "Filament: Password validity disclosure for accounts denied panel access on login page",
-    "severity": "LOW",
-    "published": "2026-09-01T21:29:00Z",
-    "ghsa": "GHSA-xwpv-pqxp-5v36"
+    "id": "CVE-2026-82398",
+    "summary": "pypdf: Inefficient handling of non-whitespace inputs in read_until_whitespace",
+    "severity": "MODERATE",
+    "published": "2026-09-02T14:38:12Z",
+    "ghsa": "GHSA-fc8x-2rww-xw9m"
   },
   {
-    "id": "CVE-2026-77567",
-    "summary": "Filament: Multi-factor authentication (app) can be bypassed when recovery codes are enabled",
+    "id": "CVE-2026-81891",
+    "summary": "elFinder: ZIP extraction bypasses uploadDeny MIME filter allowing PHP file upload (RCE)",
     "severity": "HIGH",
-    "published": "2026-09-01T21:28:47Z",
-    "ghsa": "GHSA-52xp-w8hr-xv3c"
+    "published": "2026-09-02T14:37:54Z",
+    "ghsa": "GHSA-gxmj-r5rf-ggwq"
   },
   {
-    "id": "CVE-2026-84310",
-    "summary": "pypdf: Possible long runtimes/large memory usage when retrieving outlines",
+    "id": "CVE-2026-81890",
+    "summary": "elFinder: CSRF in netmount allows forced FTP mounts and server-side FTP connections",
     "severity": "MODERATE",
-    "published": "2026-09-01T21:28:37Z",
-    "ghsa": "GHSA-23w6-3w8w-8484"
+    "published": "2026-09-02T14:37:36Z",
+    "ghsa": "GHSA-9hjf-w35w-6vx2"
   },
   {
-    "id": "CVE-2026-84311",
-    "summary": "pypdf: Possible long runtimes/large memory usage when extracting XForm objects",
-    "severity": "MODERATE",
-    "published": "2026-09-01T21:27:22Z",
-    "ghsa": "GHSA-763m-79hh-57f2"
-  },
-  {
-    "id": "CVE-2026-84309",
-    "summary": "pypdf: Possible infinite loop for TreeObject.insert_child",
-    "severity": "MODERATE",
-    "published": "2026-09-01T21:20:20Z",
-    "ghsa": "GHSA-jp53-mhqp-8xcg"
-  },
-  {
-    "id": "CVE-2026-84305",
-    "summary": "sqlparse: Reindentation of tuple lists causes near-cap quadratic CPU consumption",
-    "severity": "MODERATE",
-    "published": "2026-09-01T21:20:11Z",
-    "ghsa": "GHSA-cfqr-cjx5-5jcm"
-  },
-  {
-    "id": "CVE-2026-84371",
-    "summary": "ApostropheCMS: Stored XSS via SVG SMIL URI-list scheme-policy bypass",
-    "severity": "MODERATE",
-    "published": "2026-09-01T21:20:01Z",
-    "ghsa": "GHSA-g8qq-57p8-ggw5"
+    "id": "CVE-2026-82392",
+    "summary": "pnpm: Virtual store linker path traversal via unvalidated depPath name in lockfileToDepGraph",
+    "severity": "HIGH",
+    "published": "2026-09-02T14:37:13Z",
+    "ghsa": "GHSA-c59q-g84q-2gj5"
   }
 ]
