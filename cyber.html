@@ -310,7 +310,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const canvas = document.getElementById("heatmap-canvas");
       if (!canvas) return setTimeout(startHeatmap, 200);
 
-      const ctx = canvas.getContext("2d");
+      // FIX PERFORMANCE
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
       function resizeCanvas() {
           canvas.width = canvas.offsetWidth;
@@ -352,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   startHeatmap();
-  </script>
+</script>
 </div>
 
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
@@ -437,13 +438,12 @@ async function loadAttackMap() {
 
     // SMART RETRY + SILENT MODE
     if (!canvas) {
-        // Se la pagina non ha la AttackMap, non mostra warning
-        // Se la AttackMap verrà aggiunta, il retry la troverà
         setTimeout(loadAttackMap, 300);
         return;
     }
 
-    const ctx = canvas.getContext("2d");
+    // PERFORMANCE FIX
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
     function resize() {
         canvas.width = canvas.offsetWidth;
