@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-82417",
-    "summary": "qs: Denial of Service via Attacker Controlled isBuffer",
-    "severity": "MODERATE",
-    "published": "2026-09-02T14:45:13Z",
-    "ghsa": "GHSA-4mjr-xmp4-gh2g"
-  },
-  {
-    "id": "GHSA-cp6q-959q-f8rh",
-    "summary": "Tiptap: mergeAttributes() turns an own __proto__ key into inherited executable DOM attributes",
-    "severity": "MODERATE",
-    "published": "2026-09-02T14:44:39Z",
-    "ghsa": "GHSA-cp6q-959q-f8rh"
-  },
-  {
-    "id": "CVE-2026-81892",
-    "summary": "EasyAdmin custom-action dispatcher bypasses access_control on other routes",
+    "id": "CVE-2026-75931",
+    "summary": "fast-uri vulnerable to host confusion via skipped IDN canonicalization on scheme-relative references",
     "severity": "HIGH",
-    "published": "2026-09-02T14:39:11Z",
-    "ghsa": "GHSA-g2fm-8hr4-j82h"
+    "published": "2026-09-02T15:44:30Z",
+    "ghsa": "GHSA-5jgf-p345-68v8"
   },
   {
-    "id": "CVE-2026-81887",
-    "summary": "Livewire DOM-based cross-site scripting during client-side state handling",
-    "severity": "MODERATE",
-    "published": "2026-09-02T14:38:58Z",
-    "ghsa": "GHSA-g3hc-697w-wm82"
-  },
-  {
-    "id": "CVE-2026-82397",
-    "summary": " Tornado: Urlencoded body parsing omits max_num_fields, so one request can stall the event loop",
+    "id": "CVE-2026-75975",
+    "summary": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
     "severity": "HIGH",
-    "published": "2026-09-02T14:38:43Z",
-    "ghsa": "GHSA-mpf4-983q-p7j4"
+    "published": "2026-09-02T15:43:30Z",
+    "ghsa": "GHSA-f65p-4m7j-42xc"
   },
   {
-    "id": "CVE-2026-71492",
-    "summary": "Banks: Path traversal in `DirectoryPromptRegistry.set()` allows arbitrary file write outside the registry root",
-    "severity": "MODERATE",
-    "published": "2026-09-02T14:38:24Z",
-    "ghsa": "GHSA-x8wg-4xgc-vr54"
-  },
-  {
-    "id": "CVE-2026-82398",
-    "summary": "pypdf: Inefficient handling of non-whitespace inputs in read_until_whitespace",
-    "severity": "MODERATE",
-    "published": "2026-09-02T14:38:12Z",
-    "ghsa": "GHSA-fc8x-2rww-xw9m"
-  },
-  {
-    "id": "CVE-2026-81891",
-    "summary": "elFinder: ZIP extraction bypasses uploadDeny MIME filter allowing PHP file upload (RCE)",
+    "id": "CVE-2026-75899",
+    "summary": "fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding",
     "severity": "HIGH",
-    "published": "2026-09-02T14:37:54Z",
-    "ghsa": "GHSA-gxmj-r5rf-ggwq"
+    "published": "2026-09-02T15:42:39Z",
+    "ghsa": "GHSA-fph4-wmhf-6fwf"
   },
   {
-    "id": "CVE-2026-81890",
-    "summary": "elFinder: CSRF in netmount allows forced FTP mounts and server-side FTP connections",
-    "severity": "MODERATE",
-    "published": "2026-09-02T14:37:36Z",
-    "ghsa": "GHSA-9hjf-w35w-6vx2"
-  },
-  {
-    "id": "CVE-2026-82392",
-    "summary": "pnpm: Virtual store linker path traversal via unvalidated depPath name in lockfileToDepGraph",
+    "id": "CVE-2026-76172",
+    "summary": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
     "severity": "HIGH",
-    "published": "2026-09-02T14:37:13Z",
-    "ghsa": "GHSA-c59q-g84q-2gj5"
+    "published": "2026-09-02T15:41:53Z",
+    "ghsa": "GHSA-jqff-g426-hqxp"
+  },
+  {
+    "id": "CVE-2026-62388",
+    "summary": "NLTK: Default ENFORCE=False Disables All pathsec Security Controls",
+    "severity": "HIGH",
+    "published": "2026-09-02T15:40:33Z",
+    "ghsa": "GHSA-p3m8-78j2-g5p3"
+  },
+  {
+    "id": "CVE-2026-63311",
+    "summary": "NLTK: SSRF Fail-Open in validate_network_url() via DNS Resolution Failure",
+    "severity": "MODERATE",
+    "published": "2026-09-02T15:39:39Z",
+    "ghsa": "GHSA-3gqm-fcw5-w839"
+  },
+  {
+    "id": "CVE-2026-83610",
+    "summary": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+    "severity": "MODERATE",
+    "published": "2026-09-02T15:18:20Z",
+    "ghsa": "GHSA-6gmq-8vp8-gcm6"
+  },
+  {
+    "id": "CVE-2026-76098",
+    "summary": "Mistune: Denial of Service — RecursionError via Excessive Emphasis Markers in Markdown",
+    "severity": "HIGH",
+    "published": "2026-09-02T15:14:55Z",
+    "ghsa": "GHSA-6m44-fpc8-c3rq"
+  },
+  {
+    "id": "CVE-2026-16732",
+    "summary": "fastify vulnerable to X-Forwarded-* spoofing under trustProxy hop-count",
+    "severity": "MODERATE",
+    "published": "2026-09-02T15:14:06Z",
+    "ghsa": "GHSA-3m5p-2c4r-xxw2"
+  },
+  {
+    "id": "CVE-2026-18504",
+    "summary": "fastify vulnerable to schema validation bypass via root primitive coercion mismatch",
+    "severity": "MODERATE",
+    "published": "2026-09-02T15:13:23Z",
+    "ghsa": "GHSA-w2qp-rph6-63g4"
   }
 ]
