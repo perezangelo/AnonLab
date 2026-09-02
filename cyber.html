@@ -202,10 +202,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 const ex = document.getElementById("ti-exploits");
                 const lu = document.getElementById("ti-last-update");
 
-                // SMART RETRY — versione stabile
+                // DOM‑STABLE — retry invisibile
                 if (!tl || !zd || !ex || !lu) {
-                    setTimeout(loadThreatIntel, 500);   // ← aumento a 500ms
-                    return;
+                    return setTimeout(loadThreatIntel, 500);
                 }
 
                 tl.textContent = data.threatLevel;
