@@ -202,8 +202,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 const ex = document.getElementById("ti-exploits");
                 const lu = document.getElementById("ti-last-update");
 
+                // SMART RETRY
                 if (!tl || !zd || !ex || !lu) {
-                    console.warn("⚠️ TI Summary: elementi DOM non trovati");
+                    console.warn("⚠️ TI Summary: elementi DOM non trovati — retry...");
+                    setTimeout(loadThreatIntel, 200);
                     return;
                 }
 
@@ -432,8 +434,12 @@ setInterval(loadMalwareActivity, 60000);
 <script>
 async function loadAttackMap() {
     const canvas = document.getElementById("attackMapCanvas");
+
+    // SMART RETRY + SILENT MODE
     if (!canvas) {
-        console.warn("⚠️ AttackMap: canvas non trovato nella pagina");
+        // Se la pagina non ha la AttackMap, non mostra warning
+        // Se la AttackMap verrà aggiunta, il retry la troverà
+        setTimeout(loadAttackMap, 300);
         return;
     }
 
@@ -465,6 +471,7 @@ async function loadAttackMap() {
             ctx.arc(x, y, 40, 0, Math.PI * 2);
             ctx.fill();
         });
+
     } catch (err) {
         console.error("[AttackMap] Errore:", err);
     }
