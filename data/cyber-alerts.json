@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-gw25-m53r-qh88",
-    "summary": "SiYuan: path traversal via /export/temp/ short-circuit branch (incomplete fix for the export-disclosure hardening, GHSA-6865-qjcf-286f)",
-    "severity": "MODERATE",
-    "published": "2026-09-03T14:56:31Z",
-    "ghsa": "GHSA-gw25-m53r-qh88"
-  },
-  {
-    "id": "GHSA-99rq-75j6-5j9f",
-    "summary": "SiYuan: Stored and reflected XSS in SiYuan through an SVG sanitizer bypass",
-    "severity": "HIGH",
-    "published": "2026-09-03T14:53:17Z",
-    "ghsa": "GHSA-99rq-75j6-5j9f"
-  },
-  {
-    "id": "CVE-2026-73846",
-    "summary": "CKAN MCP Server: Cache-key canonicalization collision enables cache confusion / poisoning",
-    "severity": "MODERATE",
-    "published": "2026-09-03T14:49:22Z",
-    "ghsa": "GHSA-78x9-fhhx-v2g6"
-  },
-  {
-    "id": "CVE-2026-73844",
-    "summary": "CKAN MCP Server: Information disclosure via verbose error reflection",
-    "severity": "LOW",
-    "published": "2026-09-03T14:49:10Z",
-    "ghsa": "GHSA-6f9w-9hf2-5rg3"
-  },
-  {
-    "id": "CVE-2026-73667",
-    "summary": "OpenChoreo: Authenticated OS command injection via OpenChoreo Workflow Plane templates enables code execution in privileged pods",
-    "severity": "HIGH",
-    "published": "2026-09-02T23:45:26Z",
-    "ghsa": "GHSA-2mw5-23gm-pccq"
-  },
-  {
-    "id": "CVE-2026-73840",
-    "summary": "OpenChoreo: Unauthenticated build/workflow trigger via git-provider confusion (webhook signature bypass)",
-    "severity": "MODERATE",
-    "published": "2026-09-02T23:45:14Z",
-    "ghsa": "GHSA-c5f6-2rm9-2w8g"
-  },
-  {
-    "id": "CVE-2026-73841",
-    "summary": "OpenChoreo: Cross-project command execution and wirelog view access via OpenChoreo openchoreo-api exec and wirelogs endpoints",
-    "severity": "HIGH",
-    "published": "2026-09-02T23:44:51Z",
-    "ghsa": "GHSA-52gf-6rpq-fgmx"
-  },
-  {
-    "id": "CVE-2026-73843",
-    "summary": "OpenChoreo: Unauthenticated access to data-plane operations via OpenChoreo cluster-gateway management APIs",
+    "id": "CVE-2026-71869",
+    "summary": "Orval: Import-time RCE via array-items default -> zod module-level template literal",
     "severity": "CRITICAL",
-    "published": "2026-09-02T23:43:55Z",
-    "ghsa": "GHSA-qh9r-j7rp-4x2m"
+    "published": "2026-09-03T18:38:20Z",
+    "ghsa": "GHSA-2h9g-j24r-h63g"
   },
   {
-    "id": "CVE-2026-67445",
-    "summary": "Mailpit: SMTP command parser buffers unbounded command lines before syntax rejection",
-    "severity": "HIGH",
-    "published": "2026-09-02T23:42:25Z",
-    "ghsa": "GHSA-w878-pj84-3j5v"
+    "id": "CVE-2026-71871",
+    "summary": "Orval: Import-time RCE via header-parameter default -> zod module-level template literal",
+    "severity": "CRITICAL",
+    "published": "2026-09-03T18:32:03Z",
+    "ghsa": "GHSA-8j6p-r8jg-mxqh"
   },
   {
-    "id": "CVE-2026-72921",
-    "summary": "SeaweedFS: Filer JWT allowed_prefixes literal prefix match allows cross-tenant access to sibling paths",
+    "id": "CVE-2026-71867",
+    "summary": "Orval: RCE via schema property name -> computed-property-key injection in the MSW mock generator",
+    "severity": "CRITICAL",
+    "published": "2026-09-03T18:26:12Z",
+    "ghsa": "GHSA-2w86-xfrc-g85r"
+  },
+  {
+    "id": "CVE-2026-71868",
+    "summary": "Orval: Import-time RCE via enum-typed default -> zod module-level template literal",
+    "severity": "CRITICAL",
+    "published": "2026-09-03T18:20:55Z",
+    "ghsa": "GHSA-3575-w9fc-c2j6"
+  },
+  {
+    "id": "CVE-2026-71865",
+    "summary": "Orval: Import-time RCE via query parameter name -> computed-property-key injection in the zod cli",
+    "severity": "CRITICAL",
+    "published": "2026-09-03T18:18:09Z",
+    "ghsa": "GHSA-653q-5476-x79g"
+  },
+  {
+    "id": "CVE-2026-71864",
+    "summary": "Orval: Import-time RCE via header parameter name -> computed-property-key injection in the zod client",
+    "severity": "CRITICAL",
+    "published": "2026-09-03T18:08:31Z",
+    "ghsa": "GHSA-6437-gxhq-pqv8"
+  },
+  {
+    "id": "CVE-2026-73232",
+    "summary": "ffuf denial of service (OOM) via HTTP response decompression bomb",
     "severity": "HIGH",
-    "published": "2026-09-02T23:42:05Z",
-    "ghsa": "GHSA-gv5w-hfx8-8cwq"
+    "published": "2026-09-03T18:02:09Z",
+    "ghsa": "GHSA-jcvh-xf52-2cwm"
+  },
+  {
+    "id": "CVE-2026-61625",
+    "summary": "VictoriaMetrics vmrestore: Path traversal via crafted backup part names escapes restore root",
+    "severity": "MODERATE",
+    "published": "2026-09-03T17:49:29Z",
+    "ghsa": "GHSA-8q3c-rjr9-xxrp"
+  },
+  {
+    "id": "CVE-2026-61556",
+    "summary": "LiquidJS has an infinite loop vulnerability in its `strip_html` filter",
+    "severity": "HIGH",
+    "published": "2026-09-03T17:45:26Z",
+    "ghsa": "GHSA-m7fp-h3p4-hr49"
+  },
+  {
+    "id": "CVE-2026-75602",
+    "summary": "OpenList: Authenticated arbitrary file write via Content-Disposition path traversal in SimpleHttp offline-download tool",
+    "severity": "MODERATE",
+    "published": "2026-09-03T17:37:20Z",
+    "ghsa": "GHSA-h6cj-26g5-67fv"
   }
 ]
