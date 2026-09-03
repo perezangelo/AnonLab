@@ -46,7 +46,6 @@ function initCalculator() {
         });
     });
 
-    console.log("Calcolatrice inizializzata correttamente");
 }
 
 // ===============================
@@ -96,16 +95,11 @@ function initMobileMenu() {
     const toggle = document.querySelector(".nav-toggle");
     const nav = document.querySelector(".main-nav");
 
-    if (!toggle || !nav) {
-        console.warn("Navbar mobile: elementi non trovati");
-        return;
-    }
+    if (!toggle || !nav) return;  // niente warning
 
     toggle.addEventListener("click", () => {
         nav.classList.toggle("open");
     });
-
-    console.log("Navbar mobile inizializzata");
 }
 
 // ===============================
