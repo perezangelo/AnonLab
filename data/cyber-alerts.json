@@ -1,5 +1,54 @@
 [
   {
+    "id": "CVE-2026-73667",
+    "summary": "OpenChoreo: Authenticated OS command injection via OpenChoreo Workflow Plane templates enables code execution in privileged pods",
+    "severity": "HIGH",
+    "published": "2026-09-02T23:45:26Z",
+    "ghsa": "GHSA-2mw5-23gm-pccq"
+  },
+  {
+    "id": "CVE-2026-73840",
+    "summary": "OpenChoreo: Unauthenticated build/workflow trigger via git-provider confusion (webhook signature bypass)",
+    "severity": "MODERATE",
+    "published": "2026-09-02T23:45:14Z",
+    "ghsa": "GHSA-c5f6-2rm9-2w8g"
+  },
+  {
+    "id": "CVE-2026-73841",
+    "summary": "OpenChoreo: Cross-project command execution and wirelog view access via OpenChoreo openchoreo-api exec and wirelogs endpoints",
+    "severity": "HIGH",
+    "published": "2026-09-02T23:44:51Z",
+    "ghsa": "GHSA-52gf-6rpq-fgmx"
+  },
+  {
+    "id": "CVE-2026-73843",
+    "summary": "OpenChoreo: Unauthenticated access to data-plane operations via OpenChoreo cluster-gateway management APIs",
+    "severity": "CRITICAL",
+    "published": "2026-09-02T23:43:55Z",
+    "ghsa": "GHSA-qh9r-j7rp-4x2m"
+  },
+  {
+    "id": "CVE-2026-67445",
+    "summary": "Mailpit: SMTP command parser buffers unbounded command lines before syntax rejection",
+    "severity": "HIGH",
+    "published": "2026-09-02T23:42:25Z",
+    "ghsa": "GHSA-w878-pj84-3j5v"
+  },
+  {
+    "id": "CVE-2026-72921",
+    "summary": "SeaweedFS: Filer JWT allowed_prefixes literal prefix match allows cross-tenant access to sibling paths",
+    "severity": "HIGH",
+    "published": "2026-09-02T23:42:05Z",
+    "ghsa": "GHSA-gv5w-hfx8-8cwq"
+  },
+  {
+    "id": "CVE-2026-67446",
+    "summary": "Mailpit: Thumbnail generation decodes unbounded image dimensions before scaling",
+    "severity": "HIGH",
+    "published": "2026-09-02T23:39:08Z",
+    "ghsa": "GHSA-75mr-qw9x-3r39"
+  },
+  {
     "id": "CVE-2026-84366",
     "summary": "Scrapy: S3DownloadHandler sends signed S3 requests over plaintext HTTP by default",
     "severity": "HIGH",
@@ -19,54 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-02T22:40:07Z",
     "ghsa": "GHSA-7mqg-cx4g-x2rf"
-  },
-  {
-    "id": "CVE-2026-65842",
-    "summary": "Plate: SSRF with response disclosure in DOCX image embedding",
-    "severity": "HIGH",
-    "published": "2026-09-02T22:14:54Z",
-    "ghsa": "GHSA-4q39-2jhr-7qx8"
-  },
-  {
-    "id": "CVE-2026-63490",
-    "summary": "Handlebars.java: Arbitrary file read in `SpringTemplateLoader` via URL-fragment suffix bypass",
-    "severity": "HIGH",
-    "published": "2026-09-02T22:12:03Z",
-    "ghsa": "GHSA-g29j-rwfv-h99w"
-  },
-  {
-    "id": "CVE-2026-63481",
-    "summary": "Hurl: Cookies in Cookies section leak when redirecting to a different host",
-    "severity": "MODERATE",
-    "published": "2026-09-02T22:11:11Z",
-    "ghsa": "GHSA-7w2g-9mf9-324m"
-  },
-  {
-    "id": "CVE-2026-63435",
-    "summary": "Mail: Email address spoofing via malformed RFC 2047 encoded-words",
-    "severity": "MODERATE",
-    "published": "2026-09-02T22:02:32Z",
-    "ghsa": "GHSA-mvxr-6m87-mv2q"
-  },
-  {
-    "id": "CVE-2026-62669",
-    "summary": "Grav: 2FA Bypass via 'login.regenerate2FASecret' - Secret Rotation During Pending Challenge",
-    "severity": "HIGH",
-    "published": "2026-09-02T22:01:25Z",
-    "ghsa": "GHSA-7mgc-c7pq-3rr3"
-  },
-  {
-    "id": "CVE-2026-62677",
-    "summary": "Omnigent: Unvalidated os_env.cwd in agent bundle yields arbitrary host filesystem access on runners without OMNIGENT_RUNNER_WORKSPACE",
-    "severity": "HIGH",
-    "published": "2026-09-02T22:00:54Z",
-    "ghsa": "GHSA-p8rw-8qj3-hf33"
-  },
-  {
-    "id": "CVE-2026-62674",
-    "summary": "Omnigent: Shared Agent Bundle Overwrite Leads to Authenticated Runner RCE",
-    "severity": "CRITICAL",
-    "published": "2026-09-02T21:55:11Z",
-    "ghsa": "GHSA-jrrm-9hc7-2v3h"
   }
 ]
