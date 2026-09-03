@@ -33,5 +33,3 @@ jobs:
           git add data/heatmap.json
           git commit -m "Update heatmap data" || echo "No changes"
           git push
-
-
