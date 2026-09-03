@@ -189,7 +189,7 @@ fetch("/partials/ticker.html")
   <li><strong>Exploit Pubblici:</strong> <span id="ti-exploits">--</span></li>
   <li style="color:#aaa;font-size:12px;">Last Update: <span id="ti-last-update">--:--:--</span></li>
 </ul>
-	 <script>
+	<script>
 function safeSet(id, value) {
     const el = document.getElementById(id);
     if (el) el.textContent = value;
@@ -368,7 +368,12 @@ setInterval(loadMalwareActivity, 60000);
 <script>
 async function loadAttackMap() {
     const canvas = document.getElementById("attackMapCanvas");
-    const ctx = canvas.getContext("2d");
+    if (!canvas) {
+        console.warn("AttackMap: canvas non trovato");
+        return;
+    }
+
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
     function resize() {
         canvas.width = canvas.offsetWidth;
@@ -377,28 +382,35 @@ async function loadAttackMap() {
     resize();
     window.addEventListener("resize", resize);
 
-    const res = await fetch("https://angelonline.altervista.org/soc/attack-map.php");
-    const points = await res.json();
+    try {
+        const res = await fetch("/data/attack-map.json");
+        const points = await res.json();
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    points.forEach(p => {
-        const x = (p.lon + 180) * (canvas.width / 360);
-        const y = (90 - p.lat) * (canvas.height / 180);
+        points.forEach(p => {
+            const x = (p.lon + 180) * (canvas.width / 360);
+            const y = (90 - p.lat) * (canvas.height / 180);
 
-        const g = ctx.createRadialGradient(x, y, 0, x, y, 40);
-        g.addColorStop(0, "rgba(255,0,0,0.6)");
-        g.addColorStop(1, "rgba(255,0,0,0)");
+            const g = ctx.createRadialGradient(x, y, 0, x, y, 40);
+            g.addColorStop(0, "rgba(255,0,0,0.6)");
+            g.addColorStop(1, "rgba(255,0,0,0)");
 
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(x, y, 40, 0, Math.PI * 2);
-        ctx.fill();
-    });
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(x, y, 40, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+    } catch (e) {
+        console.error("AttackMap error:", e);
+    }
 }
 
-loadAttackMap();
-setInterval(loadAttackMap, 15000);
+document.addEventListener("DOMContentLoaded", () => {
+    loadAttackMap();
+    setInterval(loadAttackMap, 15000);
+});
 </script>
     </div>
   </div>
