@@ -189,15 +189,20 @@ fetch("/partials/ticker.html")
   <li><strong>Exploit Pubblici:</strong> <span id="ti-exploits">--</span></li>
   <li style="color:#aaa;font-size:12px;">Last Update: <span id="ti-last-update">--:--:--</span></li>
 </ul>
-	  <script>
+	 <script>
+function safeSet(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+}
+
 function loadThreatIntel() {
-    fetch("https://angelonline.altervista.org/api/threat-intel.php?ts=" + Date.now())
+    fetch("/data/threat-intel.json")
         .then(r => r.json())
         .then(data => {
-            document.getElementById("ti-threat-level").textContent = data.threatLevel;
-            document.getElementById("ti-zero-day").textContent = data.zeroDay;
-            document.getElementById("ti-exploits").textContent = data.exploits;
-            document.getElementById("ti-last-update").textContent = data.updated;
+            safeSet("ti-threat-level", data.threatLevel);
+            safeSet("ti-zero-day", data.zeroDay);
+            safeSet("ti-exploits", data.exploits);
+            safeSet("ti-last-update", data.updated);
         })
         .catch(err => console.error("TI error:", err));
 }
