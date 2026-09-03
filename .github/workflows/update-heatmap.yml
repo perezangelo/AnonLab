@@ -2,8 +2,8 @@ name: Update Heatmap Data
 
 on:
   schedule:
-    - cron: "0 */12 * * *"   # ogni 12 ore
-  workflow_dispatch:         # avvio manuale
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
 
 jobs:
   update:
@@ -11,21 +11,26 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
-      - name: Generate real heatmap data
+      - name: Install dependencies
         run: |
-          python3 scripts/generate_heatmap.py
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Generate real heatmap data
+        run: python3 scripts/generate_heatmap.py
 
       - name: Commit updated heatmap.json
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add data/heatmap.json
-          git commit -m "Update heatmap data"
+          git commit -m "Update heatmap data" || echo "No changes"
           git push
+
