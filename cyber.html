@@ -603,62 +603,162 @@ setInterval(loadAttackMap, 15000);
   <canvas id="attackTrendChart" style="width:100%;height:300px;"></canvas>
 </div>
 
+	<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff0044aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff0044aa;
+">
+  <h3 style="color:#ff0044;">Malware Distribution</h3>
+  <canvas id="malwarePie" style="width:100%;height:300px;"></canvas>
+</div>
+
 	<script>
-async function loadAttackTrend() {
+async function loadMalwarePie() {
     try {
-        const res = await fetch("https://angelonline.altervista.org/soc/attack-map-update.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/c2-malware-pie.php");
         const data = await res.json();
 
-        const ctx = document.getElementById("attackTrendChart").getContext("2d");
+        const labels = Object.keys(data);
+        const values = Object.values(data);
 
-        if (window.attackTrendChart) {
-            window.attackTrendChart.destroy();
-        }
+        const ctx = document.getElementById("malwarePie").getContext("2d");
 
-        window.attackTrendChart = new Chart(ctx, {
-            type: "line",
+        if (window.malwarePieChart) window.malwarePieChart.destroy();
+
+        window.malwarePieChart = new Chart(ctx, {
+            type: "pie",
             data: {
-                labels: data.labels,
+                labels: labels,
                 datasets: [{
-                    label: "Nuovi IP malevoli",
-                    data: data.values,
-                    borderColor: "#ff0044",
-                    backgroundColor: "rgba(255,0,68,0.25)",
-                    borderWidth: 2,
-                    tension: 0.3,
-                    fill: true,
-                    pointRadius: 3,
-                    pointBackgroundColor: "#ff0044"
+                    data: values,
+                    backgroundColor: ["#ff0044","#ffaa00","#00eaff","#7a00ff","#00ff99"]
                 }]
             },
             options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: { color: "#fff" },
-                        grid: { color: "rgba(255,255,255,0.1)" }
-                    },
-                    x: {
-                        ticks: { color: "#fff" },
-                        grid: { color: "rgba(255,255,255,0.1)" }
-                    }
-                },
                 plugins: {
-                    legend: {
-                        labels: { color: "#fff" }
-                    }
+                    legend: { labels: { color: "#fff" } }
                 }
             }
         });
 
     } catch (e) {
-        console.error("Errore Attack Trend:", e);
+        console.error("Pie error:", e);
     }
 }
 
-loadAttackTrend();
-setInterval(loadAttackTrend, 60000);
+loadMalwarePie();
+setInterval(loadMalwarePie, 60000);
+</script>
+
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">C2 Geo Heatmap</h3>
+  <ul id="geoHeatmap" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+  </ul>
+</div>
+	
+<script>
+async function loadGeoHeatmap() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/c2-geo-heatmap.php");
+        const data = await res.json();
+
+        let html = "";
+        for (const r in data) {
+            html += `<li><strong>${r}:</strong> ${data[r]} C2</li>`;
+        }
+
+        document.getElementById("geoHeatmap").innerHTML = html;
+
+    } catch (e) {
+        document.getElementById("geoHeatmap").innerHTML =
+            "<li>Errore caricamento dati</li>";
+    }
+}
+
+loadGeoHeatmap();
+setInterval(loadGeoHeatmap, 60000);
+</script>
+
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">C2 Timeline</h3>
+  <ul id="c2Timeline" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+  </ul>
+</div>
+
+	<script>
+async function loadC2Timeline() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/c2-timeline.php");
+        const data = await res.json();
+
+        let html = "";
+        data.forEach(ev => {
+            html += `<li><span class="time-tag">${ev.date}</span> ${ev.ip} — ${ev.malware}</li>`;
+        });
+
+        document.getElementById("c2Timeline").innerHTML = html;
+
+    } catch (e) {
+        document.getElementById("c2Timeline").innerHTML =
+            "<li>Errore caricamento timeline</li>";
+    }
+}
+
+loadC2Timeline();
+setInterval(loadC2Timeline, 60000);
+</script>
+
+	<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #7a00ffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #7a00ffaa;
+">
+  <h3 style="color:#b366ff;">C2 Status Monitor</h3>
+  <ul id="statusStats" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+  </ul>
+</div>
+
+	<script>
+async function loadStatusStats() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/c2-status.php");
+        const data = await res.json();
+
+        document.getElementById("statusStats").innerHTML = `
+            <li><strong>Online:</strong> ${data.online}</li>
+            <li><strong>Offline:</strong> ${data.offline}</li>
+        `;
+    } catch (e) {
+        document.getElementById("statusStats").innerHTML =
+            "<li>Errore caricamento dati</li>";
+    }
+}
+
+loadStatusStats();
+setInterval(loadStatusStats, 60000);
 </script>
 
 	<!-- Ransomware Trends -->
