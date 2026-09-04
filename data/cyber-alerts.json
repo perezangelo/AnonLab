@@ -1,5 +1,47 @@
 [
   {
+    "id": "CVE-2026-72796",
+    "summary": "SiYuan: Static-file routes bypass the publish-access controls enforced on the REST API, exposing templates, snippets and export artifacts to anonymous readers",
+    "severity": "MODERATE",
+    "published": "2026-09-04T21:02:22Z",
+    "ghsa": "GHSA-fgmr-7w36-9qfq"
+  },
+  {
+    "id": "CVE-2026-72797",
+    "summary": "SiYuan: getEncryptedNotebookStatus discloses names and current lock/unlock state of all encrypted notebooks to anonymous readers",
+    "severity": "MODERATE",
+    "published": "2026-09-04T21:01:46Z",
+    "ghsa": "GHSA-f2rw-w22v-54vh"
+  },
+  {
+    "id": "CVE-2026-72798",
+    "summary": "SiYuan: Publish-access filter on renderAttributeView leaves related-database content unfiltered and fails open on non-block first columns",
+    "severity": "HIGH",
+    "published": "2026-09-04T20:58:04Z",
+    "ghsa": "GHSA-mfrj-v65r-979c"
+  },
+  {
+    "id": "CVE-2026-72799",
+    "summary": "SiYuan: Missing publish-access filter on the HPath/path-resolution endpoints discloses the private document tree to anonymous readers",
+    "severity": "MODERATE",
+    "published": "2026-09-04T20:53:34Z",
+    "ghsa": "GHSA-5w7r-f4cg-rqq7"
+  },
+  {
+    "id": "CVE-2026-63733",
+    "summary": "SurrealDB: Writes in a PERMISSIONS clause bypass table permissions",
+    "severity": "MODERATE",
+    "published": "2026-09-04T20:50:40Z",
+    "ghsa": "GHSA-66r2-5gwj-gxm2"
+  },
+  {
+    "id": "CVE-2026-63735",
+    "summary": "SurrealDB: Custom API route lets authenticated callers override namespace/database scope via URL path",
+    "severity": "HIGH",
+    "published": "2026-09-04T20:07:07Z",
+    "ghsa": "GHSA-848m-r628-vrxw"
+  },
+  {
     "id": "CVE-2026-75911",
     "summary": "CodeWhale: Project config `allow_shell` override enables arbitrary shell command execution via cloned repository",
     "severity": "HIGH",
@@ -26,47 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-09-04T18:05:12Z",
     "ghsa": "GHSA-6v2g-fpxh-pmmh"
-  },
-  {
-    "id": "CVE-2026-75915",
-    "summary": "CodeWhale: js_execution leaks parent environment to model context via missing env scrub",
-    "severity": "HIGH",
-    "published": "2026-09-04T18:03:08Z",
-    "ghsa": "GHSA-h539-c7r8-3xq4"
-  },
-  {
-    "id": "CVE-2026-75913",
-    "summary": "CodeWhale: Argument Injection in `git_show` Tool Allows Arbitrary File Write Without Approval",
-    "severity": "HIGH",
-    "published": "2026-09-04T18:02:37Z",
-    "ghsa": "GHSA-7j5w-7r7x-9v27"
-  },
-  {
-    "id": "CVE-2026-75857",
-    "summary": "CodeWhale: exec_shell_interact sends LLM-controlled input to a running shell without an approval prompt (privilege escalation)",
-    "severity": "HIGH",
-    "published": "2026-09-04T18:02:10Z",
-    "ghsa": "GHSA-g29h-pfmp-qp9r"
-  },
-  {
-    "id": "CVE-2026-75859",
-    "summary": "CodeWhale: Project config `instructions` override enables arbitrary file read into AI system prompt via cloned repository",
-    "severity": "HIGH",
-    "published": "2026-09-04T18:00:37Z",
-    "ghsa": "GHSA-62f5-cp2p-vq95"
-  },
-  {
-    "id": "CVE-2026-75914",
-    "summary": "CodeWhale: image_analyze follows workspace symlinks, leaking external file bytes",
-    "severity": "HIGH",
-    "published": "2026-09-04T17:34:55Z",
-    "ghsa": "GHSA-w7wx-5q49-r59w"
-  },
-  {
-    "id": "GHSA-6hxq-p678-4hr2",
-    "summary": "SimpleWebAuthn: Registration verification does not sufficiently ensure that attestation certificates chain to a trust anchor",
-    "severity": "LOW",
-    "published": "2026-09-04T17:33:20Z",
-    "ghsa": "GHSA-6hxq-p678-4hr2"
   }
 ]
