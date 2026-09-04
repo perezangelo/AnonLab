@@ -191,18 +191,36 @@ fetch("/partials/ticker.html")
 </ul>
 	  <script>
 function loadThreatIntel() {
+
+    const el1 = document.getElementById("ti-threat-level");
+    const el2 = document.getElementById("ti-zero-day");
+    const el3 = document.getElementById("ti-exploits");
+    const el4 = document.getElementById("ti-last-update");
+
+    if (!el1 || !el2 || !el3 || !el4) {
+        console.warn("Elementi TI non trovati");
+        return;
+    }
+
     fetch("https://angelonline.altervista.org/api/threat-intel.php?ts=" + Date.now())
         .then(r => r.json())
         .then(data => {
-            document.getElementById("ti-threat-level").textContent = data.threatLevel;
-            document.getElementById("ti-zero-day").textContent = data.zeroDay;
-            document.getElementById("ti-exploits").textContent = data.exploits;
-            document.getElementById("ti-last-update").textContent = data.updated;
+            el1.textContent = data.threatLevel;
+            el2.textContent = data.zeroDay;
+            el3.textContent = data.exploits;
+            el4.textContent = data.updated;
         })
-        .catch(err => console.error("TI error:", err));
+        .catch(err => {
+            console.error("TI error:", err);
+            el1.textContent = "--";
+            el2.textContent = "--";
+            el3.textContent = "--";
+            el4.textContent = "N/A";
+        });
 }
 
-document.addEventListener("DOMContentLoaded", loadThreatIntel);
+setTimeout(loadThreatIntel, 300);
+setInterval(loadThreatIntel, 15000);
 </script>
   </div>     
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
