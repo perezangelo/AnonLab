@@ -653,40 +653,77 @@ loadAttackTrend();
 setInterval(loadAttackTrend, 60000);
 </script>
 
-          <!-- Ransomware Trends -->
-          <div class="ti-section" style="margin-top:25px;">
-            <h4 style="color:#ff7b00;">Ransomware Trends 2026</h4>
-            <ul style="color:#ccc; line-height:1.7;">
-              <li><strong>Target:</strong> PMI, sanità, enti locali.</li>
-              <li><strong>Tattiche:</strong> doppia estorsione, data leak.</li>
-              <li><strong>Accesso iniziale:</strong> phishing, RDP esposto.</li>
-              <li><strong>Monetizzazione:</strong> criptovalute.</li>
-            </ul>
-          </div>
+         <ul id="ransomList" style="color:#ccc; line-height:1.7;"></ul>
 
-          <!-- Hacker Activity Heatmap -->
-          <div class="ti-section" style="margin-top:25px;">
-            <h4 style="color:#ff7b00;">Hacker Activity Heatmap</h4>
-            <ul style="color:#ccc; line-height:1.7;">
-              <li><strong>Europa:</strong> exploit su VPN e AD.</li>
-              <li><strong>Nord America:</strong> DDoS su cloud.</li>
-              <li><strong>Asia:</strong> phishing su larga scala.</li>
-              <li><strong>Sud America:</strong> malware bancario.</li>
-              <li><strong>Africa:</strong> gruppi ransomware emergenti.</li>
-            </ul>
-          </div>
+<script>
+async function loadRansomTrends() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/ransomware-trends.php");
+        const d = await res.json();
 
-          <!-- Timeline attacchi recenti -->
-          <div class="ti-section" style="margin-top:25px;">
-            <h4 style="color:#ff7b00;">Timeline attacchi recenti</h4>
-            <ul style="color:#ccc; line-height:1.7;">
-              <li><span class="time-tag">Gen 2026</span> Supply-chain compromessa.</li>
-              <li><span class="time-tag">Feb 2026</span> Phishing mirato.</li>
-              <li><span class="time-tag">Mar 2026</span> Attacco ransomware.</li>
-              <li><span class="time-tag">Apr 2026</span> Zero-day VPN.</li>
-            </ul>
-          </div>
+        document.getElementById("ransomList").innerHTML = `
+            <li><strong>Target:</strong> ${d.targets}</li>
+            <li><strong>Tattiche:</strong> ${d.tactics}</li>
+            <li><strong>Accesso iniziale:</strong> ${d.initial}</li>
+            <li><strong>Monetizzazione:</strong> ${d.monet}</li>
+            <li><strong>KEV attivi:</strong> ${d.kev_count}</li>
+        `;
+    } catch (e) {
+        console.error("Ransom Trends error:", e);
+    }
+}
 
+loadRansomTrends();
+setInterval(loadRansomTrends, 30000);
+</script>
+
+          <ul id="heatmapList" style="color:#ccc; line-height:1.7;"></ul>
+
+<script>
+async function loadHeatmap() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/hacker-heatmap.php");
+        const d = await res.json();
+
+        document.getElementById("heatmapList").innerHTML = `
+            <li><strong>Europa:</strong> ${d["Europa"]} attività</li>
+            <li><strong>Nord America:</strong> ${d["Nord America"]} attività</li>
+            <li><strong>Asia:</strong> ${d["Asia"]} attività</li>
+            <li><strong>Sud America:</strong> ${d["Sud America"]} attività</li>
+            <li><strong>Africa:</strong> ${d["Africa"]} attività</li>
+        `;
+    } catch (e) {
+        console.error("Heatmap error:", e);
+    }
+}
+
+loadHeatmap();
+setInterval(loadHeatmap, 30000);
+</script>
+
+          <ul id="timelineList" style="color:#ccc; line-height:1.7;"></ul>
+
+<script>
+async function loadTimeline() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/attack-timeline.php");
+        const d = await res.json();
+
+        let html = "";
+        d.forEach(ev => {
+            html += `<li><span class="time-tag">${ev.date}</span> ${ev.desc} (CVE: ${ev.cve})</li>`;
+        });
+
+        document.getElementById("timelineList").innerHTML = html;
+
+    } catch (e) {
+        console.error("Timeline error:", e);
+    }
+}
+
+loadTimeline();
+setInterval(loadTimeline, 60000);
+</script>
           <!-- 🔥 CONTENUTI DEL TUO BLOCCO 3 -->
 
           <div class="ti-section">
@@ -1027,9 +1064,9 @@ setInterval(loadZeroDay, 60000);
   <!-- FOOTER -->
   <div id="footer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>	
-
   <!-- SCRIPT -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>	
+	
   <script src="/js/ui.js"></script>
   <script src="/js/main.js"></script>
   <!-- BACK TO TOP BUTTON -->
