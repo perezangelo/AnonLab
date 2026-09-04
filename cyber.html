@@ -349,57 +349,73 @@ setInterval(loadThreatIntel, 15000);
   </style>
 
   <script>
-  /* ============================================================
-        GLOBAL THREAT HEATMAP — Versione Dinamica Finale
-     ============================================================ */
+/* GLOBAL THREAT HEATMAP — Premium Frontend (senza geo-API) */
 
-  function startHeatmap() {
-      const canvas = document.getElementById("heatmap-canvas");
-      if (!canvas) return setTimeout(startHeatmap, 200);
+function startHeatmap() {
+    const canvas = document.getElementById("heatmap-canvas");
+    if (!canvas) return setTimeout(startHeatmap, 200);
 
-      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
-      function resizeCanvas() {
-          canvas.width = canvas.offsetWidth;
-          canvas.height = canvas.offsetHeight;
-      }
+    function resizeCanvas() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
 
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-      async function loadHeatmap() {
-          try {
-              const res = await fetch("https://angelonline.altervista.org/soc/heatmap_data.php");
-              const points = await res.json();
+    let lastPoints = [];
+    let lastUpdate = 0;
 
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
+    async function loadHeatmap() {
+        try {
+            const res    = await fetch("https://angelonline.altervista.org/soc/heatmap_data.php?ts=" + Date.now());
+            const points = await res.json();
 
-              points.forEach(p => {
-                  const x = p.x * canvas.width;
-                  const y = p.y * canvas.height;
-                  const intensity = p.intensity;
+            lastPoints = points || [];
+            lastUpdate = performance.now();
+        } catch (e) {
+            console.error("Errore Heatmap:", e);
+        }
+    }
 
-                  const gradient = ctx.createRadialGradient(x, y, 0, x, y, 60);
-                  gradient.addColorStop(0, `rgba(255,0,0,${intensity})`);
-                  gradient.addColorStop(1, "rgba(255,0,0,0)");
+    function renderFrame(now) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(0,0,0,0.18)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                  ctx.fillStyle = gradient;
-                  ctx.beginPath();
-                  ctx.arc(x, y, 60, 0, Math.PI * 2);
-                  ctx.fill();
-              });
+        lastPoints.forEach(p => {
+            const x = p.x * canvas.width;
+            const y = p.y * canvas.height;
 
-          } catch (e) {
-              console.error("Errore Heatmap:", e);
-          }
-      }
+            const baseIntensity = p.intensity;
+            const pulse = 0.3 + 0.7 * Math.abs(Math.sin(now / 900 + x + y));
+            const intensity = Math.min(baseIntensity * pulse, 1.0);
 
-      loadHeatmap();
-      setInterval(loadHeatmap, 10000);
-  }
+            const radius = 70;
 
-  startHeatmap();
-  </script>
+            const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+            gradient.addColorStop(0, `rgba(255,0,0,${intensity})`);
+            gradient.addColorStop(0.4, `rgba(255,140,0,${intensity * 0.7})`);
+            gradient.addColorStop(1, "rgba(255,0,0,0)");
+
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        requestAnimationFrame(renderFrame);
+    }
+
+    loadHeatmap();
+    setInterval(loadHeatmap, 15000);
+    requestAnimationFrame(renderFrame);
+}
+
+startHeatmap();
+</script>
 </div>
 
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
