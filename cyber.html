@@ -451,13 +451,20 @@ loadMalwareActivity();
 setInterval(loadMalwareActivity, 60000);
 </script>
 </div>
-<table id="exfilTable" style="width:100%;color:#fff;border-collapse:collapse;">
-  <tr style="background:#111;">
-    <th style="padding:10px;">Host</th>
-    <th style="padding:10px;">Traffico uscente</th>
-    <th style="padding:10px;">Stato</th>
-  </tr>
-</table>
+	
+<!-- Data Exfiltration Monitor -->
+<div class="cyber-box" style="background:#000814;border:1px solid #7a00ffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #7a00ffaa;">
+  <h3 style="color:#b366ff;">Data Exfiltration Monitor</h3>
+  <p style="color:#ccc;margin-bottom:15px;">Monitoraggio del traffico in uscita per individuare possibili esfiltrazioni.</p>
+
+  <table id="exfilTable" style="width:100%;color:#fff;border-collapse:collapse;">
+    <tr style="background:#111;">
+      <th style="padding:10px;">Host</th>
+      <th style="padding:10px;">Traffico uscente</th>
+      <th style="padding:10px;">Stato</th>
+    </tr>
+  </table>
+</div>
 
 <script>
 async function loadExfil() {
@@ -467,6 +474,7 @@ async function loadExfil() {
 
         const table = document.getElementById("exfilTable");
 
+        // Reset mantenendo l'header
         table.innerHTML = `
         <tr style="background:#111;">
           <th style="padding:10px;">Host</th>
@@ -653,7 +661,13 @@ loadAttackTrend();
 setInterval(loadAttackTrend, 60000);
 </script>
 
-         <ul id="ransomList" style="color:#ccc; line-height:1.7;"></ul>
+	<!-- Ransomware Trends -->
+<div class="ti-section" style="margin-top:25px;">
+  <h4 style="color:#ff7b00;">Ransomware Trends 2026</h4>
+  <ul id="ransomList" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+  </ul>
+</div>
 
 <script>
 async function loadRansomTrends() {
@@ -677,7 +691,13 @@ loadRansomTrends();
 setInterval(loadRansomTrends, 30000);
 </script>
 
-          <ul id="heatmapList" style="color:#ccc; line-height:1.7;"></ul>
+          <!-- Hacker Activity Heatmap -->
+<div class="ti-section" style="margin-top:25px;">
+  <h4 style="color:#ff7b00;">Hacker Activity Heatmap</h4>
+  <ul id="heatmapList" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+  </ul>
+</div>
 
 <script>
 async function loadHeatmap() {
@@ -701,7 +721,13 @@ loadHeatmap();
 setInterval(loadHeatmap, 30000);
 </script>
 
-          <ul id="timelineList" style="color:#ccc; line-height:1.7;"></ul>
+          <!-- Timeline attacchi recenti -->
+<div class="ti-section" style="margin-top:25px;">
+  <h4 style="color:#ff7b00;">Timeline attacchi recenti</h4>
+  <ul id="timelineList" style="color:#ccc; line-height:1.7;">
+    <li>Caricamento...</li>
+  </ul>
+</div>
 
 <script>
 async function loadTimeline() {
