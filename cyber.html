@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", loadThreatIntel);
       const canvas = document.getElementById("heatmap-canvas");
       if (!canvas) return setTimeout(startHeatmap, 200);
 
-      const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
       function resizeCanvas() {
           canvas.width = canvas.offsetWidth;
