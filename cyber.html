@@ -226,25 +226,45 @@ setInterval(loadThreatIntel, 15000);
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
   <h3 style="color:#00eaff;">MITRE ATT&CK Techniques</h3>
   <p style="color:#ccc;margin-bottom:15px;">Tecniche più utilizzate dagli attaccanti nelle ultime campagne osservate.</p>
-  <ul style="color:#fff;line-height:1.8;">
-    <li><strong>T1059 — Command Execution</strong> (PowerShell, CMD)</li>
-    <li><strong>T1047 — WMI Execution</strong> (movimento laterale)</li>
-    <li><strong>T1566 — Phishing</strong> (email mirate)</li>
-    <li><strong>T1021 — Remote Services</strong> (SSH, RDP)</li>
-    <li><strong>T1055 — Process Injection</strong> (evasione difese)</li>
+
+  <ul id="mitre-list" style="color:#fff;line-height:1.8;">
+    <li>Loading...</li>
   </ul>
+
+  <script>
+  fetch("https://angelonline.altervista.org/api/techniques-feed.php")
+    .then(r => r.json())
+    .then(list => {
+        const box = document.getElementById("mitre-list");
+        box.innerHTML = "";
+        list.slice(0,5).forEach(t => {
+            box.innerHTML += `<li><strong>${t.id}</strong> — ${t.desc}</li>`;
+        });
+    });
+  </script>
 </div>
+
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
   <h3 style="color:#ff0044;">Threat Actors Spotlight</h3>
   <p style="color:#ccc;margin-bottom:15px;">Attori malevoli più attivi nelle ultime settimane.</p>
-  <ul style="color:#fff;line-height:1.8;">
-    <li><strong>APT29</strong> — campagne di spear‑phishing avanzate</li>
-    <li><strong>Lazarus Group</strong> — attività finanziarie sospette</li>
-    <li><strong>FIN7</strong> — targeting infrastrutture retail</li>
-    <li><strong>Sandworm</strong> — operazioni ICS/SCADA</li>
-    <li><strong>TA505</strong> — distribuzione massiva malware</li>
+
+  <ul id="actors-list" style="color:#fff;line-height:1.8;">
+    <li>Loading...</li>
   </ul>
+
+  <script>
+  fetch("https://angelonline.altervista.org/api/actors-feed.php")
+    .then(r => r.json())
+    .then(list => {
+        const box = document.getElementById("actors-list");
+        box.innerHTML = "";
+        list.slice(0,5).forEach(a => {
+            box.innerHTML += `<li><strong>${a.malware}</strong> — attività da IP ${a.ip}</li>`;
+        });
+    });
+  </script>
 </div>
+
 <div class="cyber-box" style="background:#000814;border:1px solid #7a00ffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #7a00ffaa;">
   <h3 style="color:#b366ff;">Cyber Kill Chain Breakdown</h3>
   <p style="color:#ccc;margin-bottom:15px;">Le 7 fasi del modello Lockheed Martin per l’analisi degli attacchi.</p>
@@ -261,23 +281,48 @@ setInterval(loadThreatIntel, 15000);
 <div class="cyber-box" style="background:#000814;border:1px solid #00ff99aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00ff99aa;">
   <h3 style="color:#00ff99;">Weekly Threat Trends</h3>
   <p style="color:#ccc;margin-bottom:15px;">Andamento delle principali categorie di minacce nell’ultima settimana.</p>
-  <ul style="color:#fff;line-height:1.8;">
-    <li><strong>Ransomware:</strong> ↑ forte aumento</li>
-    <li><strong>Phishing:</strong> ↑ campagne mirate</li>
-    <li><strong>DDoS:</strong> → stabile</li>
-    <li><strong>Supply Chain:</strong> ↓ in calo</li>
-    <li><strong>Zero‑day:</strong> ↑ attività critica</li>
+
+  <ul id="trends-list" style="color:#fff;line-height:1.8;">
+    <li>Loading...</li>
   </ul>
+
+  <script>
+  fetch("https://angelonline.altervista.org/api/trends-feed.php")
+    .then(r => r.json())
+    .then(t => {
+        const box = document.getElementById("trends-list");
+        box.innerHTML = `
+          <li><strong>Ransomware:</strong> ${t.ransomware}</li>
+          <li><strong>Phishing:</strong> ${t.phishing}</li>
+          <li><strong>DDoS:</strong> ${t.ddos}</li>
+          <li><strong>Supply Chain:</strong> ${t.supply}</li>
+          <li><strong>Zero‑day:</strong> ${t.zeroday}</li>
+        `;
+    });
+  </script>
 </div>
+
 <div class="cyber-box" style="background:#000814;border:1px solid #ffaa00aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ffaa00aa;">
   <h3 style="color:#ffaa00;">Zero‑Day Monitor</h3>
   <p style="color:#ccc;margin-bottom:15px;">Vulnerabilità zero‑day attualmente sfruttate attivamente.</p>
-  <ul style="color:#fff;line-height:1.8;">
-    <li><strong>CVE‑2026‑11203</strong> — exploit attivo su Windows Server</li>
-    <li><strong>CVE‑2026‑09877</strong> — bypass autenticazione VPN</li>
-    <li><strong>CVE‑2026‑55421</strong> — escalation privilegi Linux</li>
+
+  <ul id="zeroday-list" style="color:#fff;line-height:1.8;">
+    <li>Loading...</li>
   </ul>
+
+  <script>
+  fetch("https://angelonline.altervista.org/api/zeroday-feed.php")
+    .then(r => r.json())
+    .then(list => {
+        const box = document.getElementById("zeroday-list");
+        box.innerHTML = "";
+        list.slice(0,3).forEach(v => {
+            box.innerHTML += `<li><strong>${v.cveID}</strong> — ${v.shortDescription}</li>`;
+        });
+    });
+  </script>
 </div>
+
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
   <h3 style="color:#00eaff;">Global Threat Heatmap</h3>
   <p style="color:#ccc;margin-bottom:15px;">Intensità delle minacce per area geografica (aggiornamento live).</p>
