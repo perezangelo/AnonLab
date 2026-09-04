@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-72800",
-    "summary": "SiYuan: Missing publish-access filter on getAttributeViewKeysByID discloses database column schema, plus two unscoped block-ID enumeration oracles (publish mode)",
-    "severity": "MODERATE",
-    "published": "2026-09-03T23:04:13Z",
-    "ghsa": "GHSA-5fhr-f75j-8wr9"
-  },
-  {
-    "id": "CVE-2026-72801",
-    "summary": "SiYuan: Encrypted-notebook key-derivation material and wrapped notebook keys disclosed to anonymous readers, enabling offline master-password cracking",
+    "id": "CVE-2026-75911",
+    "summary": "CodeWhale: Project config `allow_shell` override enables arbitrary shell command execution via cloned repository",
     "severity": "HIGH",
-    "published": "2026-09-03T23:02:12Z",
-    "ghsa": "GHSA-8x84-r2ff-h8pq"
+    "published": "2026-09-04T18:14:09Z",
+    "ghsa": "GHSA-gx45-xrj5-g6c4"
   },
   {
-    "id": "CVE-2026-72802",
-    "summary": "SiYuan: Absolute filesystem path and OS username disclosure via resolveAssetPath",
-    "severity": "MODERATE",
-    "published": "2026-09-03T23:00:52Z",
-    "ghsa": "GHSA-jv8v-xq2h-657v"
-  },
-  {
-    "id": "CVE-2026-72803",
-    "summary": "SiYuan: Missing publish-access filter on getBlockAttrs and batchGetBlockAttrs discloses block attributes (name, alias, memo, custom fields) of protected documents",
-    "severity": "MODERATE",
-    "published": "2026-09-03T22:58:29Z",
-    "ghsa": "GHSA-qvq9-hq6p-v378"
-  },
-  {
-    "id": "CVE-2026-72804",
-    "summary": "SiYuan: Graph endpoints omit the publish-password tier: anonymous readers receive block-level content of password-protected documents",
+    "id": "CVE-2026-75858",
+    "summary": "CodeWhale: rlm_eval auto-approves arbitrary Python execution, bypassing the user's approval policy (RCE)",
     "severity": "HIGH",
-    "published": "2026-09-03T22:52:58Z",
-    "ghsa": "GHSA-vpjw-wf5h-cgpq"
+    "published": "2026-09-04T18:12:15Z",
+    "ghsa": "GHSA-wrj3-vj8c-784f"
   },
   {
-    "id": "CVE-2026-72805",
-    "summary": "SiYuan: Missing publish-access check on getBlockBreadcrumb, getRefText, and getBlockTreeInfos discloses content and metadata of protected/forbidden documents",
-    "severity": "MODERATE",
-    "published": "2026-09-03T22:52:12Z",
-    "ghsa": "GHSA-67x2-mq63-v9vm"
-  },
-  {
-    "id": "CVE-2026-72806",
-    "summary": "SiYuan: Password (protected) tier omitted in the attribute-view/database publish filter: Reader receives rows of protected documents without the password (publish mode)",
-    "severity": "MODERATE",
-    "published": "2026-09-03T22:50:49Z",
-    "ghsa": "GHSA-6mcf-g667-w3qv"
-  },
-  {
-    "id": "CVE-2026-72807",
-    "summary": "SiYuan: Second-order SSTI to arbitrary SQL via attribute-view template column (queryBlocks): malicious imported package executes SQL on victim kernel",
+    "id": "CVE-2026-75912",
+    "summary": "CodeWhale: Argument Injection in `git_blame` Tool Allows Arbitrary File Read Without Approval",
     "severity": "HIGH",
-    "published": "2026-09-03T22:49:30Z",
-    "ghsa": "GHSA-x67c-8pwr-m8g3"
+    "published": "2026-09-04T18:11:45Z",
+    "ghsa": "GHSA-c6mw-8xh8-gpq6"
   },
   {
-    "id": "CVE-2026-72808",
-    "summary": "SiYuan: Missing publish-access filter on getFileAnnotation discloses private PDF annotations of forbidden/protected documents (publish mode)",
-    "severity": "MODERATE",
-    "published": "2026-09-03T22:48:22Z",
-    "ghsa": "GHSA-v7ph-r5r6-4jcj"
+    "id": "CVE-2026-75856",
+    "summary": "CodeWhale: SSRF‌ bypass - TOCTOU on DNS failure for DNS pinning",
+    "severity": "CRITICAL",
+    "published": "2026-09-04T18:05:12Z",
+    "ghsa": "GHSA-6v2g-fpxh-pmmh"
   },
   {
-    "id": "CVE-2026-72809",
-    "summary": "SiYuan: Localhost-trust admin bypass on auth-code-gated endpoints, with potential remote reachability via the fixed-port proxy",
+    "id": "CVE-2026-75915",
+    "summary": "CodeWhale: js_execution leaks parent environment to model context via missing env scrub",
     "severity": "HIGH",
-    "published": "2026-09-03T22:34:06Z",
-    "ghsa": "GHSA-3mp7-4rh5-jrv9"
+    "published": "2026-09-04T18:03:08Z",
+    "ghsa": "GHSA-h539-c7r8-3xq4"
+  },
+  {
+    "id": "CVE-2026-75913",
+    "summary": "CodeWhale: Argument Injection in `git_show` Tool Allows Arbitrary File Write Without Approval",
+    "severity": "HIGH",
+    "published": "2026-09-04T18:02:37Z",
+    "ghsa": "GHSA-7j5w-7r7x-9v27"
+  },
+  {
+    "id": "CVE-2026-75857",
+    "summary": "CodeWhale: exec_shell_interact sends LLM-controlled input to a running shell without an approval prompt (privilege escalation)",
+    "severity": "HIGH",
+    "published": "2026-09-04T18:02:10Z",
+    "ghsa": "GHSA-g29h-pfmp-qp9r"
+  },
+  {
+    "id": "CVE-2026-75859",
+    "summary": "CodeWhale: Project config `instructions` override enables arbitrary file read into AI system prompt via cloned repository",
+    "severity": "HIGH",
+    "published": "2026-09-04T18:00:37Z",
+    "ghsa": "GHSA-62f5-cp2p-vq95"
+  },
+  {
+    "id": "CVE-2026-75914",
+    "summary": "CodeWhale: image_analyze follows workspace symlinks, leaking external file bytes",
+    "severity": "HIGH",
+    "published": "2026-09-04T17:34:55Z",
+    "ghsa": "GHSA-w7wx-5q49-r59w"
+  },
+  {
+    "id": "GHSA-6hxq-p678-4hr2",
+    "summary": "SimpleWebAuthn: Registration verification does not sufficiently ensure that attestation certificates chain to a trust anchor",
+    "severity": "LOW",
+    "published": "2026-09-04T17:33:20Z",
+    "ghsa": "GHSA-6hxq-p678-4hr2"
   }
 ]
