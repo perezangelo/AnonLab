@@ -451,36 +451,79 @@ loadMalwareActivity();
 setInterval(loadMalwareActivity, 60000);
 </script>
 </div>
-<div class="cyber-box" style="background:#000814;border:1px solid #7a00ffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #7a00ffaa;">
-  <h3 style="color:#b366ff;">Data Exfiltration Monitor</h3>
-  <p style="color:#ccc;margin-bottom:15px;">Monitoraggio del traffico in uscita per individuare possibili esfiltrazioni.</p>
-  <table style="width:100%;color:#fff;border-collapse:collapse;">
-    <tr style="background:#111;">
-      <th style="padding:10px;">Host</th>
-      <th style="padding:10px;">Traffico uscente</th>
-      <th style="padding:10px;">Stato</th>
-    </tr>
-    <tr><td style="padding:10px;">SRV‑WEB‑01</td><td style="padding:10px;">1.8 GB</td><td style="padding:10px;color:#ffaa00;">Anomalo</td></tr>
-    <tr><td style="padding:10px;">SRV‑DB‑02</td><td style="padding:10px;">450 MB</td><td style="padding:10px;color:#00ff99;">Normale</td></tr>
-    <tr><td style="padding:10px;">CLIENT‑HR‑07</td><td style="padding:10px;">980 MB</td><td style="padding:10px;color:#ff0044;">Sospetto</td></tr>
-  </table>
-</div>
-<div class="cyber-box" style="background:#000814;border:1px solid #00ff99aa;padding:25px;margin-top:40px;margin-bottom:40px;border-radius:8px;box-shadow:0 0 12px #00ff99aa;">
-  <h3 style="color:#00ff99;">Last 10 Alerts (SIEM)</h3>
-  <p style="color:#ccc;margin-bottom:15px;">Ultimi avvisi generati dal sistema di monitoraggio.</p>
-  <ul style="color:#fff;line-height:1.8;list-style:none;padding:0;">
-    <li><strong>[CRIT]</strong> Tentativo di accesso SSH da IP sospetto</li>
-    <li><strong>[HIGH]</strong> Esecuzione PowerShell non autorizzata</li>
-    <li><strong>[HIGH]</strong> Traffico DNS anomalo verso dominio sconosciuto</li>
-    <li><strong>[MED]</strong> Scansione porte rilevata su SRV‑WEB‑01</li>
-    <li><strong>[MED]</strong> File eseguibile sconosciuto in esecuzione</li>
-    <li><strong>[LOW]</strong> Login fallito ripetuto (utente: admin)</li>
-    <li><strong>[LOW]</strong> Query WMI sospetta</li>
-    <li><strong>[LOW]</strong> Traffico HTTP elevato da CLIENT‑HR‑07</li>
-    <li><strong>[INFO]</strong> Aggiornamento antivirus completato</li>
-    <li><strong>[INFO]</strong> Sincronizzazione log completata</li>
-  </ul>
-</div>          
+<table id="exfilTable" style="width:100%;color:#fff;border-collapse:collapse;">
+  <tr style="background:#111;">
+    <th style="padding:10px;">Host</th>
+    <th style="padding:10px;">Traffico uscente</th>
+    <th style="padding:10px;">Stato</th>
+  </tr>
+</table>
+
+<script>
+async function loadExfil() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/data_exfiltration.php");
+        const data = await res.json();
+
+        const table = document.getElementById("exfilTable");
+
+        table.innerHTML = `
+        <tr style="background:#111;">
+          <th style="padding:10px;">Host</th>
+          <th style="padding:10px;">Traffico uscente</th>
+          <th style="padding:10px;">Stato</th>
+        </tr>`;
+
+        data.forEach(row => {
+            const host = row[0];
+            const traffic = row[1];
+            const status = row[2];
+
+            const color =
+                status === "Anomalo" ? "#ffaa00" :
+                status === "Sospetto" ? "#ff0044" :
+                "#00ff99";
+
+            table.innerHTML += `
+            <tr>
+              <td style="padding:10px;">${host}</td>
+              <td style="padding:10px;">${traffic}</td>
+              <td style="padding:10px;color:${color};">${status}</td>
+            </tr>`;
+        });
+
+    } catch (e) {
+        console.error("Exfiltration error:", e);
+    }
+}
+
+loadExfil();
+setInterval(loadExfil, 15000);
+</script>
+
+<ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;"></ul>
+
+<script>
+async function loadSIEM() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/siem-alerts.php");
+        const data = await res.json();
+
+        const box = document.getElementById("siemList");
+        box.innerHTML = "";
+
+        data.forEach(a => {
+            box.innerHTML += `<li><strong>[${a.sev}]</strong> ${a.msg}</li>`;
+        });
+
+    } catch (e) {
+        console.error("SIEM error:", e);
+    }
+}
+
+loadSIEM();
+setInterval(loadSIEM, 10000);
+</script>
         </section>
         <!-- CARDS -->
 <div class="cyber-card">
