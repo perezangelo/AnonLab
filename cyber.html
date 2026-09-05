@@ -931,17 +931,20 @@ setInterval(loadTimeline, 60000);
   <h4 class="ti-title">Threat Distribution</h4>
 
   <div id="threatBars" style="
-      display:flex;
-      gap:22px;
-      margin-top:25px;
-      align-items:flex-end;
-      height:240px;
-  ">
+    display:flex;
+    gap:22px;
+    margin-top:25px;
+    align-items:flex-end;
+    height:240px;
+    width:85%;
+    margin-left:auto;
+    margin-right:auto;
+">
 
     <!-- RANSOMWARE -->
     <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
       <div id="bar-ransomware" style="
-          width:50%;
+          width:100%;
           height:10px;
           background:#ff0044;
           border-radius:6px;
@@ -956,7 +959,7 @@ setInterval(loadTimeline, 60000);
     <!-- PHISHING -->
     <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
       <div id="bar-phishing" style="
-          width:50%;
+          width:100%;
           height:10px;
           background:#ff7b00;
           border-radius:6px;
@@ -971,7 +974,7 @@ setInterval(loadTimeline, 60000);
     <!-- EXPLOIT -->
     <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
       <div id="bar-exploit" style="
-          width:50%;
+          width:100%;
           height:10px;
           background:#ffaa00;
           border-radius:6px;
@@ -986,7 +989,7 @@ setInterval(loadTimeline, 60000);
     <!-- VULNERABILITÀ -->
     <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
       <div id="bar-vulns" style="
-          width:50%;
+          width:100%;
           height:10px;
           background:#00eaff;
           border-radius:6px;
@@ -1001,7 +1004,7 @@ setInterval(loadTimeline, 60000);
     <!-- BOTNET -->
     <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
       <div id="bar-botnet" style="
-          width:50%;
+          width:100%;
           height:10px;
           background:#00ff99;
           border-radius:6px;
