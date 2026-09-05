@@ -1154,24 +1154,22 @@ setInterval(loadThreatDistribution, 60000);
   Distribuzione delle principali categorie di minacce rilevate questa settimana.
 </p>
 
+<!-- ========================= -->
 <!-- INTELLIGENCE NOTES (DINAMICO) -->
+<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Intelligence Notes</h4>
 
   <div id="intel-notes">
-    <p style="
-        color:#ccc;
-        line-height:1.7;
-        font-size:14px;
-        text-shadow:0 0 6px #000;
-        margin-top:10px;
-    ">
+    <p style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
       Caricamento note di intelligence in corso...
     </p>
   </div>
 </div>
 
+<!-- ========================= -->
 <!-- ATTACCHI INFORMATICI -->
+<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Attacchi Informatici</h4>
   <ul id="sec-attacchi" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
@@ -1179,7 +1177,9 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+<!-- ========================= -->
 <!-- DIFESA & SICUREZZA -->
+<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Difesa & Sicurezza</h4>
   <ul id="sec-difesa" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
@@ -1187,7 +1187,9 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+<!-- ========================= -->
 <!-- CULTURA CYBER -->
+<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Cultura Cyber</h4>
   <ul id="sec-cultura" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
@@ -1195,7 +1197,9 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+<!-- ========================= -->
 <!-- CYBER AWARENESS TIPS -->
+<!-- ========================= -->
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ffffff33;
@@ -1211,7 +1215,9 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+<!-- ========================= -->
 <!-- CYBER OPERATIONS CHECKLIST -->
+<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px; text-align:center;">
   <h4 class="ti-title" style="text-align:center;">Cyber Operations Checklist</h4>
 
@@ -1227,7 +1233,7 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-	<script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   loadIntelNotes();
   loadCyberSections();
@@ -1344,8 +1350,7 @@ function renderList(el, arr, emptyMsg) {
   }
   el.innerHTML = arr.map(item => `<li>${item}</li>`).join("");
 }
-</script>
-        </div>
+</script>	
         
       </div> <!-- fine cyber-grid -->
       <!-- 🔥 BLOCCHI GRANDI SOTTO LA GRID -->
