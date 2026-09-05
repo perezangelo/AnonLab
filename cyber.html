@@ -1073,14 +1073,15 @@ async function loadThreatLevel() {
         const res = await fetch("https://anonlab.vercel.app/api/threat-level");
         const data = await res.json();
 
-        document.getElementById("threatLevel").innerHTML = `
-            <strong>Livello:</strong> ${data.status}<br>
-            <strong>Colore:</strong> ${data.color}<br>
-            <strong>Dettagli:</strong> ${data.description}
-        `;
+        // Aggiorna barra
+        document.getElementById("thLevelFill").style.width = "80%";
+
+        // Aggiorna testo
+        document.getElementById("thLevelText").innerText =
+            `${data.status} — ${data.description}`;
     } catch (e) {
-        document.getElementById("threatLevel").innerHTML =
-            "Errore nel caricamento del livello minaccia";
+        document.getElementById("thLevelText").innerText =
+            "Errore nel caricamento del Threat Level";
     }
 }
 
