@@ -1154,93 +1154,78 @@ setInterval(loadThreatDistribution, 60000);
   Distribuzione delle principali categorie di minacce rilevate questa settimana.
 </p>
 
+<!-- INTELLIGENCE NOTES (DINAMICO) -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Intelligence Notes</h4>
 
-  <p style="
-      color:#ccc;
-      line-height:1.7;
-      font-size:14px;
-      text-shadow:0 0 6px #000;
-      margin-top:10px;
-  ">
-    Le campagne di social engineering stanno diventando sempre più sofisticate grazie all’uso di modelli linguistici
-    avanzati. Gli attaccanti riescono a generare email credibili, imitare comunicazioni interne e creare falsi
-    documenti aziendali difficili da distinguere dagli originali.
-  </p>
-
-  <p style="
-      color:#ccc;
-      line-height:1.7;
-      font-size:14px;
-      text-shadow:0 0 6px #000;
-      margin-top:14px;
-  ">
-    Le organizzazioni devono adottare sistemi di rilevamento basati su comportamento, controlli di identità avanzati
-    e formazione continua per mitigare questi rischi. La threat intelligence gioca un ruolo fondamentale nel
-    riconoscere pattern ricorrenti e anticipare nuove campagne.
-  </p>
+  <div id="intel-notes">
+    <p style="
+        color:#ccc;
+        line-height:1.7;
+        font-size:14px;
+        text-shadow:0 0 6px #000;
+        margin-top:10px;
+    ">
+      Caricamento note di intelligence in corso...
+    </p>
+  </div>
 </div>
-	
-          <!-- Attacchi Informatici -->
+
+<!-- ATTACCHI INFORMATICI -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Attacchi Informatici</h4>
-  <p style="color:#ccc; line-height:1.7;">
-    Ransomware, phishing, supply‑chain attacks.
-  </p>
+  <ul id="sec-attacchi" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento dati...</li>
+  </ul>
 </div>
 
-<!-- Difesa & Sicurezza -->
+<!-- DIFESA & SICUREZZA -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Difesa & Sicurezza</h4>
-  <p style="color:#ccc; line-height:1.7;">
-    Zero Trust, SOC, SIEM, EDR.
-  </p>
+  <ul id="sec-difesa" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento dati...</li>
+  </ul>
 </div>
 
-<!-- Cultura Cyber -->
+<!-- CULTURA CYBER -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Cultura Cyber</h4>
-  <p style="color:#ccc; line-height:1.7;">
-    Consapevolezza digitale, privacy, OSINT.
-  </p>
+  <ul id="sec-cultura" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento dati...</li>
+  </ul>
 </div>
-          <!-- Cyber Awareness Tips -->
-      <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #ffffff33;
-          padding:25px;
-          margin-top:30px;
-          border-radius:8px;
-          box-shadow:0 0 12px #ffffff33;
-      ">
-        <h3 style="color:#fff;">Cyber Awareness Tips</h3>
 
-        <ul style="color:#ccc; line-height:1.7;">
-          <li>Abilita sempre l’autenticazione a più fattori (MFA).</li>
-          <li>Evita di riutilizzare password su più servizi.</li>
-          <li>Controlla regolarmente i log di accesso ai tuoi account.</li>
-          <li>Diffida da allegati e link non richiesti.</li>
-          <li>Aggiorna software e firmware appena disponibili.</li>
-          <li>Segmenta la rete per limitare la propagazione degli attacchi.</li>
-          <li>Monitora costantemente identità e sessioni attive.</li>
-        </ul>
-      </div>
-          <!-- Cyber Operations Checklist -->
+<!-- CYBER AWARENESS TIPS -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffffff33;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffffff33;
+">
+  <h3 style="color:#fff; margin-bottom:12px;">Cyber Awareness Tips</h3>
+
+  <ul id="awareness-tips" style="color:#ccc; line-height:1.7; font-size:14px;">
+    <li>Caricamento suggerimenti...</li>
+  </ul>
+</div>
+
+<!-- CYBER OPERATIONS CHECKLIST -->
 <div class="ti-section" style="margin-top:25px; text-align:center;">
   <h4 class="ti-title" style="text-align:center;">Cyber Operations Checklist</h4>
 
-  <ul style="color:#ccc; line-height:1.7; display:inline-block; text-align:left; margin-top:10px;">
-    <li>Monitoraggio continuo dei log (SIEM/XDR).</li>
-    <li>Controllo accessi privilegiati (PAM).</li>
-    <li>Verifica integrità configurazioni (CIS Benchmark).</li>
-    <li>Analisi anomalie su identità e sessioni.</li>
-    <li>Backup offline e test di ripristino.</li>
-    <li>Threat hunting settimanale.</li>
-    <li>Simulazioni di phishing e awareness.</li>
+  <ul id="ops-checklist" style="
+      color:#ccc;
+      line-height:1.7;
+      font-size:14px;
+      display:inline-block;
+      text-align:left;
+      margin-top:10px;
+  ">
+    <li>Caricamento checklist operativa...</li>
   </ul>
 </div>
-        </div>
 
 		  <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1250,11 +1235,14 @@ document.addEventListener("DOMContentLoaded", () => {
   loadOpsChecklist();
 });
 
+/* ============================
+   INTELLIGENCE NOTES (VERCEL)
+   ============================ */
 async function loadIntelNotes() {
   const container = document.getElementById("intel-notes");
   try {
     const res = await fetch("https://anonlab.vercel.app/api/cisa");
-    const data = await res.json(); // atteso: { alerts: [ { title, summary }, ... ] }
+    const data = await res.json();
 
     if (!data.alerts || !data.alerts.length) {
       container.innerHTML = `
@@ -1278,6 +1266,7 @@ async function loadIntelNotes() {
     `).join("");
 
     container.innerHTML = html;
+
   } catch (e) {
     console.error("Intel Notes error:", e);
     container.innerHTML = `
@@ -1287,7 +1276,9 @@ async function loadIntelNotes() {
   }
 }
 
-
+/* ==========================================
+   ATTACCHI / DIFESA / CULTURA (ALTERVISTA)
+   ========================================== */
 async function loadCyberSections() {
   const attacchiEl = document.getElementById("sec-attacchi");
   const difesaEl   = document.getElementById("sec-difesa");
@@ -1295,13 +1286,12 @@ async function loadCyberSections() {
 
   try {
     const res = await fetch("https://angelonline.altervista.org/soc/ti-news.php");
-    const data = await res.json(); 
-    // struttura suggerita:
-    // { attacchi: ["...", "..."], difesa: ["...", "..."], cultura: ["...", "..."] }
+    const data = await res.json();
 
     renderList(attacchiEl, data.attacchi, "Nessun dato sugli attacchi.");
     renderList(difesaEl,   data.difesa,   "Nessun dato sulla difesa.");
     renderList(culturaEl,  data.cultura,  "Nessun dato sulla cultura cyber.");
+
   } catch (e) {
     console.error("Cyber Sections error:", e);
     attacchiEl.innerHTML = `<li style="color:#f66;">Errore nel caricamento dati.</li>`;
@@ -1310,35 +1300,43 @@ async function loadCyberSections() {
   }
 }
 
-
+/* ==========================================
+   AWARENESS TIPS (ALTERVISTA)
+   ========================================== */
 async function loadAwarenessTips() {
   const listEl = document.getElementById("awareness-tips");
   try {
-    const res = await fetch("https://anonlab.vercel.app/api/awareness");
-    const data = await res.json(); // atteso: { tips: ["...", "...", ...] }
+    const res = await fetch("https://angelonline.altervista.org/soc/awareness.php");
+    const data = await res.json();
 
     renderList(listEl, data.tips, "Nessun suggerimento disponibile al momento.");
+
   } catch (e) {
     console.error("Awareness Tips error:", e);
     listEl.innerHTML = `<li style="color:#f66;">Errore nel caricamento dei suggerimenti.</li>`;
   }
 }
 
-
+/* ==========================================
+   OPS CHECKLIST (ALTERVISTA)
+   ========================================== */
 async function loadOpsChecklist() {
   const listEl = document.getElementById("ops-checklist");
   try {
-    const res = await fetch("https://anonlab.vercel.app/api/checklist");
-    const data = await res.json(); // atteso: { ops: ["...", "...", ...] }
+    const res = await fetch("https://angelonline.altervista.org/soc/checklist.php");
+    const data = await res.json();
 
     renderList(listEl, data.ops, "Nessuna voce operativa disponibile al momento.");
+
   } catch (e) {
     console.error("Ops Checklist error:", e);
     listEl.innerHTML = `<li style="color:#f66;">Errore nel caricamento della checklist.</li>`;
   }
 }
 
-
+/* ============================
+   RENDER LIST
+   ============================ */
 function renderList(el, arr, emptyMsg) {
   if (!arr || !arr.length) {
     el.innerHTML = `<li>${emptyMsg}</li>`;
