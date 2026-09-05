@@ -1154,12 +1154,18 @@ setInterval(loadThreatDistribution, 60000);
   Distribuzione delle principali categorie di minacce rilevate questa settimana.
 </p>
 
- <!-- INTELLIGENCE NOTES (DINAMICO) -->
+<!-- INTELLIGENCE NOTES (DINAMICO) -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Intelligence Notes</h4>
 
   <div id="intel-notes">
-    <p style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+    <p style="
+        color:#ccc;
+        line-height:1.7;
+        font-size:14px;
+        text-shadow:0 0 6px #000;
+        margin-top:10px;
+    ">
       Caricamento note di intelligence in corso...
     </p>
   </div>
@@ -1220,9 +1226,8 @@ setInterval(loadThreatDistribution, 60000);
     <li>Caricamento checklist operativa...</li>
   </ul>
 </div>
-              </div>
 
-		<script>
+	<script>
 document.addEventListener("DOMContentLoaded", () => {
   loadIntelNotes();
   loadCyberSections();
@@ -1340,8 +1345,9 @@ function renderList(el, arr, emptyMsg) {
   el.innerHTML = arr.map(item => `<li>${item}</li>`).join("");
 }
 </script>
-				
-		<!-- fine cyber-grid -->
+        </div>
+        
+      </div> <!-- fine cyber-grid -->
       <!-- 🔥 BLOCCHI GRANDI SOTTO LA GRID -->
 
       <!-- Cyber Defense Playbook -->
@@ -1560,6 +1566,10 @@ setInterval(loadTISummary, 30000);
 
 </body>
 </html>
+
+
+
+
 
 
 
