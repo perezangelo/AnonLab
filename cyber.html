@@ -889,14 +889,15 @@ setInterval(loadTiNews, 60000);
 <script>
 async function loadIoC() {
     try {
-        const res = await fetch("/soc/ioc-feed.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/ioc-feed.php");
         const data = await res.json();
 
-        document.getElementById("iocList").innerHTML = `
-            <li><strong>C2 IP:</strong> ${data.c2_ip}</li>
-            <li><strong>Spamhaus:</strong> ${data.spamhaus_ip}</li>
-            <li><strong>Phishing URL:</strong> ${data.phishing_url}</li>
-        `;
+        let html = "";
+        data.forEach(ioc => {
+            html += `<li><strong>${ioc.type}:</strong> ${ioc.value}</li>`;
+        });
+
+        document.getElementById("iocList").innerHTML = html;
     } catch (e) {
         document.getElementById("iocList").innerHTML =
             "<li>Errore nel caricamento degli IoC</li>";
@@ -917,12 +918,12 @@ setInterval(loadIoC, 60000);
 <script>
 async function loadTTP() {
     try {
-        const res = await fetch("/soc/ttp-feed.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/ttp-feed.php");
         const data = await res.json();
 
         let html = "";
         data.forEach(t => {
-            html += `<li><strong>${t.id}:</strong> ${t.desc}</li>`;
+            html += `<li><strong>${t.id}:</strong> ${t.name}</li>`;
         });
 
         document.getElementById("ttpList").innerHTML = html;
@@ -933,6 +934,7 @@ async function loadTTP() {
 }
 
 loadTTP();
+setInterval(loadTTP, 60000);
 </script>
 
          <div class="ti-section">
@@ -961,18 +963,13 @@ loadTTP();
 <script>
 async function loadThreatLevel() {
     try {
-        const res = await fetch("/soc/threat-level.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/threat-level.php");
         const data = await res.json();
 
-        // Aggiorna barra
-        document.getElementById("thLevelFill").style.width = data.level + "%";
-
-        // Aggiorna testo
-        document.getElementById("thLevelText").innerText =
-            `Livello attuale: ${data.label} (${data.level}%)`;
+        document.getElementById("threatStatus").innerText = data.status;
+        document.getElementById("threatBar").style.width = data.level + "%";
     } catch (e) {
-        document.getElementById("thLevelText").innerText =
-            "Errore nel caricamento del Threat Level";
+        document.getElementById("threatStatus").innerText = "Errore nel caricamento";
     }
 }
 
@@ -1103,69 +1100,10 @@ setInterval(loadThreatLevel, 60000);
 </div>
 
 <script>
-let previous = {
-  ransomware: 0,
-  phishing: 0,
-  exploit: 0,
-  vulns: 0,
-  botnet: 0
-};
-
-function animateCount(id, target) {
-    let el = document.getElementById(id);
-    let start = parseInt(el.innerText);
-    let end = target;
-    let duration = 600;
-    let step = (end - start) / (duration / 16);
-
-    function tick() {
-        start += step;
-        if ((step > 0 && start >= end) || (step < 0 && start <= end)) {
-            el.innerText = end + "%";
-        } else {
-            el.innerText = Math.round(start) + "%";
-            requestAnimationFrame(tick);
-        }
-    }
-    tick();
-}
-
-function setTrend(id, oldVal, newVal) {
-    const el = document.getElementById(id);
-    if (newVal > oldVal) {
-        el.innerHTML = "▲ +" + (newVal - oldVal) + "%";
-        el.style.color = "#00ff99";
-    } else if (newVal < oldVal) {
-        el.innerHTML = "▼ -" + (oldVal - newVal) + "%";
-        el.style.color = "#ff0044";
-    } else {
-        el.innerHTML = "–";
-        el.style.color = "#ccc";
-    }
-}
-
 async function loadThreatDistribution() {
     try {
-        const res = await fetch("/soc/threat-distribution.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/threat-distribution.php");
         const data = await res.json();
-
-        function update(idBar, idPct, idTrend, key, value) {
-            const bar = document.getElementById(idBar);
-
-            // altezza barra
-            bar.style.height = (value * 2) + "px";
-
-            // glow dinamico
-            bar.style.boxShadow = "0 0 " + (value / 2 + 10) + "px rgba(255,255,255,0.35)";
-
-            // percentuale animata
-            animateCount(idPct, value);
-
-            // trend ↑↓
-            setTrend(idTrend, previous[key], value);
-
-            previous[key] = value;
-        }
 
         update("bar-ransomware", "pct-ransomware", "trend-ransomware", "ransomware", data.ransomware);
         update("bar-phishing",   "pct-phishing",   "trend-phishing",   "phishing",   data.phishing);
