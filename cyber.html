@@ -1154,22 +1154,24 @@ setInterval(loadThreatDistribution, 60000);
   Distribuzione delle principali categorie di minacce rilevate questa settimana.
 </p>
 
-<!-- ========================= -->
-<!-- INTELLIGENCE NOTES (DINAMICO) -->
-<!-- ========================= -->
+         <!-- INTELLIGENCE NOTES (DINAMICO) -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Intelligence Notes</h4>
 
   <div id="intel-notes">
-    <p style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+    <p style="
+        color:#ccc;
+        line-height:1.7;
+        font-size:14px;
+        text-shadow:0 0 6px #000;
+        margin-top:10px;
+    ">
       Caricamento note di intelligence in corso...
     </p>
   </div>
 </div>
 
-<!-- ========================= -->
 <!-- ATTACCHI INFORMATICI -->
-<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Attacchi Informatici</h4>
   <ul id="sec-attacchi" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
@@ -1177,9 +1179,7 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-<!-- ========================= -->
 <!-- DIFESA & SICUREZZA -->
-<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Difesa & Sicurezza</h4>
   <ul id="sec-difesa" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
@@ -1187,9 +1187,7 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-<!-- ========================= -->
 <!-- CULTURA CYBER -->
-<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Cultura Cyber</h4>
   <ul id="sec-cultura" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
@@ -1197,9 +1195,7 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-<!-- ========================= -->
 <!-- CYBER AWARENESS TIPS -->
-<!-- ========================= -->
 <div class="cyber-box" style="
     background:#000814;
     border:1px solid #ffffff33;
@@ -1215,9 +1211,7 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-<!-- ========================= -->
 <!-- CYBER OPERATIONS CHECKLIST -->
-<!-- ========================= -->
 <div class="ti-section" style="margin-top:25px; text-align:center;">
   <h4 class="ti-title" style="text-align:center;">Cyber Operations Checklist</h4>
 
@@ -1233,7 +1227,9 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-	<script>
+</div> 
+
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
   loadIntelNotes();
   loadCyberSections();
@@ -1241,9 +1237,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadOpsChecklist();
 });
 
-/* ============================
-   INTELLIGENCE NOTES (VERCEL)
-   ============================ */
+/* INTELLIGENCE NOTES (VERCEL) */
 async function loadIntelNotes() {
   const container = document.getElementById("intel-notes");
   try {
@@ -1282,9 +1276,7 @@ async function loadIntelNotes() {
   }
 }
 
-/* ==========================================
-   ATTACCHI / DIFESA / CULTURA (ALTERVISTA)
-   ========================================== */
+/* ATTACCHI / DIFESA / CULTURA (ALTERVISTA) */
 async function loadCyberSections() {
   const attacchiEl = document.getElementById("sec-attacchi");
   const difesaEl   = document.getElementById("sec-difesa");
@@ -1306,9 +1298,7 @@ async function loadCyberSections() {
   }
 }
 
-/* ==========================================
-   AWARENESS TIPS (ALTERVISTA)
-   ========================================== */
+/* AWARENESS TIPS (ALTERVISTA) */
 async function loadAwarenessTips() {
   const listEl = document.getElementById("awareness-tips");
   try {
@@ -1323,9 +1313,7 @@ async function loadAwarenessTips() {
   }
 }
 
-/* ==========================================
-   OPS CHECKLIST (ALTERVISTA)
-   ========================================== */
+/* OPS CHECKLIST (ALTERVISTA) */
 async function loadOpsChecklist() {
   const listEl = document.getElementById("ops-checklist");
   try {
@@ -1340,9 +1328,7 @@ async function loadOpsChecklist() {
   }
 }
 
-/* ============================
-   RENDER LIST
-   ============================ */
+/* RENDER LIST */
 function renderList(el, arr, emptyMsg) {
   if (!arr || !arr.length) {
     el.innerHTML = `<li>${emptyMsg}</li>`;
@@ -1351,8 +1337,7 @@ function renderList(el, arr, emptyMsg) {
   el.innerHTML = arr.map(item => `<li>${item}</li>`).join("");
 }
 </script>
-        </div>
-        
+       
       </div> <!-- fine cyber-grid -->
       <!-- 🔥 BLOCCHI GRANDI SOTTO LA GRID -->
 
@@ -1572,6 +1557,10 @@ setInterval(loadTISummary, 30000);
 
 </body>
 </html>
+
+
+
+
 
 
 
