@@ -851,55 +851,134 @@ setInterval(loadTimeline, 60000);
           <!-- 🔥 CONTENUTI DEL TUO BLOCCO 3 -->
 
           <div class="ti-section">
-            <h4 class="ti-title">Ultime dal mondo TI</h4>
-            <ul class="ti-list">
-              <li><strong>APT29:</strong> nuove campagne contro infrastrutture cloud europee.</li>
-              <li><strong>Zero‑day VPN:</strong> exploit attivo rilevato in rete TOR.</li>
-              <li><strong>Ransomware:</strong> aumento del 22% nelle ultime due settimane.</li>
-              <li><strong>Supply‑chain:</strong> compromesso un repository open‑source molto diffuso.</li>
-            </ul>
-          </div>
+  <h4 class="ti-title">Ultime dal mondo TI</h4>
+  <ul id="tiNews" class="ti-list">
+    <li>Caricamento...</li>
+  </ul>
+</div>
+
+<script>
+async function loadTiNews() {
+    try {
+        const res = await fetch("/soc/ti-news.php");
+        const data = await res.json();
+
+        let html = "";
+        data.forEach(n => {
+            html += `<li><strong>${n.source}:</strong> ${n.title}</li>`;
+        });
+
+        document.getElementById("tiNews").innerHTML = html;
+    } catch (e) {
+        document.getElementById("tiNews").innerHTML =
+            "<li>Errore nel caricamento del feed TI</li>";
+    }
+}
+
+loadTiNews();
+setInterval(loadTiNews, 60000);
+</script>
+
+         <div class="ti-section">
+  <h4 class="ti-title">Indicatori di Compromissione (IoC)</h4>
+  <ul id="iocList" class="ti-list">
+    <li>Caricamento...</li>
+  </ul>
+</div>
+
+<script>
+async function loadIoC() {
+    try {
+        const res = await fetch("/soc/ioc-feed.php");
+        const data = await res.json();
+
+        document.getElementById("iocList").innerHTML = `
+            <li><strong>C2 IP:</strong> ${data.c2_ip}</li>
+            <li><strong>Spamhaus:</strong> ${data.spamhaus_ip}</li>
+            <li><strong>Phishing URL:</strong> ${data.phishing_url}</li>
+        `;
+    } catch (e) {
+        document.getElementById("iocList").innerHTML =
+            "<li>Errore nel caricamento degli IoC</li>";
+    }
+}
+
+loadIoC();
+setInterval(loadIoC, 60000);
+</script>
 
           <div class="ti-section">
-            <h4 class="ti-title">Indicatori di Compromissione (IoC)</h4>
-            <ul class="ti-list">
-              <li>IP sospetto: 185.231.247.91</li>
-              <li>Hash malware: 9f8c1d2a7b3e4f…</li>
-              <li>Dominio malevolo: secure-login-cloud.net</li>
-              <li>URL phishing: https://verify‑account‑secure.app</li>
-            </ul>
-          </div>
+  <h4 class="ti-title">TTP più osservate (MITRE ATT&CK)</h4>
+  <ul id="ttpList" class="ti-list">
+    <li>Caricamento...</li>
+  </ul>
+</div>
 
-          <div class="ti-section">
-            <h4 class="ti-title">TTP più osservate (MITRE ATT&CK)</h4>
-            <ul class="ti-list">
-              <li><strong>T1059:</strong> Command & Scripting Interpreter</li>
-              <li><strong>T1078:</strong> Valid Accounts</li>
-              <li><strong>T1566:</strong> Phishing</li>
-              <li><strong>T1021:</strong> Remote Services</li>
-            </ul>
-          </div>
+<script>
+async function loadTTP() {
+    try {
+        const res = await fetch("/soc/ttp-feed.php");
+        const data = await res.json();
 
-          <div class="ti-section">
-            <h4 class="ti-title">Threat Level</h4>
-            <div style="
-                width:100%;
-                height:18px;
-                background:#111;
-                border-radius:6px;
-                overflow:hidden;
-                box-shadow:0 0 8px #ff0044aa inset;
-            ">
-              <div style="
-                  width:82%;
-                  height:100%;
-                  background:linear-gradient(90deg, #ff7b00, #ff0044);
-              "></div>
-            </div>
-            <p style="color:#ff0044; margin-top:8px; font-weight:bold;">
-              Livello attuale: ALTO (82%)
-            </p>
-          </div>
+        let html = "";
+        data.forEach(t => {
+            html += `<li><strong>${t.id}:</strong> ${t.desc}</li>`;
+        });
+
+        document.getElementById("ttpList").innerHTML = html;
+    } catch (e) {
+        document.getElementById("ttpList").innerHTML =
+            "<li>Errore nel caricamento delle TTP</li>";
+    }
+}
+
+loadTTP();
+</script>
+
+         <div class="ti-section">
+  <h4 class="ti-title">Threat Level</h4>
+
+  <div id="thLevelBar" style="
+      width:100%;
+      height:18px;
+      background:#111;
+      border-radius:6px;
+      overflow:hidden;
+      box-shadow:0 0 8px #ff0044aa inset;
+  ">
+    <div id="thLevelFill" style="
+        width:0%;
+        height:100%;
+        background:linear-gradient(90deg, #ff7b00, #ff0044);
+    "></div>
+  </div>
+
+  <p id="thLevelText" style="color:#ff0044; margin-top:8px; font-weight:bold;">
+    Caricamento...
+  </p>
+</div>
+
+<script>
+async function loadThreatLevel() {
+    try {
+        const res = await fetch("/soc/threat-level.php");
+        const data = await res.json();
+
+        // Aggiorna barra
+        document.getElementById("thLevelFill").style.width = data.level + "%";
+
+        // Aggiorna testo
+        document.getElementById("thLevelText").innerText =
+            `Livello attuale: ${data.label} (${data.level}%)`;
+    } catch (e) {
+        document.getElementById("thLevelText").innerText =
+            "Errore nel caricamento del Threat Level";
+    }
+}
+
+loadThreatLevel();
+setInterval(loadThreatLevel, 60000);
+</script>
 
           <div class="ti-section">
             <h4 class="ti-title">Risorse TI</h4>
