@@ -1154,93 +1154,72 @@ setInterval(loadThreatDistribution, 60000);
   Distribuzione delle principali categorie di minacce rilevate questa settimana.
 </p>
 
- <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
+ <!-- INTELLIGENCE NOTES (DINAMICO) -->
+<div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Intelligence Notes</h4>
 
-  <p style="
-      color:#ccc;
-      line-height:1.7;
-      font-size:14px;
-      text-shadow:0 0 6px #000;
-      margin-top:10px;
-  ">
-    Le campagne di social engineering stanno diventando sempre più sofisticate grazie all’uso di modelli linguistici
-    avanzati. Gli attaccanti riescono a generare email credibili, imitare comunicazioni interne e creare falsi
-    documenti aziendali difficili da distinguere dagli originali.
-  </p>
-
-  <p style="
-      color:#ccc;
-      line-height:1.7;
-      font-size:14px;
-      text-shadow:0 0 6px #000;
-      margin-top:14px;
-  ">
-    Le organizzazioni devono adottare sistemi di rilevamento basati su comportamento, controlli di identità avanzati
-    e formazione continua per mitigare questi rischi. La threat intelligence gioca un ruolo fondamentale nel
-    riconoscere pattern ricorrenti e anticipare nuove campagne.
-  </p>
+  <div id="intel-notes">
+    <p style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+      Caricamento note di intelligence in corso...
+    </p>
+  </div>
 </div>
-	
-          <!-- Attacchi Informatici -->
+
+<!-- ATTACCHI INFORMATICI -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Attacchi Informatici</h4>
-  <p style="color:#ccc; line-height:1.7;">
-    Ransomware, phishing, supply‑chain attacks.
-  </p>
+  <ul id="sec-attacchi" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento dati...</li>
+  </ul>
 </div>
 
-<!-- Difesa & Sicurezza -->
+<!-- DIFESA & SICUREZZA -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Difesa & Sicurezza</h4>
-  <p style="color:#ccc; line-height:1.7;">
-    Zero Trust, SOC, SIEM, EDR.
-  </p>
+  <ul id="sec-difesa" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento dati...</li>
+  </ul>
 </div>
 
-<!-- Cultura Cyber -->
+<!-- CULTURA CYBER -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Cultura Cyber</h4>
-  <p style="color:#ccc; line-height:1.7;">
-    Consapevolezza digitale, privacy, OSINT.
-  </p>
+  <ul id="sec-cultura" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento dati...</li>
+  </ul>
 </div>
-          <!-- Cyber Awareness Tips -->
-      <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #ffffff33;
-          padding:25px;
-          margin-top:30px;
-          border-radius:8px;
-          box-shadow:0 0 12px #ffffff33;
-      ">
-        <h3 style="color:#fff;">Cyber Awareness Tips</h3>
 
-        <ul style="color:#ccc; line-height:1.7;">
-          <li>Abilita sempre l’autenticazione a più fattori (MFA).</li>
-          <li>Evita di riutilizzare password su più servizi.</li>
-          <li>Controlla regolarmente i log di accesso ai tuoi account.</li>
-          <li>Diffida da allegati e link non richiesti.</li>
-          <li>Aggiorna software e firmware appena disponibili.</li>
-          <li>Segmenta la rete per limitare la propagazione degli attacchi.</li>
-          <li>Monitora costantemente identità e sessioni attive.</li>
-        </ul>
-      </div>
-          <!-- Cyber Operations Checklist -->
+<!-- CYBER AWARENESS TIPS -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffffff33;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffffff33;
+">
+  <h3 style="color:#fff; margin-bottom:12px;">Cyber Awareness Tips</h3>
+
+  <ul id="awareness-tips" style="color:#ccc; line-height:1.7; font-size:14px;">
+    <li>Caricamento suggerimenti...</li>
+  </ul>
+</div>
+
+<!-- CYBER OPERATIONS CHECKLIST -->
 <div class="ti-section" style="margin-top:25px; text-align:center;">
   <h4 class="ti-title" style="text-align:center;">Cyber Operations Checklist</h4>
 
-  <ul style="color:#ccc; line-height:1.7; display:inline-block; text-align:left; margin-top:10px;">
-    <li>Monitoraggio continuo dei log (SIEM/XDR).</li>
-    <li>Controllo accessi privilegiati (PAM).</li>
-    <li>Verifica integrità configurazioni (CIS Benchmark).</li>
-    <li>Analisi anomalie su identità e sessioni.</li>
-    <li>Backup offline e test di ripristino.</li>
-    <li>Threat hunting settimanale.</li>
-    <li>Simulazioni di phishing e awareness.</li>
+  <ul id="ops-checklist" style="
+      color:#ccc;
+      line-height:1.7;
+      font-size:14px;
+      display:inline-block;
+      text-align:left;
+      margin-top:10px;
+  ">
+    <li>Caricamento checklist operativa...</li>
   </ul>
 </div>
-        </div>
               </div>
 
 		<script>
