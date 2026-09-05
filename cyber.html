@@ -1013,33 +1013,165 @@ setInterval(loadThreatLevel, 60000);
             </ul>
           </div>
 
-          <div class="ti-section" style="margin-top:25px;">
-            <h4 class="ti-title">Threat Distribution</h4>
+         <div class="ti-section" style="margin-top:25px;">
+  <h4 class="ti-title">Threat Distribution</h4>
 
-            <div id="threatBars" style="display:flex; gap:10px; margin-top:10px; align-items:flex-end;">
-  <div id="bar-ransomware" style="flex:1; background:#ff0044; height:10px;"></div>
-  <div id="bar-phishing"   style="flex:1; background:#ff7b00; height:10px;"></div>
-  <div id="bar-exploit"    style="flex:1; background:#ffaa00; height:10px;"></div>
-  <div id="bar-vulns"      style="flex:1; background:#00eaff; height:10px;"></div>
-  <div id="bar-botnet"     style="flex:1; background:#00ff99; height:10px;"></div>
+  <div id="threatBars" style="
+      display:flex;
+      gap:22px;
+      margin-top:25px;
+      align-items:flex-end;
+      height:240px;
+  ">
+
+    <!-- RANSOMWARE -->
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+      <div id="bar-ransomware" style="
+          width:100%;
+          height:10px;
+          background:#ff0044;
+          border-radius:6px;
+          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
+          box-shadow:0 0 14px rgba(255,0,68,0.55);
+      "></div>
+      <span style="margin-top:10px; color:#ccc; font-size:13px;">Ransomware</span>
+      <span id="pct-ransomware" style="margin-top:4px; color:#ff0044; font-weight:bold; font-size:14px;">0%</span>
+      <span id="trend-ransomware" style="margin-top:2px; font-size:12px; color:#ff0044;">–</span>
+    </div>
+
+    <!-- PHISHING -->
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+      <div id="bar-phishing" style="
+          width:100%;
+          height:10px;
+          background:#ff7b00;
+          border-radius:6px;
+          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
+          box-shadow:0 0 14px rgba(255,123,0,0.55);
+      "></div>
+      <span style="margin-top:10px; color:#ccc; font-size:13px;">Phishing</span>
+      <span id="pct-phishing" style="margin-top:4px; color:#ff7b00; font-weight:bold; font-size:14px;">0%</span>
+      <span id="trend-phishing" style="margin-top:2px; font-size:12px; color:#ff7b00;">–</span>
+    </div>
+
+    <!-- EXPLOIT -->
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+      <div id="bar-exploit" style="
+          width:100%;
+          height:10px;
+          background:#ffaa00;
+          border-radius:6px;
+          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
+          box-shadow:0 0 14px rgba(255,170,0,0.55);
+      "></div>
+      <span style="margin-top:10px; color:#ccc; font-size:13px;">Exploit</span>
+      <span id="pct-exploit" style="margin-top:4px; color:#ffaa00; font-weight:bold; font-size:14px;">0%</span>
+      <span id="trend-exploit" style="margin-top:2px; font-size:12px; color:#ffaa00;">–</span>
+    </div>
+
+    <!-- VULNERABILITÀ -->
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+      <div id="bar-vulns" style="
+          width:100%;
+          height:10px;
+          background:#00eaff;
+          border-radius:6px;
+          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
+          box-shadow:0 0 14px rgba(0,234,255,0.55);
+      "></div>
+      <span style="margin-top:10px; color:#ccc; font-size:13px;">Vulnerabilità</span>
+      <span id="pct-vulns" style="margin-top:4px; color:#00eaff; font-weight:bold; font-size:14px;">0%</span>
+      <span id="trend-vulns" style="margin-top:2px; font-size:12px; color:#00eaff;">–</span>
+    </div>
+
+    <!-- BOTNET -->
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; position:relative;">
+      <div id="bar-botnet" style="
+          width:100%;
+          height:10px;
+          background:#00ff99;
+          border-radius:6px;
+          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
+          box-shadow:0 0 14px rgba(0,255,153,0.55);
+      "></div>
+      <span style="margin-top:10px; color:#ccc; font-size:13px;">Botnet</span>
+      <span id="pct-botnet" style="margin-top:4px; color:#00ff99; font-weight:bold; font-size:14px;">0%</span>
+      <span id="trend-botnet" style="margin-top:2px; font-size:12px; color:#00ff99;">–</span>
+    </div>
+
+  </div>
 </div>
 
 <script>
+let previous = {
+  ransomware: 0,
+  phishing: 0,
+  exploit: 0,
+  vulns: 0,
+  botnet: 0
+};
+
+function animateCount(id, target) {
+    let el = document.getElementById(id);
+    let start = parseInt(el.innerText);
+    let end = target;
+    let duration = 600;
+    let step = (end - start) / (duration / 16);
+
+    function tick() {
+        start += step;
+        if ((step > 0 && start >= end) || (step < 0 && start <= end)) {
+            el.innerText = end + "%";
+        } else {
+            el.innerText = Math.round(start) + "%";
+            requestAnimationFrame(tick);
+        }
+    }
+    tick();
+}
+
+function setTrend(id, oldVal, newVal) {
+    const el = document.getElementById(id);
+    if (newVal > oldVal) {
+        el.innerHTML = "▲ +" + (newVal - oldVal) + "%";
+        el.style.color = "#00ff99";
+    } else if (newVal < oldVal) {
+        el.innerHTML = "▼ -" + (oldVal - newVal) + "%";
+        el.style.color = "#ff0044";
+    } else {
+        el.innerHTML = "–";
+        el.style.color = "#ccc";
+    }
+}
+
 async function loadThreatDistribution() {
     try {
-        const res = await fetch("https://angelonline.altervista.org/soc/threat-distribution.php");
+        const res = await fetch("/soc/threat-distribution.php");
         const data = await res.json();
 
-        function setBar(id, value) {
-            const bar = document.getElementById(id);
-            bar.style.height = (value * 2) + "px"; // 0–200px
+        function update(idBar, idPct, idTrend, key, value) {
+            const bar = document.getElementById(idBar);
+
+            // altezza barra
+            bar.style.height = (value * 2) + "px";
+
+            // glow dinamico
+            bar.style.boxShadow = "0 0 " + (value / 2 + 10) + "px rgba(255,255,255,0.35)";
+
+            // percentuale animata
+            animateCount(idPct, value);
+
+            // trend ↑↓
+            setTrend(idTrend, previous[key], value);
+
+            previous[key] = value;
         }
 
-        setBar("bar-ransomware", data.ransomware);
-        setBar("bar-phishing",   data.phishing);
-        setBar("bar-exploit",    data.exploit);
-        setBar("bar-vulns",      data.vulns);
-        setBar("bar-botnet",     data.botnet);
+        update("bar-ransomware", "pct-ransomware", "trend-ransomware", "ransomware", data.ransomware);
+        update("bar-phishing",   "pct-phishing",   "trend-phishing",   "phishing",   data.phishing);
+        update("bar-exploit",    "pct-exploit",    "trend-exploit",    "exploit",    data.exploit);
+        update("bar-vulns",      "pct-vulns",      "trend-vulns",      "vulns",      data.vulns);
+        update("bar-botnet",     "pct-botnet",     "trend-botnet",     "botnet",     data.botnet);
 
     } catch (e) {
         console.error("Threat Distribution Error:", e);
