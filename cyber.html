@@ -856,29 +856,7 @@ setInterval(loadTimeline, 60000);
     <li>Caricamento...</li>
   </ul>
 </div>
-
-<script>
-async function loadTiNews() {
-    try {
-        const res = await fetch("https://anonlab.vercel.app/api/cisa");
-        const data = await res.json();
-
-        let html = "";
-        data.forEach(n => {
-            html += `<li><strong>${n.source}:</strong> ${n.title}</li>`;
-        });
-
-        document.getElementById("tiNews").innerHTML = html;
-    } catch (e) {
-        document.getElementById("tiNews").innerHTML =
-            "<li>Errore nel caricamento del feed TI</li>";
-    }
-}
-
-loadTiNews();
-setInterval(loadTiNews, 60000);
-</script>
-
+	
          <div class="ti-section">
   <h4 class="ti-title">Indicatori di Compromissione (IoC)</h4>
   <ul id="iocList" class="ti-list">
@@ -886,57 +864,13 @@ setInterval(loadTiNews, 60000);
   </ul>
 </div>
 
-<script>
-async function loadIoC() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/ioc-feed.php");
-        const data = await res.json();
-
-        let html = "";
-        data.forEach(ioc => {
-            html += `<li><strong>${ioc.type}:</strong> ${ioc.value}</li>`;
-        });
-
-        document.getElementById("iocList").innerHTML = html;
-    } catch (e) {
-        document.getElementById("iocList").innerHTML =
-            "<li>Errore nel caricamento degli IoC</li>";
-    }
-}
-
-loadIoC();
-setInterval(loadIoC, 60000);
-</script>
-
           <div class="ti-section">
   <h4 class="ti-title">TTP più osservate (MITRE ATT&CK)</h4>
   <ul id="ttpList" class="ti-list">
     <li>Caricamento...</li>
   </ul>
 </div>
-
-<script>
-async function loadTTP() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/ttp-feed.php");
-        const data = await res.json();
-
-        let html = "";
-        data.forEach(t => {
-            html += `<li><strong>${t.id}:</strong> ${t.name}</li>`;
-        });
-
-        document.getElementById("ttpList").innerHTML = html;
-    } catch (e) {
-        document.getElementById("ttpList").innerHTML =
-            "<li>Errore nel caricamento delle TTP</li>";
-    }
-}
-
-loadTTP();
-setInterval(loadTTP, 60000);
-</script>
-
+	
          <div class="ti-section">
   <h4 class="ti-title">Threat Level</h4>
 
@@ -959,29 +893,6 @@ setInterval(loadTTP, 60000);
     Caricamento...
   </p>
 </div>
-
-<script>
-async function loadThreatLevel() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/threat-level.php");
-        const data = await res.json();
-
-        // Aggiorna la barra
-        document.getElementById("thLevelFill").style.width = data.level + "%";
-
-        // Aggiorna il testo
-        document.getElementById("thLevelText").innerText =
-            `Livello attuale: ${data.status} (${data.level}%)`;
-
-    } catch (e) {
-        document.getElementById("thLevelText").innerText =
-            "Errore nel caricamento del Threat Level";
-    }
-}
-
-loadThreatLevel();
-setInterval(loadThreatLevel, 60000);
-</script>
 
           <div class="ti-section">
             <h4 class="ti-title">Risorse TI</h4>
@@ -1106,52 +1017,104 @@ setInterval(loadThreatLevel, 60000);
 </div>
 
 <script>
-async function loadThreatDistribution() {
+// =========================
+// 1) TI NEWS (CISA)
+// =========================
+async function loadTiNews() {
     try {
-        const res = await fetch("https://angelonline.altervista.org/soc/threat-distribution.php");
+        const res = await fetch("https://anonlab.vercel.app/api/cisa");
         const data = await res.json();
 
-        update("bar-ransomware", "pct-ransomware", "trend-ransomware", "ransomware", data.ransomware);
-        update("bar-phishing",   "pct-phishing",   "trend-phishing",   "phishing",   data.phishing);
-        update("bar-exploit",    "pct-exploit",    "trend-exploit",    "exploit",    data.exploit);
-        update("bar-vulns",      "pct-vulns",      "trend-vulns",      "vulns",      data.vulns);
-        update("bar-botnet",     "pct-botnet",     "trend-botnet",     "botnet",     data.botnet);
-
+        document.getElementById("tiNews").innerHTML =
+            data.map(n => `<li><strong>${n.source}:</strong> ${n.title}</li>`).join("");
     } catch (e) {
-        console.error("Threat Distribution Error:", e);
+        document.getElementById("tiNews").innerHTML =
+            "<li>Errore nel caricamento del feed TI</li>";
     }
 }
 
+// =========================
+// 2) IOC (URLhaus + ThreatFox)
+// =========================
+async function loadIoC() {
+    try {
+        const res = await fetch("https://anonlab.vercel.app/api/ioc");
+        const data = await res.json();
+
+        document.getElementById("iocList").innerHTML =
+            data.map(i => `<li><strong>${i.type}:</strong> ${i.ioc} <em>(${i.source})</em></li>`).join("");
+    } catch (e) {
+        document.getElementById("iocList").innerHTML =
+            "<li>Errore nel caricamento degli IoC</li>";
+    }
+}
+
+// =========================
+// 3) MITRE ATT&CK
+// =========================
+async function loadMitre() {
+    try {
+        const res = await fetch("https://anonlab.vercel.app/api/mitre");
+        const data = await res.json();
+
+        document.getElementById("mitreList").innerHTML =
+            data.map(t => `<li><strong>${t.id}:</strong> ${t.name}</li>`).join("");
+    } catch (e) {
+        document.getElementById("mitreList").innerHTML =
+            "<li>Errore nel caricamento del feed MITRE</li>";
+    }
+}
+
+// =========================
+// 4) THREAT LEVEL
+// =========================
+async function loadThreatLevel() {
+    try {
+        const res = await fetch("https://anonlab.vercel.app/api/threat-level");
+        const data = await res.json();
+
+        document.getElementById("threatLevel").innerHTML = `
+            <strong>Livello:</strong> ${data.status}<br>
+            <strong>Colore:</strong> ${data.color}<br>
+            <strong>Dettagli:</strong> ${data.description}
+        `;
+    } catch (e) {
+        document.getElementById("threatLevel").innerHTML =
+            "Errore nel caricamento del livello minaccia";
+    }
+}
+
+// =========================
+// 5) THREAT DISTRIBUTION
+// =========================
+async function loadThreatDistribution() {
+    try {
+        const res = await fetch("https://anonlab.vercel.app/api/threat-distribution");
+        const data = await res.json();
+
+        document.getElementById("threatDistribution").innerHTML =
+            data.map(c => `<li>${c.country}: <strong>${c.attacks}</strong> attacchi</li>`).join("");
+    } catch (e) {
+        document.getElementById("threatDistribution").innerHTML =
+            "<li>Errore nel caricamento della distribuzione minacce</li>";
+    }
+}
+
+// =========================
+// AVVIO AUTOMATICO
+// =========================
+loadTiNews();
+loadIoC();
+loadMitre();
+loadThreatLevel();
 loadThreatDistribution();
+
+// Aggiornamento ogni 60 secondi
+setInterval(loadTiNews, 60000);
+setInterval(loadIoC, 60000);
+setInterval(loadMitre, 60000);
+setInterval(loadThreatLevel, 60000);
 setInterval(loadThreatDistribution, 60000);
-</script>
-
-<script>
-function update(barId, pctId, trendId, name, value) {
-
-    // Aggiorna altezza barra
-    const bar = document.getElementById(barId);
-    bar.style.height = value + "%";
-
-    // Aggiorna percentuale
-    const pct = document.getElementById(pctId);
-    pct.innerText = value + "%";
-
-    // Trend dinamico (simulato)
-    const trend = document.getElementById(trendId);
-    const delta = Math.floor(Math.random() * 11) - 5; // -5% / +5%
-
-    if (delta > 0) {
-        trend.innerText = "+" + delta + "%";
-        trend.style.color = "#00ff99";
-    } else if (delta < 0) {
-        trend.innerText = delta + "%";
-        trend.style.color = "#ff0044";
-    } else {
-        trend.innerText = "0%";
-        trend.style.color = "#ccc";
-    }
-}
 </script>
 
             <p style="
