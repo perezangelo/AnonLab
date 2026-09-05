@@ -1093,11 +1093,36 @@ async function loadThreatDistribution() {
         const res = await fetch("https://anonlab.vercel.app/api/threat-distribution");
         const data = await res.json();
 
-        document.getElementById("threatDistribution").innerHTML =
-            data.map(c => `<li>${c.country}: <strong>${c.attacks}</strong> attacchi</li>`).join("");
+        // Mappa dei colori e ID
+        const mapping = {
+            ransomware: { bar: "bar-ransomware", pct: "pct-ransomware", trend: "trend-ransomware" },
+            phishing:   { bar: "bar-phishing", pct: "pct-phishing", trend: "trend-phishing" },
+            exploit:    { bar: "bar-exploit", pct: "pct-exploit", trend: "trend-exploit" },
+            vulns:      { bar: "bar-vulns", pct: "pct-vulns", trend: "trend-vulns" },
+            botnet:     { bar: "bar-botnet", pct: "pct-botnet", trend: "trend-botnet" }
+        };
+
+        // Calcolo percentuali
+        const total = data.reduce((sum, item) => sum + item.attacks, 0);
+
+        data.forEach((item, index) => {
+            const key = Object.keys(mapping)[index];
+            const ids = mapping[key];
+
+            const pct = Math.round((item.attacks / total) * 100);
+
+            // Aggiorna altezza barra
+            document.getElementById(ids.bar).style.height = (pct * 2) + "px";
+
+            // Aggiorna percentuale
+            document.getElementById(ids.pct).innerText = pct + "%";
+
+            // Aggiorna trend (placeholder)
+            document.getElementById(ids.trend).innerText = pct > 50 ? "↑" : "→";
+        });
+
     } catch (e) {
-        document.getElementById("threatDistribution").innerHTML =
-            "<li>Errore nel caricamento della distribuzione minacce</li>";
+        console.error("Threat Distribution Error:", e);
     }
 }
 
