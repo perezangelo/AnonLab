@@ -860,7 +860,7 @@ setInterval(loadTimeline, 60000);
 <script>
 async function loadTiNews() {
     try {
-        const res = await fetch("/soc/ti-news.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/ti-news.php");
         const data = await res.json();
 
         let html = "";
