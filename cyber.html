@@ -1154,7 +1154,7 @@ setInterval(loadThreatDistribution, 60000);
   Distribuzione delle principali categorie di minacce rilevate questa settimana.
 </p>
 
-adesso andiamo avanti a completare cyber.html: <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
+<div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Intelligence Notes</h4>
 
   <p style="
@@ -1241,6 +1241,112 @@ adesso andiamo avanti a completare cyber.html: <div class="ti-section" style="ma
   </ul>
 </div>
         </div>
+
+		  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  loadIntelNotes();
+  loadCyberSections();
+  loadAwarenessTips();
+  loadOpsChecklist();
+});
+
+async function loadIntelNotes() {
+  const container = document.getElementById("intel-notes");
+  try {
+    const res = await fetch("https://anonlab.vercel.app/api/cisa");
+    const data = await res.json(); // atteso: { alerts: [ { title, summary }, ... ] }
+
+    if (!data.alerts || !data.alerts.length) {
+      container.innerHTML = `
+        <p style="color:#ccc; line-height:1.7; font-size:14px;">
+          Nessuna nota di intelligence disponibile al momento.
+        </p>`;
+      return;
+    }
+
+    const html = data.alerts.slice(0, 3).map(a => `
+      <p style="
+          color:#ccc;
+          line-height:1.7;
+          font-size:14px;
+          text-shadow:0 0 6px #000;
+          margin-top:10px;
+      ">
+        <strong style="color:#00eaff;">${a.title}</strong><br>
+        ${a.summary}
+      </p>
+    `).join("");
+
+    container.innerHTML = html;
+  } catch (e) {
+    console.error("Intel Notes error:", e);
+    container.innerHTML = `
+      <p style="color:#f66; line-height:1.7; font-size:14px;">
+        Errore nel caricamento delle note di intelligence.
+      </p>`;
+  }
+}
+
+
+async function loadCyberSections() {
+  const attacchiEl = document.getElementById("sec-attacchi");
+  const difesaEl   = document.getElementById("sec-difesa");
+  const culturaEl  = document.getElementById("sec-cultura");
+
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/ti-news.php");
+    const data = await res.json(); 
+    // struttura suggerita:
+    // { attacchi: ["...", "..."], difesa: ["...", "..."], cultura: ["...", "..."] }
+
+    renderList(attacchiEl, data.attacchi, "Nessun dato sugli attacchi.");
+    renderList(difesaEl,   data.difesa,   "Nessun dato sulla difesa.");
+    renderList(culturaEl,  data.cultura,  "Nessun dato sulla cultura cyber.");
+  } catch (e) {
+    console.error("Cyber Sections error:", e);
+    attacchiEl.innerHTML = `<li style="color:#f66;">Errore nel caricamento dati.</li>`;
+    difesaEl.innerHTML   = `<li style="color:#f66;">Errore nel caricamento dati.</li>`;
+    culturaEl.innerHTML  = `<li style="color:#f66;">Errore nel caricamento dati.</li>`;
+  }
+}
+
+
+async function loadAwarenessTips() {
+  const listEl = document.getElementById("awareness-tips");
+  try {
+    const res = await fetch("https://anonlab.vercel.app/api/awareness");
+    const data = await res.json(); // atteso: { tips: ["...", "...", ...] }
+
+    renderList(listEl, data.tips, "Nessun suggerimento disponibile al momento.");
+  } catch (e) {
+    console.error("Awareness Tips error:", e);
+    listEl.innerHTML = `<li style="color:#f66;">Errore nel caricamento dei suggerimenti.</li>`;
+  }
+}
+
+
+async function loadOpsChecklist() {
+  const listEl = document.getElementById("ops-checklist");
+  try {
+    const res = await fetch("https://anonlab.vercel.app/api/checklist");
+    const data = await res.json(); // atteso: { ops: ["...", "...", ...] }
+
+    renderList(listEl, data.ops, "Nessuna voce operativa disponibile al momento.");
+  } catch (e) {
+    console.error("Ops Checklist error:", e);
+    listEl.innerHTML = `<li style="color:#f66;">Errore nel caricamento della checklist.</li>`;
+  }
+}
+
+
+function renderList(el, arr, emptyMsg) {
+  if (!arr || !arr.length) {
+    el.innerHTML = `<li>${emptyMsg}</li>`;
+    return;
+  }
+  el.innerHTML = arr.map(item => `<li>${item}</li>`).join("");
+}
+</script>
         
       </div> <!-- fine cyber-grid -->
       <!-- 🔥 BLOCCHI GRANDI SOTTO LA GRID -->
