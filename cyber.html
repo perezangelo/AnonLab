@@ -1325,6 +1325,30 @@ function renderList(el, arr, emptyMsg) {
     </div>
 </div>
 
+		<script>
+async function loadDefensePlaybook() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/cyber-defense.php");
+        const d = await res.json();
+
+        document.getElementById("defensePlaybook").innerHTML = `
+            <p style="color:#ccc; line-height:1.7;">
+                ${d.intro}
+            </p>
+            <p style="color:#ccc; line-height:1.7; margin-top:10px;">
+                ${d.details}
+            </p>
+        `;
+    } catch {
+        document.getElementById("defensePlaybook").innerHTML =
+            "<p style='color:#ff4444;'>Errore caricamento Playbook</p>";
+    }
+}
+
+loadDefensePlaybook();
+setInterval(loadDefensePlaybook, 60000);
+</script>
+
       <!-- Cyber Threat Landscape 2026 -->
       <div class="cyber-box" style="
           background:#000814;
