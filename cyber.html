@@ -1564,5 +1564,21 @@ loadTISummary();
 setInterval(loadTISummary, 30000);
 </script>
 
+	<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const c = document.getElementById("globalAttackHeatIndex");
+    if (!c) {
+        console.warn("globalAttackHeatIndex non trovato");
+        return;
+    }
+
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.fillRect(10,10,50,50);
+});
+</script>
+</body>
+</html>
+
 </body>
 </html>
