@@ -477,6 +477,42 @@ loadExfil();
 setInterval(loadExfil, 15000);
 </script>
 
+	<!-- Security Posture Snapshot -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00ffaa55;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00ffaa55;
+">
+  <h3 style="color:#00ffaa;">Security Posture Snapshot</h3>
+
+  <p id="secSnapshot" style="color:#ccc; line-height:1.7; margin-top:10px;">
+    Caricamento stato di sicurezza...
+  </p>
+</div>
+
+<script>
+async function loadSecuritySnapshot() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/sec-snapshot.php");
+        const d = await res.json();
+
+        document.getElementById("secSnapshot").innerHTML = `
+            <strong style="color:#00ffaa;">${d.status}</strong><br>
+            ${d.details}
+        `;
+    } catch {
+        document.getElementById("secSnapshot").innerHTML =
+            "<span style='color:#f66;'>Errore caricamento stato di sicurezza.</span>";
+    }
+}
+
+loadSecuritySnapshot();
+setInterval(loadSecuritySnapshot, 60000);
+</script>
+
 <ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;"></ul>
 
 <script>
