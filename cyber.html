@@ -515,7 +515,7 @@ setInterval(loadSIEM, 10000);
 
 <script>
 async function loadAttackMap() {
-    const canvas = document.getElementById("attackMapCanvas");
+    const canvas = document.getElementById("AttackMapCanvas");  // ← CORRETTO
     if (!canvas) {
         console.warn("AttackMapCanvas non trovato");
         return;
