@@ -516,6 +516,42 @@ loadSecuritySnapshot();
 setInterval(loadSecuritySnapshot, 60000);
 </script>
 
+	<!-- Infrastructure Risk Pulse -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff4444aa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff4444aa;
+">
+  <h3 style="color:#ff4444;">Infrastructure Risk Pulse</h3>
+
+  <p id="riskPulse" style="color:#ccc; line-height:1.7; margin-top:10px;">
+    Caricamento stato infrastrutturale...
+  </p>
+</div>
+
+<script>
+async function loadRiskPulse() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/risk-pulse.php");
+        const d = await res.json();
+
+        document.getElementById("riskPulse").innerHTML = `
+            <strong style="color:#ff4444;">${d.status}</strong><br>
+            ${d.details}
+        `;
+    } catch {
+        document.getElementById("riskPulse").innerHTML =
+            "<span style='color:#f66;'>Errore caricamento stato infrastrutturale.</span>";
+    }
+}
+
+loadRiskPulse();
+setInterval(loadRiskPulse, 60000);
+</script>
+
 <ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;"></ul>
 
 <script>
