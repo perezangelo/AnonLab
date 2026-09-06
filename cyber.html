@@ -1309,109 +1309,210 @@ function renderList(el, arr, emptyMsg) {
       </div> <!-- fine cyber-grid -->
       <!-- 🔥 BLOCCHI GRANDI SOTTO LA GRID -->
 
-      <!-- Cyber Defense Playbook -->
-      <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #ffaa00aa;
-          padding:20px;
-          margin-top:30px;
-          border-radius:8px;
-          box-shadow:0 0 12px #ffaa00aa;
-      ">
-          <h3 style="color:#ffaa00;">Cyber Defense Playbook</h3>
+      <!-- Cyber Defense Playbook (Dinamico) -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:20px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+    <h3 style="color:#ffaa00;">Cyber Defense Playbook</h3>
 
-          <p style="color:#ccc; line-height:1.7;">
-              Le moderne strategie di difesa richiedono un approccio multilivello che integri monitoraggio continuo,
-              rilevamento comportamentale, segmentazione di rete e gestione delle identità. I SOC più avanzati utilizzano
-              modelli di AI per correlare eventi, identificare anomalie e ridurre i tempi di risposta.
-          </p>
+    <!-- Contenuto dinamico -->
+    <div id="defensePlaybook">
+        <p style="color:#ccc; line-height:1.7;">Caricamento...</p>
+    </div>
+</div>
 
-          <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-              Un playbook efficace include procedure per contenimento, isolamento, raccolta forense, comunicazione interna,
-              ripristino e analisi post‑incidente. La standardizzazione dei processi riduce errori e accelera la gestione
-              degli incidenti.
-          </p>
-      </div>
+<script>
+async function loadDefensePlaybook() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/cyber-defense.php");
+        const d = await res.json();
 
-      <!-- Cyber Threat Landscape 2026 -->
-      <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #ff7b00aa;
-          padding:25px;
-          margin-top:40px;
-          border-radius:8px;
-          box-shadow:0 0 12px #ff7b00aa;
-      ">
-        <h3 style="color:#ff7b00;">Cyber Threat Landscape 2026</h3>
+        document.getElementById("defensePlaybook").innerHTML = `
+            <p style="color:#ccc; line-height:1.7;">
+                ${d.intro}
+            </p>
 
-        <p style="color:#ccc; line-height:1.7;">
-          Il panorama delle minacce del 2026 è dominato da attacchi mirati, ransomware evoluti e campagne di 
-          social engineering basate su AI generativa. I gruppi criminali stanno sfruttando vulnerabilità zero‑day 
-          e tecniche di living‑off‑the‑land per evitare il rilevamento.
-        </p>
+            <p style="color:#ccc; line-height:1.7; margin-top:10px;">
+                ${d.details}
+            </p>
+        `;
+    } catch (e) {
+        document.getElementById("defensePlaybook").innerHTML =
+            "<p style='color:#ff4444;'>Errore caricamento Playbook</p>";
+    }
+}
 
-        <p style="color:#ccc; line-height:1.7; margin-top:10px;">
-          Le infrastrutture critiche rimangono tra i bersagli principali, insieme a servizi cloud, supply‑chain 
-          software e piattaforme SaaS. La velocità con cui emergono nuove minacce richiede un approccio basato 
-          su monitoraggio continuo e threat intelligence avanzata.
-        </p>
-      </div>
+loadDefensePlaybook();
+setInterval(loadDefensePlaybook, 60000);
+</script>
 
-      <!-- Global Attack Heat Index -->
-      <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #00eaffaa;
-          padding:25px;
-          margin-top:30px;
-          border-radius:8px;
-          box-shadow:0 0 12px #00eaffaa;
-      ">
-        <h3 style="color:#00eaff;">Global Attack Heat Index</h3>
+      <!-- Cyber Threat Landscape 2026 (Dinamico) -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff7b00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff7b00aa;
+">
+    <h3 style="color:#ff7b00;">Cyber Threat Landscape 2026</h3>
 
-        <p style="color:#ccc; margin-bottom:15px;">
-          Intensità degli attacchi informatici nelle ultime 24 ore.
-        </p>
+    <!-- Contenuto dinamico -->
+    <div id="threatLandscape">
+        <p style="color:#ccc; line-height:1.7;">Caricamento...</p>
+    </div>
+</div>
 
-        <div style="
-            width:100%;
-            height:180px;
-            background:linear-gradient(180deg, #ff0000 0%, #ff7b00 40%, #ffaa00 70%, #00eaff 100%);
-            border-radius:6px;
-            box-shadow:0 0 20px #00eaff88 inset;
-        "></div>
+<script>
+async function loadThreatLandscape() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/threat-landscape.php");
+        const d = await res.json();
 
-        <p style="color:#00eaff; margin-top:10px; font-weight:bold;">
-          Picco registrato: 91% — Attività APT elevata
-        </p>
-      </div>
+        document.getElementById("threatLandscape").innerHTML = `
+            <p style="color:#ccc; line-height:1.7;">
+                ${d.p1}
+            </p>
 
-      <!-- Cyber Operations Dashboard -->
-      <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #ffaa00aa;
-          padding:25px;
-          margin-top:30px;
-          border-radius:8px;
-          box-shadow:0 0 12px #ffaa00aa;
-      ">
-        <h3 style="color:#ffaa00;">Cyber Operations Dashboard</h3>
+            <p style="color:#ccc; line-height:1.7; margin-top:10px;">
+                ${d.p2}
+            </p>
+        `;
+    } catch (e) {
+        document.getElementById("threatLandscape").innerHTML =
+            "<p style='color:#ff4444;'>Errore caricamento Threat Landscape</p>";
+    }
+}
 
-        <div style="display:flex; gap:20px; margin-top:15px;">
+loadThreatLandscape();
+setInterval(loadThreatLandscape, 60000);
+</script>
 
-          <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+      <!-- Global Attack Heat Index (Dinamico) -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+    <h3 style="color:#00eaff;">Global Attack Heat Index</h3>
+
+    <p style="color:#ccc; margin-bottom:15px;">
+        Intensità degli attacchi informatici nelle ultime 24 ore.
+    </p>
+
+    <!-- Barra grafica statica (manteniamo il tuo stile) -->
+    <div style="
+        width:100%;
+        height:180px;
+        background:linear-gradient(180deg, #ff0000 0%, #ff7b00 40%, #ffaa00 70%, #00eaff 100%);
+        border-radius:6px;
+        box-shadow:0 0 20px #00eaff88 inset;
+    "></div>
+
+    <!-- Valore dinamico -->
+    <p id="heatIndexValue" style="color:#00eaff; margin-top:10px; font-weight:bold;">
+        Caricamento...
+    </p>
+</div>
+
+<script>
+async function loadHeatIndex() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/heat-index.php");
+        const d = await res.json();
+
+        document.getElementById("heatIndexValue").innerText =
+            `Picco registrato: ${d.peak}% — ${d.note}`;
+    } catch (e) {
+        document.getElementById("heatIndexValue").innerText =
+            "Errore caricamento Heat Index";
+    }
+}
+
+loadHeatIndex();
+setInterval(loadHeatIndex, 30000);
+</script>
+
+<!-- Cyber Operations Dashboard (Dinamico) -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+    <h3 style="color:#ffaa00;">Cyber Operations Dashboard</h3>
+
+    <div style="display:flex; gap:20px; margin-top:15px;">
+
+        <!-- Incidenti attivi -->
+        <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Incidenti attivi</h4>
-            <p style="color:#ccc; font-size:22px; margin-top:10px;">12</p>
-          </div>
+            <p id="opsIncidenti" style="color:#ccc; font-size:22px; margin-top:10px;">--</p>
+        </div>
 
-          <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+        <!-- Minacce critiche -->
+        <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Minacce critiche</h4>
-            <p style="color:#ccc; font-size:22px; margin-top:10px;">7</p>
-          </div>
+            <p id="opsCritiche" style="color:#ccc; font-size:22px; margin-top:10px;">--</p>
+        </div>
 
-          <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+        <!-- Zero‑day attivi (già dinamico) -->
+        <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Zero‑day attivi</h4>
+
             <p id="zeroDayValue" style="color:#ccc; font-size:22px; margin-top:10px;">--</p>
-<p id="zeroDayUpdate" style="color:#666; font-size:12px; margin-top:5px;">Aggiornamento: --</p>
+            <p id="zeroDayUpdate" style="color:#666; font-size:12px; margin-top:5px;">Aggiornamento: --</p>
+
+            <script>
+            async function loadZeroDay() {
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/soc/zero-day.php");
+                    const data = await res.json();
+
+                    document.getElementById("zeroDayValue").textContent = data.zeroDay;
+                    document.getElementById("zeroDayUpdate").textContent = "Aggiornamento: " + data.updated;
+
+                } catch (e) {
+                    document.getElementById("zeroDayValue").textContent = "ERR";
+                }
+            }
+
+            loadZeroDay();
+            setInterval(loadZeroDay, 60000);
+            </script>
+        </div>
+
+    </div>
+</div>
+
+<script>
+async function loadOpsDashboard() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/ops-dashboard.php");
+        const d = await res.json();
+
+        document.getElementById("opsIncidenti").innerText = d.incidenti;
+        document.getElementById("opsCritiche").innerText = d.critiche;
+
+    } catch (e) {
+        document.getElementById("opsIncidenti").innerText = "ERR";
+        document.getElementById("opsCritiche").innerText = "ERR";
+    }
+}
+
+loadOpsDashboard();
+setInterval(loadOpsDashboard, 60000);
+</script>
 
 <script>
 async function loadZeroDay() {
