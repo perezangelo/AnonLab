@@ -500,8 +500,11 @@ async function loadSecuritySnapshot() {
         const d = await res.json();
 
         document.getElementById("secSnapshot").innerHTML = `
-            <strong style="color:#00ffaa;">${d.status}</strong><br>
-            ${d.details}
+            <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+            <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
+            <span style="color:#aaa; font-size:13px; line-height:1.7;">
+                ${d.explain}
+            </span>
         `;
     } catch {
         document.getElementById("secSnapshot").innerHTML =
