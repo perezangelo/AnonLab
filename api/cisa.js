@@ -23,22 +23,11 @@ export default async function handler(req, res) {
     const xml = await response.text();
 
     if (!xml.includes("<rss")) {
-      return res.status(200).json({
-        alerts: [
-          {
-            title: "Feed CISA non valido (HTML ricevuto).",
-            summary: "Il feed XML non è stato riconosciuto come RSS."
-          },
-          {
-            title: "Cloudflare ha bloccato la richiesta.",
-            summary: "La richiesta è stata filtrata dal sistema di protezione."
-          },
-          {
-            title: "Proxy Vercel attivo, ma feed non parsabile.",
-            summary: "Il contenuto ricevuto non è convertibile in XML."
-          }
-        ]
-      });
+      return res.status(200).json([
+        { source: "CISA", title: "Feed CISA non valido (HTML ricevuto)." },
+        { source: "CISA", title: "Cloudflare ha bloccato la richiesta." },
+        { source: "CISA", title: "Proxy Vercel attivo, ma feed non parsabile." }
+      ]);
     }
 
     const { XMLParser } = require("fast-xml-parser");
@@ -47,21 +36,17 @@ export default async function handler(req, res) {
 
     const items = data.rss.channel.item.slice(0, 5);
 
-    const alerts = items.map(item => ({
-      title: item.title,
-      summary: item.description || "Nessun sommario disponibile."
+    const out = items.map(item => ({
+      source: "CISA",
+      title: item.title
     }));
 
-    return res.status(200).json({ alerts });
+    return res.status(200).json(out);
 
   } catch (error) {
-    return res.status(200).json({
-      alerts: [
-        {
-          title: "Errore nel proxy Vercel.",
-          summary: error.toString()
-        }
-      ]
-    });
+    return res.status(200).json([
+      { source: "CISA", title: "Errore nel proxy Vercel." },
+      { source: "CISA", title: error.toString() }
+    ]);
   }
 }
