@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  const url = "https://www.cisa.gov/news.xml";
+  const url = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json";
 
   try {
     const response = await fetch(url, {
@@ -13,40 +13,35 @@ export default async function handler(req, res) {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
           + "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-        "Accept": "application/xml,text/xml,*/*",
-        "Accept-Language": "en-US,en;q=0.9",
+        "Accept": "application/json,*/*",
         "Cache-Control": "no-cache",
         "Pragma": "no-cache"
       }
     });
 
-    const xml = await response.text();
+    const json = await response.json();
 
-    if (!xml.includes("<rss")) {
-      return res.status(200).json([
-        { source: "CISA", title: "Feed CISA non valido (HTML ricevuto)." },
-        { source: "CISA", title: "Cloudflare ha bloccato la richiesta." },
-        { source: "CISA", title: "Proxy Vercel attivo, ma feed non parsabile." }
-      ]);
+    let alerts = [];
+
+    if (json.vulnerabilities && Array.isArray(json.vulnerabilities)) {
+      alerts = json.vulnerabilities.slice(0, 5).map(v => ({
+        source: "CISA KEV",
+        title: v.cveID || "Vulnerabilità",
+        summary: v.shortDescription || "Nessuna descrizione disponibile."
+      }));
     }
 
-    const { XMLParser } = require("fast-xml-parser");
-    const parser = new XMLParser();
-    const data = parser.parse(xml);
-
-    const items = data.rss.channel.item.slice(0, 5);
-
-    const out = items.map(item => ({
-      source: "CISA",
-      title: item.title
-    }));
-
-    return res.status(200).json(out);
+    return res.status(200).json({ alerts });
 
   } catch (error) {
-    return res.status(200).json([
-      { source: "CISA", title: "Errore nel proxy Vercel." },
-      { source: "CISA", title: error.toString() }
-    ]);
+    return res.status(200).json({
+      alerts: [
+        {
+          source: "CISA",
+          title: "Errore nel proxy Vercel",
+          summary: error.toString()
+        }
+      ]
+    });
   }
 }
