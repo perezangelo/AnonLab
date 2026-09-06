@@ -1122,5 +1122,57 @@ function startTrendingTopics() {
 startTrendingTopics();
 </script>
 
+	<script>
+function startEUFeed() {
+    const box = document.getElementById("law-timeline");
+    if (!box) return setTimeout(startEUFeed, 200);
+
+    async function loadEU() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/euindex.php?t=" + Date.now());
+            const data = await res.json();
+
+            box.innerHTML = "";
+
+            data.forEach(item => {
+                const [title, desc, type, date, link] = item;
+
+                box.innerHTML += `
+                    <div style="
+                        padding:12px 0;
+                        border-bottom:1px solid rgba(255,255,255,0.08);
+                        font-size:15px;
+                    ">
+                        <div style="font-weight:700; color:#0ff; margin-bottom:4px;">
+                            ${title}
+                        </div>
+
+                        <div style="color:#ccc; font-size:13px; margin-bottom:6px;">
+                            ${desc}
+                        </div>
+
+                        <div style="color:#888; font-size:12px; margin-bottom:6px;">
+                            Tipo: ${type} — Data: ${date}
+                        </div>
+
+                        <a href="${link}" target="_blank" style="color:#0ff; font-size:12px;">
+                            Documento ufficiale →
+                        </a>
+                    </div>
+                `;
+            });
+
+        } catch (e) {
+            box.innerHTML = "<div style='color:#888;'>Impossibile caricare le normative UE</div>";
+        }
+    }
+
+    loadEU();
+    setInterval(loadEU, 600000); // ogni 10 minuti
+}
+
+startEUFeed();
+</script>
+
 </body>
 </html>
