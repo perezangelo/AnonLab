@@ -1236,18 +1236,39 @@ setInterval(loadThreatDistribution, 60000);
 </div>
 
 <!-- ========================= -->
-<!-- SCRIPT PRINCIPALE -->
+<!-- SCRIPT PRINCIPALE CORRETTO -->
 <!-- ========================= -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  loadThreatIntel();
-  loadAttackMap();
-  initCalculator();
 
+  // ATTACK MAP
+  if (typeof loadAttackMap === "function") {
+    loadAttackMap();
+  }
+
+  // CALCOLATRICE
+  if (typeof initCalculator === "function") {
+    initCalculator();
+  }
+
+  // NOTE DI INTELLIGENCE
   loadIntelNotes();
+
+  // SEZIONI TI (AlterVista)
   loadCyberSections();
+
+  // AWARENESS TIPS
   loadAwarenessTips();
+
+  // CHECKLIST OPERATIVA
   loadOpsChecklist();
+
+  // DISTRIBUZIONE MINACCE
+  if (typeof loadThreatDistribution === "function") {
+    loadThreatDistribution();
+    setInterval(loadThreatDistribution, 60000);
+  }
+
 });
 </script>
 
