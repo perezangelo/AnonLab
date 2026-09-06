@@ -12,15 +12,17 @@ function startRansomTracker() {
 
     async function loadRansom() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/newsops/ransomindex.php?t=" + Date.now(), {
-                credentials: "include"
-            });
+            const url = "https://angelonline.altervista.org/newsops/ransomindex.php?t=" + Date.now();
+            console.log("RansomTracker: fetch", url);
+
+            const res = await fetch(url);
 
             if (!res.ok) {
                 throw new Error("HTTP " + res.status);
             }
 
             const data = await res.json();
+            console.log("RansomTracker: data", data);
 
             if (!Array.isArray(data)) {
                 throw new Error("Formato JSON non valido");
@@ -31,19 +33,26 @@ function startRansomTracker() {
             data.forEach(item => {
                 const [group, desc, status, date, leak, icon] = item;
 
-                const shortDesc = desc && desc.length > 70 ? desc.substring(0, 70) + "..." : (desc || "");
+                const safeGroup = group || "";
+                const safeDesc = desc || "";
+                const safeStatus = status || "";
+                const safeDate = date || "";
+                const safeLeak = leak || "";
+                const safeIcon = icon || "";
+
+                const shortDesc = safeDesc.length > 70 ? safeDesc.substring(0, 70) + "..." : safeDesc;
 
                 const badgeColor =
-                    status && status.toLowerCase() === "active" ? "#ff0033" :
-                    status && status.toLowerCase() === "inactive" ? "#555" :
+                    safeStatus.toLowerCase() === "active" ? "#ff0033" :
+                    safeStatus.toLowerCase() === "inactive" ? "#555" :
                     "#0066ff";
 
-                const iconHTML = icon
-                    ? `<img src="${icon}" style="width:24px;height:24px;margin-right:6px;border-radius:4px;">`
+                const iconHTML = safeIcon
+                    ? `<img src="${safeIcon}" style="width:24px;height:24px;margin-right:6px;border-radius:4px;">`
                     : `<div style="width:24px;height:24px;background:#333;margin-right:6px;border-radius:4px;"></div>`;
 
-                const leakHTML = leak
-                    ? `<a href="${leak}" target="_blank" style="color:#0ff;font-size:12px;">Leak Site</a>`
+                const leakHTML = safeLeak
+                    ? `<a href="${safeLeak}" target="_blank" style="color:#0ff;font-size:12px;">Leak Site</a>`
                     : `<span style="color:#555;font-size:12px;">No Leak Site</span>`;
 
                 const itemDiv = document.createElement("div");
@@ -58,12 +67,12 @@ function startRansomTracker() {
                     cursor:pointer;
                 `;
 
-                itemDiv.dataset.group = group || "";
-                itemDiv.dataset.desc = desc || "";
-                itemDiv.dataset.status = status || "";
-                itemDiv.dataset.date = date || "";
-                itemDiv.dataset.leak = leak || "";
-                itemDiv.dataset.icon = icon || "";
+                itemDiv.dataset.group = safeGroup;
+                itemDiv.dataset.desc = safeDesc;
+                itemDiv.dataset.status = safeStatus;
+                itemDiv.dataset.date = safeDate;
+                itemDiv.dataset.leak = safeLeak;
+                itemDiv.dataset.icon = safeIcon;
 
                 itemDiv.onclick = () => showRansomPopup(itemDiv.dataset);
 
@@ -78,14 +87,14 @@ function startRansomTracker() {
                             font-size:12px;
                             width:max-content;
                         ">
-                            ${group}
+                            ${safeGroup}
                         </div>
                     </div>
 
                     <div>${shortDesc}</div>
 
                     <div style="margin-top:6px;font-size:11px;color:#888;">
-                        Status: ${status} — Added: ${date}
+                        Status: ${safeStatus} — Added: ${safeDate}
                     </div>
 
                     <div style="margin-top:4px;">
@@ -97,7 +106,7 @@ function startRansomTracker() {
             });
 
             if (!box.innerHTML.trim()) {
-                box.innerHTML = "<div style='color:#888;'>Nessun gruppo ransomware premium disponibile</div>";
+                box.innerHTML = "<div style='color:#888;'>Nessun gruppo ransomware disponibile</div>";
             }
 
         } catch (e) {
@@ -175,3 +184,4 @@ function showRansomPopup(data) {
 
     document.body.appendChild(popup);
 }
+
