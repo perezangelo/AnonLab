@@ -551,8 +551,8 @@ async function loadRiskPulse() {
         const res = await fetch("https://angelonline.altervista.org/soc/risk-pulse.php");
         const d = await res.json();
 
-        document.getElementById("secSnapshot").innerHTML = `
-    <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+    document.getElementById("riskPulse").innerHTML = `
+    <strong style="color:#ff4444; font-size:18px;">${d.status}</strong><br><br>
     <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
     <span style="color:#aaa; font-size:13px; line-height:1.7;">${d.explain}</span>
     <br><br>
@@ -592,8 +592,8 @@ async function loadExposureScore() {
         const res = await fetch("https://angelonline.altervista.org/soc/exposure-score.php");
         const d = await res.json();
 
-        document.getElementById("secSnapshot").innerHTML = `
-    <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+  document.getElementById("exposureScore").innerHTML = `
+    <strong style="color:#ffaa00; font-size:18px;">${d.status}</strong><br><br>
     <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
     <span style="color:#aaa; font-size:13px; line-height:1.7;">${d.explain}</span>
     <br><br>
@@ -633,8 +633,8 @@ async function loadSupplyRisk() {
         const res = await fetch("https://angelonline.altervista.org/soc/supply-risk.php");
         const d = await res.json();
 
-        document.getElementById("secSnapshot").innerHTML = `
-    <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+   document.getElementById("supplyRisk").innerHTML = `
+    <strong style="color:#00c8ff; font-size:18px;">${d.status}</strong><br><br>
     <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
     <span style="color:#aaa; font-size:13px; line-height:1.7;">${d.explain}</span>
     <br><br>
