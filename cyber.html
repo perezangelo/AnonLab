@@ -477,7 +477,16 @@ loadExfil();
 setInterval(loadExfil, 15000);
 </script>
 
-	<h2 class="section-title">Infrastructure Security Insights</h2>
+	<h2 style="
+  color:#00ffaa;
+  margin-top:40px;
+  margin-bottom:20px;
+  font-size:22px;
+  border-left:4px solid #00ffaa;
+  padding-left:12px;
+">
+  Infrastructure Security Insights
+</h2>
 
 	<!-- Security Posture Snapshot -->
 <div class="cyber-box" style="
@@ -502,12 +511,14 @@ async function loadSecuritySnapshot() {
         const d = await res.json();
 
         document.getElementById("secSnapshot").innerHTML = `
-            <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
-            <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
-            <span style="color:#aaa; font-size:13px; line-height:1.7;">
-                ${d.explain}
-            </span>
-        `;
+    <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+    <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
+    <span style="color:#aaa; font-size:13px; line-height:1.7;">${d.explain}</span>
+    <br><br>
+    <span style="color:#666; font-size:12px;">
+        Monitoraggio continuo attivo. I dati sono aggiornati automaticamente ogni 60 secondi.
+    </span>
+`;
     } catch {
         document.getElementById("secSnapshot").innerHTML =
             "<span style='color:#f66;'>Errore caricamento stato di sicurezza.</span>";
@@ -540,13 +551,15 @@ async function loadRiskPulse() {
         const res = await fetch("https://angelonline.altervista.org/soc/risk-pulse.php");
         const d = await res.json();
 
-        document.getElementById("riskPulse").innerHTML = `
-            <strong style="color:#ff4444; font-size:18px;">${d.status}</strong><br><br>
-            <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
-            <span style="color:#aaa; font-size:13px; line-height:1.7;">
-                ${d.explain}
-            </span>
-        `;
+        document.getElementById("secSnapshot").innerHTML = `
+    <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+    <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
+    <span style="color:#aaa; font-size:13px; line-height:1.7;">${d.explain}</span>
+    <br><br>
+    <span style="color:#666; font-size:12px;">
+        Monitoraggio continuo attivo. I dati sono aggiornati automaticamente ogni 60 secondi.
+    </span>
+`;
     } catch {
         document.getElementById("riskPulse").innerHTML =
             "<span style='color:#f66;'>Errore caricamento stato infrastrutturale.</span>";
@@ -579,13 +592,15 @@ async function loadExposureScore() {
         const res = await fetch("https://angelonline.altervista.org/soc/exposure-score.php");
         const d = await res.json();
 
-        document.getElementById("exposureScore").innerHTML = `
-            <strong style="color:#ffaa00; font-size:18px;">${d.status}</strong><br><br>
-            <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
-            <span style="color:#aaa; font-size:13px; line-height:1.7;">
-                ${d.explain}
-            </span>
-        `;
+        document.getElementById("secSnapshot").innerHTML = `
+    <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+    <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
+    <span style="color:#aaa; font-size:13px; line-height:1.7;">${d.explain}</span>
+    <br><br>
+    <span style="color:#666; font-size:12px;">
+        Monitoraggio continuo attivo. I dati sono aggiornati automaticamente ogni 60 secondi.
+    </span>
+`;
     } catch {
         document.getElementById("exposureScore").innerHTML =
             "<span style='color:#f66;'>Errore caricamento livello di esposizione.</span>";
@@ -618,13 +633,15 @@ async function loadSupplyRisk() {
         const res = await fetch("https://angelonline.altervista.org/soc/supply-risk.php");
         const d = await res.json();
 
-        document.getElementById("supplyRisk").innerHTML = `
-            <strong style="color:#00c8ff; font-size:18px;">${d.status}</strong><br><br>
-            <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
-            <span style="color:#aaa; font-size:13px; line-height:1.7;">
-                ${d.explain}
-            </span>
-        `;
+        document.getElementById("secSnapshot").innerHTML = `
+    <strong style="color:#00ffaa; font-size:18px;">${d.status}</strong><br><br>
+    <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
+    <span style="color:#aaa; font-size:13px; line-height:1.7;">${d.explain}</span>
+    <br><br>
+    <span style="color:#666; font-size:12px;">
+        Monitoraggio continuo attivo. I dati sono aggiornati automaticamente ogni 60 secondi.
+    </span>
+`;
     } catch {
         document.getElementById("supplyRisk").innerHTML =
             "<span style='color:#f66;'>Errore caricamento rischio supply‑chain.</span>";
