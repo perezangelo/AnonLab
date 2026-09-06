@@ -594,6 +594,45 @@ loadExposureScore();
 setInterval(loadExposureScore, 60000);
 </script>
 
+<!-- Supply-Chain Risk Monitor -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00c8ffcc;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00c8ffcc;
+">
+  <h3 style="color:#00c8ff;">Supply‑Chain Risk Monitor</h3>
+
+  <p id="supplyRisk" style="color:#ccc; line-height:1.7; margin-top:10px;">
+    Caricamento rischio supply‑chain...
+  </p>
+</div>
+	
+<script>
+async function loadSupplyRisk() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/supply-risk.php");
+        const d = await res.json();
+
+        document.getElementById("supplyRisk").innerHTML = `
+            <strong style="color:#00c8ff; font-size:18px;">${d.status}</strong><br><br>
+            <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
+            <span style="color:#aaa; font-size:13px; line-height:1.7;">
+                ${d.explain}
+            </span>
+        `;
+    } catch {
+        document.getElementById("supplyRisk").innerHTML =
+            "<span style='color:#f66;'>Errore caricamento rischio supply‑chain.</span>";
+    }
+}
+
+loadSupplyRisk();
+setInterval(loadSupplyRisk, 60000);
+</script>
+
 <ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;"></ul>
 
 <script>
