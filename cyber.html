@@ -555,6 +555,45 @@ loadRiskPulse();
 setInterval(loadRiskPulse, 60000);
 </script>
 
+	<!-- Threat Exposure Score -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00;">Threat Exposure Score</h3>
+
+  <p id="exposureScore" style="color:#ccc; line-height:1.7; margin-top:10px;">
+    Caricamento livello di esposizione...
+  </p>
+</div>
+
+<script>
+async function loadExposureScore() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/exposure-score.php");
+        const d = await res.json();
+
+        document.getElementById("exposureScore").innerHTML = `
+            <strong style="color:#ffaa00; font-size:18px;">${d.status}</strong><br><br>
+            <span style="color:#ccc; line-height:1.7;">${d.details}</span><br><br>
+            <span style="color:#aaa; font-size:13px; line-height:1.7;">
+                ${d.explain}
+            </span>
+        `;
+    } catch {
+        document.getElementById("exposureScore").innerHTML =
+            "<span style='color:#f66;'>Errore caricamento livello di esposizione.</span>";
+    }
+}
+
+loadExposureScore();
+setInterval(loadExposureScore, 60000);
+</script>
+
 <ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;"></ul>
 
 <script>
