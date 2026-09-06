@@ -1154,7 +1154,7 @@ setInterval(loadThreatDistribution, 60000);
   Distribuzione delle principali categorie di minacce rilevate questa settimana.
 </p>
 
-	<!-- ========================= -->
+<!-- ========================= -->
 <!-- CONTENITORI RICHIESTI DAGLI SCRIPT -->
 <!-- ========================= -->
 
@@ -1173,18 +1173,12 @@ setInterval(loadThreatDistribution, 60000);
 <!-- Calculator Widget -->
 <div id="calculator" style="margin-top:25px;"></div>
 
-         <!-- INTELLIGENCE NOTES (DINAMICO) -->
+<!-- INTELLIGENCE NOTES (DINAMICO) -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Intelligence Notes</h4>
 
   <div id="intel-notes">
-    <p style="
-        color:#ccc;
-        line-height:1.7;
-        font-size:14px;
-        text-shadow:0 0 6px #000;
-        margin-top:10px;
-    ">
+    <p style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
       Caricamento note di intelligence in corso...
     </p>
   </div>
@@ -1246,10 +1240,15 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-</div> 
-
- <script>
+<!-- ========================= -->
+<!-- SCRIPT PRINCIPALE (VERCEL + WIDGET) -->
+<!-- ========================= -->
+<script>
 document.addEventListener("DOMContentLoaded", () => {
+  loadThreatIntel();
+  loadAttackMap();
+  initCalculator();
+
   loadIntelNotes();
   loadCyberSections();
   loadAwarenessTips();
@@ -1264,37 +1263,26 @@ async function loadIntelNotes() {
     const data = await res.json();
 
     if (!data.alerts || !data.alerts.length) {
-      container.innerHTML = `
-        <p style="color:#ccc; line-height:1.7; font-size:14px;">
-          Nessuna nota di intelligence disponibile al momento.
-        </p>`;
+      container.innerHTML = `<p style="color:#ccc;">Nessuna nota disponibile.</p>`;
       return;
     }
 
-    const html = data.alerts.slice(0, 3).map(a => `
-      <p style="
-          color:#ccc;
-          line-height:1.7;
-          font-size:14px;
-          text-shadow:0 0 6px #000;
-          margin-top:10px;
-      ">
-        <strong style="color:#00eaff;">${a.title}</strong><br>
-        ${a.summary}
+    container.innerHTML = data.alerts.slice(0, 3).map(a => `
+      <p style="color:#ccc; line-height:1.7;">
+        <strong style="color:#00eaff;">${a.title}</strong><br>${a.summary}
       </p>
     `).join("");
 
-    container.innerHTML = html;
-
   } catch (e) {
-    console.error("Intel Notes error:", e);
-    container.innerHTML = `
-      <p style="color:#f66; line-height:1.7; font-size:14px;">
-        Errore nel caricamento delle note di intelligence.
-      </p>`;
+    container.innerHTML = `<p style="color:#f66;">Errore nel caricamento.</p>`;
   }
 }
+</script>
 
+<!-- ========================= -->
+<!-- SCRIPT ALTERVISTA (TI-News, Tips, Checklist) -->
+<!-- ========================= -->
+<script>
 /* ATTACCHI / DIFESA / CULTURA (ALTERVISTA) */
 async function loadCyberSections() {
   const attacchiEl = document.getElementById("sec-attacchi");
@@ -1342,178 +1330,8 @@ async function loadOpsChecklist() {
     renderList(listEl, data.ops, "Nessuna voce operativa disponibile al momento.");
 
   } catch (e) {
-<!-- ========================= -->
-<!-- CONTENITORI RICHIESTI DAGLI SCRIPT -->
-<!-- ========================= -->
-
-<!-- Threat Intelligence Widget -->
-<div id="ti-container">
-  <div id="ti-feed"></div>
-</div>
-
-<!-- Attack Map Canvas -->
-<canvas id="AttackMapCanvas"></canvas>
-
-<!-- Calculator Widget -->
-<div id="calculator"></div>
-
-<!-- ========================= -->
-<!-- INTELLIGENCE NOTES (DINAMICO) -->
-<!-- ========================= -->
-<div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
-  <h4 class="ti-title">Intelligence Notes</h4>
-
-  <div id="intel-notes">
-    <p style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
-      Caricamento note di intelligence in corso...
-    </p>
-  </div>
-</div>
-
-<!-- ========================= -->
-<!-- ATTACCHI INFORMATICI -->
-<!-- ========================= -->
-<div class="ti-section" style="margin-top:25px;">
-  <h4 class="ti-title">Attacchi Informatici</h4>
-  <ul id="sec-attacchi" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
-    <li>Caricamento dati...</li>
-  </ul>
-</div>
-
-<!-- ========================= -->
-<!-- DIFESA & SICUREZZA -->
-<!-- ========================= -->
-<div class="ti-section" style="margin-top:25px;">
-  <h4 class="ti-title">Difesa & Sicurezza</h4>
-  <ul id="sec-difesa" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
-    <li>Caricamento dati...</li>
-  </ul>
-</div>
-
-<!-- ========================= -->
-<!-- CULTURA CYBER -->
-<!-- ========================= -->
-<div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
-  <h4 class="ti-title">Cultura Cyber</h4>
-  <ul id="sec-cultura" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
-    <li>Caricamento dati...</li>
-  </ul>
-</div>
-
-<!-- ========================= -->
-<!-- CYBER AWARENESS TIPS -->
-<!-- ========================= -->
-<div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #ffffff33;
-    padding:25px;
-    margin-top:30px;
-    border-radius:8px;
-    box-shadow:0 0 12px #ffffff33;
-">
-  <h3 style="color:#fff; margin-bottom:12px;">Cyber Awareness Tips</h3>
-
-  <ul id="awareness-tips" style="color:#ccc; line-height:1.7; font-size:14px;">
-    <li>Caricamento suggerimenti...</li>
-  </ul>
-</div>
-
-<!-- ========================= -->
-<!-- CYBER OPERATIONS CHECKLIST -->
-<!-- ========================= -->
-<div class="ti-section" style="margin-top:25px; text-align:center;">
-  <h4 class="ti-title" style="text-align:center;">Cyber Operations Checklist</h4>
-
-  <ul id="ops-checklist" style="
-      color:#ccc;
-      line-height:1.7;
-      font-size:14px;
-      display:inline-block;
-      text-align:left;
-      margin-top:10px;
-  ">
-    <li>Caricamento checklist operativa...</li>
-  </ul>
-</div>
-
-</div> <!-- chiude la colonna della cyber-grid -->
-
-<!-- ========================= -->
-<!-- SCRIPT DINAMICO -->
-<!-- ========================= -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  loadIntelNotes();
-  loadCyberSections();
-  loadAwarenessTips();
-  loadOpsChecklist();
-});
-
-/* INTELLIGENCE NOTES */
-async function loadIntelNotes() {
-  const container = document.getElementById("intel-notes");
-  try {
-    const res = await fetch("https://anonlab.vercel.app/api/cisa");
-    const data = await res.json();
-
-    if (!data.alerts || !data.alerts.length) {
-      container.innerHTML = `<p style="color:#ccc;">Nessuna nota disponibile.</p>`;
-      return;
-    }
-
-    container.innerHTML = data.alerts.slice(0, 3).map(a => `
-      <p style="color:#ccc; line-height:1.7;">
-        <strong style="color:#00eaff;">${a.title}</strong><br>${a.summary}
-      </p>
-    `).join("");
-
-  } catch (e) {
-    container.innerHTML = `<p style="color:#f66;">Errore nel caricamento.</p>`;
-  }
-}
-
-/* CYBER SECTIONS */
-async function loadCyberSections() {
-  const attacchiEl = document.getElementById("sec-attacchi");
-  const difesaEl   = document.getElementById("sec-difesa");
-  const culturaEl  = document.getElementById("sec-cultura");
-
-  try {
-    const res = await fetch("https://angelonline.altervista.org/soc/ti-news.php");
-    const data = await res.json();
-
-    renderList(attacchiEl, data.attacchi, "Nessun dato sugli attacchi.");
-    renderList(difesaEl,   data.difesa,   "Nessun dato sulla difesa.");
-    renderList(culturaEl,  data.cultura,  "Nessun dato sulla cultura cyber.");
-
-  } catch (e) {
-    attacchiEl.innerHTML = `<li style="color:#f66;">Errore</li>`;
-    difesaEl.innerHTML   = `<li style="color:#f66;">Errore</li>`;
-    culturaEl.innerHTML  = `<li style="color:#f66;">Errore</li>`;
-  }
-}
-
-/* AWARENESS */
-async function loadAwarenessTips() {
-  const listEl = document.getElementById("awareness-tips");
-  try {
-    const res = await fetch("https://angelonline.altervista.org/soc/awareness.php");
-    const data = await res.json();
-    renderList(listEl, data.tips, "Nessun suggerimento disponibile.");
-  } catch (e) {
-    listEl.innerHTML = `<li style="color:#f66;">Errore</li>`;
-  }
-}
-
-/* OPS CHECKLIST */
-async function loadOpsChecklist() {
-  const listEl = document.getElementById("ops-checklist");
-  try {
-    const res = await fetch("https://angelonline.altervista.org/soc/checklist.php");
-    const data = await res.json();
-    renderList(listEl, data.ops, "Nessuna voce disponibile.");
-  } catch (e) {
-    listEl.innerHTML = `<li style="color:#f66;">Errore</li>`;
+    console.error("Ops Checklist error:", e);
+    listEl.innerHTML = `<li style="color:#f66;">Errore nel caricamento della checklist.</li>`;
   }
 }
 
