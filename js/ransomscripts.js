@@ -2,7 +2,9 @@ function startRansomTracker() {
     const container = document.getElementById("ransom-tracker-container");
     const box = document.getElementById("ransom-tracker");
 
-    if (!box) return setTimeout(startRansomTracker, 200);
+    if (!box || !container) {
+        return setTimeout(startRansomTracker, 200);
+    }
 
     container.style.maxHeight = "300px";
     container.style.overflowY = "auto";
@@ -10,19 +12,30 @@ function startRansomTracker() {
 
     async function loadRansom() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/newsops/ransomindex.php?t=" + Date.now());
+            const res = await fetch("https://angelonline.altervista.org/newsops/ransomindex.php?t=" + Date.now(), {
+                credentials: "include"
+            });
+
+            if (!res.ok) {
+                throw new Error("HTTP " + res.status);
+            }
+
             const data = await res.json();
+
+            if (!Array.isArray(data)) {
+                throw new Error("Formato JSON non valido");
+            }
 
             box.innerHTML = "";
 
             data.forEach(item => {
                 const [group, desc, status, date, leak, icon] = item;
 
-                const shortDesc = desc.length > 70 ? desc.substring(0, 70) + "..." : desc;
+                const shortDesc = desc && desc.length > 70 ? desc.substring(0, 70) + "..." : (desc || "");
 
                 const badgeColor =
-                    status.toLowerCase() === "active" ? "#ff0033" :
-                    status.toLowerCase() === "inactive" ? "#555" :
+                    status && status.toLowerCase() === "active" ? "#ff0033" :
+                    status && status.toLowerCase() === "inactive" ? "#555" :
                     "#0066ff";
 
                 const iconHTML = icon
@@ -33,43 +46,59 @@ function startRansomTracker() {
                     ? `<a href="${leak}" target="_blank" style="color:#0ff;font-size:12px;">Leak Site</a>`
                     : `<span style="color:#555;font-size:12px;">No Leak Site</span>`;
 
-                box.innerHTML += `
-                    <div style="
-                        background:#111;
-                        border:1px solid #333;
-                        padding:10px;
-                        margin-bottom:10px;
-                        border-radius:6px;
-                        font-size:14px;
-                        cursor:pointer;
-                    " onclick="showRansomPopup('${group}', '${desc.replace(/'/g, "\\'")}', '${status}', '${date}', '${leak}', '${icon}')">
+                const itemDiv = document.createElement("div");
+                itemDiv.className = "ransom-item";
+                itemDiv.style = `
+                    background:#111;
+                    border:1px solid #333;
+                    padding:10px;
+                    margin-bottom:10px;
+                    border-radius:6px;
+                    font-size:14px;
+                    cursor:pointer;
+                `;
 
-                        <div style="display:flex;align-items:center;margin-bottom:6px;">
-                            ${iconHTML}
-                            <div style="
-                                background:${badgeColor};
-                                color:#fff;
-                                padding:2px 6px;
-                                border-radius:4px;
-                                font-size:12px;
-                                width:max-content;
-                            ">
-                                ${group}
-                            </div>
-                        </div>
+                itemDiv.dataset.group = group || "";
+                itemDiv.dataset.desc = desc || "";
+                itemDiv.dataset.status = status || "";
+                itemDiv.dataset.date = date || "";
+                itemDiv.dataset.leak = leak || "";
+                itemDiv.dataset.icon = icon || "";
 
-                        <div>${shortDesc}</div>
+                itemDiv.onclick = () => showRansomPopup(itemDiv.dataset);
 
-                        <div style="margin-top:6px;font-size:11px;color:#888;">
-                            Status: ${status} — Added: ${date}
-                        </div>
-
-                        <div style="margin-top:4px;">
-                            ${leakHTML}
+                itemDiv.innerHTML = `
+                    <div style="display:flex;align-items:center;margin-bottom:6px;">
+                        ${iconHTML}
+                        <div style="
+                            background:${badgeColor};
+                            color:#fff;
+                            padding:2px 6px;
+                            border-radius:4px;
+                            font-size:12px;
+                            width:max-content;
+                        ">
+                            ${group}
                         </div>
                     </div>
+
+                    <div>${shortDesc}</div>
+
+                    <div style="margin-top:6px;font-size:11px;color:#888;">
+                        Status: ${status} — Added: ${date}
+                    </div>
+
+                    <div style="margin-top:4px;">
+                        ${leakHTML}
+                    </div>
                 `;
+
+                box.appendChild(itemDiv);
             });
+
+            if (!box.innerHTML.trim()) {
+                box.innerHTML = "<div style='color:#888;'>Nessun gruppo ransomware premium disponibile</div>";
+            }
 
         } catch (e) {
             console.error("Errore Ransomware Tracker:", e);
@@ -82,8 +111,7 @@ function startRansomTracker() {
 
 startRansomTracker();
 
-// POPUP DETTAGLI
-function showRansomPopup(group, desc, status, date, leak, icon) {
+function showRansomPopup(data) {
     const popup = document.createElement("div");
     popup.style = `
         position:fixed;
@@ -95,36 +123,55 @@ function showRansomPopup(group, desc, status, date, leak, icon) {
         padding:20px;
         border-radius:10px;
         color:#0ff;
-        width:300px;
+        width:320px;
         z-index:9999;
         font-family:monospace;
     `;
 
+    const group = data.group || "";
+    const desc = data.desc || "";
+    const status = data.status || "";
+    const date = data.date || "";
+    const leak = data.leak || "";
+    const icon = data.icon || "";
+
+    const iconBlock = icon
+        ? `<img src="${icon}" style="width:32px;height:32px;margin-bottom:10px;border-radius:4px;">`
+        : "";
+
     popup.innerHTML = `
-        <div style="font-size:18px;margin-bottom:10px;">${group}</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;">
+            <div style="font-size:18px;margin-bottom:10px;">${group}</div>
 
-        <div style="font-size:12px;color:#ccc;margin-bottom:10px;">
-            ${desc}
+            ${iconBlock}
+
+            <div style="font-size:12px;color:#ccc;margin-bottom:10px;">
+                ${desc}
+            </div>
+
+            <div style="font-size:12px;margin-bottom:10px;">
+                Status: ${status}<br>
+                Added: ${date}
+            </div>
+
+            <div style="margin-bottom:10px;">
+                ${leak ? `<a href="${leak}" target="_blank" style="color:#0ff;">Leak Site</a>` : "No Leak Site"}
+            </div>
+
+            <button style="
+                background:#0ff;
+                color:#000;
+                border:none;
+                padding:6px 10px;
+                cursor:pointer;
+                border-radius:4px;
+                align-self:flex-end;
+            ">Close</button>
         </div>
-
-        <div style="font-size:12px;margin-bottom:10px;">
-            Status: ${status}<br>
-            Added: ${date}
-        </div>
-
-        <div style="margin-bottom:10px;">
-            ${leak ? `<a href="${leak}" target="_blank" style="color:#0ff;">Leak Site</a>` : "No Leak Site"}
-        </div>
-
-        <button onclick="this.parentNode.remove()" style="
-            background:#0ff;
-            color:#000;
-            border:none;
-            padding:6px 10px;
-            cursor:pointer;
-            border-radius:4px;
-        ">Close</button>
     `;
+
+    const btn = popup.querySelector("button");
+    btn.onclick = () => popup.remove();
 
     document.body.appendChild(popup);
 }
