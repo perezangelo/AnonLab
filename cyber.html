@@ -509,58 +509,6 @@ setInterval(loadSIEM, 10000);
   <!-- Mappa globale degli attacchi -->
   <div class="ti-section" style="margin-top:20px;">
     <h4 style="color:#ff7b00;">Mappa globale degli attacchi</h4>
-
-    <div id="tiMapBox" class="map-frame">
-     <canvas id="AttackMapCanvas" width="100%" height="100%" style="width:100%;height:300px;"></canvas>
-
-<script>
-async function loadAttackMap() {
-    const canvas = document.getElementById("AttackMapCanvas");  // ← CORRETTO
-    if (!canvas) {
-        console.warn("AttackMapCanvas non trovato");
-        return;
-    }
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) {
-        console.warn("Impossibile ottenere il contesto 2D");
-        return;
-    }
-
-    function resize() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = 300;
-    }
-    resize();
-    window.addEventListener("resize", resize);
-
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/attack-map.php");
-        const points = await res.json();
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        points.forEach(p => {
-            const x = (p.lon + 180) * (canvas.width / 360);
-            const y = (90 - p.lat) * (canvas.height / 180);
-
-            const g = ctx.createRadialGradient(x, y, 0, x, y, 40);
-            g.addColorStop(0, "rgba(255,0,0,0.6)");
-            g.addColorStop(1, "rgba(255,0,0,0)");
-
-            ctx.fillStyle = g;
-            ctx.beginPath();
-            ctx.arc(x, y, 40, 0, Math.PI * 2);
-            ctx.fill();
-        });
-    } catch (e) {
-        console.error("Errore AttackMap:", e);
-    }
-}
-
-loadAttackMap();
-setInterval(loadAttackMap, 15000);
-</script>
     </div>
   </div>
 
