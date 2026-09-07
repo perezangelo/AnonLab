@@ -1,5 +1,40 @@
 [
   {
+    "title": "Modified ScreenConnect Clients Used in Worm-Like Campaign",
+    "link": "https://www.securityweek.com/modified-screenconnect-clients-used-in-worm-like-campaign/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "ChatGPT can now connect to your personal apps to mimic writing style",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-can-now-connect-to-your-personal-apps-to-mimic-writing-style/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-headpic.jpg"
+  },
+  {
+    "title": "Hackers exploit new MikroTik RouterOS flaws to hijack routers",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-exploit-new-mikrotik-routeros-flaws-to-hijack-routers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/mikrotik.jpg"
+  },
+  {
+    "title": "ConnectWise warns of new ScreenConnect flaw without patch",
+    "link": "https://www.bleepingcomputer.com/news/security/connectwise-warns-of-new-screenconnect-flaw-without-patch/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/ConnectWise-headpic.jpg"
+  },
+  {
+    "title": "N-able Issues Fourth N-central Hotfix in Five Weeks for Unauthenticated RCE Flaw",
+    "link": "https://thehackernews.com/2026/09/n-able-issues-fourth-n-central-hotfix.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOtysh_bb-hej1pQzey0RUhPD2w29ONlPDQMzE9Nc4lM529hKaHhuLKfGXEnqVZyUkMKhJchEeoN1clSKo3-opm2_BQkN6FJ72xBZOZwxX6sTwU4Zzk_j6taOwBpioZOnolR9idUjpydUlQ84TQ9pdWUlUm61JH0Xh8-6_0fo3VieeW3xVQwk4UvXcSu4/s1600/nable.jpg"
+  },
+  {
+    "title": "JSCeal Malware Can Bypass Google Authentication Using Stolen Session Cookies",
+    "link": "https://thehackernews.com/2026/09/jsceal-malware-can-bypass-google.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilF0_vQTn1mpUhivH8aX0vt8SA_Y5wkJqpHriuAdDQKVuWON7ZSzOAbWlwm50oxWlOJ5wMdzBjzy1wRVGNL6IqY8eYFUlIyayK6aiwcXK1fTO9JWZ9hG_QYrNnY_fdm2Lu7Z87p0JOR4WkYD2HNK-6WlcJQgxmUsG1k8k3ye5AT1ggaoiIDAm0kHxYQJ6V/s1600/chrome-cookies.jpg"
+  },
+  {
+    "title": "N-able patches max severity N-central flaw amid ongoing attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/N-able-headpic.jpg"
+  },
+  {
     "title": "ChatGPT Astra is now rolling out to $20 Plus subscription",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-astra-is-now-rolling-out-to-20-plus-subscription/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg"
@@ -90,29 +125,9 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb3e4339597b3813d/6a9acd56e908194ecaf2c87b/AI-human-blue-overlay-metamorworks-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
-    "title": "Phishing Campaign Sends Millions of Emails Using Invisible Unicode to Evade Filters",
-    "link": "https://thehackernews.com/2026/09/phishing-campaign-sends-millions-of.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoD4eMYuhLT8HvcHbYe8A4hkhmDH1f4pIWTIm5AXKueqdpY1NS8yNiTtlzS4mdIS8PLY8_zM1uQDNpO1U49HCUoJT8nn2Bpb6krpcYpOSQ3H3Z6fUsm-UkoFvj8fk8oShK0eUhO6px8hox_ZzlnX8tu0pJKpJ3UAF2Vcb3XyBXjCt_8uD8OOkMMgUjv8Pc/s1600/emails.jpg"
-  },
-  {
     "title": "Critical Citrix NetScaler auth bypass now leveraged in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-target-critical-citrix-netscaler-auth-bypass-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/04/Citrix-headpic.jpg"
-  },
-  {
-    "title": "PostgreSQL Fixes 12-Year-Old Logical Decoding Flaw Enabling Replication-Role Code Execution",
-    "link": "https://thehackernews.com/2026/09/postgresql-fixes-12-year-old-logical.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2Gb4Wd-HSxdrPbdtUFxmldzzEkPEZcW1NkT7tV9-EfTAjDENSExJBWmOey_IJ5UKjszQfCNGkVoBtuxya00rFMrh_lJUAuS66Gr3kvU8GgFjMr7DF-7Ux1rUqwz-aDhum8HkVjxNKQTc6DXHG203CPXwg9sOMcA7nfsq6A81C9cJhb3HUu9GZDIj7FZY/s1600/PostgreSQL.jpg"
-  },
-  {
-    "title": "Microsoft says some users can\u2019t open the Teams desktop client",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-some-users-cant-open-the-teams-desktop-client/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/17/Microsoft_Teams.jpg"
-  },
-  {
-    "title": "39 New Methods That Compromise Passkey Authentication",
-    "link": "https://www.bleepingcomputer.com/news/security/39-new-methods-that-compromise-passkey-authentication/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/08/28/39-methods-compromise-passkeys.jpg"
   },
   {
     "title": "Sangoma Switchvox Vulnerabilities Exploited in the Wild",
@@ -120,19 +135,9 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
   },
   {
-    "title": "New CrowdStrike 'FalconFlank' zero-day grants SYSTEM privileges",
-    "link": "https://www.bleepingcomputer.com/news/security/new-crowdstrike-falconflank-zero-day-grants-system-privileges/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/04/CrowdStrike.jpg"
-  },
-  {
     "title": "AI Is Ending the Era of Hidden Vulnerabilities \u2014 Are Vendors Ready?",
     "link": "https://www.darkreading.com/vulnerabilities-threats/ai-ending-era-hidden-vulnerabilities-are-vendors-ready",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt56a233cc0acad67e/6a998df307331ddd2ec7748c/tsunami_wave-shannonstent-GettyImages-170598253.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Exchange Online outage causes email delays, 'Server busy' errors",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/exchange-online-outage-causes-email-delays-server-busy-errors/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/10/Microsoft_Exchange.jpg"
   },
   {
     "title": "Insurers Search for Answers to Rein in Rogue AI",
@@ -143,10 +148,5 @@
     "title": "12-Year-Old PostgreSQL Vulnerability Enables Database, Server Takeover",
     "link": "https://www.securityweek.com/12-year-old-postgresql-vulnerability-enables-database-server-takeover/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/PostgreSQL-Vulnerability.jpg"
-  },
-  {
-    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
-    "image": ""
   }
 ]
