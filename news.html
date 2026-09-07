@@ -627,6 +627,15 @@ function startLawTimeline() {
         "APPROVATO": { icon: "🔵", color: "#0984e3" }
     };
 
+    const iconMap = {
+        "nis2": "🛡️",
+        "gdpr": "🔐",
+        "dora": "🏦",
+        "cra": "💻",
+        "ai": "🤖",
+        "italia": "🇮🇹"
+    };
+
     async function loadLaw() {
         try {
             const res = await fetch("https://angelonline.altervista.org/newsops/lawindex.php");
@@ -636,6 +645,7 @@ function startLawTimeline() {
 
             data.forEach(l => {
                 const st = statusMap[l.status] || statusMap["ATTIVO"];
+                const ic = iconMap[l.icon] || "📘";
 
                 box.innerHTML += `
                     <div style="
@@ -665,7 +675,7 @@ function startLawTimeline() {
                             </span>
 
                             <strong style="font-size:16px;">
-                                ${l.icon} ${l.name}
+                                ${ic} ${l.name}
                             </strong>
                         </div>
 
