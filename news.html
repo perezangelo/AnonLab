@@ -640,30 +640,55 @@ function startLawTimeline() {
                 box.innerHTML += `
                     <div style="
                         display:flex;
-                        align-items:center;
-                        padding:6px 0;
+                        flex-direction:column;
+                        padding:12px 0;
                         border-bottom:1px solid rgba(255,255,255,0.08);
                         font-size:15px;
                     ">
-                        <span style="
-                            display:inline-flex;
-                            align-items:center;
-                            justify-content:center;
-                            min-width:110px;
-                            padding:4px 10px;
-                            border-radius:6px;
-                            font-weight:700;
-                            text-transform:uppercase;
-                            color:#fff;
-                            font-size:12px;
-                            background:${st.color};
-                            margin-right:12px;
-                        ">
-                            <span style="font-size:18px; margin-right:6px;">${st.icon}</span>
-                            ${l.status}
-                        </span>
+                        <div style="display:flex; align-items:center; margin-bottom:6px;">
+                            <span style="
+                                display:inline-flex;
+                                align-items:center;
+                                justify-content:center;
+                                min-width:110px;
+                                padding:4px 10px;
+                                border-radius:6px;
+                                font-weight:700;
+                                text-transform:uppercase;
+                                color:#fff;
+                                font-size:12px;
+                                background:${st.color};
+                                margin-right:12px;
+                            ">
+                                <span style="font-size:18px; margin-right:6px;">${st.icon}</span>
+                                ${l.status}
+                            </span>
 
-                        <span><strong>${l.name}:</strong> ${l.desc}</span>
+                            <strong style="font-size:16px;">
+                                ${l.icon} ${l.name}
+                            </strong>
+                        </div>
+
+                        <div style="opacity:0.9; margin-bottom:4px;">
+                            ${l.desc}
+                        </div>
+
+                        <div style="font-size:13px; opacity:0.8; margin-bottom:4px;">
+                            🗂️ Categoria: <strong>${l.category}</strong>
+                        </div>
+
+                        <div style="font-size:13px; opacity:0.8;">
+                            📅 <strong>${l.date}</strong>
+                        </div>
+
+                        <a href="${l.source}" target="_blank" style="
+                            font-size:13px;
+                            margin-top:6px;
+                            color:#74b9ff;
+                            text-decoration:none;
+                        ">
+                            🔗 Documento ufficiale →
+                        </a>
                     </div>
                 `;
             });
@@ -680,6 +705,7 @@ function startLawTimeline() {
 
 startLawTimeline();
 </script>
+	
   <script>
 function startThreatBarometer() {
     const bar = document.getElementById("threat-bar");
