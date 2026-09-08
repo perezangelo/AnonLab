@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-78677",
-    "summary": "GitPython: clone_from()/clone() omit --separate-git-dir from unsafe_git_clone_options, enabling arbitrary git-directory creation outside the destination",
+    "id": "CVE-2026-86996",
+    "summary": "n8n: Agent Workflow Tool Bypasses Sub-Workflow Caller Policy",
+    "severity": "MODERATE",
+    "published": "2026-09-08T21:33:47Z",
+    "ghsa": "GHSA-7hgx-277f-7vmg"
+  },
+  {
+    "id": "GHSA-wmmp-3585-3rmp",
+    "summary": "Nodemailer: IDN/Punycode domain allow-list bypass leads to email delivery to an attacker-controlled domain",
+    "severity": "MODERATE",
+    "published": "2026-09-08T21:33:32Z",
+    "ghsa": "GHSA-wmmp-3585-3rmp"
+  },
+  {
+    "id": "GHSA-2x7j-588g-ccc2",
+    "summary": "Nodemailer: Quadratic (O(n²)) time complexity in addressparser allows remote denial of service via a crafted address list",
     "severity": "HIGH",
-    "published": "2026-09-08T18:41:52Z",
-    "ghsa": "GHSA-8mcc-hrx5-hvxc"
+    "published": "2026-09-08T21:33:17Z",
+    "ghsa": "GHSA-2x7j-588g-ccc2"
   },
   {
-    "id": "CVE-2026-78678",
-    "summary": "GitPython: Incomplete unsafe_git_revision_options denylist omits --contents/-S, enabling arbitrary file read via Repo.blame()",
+    "id": "GHSA-cc9r-2j5m-2m83",
+    "summary": "Nodemailer: Recipient-domain validation bypass via RFC 5322 comment mis-parsing leads to email delivery to an attacker-controlled domain",
     "severity": "MODERATE",
-    "published": "2026-09-08T18:41:31Z",
-    "ghsa": "GHSA-5xxx-qhh7-9287"
+    "published": "2026-09-08T21:32:51Z",
+    "ghsa": "GHSA-cc9r-2j5m-2m83"
   },
   {
-    "id": "CVE-2026-78676",
-    "summary": "GitPython: Dormant multi-line git-config values are corrupted into live injected directives (e.g. core.hooksPath) on any unrelated GitConfigParser write, enabling RCE",
-    "severity": "CRITICAL",
-    "published": "2026-09-08T18:39:40Z",
-    "ghsa": "GHSA-284h-m62q-gf8w"
-  },
-  {
-    "id": "CVE-2026-78675",
-    "summary": "GitPython: Arbitrary local file content disclosure via [include] directive in untrusted .gitmodules (SubmoduleConfigParser never disables merge_includes)",
+    "id": "GHSA-2q42-4q24-7rgv",
+    "summary": "OpenAPI3 version value escapes `emitterOutputDir` and overwrites YAML/JSON outside the output tree",
     "severity": "HIGH",
-    "published": "2026-09-08T18:38:51Z",
-    "ghsa": "GHSA-7833-fr7j-v32q"
+    "published": "2026-09-08T21:31:09Z",
+    "ghsa": "GHSA-2q42-4q24-7rgv"
   },
   {
-    "id": "CVE-2026-75595",
-    "summary": "Netty: SNI Routing Bypass via Fragmented TLS ClientHello Causing Fallback to Default SslContext",
-    "severity": "CRITICAL",
-    "published": "2026-09-08T18:16:14Z",
-    "ghsa": "GHSA-c4c3-7fpv-j4q5"
+    "id": "CVE-2026-77078",
+    "summary": "multer vulnerable to Denial of Service via crafted multipart field names",
+    "severity": "HIGH",
+    "published": "2026-09-08T21:30:20Z",
+    "ghsa": "GHSA-wc9g-mqfw-jrwm"
   },
   {
-    "id": "CVE-2026-75596",
-    "summary": "Netty: Fragmented ClientHello records trigger quadratic pre-handshake reassembly in default SNI parsing",
-    "severity": "MODERATE",
-    "published": "2026-09-08T18:14:56Z",
-    "ghsa": "GHSA-fccg-mwvh-qqg4"
+    "id": "CVE-2026-77037",
+    "summary": "multer vulnerable to Denial of Service via file descriptor leak on aborted uploads",
+    "severity": "HIGH",
+    "published": "2026-09-08T21:29:51Z",
+    "ghsa": "GHSA-qfvm-cv95-jqjf"
   },
   {
-    "id": "CVE-2026-71494",
-    "summary": "Infracost: Terraform Cloud and registry token disclosure via unvalidated hostname",
-    "severity": "MODERATE",
-    "published": "2026-09-08T18:14:12Z",
-    "ghsa": "GHSA-6x6c-w9w9-hv4h"
-  },
-  {
-    "id": "CVE-2026-71493",
-    "summary": "Infracost: Arbitrary file read via config-template readFile symlink traversal",
-    "severity": "MODERATE",
-    "published": "2026-09-08T18:14:00Z",
-    "ghsa": "GHSA-mmg6-4qmv-6pc8"
-  },
-  {
-    "id": "CVE-2026-73087",
-    "summary": "Dozzle: SSRF guard bypass via IPv6 transition addresses (6to4/NAT64/Teredo) in webhook notification dispatcher",
+    "id": "CVE-2026-77063",
+    "summary": "multer vulnerable to file size limit bypass via async fileFilter race condition",
     "severity": "LOW",
-    "published": "2026-09-08T18:11:56Z",
-    "ghsa": "GHSA-p2w3-6x73-2f6x"
+    "published": "2026-09-08T21:29:42Z",
+    "ghsa": "GHSA-qvfw-j98x-7q72"
   },
   {
-    "id": "CVE-2026-69222",
-    "summary": "LiquidJS: Uncontrolled Resource Consumption in `join` filter allows template authors to bypass `memoryLimit` and crash the process",
+    "id": "CVE-2026-82333",
+    "summary": "multer vulnerable to Denial of Service via oversized array index in field names",
     "severity": "HIGH",
-    "published": "2026-09-08T18:10:35Z",
-    "ghsa": "GHSA-4r6h-5v86-94p3"
+    "published": "2026-09-08T21:28:43Z",
+    "ghsa": "GHSA-535w-7cp7-47q4"
+  },
+  {
+    "id": "CVE-2026-15603",
+    "summary": "morgan vulnerable to Log Forging via unescaped Unicode line separators",
+    "severity": "MODERATE",
+    "published": "2026-09-08T21:28:26Z",
+    "ghsa": "GHSA-jxfw-x594-9x9m"
   }
 ]
