@@ -1,5 +1,30 @@
 [
   {
+    "title": "Patch Tuesday Sets Another Record With 974 CVEs",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/patch-tuesday-another-record-974-cves",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd98de777797b4199/6aa074f14648d949d3cdf38d/ptchtuesday_bombermoon_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Attackers Use Multi-Hop Google Redirects for Phishing Campaign",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/attackers-multi-hop-google-redirects-phishing-campaign",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt03ee880bdb37bd5a/6aa06071aa16bb4982ce6be0/hopscotch-LeoPatrizi-GettyImages-1303877346.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "OpenAI Agents Took Over Wiki Site Before Hugging Face Attack",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/openai-agents-wiki-site-hugging-face-attack",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt498dd0b9b6ab45c6/6a9ffd284648d9bc55cdf333/Robot_escape-gremlin-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "DoppelCart fraud network uses 119,000 fake shops to steal credit cards",
+    "link": "https://www.bleepingcomputer.com/news/security/doppelcart-fraud-network-uses-119-000-fake-shops-to-steal-credit-cards/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/09/magecart.jpg"
+  },
+  {
+    "title": "The EU CRA's Real Question: What Shipped, and When Did You Know?",
+    "link": "https://www.bleepingcomputer.com/news/security/the-eu-cras-real-question-what-shipped-and-when-did-you-know/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/08/activestate-what-shipped.jpg"
+  },
+  {
     "title": "Hackers breach F5 BIG-IP APM devices to deploy Linux rootkit",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-breach-f5-big-ip-apm-devices-to-deploy-linux-rootkit/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/10/15/F5_01.png"
@@ -85,11 +110,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwlEWa8ED8DuOxP9Vi4gKvvtQeWC12LKU4yrjFMJYIczxkqLbjqcHpBHMu4hOHp7zjSLNzbQW8SXMR-3YS0PNgVlVEe-ZgYFfaOPdFYkduxEMls-mRWHx85_WNm8Xli0sGVifFjz4mZ1YjEzHs1DNHFZzzY16ZBZxvi77GmI-mtE3_xiilQo7pfRM_0g8M/s1600/liquid.jpg"
   },
   {
-    "title": "OpenAI says GPT-6 Astra can find zero-days, but is also harder to monitor",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-6-astra-can-find-zero-days-but-is-also-harder-to-monitor/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/29/openai-cyberattack.jpg"
-  },
-  {
     "title": "ChatGPT Flaw Let a Planted Prompt Send a Victim's Gmail Data to Another Account",
     "link": "https://thehackernews.com/2026/09/chatgpt-flaw-let-planted-prompt-send.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0jB-6O69dYNeqBTcSFXPcSQCqwabmHwmdGzC_ne5LyuUH-9v0MpLbJ1cgApFSqTuGG0Z_fKAD4A7gLcBcTdw6oUIv0nh_Pmyb5Obv7XhRY0jVGwPQ50S7rUnYZR8FUvYntVxL03GYJ010-iagkPkeZJ8oV6gvbEaVJPGw-L2rabD5pqOOu2HYW9g_nFcT/s1600/chatgpt-gmail.jpg"
@@ -98,11 +118,6 @@
     "title": "Autonomous AI Agents Compromise Thousands of Credentials in Under Six Hours",
     "link": "https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdVKt_UmqEYNHNt0K516skza4MoV47hITqzcoC3WLLI3QkQ_jUEffHvaL7VHVtzRqvdt6k2bZwGAFVif-hRkoiTQva6JM95w3NgNRU_WpuTaZfhLGXAcOdLQXy_sMWU1dxAunMAsf7J8PEDG2AKvkFuXbOFyOmIQcaocMIBhNpaYscCUeJElKDXu6xGhkX/s1600/ai-agent.jpg"
-  },
-  {
-    "title": "Adobe fixes critical Magento zero-day exploited to backdoor servers",
-    "link": "https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/13/Adobe.jpg"
   },
   {
     "title": "Party\u2019s Over for Crypto Scammers Who Went on a Spending Spree After a $240 Million Bitcoin Theft",
@@ -133,20 +148,5 @@
     "title": "What It Took to Reach 1 Billion Build Manifests",
     "link": "https://thehackernews.com/2026/09/what-it-took-to-reach-1-billion-build.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqJEqJ_CCrFzLtmEtLrrIWQv80hyY6xtGfdsad0NgYCYSs-ur2ObfnMgE8uBWlZ7idJHbjDcOwpo8_ESTMpCAWAUHUwbqhVr-zqxV-oxUWmR3PMwBD_vrDziQFaeL0VTzX8NUQRFGRzVQCuTPrvflnepbKlCgqH84MRNTJUhZRNfqwEtmBUxhIB5a8MfeE/s1600/chainguard.jpg"
-  },
-  {
-    "title": "FreeIPA Flaw Chain Lets Anonymous Clients Create Reusable Administrator Credentials",
-    "link": "https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSKAVaHcAsULrGXPVkGXRyf94eoG7Kv3X0wwK2lRC64l3Em-S4_H5iE8-poK04yzrAC18tuHqpZyHhJvFTgliu_z8jo4QR78Mi4ghhCA-cUVL4oj2zjoLGiWKmD16oV4i44VfY45DYll0Uij_Exf4U2JMSLJEyH8jZk_xXKq7O_7D73q7vTYCCc4hrTnQ/s1600/freeipa.jpg"
-  },
-  {
-    "title": "MikroTik Patches Critical Flaws Chained to Hack Routers",
-    "link": "https://www.securityweek.com/mikrotik-patches-critical-flaws-chained-to-hack-routers/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Mathspace Data Breach Exposes Over 1 Million People",
-    "link": "https://www.securityweek.com/mathspace-data-breach-exposes-over-1-million-people/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
   }
 ]
