@@ -182,11 +182,15 @@ fetch("/partials/ticker.html")
     border-radius:8px;
     box-shadow:0 0 12px #ff7b00aa;
 ">
+
+    <!-- Titolo -->
     <h3 style="color:#ff7b00;">Cyber Threat Barometer</h3>
+
     <p style="color:#ccc; margin-bottom:15px;">
-        Indicatore sintetico del livello di minaccia globale basato su trend recenti, campagne ransomware e attività APT.
+        Indicatore sintetico del livello di minaccia globale basato esclusivamente sui dati CISA KEV.
     </p>
 
+    <!-- Barra -->
     <div style="
         width:100%;
         height:22px;
@@ -198,14 +202,37 @@ fetch("/partials/ticker.html")
         <div id="threat-bar" style="
             height:100%;
             width:0%;
-            background:linear-gradient(90deg, #ff7b00, #ff0000);
+            background:#ff7b00;
             transition:width .6s ease;
         "></div>
     </div>
 
+    <!-- Label principale -->
     <p id="threat-label" style="color:#ff7b00; margin-top:10px; font-weight:bold;">
         Caricamento…
     </p>
+
+    <!-- Info premium -->
+    <p id="threat-meta" style="color:#aaa; margin-top:6px; font-size:13px;">
+        <!-- Qui il JS inserirà trend, nuove CVE, totale CVE -->
+    </p>
+
+    <!-- Pulsante collegamento al Threat Monitor -->
+    <a href="#" id="open-threat-monitor" style="
+        display:inline-block;
+        margin-top:15px;
+        padding:8px 14px;
+        background:#ff7b00;
+        color:#000;
+        font-weight:bold;
+        border-radius:6px;
+        text-decoration:none;
+        box-shadow:0 0 10px #ff7b00aa;
+        transition:background .3s ease, box-shadow .3s ease;
+    ">
+        Apri Threat Monitor →
+    </a>
+
 </div>
 
      <div class="news-box" style="
@@ -718,51 +745,74 @@ startLawTimeline();
 	
   <script>
 function startThreatBarometer() {
-    const bar       = document.querySelector(".bar-fill");
-    const valueText = document.querySelector(".bar-value");
-    const descBox   = document.querySelector(".panel-desc");
-    const updateBox = document.getElementById("threat-last-update");
-    const metaBox   = document.getElementById("threat-meta"); // opzionale
+    const bar   = document.getElementById("threat-bar");
+    const label = document.getElementById("threat-label");
+    const meta  = document.getElementById("threat-meta");
 
-    if (!bar || !valueText) return setTimeout(startThreatBarometer, 200);
+    if (!bar || !label || !meta) {
+        setTimeout(startThreatBarometer, 200);
+        return;
+    }
 
     async function loadBarometer() {
         try {
             const res  = await fetch("https://angelonline.altervista.org/newsops/threatbarometer.php");
             const data = await res.json();
 
+            // Barra dinamica
             bar.style.width      = data.level + "%";
             bar.style.background = data.color;
 
-            valueText.textContent = data.icon + " " + data.level + "% (" + data.category + ")";
+            // Label principale
+            label.textContent = `${data.icon} ${data.level}% (${data.category})`;
 
-            descBox.textContent = data.desc;
+            // Info premium
+            meta.textContent =
+                `Trend 7 giorni: ${data.trend} · Nuove CVE: ${data.new_cve} · Totale CVE sfruttate: ${data.meta.total_cve}`;
 
-            if (updateBox) {
-                updateBox.textContent = "Last Update: " + data.updated + " · Source: " + data.source;
-            }
-
-            if (metaBox) {
-                metaBox.textContent =
-                    "Trend 7 giorni: " + data.trend +
-                    " · Nuove CVE: " + data.new_cve +
-                    " · Totale CVE attivamente sfruttate: " + data.meta.total_cve;
-            }
+            // Esporta dati globali per il Threat Monitor
+            window._barometer = {
+                level: data.level,
+                category: data.category,
+                trend: data.trend,
+                new_cve: data.new_cve,
+                total_cve: data.meta.total_cve
+            };
 
         } catch (e) {
             console.error("Errore Barometer:", e);
-            valueText.textContent = "Impossibile caricare il Cyber Threat Barometer";
-            if (descBox) {
-                descBox.textContent = "Indice non disponibile: errore nel recupero dei dati CISA KEV.";
-            }
+            label.textContent = "Errore nel caricamento";
+            meta.textContent  = "";
         }
     }
 
     loadBarometer();
-    setInterval(loadBarometer, 900000); // ogni 15 minuti, allineato alla cache
+    setInterval(loadBarometer, 30000);
 }
 
 startThreatBarometer();
+
+// ⭐ Collegamento premium al Threat Monitor
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("open-threat-monitor");
+    if (!btn) return;
+
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const b = window._barometer;
+        if (!b) return;
+
+        const url = "/newsops/threat-monitor.php"
+            + "?level="     + encodeURIComponent(b.level)
+            + "&category="  + encodeURIComponent(b.category)
+            + "&trend"      + encodeURIComponent(b.trend)
+            + "&new_cve="   + encodeURIComponent(b.new_cve)
+            + "&total_cve=" + encodeURIComponent(b.total_cve);
+
+        window.location.href = url;
+    });
+});
 </script>
 
 function startIncidentMap() {
