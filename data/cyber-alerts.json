@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-12259",
+    "summary": "NLTK: Missing Post-Download Integrity Verification Allows Malicious Package Injection",
+    "severity": "MODERATE",
+    "published": "2026-09-08T15:27:55Z",
+    "ghsa": "GHSA-5wp5-5229-5g6q"
+  },
+  {
+    "id": "CVE-2026-63312",
+    "summary": "NLTK: StreamBackedCorpusView Bypasses pathsec.ENFORCE - Arbitrary Local File Read",
+    "severity": "HIGH",
+    "published": "2026-09-08T15:27:32Z",
+    "ghsa": "GHSA-x5ph-mj9p-rfr8"
+  },
+  {
+    "id": "CVE-2026-65915",
+    "summary": "NLTK: FileSystemPathPointer.open() sandbox check is dead code — arbitrary file read via file:// protocol",
+    "severity": "MODERATE",
+    "published": "2026-09-08T15:27:12Z",
+    "ghsa": "GHSA-72r2-7mfr-5xr9"
+  },
+  {
+    "id": "CVE-2026-70626",
+    "summary": "NLTK: Symlink escape in CorpusReader allows arbitrary local file read outside the corpus root",
+    "severity": "HIGH",
+    "published": "2026-09-08T15:26:47Z",
+    "ghsa": "GHSA-r6gq-whwq-mvg9"
+  },
+  {
     "id": "GHSA-7q9c-hpx7-9cwm",
     "summary": "TypeSpec: Unauthenticated Remote Shutdown of Spector Mock Server via POST /.admin/stop",
     "severity": "HIGH",
@@ -40,33 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-09-04T21:32:07Z",
     "ghsa": "GHSA-8737-qx52-hjff"
-  },
-  {
-    "id": "CVE-2026-72792",
-    "summary": "SiYuan: Tag labels from password-protected documents are returned to readers who have not entered the password",
-    "severity": "MODERATE",
-    "published": "2026-09-04T21:24:19Z",
-    "ghsa": "GHSA-mp7r-57w4-5qm3"
-  },
-  {
-    "id": "CVE-2026-72793",
-    "summary": "SiYuan: Non-administrator responses from /api/system/getConf omit three secrets that the configuration-export path explicitly strips, disclosing the session-cookie signing key and the OS username to anonymous readers",
-    "severity": "HIGH",
-    "published": "2026-09-04T21:16:48Z",
-    "ghsa": "GHSA-h4v5-crx2-3cv4"
-  },
-  {
-    "id": "CVE-2026-72795",
-    "summary": "SiYuan: Embedded (transclusion) block content is returned without publish-access filtering, leaking private and password-protected document content to anonymous readers",
-    "severity": "HIGH",
-    "published": "2026-09-04T21:13:13Z",
-    "ghsa": "GHSA-h6w7-xxcf-w2mq"
-  },
-  {
-    "id": "CVE-2026-72794",
-    "summary": "SiYuan: The session-cookie signing key (Conf.CookieKey) is returned to anonymous readers by /api/system/getConf",
-    "severity": "HIGH",
-    "published": "2026-09-04T21:12:26Z",
-    "ghsa": "GHSA-34fj-mwm6-fjfg"
   }
 ]
