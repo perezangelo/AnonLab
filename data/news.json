@@ -1,5 +1,60 @@
 [
   {
+    "title": "Adobe fixes critical Magento zero-day exploited to backdoor servers",
+    "link": "https://www.bleepingcomputer.com/news/security/adobe-fixes-critical-magento-zero-day-exploited-to-backdoor-servers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/13/Adobe.jpg"
+  },
+  {
+    "title": "Party\u2019s Over for Crypto Scammers Who Went on a Spending Spree After a $240 Million Bitcoin Theft",
+    "link": "https://www.securityweek.com/partys-over-for-crypto-scammers-who-went-on-a-spending-spree-after-a-240-million-bitcoin-theft/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/bitcoin-cryptocurrency.jpeg"
+  },
+  {
+    "title": "Webinar: The forgotten Google Workspace access that can lead to a breach",
+    "link": "https://www.bleepingcomputer.com/news/security/webinar-the-forgotten-google-workspace-access-that-can-lead-to-a-breach/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/08/google-workspace-hacker.jpg"
+  },
+  {
+    "title": "Hackers build AI frameworks for widescale credential theft",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-build-ai-frameworks-for-widescale-credential-theft/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/botnet.jpg"
+  },
+  {
+    "title": "Microsoft: Windows Server 2025 changes causing app crashes",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2025-changes-may-cause-app-crashes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Windows_Server.jpg"
+  },
+  {
+    "title": "WeChat Zero-Click Worm Took Over Accounts on iPhone and Android via Incoming Calls",
+    "link": "https://thehackernews.com/2026/09/wechat-zero-click-worm-took-over.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMjSG5iYgxvsWLWeFe2E-z5UDx0S4Q6zBQjkFEiKuFxcfplz39pE90jWcuiV7NcYqT6t2l8j5WWVBHdV-upHuzQVoy-pt4nL4WP7l-Uz_9AYFqOw1Pn0yI8LzM6OThlXJZY8_b4RVK0WzZYIsjWL96-2O-HHY1SH2FCtrE5c6nV0QJ0aU1X8FVlIvOs3g/s1600/wechat.jpg"
+  },
+  {
+    "title": "What It Took to Reach 1 Billion Build Manifests",
+    "link": "https://thehackernews.com/2026/09/what-it-took-to-reach-1-billion-build.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqJEqJ_CCrFzLtmEtLrrIWQv80hyY6xtGfdsad0NgYCYSs-ur2ObfnMgE8uBWlZ7idJHbjDcOwpo8_ESTMpCAWAUHUwbqhVr-zqxV-oxUWmR3PMwBD_vrDziQFaeL0VTzX8NUQRFGRzVQCuTPrvflnepbKlCgqH84MRNTJUhZRNfqwEtmBUxhIB5a8MfeE/s1600/chainguard.jpg"
+  },
+  {
+    "title": "FreeIPA Flaw Chain Lets Anonymous Clients Create Reusable Administrator Credentials",
+    "link": "https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSKAVaHcAsULrGXPVkGXRyf94eoG7Kv3X0wwK2lRC64l3Em-S4_H5iE8-poK04yzrAC18tuHqpZyHhJvFTgliu_z8jo4QR78Mi4ghhCA-cUVL4oj2zjoLGiWKmD16oV4i44VfY45DYll0Uij_Exf4U2JMSLJEyH8jZk_xXKq7O_7D73q7vTYCCc4hrTnQ/s1600/freeipa.jpg"
+  },
+  {
+    "title": "MikroTik Patches Critical Flaws Chained to Hack Routers",
+    "link": "https://www.securityweek.com/mikrotik-patches-critical-flaws-chained-to-hack-routers/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Mathspace Data Breach Exposes Over 1 Million People",
+    "link": "https://www.securityweek.com/mathspace-data-breach-exposes-over-1-million-people/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "N-able Patches Critical Zero-Day in N-central",
+    "link": "https://www.securityweek.com/n-able-patches-critical-zero-day-in-n-central/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/API-security-risks.jpeg"
+  },
+  {
     "title": "Adobe Patches Magento Zero-Day Exploited to Deploy Rust Backdoor and PHP Web Shell",
     "link": "https://thehackernews.com/2026/09/adobe-patches-magento-zero-day.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_xdakttovno7kFgFYIw5XGFGcSZibVvXYB64vih4iZpc4_WY_t7oe1X3igSPGXBa8UTkf4z4xn_GzZ_n7PmuFFvYC8Wsmb04PxYP5z-XHjZZFe_SASihwZNg1dxHXQzz8hBRo-6LhvQmwyo_MA9Kj6hrcci6ouvOX1D4f-0dNvs57M6WneQHC61yZkF_o/s1600/magento.jpg"
@@ -85,68 +140,13 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAkHa8CDEfDzL0HknvyLE5eRK8r91iyhgzpCS1GmG3HRtriZYYFzCTP9_H433YsqJ80SAppgs9g6rOhsTWIzHPh_CFcZJS18DIj5ANgzFwSU0vfcyJofTEqEvjGGjNcqZdHU_54PENNzxawWHCZ2r_1K-A63x3P8CbuIiu8OHASjQV3OoglWTefAF2dZw/s1600/intruder.jpg"
   },
   {
-    "title": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected Hosts",
-    "link": "https://thehackernews.com/2026/09/rogue-screenconnect-clients-spread-four.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWA_nxvqJuKkqq0ab1I-XR1YtpsM6BadhHDNOIheZmBflLWaQ018JFJsAUBVuyWWTYI4pyT8OQNXhui8Annde3SnOIScH9B0ohMq-OzXLjvPeAXQnz4mAUdEMS_07i7gLaWqPVpHaPvyLJdZQKUTs2MLGhjB9UZ0A83CGcSeDCJFKn7hNjiyf6dbzbHogp/s1600/screen.jpg"
-  },
-  {
-    "title": "Telerik UI Padding-Oracle Bug Chained to Unauthenticated RCE \u2014 Public Exploit Released",
-    "link": "https://thehackernews.com/2026/09/telerik-ui-padding-oracle-bug-chained.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOwlnNFKd-mH5uyY-AjtXSVx57m9MDT4WRtoQStPY9HoNxOP3ps7znRzENJAK7ZzF4homlCzVGVPFuFZ1sXYGciKyA3rZN_NYewwTXhwpRxCUFaPmUmdgP_TdJQtf57falTD12A0GJewAS23pnxttANQ1meOeRFnr_IqZqAngg0rc9ov998VwQlANB0cE/s1600/tel.jpg"
-  },
-  {
     "title": "ChatGPT can now connect to your personal apps to mimic writing style",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-can-now-connect-to-your-personal-apps-to-mimic-writing-style/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-headpic.jpg"
   },
   {
-    "title": "Hackers exploit new MikroTik RouterOS flaws to hijack routers",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-exploit-new-mikrotik-routeros-flaws-to-hijack-routers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/mikrotik.jpg"
-  },
-  {
-    "title": "ConnectWise warns of new ScreenConnect flaw without patch",
-    "link": "https://www.bleepingcomputer.com/news/security/connectwise-warns-of-new-screenconnect-flaw-without-patch/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/ConnectWise-headpic.jpg"
-  },
-  {
-    "title": "N-able Issues Fourth N-central Hotfix in Five Weeks for Unauthenticated RCE Flaw",
-    "link": "https://thehackernews.com/2026/09/n-able-issues-fourth-n-central-hotfix.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOtysh_bb-hej1pQzey0RUhPD2w29ONlPDQMzE9Nc4lM529hKaHhuLKfGXEnqVZyUkMKhJchEeoN1clSKo3-opm2_BQkN6FJ72xBZOZwxX6sTwU4Zzk_j6taOwBpioZOnolR9idUjpydUlQ84TQ9pdWUlUm61JH0Xh8-6_0fo3VieeW3xVQwk4UvXcSu4/s1600/nable.jpg"
-  },
-  {
-    "title": "N-able patches max severity N-central flaw amid ongoing attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/N-able-headpic.jpg"
-  },
-  {
-    "title": "ChatGPT Astra is now rolling out to $20 Plus subscription",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-astra-is-now-rolling-out-to-20-plus-subscription/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg"
-  },
-  {
     "title": "Elementor Pro WordPress Plugin Vulnerability Exploited to Hack Sites",
     "link": "https://www.securityweek.com/elementor-pro-wordpress-plugin-vulnerability-exploited-to-hack-sites/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "In Other News: Microsoft\u2019s Cloud Patches, Hacked Dropbox Accounts, Guardio\u2019s $1.1B Valuation",
-    "link": "https://www.securityweek.com/in-other-news-microsofts-cloud-patches-hacked-dropbox-accounts-guardios-1-1b-valuation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
-    "title": "HPE Patches Critical RCE Vulnerabilities in AOS-CX",
-    "link": "https://www.securityweek.com/hpe-patches-critical-rce-vulnerabilities-in-aos-cx/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "OpenAI Pledges $1 Billion to Bring Frontier AI to Critical Infrastructure Defenders",
-    "link": "https://www.securityweek.com/openai-pledges-1-billion-to-bring-frontier-ai-to-critical-infrastructure-defenders/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/OpenAI.jpeg"
-  },
-  {
-    "title": "Companies Have 6 Months to Prepare for Automated Attacks",
-    "link": "https://www.darkreading.com/cybersecurity-operations/companies-six-months-prepare-automated-attacks",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb3e4339597b3813d/6a9acd56e908194ecaf2c87b/AI-human-blue-overlay-metamorworks-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
