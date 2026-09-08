@@ -1,5 +1,35 @@
 [
   {
+    "title": "Hackers breach F5 BIG-IP APM devices to deploy Linux rootkit",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-breach-f5-big-ip-apm-devices-to-deploy-linux-rootkit/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/15/F5_01.png"
+  },
+  {
+    "title": "Microsoft Patches Record 974 Vulnerabilities, Including Two Exploited Zero-Days",
+    "link": "https://www.securityweek.com/microsoft-patches-record-974-vulnerabilities-including-two-exploited-zero-days/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Microsoft-Security-leaders.jpg"
+  },
+  {
+    "title": "Microsoft releases Windows 10 KB5122878 extended security update",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-windows-10-kb5122878-extended-security-update/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/09/10/windows-10-gradient.jpg"
+  },
+  {
+    "title": "Adobe Patches Over 170 Vulnerabilities, Including Commerce Zero-Day",
+    "link": "https://www.securityweek.com/adobe-patches-over-170-vulnerabilities-including-commerce-zero-day/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Microsoft September 2026 Patch Tuesday fixes 966 flaws, 2 zero-days",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2026-patch-tuesday-fixes-966-flaws-2-zero-days/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/10/08/patch_tuesday_microsoft.jpg"
+  },
+  {
+    "title": "Windows 11 cumulative updates KB5124008 & KB5122880 released",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-cumulative-updates-kb5124008-and-kb5122880-released/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows11.jpg"
+  },
+  {
     "title": "ClickFix Campaigns Abuse Legitimate Services for Persistent Access",
     "link": "https://www.darkreading.com/endpoint-security/clickfix-campaigns-legitimate-services-persistent-access",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt96e63b09ee56a517/6aa00b69572e2132fa0a49b3/Womantyping_Rawpixel.com_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -80,24 +110,19 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/04/bitcoin-cryptocurrency.jpeg"
   },
   {
-    "title": "Webinar: The forgotten Google Workspace access that can lead to a breach",
-    "link": "https://www.bleepingcomputer.com/news/security/webinar-the-forgotten-google-workspace-access-that-can-lead-to-a-breach/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/08/google-workspace-hacker.jpg"
-  },
-  {
-    "title": "Hackers build AI frameworks for widescale credential theft",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-build-ai-frameworks-for-widescale-credential-theft/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/botnet.jpg"
-  },
-  {
     "title": "CareCam Pro IP Cameras",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-251-01",
     "image": ""
   },
   {
-    "title": "Microsoft: Windows Server 2025 changes causing app crashes",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2025-changes-may-cause-app-crashes/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Windows_Server.jpg"
+    "title": "China-Based Artificial Intelligence Companies Conducting Industrial-Scale Distillation Campaigns Against U.S. AI Companies",
+    "link": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a",
+    "image": ""
+  },
+  {
+    "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+    "image": ""
   },
   {
     "title": "WeChat Zero-Click Worm Took Over Accounts on iPhone and Android via Incoming Calls",
@@ -123,30 +148,5 @@
     "title": "Mathspace Data Breach Exposes Over 1 Million People",
     "link": "https://www.securityweek.com/mathspace-data-breach-exposes-over-1-million-people/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "N-able Patches Critical Zero-Day in N-central",
-    "link": "https://www.securityweek.com/n-able-patches-critical-zero-day-in-n-central/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/API-security-risks.jpeg"
-  },
-  {
-    "title": "Adobe Patches Magento Zero-Day Exploited to Deploy Rust Backdoor and PHP Web Shell",
-    "link": "https://thehackernews.com/2026/09/adobe-patches-magento-zero-day.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_xdakttovno7kFgFYIw5XGFGcSZibVvXYB64vih4iZpc4_WY_t7oe1X3igSPGXBa8UTkf4z4xn_GzZ_n7PmuFFvYC8Wsmb04PxYP5z-XHjZZFe_SASihwZNg1dxHXQzz8hBRo-6LhvQmwyo_MA9Kj6hrcci6ouvOX1D4f-0dNvs57M6WneQHC61yZkF_o/s1600/magento.jpg"
-  },
-  {
-    "title": "BengalSEO Poisons Bing Search Results to Deliver MayaBot and Tech Support Scams",
-    "link": "https://thehackernews.com/2026/09/bengalseo-poisons-bing-search-results.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_rKrsCwJpZOS1Cu2htzFszKn4OgjK2p5A43OUaQJsmlbjsaLfGHtgyqQPfOu3IFWqRBoj2J6hIiqv6CVr56ZLyyf73-E71iaDRB2nrO9qaGOg92EbOcutMu8M8i1uimwkC-GPcc9oGDgFNNLB4kkgfDB3MbcjPuAn_gsml3FyThlEyI3Pg8E-udYq175m/s1600/bing.jpg"
-  },
-  {
-    "title": "220 million traveler records exposed in Vietnam-linked APIS leak",
-    "link": "https://www.bleepingcomputer.com/news/security/220-million-traveler-records-exposed-in-vietnam-linked-apis-leak/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2017/05/29/Airport.jpg"
-  },
-  {
-    "title": "Grindr to Pay \u00a326 Million to Settle U.K. Claims Over HIV Status Data Sharing",
-    "link": "https://thehackernews.com/2026/09/grindr-to-pay-26-million-to-settle-uk.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGUJMPbCbes7NM-EpNPWOUc7bYX5pznAZZjAl29ELdnhrIFzOBqkVtUsiDgxWvImd-yqpnCi5E4EaA1SCbnqY-_1qOwv2RnBTrjOHwn738A5TVUyZV6uX9TQyjF2EmPsJhyxHc1IcqV0jH3JraUU5s3Yw64WOCoE4WawhfajZhq7X-XvWQtVfw-S2QxbkU/s1600/grindr.jpg"
   }
 ]
