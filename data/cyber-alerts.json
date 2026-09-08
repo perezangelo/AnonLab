@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-12259",
-    "summary": "NLTK: Missing Post-Download Integrity Verification Allows Malicious Package Injection",
+    "id": "CVE-2026-78677",
+    "summary": "GitPython: clone_from()/clone() omit --separate-git-dir from unsafe_git_clone_options, enabling arbitrary git-directory creation outside the destination",
+    "severity": "HIGH",
+    "published": "2026-09-08T18:41:52Z",
+    "ghsa": "GHSA-8mcc-hrx5-hvxc"
+  },
+  {
+    "id": "CVE-2026-78678",
+    "summary": "GitPython: Incomplete unsafe_git_revision_options denylist omits --contents/-S, enabling arbitrary file read via Repo.blame()",
     "severity": "MODERATE",
-    "published": "2026-09-08T15:27:55Z",
-    "ghsa": "GHSA-5wp5-5229-5g6q"
+    "published": "2026-09-08T18:41:31Z",
+    "ghsa": "GHSA-5xxx-qhh7-9287"
   },
   {
-    "id": "CVE-2026-63312",
-    "summary": "NLTK: StreamBackedCorpusView Bypasses pathsec.ENFORCE - Arbitrary Local File Read",
-    "severity": "HIGH",
-    "published": "2026-09-08T15:27:32Z",
-    "ghsa": "GHSA-x5ph-mj9p-rfr8"
-  },
-  {
-    "id": "CVE-2026-65915",
-    "summary": "NLTK: FileSystemPathPointer.open() sandbox check is dead code — arbitrary file read via file:// protocol",
-    "severity": "MODERATE",
-    "published": "2026-09-08T15:27:12Z",
-    "ghsa": "GHSA-72r2-7mfr-5xr9"
-  },
-  {
-    "id": "CVE-2026-70626",
-    "summary": "NLTK: Symlink escape in CorpusReader allows arbitrary local file read outside the corpus root",
-    "severity": "HIGH",
-    "published": "2026-09-08T15:26:47Z",
-    "ghsa": "GHSA-r6gq-whwq-mvg9"
-  },
-  {
-    "id": "GHSA-7q9c-hpx7-9cwm",
-    "summary": "TypeSpec: Unauthenticated Remote Shutdown of Spector Mock Server via POST /.admin/stop",
-    "severity": "HIGH",
-    "published": "2026-09-04T21:43:13Z",
-    "ghsa": "GHSA-7q9c-hpx7-9cwm"
-  },
-  {
-    "id": "CVE-2026-73842",
-    "summary": "OpenChoreo: cluster-gateway internal proxy performs no caller authentication and is not read-only — data-plane Secret disclosure and arbitrary Kubernetes mutation",
+    "id": "CVE-2026-78676",
+    "summary": "GitPython: Dormant multi-line git-config values are corrupted into live injected directives (e.g. core.hooksPath) on any unrelated GitConfigParser write, enabling RCE",
     "severity": "CRITICAL",
-    "published": "2026-09-04T21:41:38Z",
-    "ghsa": "GHSA-rh53-xvx2-j327"
+    "published": "2026-09-08T18:39:40Z",
+    "ghsa": "GHSA-284h-m62q-gf8w"
   },
   {
-    "id": "CVE-2026-73557",
-    "summary": " vLLM: Incomplete CVE-2025-62164 remediation can be bypassed by concurrent prompt parts",
-    "severity": "MODERATE",
-    "published": "2026-09-04T21:39:02Z",
-    "ghsa": "GHSA-pr7f-p5mw-fc87"
+    "id": "CVE-2026-78675",
+    "summary": "GitPython: Arbitrary local file content disclosure via [include] directive in untrusted .gitmodules (SubmoduleConfigParser never disables merge_includes)",
+    "severity": "HIGH",
+    "published": "2026-09-08T18:38:51Z",
+    "ghsa": "GHSA-7833-fr7j-v32q"
   },
   {
-    "id": "CVE-2026-73556",
-    "summary": "vLLM: ReDoS via structured_outputs.regex in the lm-format-enforcer backend (no compile timeout) — missed sibling of GHSA-rwxx-mrjm-wc2m",
-    "severity": "MODERATE",
-    "published": "2026-09-04T21:37:00Z",
-    "ghsa": "GHSA-48jh-3gj7-fg8v"
+    "id": "CVE-2026-75595",
+    "summary": "Netty: SNI Routing Bypass via Fragmented TLS ClientHello Causing Fallback to Default SslContext",
+    "severity": "CRITICAL",
+    "published": "2026-09-08T18:16:14Z",
+    "ghsa": "GHSA-c4c3-7fpv-j4q5"
   },
   {
-    "id": "CVE-2026-73555",
-    "summary": "vLLM: Unauthenticated Internal Path and Username Disclosure via Validation Error Messages",
+    "id": "CVE-2026-75596",
+    "summary": "Netty: Fragmented ClientHello records trigger quadratic pre-handshake reassembly in default SNI parsing",
     "severity": "MODERATE",
-    "published": "2026-09-04T21:36:33Z",
-    "ghsa": "GHSA-hwrm-c4cx-rf4j"
+    "published": "2026-09-08T18:14:56Z",
+    "ghsa": "GHSA-fccg-mwvh-qqg4"
   },
   {
-    "id": "CVE-2026-71486",
-    "summary": "vLLM: Derender endpoints decode caller-supplied GenerateResponse token IDs without output bounds",
+    "id": "CVE-2026-71494",
+    "summary": "Infracost: Terraform Cloud and registry token disclosure via unvalidated hostname",
     "severity": "MODERATE",
-    "published": "2026-09-04T21:32:07Z",
-    "ghsa": "GHSA-8737-qx52-hjff"
+    "published": "2026-09-08T18:14:12Z",
+    "ghsa": "GHSA-6x6c-w9w9-hv4h"
+  },
+  {
+    "id": "CVE-2026-71493",
+    "summary": "Infracost: Arbitrary file read via config-template readFile symlink traversal",
+    "severity": "MODERATE",
+    "published": "2026-09-08T18:14:00Z",
+    "ghsa": "GHSA-mmg6-4qmv-6pc8"
+  },
+  {
+    "id": "CVE-2026-73087",
+    "summary": "Dozzle: SSRF guard bypass via IPv6 transition addresses (6to4/NAT64/Teredo) in webhook notification dispatcher",
+    "severity": "LOW",
+    "published": "2026-09-08T18:11:56Z",
+    "ghsa": "GHSA-p2w3-6x73-2f6x"
+  },
+  {
+    "id": "CVE-2026-69222",
+    "summary": "LiquidJS: Uncontrolled Resource Consumption in `join` filter allows template authors to bypass `memoryLimit` and crash the process",
+    "severity": "HIGH",
+    "published": "2026-09-08T18:10:35Z",
+    "ghsa": "GHSA-4r6h-5v86-94p3"
   }
 ]
