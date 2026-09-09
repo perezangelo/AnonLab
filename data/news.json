@@ -1,5 +1,30 @@
 [
   {
+    "title": "Cisco confirms CVE-2026-20079 Secure FMC flaw exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/cisco-confirms-cve-2026-20079-secure-fmc-flaw-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Cisco.jpg"
+  },
+  {
+    "title": "AdaptHealth confirms 4.1 million people exposed in July cyberattack",
+    "link": "https://www.bleepingcomputer.com/news/security/adapthealth-confirms-41-million-people-exposed-in-july-cyberattack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/09/healthcare.jpg"
+  },
+  {
+    "title": "Mythos Vulnerability Firehose Hits a Human Bottleneck",
+    "link": "https://www.darkreading.com/application-security/mythos-vulnerability-firehose-hits-human-bottleneck",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt439f596f6fab9438/6aa1bda507331dcf89c77c60/firehose_sirloh_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Skullcandy Dime 3 earbuds expose users to Bluetooth hijacking",
+    "link": "https://www.bleepingcomputer.com/news/security/skullcandy-dime-3-earbuds-expose-users-to-bluetooth-hijacking/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/09/skullcandy.jpg"
+  },
+  {
+    "title": "US Government Accuses Chinese AI Firms of Distilling Frontier Models",
+    "link": "https://www.darkreading.com/application-security/us-government-chinese-ai-firms-distilling-frontier-models",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt33b13b556aa2e63e/6aa1a92888ea9adc3dabaf29/distillery-ArtistGNDphotography-GettyImages-2195175104.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "U.S. Disrupts Xinbi Guarantee Scam Marketplace, Freezes $52.8 Million in Crypto",
     "link": "https://thehackernews.com/2026/09/us-disrupts-xinbi-guarantee-scam.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcQQNutHn5K2x_gd-2eyAP0wzneQ3mOSl3jaaRHGFDUY1O95tuckdjL_botXvrBlt_ts6Bjb91JU4Z-B74VAceL1cYa3oMlt91mHSxZP_FiiVTJLfL8UBUgoBIvjJCuI7Nma3dOxJ48n4wS5VvoBWRDNYqwlYIfStXIKTDBUrRXBIWITx_TprflrVXqjum/s1600/xinbi.jpg"
@@ -123,30 +148,5 @@
     "title": "Man gets 15 years for extorting women with AI-generated porn videos",
     "link": "https://www.bleepingcomputer.com/news/security/man-gets-15-years-in-prison-for-cyberstalking-and-sextortion/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Woman-cyberstalking-smartphone.jpg"
-  },
-  {
-    "title": "New cPanel Flaw Lets a Hosting Account With Mail Privileges Run Code as Root",
-    "link": "https://thehackernews.com/2026/09/new-cpanel-flaw-lets-hosting-account.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgM_YdNiqGpEWkDm5hEkF-RhZ94vv84sJmONomdRsksJ65GwI388Va-uVIzXWhwZtHmBTF3oze2l4Sscj2zpTsn6lqdPWPKAeL1iP6SSyzvNBOA4dLAKxfSmfThhmQgIc_1AYGWG9dbrCLFg_dk4m8pCHxFcJBRnThru8PtB7UJqUy3VjW15-vQlRvuwpc/s1600/cpanel-bug.jpg"
-  },
-  {
-    "title": "F5 BIG-IP APM Malware Injects a PHP Web Shell Into Memory, Evading Disk Scans",
-    "link": "https://thehackernews.com/2026/09/f5-big-ip-apm-malware-injects-php-web.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIA552mINL2oyFm7mf9nHTwjJGJUVAtfYnMXbqYsowSEsDMzVsAgHG8MHKn5_EmwZ9bgRmhEndE20FhQAN4rvOLv5ESSAu0kHTV4QyygvUePYCJ1fvda0bU0Mzi5B9J8LHhULDeRRI9HGC84dntx8jaLu6WFLOz6OOhEwKNnSf6zzFRyAtlLKDQzHvygg/s1600/f5-malware.jpg"
-  },
-  {
-    "title": "New Microsoft Defender 'ShieldCrash' zero-day grants SYSTEM access",
-    "link": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldcrash-zero-day-grants-system-access/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/17/Microsoft__Defender.jpg"
-  },
-  {
-    "title": "Google warns of new Chrome zero-day bug exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/google-patches-seventh-chrome-zero-day-exploited-in-attacks-this-year/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/09/Google_Chrome.jpg"
-  },
-  {
-    "title": "Microsoft adds age-awareness APIs that can tell if users are children, teens, or adults",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-adds-age-awareness-apis-that-can-tell-if-users-are-children-teens-or-adults/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/09/09/Windows_11.jpg"
   }
 ]
