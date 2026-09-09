@@ -1,5 +1,55 @@
 [
   {
+    "title": "HelmGuard Raises $7.3 Million for Agentic GRC and Security",
+    "link": "https://www.securityweek.com/helmguard-raises-7-3-million-for-agentic-grc-and-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-1.jpeg"
+  },
+  {
+    "title": "AI Is Giving Lesser-Resourced Attackers Nation-State-Level Reach, Google Warns",
+    "link": "https://www.securityweek.com/ai-is-giving-lesser-resourced-attackers-nation-state-level-reach-google-warns/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/08/AI-assistant-chatbot-artificial-intelligence.jpg"
+  },
+  {
+    "title": "US says Chinese firms extracted billions of tokens from frontier AI models",
+    "link": "https://www.bleepingcomputer.com/news/security/us-says-chinese-firms-extracted-billions-of-tokens-from-frontier-ai-models/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/09/distillation.jpg"
+  },
+  {
+    "title": "Android\u2019s September 2026 Updates Patch 180 Vulnerabilities",
+    "link": "https://www.securityweek.com/androids-september-2026-updates-patch-180-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Android-update.jpeg"
+  },
+  {
+    "title": "Chipmaker Patch Tuesday: Nvidia, AMD, Arm Issue Security Advisories",
+    "link": "https://www.securityweek.com/chipmaker-patch-tuesday-nvidia-amd-arm-issue-security-advisories/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Veradigm warns of patient data breach after ransomware gang claims attack",
+    "link": "https://www.bleepingcomputer.com/news/security/veradigm-discloses-patient-data-breach-after-gentlemen-gang-claims-attack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/18/gentlemen.jpg"
+  },
+  {
+    "title": "Identity-Based AI Attack Threatens Security of Enterprise Data",
+    "link": "https://www.darkreading.com/threat-intelligence/identity-based-ai-attack-security-enterprise-data",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte7893676670a76d5/6aa13f3e0a3bef09c363535c/Data_security(1800)_ber1a_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Fortinet Patches Critical Vulnerabilities in FortiMonitorOnSight, Chrome Extension",
+    "link": "https://www.securityweek.com/fortinet-patches-critical-vulnerabilities-in-fortimonitoronsight-chrome-extension/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/fortinet.jpg"
+  },
+  {
+    "title": "Infostealer Logs Expose Replayable AI Tokens That Can Bypass MFA",
+    "link": "https://thehackernews.com/2026/09/infostealer-logs-expose-replayable-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYP_zrhRTZRWnPPcDkUrE7dBh2Bf5eaQmlBxyl7euTRGjS0C8boQppnrmjY0CIVjGrS_PF13V1W3BPVI3RDPZY59s_7xIkI8LnFkg3Tn_Q0x7_tbCs_sMkvhZMREtFLW3IOJSNNmQrKCDI88FCWhfymdWkEWtdMMRzivv3lZXImjreAz0d74VXt2K80ipH/s1600/tokens.jpg"
+  },
+  {
+    "title": "MFA's Weakest Link: Account Recovery Is the New Attack Path",
+    "link": "https://www.bleepingcomputer.com/news/security/mfas-weakest-link-account-recovery-is-the-new-attack-path/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/03/specops-backdoor.jpg"
+  },
+  {
     "title": "US Agencies Warn China Is Systematically Extracting Frontier AI Capabilities",
     "link": "https://www.securityweek.com/us-agencies-warn-china-is-systematically-extracting-frontier-ai-capabilities/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/09/NSA-Cyber-AI.jpg"
@@ -43,16 +93,6 @@
     "title": "This Key Will Self-Destruct: An Open Standard for Revocable API Keys",
     "link": "https://www.securityweek.com/this-key-will-self-destruct-an-open-standard-for-revocable-api-keys/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Standard-Revocable-API-Keys.jpg"
-  },
-  {
-    "title": "New Phishing Attack Creates Malicious Pages Inside the Victim\u2019s Browser",
-    "link": "https://www.securityweek.com/new-phishing-attack-creates-malicious-pages-inside-the-victims-browser/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
-  },
-  {
-    "title": "Chrome 153 Patches Seventh Zero-Day of 2026",
-    "link": "https://www.securityweek.com/chrome-153-patches-seventh-zero-day-of-2026/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Chrome-Zero-Day-exploits.jpg"
   },
   {
     "title": "U.S. Agencies Accuse China AI Firms of Distilling Claude, GPT, Gemini, and Grok",
@@ -100,11 +140,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwUnFS6EAvkjYM7AC_3-k8C6QSAmpatuThkiXaa1WxvtiZU7M-n384kpPN4-VSAQfwL8PCTPUVd3iYeTDn_V5ZoZGEfuizJSZghdAw4Ldq_wFg7rxWyKBbwdMctiiBaykAmL40L6wappUeeyIr58u8SFFSszCP-rszf5ioHsaz0dtKilEpkw1LTEmtaCtZ/s1600/sap-flaws.jpg"
   },
   {
-    "title": "Microsoft Patches Record 974 Flaws, Including Two Exploited Windows Zero-Days",
-    "link": "https://thehackernews.com/2026/09/microsoft-patches-record-974-flaws.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDwCsAOIvmVbfeFtRi5yvEPa3_Nm-rryDAF-CdttSghokSjh6oKz-ECapacQiIBNW9zsIh6LQ8B61LgpR2di6819PHU1vrIT6Mj4xKihzGcz29KydoYVw8lFKbrAXYs2MNv-FMRS8GnrmlfVQTAZ0ondViX8N9uy_dCgJywMQMnXlWBmzrXw9BR2zZ0HWo/s1600/ms-windows.jpg"
-  },
-  {
     "title": "Microsoft adds age-awareness APIs that can tell if users are children, teens, or adults",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-adds-age-awareness-apis-that-can-tell-if-users-are-children-teens-or-adults/",
     "image": "https://www.bleepstatic.com/content/hl-images/2025/09/09/Windows_11.jpg"
@@ -113,40 +148,5 @@
     "title": "Patch Tuesday Sets Another Record With 974 CVEs",
     "link": "https://www.darkreading.com/vulnerabilities-threats/patch-tuesday-another-record-974-cves",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd98de777797b4199/6aa074f14648d949d3cdf38d/ptchtuesday_bombermoon_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Attackers Use Multi-Hop Google Redirects for Phishing Campaign",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/attackers-multi-hop-google-redirects-phishing-campaign",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt03ee880bdb37bd5a/6aa06071aa16bb4982ce6be0/hopscotch-LeoPatrizi-GettyImages-1303877346.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI Agents Took Over Wiki Site Before Hugging Face Attack",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/openai-agents-wiki-site-hugging-face-attack",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt498dd0b9b6ab45c6/6a9ffd284648d9bc55cdf333/Robot_escape-gremlin-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "DoppelCart fraud network uses 119,000 fake shops to steal credit cards",
-    "link": "https://www.bleepingcomputer.com/news/security/doppelcart-fraud-network-uses-119-000-fake-shops-to-steal-credit-cards/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/09/magecart.jpg"
-  },
-  {
-    "title": "The EU CRA's Real Question: What Shipped, and When Did You Know?",
-    "link": "https://www.bleepingcomputer.com/news/security/the-eu-cras-real-question-what-shipped-and-when-did-you-know/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/08/activestate-what-shipped.jpg"
-  },
-  {
-    "title": "Hackers breach F5 BIG-IP APM devices to deploy Linux rootkit",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-breach-f5-big-ip-apm-devices-to-deploy-linux-rootkit/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/15/F5_01.png"
-  },
-  {
-    "title": "Microsoft Patches Record 974 Vulnerabilities, Including Two Exploited Zero-Days",
-    "link": "https://www.securityweek.com/microsoft-patches-record-974-vulnerabilities-including-two-exploited-zero-days/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Microsoft-Security-leaders.jpg"
-  },
-  {
-    "title": "Microsoft releases Windows 10 KB5122878 extended security update",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-windows-10-kb5122878-extended-security-update/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/09/10/windows-10-gradient.jpg"
   }
 ]
