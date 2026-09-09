@@ -803,14 +803,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const b = window._barometer;
         if (!b) return;
 
-        const url = "/newsops/threat-monitor.php"
-            + "?level="     + encodeURIComponent(b.level)
-            + "&category="  + encodeURIComponent(b.category)
-            + "&trend"      + encodeURIComponent(b.trend)
-            + "&new_cve="   + encodeURIComponent(b.new_cve)
-            + "&total_cve=" + encodeURIComponent(b.total_cve);
+        const url = "https://angelonline.altervista.org/newsops/threat-monitor.php"
+    + "?level="     + encodeURIComponent(b.level)
+    + "&category="  + encodeURIComponent(b.category)
+    + "&trend"      + encodeURIComponent(b.trend)
+    + "&new_cve="   + encodeURIComponent(b.new_cve)
+    + "&total_cve=" + encodeURIComponent(b.total_cve);
 
-        window.location.href = url;
+window.location.href = url;
     });
 });
 </script>
