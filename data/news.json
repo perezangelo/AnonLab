@@ -1,5 +1,15 @@
 [
   {
+    "title": "N-able N-central Pre-Auth RCE Flaw Exploited in the Wild",
+    "link": "https://thehackernews.com/2026/09/n-able-n-central-pre-auth-rce-flaw.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMxDWMjpVE5kkeTzvYQ-YAyekZZ6U6CzCYj462wNRwiMna-44-sJo8kY5Nz2-f_D1N7c0lkhR8Hr2BoAvsP6vVb7ea_R5s-UxdKkwnv6apOIM8sIxEoBRQXek7U5lrR0VaP9q_W8hFULVW7qyvskPiGvZN9wyC_FAUm23HdPcLw_wsmfU0-GoQ3PVkNNyJ/s1600/n-able.jpg"
+  },
+  {
+    "title": "Microsoft adds age-awareness APIs that can tell if users are children, teens, or adults",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-adds-age-awareness-apis-that-can-tell-if-users-are-children-teens-or-adults/",
+    "image": ""
+  },
+  {
     "title": "Patch Tuesday Sets Another Record With 974 CVEs",
     "link": "https://www.darkreading.com/vulnerabilities-threats/patch-tuesday-another-record-974-cves",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd98de777797b4199/6aa074f14648d949d3cdf38d/ptchtuesday_bombermoon_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -17,17 +27,17 @@
   {
     "title": "DoppelCart fraud network uses 119,000 fake shops to steal credit cards",
     "link": "https://www.bleepingcomputer.com/news/security/doppelcart-fraud-network-uses-119-000-fake-shops-to-steal-credit-cards/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/09/magecart.jpg"
+    "image": ""
   },
   {
     "title": "The EU CRA's Real Question: What Shipped, and When Did You Know?",
     "link": "https://www.bleepingcomputer.com/news/security/the-eu-cras-real-question-what-shipped-and-when-did-you-know/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/08/activestate-what-shipped.jpg"
+    "image": ""
   },
   {
     "title": "Hackers breach F5 BIG-IP APM devices to deploy Linux rootkit",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-breach-f5-big-ip-apm-devices-to-deploy-linux-rootkit/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/15/F5_01.png"
+    "image": ""
   },
   {
     "title": "Microsoft Patches Record 974 Vulnerabilities, Including Two Exploited Zero-Days",
@@ -37,7 +47,7 @@
   {
     "title": "Microsoft releases Windows 10 KB5122878 extended security update",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-windows-10-kb5122878-extended-security-update/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/09/10/windows-10-gradient.jpg"
+    "image": ""
   },
   {
     "title": "Adobe Patches Over 170 Vulnerabilities, Including Commerce Zero-Day",
@@ -47,12 +57,12 @@
   {
     "title": "Microsoft September 2026 Patch Tuesday fixes 966 flaws, 2 zero-days",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2026-patch-tuesday-fixes-966-flaws-2-zero-days/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/10/08/patch_tuesday_microsoft.jpg"
+    "image": ""
   },
   {
     "title": "Windows 11 cumulative updates KB5124008 & KB5122880 released",
     "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-cumulative-updates-kb5124008-and-kb5122880-released/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows11.jpg"
+    "image": ""
   },
   {
     "title": "ClickFix Campaigns Abuse Legitimate Services for Persistent Access",
@@ -72,12 +82,12 @@
   {
     "title": "ShinyHunters hackers claim breach of Florida \"DAVID\" DMV database",
     "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-hackers-claim-breach-of-florida-david-dmv-database/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/08/florida-game-style.jpg"
+    "image": ""
   },
   {
     "title": "OpenAI says ChatGPT outage causes image generation errors",
     "link": "https://www.bleepingcomputer.com/news/technology/openai-says-chatgpt-outage-causes-image-generation-errors/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/08/OpenAI.jpg"
+    "image": ""
   },
   {
     "title": "Slim Spider Steals Crypto Custody Secrets From Brazilian Financial Institution",
@@ -87,17 +97,12 @@
   {
     "title": "August updates trigger 0xc0000409 errors on Windows Server 2016",
     "link": "https://www.bleepingcomputer.com/news/microsoft/august-updates-trigger-0xc0000409-errors-on-windows-server-2016/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/27/Windows_Server.jpg"
+    "image": ""
   },
   {
     "title": "Cylake Raises $245 Million Ahead of Cybersecurity Platform Beta",
     "link": "https://www.securityweek.com/cylake-raises-245-million-ahead-of-cybersecurity-platform-beta/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "SAP warns of maximum severity 'OVERPASS' kernel vulnerability",
-    "link": "https://www.bleepingcomputer.com/news/security/sap-warns-of-maximum-severity-overpass-kernel-vulnerability/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/14/SAP.jpg"
   },
   {
     "title": "SAP Patches Critical Extended Passport Processing Vulnerability",
@@ -143,10 +148,5 @@
     "title": "WeChat Zero-Click Worm Took Over Accounts on iPhone and Android via Incoming Calls",
     "link": "https://thehackernews.com/2026/09/wechat-zero-click-worm-took-over.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMjSG5iYgxvsWLWeFe2E-z5UDx0S4Q6zBQjkFEiKuFxcfplz39pE90jWcuiV7NcYqT6t2l8j5WWVBHdV-upHuzQVoy-pt4nL4WP7l-Uz_9AYFqOw1Pn0yI8LzM6OThlXJZY8_b4RVK0WzZYIsjWL96-2O-HHY1SH2FCtrE5c6nV0QJ0aU1X8FVlIvOs3g/s1600/wechat.jpg"
-  },
-  {
-    "title": "What It Took to Reach 1 Billion Build Manifests",
-    "link": "https://thehackernews.com/2026/09/what-it-took-to-reach-1-billion-build.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqJEqJ_CCrFzLtmEtLrrIWQv80hyY6xtGfdsad0NgYCYSs-ur2ObfnMgE8uBWlZ7idJHbjDcOwpo8_ESTMpCAWAUHUwbqhVr-zqxV-oxUWmR3PMwBD_vrDziQFaeL0VTzX8NUQRFGRzVQCuTPrvflnepbKlCgqH84MRNTJUhZRNfqwEtmBUxhIB5a8MfeE/s1600/chainguard.jpg"
   }
 ]
