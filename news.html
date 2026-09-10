@@ -1031,21 +1031,29 @@ startAttackHeatIndex();
   <script>
 function startIntelNotes() {
     const list = document.getElementById("intelNotesList");
+    if (!list) return;
 
-    if (!list) {
-        setTimeout(startIntelNotes, 200);
-        return;
+    function getIcon(cat) {
+        switch(cat) {
+            case "APT Activity": return "⚡";
+            case "Exploit": return "🛡";
+            case "Malware": return "🧬";
+            case "Incident": return "🎯";
+            case "General Intelligence": return "🌐";
+            default: return "🔧";
+        }
     }
 
     async function loadIntel() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/newsops/intelnotes.php");
+            const res = await fetch("https://angelonline.altervista.org/newsops/intelligencenotes.php");
             const data = await res.json();
 
             list.innerHTML = data.map(n => `
-                <li>
+                <li style="margin-bottom:12px;">
+                    <span style="font-size:18px; margin-right:6px;">${getIcon(n.cat)}</span>
                     <strong style="color:#00eaff;">${n.title}</strong><br>
-                    <span style="color:#ccc;">${n.desc}</span><br>
+                    <span style="color:#ccc; font-size:13px;">${n.desc}</span><br>
                     <span style="color:#00ff99; font-size:12px;">${n.cat}</span>
                     <span style="color:#888; font-size:11px;">(${n.src})</span>
                 </li>
@@ -1059,7 +1067,7 @@ function startIntelNotes() {
     setInterval(loadIntel, 60000);
 }
 
-startIntelNotes();
+window.addEventListener("DOMContentLoaded", startIntelNotes);
 </script>
 
   <script>
