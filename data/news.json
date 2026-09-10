@@ -1,5 +1,40 @@
 [
   {
+    "title": "Microsoft fixes bug that wiped Windows desktop settings",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-bug-that-wiped-windows-desktop-settings/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/01/Windows-11.jpg"
+  },
+  {
+    "title": "Nearly 1 in 10 Exposed LiteLLM Gateways Accepted the Example \"sk-1234\" Admin Key",
+    "link": "https://thehackernews.com/2026/09/nearly-1-in-10-exposed-litellm-gateways.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfjbI1DXHJ4wQzSRFbddkmgQ9CTLSPPGP8fcQ6a37qbwKvgd4JxU51YhADR8S4IsWaiQ4fRApn-ih4m0AhsizM3wa6aJ3P8MlgBztNQm-oH4bE_TkPsmUZHhblcNMrQFxGdWnDHePCQDcSz-AJeWMoKH6YVcXXFCjK2ajZfbmObdeVkWmvv8O_fufqsl0/s1600/litellm.jpg"
+  },
+  {
+    "title": "New \u2018ShieldCrash\u2019 Zero-Day Exploit Targets Microsoft Defender",
+    "link": "https://www.securityweek.com/new-shieldcrash-zero-day-exploit-targets-microsoft-defender/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Microsoft-Defender.jpg"
+  },
+  {
+    "title": "Anthropic Discloses Fourth AI Hacking Incident Involving Claude Opus 4.6",
+    "link": "https://thehackernews.com/2026/09/anthropic-ai-models-breached-real.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmMNfeF1h2D3MrUkoHWN2M9yhKD-FFQ6DgwixOflNATW2UA5b_6AsUjXLAjrn5c4hQWw0xueXTWDlbqKwS_gexDm0Yq8PB_B2LpXHaQiw7m7thOATlckixuA8VUIFDFERGBS8o1Kph93eYnDysXuRljKaXfe7813MwWKkBLex8BP3YL-fahCr4Xm3xMWZE/s1600/claude-hack.jpg"
+  },
+  {
+    "title": "EU Cyber Resilience Act to Enforce New Reporting Requirements",
+    "link": "https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltba41cd0488eb4d89/6aa1a2aa145a18d222181a6c/EU_lock-Alexey_Krukovsky-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Trezor warns users of email provider breach, phishing attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/trezor-warns-users-of-email-provider-breach-phishing-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/Trezor.jpg"
+  },
+  {
+    "title": "Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks",
+    "link": "https://www.securityweek.com/fortinet-code-execution-flaw-exploited-in-pivotc2-rat-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/fortinet.jpg"
+  },
+  {
     "title": "Cisco confirms CVE-2026-20079 Secure FMC flaw exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/cisco-confirms-cve-2026-20079-secure-fmc-flaw-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Cisco.jpg"
@@ -113,40 +148,5 @@
     "title": "ICS Patch Tuesday: Schneider Electric, Siemens Fix Critical Flaws",
     "link": "https://www.securityweek.com/ics-patch-tuesday-schneider-electric-siemens-fix-critical-flaws/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PLC-HMI-SCADA-ICS-industrial.jpeg"
-  },
-  {
-    "title": "Alby Hub Critical Flaw Could Let Attackers Take Over Internet-Exposed Bitcoin Wallets",
-    "link": "https://thehackernews.com/2026/09/alby-hub-critical-flaw-could-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfzwXsolZOaoU8mikO234FpoGAc_3wiI_OZ-Acpc-yPphzhUWmDh13CKiEG9xFbotf8RFEBh9jljS6pwUS4gryY-kk5UzPc7Mtb4Ds3mDpAhjyFoJibRDmnGXrLNt4VjGpTs1W5l6la2q4jO7D9hytPbAnLEFCHYVxxpcj7H-XNRDpGLfYSWAYqF7pl54/s1600/alby-warning.jpg"
-  },
-  {
-    "title": "Ivanti Patches Critical Flaws Across Enterprise Security Products",
-    "link": "https://www.securityweek.com/ivanti-patches-critical-flaws-across-enterprise-security-products/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Ivanti-e1736941837602.jpg"
-  },
-  {
-    "title": "Over 36,000 exposed Plex servers vulnerable to recent flaws",
-    "link": "https://www.bleepingcomputer.com/news/security/over-36-000-plex-servers-unpatched-against-recently-disclosed-flaws/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/08/15/Plex_logo.jpg"
-  },
-  {
-    "title": "This Key Will Self-Destruct: An Open Standard for Revocable API Keys",
-    "link": "https://www.securityweek.com/this-key-will-self-destruct-an-open-standard-for-revocable-api-keys/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Standard-Revocable-API-Keys.jpg"
-  },
-  {
-    "title": "U.S. Agencies Accuse China AI Firms of Distilling Claude, GPT, Gemini, and Grok",
-    "link": "https://thehackernews.com/2026/09/us-agencies-accuse-china-ai-firms-of.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL63HDvTiCn3B33K6DsfIbMLjHqXlJAUtoh6euiAwcooJCTdK4Zdkoh8rZ93iQsAAkscB3CmOH6TUQJPor4yH4wN97ABinyCN_5hcHNZ2gAMZH4YtTO3kon5Ws7MZGI5CULnH4SpafnrFsfZO_8j8wfaOFEinAnLIP-LHom_9LNQRJ2wrlYy66bO1RNpwg/s1600/ai-china.jpg"
-  },
-  {
-    "title": "Chrome V8 Zero-Day Exploited in the Wild Enables Code Execution Inside Sandbox",
-    "link": "https://thehackernews.com/2026/09/chrome-v8-zero-day-exploited-in-wild.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZvl2DE9GFM-4rdFgtQOOp1Dk3Xgp7xWysUv5zKTFwxqWYTurcgXgE-PDMn3_2AAIihh4YeiRvmwpb6GVDB1-8kxqasUWwX-FFa4mA41kXpFbzdt9hOvzW4xcyKBFttqIzbFSl-1SSSO0P_URv3Sy9QamkQZ55qzX5Y9Kmv5NdBCBHXCcUziiO6mfrqURE/s1600/chrome-zeroday.jpg"
-  },
-  {
-    "title": "Man gets 15 years for extorting women with AI-generated porn videos",
-    "link": "https://www.bleepingcomputer.com/news/security/man-gets-15-years-in-prison-for-cyberstalking-and-sextortion/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Woman-cyberstalking-smartphone.jpg"
   }
 ]
