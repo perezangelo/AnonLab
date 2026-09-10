@@ -940,48 +940,47 @@ function startWeeklyTrends() {
 startWeeklyTrends();
 </script>
 
-  <script>
-function loadAttackIndex() {
-    fetch("https://angelonline.altervista.org/newsops/attackindex.php")
-        .then(r => r.json())
-        .then(data => {
-            const bar = document.getElementById("attackBar");
-            const text = document.getElementById("attackText");
+<script>
+function startAttackHeatIndex() {
+    const bar  = document.getElementById("attackBar");
+    const text = document.getElementById("attackText");
 
-            bar.style.background = `linear-gradient(180deg, ${data.color} 0%, #000814 100%)`;
-            text.innerHTML = `${data.percent}% — ${data.desc}`;
-        })
-        .catch(() => {
-            document.getElementById("attackText").innerHTML = "Errore caricamento dati";
-        });
+    if (!bar || !text) {
+        setTimeout(startAttackHeatIndex, 200);
+        return;
+    }
+
+    async function loadAttackIndex() {
+        try {
+            const res  = await fetch("https://angelonline.altervista.org/newsops/attackindex.php");
+            const data = await res.json();
+
+            // Barra neon con gradiente dinamico
+            bar.style.background = data.gradient;
+
+            // Testo esplicativo
+            text.innerHTML = `
+                <span style="font-weight:bold;">${data.label}</span><br>
+                <span style="font-size:14px;">
+                    Heat Level: <strong>${data.value}%</strong> (${data.state})
+                </span><br>
+                <span style="color:${data.color}; font-weight:bold; font-size:13px;">
+                    ${data.note}
+                </span>
+            `;
+        } catch (e) {
+            console.error("Errore Attack Heat Index:", e);
+            text.innerHTML = "Errore caricamento Heat Index";
+        }
+    }
+
+    loadAttackIndex();
+    setInterval(loadAttackIndex, 30000);
 }
 
-// Carica subito
-loadAttackIndex();
-
-// Aggiorna ogni 30 secondi
-setInterval(loadAttackIndex, 30000);
+startAttackHeatIndex();
 </script>
-  <script>
-function loadThreatCategories() {
-    fetch("https://angelonline.altervista.org/newsops/threatcategories.php")
-        .then(r => r.json())
-        .then(data => {
-            document.getElementById("aptCol").style.height = data.apt + "px";
-            document.getElementById("malCol").style.height = data.malware + "px";
-            document.getElementById("phiCol").style.height = data.phishing + "px";
-            document.getElementById("expCol").style.height = data.exploits + "px";
-            document.getElementById("botCol").style.height = data.botnet + "px";
-        })
-        .catch(() => console.log("Errore caricamento categorie"));
-}
 
-// Carica subito
-loadThreatCategories();
-
-// Aggiorna ogni 30 secondi
-setInterval(loadThreatCategories, 30000);
-</script>
   <script>
 function loadIntelNotes() {
     fetch("https://angelonline.altervista.org/newsops/intelligencenotes.php")
