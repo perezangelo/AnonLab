@@ -490,22 +490,28 @@ fetch("/partials/ticker.html")
 
 </div>
 
-<!-- Cybersecurity FAQ -->
 <div class="news-box" style="
     background:#000814;
-    border:1px solid #ffaa00aa;
+    border:1px solid #00eaffaa;
     padding:20px;
     margin-top:30px;
-    margin-bottom:40px;
     border-radius:8px;
-    box-shadow:0 0 12px #ffaa00aa;
+    box-shadow:0 0 12px #00eaffaa;
 ">
-    <h3 style="color:#ffaa00;">Cybersecurity FAQ</h3>
 
-    <ul id="faqList" style="color:#ccc; line-height:1.7;">
-    <li>Caricamento...</li>
-</ul>
+    <h3 style="color:#00eaff;">Cybersecurity FAQ</h3>
+
+    <p style="color:#ccc; font-size:13px; margin-top:6px;">
+        Domande frequenti sulla sicurezza informatica, pensate per chi vuole capire
+        rischi reali e contromisure concrete.
+    </p>
+
+    <div id="faqList" style="margin-top:15px; color:#ccc; font-size:14px; line-height:1.6;">
+        <!-- Le FAQ verranno inserite via JS -->
+    </div>
+
 </div>
+
 <!-- Cyber Image Gallery (Extended) -->
 <div class="cyber-box" style="
     background:#000814;
@@ -1241,28 +1247,75 @@ window.addEventListener("DOMContentLoaded", function() {
 </script>
 
   <script>
-function loadCyberFAQ() {
-    fetch("https://angelonline.altervista.org/newsops/cyberfaq.php")
-        .then(r => r.json())
-        .then(data => {
-            const ul = document.getElementById("faqList");
-            ul.innerHTML = "";
+window.addEventListener("DOMContentLoaded", function() {
 
-            data.forEach(item => {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong>${item.q}</strong> ${item.a}`;
-                ul.appendChild(li);
-            });
-        })
-        .catch(() => {
-            document.getElementById("faqList").innerHTML =
-                "<li>Errore caricamento FAQ</li>";
-        });
-}
+    const faqData = [
+        {
+            q: "Cos’è un attacco informatico?",
+            a: "Un attacco informatico è un’azione intenzionale volta a compromettere sistemi, dati o servizi digitali. Può includere malware, phishing, exploit di vulnerabilità, furto di credenziali o accessi non autorizzati."
+        },
+        {
+            q: "Qual è la differenza tra vulnerabilità, exploit e minaccia?",
+            a: "Una vulnerabilità è una debolezza tecnica. Un exploit è il metodo usato per sfruttarla. Una minaccia è l’attore (umano o software) che ha capacità e intenzione di eseguire un attacco."
+        },
+        {
+            q: "Cos’è il ransomware e come ci si protegge?",
+            a: "Il ransomware cifra i dati e richiede un riscatto. La protezione passa da backup offline, patching costante, formazione anti‑phishing, EDR/XDR e gestione rigorosa dei privilegi."
+        },
+        {
+            q: "Cos’è il phishing e perché funziona ancora?",
+            a: "Il phishing sfrutta ingegneria sociale, urgenza e fiducia per indurre l’utente a cliccare link malevoli o fornire credenziali. Funziona perché colpisce il fattore umano, non la tecnologia."
+        },
+        {
+            q: "Cos’è l’autenticazione a più fattori (MFA)?",
+            a: "La MFA richiede almeno due elementi: qualcosa che sai (password), qualcosa che hai (token), qualcosa che sei (biometria). Riduce drasticamente il rischio di compromissione."
+        },
+        {
+            q: "Cos’è Zero Trust?",
+            a: "Zero Trust elimina la fiducia implicita: ogni accesso viene verificato continuamente, con controlli granulari basati su identità, contesto e comportamento."
+        },
+        {
+            q: "Cos’è un data breach?",
+            a: "Un data breach è la divulgazione, perdita o accesso non autorizzato a dati sensibili. Può derivare da attacchi, errori umani o configurazioni errate."
+        },
+        {
+            q: "Cosa contiene un piano di incident response?",
+            a: "Definisce ruoli, procedure di rilevazione, contenimento, eradicazione, recupero e comunicazione. Riduce l’impatto e accelera la risposta agli incidenti."
+        },
+        {
+            q: "Cos’è un exploit zero‑day?",
+            a: "È una vulnerabilità sconosciuta al vendor e non ancora corretta. Gli attaccanti la sfruttano prima che esista una patch, rendendola estremamente pericolosa."
+        },
+        {
+            q: "Cos’è un attacco supply‑chain?",
+            a: "È un attacco che compromette fornitori, software o servizi terzi per colpire indirettamente l’azienda bersaglio. È tra le tecniche più difficili da rilevare."
+        }
+    ];
 
-loadCyberFAQ();
-setInterval(loadCyberFAQ, 30000);
+    const container = document.getElementById("faqList");
+    if (!container) return;
+
+    container.innerHTML = faqData.map((item, idx) => `
+        <div style="margin-bottom:12px;">
+            <div style="cursor:pointer; color:#00eaff; font-weight:bold;"
+                 onclick="toggleFaq(${idx})">
+                Q${idx + 1}. ${item.q}
+            </div>
+            <div id="faqA${idx}" style="display:none; margin-top:4px; color:#ccc;">
+                ${item.a}
+            </div>
+        </div>
+    `).join("");
+
+    window.toggleFaq = function(id) {
+        const el = document.getElementById("faqA" + id);
+        if (!el) return;
+        el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+    };
+
+});
 </script>
+
   <script>
 function loadCyberGallery() {
     fetch("https://angelonline.altervista.org/newsops/cybergallery.php")
