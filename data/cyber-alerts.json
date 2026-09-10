@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-86085",
-    "summary": "n8n: Cross-Tenant Project-Member PII Disclosure via Missing Per-Project Scope Check on Role Assignment Endpoints",
+    "id": "CVE-2026-88006",
+    "summary": "Open WebUI: Users denied by the OAuth role policy can still sign in via token exchange",
     "severity": "MODERATE",
-    "published": "2026-09-10T21:13:24Z",
-    "ghsa": "GHSA-cqr2-h44g-v75v"
+    "published": "2026-09-10T23:04:57Z",
+    "ghsa": "GHSA-wvm9-9g5j-623f"
   },
   {
-    "id": "CVE-2026-86993",
-    "summary": "n8n: Log Streaming Event Destinations Decrypt Generic-Auth Credentials Without Ownership Check",
-    "severity": "MODERATE",
-    "published": "2026-09-10T21:07:45Z",
-    "ghsa": "GHSA-pq6c-vh67-xpm3"
-  },
-  {
-    "id": "CVE-2026-86084",
-    "summary": "n8n: Disabled OIDC SSO Endpoints Remain Active and Issue Valid Sessions",
-    "severity": "MODERATE",
-    "published": "2026-09-10T21:07:24Z",
-    "ghsa": "GHSA-pf83-w3f9-8m37"
-  },
-  {
-    "id": "CVE-2026-86080",
-    "summary": "n8n: GitHub Trigger 422 Reuse Path Skips Webhook Secret Storage, Causing Signature Verification to Fail-Open",
-    "severity": "MODERATE",
-    "published": "2026-09-10T21:06:37Z",
-    "ghsa": "GHSA-5m98-cgcr-xx3q"
-  },
-  {
-    "id": "CVE-2026-86079",
-    "summary": "n8n: Path Injection in Elasticsearch and ElasticSecurity Nodes via Unencoded Identifiers",
-    "severity": "MODERATE",
-    "published": "2026-09-10T21:05:43Z",
-    "ghsa": "GHSA-f2cp-m7mv-8jpv"
-  },
-  {
-    "id": "CVE-2026-86078",
-    "summary": "n8n: Prototype Pollution via Workflow Structure Summary Can Lead to Denial of Service",
-    "severity": "MODERATE",
-    "published": "2026-09-10T21:05:24Z",
-    "ghsa": "GHSA-679f-58pq-4v2c"
-  },
-  {
-    "id": "CVE-2026-86994",
-    "summary": "n8n: Cross-User Active Workflow ID and Lifecycle Event Disclosure via Missing userId Filter",
-    "severity": "MODERATE",
-    "published": "2026-09-10T21:01:27Z",
-    "ghsa": "GHSA-65xw-2v52-jhxc"
-  },
-  {
-    "id": "CVE-2026-86083",
-    "summary": "n8n: Expression Sandbox Escape via Shared Builtin Tampering and Code-Printer Injection Leads to Code Execution",
+    "id": "CVE-2026-88008",
+    "summary": "Traefik: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') and Incorrect Authorization",
     "severity": "HIGH",
-    "published": "2026-09-10T20:37:21Z",
-    "ghsa": "GHSA-6xcw-7xm6-48c6"
+    "published": "2026-09-10T23:04:37Z",
+    "ghsa": "GHSA-w4v4-9rw7-5326"
   },
   {
-    "id": "CVE-2026-86077",
-    "summary": "n8n: Anonymous Approval-Gate Bypass via Reused resumeToken over the Chat WebSocket",
-    "severity": "MODERATE",
-    "published": "2026-09-10T20:37:00Z",
-    "ghsa": "GHSA-35jj-42hp-8gmq"
+    "id": "CVE-2026-88004",
+    "summary": "Traefik entrypoint header-name sanitization bypassed via request trailers",
+    "severity": "HIGH",
+    "published": "2026-09-10T23:04:21Z",
+    "ghsa": "GHSA-v67p-phpq-fc8x"
   },
   {
-    "id": "CVE-2026-88011",
-    "summary": "Traefik: ForwardAuth identity spoofing via dot-form header alias",
+    "id": "CVE-2026-88007",
+    "summary": "Traefik HTTP/3 Backend NTLM Connection Reuse",
+    "severity": "CRITICAL",
+    "published": "2026-09-10T23:04:06Z",
+    "ghsa": "GHSA-qqjf-53cj-pwvv"
+  },
+  {
+    "id": "CVE-2026-88009",
+    "summary": "Traefik: Rootless HTTP/1 request-target routes as \"/\" but is forwarded verbatim, bypassing path-scoped routing, middleware guards and access logging",
+    "severity": "HIGH",
+    "published": "2026-09-10T23:03:53Z",
+    "ghsa": "GHSA-f52w-8j3h-j724"
+  },
+  {
+    "id": "CVE-2026-88014",
+    "summary": "rclone archive/zip: Zip Slip via unsanitized zip entry names lets a malicious archive escape its own namespace",
     "severity": "MODERATE",
-    "published": "2026-09-10T20:28:15Z",
-    "ghsa": "GHSA-rf44-j88r-hh8c"
+    "published": "2026-09-10T23:03:16Z",
+    "ghsa": "GHSA-66hp-wgxq-6f5q"
+  },
+  {
+    "id": "CVE-2026-88013",
+    "summary": "rclone: http backend forwards custom/auth headers to a different host on redirect",
+    "severity": "LOW",
+    "published": "2026-09-10T23:02:53Z",
+    "ghsa": "GHSA-486v-q2wf-fp2r"
+  },
+  {
+    "id": "CVE-2026-88016",
+    "summary": "rclone: Directory metadata (chmod/chown/chtimes) applied through a planted symlink in rclone local --links escapes the destination",
+    "severity": "MODERATE",
+    "published": "2026-09-10T22:51:34Z",
+    "ghsa": "GHSA-f8g7-2xjc-7mfh"
+  },
+  {
+    "id": "CVE-2026-88015",
+    "summary": "rclone local: crafted Range request against a translated symlink panics (DoS)",
+    "severity": "MODERATE",
+    "published": "2026-09-10T22:49:27Z",
+    "ghsa": "GHSA-p6m2-r3w9-mpxw"
+  },
+  {
+    "id": "CVE-2026-88018",
+    "summary": "rclone serve s3: --auth-proxy without --auth-key authenticates nobody - full SigV4 signature bypass",
+    "severity": "CRITICAL",
+    "published": "2026-09-10T22:49:07Z",
+    "ghsa": "GHSA-xwwr-4h3p-r22c"
   }
 ]
