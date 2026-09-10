@@ -506,8 +506,12 @@ fetch("/partials/ticker.html")
         rischi reali e contromisure concrete.
     </p>
 
+    <p style="color:#00eaff; font-size:12px; margin-top:10px; font-weight:bold;">
+        👉 Clicca l'argomento di tuo interesse per aprire la scheda
+    </p>
+
     <div id="faqList" style="margin-top:15px; color:#ccc; font-size:14px; line-height:1.6;">
-        <!-- Le FAQ verranno inserite via JS -->
+        <!-- FAQ generate via JS -->
     </div>
 
 </div>
@@ -1247,6 +1251,7 @@ window.addEventListener("DOMContentLoaded", function() {
 </script>
 
   <script>
+wi<script>
 window.addEventListener("DOMContentLoaded", function() {
 
     const faqData = [
@@ -1256,7 +1261,7 @@ window.addEventListener("DOMContentLoaded", function() {
         },
         {
             q: "Qual è la differenza tra vulnerabilità, exploit e minaccia?",
-            a: "Una vulnerabilità è una debolezza tecnica. Un exploit è il metodo usato per sfruttarla. Una minaccia è l’attore (umano o software) che ha capacità e intenzione di eseguire un attacco."
+            a: "Una vulnerabilità è una debolezza tecnica. Un exploit è il metodo usato per sfruttarla. Una minaccia è l’attore che ha capacità e intenzione di eseguire un attacco."
         },
         {
             q: "Cos’è il ransomware e come ci si protegge?",
@@ -1264,11 +1269,11 @@ window.addEventListener("DOMContentLoaded", function() {
         },
         {
             q: "Cos’è il phishing e perché funziona ancora?",
-            a: "Il phishing sfrutta ingegneria sociale, urgenza e fiducia per indurre l’utente a cliccare link malevoli o fornire credenziali. Funziona perché colpisce il fattore umano, non la tecnologia."
+            a: "Il phishing sfrutta ingegneria sociale, urgenza e fiducia per indurre l’utente a cliccare link malevoli o fornire credenziali. Funziona perché colpisce il fattore umano."
         },
         {
             q: "Cos’è l’autenticazione a più fattori (MFA)?",
-            a: "La MFA richiede almeno due elementi: qualcosa che sai (password), qualcosa che hai (token), qualcosa che sei (biometria). Riduce drasticamente il rischio di compromissione."
+            a: "La MFA richiede almeno due elementi: password, token, biometria. Riduce drasticamente il rischio di compromissione anche in caso di furto delle credenziali."
         },
         {
             q: "Cos’è Zero Trust?",
