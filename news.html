@@ -319,7 +319,7 @@ fetch("/partials/ticker.html")
     </p>
 </div>
 
- <div class="news-box" style="
+<div class="news-box" style="
     background:#000814;
     border:1px solid #00ff99aa;
     padding:20px;
@@ -343,38 +343,62 @@ fetch("/partials/ticker.html")
     <div style="display:flex; gap:12px; margin-top:20px; align-items:flex-end; height:180px;">
 
         <div style="width:20%; text-align:center;">
-            <div id="malCol" style="width:100%; background:#ff0044; transition:0.4s; height:0;"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">Malware</div>
+            <div id="malCol" class="thBar" data-tip="Malware rilevati nelle ultime 24 ore"></div>
+            <div style="color:#ccc; margin-top:6px; font-size:12px;">🧬 Malware</div>
             <div id="malVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="phiCol" style="width:100%; background:#ff7b00; transition:0.4s; height:0;"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">Phishing</div>
+            <div id="phiCol" class="thBar" data-tip="URL di phishing attivi rilevati"></div>
+            <div style="color:#ccc; margin-top:6px; font-size:12px;">🎣 Phishing</div>
             <div id="phiVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="expCol" style="width:100%; background:#ffaa00; transition:0.4s; height:0;"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">Exploits</div>
+            <div id="expCol" class="thBar" data-tip="Vulnerabilità sfruttate attivamente"></div>
+            <div style="color:#ccc; margin-top:6px; font-size:12px;">🛡 Exploits</div>
             <div id="expVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="botCol" style="width:100%; background:#00eaff; transition:0.4s; height:0;"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">Botnet</div>
+            <div id="botCol" class="thBar" data-tip="Server C&C botnet attivi"></div>
+            <div style="color:#ccc; margin-top:6px; font-size:12px;">🤖 Botnet</div>
             <div id="botVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="aptCol" style="width:100%; background:#00ff99; transition:0.4s; height:0;"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">APT</div>
+            <div id="aptCol" class="thBar" data-tip="Attività APT osservata"></div>
+            <div style="color:#ccc; margin-top:6px; font-size:12px;">⚡ APT</div>
             <div id="aptVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
     </div>
 
 </div>
+
+<style>
+.thBar {
+    width:100%;
+    height:0;
+    transition:0.4s;
+    border-radius:4px;
+    position:relative;
+}
+.thBar:hover::after {
+    content: attr(data-tip);
+    position:absolute;
+    bottom:100%;
+    left:50%;
+    transform:translateX(-50%);
+    background:#000;
+    color:#00eaff;
+    padding:6px 10px;
+    border:1px solid #00eaff;
+    border-radius:6px;
+    font-size:11px;
+    white-space:nowrap;
+}
+</style>
       
 <div class="news-box" style="
     background:#000814;
@@ -1026,34 +1050,63 @@ function startAttackHeatIndex() {
 startAttackHeatIndex();
 </script>
 
-	function startThreatCategories() {
-    async function loadThreats() {
-        const res = await fetch("https://angelonline.altervista.org/newsops/threatcategories.php");
-        const data = await res.json();
+	<script>
+window.addEventListener("DOMContentLoaded", function() {
 
-        const map = {
-            "Malware": "mal",
-            "Phishing": "phi",
-            "Exploits": "exp",
-            "Botnet": "bot",
-            "APT": "apt"
-        };
-
-        data.forEach(item => {
-            const id = map[item.label];
-            const col = document.getElementById(id + "Col");
-            const val = document.getElementById(id + "Val");
-
-            col.style.height = item.value + "px";   // <-- ALTEZZA REALE
-            val.textContent = item.value + "%";     // <-- VALORE REALE
-        });
+    // Colori dinamici basati sul rischio
+    function riskColor(value) {
+        if (value >= 75) return "#ff0044";   // alto rischio
+        if (value >= 50) return "#ff7b00";   // medio-alto
+        if (value >= 25) return "#ffaa00";   // medio
+        return "#00eaff";                    // basso
     }
 
-    loadThreats();
-    setInterval(loadThreats, 60000);
-}
+    function startThreatCategories() {
 
-window.addEventListener("DOMContentLoaded", startThreatCategories);
+        async function loadThreats() {
+            try {
+                const res = await fetch("https://angelonline.altervista.org/newsops/threatcategories.php");
+                const data = await res.json();
+
+                // Mappa categorie → ID barre
+                const map = {
+                    "Malware": "mal",
+                    "Phishing": "phi",
+                    "Exploits": "exp",
+                    "Botnet": "bot",
+                    "APT": "apt"
+                };
+
+                data.forEach(item => {
+                    const id = map[item.label];
+                    const col = document.getElementById(id + "Col");
+                    const val = document.getElementById(id + "Val");
+
+                    if (!col || !val) return;
+
+                    // Altezza proporzionale (0–100 px)
+                    col.style.height = item.value + "px";
+
+                    // Colore dinamico basato sul rischio
+                    col.style.background = riskColor(item.value);
+
+                    // Valore numerico
+                    val.textContent = item.value + "%";
+                });
+
+            } catch (e) {
+                console.log("Errore ThreatCategories:", e);
+            }
+        }
+
+        loadThreats();
+        setInterval(loadThreats, 60000);
+    }
+
+    startThreatCategories();
+
+});
+</script>
 
   <script>
 function startIntelNotes() {
