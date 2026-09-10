@@ -889,16 +889,41 @@ function startWeeklyTrends() {
 
             box.innerHTML = "";
 
-            data.forEach(v => {
+            data.forEach(item => {
                 box.innerHTML += `
-                    <div style="
-                        width:20%;
-                        background:#00eaff;
-                        height:${v * 6}px;
-                        border-radius:4px;
-                        box-shadow:0 0 10px #00eaffaa;
-                        transition:height .4s ease;
-                    "></div>
+                    <div style="text-align:center; width:20%;">
+
+                        <!-- Barra -->
+                        <div style="
+                            width:100%;
+                            background:#00eaff;
+                            height:${item.value * 6}px;
+                            border-radius:4px;
+                            box-shadow:0 0 10px #00eaffaa;
+                            margin:auto;
+                            transition:height .4s ease;
+                        "></div>
+
+                        <!-- Etichetta -->
+                        <div style="
+                            color:#ccc;
+                            margin-top:6px;
+                            font-size:12px;
+                            font-weight:bold;
+                        ">
+                            ${item.label}
+                        </div>
+
+                        <!-- Valore numerico -->
+                        <div style="
+                            color:#00eaff;
+                            font-size:11px;
+                            margin-top:2px;
+                        ">
+                            ${item.value}
+                        </div>
+
+                    </div>
                 `;
             });
 
