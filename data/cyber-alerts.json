@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-85730",
-    "summary": "smol-toml: Denial of Service via malformed TOML documents",
+    "id": "CVE-2026-88000",
+    "summary": "Open WebUI: Any authenticated user can hang the server via message deletion in a cyclic chat tree",
+    "severity": "MODERATE",
+    "published": "2026-09-09T23:54:22Z",
+    "ghsa": "GHSA-3cgp-3cqx-j8w2"
+  },
+  {
+    "id": "CVE-2026-88001",
+    "summary": "Open WebUI: Server-side fetches reach blocked and internal hosts via unvalidated HTTP redirect targets",
+    "severity": "MODERATE",
+    "published": "2026-09-09T23:54:08Z",
+    "ghsa": "GHSA-5x7x-4c3c-qf5w"
+  },
+  {
+    "id": "CVE-2026-88002",
+    "summary": "Open WebUI: Any authenticated user can hang the server via a cyclic chat message history",
+    "severity": "MODERATE",
+    "published": "2026-09-09T23:53:59Z",
+    "ghsa": "GHSA-jqhh-cjmq-vmv6"
+  },
+  {
+    "id": "CVE-2026-59185",
+    "summary": "Identrail Cross-tenant IDOR: Client-supplied GitHub App installation_id is bound to the caller's workspace without ownership verification",
     "severity": "HIGH",
-    "published": "2026-09-09T18:07:11Z",
-    "ghsa": "GHSA-7w5x-hrqm-74c2"
+    "published": "2026-09-09T23:52:14Z",
+    "ghsa": "GHSA-cp3j-m783-3ph5"
   },
   {
-    "id": "CVE-2026-55073",
-    "summary": "weasyprint Has Server-Side Request Forgery (SSRF)",
-    "severity": "MODERATE",
-    "published": "2026-09-09T18:06:38Z",
-    "ghsa": "GHSA-jf6q-chmf-3h3v"
+    "id": "CVE-2026-59179",
+    "summary": "@openhop/server: Path Traversal in Flow ID File Operations",
+    "severity": "HIGH",
+    "published": "2026-09-09T23:51:59Z",
+    "ghsa": "GHSA-g72f-jw3w-mgh7"
   },
   {
-    "id": "CVE-2026-54529",
-    "summary": "SQLAdmin: Unvalidated sortBy parameter in `ModelView` bypasses `column_sortable_list`",
-    "severity": "MODERATE",
-    "published": "2026-09-09T18:01:56Z",
-    "ghsa": "GHSA-ccg5-9c8w-xh6v"
+    "id": "CVE-2026-59177",
+    "summary": "ESPHome Device Builder Dashboard: Unauthenticated dashboard access via the HA add-on ingress site bound to all interfaces",
+    "severity": "HIGH",
+    "published": "2026-09-09T23:51:25Z",
+    "ghsa": "GHSA-vv4j-m4vr-f3g6"
   },
   {
-    "id": "CVE-2026-53495",
-    "summary": "containerd: CRI ExecSync Goroutine Leak Leads to Node-Level Denial of Service",
-    "severity": "MODERATE",
-    "published": "2026-09-09T18:01:33Z",
-    "ghsa": "GHSA-7jxh-36q5-gcqv"
+    "id": "CVE-2026-59176",
+    "summary": "functype-mcp-server: MCP `set_functype_version` Package Alias RCE via Unsanitized pnpm install + Dynamic Import",
+    "severity": "HIGH",
+    "published": "2026-09-09T23:49:20Z",
+    "ghsa": "GHSA-wcjj-9m6g-2fr2"
   },
   {
-    "id": "CVE-2026-50024",
-    "summary": "GitHacker: Path traversal in ref/hash parsing enables existence oracle and hex-fragment exfiltration via malicious .git server",
-    "severity": "MODERATE",
-    "published": "2026-09-09T18:00:32Z",
-    "ghsa": "GHSA-hr3m-4qwq-3mgc"
+    "id": "CVE-2026-59172",
+    "summary": "Joker linter executed project-local .jokerd/linter.* files during linting",
+    "severity": "HIGH",
+    "published": "2026-09-09T23:48:46Z",
+    "ghsa": "GHSA-m835-3cm9-rggg"
   },
   {
-    "id": "CVE-2026-44282",
-    "summary": "decidim-elections: Election question titles allow stored script execution",
-    "severity": "MODERATE",
-    "published": "2026-09-09T17:59:52Z",
-    "ghsa": "GHSA-9mvp-w4rr-5c6x"
+    "id": "GHSA-hxjg-93wc-h8p8",
+    "summary": "Komari: Management Interface CSRF",
+    "severity": "HIGH",
+    "published": "2026-09-09T23:48:31Z",
+    "ghsa": "GHSA-hxjg-93wc-h8p8"
   },
   {
-    "id": "CVE-2025-58363",
-    "summary": "LF Edge eKuiper: Arbitrary File and Directory Deletion via Path Traversal in Plugin Installation Endpoint",
-    "severity": "MODERATE",
-    "published": "2026-09-09T17:59:27Z",
-    "ghsa": "GHSA-c23q-fw86-9h5x"
-  },
-  {
-    "id": "CVE-2025-24979",
-    "summary": "LF Edge eKuiper: SSRF in External Service",
-    "severity": "MODERATE",
-    "published": "2026-09-09T17:56:32Z",
-    "ghsa": "GHSA-pqqc-8v73-9gg2"
-  },
-  {
-    "id": "CVE-2025-24978",
-    "summary": "LF Edge eKuiper: Self-XSS in External Service Creation",
-    "severity": "LOW",
-    "published": "2026-09-09T17:56:22Z",
-    "ghsa": "GHSA-g8rh-fjm6-h2h9"
-  },
-  {
-    "id": "CVE-2025-24890",
-    "summary": "gix-sec safe.directory protections absent for elevated administrators",
-    "severity": "MODERATE",
-    "published": "2026-09-09T16:34:35Z",
-    "ghsa": "GHSA-7rhf-42qf-vrvc"
+    "id": "CVE-2026-59160",
+    "summary": "@yeger/turbo-graph: Unauthenticated Network-Exposed Task Execution via /api/run",
+    "severity": "HIGH",
+    "published": "2026-09-09T23:47:55Z",
+    "ghsa": "GHSA-2r5q-h53f-9rp3"
   }
 ]
