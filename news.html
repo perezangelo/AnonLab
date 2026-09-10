@@ -874,11 +874,9 @@ setInterval(loadCyberNewsDigest, 60000);
 </script>
 
 <script>
-<script>
 function startWeeklyTrends() {
     const box = document.getElementById("weekly-trends");
 
-    // Se il widget non esiste ancora, riprova
     if (!box) {
         setTimeout(startWeeklyTrends, 200);
         return;
