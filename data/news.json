@@ -1,5 +1,25 @@
 [
   {
+    "title": "New Android malware encrypts files, steals data, and harasses victims",
+    "link": "https://www.bleepingcomputer.com/news/security/new-android-malware-encrypts-files-steals-data-and-harasses-victims/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/android.jpg"
+  },
+  {
+    "title": "Voice Callers Exploit BYOD to Reach Microsoft 365, Corporate Data",
+    "link": "https://www.darkreading.com/threat-intelligence/voice-callers-exploit-byod-microsoft-365-corporate-data",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte683970072b53815/6aa308b0b1def869502ac7be/Phone_passcode-Tero_Vesalainen-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "September Windows Server updates break Remote Desktop Services",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/september-windows-server-updates-break-remote-desktop-services/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/05/16/Windows-Server.jpg"
+  },
+  {
+    "title": "Mandiant Founder Kevin Mandia Joins Amazon Board",
+    "link": "https://www.securityweek.com/mandiant-founder-kevin-mandia-joins-amazon-board/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
     "title": "Surfshark VPN says hackers breached internal testing, proxy servers",
     "link": "https://www.bleepingcomputer.com/news/security/surfshark-vpn-says-hackers-breached-internal-testing-proxy-servers/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/10/surfshark.jpg"
@@ -80,13 +100,18 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/cloud-load-balancer-Netscaler-application-delivery.jpeg"
   },
   {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
     "title": "Orthanc DICOM Server",
     "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-02",
     "image": ""
   },
   {
-    "title": "NextGen Healthcare Mirth Connect",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-01",
+    "title": "AVEVA Pipeline Integrity Monitor",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-253-01",
     "image": ""
   },
   {
@@ -95,8 +120,8 @@
     "image": ""
   },
   {
-    "title": "AVEVA Pipeline Integrity Monitor",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-253-01",
+    "title": "NextGen Healthcare Mirth Connect",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-01",
     "image": ""
   },
   {
@@ -123,30 +148,5 @@
     "title": "4.1 Million Impacted by AdaptHealth Data Breach",
     "link": "https://www.securityweek.com/4-1-million-impacted-by-adapthealth-data-breach/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/05/healthcare-medical-data-breach-.jpeg"
-  },
-  {
-    "title": "Microsoft says September updates fix mouse settings reset issues",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-resolves-mouse-settings-reset-bug-windows-11-update/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/31/Windows-11-mouse-pointer.jpg"
-  },
-  {
-    "title": "CISA Flags Exploited Cisco, Citrix, Fortinet Flaws, Sets Sept. 12 Federal Patch Deadline",
-    "link": "https://thehackernews.com/2026/09/cisa-flags-exploited-cisco-citrix.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7j6Sm8OqDeYzrbb5faLBuDOc0zIMlvfjiKbn1aCMpx_2iBl6gb3HhJhpbqU8SPajHUClJEXUwnFbY1DcubmzWeVaWCyGcHkw45rCYqU_4IFO_g4OwdyNrTFFK3l3YsXwfOWQj2QtW3UTeglKmyRJ4GvbVKMxLTByMgeZ7E0WWpxpi50qie2lx9DbCY9rr/s1600/cisa-list.jpg"
-  },
-  {
-    "title": "Organizations Warned of Cisco Secure FMC Exploitation",
-    "link": "https://www.securityweek.com/organizations-warned-of-cisco-secure-fmc-exploitation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Cisco-network-switch-exploit.webp"
-  },
-  {
-    "title": "CISA: WatchGuard RCE flaw now exploited in ransomware attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-watchguard-rce-flaw-now-exploited-in-ransomware-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/09/18/WatchGuard_headpic.jpg"
-  },
-  {
-    "title": "Microsoft fixes bug that wiped Windows desktop settings",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-bug-that-wiped-windows-desktop-settings/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/01/Windows-11.jpg"
   }
 ]
