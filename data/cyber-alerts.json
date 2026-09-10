@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-88000",
-    "summary": "Open WebUI: Any authenticated user can hang the server via message deletion in a cyclic chat tree",
+    "id": "CVE-2026-86082",
+    "summary": "n8n: Domain-Restriction Bypass via Unguarded Model-Search Endpoint in OpenAI Chat Model Node",
+    "severity": "HIGH",
+    "published": "2026-09-10T15:12:14Z",
+    "ghsa": "GHSA-34ff-336r-5q23"
+  },
+  {
+    "id": "CVE-2026-86081",
+    "summary": "n8n: Regular Expression Denial of Service in the Default Blocked-File-Pattern Match via a Git Node Clone Path",
+    "severity": "HIGH",
+    "published": "2026-09-10T15:12:00Z",
+    "ghsa": "GHSA-j535-v25q-vx3q"
+  },
+  {
+    "id": "CVE-2026-86075",
+    "summary": "n8n: Unauthenticated Persistent Storage Exhaustion via OAuth Dynamic Client Registration Endpoint",
+    "severity": "HIGH",
+    "published": "2026-09-10T15:11:31Z",
+    "ghsa": "GHSA-hh89-3r9w-qj3j"
+  },
+  {
+    "id": "CVE-2026-86076",
+    "summary": "n8n: Expression Sandbox Escape via Class-Field Sanitizer Rebinding Can Lead to Code Execution",
+    "severity": "HIGH",
+    "published": "2026-09-10T15:11:07Z",
+    "ghsa": "GHSA-hw8v-xxg5-vvvx"
+  },
+  {
+    "id": "CVE-2026-87017",
+    "summary": "Open WebUI: Inaccessible knowledge bases are exposed through the built-in knowledge tool on most vector backends",
     "severity": "MODERATE",
-    "published": "2026-09-09T23:54:22Z",
-    "ghsa": "GHSA-3cgp-3cqx-j8w2"
+    "published": "2026-09-10T15:10:41Z",
+    "ghsa": "GHSA-pcvc-8vrv-8q6w"
   },
   {
-    "id": "CVE-2026-88001",
-    "summary": "Open WebUI: Server-side fetches reach blocked and internal hosts via unvalidated HTTP redirect targets",
+    "id": "CVE-2026-87994",
+    "summary": "Open WebUI: Channel members can overwrite another member's message via the chat completions endpoint",
     "severity": "MODERATE",
-    "published": "2026-09-09T23:54:08Z",
-    "ghsa": "GHSA-5x7x-4c3c-qf5w"
+    "published": "2026-09-10T15:10:29Z",
+    "ghsa": "GHSA-fmqh-xp37-5hr8"
   },
   {
-    "id": "CVE-2026-88002",
-    "summary": "Open WebUI: Any authenticated user can hang the server via a cyclic chat message history",
+    "id": "CVE-2026-87995",
+    "summary": "Open WebUI: Same-origin XSS to account takeover via terminal port-preview iframe hardcoding allow-same-origin",
+    "severity": "HIGH",
+    "published": "2026-09-10T15:10:20Z",
+    "ghsa": "GHSA-jmc6-2wr8-h3wj"
+  },
+  {
+    "id": "CVE-2026-87996",
+    "summary": "Open WebUI: SSRF into internal services via DNS rebinding in the Playwright web loader",
+    "severity": "HIGH",
+    "published": "2026-09-10T15:10:12Z",
+    "ghsa": "GHSA-4v28-j6q3-5m4r"
+  },
+  {
+    "id": "CVE-2026-87997",
+    "summary": "Open WebUI: Any authenticated user can inject chats into another user's folder via chat completions",
     "severity": "MODERATE",
-    "published": "2026-09-09T23:53:59Z",
-    "ghsa": "GHSA-jqhh-cjmq-vmv6"
+    "published": "2026-09-10T15:10:04Z",
+    "ghsa": "GHSA-3pf7-q2g3-wj28"
   },
   {
-    "id": "CVE-2026-59185",
-    "summary": "Identrail Cross-tenant IDOR: Client-supplied GitHub App installation_id is bound to the caller's workspace without ownership verification",
+    "id": "CVE-2026-87998",
+    "summary": "Open WebUI: Non-admin users can delete admin-owned external knowledge connections via knowledge base deletion",
     "severity": "HIGH",
-    "published": "2026-09-09T23:52:14Z",
-    "ghsa": "GHSA-cp3j-m783-3ph5"
-  },
-  {
-    "id": "CVE-2026-59179",
-    "summary": "@openhop/server: Path Traversal in Flow ID File Operations",
-    "severity": "HIGH",
-    "published": "2026-09-09T23:51:59Z",
-    "ghsa": "GHSA-g72f-jw3w-mgh7"
-  },
-  {
-    "id": "CVE-2026-59177",
-    "summary": "ESPHome Device Builder Dashboard: Unauthenticated dashboard access via the HA add-on ingress site bound to all interfaces",
-    "severity": "HIGH",
-    "published": "2026-09-09T23:51:25Z",
-    "ghsa": "GHSA-vv4j-m4vr-f3g6"
-  },
-  {
-    "id": "CVE-2026-59176",
-    "summary": "functype-mcp-server: MCP `set_functype_version` Package Alias RCE via Unsanitized pnpm install + Dynamic Import",
-    "severity": "HIGH",
-    "published": "2026-09-09T23:49:20Z",
-    "ghsa": "GHSA-wcjj-9m6g-2fr2"
-  },
-  {
-    "id": "CVE-2026-59172",
-    "summary": "Joker linter executed project-local .jokerd/linter.* files during linting",
-    "severity": "HIGH",
-    "published": "2026-09-09T23:48:46Z",
-    "ghsa": "GHSA-m835-3cm9-rggg"
-  },
-  {
-    "id": "GHSA-hxjg-93wc-h8p8",
-    "summary": "Komari: Management Interface CSRF",
-    "severity": "HIGH",
-    "published": "2026-09-09T23:48:31Z",
-    "ghsa": "GHSA-hxjg-93wc-h8p8"
-  },
-  {
-    "id": "CVE-2026-59160",
-    "summary": "@yeger/turbo-graph: Unauthenticated Network-Exposed Task Execution via /api/run",
-    "severity": "HIGH",
-    "published": "2026-09-09T23:47:55Z",
-    "ghsa": "GHSA-2r5q-h53f-9rp3"
+    "published": "2026-09-10T15:09:52Z",
+    "ghsa": "GHSA-2724-6cpj-gf3v"
   }
 ]
