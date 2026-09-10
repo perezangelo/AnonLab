@@ -378,21 +378,32 @@ fetch("/partials/ticker.html")
 
 </div>
       
-      <!-- Cyber Intelligence Notes -->
 <div class="news-box" style="
     background:#000814;
-    border:1px solid #7a00ffaa;
+    border:1px solid #00eaffaa;
     padding:20px;
     margin-top:30px;
     border-radius:8px;
-    box-shadow:0 0 12px #7a00ffaa;
+    box-shadow:0 0 12px #00eaffaa;
 ">
-    <h3 style="color:#b366ff;">Cyber Intelligence Notes</h3>
 
-<ul id="intelNotes" style="color:#ccc; line-height:1.7;">
-    <li>Caricamento...</li>
-</ul>
+    <h3 style="color:#00eaff;">Cyber Intelligence Notes</h3>
+
+    <p style="color:#ccc; font-size:13px; margin-top:6px;">
+        Sintesi delle principali informazioni di intelligence raccolte da fonti OSINT
+        nelle ultime ore.
+    </p>
+
+    <p style="color:#888; font-size:11px; margin-top:4px;">
+        Fonti: SecurityWeek, CISA Advisories, DarkReading
+    </p>
+
+    <ul id="intelNotesList" style="color:#ccc; margin-top:15px; line-height:1.6; font-size:14px;">
+        <li>Caricamento intelligence...</li>
+    </ul>
+
 </div>
+
      <div class="news-box" style="
     background:#000814;
     border:1px solid #ffaa00aa;
@@ -1018,27 +1029,39 @@ startAttackHeatIndex();
 </script>
 
   <script>
-function loadIntelNotes() {
-    fetch("https://angelonline.altervista.org/newsops/intelligencenotes.php")
-        .then(r => r.json())
-        .then(data => {
-            const ul = document.getElementById("intelNotes");
-            ul.innerHTML = "";
-            data.forEach(note => {
-                const li = document.createElement("li");
-                li.textContent = note;
-                ul.appendChild(li);
-            });
-        })
-        .catch(() => {
-            document.getElementById("intelNotes").innerHTML =
-                "<li>Errore caricamento note di intelligence</li>";
-        });
+function startIntelNotes() {
+    const list = document.getElementById("intelNotesList");
+
+    if (!list) {
+        setTimeout(startIntelNotes, 200);
+        return;
+    }
+
+    async function loadIntel() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/intelnotes.php");
+            const data = await res.json();
+
+            list.innerHTML = data.map(n => `
+                <li>
+                    <strong style="color:#00eaff;">${n.title}</strong><br>
+                    <span style="color:#ccc;">${n.desc}</span><br>
+                    <span style="color:#00ff99; font-size:12px;">${n.cat}</span>
+                    <span style="color:#888; font-size:11px;">(${n.src})</span>
+                </li>
+            `).join("");
+        } catch (e) {
+            list.innerHTML = "<li style='color:#f66;'>Errore nel caricamento delle intelligence notes.</li>";
+        }
+    }
+
+    loadIntel();
+    setInterval(loadIntel, 60000);
 }
 
-loadIntelNotes();
-setInterval(loadIntelNotes, 30000);
+startIntelNotes();
 </script>
+
   <script>
 function loadRiskForecast() {
     fetch("https://angelonline.altervista.org/newsops/riskforecast.php")
