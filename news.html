@@ -873,14 +873,14 @@ loadCyberNewsDigest();
 setInterval(loadCyberNewsDigest, 60000);
 </script>
 
-  <script>
+<script>
 function startWeeklyTrends() {
     const box = document.getElementById("weekly-trends");
     if (!box) return setTimeout(startWeeklyTrends, 200);
 
     async function loadTrends() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/newsops/weeklytrends.php");
+            const res = await fetch("https://angelonline.altervista.org/newsops/weeklytrends.php+");
             const data = await res.json();
 
             box.innerHTML = "";
@@ -889,10 +889,10 @@ function startWeeklyTrends() {
                 box.innerHTML += `
                     <div style="
                         width:20%;
-                        background:#ff7b00;
-                        height:${v}px;
+                        background:#00eaff;
+                        height:${v * 5}px;
                         border-radius:4px;
-                        box-shadow:0 0 10px #ff7b00aa;
+                        box-shadow:0 0 10px #00eaffaa;
                         transition:height .4s ease;
                     "></div>
                 `;
@@ -910,6 +910,7 @@ function startWeeklyTrends() {
 
 startWeeklyTrends();
 </script>
+
   <script>
 function loadAttackIndex() {
     fetch("https://angelonline.altervista.org/newsops/attackindex.php")
