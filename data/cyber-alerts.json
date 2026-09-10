@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-86082",
-    "summary": "n8n: Domain-Restriction Bypass via Unguarded Model-Search Endpoint in OpenAI Chat Model Node",
-    "severity": "HIGH",
-    "published": "2026-09-10T15:12:14Z",
-    "ghsa": "GHSA-34ff-336r-5q23"
-  },
-  {
-    "id": "CVE-2026-86081",
-    "summary": "n8n: Regular Expression Denial of Service in the Default Blocked-File-Pattern Match via a Git Node Clone Path",
-    "severity": "HIGH",
-    "published": "2026-09-10T15:12:00Z",
-    "ghsa": "GHSA-j535-v25q-vx3q"
-  },
-  {
-    "id": "CVE-2026-86075",
-    "summary": "n8n: Unauthenticated Persistent Storage Exhaustion via OAuth Dynamic Client Registration Endpoint",
-    "severity": "HIGH",
-    "published": "2026-09-10T15:11:31Z",
-    "ghsa": "GHSA-hh89-3r9w-qj3j"
-  },
-  {
-    "id": "CVE-2026-86076",
-    "summary": "n8n: Expression Sandbox Escape via Class-Field Sanitizer Rebinding Can Lead to Code Execution",
-    "severity": "HIGH",
-    "published": "2026-09-10T15:11:07Z",
-    "ghsa": "GHSA-hw8v-xxg5-vvvx"
-  },
-  {
-    "id": "CVE-2026-87017",
-    "summary": "Open WebUI: Inaccessible knowledge bases are exposed through the built-in knowledge tool on most vector backends",
+    "id": "CVE-2026-86085",
+    "summary": "n8n: Cross-Tenant Project-Member PII Disclosure via Missing Per-Project Scope Check on Role Assignment Endpoints",
     "severity": "MODERATE",
-    "published": "2026-09-10T15:10:41Z",
-    "ghsa": "GHSA-pcvc-8vrv-8q6w"
+    "published": "2026-09-10T21:13:24Z",
+    "ghsa": "GHSA-cqr2-h44g-v75v"
   },
   {
-    "id": "CVE-2026-87994",
-    "summary": "Open WebUI: Channel members can overwrite another member's message via the chat completions endpoint",
+    "id": "CVE-2026-86993",
+    "summary": "n8n: Log Streaming Event Destinations Decrypt Generic-Auth Credentials Without Ownership Check",
     "severity": "MODERATE",
-    "published": "2026-09-10T15:10:29Z",
-    "ghsa": "GHSA-fmqh-xp37-5hr8"
+    "published": "2026-09-10T21:07:45Z",
+    "ghsa": "GHSA-pq6c-vh67-xpm3"
   },
   {
-    "id": "CVE-2026-87995",
-    "summary": "Open WebUI: Same-origin XSS to account takeover via terminal port-preview iframe hardcoding allow-same-origin",
-    "severity": "HIGH",
-    "published": "2026-09-10T15:10:20Z",
-    "ghsa": "GHSA-jmc6-2wr8-h3wj"
-  },
-  {
-    "id": "CVE-2026-87996",
-    "summary": "Open WebUI: SSRF into internal services via DNS rebinding in the Playwright web loader",
-    "severity": "HIGH",
-    "published": "2026-09-10T15:10:12Z",
-    "ghsa": "GHSA-4v28-j6q3-5m4r"
-  },
-  {
-    "id": "CVE-2026-87997",
-    "summary": "Open WebUI: Any authenticated user can inject chats into another user's folder via chat completions",
+    "id": "CVE-2026-86084",
+    "summary": "n8n: Disabled OIDC SSO Endpoints Remain Active and Issue Valid Sessions",
     "severity": "MODERATE",
-    "published": "2026-09-10T15:10:04Z",
-    "ghsa": "GHSA-3pf7-q2g3-wj28"
+    "published": "2026-09-10T21:07:24Z",
+    "ghsa": "GHSA-pf83-w3f9-8m37"
   },
   {
-    "id": "CVE-2026-87998",
-    "summary": "Open WebUI: Non-admin users can delete admin-owned external knowledge connections via knowledge base deletion",
+    "id": "CVE-2026-86080",
+    "summary": "n8n: GitHub Trigger 422 Reuse Path Skips Webhook Secret Storage, Causing Signature Verification to Fail-Open",
+    "severity": "MODERATE",
+    "published": "2026-09-10T21:06:37Z",
+    "ghsa": "GHSA-5m98-cgcr-xx3q"
+  },
+  {
+    "id": "CVE-2026-86079",
+    "summary": "n8n: Path Injection in Elasticsearch and ElasticSecurity Nodes via Unencoded Identifiers",
+    "severity": "MODERATE",
+    "published": "2026-09-10T21:05:43Z",
+    "ghsa": "GHSA-f2cp-m7mv-8jpv"
+  },
+  {
+    "id": "CVE-2026-86078",
+    "summary": "n8n: Prototype Pollution via Workflow Structure Summary Can Lead to Denial of Service",
+    "severity": "MODERATE",
+    "published": "2026-09-10T21:05:24Z",
+    "ghsa": "GHSA-679f-58pq-4v2c"
+  },
+  {
+    "id": "CVE-2026-86994",
+    "summary": "n8n: Cross-User Active Workflow ID and Lifecycle Event Disclosure via Missing userId Filter",
+    "severity": "MODERATE",
+    "published": "2026-09-10T21:01:27Z",
+    "ghsa": "GHSA-65xw-2v52-jhxc"
+  },
+  {
+    "id": "CVE-2026-86083",
+    "summary": "n8n: Expression Sandbox Escape via Shared Builtin Tampering and Code-Printer Injection Leads to Code Execution",
     "severity": "HIGH",
-    "published": "2026-09-10T15:09:52Z",
-    "ghsa": "GHSA-2724-6cpj-gf3v"
+    "published": "2026-09-10T20:37:21Z",
+    "ghsa": "GHSA-6xcw-7xm6-48c6"
+  },
+  {
+    "id": "CVE-2026-86077",
+    "summary": "n8n: Anonymous Approval-Gate Bypass via Reused resumeToken over the Chat WebSocket",
+    "severity": "MODERATE",
+    "published": "2026-09-10T20:37:00Z",
+    "ghsa": "GHSA-35jj-42hp-8gmq"
+  },
+  {
+    "id": "CVE-2026-88011",
+    "summary": "Traefik: ForwardAuth identity spoofing via dot-form header alias",
+    "severity": "MODERATE",
+    "published": "2026-09-10T20:28:15Z",
+    "ghsa": "GHSA-rf44-j88r-hh8c"
   }
 ]
