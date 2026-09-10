@@ -319,7 +319,7 @@ fetch("/partials/ticker.html")
     </p>
 </div>
 
-  <div class="news-box" style="
+ <div class="news-box" style="
     background:#000814;
     border:1px solid #00ff99aa;
     padding:20px;
@@ -328,12 +328,11 @@ fetch("/partials/ticker.html")
     box-shadow:0 0 12px #00ff99aa;
 ">
 
-    <!-- TESTA INFORMATIVA -->
-    <h3 style="color:#00ff99; margin-bottom:6px;">Cyber Threat Categories</h3>
+    <h3 style="color:#00ff99;">Cyber Threat Categories</h3>
 
-    <p style="color:#ccc; font-size:13px; margin-top:0;">
-        Distribuzione delle principali categorie di minacce rilevate dalle fonti OSINT
-        nelle ultime 24 ore.
+    <p style="color:#ccc; font-size:13px; margin-top:6px;">
+        Attività delle principali categorie di minacce rilevate dalle fonti OSINT
+        nelle ultime 24 ore (valori normalizzati 0–100).
     </p>
 
     <p style="color:#888; font-size:11px; margin-top:4px;">
@@ -341,35 +340,34 @@ fetch("/partials/ticker.html")
         Spamhaus (Botnet), SecurityWeek (APT)
     </p>
 
-    <!-- BLOCCHI DELLE BARRE -->
-    <div style="display:flex; gap:12px; margin-top:15px;">
+    <div style="display:flex; gap:12px; margin-top:20px; align-items:flex-end; height:180px;">
 
         <div style="width:20%; text-align:center;">
-            <div id="malCol" style="width:100%; height:90px; background:#ff0044; transition:0.4s;"></div>
+            <div id="malCol" style="width:100%; background:#ff0044; transition:0.4s; height:0;"></div>
             <div style="color:#ccc; margin-top:6px; font-size:12px;">Malware</div>
             <div id="malVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="phiCol" style="width:100%; height:90px; background:#ff7b00; transition:0.4s;"></div>
+            <div id="phiCol" style="width:100%; background:#ff7b00; transition:0.4s; height:0;"></div>
             <div style="color:#ccc; margin-top:6px; font-size:12px;">Phishing</div>
             <div id="phiVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="expCol" style="width:100%; height:90px; background:#ffaa00; transition:0.4s;"></div>
+            <div id="expCol" style="width:100%; background:#ffaa00; transition:0.4s; height:0;"></div>
             <div style="color:#ccc; margin-top:6px; font-size:12px;">Exploits</div>
             <div id="expVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="botCol" style="width:100%; height:90px; background:#00eaff; transition:0.4s;"></div>
+            <div id="botCol" style="width:100%; background:#00eaff; transition:0.4s; height:0;"></div>
             <div style="color:#ccc; margin-top:6px; font-size:12px;">Botnet</div>
             <div id="botVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
 
         <div style="width:20%; text-align:center;">
-            <div id="aptCol" style="width:100%; height:90px; background:#00ff99; transition:0.4s;"></div>
+            <div id="aptCol" style="width:100%; background:#00ff99; transition:0.4s; height:0;"></div>
             <div style="color:#ccc; margin-top:6px; font-size:12px;">APT</div>
             <div id="aptVal" style="color:#00eaff; font-size:11px;"></div>
         </div>
@@ -1027,6 +1025,35 @@ function startAttackHeatIndex() {
 
 startAttackHeatIndex();
 </script>
+
+	function startThreatCategories() {
+    async function loadThreats() {
+        const res = await fetch("https://angelonline.altervista.org/newsops/threatcategories.php");
+        const data = await res.json();
+
+        const map = {
+            "Malware": "mal",
+            "Phishing": "phi",
+            "Exploits": "exp",
+            "Botnet": "bot",
+            "APT": "apt"
+        };
+
+        data.forEach(item => {
+            const id = map[item.label];
+            const col = document.getElementById(id + "Col");
+            const val = document.getElementById(id + "Val");
+
+            col.style.height = item.value + "px";   // <-- ALTEZZA REALE
+            val.textContent = item.value + "%";     // <-- VALORE REALE
+        });
+    }
+
+    loadThreats();
+    setInterval(loadThreats, 60000);
+}
+
+window.addEventListener("DOMContentLoaded", startThreatCategories);
 
   <script>
 function startIntelNotes() {
