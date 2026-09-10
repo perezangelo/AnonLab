@@ -1,5 +1,60 @@
 [
   {
+    "title": "Cybersecurity M&A Roundup: 33 Deals Announced in August 2026",
+    "link": "https://www.securityweek.com/cybersecurity-ma-roundup-33-deals-announced-in-august-2026/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/MA-mergers-and-acquisitions.jpeg"
+  },
+  {
+    "title": "AI-powered attack exploited PaperCut flaws to hack 395 organizations",
+    "link": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/09/03/AI-Hacker.jpg"
+  },
+  {
+    "title": "Cisco FMC flaws exploited by ransomware gang, state-sponsored hackers",
+    "link": "https://www.bleepingcomputer.com/news/security/cisco-fmc-flaws-exploited-by-ransomware-gang-state-sponsored-hackers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/04/Cisco-headpic.jpg"
+  },
+  {
+    "title": "Nightmare-Eclipse Strikes Again With 'ShieldCrash' Windows Exploit",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/nightmare-eclipse-strikes-again-shieldcrash-windows-exploit",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd6923f7af78d46ee/6aa28ac3d94910375384f4f1/Hacker_(1800)_Andriy_Popov_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "IDScan confirms breach tied to 153 million stolen driver\u2019s licenses",
+    "link": "https://www.bleepingcomputer.com/news/security/idscan-confirms-breach-tied-to-153-million-stolen-drivers-licenses/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/04/IDScan.jpg"
+  },
+  {
+    "title": "Anthropic Researcher Resigns With Warning About the Dangers of AI Development",
+    "link": "https://www.securityweek.com/anthropic-researcher-resigns-with-warning-about-the-dangers-of-ai-development/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Google Play Early Access Abused to Push Thousands of Deceptive Android Apps",
+    "link": "https://thehackernews.com/2026/09/google-play-early-access-abused-to-push.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4vbRDTWaQnxiILexae9P_rAk0hzx-re0czK2tM_WNQcoVDPlKblD4M5qOy8FZ9hHJBDLGjHHAyYutmaiacI54o5q1SH5qSbsptviRF16T2r6i8Iywvzk4GJprCm60p12qrK7t3R8h_ZR7CUoG47YfdeOb0iKY0WRapDeObI8_poWklMtKXrmr421Scjzi/s1600/play.jpg"
+  },
+  {
+    "title": "Hacker Conversations: Vinnie Liu, Performer Turned Ringmaster",
+    "link": "https://www.securityweek.com/hacker-conversations-vinnie-liu-performer-turned-ringmaster/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Hacker-Conversations-Vinnie-Liu.jpeg"
+  },
+  {
+    "title": "New 'BlueMoon' kit exploited Windows and Chrome zero-day flaws",
+    "link": "https://www.bleepingcomputer.com/news/security/new-bluemoon-kit-exploited-windows-and-chrome-zero-day-flaws/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/10/bluemoon.jpg"
+  },
+  {
+    "title": "The Top 4 Threats We Found by Investigating Every Alert for a Quarter",
+    "link": "https://www.bleepingcomputer.com/news/security/the-top-4-threats-we-found-by-investigating-every-alert-for-a-quarter/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/09/prophet-ai-report.jpg"
+  },
+  {
+    "title": "Deceptive Android Apps Exploit Google Play Early Access to Evade Reviews",
+    "link": "https://www.securityweek.com/deceptive-android-apps-exploit-google-play-early-access-to-evade-reviews/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
     "title": "Webinar Today: Keep Pace With AI \u2013 A New Operating Model for Endpoint Remediation",
     "link": "https://www.securityweek.com/webinar-today-keep-pace-with-ai-a-new-operating-model-for-endpoint-remediation/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Automox-Webinar.webp"
@@ -8,6 +63,26 @@
     "title": "Critical NetScaler Vulnerability Exploited in Attacks",
     "link": "https://www.securityweek.com/critical-netscaler-vulnerability-exploited-in-attacks/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/cloud-load-balancer-Netscaler-application-delivery.jpeg"
+  },
+  {
+    "title": "Orthanc DICOM Server",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-02",
+    "image": ""
+  },
+  {
+    "title": "NextGen Healthcare Mirth Connect",
+    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-01",
+    "image": ""
+  },
+  {
+    "title": "ST Engineering iDirect iQ-Series Terminals (Update A)",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01",
+    "image": ""
+  },
+  {
+    "title": "AVEVA Pipeline Integrity Monitor",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-253-01",
+    "image": ""
   },
   {
     "title": "Widened Scan Turns Up Fourth Rogue Claude Cyber Incident",
@@ -73,80 +148,5 @@
     "title": "Anthropic Discloses Fourth AI Hacking Incident Involving Claude Opus 4.6",
     "link": "https://thehackernews.com/2026/09/anthropic-ai-models-breached-real.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmMNfeF1h2D3MrUkoHWN2M9yhKD-FFQ6DgwixOflNATW2UA5b_6AsUjXLAjrn5c4hQWw0xueXTWDlbqKwS_gexDm0Yq8PB_B2LpXHaQiw7m7thOATlckixuA8VUIFDFERGBS8o1Kph93eYnDysXuRljKaXfe7813MwWKkBLex8BP3YL-fahCr4Xm3xMWZE/s1600/claude-hack.jpg"
-  },
-  {
-    "title": "EU Cyber Resilience Act to Enforce New Reporting Requirements",
-    "link": "https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltba41cd0488eb4d89/6aa1a2aa145a18d222181a6c/EU_lock-Alexey_Krukovsky-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Trezor warns users of email provider breach, phishing attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/trezor-warns-users-of-email-provider-breach-phishing-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/Trezor.jpg"
-  },
-  {
-    "title": "Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks",
-    "link": "https://www.securityweek.com/fortinet-code-execution-flaw-exploited-in-pivotc2-rat-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/fortinet.jpg"
-  },
-  {
-    "title": "Cisco confirms CVE-2026-20079 Secure FMC flaw exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/cisco-confirms-cve-2026-20079-secure-fmc-flaw-exploited-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Cisco.jpg"
-  },
-  {
-    "title": "AdaptHealth confirms 4.1 million people exposed in July cyberattack",
-    "link": "https://www.bleepingcomputer.com/news/security/adapthealth-confirms-41-million-people-exposed-in-july-cyberattack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/09/healthcare.jpg"
-  },
-  {
-    "title": "Mythos Vulnerability Firehose Hits a Human Bottleneck",
-    "link": "https://www.darkreading.com/application-security/mythos-vulnerability-firehose-hits-human-bottleneck",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt439f596f6fab9438/6aa1bda507331dcf89c77c60/firehose_sirloh_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Skullcandy Dime 3 earbuds expose users to Bluetooth hijacking",
-    "link": "https://www.bleepingcomputer.com/news/security/skullcandy-dime-3-earbuds-expose-users-to-bluetooth-hijacking/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/09/skullcandy.jpg"
-  },
-  {
-    "title": "US Government Accuses Chinese AI Firms of Distilling Frontier Models",
-    "link": "https://www.darkreading.com/application-security/us-government-chinese-ai-firms-distilling-frontier-models",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt33b13b556aa2e63e/6aa1a92888ea9adc3dabaf29/distillery-ArtistGNDphotography-GettyImages-2195175104.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "U.S. Disrupts Xinbi Guarantee Scam Marketplace, Freezes $52.8 Million in Crypto",
-    "link": "https://thehackernews.com/2026/09/us-disrupts-xinbi-guarantee-scam.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcQQNutHn5K2x_gd-2eyAP0wzneQ3mOSl3jaaRHGFDUY1O95tuckdjL_botXvrBlt_ts6Bjb91JU4Z-B74VAceL1cYa3oMlt91mHSxZP_FiiVTJLfL8UBUgoBIvjJCuI7Nma3dOxJ48n4wS5VvoBWRDNYqwlYIfStXIKTDBUrRXBIWITx_TprflrVXqjum/s1600/xinbi.jpg"
-  },
-  {
-    "title": "HelmGuard Raises $7.3 Million for Agentic GRC and Security",
-    "link": "https://www.securityweek.com/helmguard-raises-7-3-million-for-agentic-grc-and-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-1.jpeg"
-  },
-  {
-    "title": "AI Is Giving Lesser-Resourced Attackers Nation-State-Level Reach, Google Warns",
-    "link": "https://www.securityweek.com/ai-is-giving-lesser-resourced-attackers-nation-state-level-reach-google-warns/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/08/AI-assistant-chatbot-artificial-intelligence.jpg"
-  },
-  {
-    "title": "US says Chinese firms extracted billions of tokens from frontier AI models",
-    "link": "https://www.bleepingcomputer.com/news/security/us-says-chinese-firms-extracted-billions-of-tokens-from-frontier-ai-models/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/09/distillation.jpg"
-  },
-  {
-    "title": "Four Spy Groups Used the Same Chrome and Windows Exploit Kit Within a Week",
-    "link": "https://thehackernews.com/2026/09/four-spy-groups-used-same-chrome-and.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxouoVfK0MjZpruL0J1chmWnC7avUov1fOLbgX-XyFGrTcXeOh08tVntBjzJ7wBMmOB3P-PpxMr6E868Wpsaky-b-Nrf1LajzoQFfmjnkI1KHQzGXrCcVnC57nF2ndYZHCLx5WA3dENCWmCbZlSAb5TC-p8DXCGWxWB7I3iRIsdMMk6SS6IV03722lZIS4/s1600/spy.jpg"
-  },
-  {
-    "title": "Android\u2019s September 2026 Updates Patch 180 Vulnerabilities",
-    "link": "https://www.securityweek.com/androids-september-2026-updates-patch-180-vulnerabilities/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Android-update.jpeg"
-  },
-  {
-    "title": "Veradigm warns of patient data breach after ransomware gang claims attack",
-    "link": "https://www.bleepingcomputer.com/news/security/veradigm-discloses-patient-data-breach-after-gentlemen-gang-claims-attack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/18/gentlemen.jpg"
   }
 ]
