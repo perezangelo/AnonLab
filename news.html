@@ -428,31 +428,66 @@ fetch("/partials/ticker.html")
 
      <div class="news-box" style="
     background:#000814;
-    border:1px solid #ffaa00aa;
+    border:1px solid #ff0044aa;
     padding:20px;
     margin-top:30px;
     border-radius:8px;
-    box-shadow:0 0 12px #ffaa00aa;
+    box-shadow:0 0 12px #ff0044aa;
 ">
-    <h3 style="color:#ffaa00;">Cyber Risk Forecast</h3>
 
-    <p style="color:#ccc; margin-bottom:15px;">
-        Previsione del rischio cyber per i prossimi 7 giorni basata su trend globali.
+    <h3 style="color:#ff0044;">Cyber Risk Forecast</h3>
+
+    <p style="color:#ccc; font-size:13px; margin-top:6px;">
+        Indice sintetico del rischio cyber globale basato su vulnerabilità sfruttate,
+        CVE critiche e report di attacco.
     </p>
 
-    <div style="display:flex; gap:10px;">
-        <div id="risk1" style="flex:1; height:80px; background:#ff0044; transition:0.4s;"></div>
-        <div id="risk2" style="flex:1; height:60px; background:#ff7b00; transition:0.4s;"></div>
-        <div id="risk3" style="flex:1; height:90px; background:#ffaa00; transition:0.4s;"></div>
-        <div id="risk4" style="flex:1; height:70px; background:#00eaff; transition:0.4s;"></div>
-        <div id="risk5" style="flex:1; height:100px; background:#00ff99; transition:0.4s;"></div>
-        <div id="risk6" style="flex:1; height:85px; background:#b366ff; transition:0.4s;"></div>
-        <div id="risk7" style="flex:1; height:120px; background:#ff0044; transition:0.4s;"></div>
+    <p style="color:#888; font-size:11px; margin-top:4px;">
+        Fonti: CISA KEV, NVD CVE High/Critical, SecurityWeek (attacchi/breach)
+    </p>
+
+    <div style="display:flex; align-items:center; margin-top:20px; gap:20px;">
+
+        <!-- Gauge -->
+        <div style="width:40%; text-align:center;">
+            <div style="
+                width:120px;
+                height:120px;
+                border-radius:50%;
+                border:4px solid #ff0044;
+                margin:0 auto;
+                position:relative;
+                box-shadow:0 0 18px #ff0044aa;
+            ">
+                <div id="riskValue" style="
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%, -50%);
+                    color:#ff0044;
+                    font-size:26px;
+                    font-weight:bold;
+                ">--</div>
+            </div>
+            <div id="riskLevel" style="color:#ccc; margin-top:8px; font-size:14px;">Loading...</div>
+        </div>
+
+        <!-- Interpretazione -->
+        <div style="width:60%; color:#ccc; font-size:13px; line-height:1.6;">
+            <p>
+                Questo indice varia da <strong>0</strong> (rischio minimo) a <strong>100</strong> (rischio massimo)
+                e rappresenta una sintesi delle condizioni globali di minaccia.
+            </p>
+            <ul style="margin-top:6px; padding-left:18px;">
+                <li><strong>Low:</strong> attività malevola contenuta, poche vulnerabilità sfruttate.</li>
+                <li><strong>Moderate:</strong> aumento costante di CVE critiche e campagne mirate.</li>
+                <li><strong>Elevated:</strong> numerosi exploit attivi e attacchi in corso.</li>
+                <li><strong>High:</strong> scenario di rischio critico, forte pressione su infrastrutture globali.</li>
+            </ul>
+        </div>
+
     </div>
 
-    <p id="riskLabel" style="color:#ffaa00; margin-top:10px; font-weight:bold;">
-        Caricamento...
-    </p>
 </div>
 
 <!-- Cybersecurity FAQ -->
@@ -1151,32 +1186,60 @@ window.addEventListener("DOMContentLoaded", startIntelNotes);
 </script>
 
   <script>
-function loadRiskForecast() {
-    fetch("https://angelonline.altervista.org/newsops/riskforecast.php")
-        .then(r => r.json())
-        .then(data => {
-            const bars = data.values;
+window.addEventListener("DOMContentLoaded", function() {
 
-            document.getElementById("risk1").style.height = bars[0] + "px";
-            document.getElementById("risk2").style.height = bars[1] + "px";
-            document.getElementById("risk3").style.height = bars[2] + "px";
-            document.getElementById("risk4").style.height = bars[3] + "px";
-            document.getElementById("risk5").style.height = bars[4] + "px";
-            document.getElementById("risk6").style.height = bars[5] + "px";
-            document.getElementById("risk7").style.height = bars[6] + "px";
+    function riskColor(value) {
+        if (value >= 75) return "#ff0044";   // High
+        if (value >= 50) return "#ff7b00";   // Elevated
+        if (value >= 25) return "#ffaa00";   // Moderate
+        return "#00eaff";                    // Low
+    }
 
-            document.getElementById("riskLabel").innerHTML =
-                "Rischio previsto: " + data.label;
-        })
-        .catch(() => {
-            document.getElementById("riskLabel").innerHTML =
-                "Errore caricamento previsione rischio";
-        });
-}
+    function startRiskForecast() {
 
-loadRiskForecast();
-setInterval(loadRiskForecast, 30000);
+        async function loadRisk() {
+            try {
+                const res = await fetch("https://angelonline.altervista.org/newsops/riskforecast.php");
+                const data = await res.json();
+
+                const valEl   = document.getElementById("riskValue");
+                const levelEl = document.getElementById("riskLevel");
+
+                if (!valEl || !levelEl) return;
+
+                const v = data.value;
+                const lvl = data.level;
+                const col = riskColor(v);
+
+                valEl.textContent = v;
+                valEl.style.color = col;
+                valEl.parentElement.style.borderColor = col;
+                valEl.parentElement.style.boxShadow = "0 0 18px " + col + "aa";
+
+                levelEl.textContent = "Risk level: " + lvl;
+                levelEl.style.color = col;
+
+            } catch (e) {
+                console.log("Errore RiskForecast:", e);
+                const valEl   = document.getElementById("riskValue");
+                const levelEl = document.getElementById("riskLevel");
+                if (valEl && levelEl) {
+                    valEl.textContent = "--";
+                    levelEl.textContent = "Errore nel caricamento del rischio.";
+                    levelEl.style.color = "#f66";
+                }
+            }
+        }
+
+        loadRisk();
+        setInterval(loadRisk, 60000);
+    }
+
+    startRiskForecast();
+
+});
 </script>
+
   <script>
 function loadCyberFAQ() {
     fetch("https://angelonline.altervista.org/newsops/cyberfaq.php")
