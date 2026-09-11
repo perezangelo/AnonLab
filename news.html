@@ -700,21 +700,79 @@ fetch("/partials/ticker.html")
 
 </div>
   
-     <!-- Cybersecurity Predictions -->
 <div class="news-box" style="
     background:#000814;
-    border:1px solid #b366ffaa;
+    border:1px solid #ff7b00aa;
     padding:20px;
     margin-top:30px;
-    margin-bottom:40px;
     border-radius:8px;
-    box-shadow:0 0 12px #b366ffaa;
+    box-shadow:0 0 12px #ff7b00aa;
 ">
-    <h3 style="color:#b366ff;">Cybersecurity Predictions 2026</h3>
 
-    <div id="predictionsBox" style="color:#ccc; line-height:1.7;">
+    <h3 style="color:#ff7b00;">Cybersecurity Predictions 2026</h3>
+
+    <p style="color:#ccc; font-size:13px; margin-top:6px;">
+        Previsioni basate su dati reali OSINT + analisi AI.
+    </p>
+
+    <p id="predExpand" style="
+        color:#ff7b00;
+        font-size:12px;
+        margin-top:10px;
+        font-weight:bold;
+        cursor:pointer;
+    ">
+        👉 Clicca per espandere le previsioni
+    </p>
+
+    <div id="predContent" style="
+        color:#ccc;
+        line-height:1.7;
+        margin-top:15px;
+    ">
         <p>Caricamento previsioni...</p>
     </div>
+
+    <canvas id="predTrend" width="260" height="60" style="
+        margin-top:10px;
+        background:#000;
+        border:1px solid #ff7b00aa;
+        border-radius:6px;
+        box-shadow:0 0 10px #ff7b00aa;
+        display:block;
+    ">
+    </canvas>
+
+    <button id="predBtn" style="
+        margin-top:10px;
+        background:#ff7b00;
+        color:#000;
+        padding:10px 15px;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:bold;
+        box-shadow:0 0 10px #ff7b00aa;
+    ">
+        Mostra approfondimento tecnico
+    </button>
+
+    <div id="predDetails" style="
+        display:none;
+        margin-top:15px;
+        padding:15px;
+        background:#0a0a0a;
+        border:1px solid #ff7b00aa;
+        border-radius:6px;
+        box-shadow:0 0 10px #ff7b00aa;
+        color:#ccc;
+        line-height:1.7;
+    ">
+        <p style="color:#ff7b00; font-weight:bold;">Approfondimento tecnico</p>
+        <div id="predTech">Caricamento approfondimento...</div>
+    </div>
+
+</div>
 
     </section>
 
@@ -1661,27 +1719,85 @@ window.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-  <script>
-function loadPredictions() {
-    fetch("https://angelonline.altervista.org/newsops/cyberpredictions.php")
-        .then(r => r.json())
-        .then(data => {
-            const box = document.getElementById("predictionsBox");
+<script>
+window.addEventListener("DOMContentLoaded", function() {
+
+    async function loadPredictions() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/predictions_ai.php");
+            const data = await res.json();
+
+            const box = document.getElementById("predContent");
+            const techBox = document.getElementById("predTech");
 
             box.innerHTML = `
-                <p>${data.p1}</p>
-                <p style="margin-top:10px;">${data.p2}</p>
-                <p style="margin-top:10px;">${data.p3}</p>
-            `;
-        })
-        .catch(() => {
-            document.getElementById("predictionsBox").innerHTML =
-                "<p>Errore caricamento previsioni</p>";
-        });
-}
+                <h4 style="color:#ff7b00;">${data.title}</h4>
 
-loadPredictions();
-setInterval(loadPredictions, 30000);
+                <p style="margin-top:10px; color:#ccc;">
+                    <strong style="color:#ff7b00;">Trend reali OSINT:</strong><br>
+                    CVE ultimi 30 giorni: ${data.trend_real.cve_last_30_days}<br>
+                    Campagne OTX attive: ${data.trend_real.otx_active_campaigns}<br>
+                    Nuove tecniche MITRE: ${data.trend_real.mitre_new_techniques}
+                </p>
+
+                <p style="margin-top:10px; color:#ccc;">
+                    <strong style="color:#ff7b00;">Sintesi AI:</strong><br>
+                    ${data.summary_ai}
+                </p>
+            `;
+
+            techBox.innerHTML = `
+                <ul style="margin-left:20px;">
+                    ${data.technical_ai.map(t => `<li>${t}</li>`).join("")}
+                </ul>
+            `;
+
+            drawTrend(data.trendData);
+
+        } catch (e) {
+            document.getElementById("predContent").innerHTML =
+                "<p style='color:#f66;'>Errore nel caricamento delle previsioni.</p>";
+        }
+    }
+
+    function drawTrend(values) {
+        const canvas = document.getElementById("predTrend");
+        const ctx = canvas.getContext("2d");
+
+        ctx.strokeStyle = "#ff7b00";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+
+        const max = Math.max(...values);
+        const min = Math.min(...values);
+
+        values.forEach((v, i) => {
+            const x = (i / (values.length - 1)) * canvas.width;
+            const y = canvas.height - ((v - min) / (max - min)) * canvas.height;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        });
+
+        ctx.stroke();
+    }
+
+    const btn = document.getElementById("predBtn");
+    const techDiv = document.getElementById("predDetails");
+
+    btn.addEventListener("click", () => {
+        techDiv.style.display = techDiv.style.display === "none" ? "block" : "none";
+        btn.textContent = techDiv.style.display === "none"
+            ? "Mostra approfondimento tecnico"
+            : "Nascondi approfondimento tecnico";
+    });
+
+    const expand = document.getElementById("predExpand");
+    expand.addEventListener("click", () => {
+        techDiv.style.display = techDiv.style.display === "none" ? "block" : "none";
+    });
+
+    loadPredictions();
+});
 </script>
 
   <script>
