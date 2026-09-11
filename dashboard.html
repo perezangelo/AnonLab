@@ -138,9 +138,9 @@ fetch("/partials/ticker.html")
 
         <!-- THREAT LEVEL -->
         <div class="soc-card threat-card">
-          <h2>Threat Level</h2>
-          <div id="threat-level" class="dash-number">--</div>
-        </div>
+  <h2>Threat Level</h2>
+  <div id="threat-level" class="dash-number">--</div>
+</div>
 
         <!-- GRAFICO ATTACCHI -->
         <div class="soc-card">
@@ -1075,51 +1075,42 @@ startMalwareMonitor();
     Calcolo in corso...
   </div>
 
-  <script>
-  /* ============================================================
-         THREAT LEVEL INDICATOR — Versione Reale Altervista
-     ============================================================ */
+<script>
+function startThreatLevel() {
+    const box = document.getElementById("threat-level");
+    const badge = document.getElementById("sys-badge");
 
-  function startThreatLevel() {
-      const bar = document.getElementById("threat-bar");
-      const text = document.getElementById("threat-text");
+    async function loadThreatLevel() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
+            const data = await res.json();
 
-      if (!bar || !text) {
-          return setTimeout(startThreatLevel, 200);
-      }
+            box.textContent = data.level;
 
-      async function loadThreat() {
-          try {
-              const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
-              const data = await res.json();
+            const color =
+                data.status === "CRITICO" ? "#ff0044" :
+                data.status === "ALTO" ? "#ffaa00" :
+                data.status === "MEDIO" ? "#00eaff" :
+                "#00ff99";
 
-              const livello = data.level;   // numero 0–100
-              const stato  = data.status;   // BASSO / MEDIO / ALTO / CRITICO
+            box.style.color = color;
 
-              // Colori dinamici
-              const color =
-                  stato === "CRITICO" ? "#ff0044" :
-                  stato === "ALTO"    ? "#ff6600" :
-                  stato === "MEDIO"   ? "#ffaa00" :
-                                        "#00ff99";
+            // Badge sincronizzato
+            badge.textContent = data.status;
+            badge.style.background = color + "33";
+            badge.style.color = color;
 
-              bar.style.width = livello + "%";
-              bar.style.background = color;
+        } catch (e) {
+            box.textContent = "--";
+        }
+    }
 
-              text.innerHTML = `Livello attuale: <span style="color:${color};">${stato}</span> (${livello}%)`;
+    loadThreatLevel();
+    setInterval(loadThreatLevel, 15000);
+}
 
-          } catch (error) {
-              console.error("Errore Threat Level:", error);
-              text.innerHTML = "<span style='color:#888;'>Impossibile caricare il livello di minaccia</span>";
-          }
-      }
-
-      loadThreat();
-      setInterval(loadThreat, 10000);
-  }
-
-  startThreatLevel();
-  </script>
+startThreatLevel();
+</script>
 </div>
     </section>
 
