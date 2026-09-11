@@ -1,5 +1,70 @@
 [
   {
+    "title": "GitLab urges users to patch max severity path traversal flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/gitlab-urges-users-to-patch-max-severity-path-traversal-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/04/GitLab.jpg"
+  },
+  {
+    "title": "Check Point Patches Critical VPN Vulnerabilities",
+    "link": "https://www.securityweek.com/check-point-patches-critical-vpn-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Check-Point-Software.jpg"
+  },
+  {
+    "title": "Kiteworks Acquires Bonfy.AI to Fill the AI Gap in Data Governance",
+    "link": "https://www.securityweek.com/kiteworks-acquires-bonfy-ai-to-fill-the-ai-gap-in-data-governance/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/MA-merger-acquisition.webp"
+  },
+  {
+    "title": "Surfshark Systems Targeted by Hackers",
+    "link": "https://www.securityweek.com/surfshark-systems-targeted-by-hackers/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/05/VPN.jpeg"
+  },
+  {
+    "title": "Microsoft fixes Teams, Outlook launch failures on ARM Windows PCs",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-teams-outlook-launch-failures-on-arm-windows-pcs/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
+  },
+  {
+    "title": "Anthropic Says Russian Hackers Used Claude AI to Automate Malware Evasion",
+    "link": "https://www.securityweek.com/anthropic-says-russian-hackers-used-claude-ai-to-automate-malware-evasion/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Midnight-Blizzard-Russia-1024x576.png"
+  },
+  {
+    "title": "PaperCut Flaws Exploited in AI-Powered Attacks",
+    "link": "https://www.securityweek.com/papercut-flaws-exploited-in-ai-powered-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/PaperCut-print-management.jpeg"
+  },
+  {
+    "title": "Trezor: 347,000 users targeted in phishing attacks after Brevo breach",
+    "link": "https://www.bleepingcomputer.com/news/security/trezor-347-000-users-targeted-in-phishing-attacks-after-brevo-breach/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/11/Trezor.jpg"
+  },
+  {
+    "title": "Attackers Chain JFrog Artifactory Flaws to Gain Admin Control and Plant Backdoors",
+    "link": "https://thehackernews.com/2026/09/attackers-chain-jfrog-artifactory-flaws.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX61WXln9MMGAzqzflpRDt_LZGfB7ZJ_u1fsQhr5FRnml48-E-V-uxtCIF-GERZlt-eBhw3MDT7_6jFgwEDF1ppC7YZlB_CZn-q4_nKD9S3fQTI3kDQFe2Izsq6_NoGnCRtRZckr8Irg9kOJ8Fwghl3qHqwg1zWoN6ff-VsmlCaojw2Divb6L00F34lJk/s1600/jfrog-art.jpg"
+  },
+  {
+    "title": "China-Linked UNC3569 Exploited Sogou Input Method Flaw to Deploy GRAYRABBIT Backdoor",
+    "link": "https://thehackernews.com/2026/09/china-linked-unc3569-exploited-sogou.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjp8vDxYtUGwWuRZlSSBh2ghvSf6GTi_VlTQSQXTaIWSlQgHY_imEfl4hyAcrhPz9w3_ejmdAKK7ZeOt5gBsNZI7mhxJsnbyLT8Bo6O6HdM01yCNuDjuz-IU64LRuAuVDOzh2Z0vLhvzwP9PUUBKE_OLn0YD7m74-kZpo1dr5c0hzCMRHxrgfIzjk9MnR4/s1600/chinese.jpg"
+  },
+  {
+    "title": "Conti ransomware gang member sentenced to 4 years in prison",
+    "link": "https://www.bleepingcomputer.com/news/security/conti-ransomware-gang-member-sentenced-to-four-years-in-prison/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/29/Prison-man.jpg"
+  },
+  {
+    "title": "PaperCut Replaces Emergency Patches With Fixes for Two Actively Exploited Flaws",
+    "link": "https://thehackernews.com/2026/09/papercut-replaces-emergency-patches.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT6b7k7Y60TgLLmuruqSocYNfZoYEmONgga8CidWSXIdOZLWlgCYLuXOe9bWQRi_3BRkOmJvPNANZAOS85Xx6RtuQTVCg2-QNi3dXfELQm8bglTMUK9rn54e-sLoslCkVYlPGiyGSnsu58yxo9EkC3PvXDWVTYhTRgDQqTDAQTs69vPBh7xjq0Fwm7bY40/s1600/papercut-flaws.jpg"
+  },
+  {
+    "title": "Cisco FMC Flaws Exploited to Steal Credentials and Deploy Qilin Ransomware",
+    "link": "https://thehackernews.com/2026/09/cisco-fmc-flaws-exploited-to-steal.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJizB5uHZncQAbfKm3-k256bJHufHNcClzKqXH2XK79HlAw8egcuz3abU_gxrTbR2zrWqpMmFcHApBqp5AvC2uox6vEeOlDt1JdRy-A6WAqpFPfVeZ4hM4gp-lCqqY_hIXMu2VVupFLGzbv1sBXLjQGSPlORsnaEdcOqjLJQKAKfDMHJqGY6KY1NZCLth0/s1600/cisco-ransomware.jpg"
+  },
+  {
     "title": "Indonesia Hit by Android Banking App-Cloning Campaign",
     "link": "https://www.darkreading.com/mobile-security/indonesia-android-banking-app-cloning-campaign",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltaf1f330952367016/6aa3075b6e51441d4542eee8/indonesia_flag-peng_song-GettyImages-1371211038.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -60,11 +125,6 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd6923f7af78d46ee/6aa28ac3d94910375384f4f1/Hacker_(1800)_Andriy_Popov_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
-    "title": "IDScan confirms breach tied to 153 million stolen driver\u2019s licenses",
-    "link": "https://www.bleepingcomputer.com/news/security/idscan-confirms-breach-tied-to-153-million-stolen-drivers-licenses/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/04/IDScan.jpg"
-  },
-  {
     "title": "Anthropic Researcher Resigns With Warning About the Dangers of AI Development",
     "link": "https://www.securityweek.com/anthropic-researcher-resigns-with-warning-about-the-dangers-of-ai-development/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
@@ -80,73 +140,13 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Hacker-Conversations-Vinnie-Liu.jpeg"
   },
   {
-    "title": "New 'BlueMoon' kit exploited Windows and Chrome zero-day flaws",
-    "link": "https://www.bleepingcomputer.com/news/security/new-bluemoon-kit-exploited-windows-and-chrome-zero-day-flaws/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/10/bluemoon.jpg"
-  },
-  {
-    "title": "The Top 4 Threats We Found by Investigating Every Alert for a Quarter",
-    "link": "https://www.bleepingcomputer.com/news/security/the-top-4-threats-we-found-by-investigating-every-alert-for-a-quarter/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/09/prophet-ai-report.jpg"
-  },
-  {
     "title": "Deceptive Android Apps Exploit Google Play Early Access to Evade Reviews",
     "link": "https://www.securityweek.com/deceptive-android-apps-exploit-google-play-early-access-to-evade-reviews/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
   },
   {
-    "title": "Webinar Today: Keep Pace With AI \u2013 A New Operating Model for Endpoint Remediation",
-    "link": "https://www.securityweek.com/webinar-today-keep-pace-with-ai-a-new-operating-model-for-endpoint-remediation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Automox-Webinar.webp"
-  },
-  {
-    "title": "Critical NetScaler Vulnerability Exploited in Attacks",
-    "link": "https://www.securityweek.com/critical-netscaler-vulnerability-exploited-in-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/cloud-load-balancer-Netscaler-application-delivery.jpeg"
-  },
-  {
     "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
     "link": "https://www.cisa.gov/news-events/alerts/2026/09/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
     "image": ""
-  },
-  {
-    "title": "Orthanc DICOM Server",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-02",
-    "image": ""
-  },
-  {
-    "title": "AVEVA Pipeline Integrity Monitor",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-253-01",
-    "image": ""
-  },
-  {
-    "title": "ST Engineering iDirect iQ-Series Terminals (Update A)",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01",
-    "image": ""
-  },
-  {
-    "title": "NextGen Healthcare Mirth Connect",
-    "link": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-253-01",
-    "image": ""
-  },
-  {
-    "title": "Widened Scan Turns Up Fourth Rogue Claude Cyber Incident",
-    "link": "https://www.securityweek.com/widened-scan-turns-up-fourth-rogue-claude-cyber-incident/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/Agentic-AI-Security.jpg"
-  },
-  {
-    "title": "Check Point Discloses Two 9.8-Rated VPN Certificate Flaws Enabling Unauthenticated RCE",
-    "link": "https://thehackernews.com/2026/09/check-point-discloses-two-98-rated-vpn.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyc0Kqar7_6N4y9ymGxw8ukQCQbqQ_pGCfnoXYMBZoNZK1w3ljkO26S_rhVhJaIVcx8rcEK95njKyaYj5g63VByKh8ncf_s84nUBWoyEbWZH6uaLYjnu5fNt_TC9wz-r6P_RTJgZ83Z5wmurzSb9_lHVfV1t9STts4WCZr18AH-3XRHTn5pj15uURIM-0/s1600/checkpoint.jpg"
-  },
-  {
-    "title": "PaperCut Attacker Uses Hundreds of AI Agents to Compromise 440+ Instances",
-    "link": "https://thehackernews.com/2026/09/papercut-attacker-uses-hundreds-of-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkLW3i6mB4uE2g7Ze6CDAess3UTTeol7YmRP-N3uTkLJHPglZc0BHvTlESyulvcTp05ObPwuGY5XHqV9q599pqLmK-ypamAPNUdHa9y-34Q4IEE3EBId9UrN9L0J3zK1TTf1Atovhkz51Gk_2gul7DmjvLmJd7BbwgqMhmVODTiQUuqu_IdFFGJt0WAiC_/s1600/paper.jpg"
-  },
-  {
-    "title": "Gigabud Creates Android Work Profiles to Hide From Banking App Malware Checks",
-    "link": "https://thehackernews.com/2026/09/gigabud-creates-android-work-profiles.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJHT3nuLNpTkrzjiictjYuKsyepFXuDoZVUZB_Gz6yQFCP4CYdOIpSDon_tEsZ43eVe2_qiPXs7V9byKtyoYZ7HE7QltUfQgEUTnSSjmclQH27vVm5JjVIcrvANMIEOxUDmOWy0dPeHVOkiYoFZMgubtGqZJKfgft34Z-q5F7dyqPoJ6iInpgMwyIL3l8/s1600/android-work.jpg"
   }
 ]
