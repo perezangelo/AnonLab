@@ -1,8 +1,63 @@
 [
   {
+    "title": "Why AI Is So Good at Scamming Humans",
+    "link": "https://www.darkreading.com/cyber-risk/ai-scamming-humans",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6d66507ff638e8a0/6aa431c763177a6fe1776c1a/fredheiding.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Passkey-themed phishing attacks lead to Microsoft 365 data theft",
+    "link": "https://www.bleepingcomputer.com/news/security/passkey-themed-phishing-attacks-lead-to-microsoft-365-data-theft/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/08/04/Microsoft-365.jpg"
+  },
+  {
+    "title": "Phishing Research Challenges Conventional Security Awareness Testing",
+    "link": "https://www.securityweek.com/phishing-research-challenges-conventional-security-awareness-testing/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "AI Governance Can't Wait",
+    "link": "https://www.darkreading.com/cyber-risk/ai-governance-cannot-wait",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8ddbf63a10c918d0/6aa43a1b4a5cb4f4c4b367ba/AI_governance_-_DK_Studio_-_Getty-2285216695.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "GitLab CVSS 10 File-Read Flaw Draws In-the-Wild Probes After Disclosure",
+    "link": "https://thehackernews.com/2026/09/gitlab-cvss-10-file-read-flaw-draws-in.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioFH6aWhF9NgRW1O3yFExc7paTA9akN5-3IUQF8mvEiSTaFJjKvm6YQzFX6MP2uimYplHe1MJXz6eZtPtnxaLy25jJBhU6KuhsWFpIlnqhbn6OI6QTcfp6Olp1-VDUEF4KEYFF7hQDBdmgtxibsg9MkvbcOJIlR8Of2Flyw2m9zYfXC6gUm-TV8XA6vU43/s1600/gitlab-wild.jpg"
+  },
+  {
+    "title": "Artifactory flaws chained in attacks deploying backdoor malware",
+    "link": "https://www.bleepingcomputer.com/news/security/artifactory-flaws-chained-in-attacks-deploying-backdoor-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/12/hacker.jpg"
+  },
+  {
+    "title": "Anthropic Says Seven China-Based AI Labs Ran Industrial-Scale Claude Distillation Attacks",
+    "link": "https://thehackernews.com/2026/09/anthropic-says-seven-china-based-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIEiaJBfFrHCrYlSFKWGSRYD6CW_EeKfmYWCZw4jm5c9hyphenhyphenDVbaSIhyphenhyphenXwFB0ncQOoB10crmwgJV9nsvhQzJNuVMsDh6jPVt2ep23r0A2PB7ZhLfTroa0Ff__kyjjX2MjP4ok4DtBwFEF1VZC7b5OOCkibJBbwECsR0Y_9S1-NpdEIw04J5FtY9OloB084t_/s1600/claude-china.jpg"
+  },
+  {
+    "title": "GitLab Vulnerability Exploited One Day After Disclosure",
+    "link": "https://www.securityweek.com/gitlab-vulnerability-exploited-one-day-after-disclosure/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/GitLab.jpeg"
+  },
+  {
+    "title": "Papercut AI Swarm Attack Heralds Changes for Cyber Kill Chain",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/papercut-ai-swarm-attack-cyber-kill-chain",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8cf4e55b02be84ac/6aa41d1ff4f5704c3b28690b/bees-Trevor_Srednick-GettyImages-2204460367.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Claude Used to Automate Exploitation and Data Theft Across Multiple Victims",
+    "link": "https://thehackernews.com/2026/09/claude-used-to-automate-exploitation.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiG0iCBQ4Eqxn0QOtvYZSysksPzr5fT0m8aLqNTa0a7Gcz3A5ikRt1oAenJwzo8rxcLERq54SNLtRvkYXKMTo0nMOmV8pWh4It3T0vP7q4J5Z23tdDkbBf3j7v317S7sQbBBbN6j6MuHusofo3qcbm2Y3DWT76gHp4Z1_En2QnJMCyEpvCo1sCcXoRZVw5-/s1600/claudeai.jpg"
+  },
+  {
     "title": "In Other News: InjectEave Attack, SIM Swapper Sentenced, Glasswing Findings Review",
     "link": "https://www.securityweek.com/in-other-news-injecteave-attack-sim-swapper-sentenced-glasswing-findings-review/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "Russian State-Sponsored Hackers Use Claude to Rebuild Malware After Detection",
+    "link": "https://thehackernews.com/2026/09/russian-state-sponsored-hackers-use.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtfzeoSe_6tXrJiKsyJfN4vYk6suLsJPF3-SOJWE8LAaZ6_WixrsJVjZ0T8O6jdtB1d08IR8swK6H0B4S_m7-0YfIiJlVPHuL7guxwC-4ANLXUyNsEWfIusPzvOMPOKSBmFcBT1NBBVWIglIRlT8fs6O9Uc6ZRBRgWZNPbvgAVIj8gIXfusRwZh0tndhni/s1600/claude-malware.jpg"
   },
   {
     "title": "How Threat Actors Are Turning Trusted AI Platforms Into an Attack Surface",
@@ -93,60 +148,5 @@
     "title": "Indonesia Hit by Android Banking App-Cloning Campaign",
     "link": "https://www.darkreading.com/mobile-security/indonesia-android-banking-app-cloning-campaign",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltaf1f330952367016/6aa3075b6e51441d4542eee8/indonesia_flag-peng_song-GettyImages-1371211038.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "New Android malware encrypts files, steals data, and harasses victims",
-    "link": "https://www.bleepingcomputer.com/news/security/new-android-malware-encrypts-files-steals-data-and-harasses-victims/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/android.jpg"
-  },
-  {
-    "title": "Voice Callers Exploit BYOD to Reach Microsoft 365, Corporate Data",
-    "link": "https://www.darkreading.com/threat-intelligence/voice-callers-exploit-byod-microsoft-365-corporate-data",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte683970072b53815/6aa308b0b1def869502ac7be/Phone_passcode-Tero_Vesalainen-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "September Windows Server updates break Remote Desktop Services",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/september-windows-server-updates-break-remote-desktop-services/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/05/16/Windows-Server.jpg"
-  },
-  {
-    "title": "Mandiant Founder Kevin Mandia Joins Amazon Board",
-    "link": "https://www.securityweek.com/mandiant-founder-kevin-mandia-joins-amazon-board/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Surfshark VPN says hackers breached internal testing, proxy servers",
-    "link": "https://www.bleepingcomputer.com/news/security/surfshark-vpn-says-hackers-breached-internal-testing-proxy-servers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/10/surfshark.jpg"
-  },
-  {
-    "title": "Microsoft Excel KB5002914 update breaks copy and paste for some users",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-excel-kb5002914-update-breaks-copy-and-paste-for-some-users/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/07/31/Microsoft-Excel.jpg"
-  },
-  {
-    "title": "ThreatsDay: 200 Android Flaws, Browser-Built Phishing, 119K Scam Shops + 23 More Stories",
-    "link": "https://thehackernews.com/2026/09/threatsday-200-android-flaws-browser.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFNPIVe_Yx__WtfjnMTnoJSKPMcGPiMCP5NxEyv1gRcGSlnozG41TeGldWhQi7Hsc0XgcmC9tfTEBS-CdLLAz8cOskVbBOsghdSM9kg_AhQmhfMada8rs4l7O7Py8YJErqK54BIt0r06Sm1l62fy8yv6H8PJrEXWxjnvyLkyFKzzXcGI_h00yeBqck5v9L/s1600/td-main.jpg"
-  },
-  {
-    "title": "Cybersecurity M&A Roundup: 33 Deals Announced in August 2026",
-    "link": "https://www.securityweek.com/cybersecurity-ma-roundup-33-deals-announced-in-august-2026/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/MA-mergers-and-acquisitions.jpeg"
-  },
-  {
-    "title": "AI-powered attack exploited PaperCut flaws to hack 395 organizations",
-    "link": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/09/03/AI-Hacker.jpg"
-  },
-  {
-    "title": "Nightmare-Eclipse Strikes Again With 'ShieldCrash' Windows Exploit",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/nightmare-eclipse-strikes-again-shieldcrash-windows-exploit",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd6923f7af78d46ee/6aa28ac3d94910375384f4f1/Hacker_(1800)_Andriy_Popov_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Google Play Early Access Abused to Push Thousands of Deceptive Android Apps",
-    "link": "https://thehackernews.com/2026/09/google-play-early-access-abused-to-push.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4vbRDTWaQnxiILexae9P_rAk0hzx-re0czK2tM_WNQcoVDPlKblD4M5qOy8FZ9hHJBDLGjHHAyYutmaiacI54o5q1SH5qSbsptviRF16T2r6i8Iywvzk4GJprCm60p12qrK7t3R8h_ZR7CUoG47YfdeOb0iKY0WRapDeObI8_poWklMtKXrmr421Scjzi/s1600/play.jpg"
   }
 ]
