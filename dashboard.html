@@ -138,8 +138,29 @@ fetch("/partials/ticker.html")
 
         <!-- THREAT LEVEL -->
         <div class="soc-card threat-card">
-  <h2>Threat Level</h2>
-  <div id="threat-level" class="dash-number">--</div>
+
+  <!-- TESTA INFORMATIVA -->
+  <div class="widget-header">
+      <h2 style="margin:0; color:#00eaff;">Threat Level</h2>
+      <p style="color:#ccc; margin:6px 0 10px; font-size:14px;">
+          Indicatore complessivo del rischio cyber basato su fonti OSINT e attività locali.
+      </p>
+      <p style="color:#7fdfff; font-size:12px;">
+          Fonti: NVD (CVE critici), OTX (campagne attive), Honeypot, GeoIP malevoli, Malware Activity.
+      </p>
+  </div>
+
+  <!-- VALORE PRINCIPALE -->
+  <div id="threat-level" class="dash-number" style="font-size:42px; margin-top:10px;">--</div>
+
+  <!-- STATO (ALTO / MEDIO / BASSO / CRITICO) -->
+  <div id="threat-status" style="font-size:20px; font-weight:bold; margin-top:8px;">--</div>
+
+  <!-- DESCRIZIONE DEL SIGNIFICATO -->
+  <div id="threat-desc" style="color:#ccc; margin-top:10px; font-size:14px;">
+      Analisi in corso...
+  </div>
+
 </div>
 
         <!-- GRAFICO ATTACCHI -->
@@ -1078,15 +1099,18 @@ startMalwareMonitor();
 <script>
 function startThreatLevel() {
     const box = document.getElementById("threat-level");
-    const badge = document.getElementById("sys-badge");
+    const statusBox = document.getElementById("threat-status");
+    const descBox = document.getElementById("threat-desc");
 
     async function loadThreatLevel() {
         try {
             const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
             const data = await res.json();
 
+            // Numero
             box.textContent = data.level;
 
+            // Colore dinamico
             const color =
                 data.status === "CRITICO" ? "#ff0044" :
                 data.status === "ALTO" ? "#ffaa00" :
@@ -1095,13 +1119,21 @@ function startThreatLevel() {
 
             box.style.color = color;
 
-            // Badge sincronizzato
-            badge.textContent = data.status;
-            badge.style.background = color + "33";
-            badge.style.color = color;
+            // Stato
+            statusBox.textContent = data.status;
+            statusBox.style.color = color;
+
+            // Descrizione
+            descBox.textContent =
+                data.status === "CRITICO" ? "Rischio molto elevato: attività malevole intense e vulnerabilità critiche." :
+                data.status === "ALTO" ? "Rischio elevato: presenza significativa di minacce e anomalie." :
+                data.status === "MEDIO" ? "Rischio moderato: alcune attività sospette rilevate." :
+                "Rischio basso: nessuna minaccia rilevante nelle ultime ore.";
 
         } catch (e) {
             box.textContent = "--";
+            statusBox.textContent = "--";
+            descBox.textContent = "Impossibile recuperare il livello di minaccia.";
         }
     }
 
