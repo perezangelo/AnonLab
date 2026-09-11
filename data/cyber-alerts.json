@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-56827",
-    "summary": "Shopper: Authorization bypass in Filament bulk actions allows browse-only staff to mass-delete attributes/tags and mass-toggle visibility of brands/categories/suppliers",
-    "severity": "HIGH",
-    "published": "2026-09-11T20:47:17Z",
-    "ghsa": "GHSA-243p-f3cv-c5wh"
-  },
-  {
-    "id": "CVE-2026-11745",
-    "summary": "Central Dogma: SSH host-key verification permanently disabled in Git mirror (SshGitMirror)",
-    "severity": "HIGH",
-    "published": "2026-09-11T20:45:50Z",
-    "ghsa": "GHSA-vjfw-cpmh-xwv3"
-  },
-  {
-    "id": "CVE-2026-11746",
-    "summary": "Central Dogma: Hard-coded ZooKeeper replication secret 'ch4n63m3' with silent fallback enables cluster takeover",
-    "severity": "CRITICAL",
-    "published": "2026-09-11T20:44:23Z",
-    "ghsa": "GHSA-2j95-gqxf-v3vg"
-  },
-  {
-    "id": "CVE-2026-11748",
-    "summary": "Central Dogma: LDAP injection in SearchFirstActiveDirectoryRealm enables authentication confusion and audit log evasion",
+    "id": "CVE-2026-56666",
+    "summary": " ZITADEL: Auto-linking by email: IdP-side email verification is not checked",
     "severity": "MODERATE",
-    "published": "2026-09-11T20:43:48Z",
-    "ghsa": "GHSA-98q5-5qh2-7w75"
+    "published": "2026-09-11T22:13:21Z",
+    "ghsa": "GHSA-992q-9gwp-7r79"
   },
   {
-    "id": "CVE-2026-59971",
-    "summary": "MySQL MCP Server: Missing Origin/Host Validation in SSE Transport Enables Unauthenticated SQL Execution (DNS Rebinding / Direct Exposure)",
+    "id": "CVE-2026-61534",
+    "summary": "yayson: Prototype pollution in Store/LegacyStore deserialization",
     "severity": "CRITICAL",
-    "published": "2026-09-11T20:35:42Z",
-    "ghsa": "GHSA-rqfv-2mw9-78g2"
+    "published": "2026-09-11T22:11:38Z",
+    "ghsa": "GHSA-325j-mg25-8q58"
   },
   {
-    "id": "CVE-2026-88006",
-    "summary": "Open WebUI: Users denied by the OAuth role policy can still sign in via token exchange",
+    "id": "CVE-2026-59148",
+    "summary": "@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secret theft",
+    "severity": "HIGH",
+    "published": "2026-09-11T22:04:42Z",
+    "ghsa": "GHSA-rqx4-3f6q-3x2v"
+  },
+  {
+    "id": "CVE-2026-59149",
+    "summary": "@Mockoon/commons-server: Path traversal in templated `filePath` lets a request escape the served directory (prefix-only base check)",
     "severity": "MODERATE",
-    "published": "2026-09-10T23:04:57Z",
-    "ghsa": "GHSA-wvm9-9g5j-623f"
+    "published": "2026-09-11T22:04:32Z",
+    "ghsa": "GHSA-8wqc-v2q8-vff2"
   },
   {
-    "id": "CVE-2026-88008",
-    "summary": "Traefik: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') and Incorrect Authorization",
+    "id": "CVE-2026-59973",
+    "summary": "FrontMCP and mcp-from-openapi have bypass of OpenAPI external $ref SSRF fix",
     "severity": "HIGH",
-    "published": "2026-09-10T23:04:37Z",
-    "ghsa": "GHSA-w4v4-9rw7-5326"
+    "published": "2026-09-11T22:02:04Z",
+    "ghsa": "GHSA-65h7-9wrw-629c"
   },
   {
-    "id": "CVE-2026-88004",
-    "summary": "Traefik entrypoint header-name sanitization bypassed via request trailers",
-    "severity": "HIGH",
-    "published": "2026-09-10T23:04:21Z",
-    "ghsa": "GHSA-v67p-phpq-fc8x"
-  },
-  {
-    "id": "CVE-2026-88007",
-    "summary": "Traefik HTTP/3 Backend NTLM Connection Reuse",
+    "id": "CVE-2026-59151",
+    "summary": "Prowler: SAML Domain Claiming Enables Cross-Tenant Account Takeover",
     "severity": "CRITICAL",
-    "published": "2026-09-10T23:04:06Z",
-    "ghsa": "GHSA-qqjf-53cj-pwvv"
+    "published": "2026-09-11T21:38:24Z",
+    "ghsa": "GHSA-h8m9-jgf8-vwvp"
   },
   {
-    "id": "CVE-2026-88009",
-    "summary": "Traefik: Rootless HTTP/1 request-target routes as \"/\" but is forwarded verbatim, bypassing path-scoped routing, middleware guards and access logging",
+    "id": "CVE-2026-56665",
+    "summary": "ZITADEL: Missing Token Expiration (`exp`) Validation in JWT IdP Provider",
+    "severity": "MODERATE",
+    "published": "2026-09-11T21:32:14Z",
+    "ghsa": "GHSA-v77h-2w3m-94hx"
+  },
+  {
+    "id": "CVE-2026-56825",
+    "summary": "Shopper: Missing authorization on product removal actions in CollectionProducts component",
     "severity": "HIGH",
-    "published": "2026-09-10T23:03:53Z",
-    "ghsa": "GHSA-f52w-8j3h-j724"
+    "published": "2026-09-11T21:31:26Z",
+    "ghsa": "GHSA-2cg9-97gq-9mqp"
+  },
+  {
+    "id": "CVE-2026-56830",
+    "summary": "Shopper: Media sub-form store() still lacks authorization (Incomplete fix for GHSA-h4mp-g9c6-xwph)",
+    "severity": "MODERATE",
+    "published": "2026-09-11T21:30:14Z",
+    "ghsa": "GHSA-99h5-jhh7-v3r3"
+  },
+  {
+    "id": "CVE-2026-56829",
+    "summary": "Shopper: Unauthorized inventory stock manipulation via unlocked variant property in VariantStock component",
+    "severity": "HIGH",
+    "published": "2026-09-11T21:29:20Z",
+    "ghsa": "GHSA-g3f9-g5vj-p62f"
   }
 ]
