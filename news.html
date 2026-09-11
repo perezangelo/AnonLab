@@ -1553,9 +1553,12 @@ window.addEventListener("DOMContentLoaded", function() {
                 cache: "no-store"
             });
 
-            if (!res.ok) throw new Error("HTTP " + res.status);
+            // LOG DIAGNOSTICO: vediamo cosa arriva DAVVERO dal server
+            const raw = await res.text();
+            console.log("RAW RESPONSE FROM SERVER:", raw);
 
-            const data = await res.json();
+            // Se non è JSON, qui esplode → catch → errore nel widget
+            const data = JSON.parse(raw);
 
             const box = document.getElementById("insightsContent");
             const techBox = document.getElementById("insightsTech");
@@ -1600,6 +1603,7 @@ window.addEventListener("DOMContentLoaded", function() {
             drawTrend(data.trendData);
 
         } catch (e) {
+            console.error("JSON PARSE ERROR:", e);
             document.getElementById("insightsContent").innerHTML =
                 "<p style='color:#f66;'>Errore nel caricamento degli insights.</p>";
         }
