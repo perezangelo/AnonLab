@@ -1,5 +1,40 @@
 [
   {
+    "id": "CVE-2026-56827",
+    "summary": "Shopper: Authorization bypass in Filament bulk actions allows browse-only staff to mass-delete attributes/tags and mass-toggle visibility of brands/categories/suppliers",
+    "severity": "HIGH",
+    "published": "2026-09-11T20:47:17Z",
+    "ghsa": "GHSA-243p-f3cv-c5wh"
+  },
+  {
+    "id": "CVE-2026-11745",
+    "summary": "Central Dogma: SSH host-key verification permanently disabled in Git mirror (SshGitMirror)",
+    "severity": "HIGH",
+    "published": "2026-09-11T20:45:50Z",
+    "ghsa": "GHSA-vjfw-cpmh-xwv3"
+  },
+  {
+    "id": "CVE-2026-11746",
+    "summary": "Central Dogma: Hard-coded ZooKeeper replication secret 'ch4n63m3' with silent fallback enables cluster takeover",
+    "severity": "CRITICAL",
+    "published": "2026-09-11T20:44:23Z",
+    "ghsa": "GHSA-2j95-gqxf-v3vg"
+  },
+  {
+    "id": "CVE-2026-11748",
+    "summary": "Central Dogma: LDAP injection in SearchFirstActiveDirectoryRealm enables authentication confusion and audit log evasion",
+    "severity": "MODERATE",
+    "published": "2026-09-11T20:43:48Z",
+    "ghsa": "GHSA-98q5-5qh2-7w75"
+  },
+  {
+    "id": "CVE-2026-59971",
+    "summary": "MySQL MCP Server: Missing Origin/Host Validation in SSE Transport Enables Unauthenticated SQL Execution (DNS Rebinding / Direct Exposure)",
+    "severity": "CRITICAL",
+    "published": "2026-09-11T20:35:42Z",
+    "ghsa": "GHSA-rqfv-2mw9-78g2"
+  },
+  {
     "id": "CVE-2026-88006",
     "summary": "Open WebUI: Users denied by the OAuth role policy can still sign in via token exchange",
     "severity": "MODERATE",
@@ -33,40 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-10T23:03:53Z",
     "ghsa": "GHSA-f52w-8j3h-j724"
-  },
-  {
-    "id": "CVE-2026-88014",
-    "summary": "rclone archive/zip: Zip Slip via unsanitized zip entry names lets a malicious archive escape its own namespace",
-    "severity": "MODERATE",
-    "published": "2026-09-10T23:03:16Z",
-    "ghsa": "GHSA-66hp-wgxq-6f5q"
-  },
-  {
-    "id": "CVE-2026-88013",
-    "summary": "rclone: http backend forwards custom/auth headers to a different host on redirect",
-    "severity": "LOW",
-    "published": "2026-09-10T23:02:53Z",
-    "ghsa": "GHSA-486v-q2wf-fp2r"
-  },
-  {
-    "id": "CVE-2026-88016",
-    "summary": "rclone: Directory metadata (chmod/chown/chtimes) applied through a planted symlink in rclone local --links escapes the destination",
-    "severity": "MODERATE",
-    "published": "2026-09-10T22:51:34Z",
-    "ghsa": "GHSA-f8g7-2xjc-7mfh"
-  },
-  {
-    "id": "CVE-2026-88015",
-    "summary": "rclone local: crafted Range request against a translated symlink panics (DoS)",
-    "severity": "MODERATE",
-    "published": "2026-09-10T22:49:27Z",
-    "ghsa": "GHSA-p6m2-r3w9-mpxw"
-  },
-  {
-    "id": "CVE-2026-88018",
-    "summary": "rclone serve s3: --auth-proxy without --auth-key authenticates nobody - full SigV4 signature bypass",
-    "severity": "CRITICAL",
-    "published": "2026-09-10T22:49:07Z",
-    "ghsa": "GHSA-xwwr-4h3p-r22c"
   }
 ]
