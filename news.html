@@ -1543,7 +1543,8 @@ window.addEventListener("DOMContentLoaded", function() {
 
     loadCaseStudy();
 });
-<script>
+
+		<script>
 window.addEventListener("DOMContentLoaded", function() {
 
     async function loadInsights() {
@@ -1552,9 +1553,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 cache: "no-store"
             });
 
-            if (!res.ok) {
-                throw new Error("HTTP error " + res.status);
-            }
+            if (!res.ok) throw new Error("HTTP " + res.status);
 
             const data = await res.json();
 
@@ -1597,6 +1596,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 </ul>
             `;
 
+            // Disegna grafico OSINT
             drawTrend(data.trendData);
 
         } catch (e) {
