@@ -138,8 +138,8 @@ fetch("/partials/ticker.html")
 
         <!-- THREAT LEVEL -->
         <div class="soc-card threat-card">
-<div class="soc-card threat-card">
 
+  <!-- TESTA INFORMATIVA -->
   <div class="widget-header">
       <h2 style="margin:0; color:#00eaff;">Threat Level</h2>
 
@@ -152,16 +152,30 @@ fetch("/partials/ticker.html")
       </p>
   </div>
 
+  <!-- VALORE PRINCIPALE -->
   <div id="threat-level" class="dash-number" style="font-size:42px; margin-top:10px;">--</div>
 
+  <!-- STATO -->
   <div id="threat-status" style="font-size:20px; font-weight:bold; margin-top:8px;">--</div>
 
+  <!-- BARRA DI PROGRESSIONE NEON -->
+  <div style="margin-top:15px; width:100%; background:#0a0a0a; border-radius:6px; height:10px; overflow:hidden;">
+      <div id="threat-bar" style="
+          height:10px;
+          width:0%;
+          transition: width 0.8s ease, background-color 0.5s ease;
+          box-shadow: 0 0 10px #00eaff;
+      "></div>
+  </div>
+
+  <!-- DESCRIZIONE -->
   <div id="threat-desc" style="color:#ccc; margin-top:10px; font-size:14px;">
       Analisi in corso...
   </div>
 
+  <!-- SPIEGAZIONE SINTETICA -->
   <div style="margin-top:12px; color:#7fdfff; font-size:12px; line-height:1.5;">
-      <strong>Cosa indica questo valore:</strong><br>
+      <strong>Cosa indica il valore:</strong><br>
       Il Threat Level è una percentuale (0–100) che riflette la pressione delle minacce attuali,
       combinando vulnerabilità critiche, campagne di attacco e attività malevole rilevate dai sistemi di monitoraggio.
   </div>
@@ -1106,34 +1120,53 @@ function startThreatLevel() {
     const box = document.getElementById("threat-level");
     const statusBox = document.getElementById("threat-status");
     const descBox = document.getElementById("threat-desc");
+    const bar = document.getElementById("threat-bar");
+
+    let lastValue = null;
+    let lastStatus = null;
 
     async function loadThreatLevel() {
         try {
             const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
             const data = await res.json();
 
-            // Aggiorna SOLO quando arrivano i dati
-            box.textContent = data.level + "%";
+            const newValue = data.level + "%";
+            const newStatus = data.status;
 
+            // ✔ Aggiorna solo se cambia → niente lampeggio
+            if (newValue !== lastValue) {
+                box.textContent = newValue;
+                lastValue = newValue;
+            }
+
+            // ✔ Colore dinamico
             const color =
-                data.status === "CRITICO" ? "#ff0044" :
-                data.status === "ALTO" ? "#ffaa00" :
-                data.status === "MEDIO" ? "#00eaff" :
+                newStatus === "CRITICO" ? "#ff0044" :
+                newStatus === "ALTO" ? "#ffaa00" :
+                newStatus === "MEDIO" ? "#00eaff" :
                 "#00ff99";
 
-            box.style.color = color;
+            // ✔ Aggiorna solo se cambia lo stato → niente flicker
+            if (newStatus !== lastStatus) {
+                statusBox.textContent = newStatus;
+                statusBox.style.color = color;
+                box.style.color = color;
+                lastStatus = newStatus;
+            }
 
-            statusBox.textContent = data.status;
-            statusBox.style.color = color;
+            // ✔ Barra neon
+            bar.style.width = data.level + "%";
+            bar.style.backgroundColor = color;
+            bar.style.boxShadow = `0 0 10px ${color}`;
 
+            // ✔ Descrizione dinamica
             descBox.textContent =
-                data.status === "CRITICO" ? "Rischio molto elevato: attività malevole intense e vulnerabilità critiche." :
-                data.status === "ALTO" ? "Rischio elevato: aumento combinato di vulnerabilità critiche e attività sospette." :
-                data.status === "MEDIO" ? "Rischio moderato: alcune attività malevole rilevate." :
+                newStatus === "CRITICO" ? "Rischio molto elevato: attività malevole intense e vulnerabilità critiche." :
+                newStatus === "ALTO" ? "Rischio elevato: aumento combinato di vulnerabilità critiche e attività sospette." :
+                newStatus === "MEDIO" ? "Rischio moderato: alcune attività malevole rilevate." :
                 "Rischio basso: nessuna minaccia rilevante nelle ultime ore.";
 
         } catch (e) {
-            // NON cancelliamo il valore → niente lampeggio
             console.error("Errore Threat Level:", e);
         }
     }
