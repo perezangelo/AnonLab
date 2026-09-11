@@ -142,9 +142,11 @@ fetch("/partials/ticker.html")
   <!-- TESTA INFORMATIVA -->
   <div class="widget-header">
       <h2 style="margin:0; color:#00eaff;">Threat Level</h2>
+
       <p style="color:#ccc; margin:6px 0 10px; font-size:14px;">
-          Indicatore complessivo del rischio cyber basato su fonti OSINT e attività locali.
+          Indicatore percentuale del rischio cyber attuale, basato su vulnerabilità critiche e attività malevole rilevate.
       </p>
+
       <p style="color:#7fdfff; font-size:12px;">
           Fonti: NVD (CVE critici), OTX (campagne attive), Honeypot, GeoIP malevoli, Malware Activity.
       </p>
@@ -159,6 +161,13 @@ fetch("/partials/ticker.html")
   <!-- DESCRIZIONE DEL SIGNIFICATO -->
   <div id="threat-desc" style="color:#ccc; margin-top:10px; font-size:14px;">
       Analisi in corso...
+  </div>
+
+  <!-- SPIEGAZIONE SINTETICA (SEO + CHIAREZZA) -->
+  <div style="margin-top:12px; color:#7fdfff; font-size:12px; line-height:1.5;">
+      <strong>Interpretazione del valore:</strong><br>
+      Il Threat Level è una percentuale (0–100) che riflette la pressione delle minacce attuali,
+      combinando vulnerabilità critiche, campagne di attacco e attività malevole rilevate dai sistemi di monitoraggio.
   </div>
 
 </div>
@@ -1108,7 +1117,7 @@ function startThreatLevel() {
             const data = await res.json();
 
             // Numero
-            box.textContent = data.level;
+            box.textContent = data.level + "%";
 
             // Colore dinamico
             const color =
@@ -1123,11 +1132,11 @@ function startThreatLevel() {
             statusBox.textContent = data.status;
             statusBox.style.color = color;
 
-            // Descrizione
+            // Descrizione dinamica
             descBox.textContent =
                 data.status === "CRITICO" ? "Rischio molto elevato: attività malevole intense e vulnerabilità critiche." :
-                data.status === "ALTO" ? "Rischio elevato: presenza significativa di minacce e anomalie." :
-                data.status === "MEDIO" ? "Rischio moderato: alcune attività sospette rilevate." :
+                data.status === "ALTO" ? "Rischio elevato: aumento combinato di vulnerabilità critiche e attività sospette." :
+                data.status === "MEDIO" ? "Rischio moderato: alcune attività malevole rilevate." :
                 "Rischio basso: nessuna minaccia rilevante nelle ultime ore.";
 
         } catch (e) {
