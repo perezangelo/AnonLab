@@ -550,9 +550,51 @@ fetch("/partials/ticker.html")
 ">
     <h3 style="color:#ff7b00;">Cyber Case Study</h3>
 
-    <div id="caseStudyContent" style="color:#ccc; line-height:1.7;">
+    <p style="color:#ccc; font-size:13px; margin-top:6px;">
+        Analisi sintetica di un caso reale di sicurezza informatica, utile per comprendere
+        tecniche di attacco, errori commessi e contromisure efficaci.
+    </p>
+
+    <p style="color:#ff7b00; font-size:12px; margin-top:10px; font-weight:bold;">
+        👉 Clicca per espandere i dettagli del case study
+    </p>
+
+    <div id="caseStudyContent" style="color:#ccc; line-height:1.7; margin-top:15px;">
         <p>Caricamento del case study...</p>
     </div>
+
+    <!-- Pulsante dettagli tecnici -->
+    <button id="techBtn" style="
+        margin-top:15px;
+        background:#ff7b00;
+        color:#000;
+        padding:10px 15px;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:bold;
+        box-shadow:0 0 10px #ff7b00aa;
+    ">
+        Mostra dettagli tecnici
+    </button>
+
+    <!-- Sezione tecnica nascosta -->
+    <div id="techDetails" style="
+        display:none;
+        margin-top:15px;
+        padding:15px;
+        background:#0a0a0a;
+        border:1px solid #ff7b00aa;
+        border-radius:6px;
+        box-shadow:0 0 10px #ff7b00aa;
+        color:#ccc;
+        line-height:1.7;
+    ">
+        <p style="color:#ff7b00; font-weight:bold;">Dettagli tecnici dell'attacco</p>
+        <div id="techContent">Caricamento dettagli tecnici...</div>
+    </div>
+
+</div>
 
      <!-- Cybersecurity Insights -->
 <div class="news-box" style="
@@ -563,11 +605,94 @@ fetch("/partials/ticker.html")
     border-radius:8px;
     box-shadow:0 0 12px #00eaffaa;
 ">
+
     <h3 style="color:#00eaff;">Cybersecurity Insights</h3>
 
-    <div id="insightsBox" style="color:#ccc; line-height:1.7;">
-        <p>Caricamento insights...</p>
+    <p style="color:#ccc; font-size:13px; margin-top:6px;">
+        Approfondimenti sintetici sulle tecniche, tendenze e minacce più rilevanti
+        nel panorama della sicurezza informatica moderna.
+    </p>
+
+    <p style="color:#00eaff; font-size:12px; margin-top:10px; font-weight:bold;">
+        👉 Clicca per espandere l’approfondimento
+    </p>
+
+    <!-- Badge MITRE neon -->
+    <div id="mitreBadges" style="
+        margin-top:10px;
+        display:flex;
+        gap:8px;
+        flex-wrap:wrap;
+    ">
+        <!-- Badge generati via JS -->
     </div>
+
+    <!-- Contenuto principale -->
+    <div id="insightsContent" style="
+        color:#ccc;
+        line-height:1.7;
+        margin-top:15px;
+    ">
+        <p>Caricamento degli insights...</p>
+    </div>
+
+    <!-- Mini-grafico Trend OSINT -->
+    <canvas id="insightsTrend" width="260" height="60" style="
+        margin-top:15px;
+        background:#000;
+        border:1px solid #00eaffaa;
+        border-radius:6px;
+        box-shadow:0 0 10px #00eaffaa;
+    ">
+    </canvas>
+
+    <!-- Pulsante approfondimento tecnico -->
+    <button id="insightsBtn" style="
+        margin-top:15px;
+        background:#00eaff;
+        color:#000;
+        padding:10px 15px;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:bold;
+        box-shadow:0 0 10px #00eaffaa;
+    ">
+        Mostra approfondimento tecnico
+    </button>
+
+    <!-- Sezione approfondimento nascosta -->
+    <div id="insightsDetails" style="
+        display:none;
+        margin-top:15px;
+        padding:15px;
+        background:#0a0a0a;
+        border:1px solid #00eaffaa;
+        border-radius:6px;
+        box-shadow:0 0 10px #00eaffaa;
+        color:#ccc;
+        line-height:1.7;
+    ">
+        <p style="color:#00eaff; font-weight:bold;">Approfondimento tecnico</p>
+        <div id="insightsTech">Caricamento approfondimento...</div>
+    </div>
+
+    <!-- Pulsante Scarica PDF -->
+    <button id="insightsPDF" style="
+        margin-top:15px;
+        background:#0077ff;
+        color:#fff;
+        padding:10px 15px;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:bold;
+        box-shadow:0 0 10px #0077ffaa;
+    ">
+        Scarica report PDF
+    </button>
+
+</div>
   
      <!-- Cybersecurity Predictions -->
 <div class="news-box" style="
@@ -1330,50 +1455,194 @@ loadCyberGallery();
 setInterval(loadCyberGallery, 30000);
 </script>
   <script>
-function loadCaseStudy() {
-    fetch("https://angelonline.altervista.org/newsops/casestudy.php")
-        .then(r => r.json())
-        .then(data => {
+window.addEventListener("DOMContentLoaded", function() {
+
+    async function loadCaseStudy() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/casestudy.php");
+            const data = await res.json();
+
             const box = document.getElementById("caseStudyContent");
+            const techBox = document.getElementById("techContent");
 
             box.innerHTML = `
-                <h4 style="color:#ff7b00; margin-bottom:10px;">${data.title}</h4>
-                <p style="margin-top:10px;">${data.p1}</p>
-                <p style="margin-top:10px;">${data.p2}</p>
-                <p style="margin-top:10px;">${data.p3}</p>
+                <h4 style="color:#ff7b00;">${data.title}</h4>
+
+                <p style="margin-top:10px; color:#ccc;">
+                    <strong style="color:#ff7b00;">Sintesi:</strong><br>
+                    ${data.summary}
+                </p>
+
+                <p style="margin-top:10px; color:#ccc;">
+                    <strong style="color:#ff7b00;">Tecnica di attacco:</strong><br>
+                    ${data.attack}
+                </p>
+
+                <p style="margin-top:10px; color:#ccc;">
+                    <strong style="color:#ff7b00;">Impatto:</strong><br>
+                    ${data.impact}
+                </p>
+
+                <p style="margin-top:10px; color:#ff7b00; font-weight:bold;">Errori commessi:</p>
+                <ul style="color:#ccc; margin-left:20px;">
+                    ${data.mistakes.map(m => `<li>${m}</li>`).join("")}
+                </ul>
+
+                <p style="margin-top:10px; color:#ff7b00; font-weight:bold;">Contromisure:</p>
+                <ul style="color:#ccc; margin-left:20px;">
+                    ${data.mitigation.map(m => `<li>${m}</li>`).join("")}
+                </ul>
+
+                <p style="margin-top:15px; color:#ff7b00; font-weight:bold;">
+                    🔗 Collegamenti con altre sezioni:
+                </p>
+                <ul style="color:#ccc; margin-left:20px;">
+                    <li>Threat Categories: categorie correlate → <strong>${getThreatLink(data)}</strong></li>
+                    <li>Intelligence Notes: tecniche MITRE → <strong>${getIntelLink(data)}</strong></li>
+                </ul>
             `;
-        })
-        .catch(() => {
+
+            techBox.innerHTML = `
+                <ul style="margin-left:20px;">
+                    ${data.technical.map(t => `<li>${t}</li>`).join("")}
+                </ul>
+            `;
+
+        } catch (e) {
             document.getElementById("caseStudyContent").innerHTML =
-                "<p style='color:#ccc;'>Errore caricamento case study</p>";
-        });
-}
+                "<p style='color:#f66;'>Errore nel caricamento del case study.</p>";
+        }
+    }
 
-loadCaseStudy();
-setInterval(loadCaseStudy, 30000);
+    // Collegamento con Threat Categories
+    function getThreatLink(data) {
+        if (data.title.includes("ransomware")) return "Malware, Exploits, Botnet";
+        if (data.title.includes("cred")) return "Exploits, APT, Malware";
+        return "Malware";
+    }
+
+    // Collegamento con Intelligence Notes
+    function getIntelLink(data) {
+        if (data.technical.some(t => t.includes("MITRE"))) {
+            return data.technical.find(t => t.includes("MITRE"));
+        }
+        return "Tecniche MITRE non rilevate";
+    }
+
+    // Pulsante dettagli tecnici
+    const btn = document.getElementById("techBtn");
+    const techDiv = document.getElementById("techDetails");
+
+    btn.addEventListener("click", () => {
+        techDiv.style.display = techDiv.style.display === "none" ? "block" : "none";
+        btn.textContent = techDiv.style.display === "none"
+            ? "Mostra dettagli tecnici"
+            : "Nascondi dettagli tecnici";
+    });
+
+    loadCaseStudy();
+});
 </script>
+
   <script>
-function loadInsights() {
-    fetch("https://angelonline.altervista.org/newsops/cyberinsights.php")
-        .then(r => r.json())
-        .then(data => {
-            const box = document.getElementById("insightsBox");
+window.addEventListener("DOMContentLoaded", function() {
 
+    async function loadInsights() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/newsops/insights.php");
+            const data = await res.json();
+
+            const box = document.getElementById("insightsContent");
+            const techBox = document.getElementById("insightsTech");
+            const badgeBox = document.getElementById("mitreBadges");
+
+            // Badge MITRE neon
+            badgeBox.innerHTML = data.mitre.map(code => `
+                <span style="
+                    background:#00eaff;
+                    color:#000;
+                    padding:4px 8px;
+                    border-radius:4px;
+                    font-size:12px;
+                    font-weight:bold;
+                    box-shadow:0 0 6px #00eaffaa;
+                ">${code}</span>
+            `).join("");
+
+            // Contenuto principale
             box.innerHTML = `
-                <p>${data.p1}</p>
-                <p style="margin-top:10px;">${data.p2}</p>
-                <p style="margin-top:10px;">${data.p3}</p>
-            `;
-        })
-        .catch(() => {
-            document.getElementById("insightsBox").innerHTML =
-                "<p>Errore caricamento insights</p>";
-        });
-}
+                <h4 style="color:#00eaff;">${data.title}</h4>
 
-loadInsights();
-setInterval(loadInsights, 30000);
+                <p style="margin-top:10px; color:#ccc;">
+                    <strong style="color:#00eaff;">Sintesi:</strong><br>
+                    ${data.summary}
+                </p>
+
+                <p style="margin-top:10px; color:#ccc;">
+                    <strong style="color:#00eaff;">Trend OSINT:</strong><br>
+                    ${data.trend}
+                </p>
+            `;
+
+            // Approfondimento tecnico
+            techBox.innerHTML = `
+                <ul style="margin-left:20px;">
+                    ${data.technical.map(t => `<li>${t}</li>`).join("")}
+                </ul>
+            `;
+
+            // Disegna il grafico OSINT
+            drawTrend(data.trendData);
+
+        } catch (e) {
+            document.getElementById("insightsContent").innerHTML =
+                "<p style='color:#f66;'>Errore nel caricamento degli insights.</p>";
+        }
+    }
+
+    // Sparkline neon
+    function drawTrend(values) {
+        const canvas = document.getElementById("insightsTrend");
+        const ctx = canvas.getContext("2d");
+
+        ctx.strokeStyle = "#00eaff";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+
+        const max = Math.max(...values);
+        const min = Math.min(...values);
+
+        values.forEach((v, i) => {
+            const x = (i / (values.length - 1)) * canvas.width;
+            const y = canvas.height - ((v - min) / (max - min)) * canvas.height;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        });
+
+        ctx.stroke();
+    }
+
+    // Pulsante approfondimento tecnico
+    const btn = document.getElementById("insightsBtn");
+    const techDiv = document.getElementById("insightsDetails");
+
+    btn.addEventListener("click", () => {
+        techDiv.style.display = techDiv.style.display === "none" ? "block" : "none";
+        btn.textContent = techDiv.style.display === "none"
+            ? "Mostra approfondimento tecnico"
+            : "Nascondi approfondimento tecnico";
+    });
+
+    // Pulsante PDF (placeholder)
+    const pdfBtn = document.getElementById("insightsPDF");
+    pdfBtn.addEventListener("click", () => {
+        alert("Funzione PDF disponibile quando creiamo la pagina dedicata.");
+    });
+
+    loadInsights();
+});
 </script>
+
   <script>
 function loadPredictions() {
     fetch("https://angelonline.altervista.org/newsops/cyberpredictions.php")
