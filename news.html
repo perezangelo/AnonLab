@@ -597,7 +597,6 @@ fetch("/partials/ticker.html")
 </div>
 
      <!-- Cybersecurity Insights -->
-<div <!-- Cybersecurity Insights -->
 <div class="news-box" style="
     background:#000814;
     border:1px solid #00eaffaa;
@@ -606,6 +605,7 @@ fetch("/partials/ticker.html")
     border-radius:8px;
     box-shadow:0 0 12px #00eaffaa;
 ">
+
     <h3 style="color:#00eaff;">Cybersecurity Insights</h3>
 
     <p style="color:#ccc; font-size:13px; margin-top:6px;">
@@ -617,11 +617,36 @@ fetch("/partials/ticker.html")
         👉 Clicca per espandere l’approfondimento
     </p>
 
-    <div id="insightsContent" style="color:#ccc; line-height:1.7; margin-top:15px;">
+    <!-- Badge MITRE neon -->
+    <div id="mitreBadges" style="
+        margin-top:10px;
+        display:flex;
+        gap:8px;
+        flex-wrap:wrap;
+    ">
+        <!-- Badge generati via JS -->
+    </div>
+
+    <!-- Contenuto principale -->
+    <div id="insightsContent" style="
+        color:#ccc;
+        line-height:1.7;
+        margin-top:15px;
+    ">
         <p>Caricamento degli insights...</p>
     </div>
 
-    <!-- Pulsante approfondimento -->
+    <!-- Mini-grafico Trend OSINT -->
+    <canvas id="insightsTrend" width="260" height="60" style="
+        margin-top:15px;
+        background:#000;
+        border:1px solid #00eaffaa;
+        border-radius:6px;
+        box-shadow:0 0 10px #00eaffaa;
+    ">
+    </canvas>
+
+    <!-- Pulsante approfondimento tecnico -->
     <button id="insightsBtn" style="
         margin-top:15px;
         background:#00eaff;
@@ -651,6 +676,21 @@ fetch("/partials/ticker.html")
         <p style="color:#00eaff; font-weight:bold;">Approfondimento tecnico</p>
         <div id="insightsTech">Caricamento approfondimento...</div>
     </div>
+
+    <!-- Pulsante Scarica PDF -->
+    <button id="insightsPDF" style="
+        margin-top:15px;
+        background:#0077ff;
+        color:#fff;
+        padding:10px 15px;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        font-weight:bold;
+        box-shadow:0 0 10px #0077ffaa;
+    ">
+        Scarica report PDF
+    </button>
 
 </div>
   
@@ -1503,19 +1543,39 @@ window.addEventListener("DOMContentLoaded", function() {
 
     loadCaseStudy();
 });
-</script>
-
-  <script>
+<script>
 window.addEventListener("DOMContentLoaded", function() {
 
     async function loadInsights() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/newsops/insights.php");
+            const res = await fetch("https://angelonline.altervista.org/newsops/insights.php", {
+                cache: "no-store"
+            });
+
+            if (!res.ok) {
+                throw new Error("HTTP error " + res.status);
+            }
+
             const data = await res.json();
 
             const box = document.getElementById("insightsContent");
             const techBox = document.getElementById("insightsTech");
+            const badgeBox = document.getElementById("mitreBadges");
 
+            // Badge MITRE neon
+            badgeBox.innerHTML = data.mitre.map(code => `
+                <span style="
+                    background:#00eaff;
+                    color:#000;
+                    padding:4px 8px;
+                    border-radius:4px;
+                    font-size:12px;
+                    font-weight:bold;
+                    box-shadow:0 0 6px #00eaffaa;
+                ">${code}</span>
+            `).join("");
+
+            // Contenuto principale
             box.innerHTML = `
                 <h4 style="color:#00eaff;">${data.title}</h4>
 
@@ -1528,31 +1588,16 @@ window.addEventListener("DOMContentLoaded", function() {
                     <strong style="color:#00eaff;">Trend OSINT:</strong><br>
                     ${data.trend}
                 </p>
-
-                <p style="margin-top:10px; color:#00eaff; font-weight:bold;">Perché è pericoloso:</p>
-                <ul style="color:#ccc; margin-left:20px;">
-                    ${data.whyDangerous.map(m => `<li>${m}</li>`).join("")}
-                </ul>
-
-                <p style="margin-top:10px; color:#00eaff; font-weight:bold;">Contromisure:</p>
-                <ul style="color:#ccc; margin-left:20px;">
-                    ${data.mitigation.map(m => `<li>${m}</li>`).join("")}
-                </ul>
-
-                <p style="margin-top:15px; color:#00eaff; font-weight:bold;">
-                    🔗 Collegamenti con altre sezioni:
-                </p>
-                <ul style="color:#ccc; margin-left:20px;">
-                    <li>Threat Categories correlate → <strong>${getThreatLink(data)}</strong></li>
-                    <li>Intelligence Notes (MITRE) → <strong>${getIntelLink(data)}</strong></li>
-                </ul>
             `;
 
+            // Approfondimento tecnico
             techBox.innerHTML = `
                 <ul style="margin-left:20px;">
                     ${data.technical.map(t => `<li>${t}</li>`).join("")}
                 </ul>
             `;
+
+            drawTrend(data.trendData);
 
         } catch (e) {
             document.getElementById("insightsContent").innerHTML =
@@ -1560,17 +1605,26 @@ window.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Collegamento con Threat Categories
-    function getThreatLink(data) {
-        if (data.title.includes("Supply")) return "APT • Exploits • Malware";
-        if (data.title.includes("Living")) return "Malware • Exploits";
-        return "Malware";
-    }
+    // Sparkline neon
+    function drawTrend(values) {
+        const canvas = document.getElementById("insightsTrend");
+        const ctx = canvas.getContext("2d");
 
-    // Collegamento con Intelligence Notes
-    function getIntelLink(data) {
-        const mitre = data.technical.find(t => t.includes("MITRE"));
-        return mitre ? mitre : "Nessuna tecnica MITRE rilevata";
+        ctx.strokeStyle = "#00eaff";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+
+        const max = Math.max(...values);
+        const min = Math.min(...values);
+
+        values.forEach((v, i) => {
+            const x = (i / (values.length - 1)) * canvas.width;
+            const y = canvas.height - ((v - min) / (max - min)) * canvas.height;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        });
+
+        ctx.stroke();
     }
 
     // Pulsante approfondimento tecnico
@@ -1584,10 +1638,15 @@ window.addEventListener("DOMContentLoaded", function() {
             : "Nascondi approfondimento tecnico";
     });
 
+    // Pulsante PDF
+    const pdfBtn = document.getElementById("insightsPDF");
+    pdfBtn.addEventListener("click", () => {
+        alert("Funzione PDF disponibile quando creiamo la pagina dedicata.");
+    });
+
     loadInsights();
 });
 </script>
-
 
   <script>
 function loadPredictions() {
