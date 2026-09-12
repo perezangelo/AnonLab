@@ -1,5 +1,5 @@
 /* ============================================================
-   ATTACCHI RILEVATI (ultime 24h) — Versione Reale Altervista
+   ATTACCHI RILEVATI (ultime 24h) — Versione Stabilizzata
 ============================================================ */
 
 let attacksChartInstance = null;
@@ -12,6 +12,7 @@ async function loadAttacksChart() {
         const res = await fetch("https://angelonline.altervista.org/soc/attacks_chart.php");
         const data = await res.json();
 
+        // Se il grafico esiste già → aggiorna solo i dati
         if (attacksChartInstance) {
             attacksChartInstance.data.labels = data.labels;
             attacksChartInstance.data.datasets[0].data = data.values;
@@ -19,6 +20,7 @@ async function loadAttacksChart() {
             return;
         }
 
+        // Creazione iniziale del grafico
         attacksChartInstance = new Chart(ctx, {
             type: "line",
             data: {
@@ -33,7 +35,7 @@ async function loadAttacksChart() {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: false,   // 🔥 evita espansione infinita
                 plugins: { legend: { display: false } },
                 scales: {
                     x: { ticks: { color: "#ccc" } },
@@ -42,6 +44,7 @@ async function loadAttacksChart() {
             }
         });
 
+        // 🔥 Fix AlterVista: forza il resize quando la card è renderizzata
         setTimeout(() => attacksChartInstance.resize(), 150);
 
     } catch (error) {
@@ -49,7 +52,10 @@ async function loadAttacksChart() {
     }
 }
 
+// Primo caricamento
 loadAttacksChart();
+
+// Aggiornamento automatico ogni 30 secondi
 setInterval(loadAttacksChart, 30000);
 
 /* ============================================================
