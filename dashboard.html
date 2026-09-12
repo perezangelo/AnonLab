@@ -153,8 +153,9 @@ fetch("/partials/ticker.html")
   </div>
 
   <!-- VALORE PRINCIPALE -->
-<div id="threat-level" class="dash-number" style="font-size:42px; margin-top:10px;">
-    <span id="threat-value">--</span><span style="color:#00eaff;">%</span>
+<div id="threat-level" style="font-size:42px; margin-top:10px; display:flex; align-items:center; gap:4px;">
+    <span id="threat-value" class="dash-number">--</span>
+    <span id="threat-percent" style="color:#00eaff; font-size:42px; font-weight:bold;">%</span>
 </div>
 
   <!-- STATO -->
@@ -1129,7 +1130,7 @@ function startThreatLevel() {
             const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
             const data = await res.json();
 
-            // ✔ Aggiorna SOLO il numero → niente lampeggio, niente sparizione
+            // ✔ Aggiorna SOLO il numero → la % resta fissa
             valueBox.textContent = data.level;
 
             // ✔ Colore dinamico
