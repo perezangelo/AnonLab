@@ -258,11 +258,16 @@ fetch("/partials/ticker.html")
           <img src="/img/threat-map-placeholder.png" alt="Threat Map" class="map-img">
         </div>
 
-        <!-- ATTIVITÀ SOSPETTE -->
         <div class="soc-card">
-          <h2>Attività sospette</h2>
-          <ul id="suspicious-list" class="suspicious-list"></ul>
-        </div>
+    <h2>Attività sospette</h2>
+
+    <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+        Eventi anomali rilevati dal sistema. Il widget mostra tentativi di accesso non autorizzati,
+        scansioni di rete, processi sospetti e altre attività che potrebbero indicare un rischio di sicurezza.
+    </p>
+
+    <div id="suspicious-list"></div>
+</div>
 
       </div> <!-- /soc-grid -->
 
