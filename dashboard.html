@@ -154,7 +154,8 @@ fetch("/partials/ticker.html")
 
   <!-- VALORE PRINCIPALE -->
 <div id="threat-level" class="dash-number" style="font-size:42px; margin-top:10px;">
-    <span id="threat-value">--</span>%
+    <span id="threat-value">--</span>
+    <span id="threat-percent">%</span>
 </div>
 
   <!-- STATO -->
@@ -1133,15 +1134,20 @@ function startThreatLevel() {
             valueBox.textContent = data.level;
 
             // ✔ Colore dinamico
-            const color =
-                data.status === "CRITICO" ? "#ff0044" :
-                data.status === "ALTO" ? "#ffaa00" :
-                data.status === "MEDIO" ? "#00eaff" :
-                "#00ff99";
+const color =
+    data.status === "CRITICO" ? "#ff0044" :
+    data.status === "ALTO" ? "#ffaa00" :
+    data.status === "MEDIO" ? "#00eaff" :
+    "#00ff99";
 
-            valueBox.style.color = color;
-            statusBox.textContent = data.status;
-            statusBox.style.color = color;
+valueBox.textContent = data.level;
+valueBox.style.color = color;
+
+// ✔ Colore dinamico anche per la %
+document.getElementById("threat-percent").style.color = color;
+
+statusBox.textContent = data.status;
+statusBox.style.color = color;
 
             // ✔ Barra neon
             bar.style.width = data.level + "%";
