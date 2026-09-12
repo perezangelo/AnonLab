@@ -1,31 +1,4 @@
 /* ============================================================
-   THREAT LEVEL — Versione Reale con API Altervista
-============================================================ */
-
-async function loadThreatLevel() {
-    const el = document.getElementById("threat-level");
-    if (!el) return;
-
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
-        const data = await res.json();
-
-        el.textContent = data.level;
-        el.style.color = data.color;
-        el.style.textShadow = `0 0 12px ${data.color}`;
-
-    } catch (error) {
-        console.error("Errore Threat Level:", error);
-        el.textContent = "N/A";
-        el.style.color = "#888";
-        el.style.textShadow = "none";
-    }
-}
-
-loadThreatLevel();
-setInterval(loadThreatLevel, 15000);
-
-/* ============================================================
    ATTACCHI RILEVATI (ultime 24h) — Versione Reale Altervista
 ============================================================ */
 
@@ -39,9 +12,11 @@ async function loadAttacksChart() {
         const res = await fetch("https://angelonline.altervista.org/soc/attacks_chart.php");
         const data = await res.json();
 
-        // Evita sovrapposizioni distruggendo il grafico precedente
         if (attacksChartInstance) {
-            attacksChartInstance.destroy();
+            attacksChartInstance.data.labels = data.labels;
+            attacksChartInstance.data.datasets[0].data = data.values;
+            attacksChartInstance.update();
+            return;
         }
 
         attacksChartInstance = new Chart(ctx, {
@@ -58,6 +33,7 @@ async function loadAttacksChart() {
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
                 scales: {
                     x: { ticks: { color: "#ccc" } },
@@ -66,17 +42,15 @@ async function loadAttacksChart() {
             }
         });
 
+        setTimeout(() => attacksChartInstance.resize(), 150);
+
     } catch (error) {
         console.error("Errore Attacchi 24h:", error);
     }
 }
 
-// Primo caricamento
 loadAttacksChart();
-
-// Aggiornamento automatico ogni 30 secondi
 setInterval(loadAttacksChart, 30000);
-
 
 /* ============================================================
    EVENT LOG — Versione Reale Altervista
