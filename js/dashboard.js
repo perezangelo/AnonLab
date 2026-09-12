@@ -107,7 +107,7 @@ async function measureRealSpeed() {
 
     try {
         const response = await fetch(
-            "https://angelonline.altervista.org/ping.txt?cache=" + Math.random(),
+            "https://anonlab.it/ping.txt?cache=" + Math.random(),
             { cache: "no-store" }
         );
 
@@ -179,7 +179,7 @@ function startSystemStatusUltimate() {
     async function updateLatency() {
         const start = performance.now();
         try {
-            await fetch("https://angelonline.altervista.org/ping.txt", { cache: "no-store" });
+            await fetch("https://anonlab.it/ping.txt", { cache: "no-store" });
             const ms = performance.now() - start;
             latEl.textContent = ms.toFixed(0) + " ms";
 
@@ -194,7 +194,7 @@ function startSystemStatusUltimate() {
     /* === FIREWALL === */
     async function updateFirewall() {
         try {
-            await fetch("https://angelonline.altervista.org/ping.txt", { cache: "no-store" });
+            await fetch("https://anonlab.it/ping.txt", { cache: "no-store" });
             fwEl.textContent = "OK";
             fwEl.style.color = "#00ff99";
         } catch {
