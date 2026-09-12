@@ -189,6 +189,61 @@ fetch("/partials/ticker.html")
         <div class="soc-card">
           <h2>Attacchi rilevati (ultime 24h)</h2>
           <canvas id="attacksChart"></canvas>
+
+					  <script>
+function startAttacks24h() {
+    const ctx = document.getElementById("attacksChart");
+
+    if (!ctx || typeof Chart === "undefined") {
+        return setTimeout(startAttacks24h, 200);
+    }
+
+    async function loadAttacks() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/attacks_24h.php");
+            const data = await res.json();
+
+            if (window.attacksChartInstance) {
+                window.attacksChartInstance.data.labels = data.labels;
+                window.attacksChartInstance.data.datasets[0].data = data.values;
+                window.attacksChartInstance.update();
+                return;
+            }
+
+            window.attacksChartInstance = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: "Attacchi",
+                        data: data.values,
+                        borderColor: "#ff0044",
+                        backgroundColor: "rgba(255,0,68,0.2)",
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: "#fff" } },
+                        y: { ticks: { color: "#fff" } }
+                    }
+                }
+            });
+
+        } catch (error) {
+            console.error("Errore Attacchi 24h:", error);
+        }
+    }
+
+    loadAttacks();
+    setInterval(loadAttacks, 15000);
+}
+
+startAttacks24h();
+</script>
         </div>
 
         <!-- EVENT LOG -->
@@ -1172,61 +1227,6 @@ statusBox.style.color = color;
 }
 
 startThreatLevel();
-</script>
-
-		  <script>
-function startAttacks24h() {
-    const ctx = document.getElementById("attacksChart");
-
-    if (!ctx || typeof Chart === "undefined") {
-        return setTimeout(startAttacks24h, 200);
-    }
-
-    async function loadAttacks() {
-        try {
-            const res = await fetch("https://angelonline.altervista.org/soc/attacks_24h.php");
-            const data = await res.json();
-
-            if (window.attacksChartInstance) {
-                window.attacksChartInstance.data.labels = data.labels;
-                window.attacksChartInstance.data.datasets[0].data = data.values;
-                window.attacksChartInstance.update();
-                return;
-            }
-
-            window.attacksChartInstance = new Chart(ctx, {
-                type: "line",
-                data: {
-                    labels: data.labels,
-                    datasets: [{
-                        label: "Attacchi",
-                        data: data.values,
-                        borderColor: "#ff0044",
-                        backgroundColor: "rgba(255,0,68,0.2)",
-                        tension: 0.3
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { ticks: { color: "#fff" } },
-                        y: { ticks: { color: "#fff" } }
-                    }
-                }
-            });
-
-        } catch (error) {
-            console.error("Errore Attacchi 24h:", error);
-        }
-    }
-
-    loadAttacks();
-    setInterval(loadAttacks, 15000);
-}
-
-startAttacks24h();
 </script>
 		</div>
     </section>  
