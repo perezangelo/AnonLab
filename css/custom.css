@@ -339,8 +339,10 @@
     text-shadow: 0 0 10px rgba(0,255,255,0.9);
 }
 .percent-symbol {
-    color: inherit;
-    text-shadow: inherit;
+    font-weight: 700;
+    font-size: inherit;
+    color: #00eaff;
+    text-shadow: 0 0 10px rgba(0,255,255,0.9);
 }
 
 .event-log {
