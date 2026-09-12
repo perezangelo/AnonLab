@@ -153,7 +153,9 @@ fetch("/partials/ticker.html")
   </div>
 
   <!-- VALORE PRINCIPALE -->
-  <div id="threat-level" class="dash-number" style="font-size:42px; margin-top:10px;">--</div>
+<div id="threat-level" class="dash-number" style="font-size:42px; margin-top:10px;">
+    <span id="threat-value">--</span><span id="threat-percent">%</span>
+</div>
 
   <!-- STATO -->
   <div id="threat-status" style="font-size:20px; font-weight:bold; margin-top:8px;">--</div>
@@ -1117,7 +1119,7 @@ startMalwareMonitor();
 
 <script>
 function startThreatLevel() {
-    const box = document.getElementById("threat-level");
+    const valueBox = document.getElementById("threat-value");
     const statusBox = document.getElementById("threat-status");
     const descBox = document.getElementById("threat-desc");
     const bar = document.getElementById("threat-bar");
@@ -1127,10 +1129,9 @@ function startThreatLevel() {
             const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
             const data = await res.json();
 
-            // ✔ Aggiorna SEMPRE il valore → niente sparizione
-            box.textContent = data.level + "%";
+            // ✔ Aggiorna SOLO il numero → la % NON lampeggia
+            valueBox.textContent = data.level;
 
-            // ✔ Colore dinamico
             const color =
                 data.status === "CRITICO" ? "#ff0044" :
                 data.status === "ALTO" ? "#ffaa00" :
@@ -1139,14 +1140,12 @@ function startThreatLevel() {
 
             statusBox.textContent = data.status;
             statusBox.style.color = color;
-            box.style.color = color;
+            valueBox.style.color = color;
 
-            // ✔ Barra neon
             bar.style.width = data.level + "%";
             bar.style.backgroundColor = color;
             bar.style.boxShadow = `0 0 10px ${color}`;
 
-            // ✔ Descrizione dinamica
             descBox.textContent =
                 data.status === "CRITICO" ? "Rischio molto elevato: attività malevole intense e vulnerabilità critiche." :
                 data.status === "ALTO" ? "Rischio elevato: aumento combinato di vulnerabilità critiche e attività sospette." :
