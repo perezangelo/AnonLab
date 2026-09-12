@@ -1122,37 +1122,24 @@ function startThreatLevel() {
     const descBox = document.getElementById("threat-desc");
     const bar = document.getElementById("threat-bar");
 
-    let lastValue = null;
-    let lastStatus = null;
-
     async function loadThreatLevel() {
         try {
             const res = await fetch("https://angelonline.altervista.org/soc/threat_level.php");
             const data = await res.json();
 
-            const newValue = data.level + "%";
-            const newStatus = data.status;
-
-            // ✔ Aggiorna solo se cambia → niente lampeggio
-            if (newValue !== lastValue) {
-                box.textContent = newValue;
-                lastValue = newValue;
-            }
+            // ✔ Aggiorna SEMPRE il valore → niente sparizione
+            box.textContent = data.level + "%";
 
             // ✔ Colore dinamico
             const color =
-                newStatus === "CRITICO" ? "#ff0044" :
-                newStatus === "ALTO" ? "#ffaa00" :
-                newStatus === "MEDIO" ? "#00eaff" :
+                data.status === "CRITICO" ? "#ff0044" :
+                data.status === "ALTO" ? "#ffaa00" :
+                data.status === "MEDIO" ? "#00eaff" :
                 "#00ff99";
 
-            // ✔ Aggiorna solo se cambia lo stato → niente flicker
-            if (newStatus !== lastStatus) {
-                statusBox.textContent = newStatus;
-                statusBox.style.color = color;
-                box.style.color = color;
-                lastStatus = newStatus;
-            }
+            statusBox.textContent = data.status;
+            statusBox.style.color = color;
+            box.style.color = color;
 
             // ✔ Barra neon
             bar.style.width = data.level + "%";
@@ -1161,9 +1148,9 @@ function startThreatLevel() {
 
             // ✔ Descrizione dinamica
             descBox.textContent =
-                newStatus === "CRITICO" ? "Rischio molto elevato: attività malevole intense e vulnerabilità critiche." :
-                newStatus === "ALTO" ? "Rischio elevato: aumento combinato di vulnerabilità critiche e attività sospette." :
-                newStatus === "MEDIO" ? "Rischio moderato: alcune attività malevole rilevate." :
+                data.status === "CRITICO" ? "Rischio molto elevato: attività malevole intense e vulnerabilità critiche." :
+                data.status === "ALTO" ? "Rischio elevato: aumento combinato di vulnerabilità critiche e attività sospette." :
+                data.status === "MEDIO" ? "Rischio moderato: alcune attività malevole rilevate." :
                 "Rischio basso: nessuna minaccia rilevante nelle ultime ore.";
 
         } catch (e) {
