@@ -94,25 +94,39 @@ setInterval(loadEventLog, 10000);
    SYSTEM STATUS — Versione Definitiva (senza backend)
 ============================================================ */
 
-/* === SPEEDTEST REALE === */
+/* ============================================================
+   SYSTEM STATUS ULTIMATE — Versione Definitiva
+   (Speedtest reale, Latenza, Firewall, Mini-grafico, Badge)
+============================================================ */
+
+let sysStartTime = performance.now();
+
+/* === SPEEDTEST REALE (versione affidabile) === */
 async function measureRealSpeed() {
     const start = performance.now();
 
-    const response = await fetch("https://anonlab.it/speedtest.bin", {
-        cache: "no-store"
-    });
+    try {
+        const response = await fetch(
+            "https://angelonline.altervista.org/ping.txt?cache=" + Math.random(),
+            { cache: "no-store" }
+        );
 
-    const blob = await response.blob();
-    const sizeMB = blob.size / (1024 * 1024);
+        const text = await response.text();
+        const sizeKB = text.length; // dimensione reale del file
 
-    const ms = performance.now() - start;
-    const seconds = ms / 1000;
+        const ms = performance.now() - start;
+        const seconds = ms / 1000;
 
-    const mbps = (sizeMB / seconds) * 8; // MB/s → Mb/s
+        const kbps = sizeKB / seconds;
+        const mbps = kbps / 1024;
 
-    return mbps.toFixed(1);
+        return mbps.toFixed(1);
+    } catch {
+        return "N/D";
+    }
 }
 
+/* === AVVIO PRINCIPALE === */
 function startSystemStatusUltimate() {
     const netSpeedEl = document.getElementById("net-speed");
     const netFill = document.getElementById("net-fill");
@@ -131,9 +145,11 @@ function startSystemStatusUltimate() {
         latCtx.lineWidth = 2;
         latCtx.beginPath();
 
+        const maxLat = Math.max(...latencyData, 200); // minimo 200 ms
+
         latencyData.forEach((v, i) => {
             const x = (i / latencyData.length) * latCanvas.width;
-            const y = latCanvas.height - (v / 200) * latCanvas.height;
+            const y = latCanvas.height - (v / maxLat) * latCanvas.height;
             if (i === 0) latCtx.moveTo(x, y);
             else latCtx.lineTo(x, y);
         });
@@ -147,13 +163,13 @@ function startSystemStatusUltimate() {
             const speed = await measureRealSpeed();
             netSpeedEl.textContent = speed + " Mb/s";
 
-            const pct = Math.min(100, speed / 2);
+            const pct = Math.min(100, speed * 10); // scala realistica
             netFill.style.width = pct + "%";
 
             netFill.style.background =
-                speed >= 500 ? "#00ff99" :   // fibra 1–2.5 Gb/s
-                speed >= 100 ? "#ffaa00" :   // buono
-                               "#ff0044";    // lento
+                speed >= 5 ? "#00ff99" :      // ottimo
+                speed >= 2 ? "#ffaa00" :      // accettabile
+                             "#ff0044";       // lento
         } catch {
             netSpeedEl.textContent = "N/D";
         }
@@ -163,7 +179,7 @@ function startSystemStatusUltimate() {
     async function updateLatency() {
         const start = performance.now();
         try {
-            await fetch("https://anonlab.it/ping.txt", { cache: "no-store" });
+            await fetch("https://angelonline.altervista.org/ping.txt", { cache: "no-store" });
             const ms = performance.now() - start;
             latEl.textContent = ms.toFixed(0) + " ms";
 
@@ -178,7 +194,7 @@ function startSystemStatusUltimate() {
     /* === FIREWALL === */
     async function updateFirewall() {
         try {
-            await fetch("https://anonlab.it/ping.txt", { cache: "no-store" });
+            await fetch("https://angelonline.altervista.org/ping.txt", { cache: "no-store" });
             fwEl.textContent = "OK";
             fwEl.style.color = "#00ff99";
         } catch {
@@ -195,10 +211,10 @@ function startSystemStatusUltimate() {
         let status = "CRITICAL";
         let color = "#ff0044";
 
-        if (speed >= 500 && latency <= 60) {
+        if (latency <= 80 && speed >= 5) {
             status = "OK";
             color = "#00ff99";
-        } else if (speed >= 100 && latency <= 120) {
+        } else if (latency <= 150 && speed >= 2) {
             status = "WARNING";
             color = "#ffaa00";
         }
