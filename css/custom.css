@@ -363,9 +363,23 @@
    CHART.JS — NEON STYLE
 ============================ */
 
-/* Applica il neon SOLO ai canvas dei grafici */
+/* Neon SOLO per i canvas dei widget */
 .soc-card canvas {
     filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));
+}
+
+/* Altezza fissa della card per impedire espansione */
+.attacks-card {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+}
+
+/* Altezza fissa del canvas */
+#attacksChart {
+    width: 100% !important;
+    height: 260px !important;
+    display: block;
 }
 
 .page-title {
