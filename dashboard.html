@@ -186,10 +186,12 @@ fetch("/partials/ticker.html")
 </div>
 
         <!-- GRAFICO ATTACCHI -->
-        <div class="soc-card">
-          <h2>Attacchi rilevati (ultime 24h)</h2>
-          <canvas id="attacksChart"></canvas>
-        </div>
+<div class="soc-card">
+  <h2>Attacchi rilevati (ultime 24h)</h2>
+
+  <!-- Altezza OBBLIGATORIA per evitare espansione infinita -->
+  <canvas id="attacksChart" height="260"></canvas>
+</div>
 
         <!-- EVENT LOG -->
         <div class="soc-card log-card">
