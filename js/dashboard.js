@@ -91,10 +91,6 @@ loadEventLog();
 setInterval(loadEventLog, 10000);
 
 /* ============================================================
-   SYSTEM STATUS — Versione Definitiva (senza backend)
-============================================================ */
-
-/* ============================================================
    SYSTEM STATUS ULTIMATE — Versione Definitiva
    (Speedtest reale, Latenza, Firewall, Mini-grafico, Badge)
 ============================================================ */
@@ -246,7 +242,9 @@ async function loadSuspiciousList() {
     if (!box) return;
 
     try {
-        const res = await fetch("https://angelonline.altervista.org/soc/suspicious_list.php");
+        const res = await fetch("https://angelonline.altervista.org/soc/suspicious_list.php", {
+            cache: "no-store"
+        });
         const data = await res.json();
 
         box.innerHTML = "";
