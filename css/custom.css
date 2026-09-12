@@ -363,9 +363,11 @@
    CHART.JS — NEON STYLE
 ============================ */
 
-canvas {
+/* Applica il neon SOLO ai canvas dei grafici */
+.soc-card canvas {
     filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));
 }
+
 .page-title {
     color: #00eaff !important;
     text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
