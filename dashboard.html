@@ -186,14 +186,24 @@ fetch("/partials/ticker.html")
 </div>
 
 <!-- GRAFICO ATTACCHI -->
-<div class="soc-card attacks-card">
+<div class="soc-card">
   <h2>Attacchi rilevati (ultime 24h)</h2>
+
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Attività ostili rilevate nelle ultime 24 ore. Il grafico mostra il numero di attacchi per ogni ora, evidenziando picchi anomali e pattern ricorrenti.
+  </p>
+
   <canvas id="attacksChart" height="260"></canvas>
 </div>
 
         <!-- EVENT LOG -->
 <div class="soc-card">
   <h2>Event Log</h2>
+
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Registro degli eventi di sicurezza rilevati in tempo reale, con timestamp e descrizione delle attività sospette o non autorizzate.
+  </p>
+
   <div id="event-log" class="event-log"></div>
 </div>
 
