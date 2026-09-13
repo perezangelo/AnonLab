@@ -295,3 +295,46 @@ function startSocMetrics() {
 }
 
 startSocMetrics();
+
+/* ============================================================
+   SECURITY SCORE — Dinamico
+============================================================ */
+
+function startSecurityScore() {
+    const scoreBox = document.getElementById("security-score");
+    const statusBox = document.getElementById("security-status");
+    const circle = document.getElementById("security-circle");
+
+    async function loadSecurityScore() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/security_score.php");
+            const data = await res.json();
+
+            const score = data.score;
+            const status = data.status;
+
+            scoreBox.textContent = score;
+            statusBox.textContent = "Stato: " + status;
+
+            const color =
+                status === "CRITICO" ? "#ff0044" :
+                status === "BASSO"   ? "#ffaa00" :
+                status === "MEDIO"   ? "#00eaff" :
+                "#00ff99";
+
+            const percent = score;
+
+            circle.style.background = `conic-gradient(${color} 0% ${percent}%, #222 ${percent}% 100%)`;
+            circle.style.boxShadow = `0 0 20px ${color}`;
+            statusBox.style.color = color;
+
+        } catch (error) {
+            console.error("Errore Security Score:", error);
+        }
+    }
+
+    loadSecurityScore();
+    setInterval(loadSecurityScore, 15000);
+}
+
+startSecurityScore();
