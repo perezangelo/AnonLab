@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- ⭐ SITEMAP STATICA (pagine del dominio anonlab.it) -->
   <sitemap>
     <loc>https://anonlab.it/sitemap-static.xml</loc>
+    <lastmod>2026-09-13</lastmod>
+  </sitemap>
+
+  <!-- ⭐ SITEMAP DINAMICA (AlterVista: blog + forum) -->
+  <sitemap>
+    <loc>https://angelonline.altervista.org/sitemap.php</loc>
+    <lastmod>2026-09-13</lastmod>
   </sitemap>
 
 </sitemapindex>
