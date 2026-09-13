@@ -351,27 +351,31 @@ fetch("/partials/ticker.html")
       </div>
 
       <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #00eaffaa;
-          padding:25px;
-          margin-top:40px;
-          border-radius:8px;
-          box-shadow:0 0 12px #00eaffaa;
-      ">
-        <h3 style="color:#00eaff;">Security Score</h3>
-        <p style="color:#ccc; margin-bottom:15px;">Valutazione complessiva dello stato di sicurezza dell’infrastruttura.</p>
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Security Score</h3>
+  <p style="color:#ccc; margin-bottom:15px;">
+    Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
+  </p>
 
-        <div style="width:180px; height:180px; margin:auto; border-radius:50%;
-            background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
-            display:flex; align-items:center; justify-content:center;
-            box-shadow:0 0 20px #00eaffaa;">
-          <span style="color:#fff; font-size:32px; font-weight:bold;">78</span>
-        </div>
+  <div id="security-circle" style="
+      width:180px; height:180px; margin:auto; border-radius:50%;
+      background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 20px #00eaffaa;
+  ">
+    <span id="security-score" style="color:#fff; font-size:32px; font-weight:bold;">0</span>
+  </div>
 
-        <p style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
-          Stato: ALTO
-        </p>
-      </div>
+  <p id="security-status" style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
+    Stato: —
+  </p>
+</div>
 
       <div class="cyber-box" style="
           background:#000814;
