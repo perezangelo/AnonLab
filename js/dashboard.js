@@ -264,3 +264,34 @@ loadSuspiciousList();
 
 // Aggiornamento automatico ogni 10 secondi
 setInterval(loadSuspiciousList, 10000);
+
+/* ============================================================
+   SOC METRICS OVERVIEW — Dinamico e Autonomo
+============================================================ */
+
+function startSocMetrics() {
+    const incBox = document.getElementById("soc-incidents");
+    const critBox = document.getElementById("soc-critical");
+    const alertBox = document.getElementById("soc-alerts");
+    const zeroBox = document.getElementById("soc-zeroday");
+
+    async function loadSocMetrics() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/soc_metrics.php");
+            const data = await res.json();
+
+            incBox.textContent = data.incidenti;
+            critBox.textContent = data.critiche;
+            alertBox.textContent = data.allarmi;
+            zeroBox.textContent = data.zeroday;
+
+        } catch (error) {
+            console.error("Errore SOC Metrics:", error);
+        }
+    }
+
+    loadSocMetrics();
+    setInterval(loadSocMetrics, 15000);
+}
+
+startSocMetrics();
