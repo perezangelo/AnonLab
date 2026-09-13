@@ -325,38 +325,29 @@ fetch("/partials/ticker.html")
         startAnonLiveFeed();
         </script>
       </div>
-      <div class="cyber-box" style="
-          background:#000814;
-          border:1px solid #ffaa00aa;
-          padding:25px;
-          margin-top:40px;
-          border-radius:8px;
-          box-shadow:0 0 12px #ffaa00aa;
-      ">
-        <h3 style="color:#ffaa00;">SOC Metrics Overview</h3>
-        <p style="color:#ccc; margin-bottom:15px;">Indicatori chiave del SOC aggiornati in tempo reale.</p>
+      <div style="display:flex; gap:20px; flex-wrap:wrap;">
 
-        <div style="display:flex; gap:20px; flex-wrap:wrap;">
-          <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-            <h4 style="color:#ffaa00;">Incidenti aperti</h4>
-            <p style="color:#fff; font-size:24px; margin-top:10px;">12</p>
-          </div>
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Incidenti aperti</h4>
+    <p id="soc-incidents" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
 
-          <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-            <h4 style="color:#ffaa00;">Minacce critiche</h4>
-            <p style="color:#fff; font-size:24px; margin-top:10px;">7</p>
-          </div>
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Minacce critiche</h4>
+    <p id="soc-critical" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
 
-          <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-            <h4 style="color:#ffaa00;">Allarmi attivi</h4>
-            <p style="color:#fff; font-size:24px; margin-top:10px;">19</p>
-          </div>
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Allarmi attivi</h4>
+    <p id="soc-alerts" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
 
-          <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-            <h4 style="color:#ffaa00;">Zero‑day monitorati</h4>
-            <p style="color:#fff; font-size:24px; margin-top:10px;">3</p>
-          </div>
-        </div>
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Zero‑day monitorati</h4>
+    <p id="soc-zeroday" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
+
+</div>
       </div>
 
       <div class="cyber-box" style="
