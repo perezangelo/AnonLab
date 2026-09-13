@@ -72,11 +72,6 @@ User-agent: Baiduspider
 Disallow: /
 
 # ============================================================
-# SITEMAP PRINCIPALE (sitemapindex)
+# SITEMAP PRINCIPALE (UNA SOLA)
 # ============================================================
 Sitemap: https://anonlab.it/sitemap.xml
-
-# ============================================================
-# SITEMAP STATICA (pagine del dominio)
-# ============================================================
-Sitemap: https://anonlab.it/sitemap-static.xml
