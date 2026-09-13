@@ -652,7 +652,7 @@ fetch("/partials/ticker.html")
 
     async function loadMalwareData() {
         try {
-            const res = await fetch("https://angelonline.altervista.org/soc/malware_activity.php");
+            const res = await fetch("https://angelonline.altervista.org/soc/malware-activity.php");
             const data = await res.json();
 
             if (window.malwareChartInstance) {
