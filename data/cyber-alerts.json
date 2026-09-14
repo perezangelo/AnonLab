@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-76081",
+    "summary": "ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions",
+    "severity": "MODERATE",
+    "published": "2026-09-14T21:31:37Z",
+    "ghsa": "GHSA-v859-c572-qh5p"
+  },
+  {
+    "id": "CVE-2026-56668",
+    "summary": "ZITADEL: Unauthorized Token Privilege Escalation in OAuth2 Token Exchange",
+    "severity": "HIGH",
+    "published": "2026-09-14T21:28:23Z",
+    "ghsa": "GHSA-vrh8-c9cm-wh8v"
+  },
+  {
     "id": "CVE-2026-59178",
     "summary": "ESPHome Device Builder: Renamed auth env vars silently disable dashboard authentication on upgrade",
     "severity": "CRITICAL",
@@ -54,19 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-09-11T22:04:32Z",
     "ghsa": "GHSA-8wqc-v2q8-vff2"
-  },
-  {
-    "id": "CVE-2026-59973",
-    "summary": "FrontMCP and mcp-from-openapi have bypass of OpenAPI external $ref SSRF fix",
-    "severity": "HIGH",
-    "published": "2026-09-11T22:02:04Z",
-    "ghsa": "GHSA-65h7-9wrw-629c"
-  },
-  {
-    "id": "CVE-2026-59151",
-    "summary": "Prowler: SAML Domain Claiming Enables Cross-Tenant Account Takeover",
-    "severity": "CRITICAL",
-    "published": "2026-09-11T21:38:24Z",
-    "ghsa": "GHSA-h8m9-jgf8-vwvp"
   }
 ]
