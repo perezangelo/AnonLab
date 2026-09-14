@@ -1175,11 +1175,19 @@ setInterval(loadTimeline, 60000);
 // =========================
 async function loadTiNews() {
     try {
-        const res = await fetch("https://anonlab.vercel.app/api/cisa");
+        const res = await fetch("https://angelonline.altervista.org/api/cisa.php");
         const data = await res.json();
 
+        if (!data.alerts || !Array.isArray(data.alerts)) {
+            document.getElementById("tiNews").innerHTML =
+                "<li>Nessun alert disponibile</li>";
+            return;
+        }
+
         document.getElementById("tiNews").innerHTML =
-            data.map(n => `<li><strong>${n.source}:</strong> ${n.title}</li>`).join("");
+            data.alerts.slice(0, 3).map(a =>
+                `<li><strong>${a.source}:</strong> ${a.title}</li>`
+            ).join("");
     } catch (e) {
         document.getElementById("tiNews").innerHTML =
             "<li>Errore nel caricamento del feed TI</li>";
@@ -1191,11 +1199,13 @@ async function loadTiNews() {
 // =========================
 async function loadIoC() {
     try {
-        const res = await fetch("https://anonlab.vercel.app/api/ioc");
+        const res = await fetch("https://angelonline.altervista.org/api/ioc.php");
         const data = await res.json();
 
         document.getElementById("iocList").innerHTML =
-            data.map(i => `<li><strong>${i.type}:</strong> ${i.ioc} <em>(${i.source})</em></li>`).join("");
+            data.map(i =>
+                `<li><strong>${i.type}:</strong> ${i.ioc} <em>(${i.source})</em></li>`
+            ).join("");
     } catch (e) {
         document.getElementById("iocList").innerHTML =
             "<li>Errore nel caricamento degli IoC</li>";
@@ -1207,11 +1217,13 @@ async function loadIoC() {
 // =========================
 async function loadMitre() {
     try {
-        const res = await fetch("https://anonlab.vercel.app/api/mitre");
+        const res = await fetch("https://angelonline.altervista.org/api/mitre.php");
         const data = await res.json();
 
         document.getElementById("mitreList").innerHTML =
-            data.map(t => `<li><strong>${t.id}:</strong> ${t.name}</li>`).join("");
+            data.map(t =>
+                `<li><strong>${t.id}:</strong> ${t.name}</li>`
+            ).join("");
     } catch (e) {
         document.getElementById("mitreList").innerHTML =
             "<li>Errore nel caricamento del feed MITRE</li>";
@@ -1223,13 +1235,10 @@ async function loadMitre() {
 // =========================
 async function loadThreatLevel() {
     try {
-        const res = await fetch("https://anonlab.vercel.app/api/threat-level");
+        const res = await fetch("https://angelonline.altervista.org/api/threat-level.php");
         const data = await res.json();
 
-        // Aggiorna barra
         document.getElementById("thLevelFill").style.width = "80%";
-
-        // Aggiorna testo
         document.getElementById("thLevelText").innerText =
             `${data.status} — ${data.description}`;
     } catch (e) {
@@ -1243,10 +1252,9 @@ async function loadThreatLevel() {
 // =========================
 async function loadThreatDistribution() {
     try {
-        const res = await fetch("https://anonlab.vercel.app/api/threat-distribution");
+        const res = await fetch("https://angelonline.altervista.org/api/threat-distribution.php");
         const data = await res.json();
 
-        // Mappa dei colori e ID
         const mapping = {
             ransomware: { bar: "bar-ransomware", pct: "pct-ransomware", trend: "trend-ransomware" },
             phishing:   { bar: "bar-phishing", pct: "pct-phishing", trend: "trend-phishing" },
@@ -1255,22 +1263,15 @@ async function loadThreatDistribution() {
             botnet:     { bar: "bar-botnet", pct: "pct-botnet", trend: "trend-botnet" }
         };
 
-        // Calcolo percentuali
         const total = data.reduce((sum, item) => sum + item.attacks, 0);
 
         data.forEach((item, index) => {
             const key = Object.keys(mapping)[index];
             const ids = mapping[key];
-
             const pct = Math.round((item.attacks / total) * 100);
 
-            // Aggiorna altezza barra
             document.getElementById(ids.bar).style.height = (pct * 2) + "px";
-
-            // Aggiorna percentuale
             document.getElementById(ids.pct).innerText = pct + "%";
-
-            // Aggiorna trend (placeholder)
             document.getElementById(ids.trend).innerText = pct > 50 ? "↑" : "→";
         });
 
@@ -1415,12 +1416,14 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadIntelNotes() {
   const container = document.getElementById("intel-notes");
   try {
-    const res = await fetch("https://anonlab.vercel.app/api/cisa");
+    const res = await fetch("https://angelonline.altervista.org/api/cisa.php");
     const data = await res.json();
+
     if (!data.alerts || !data.alerts.length) {
       container.innerHTML = `<p style="color:#ccc;">Nessuna nota disponibile.</p>`;
       return;
     }
+
     container.innerHTML = data.alerts.slice(0, 3).map(a => `
       <p style="color:#ccc; line-height:1.7;">
         <strong style="color:#00eaff;">${a.title}</strong><br>${a.summary}
