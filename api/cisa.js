@@ -1,47 +1,43 @@
-export default async function handler(req, res) {
-  // CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  const url = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json";
+async function loadCisaAlerts() {
+  const endpoint = "https://angelonline.altervista.org/api/cisa.php";
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(endpoint, {
       method: "GET",
       headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-          + "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-        "Accept": "application/json,*/*",
-        "Cache-Control": "no-cache",
-        "Pragma": "no-cache"
+        "Accept": "application/json"
       }
     });
 
-    const json = await response.json();
+    const data = await response.json();
 
-    let alerts = [];
-
-    if (json.vulnerabilities && Array.isArray(json.vulnerabilities)) {
-      alerts = json.vulnerabilities.slice(0, 5).map(v => ({
-        source: "CISA KEV",
-        title: v.cveID || "Vulnerabilità",
-        summary: v.shortDescription || "Nessuna descrizione disponibile."
-      }));
+    if (!data.alerts || !Array.isArray(data.alerts)) {
+      console.error("Formato JSON non valido:", data);
+      return;
     }
 
-    return res.status(200).json({ alerts });
+    // Rendering nel widget
+    const container = document.getElementById("cisa-alerts");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    data.alerts.forEach(alert => {
+      const item = document.createElement("div");
+      item.className = "cisa-item";
+
+      item.innerHTML = `
+        <strong>${alert.title}</strong><br>
+        <span>${alert.summary}</span>
+      `;
+
+      container.appendChild(item);
+    });
 
   } catch (error) {
-    return res.status(200).json({
-      alerts: [
-        {
-          source: "CISA",
-          title: "Errore nel proxy Vercel",
-          summary: error.toString()
-        }
-      ]
-    });
+    console.error("Errore nel caricamento CISA:", error);
   }
 }
+
+// Avvio automatico
+loadCisaAlerts();
