@@ -1374,6 +1374,21 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+			 <div class="cyber-box" style="background:#001122;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
+  <h3 style="color:#00eaff;">Incident Response — Live Panel</h3>
+  <p style="color:#ccc;margin-bottom:15px;">Stato degli incidenti attivi e in gestione.</p>
+
+  <table id="irTable" style="width:100%;color:#fff;border-collapse:collapse;">
+    <tr style="background:#002233;">
+      <th style="padding:10px;">ID</th>
+      <th style="padding:10px;">Tipo</th>
+      <th style="padding:10px;">Priorità</th>
+      <th style="padding:10px;">Stato</th>
+      <th style="padding:10px;">Aggiornato</th>
+    </tr>
+  </table>
+</div>
+
 <!-- ========================= -->
 <!-- SCRIPT PRINCIPALE CORRETTO -->
 <!-- ========================= -->
@@ -1764,6 +1779,48 @@ function loadTISummary() {
 
 loadTISummary();
 setInterval(loadTISummary, 30000);
+</script>
+
+	<script>
+async function loadIncidentResponse() {
+    try {
+        const res = await fetch("https://angelonline.altervista.org/soc/incident-response.php");
+        const data = await res.json();
+
+        const table = document.getElementById("irTable");
+
+        table.innerHTML = `
+            <tr style="background:#002233;">
+              <th style="padding:10px;">ID</th>
+              <th style="padding:10px;">Tipo</th>
+              <th style="padding:10px;">Priorità</th>
+              <th style="padding:10px;">Stato</th>
+              <th style="padding:10px;">Aggiornato</th>
+            </tr>
+        `;
+
+        data.forEach(inc => {
+            table.innerHTML += `
+                <tr>
+                  <td style="padding:10px;">${inc.id}</td>
+                  <td style="padding:10px;">${inc.type}</td>
+                  <td style="padding:10px;color:${inc.priority === 'High' ? '#ff4444' : inc.priority === 'Medium' ? '#ffaa00' : '#00ff99'};">
+                    ${inc.priority}
+                  </td>
+                  <td style="padding:10px;">${inc.status}</td>
+                  <td style="padding:10px;">${inc.updated}</td>
+                </tr>
+            `;
+        });
+
+    } catch (e) {
+        document.getElementById("irTable").innerHTML =
+            "<tr><td colspan='5' style='padding:10px;color:#f66;'>Errore caricamento dati</td></tr>";
+    }
+}
+
+loadIncidentResponse();
+setInterval(loadIncidentResponse, 60000);
 </script>
 
 </body>
