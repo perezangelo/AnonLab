@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-59178",
+    "summary": "ESPHome Device Builder: Renamed auth env vars silently disable dashboard authentication on upgrade",
+    "severity": "CRITICAL",
+    "published": "2026-09-14T18:08:57Z",
+    "ghsa": "GHSA-rrxg-g2pf-6hh4"
+  },
+  {
+    "id": "GHSA-2xmm-m4wv-3fjh",
+    "summary": "October CMS: Incomplete Scheme Validation in Image Resizer",
+    "severity": "LOW",
+    "published": "2026-09-14T17:15:44Z",
+    "ghsa": "GHSA-2xmm-m4wv-3fjh"
+  },
+  {
+    "id": "CVE-2026-49400",
+    "summary": "October CMS: PHP Object Injection via Backend Widget Session Storage",
+    "severity": "LOW",
+    "published": "2026-09-14T17:08:06Z",
+    "ghsa": "GHSA-2ff2-mx52-q8wp"
+  },
+  {
+    "id": "CVE-2026-46696",
+    "summary": "October CMS: Safe Mode Sandbox Bypass via Session Store and Forwarded Builder Calls",
+    "severity": "LOW",
+    "published": "2026-09-14T16:02:35Z",
+    "ghsa": "GHSA-xv9m-fm3w-8w5x"
+  },
+  {
     "id": "CVE-2026-56666",
     "summary": " ZITADEL: Auto-linking by email: IdP-side email verification is not checked",
     "severity": "MODERATE",
@@ -40,33 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-09-11T21:38:24Z",
     "ghsa": "GHSA-h8m9-jgf8-vwvp"
-  },
-  {
-    "id": "CVE-2026-56665",
-    "summary": "ZITADEL: Missing Token Expiration (`exp`) Validation in JWT IdP Provider",
-    "severity": "MODERATE",
-    "published": "2026-09-11T21:32:14Z",
-    "ghsa": "GHSA-v77h-2w3m-94hx"
-  },
-  {
-    "id": "CVE-2026-56825",
-    "summary": "Shopper: Missing authorization on product removal actions in CollectionProducts component",
-    "severity": "HIGH",
-    "published": "2026-09-11T21:31:26Z",
-    "ghsa": "GHSA-2cg9-97gq-9mqp"
-  },
-  {
-    "id": "CVE-2026-56830",
-    "summary": "Shopper: Media sub-form store() still lacks authorization (Incomplete fix for GHSA-h4mp-g9c6-xwph)",
-    "severity": "MODERATE",
-    "published": "2026-09-11T21:30:14Z",
-    "ghsa": "GHSA-99h5-jhh7-v3r3"
-  },
-  {
-    "id": "CVE-2026-56829",
-    "summary": "Shopper: Unauthorized inventory stock manipulation via unlocked variant property in VariantStock component",
-    "severity": "HIGH",
-    "published": "2026-09-11T21:29:20Z",
-    "ghsa": "GHSA-g3f9-g5vj-p62f"
   }
 ]
