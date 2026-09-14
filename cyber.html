@@ -1391,6 +1391,13 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+			 <div class="ti-section" style="margin-top:25px;">
+  <h4 class="ti-title">Zero‑Day Watchlist</h4>
+  <ul id="zero-day-watchlist" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento vulnerabilità...</li>
+  </ul>
+</div>
+
 <!-- ========================= -->
 <!-- SCRIPT PRINCIPALE CORRETTO -->
 <!-- ========================= -->
@@ -1869,6 +1876,28 @@ async function loadSocOpsStatus() {
 loadSocOpsStatus();
 setInterval(loadSocOpsStatus, 60000);
 </script>
+	
+<script>
+	async function loadZeroDayWatchlist() {
+  const el = document.getElementById("zero-day-watchlist");
+
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/zeroday.php");
+    const data = await res.json();
+
+    el.innerHTML = data.items.map(v => `
+      <li>
+        <strong style="color:#00eaff;">${v.cve}</strong> — ${v.desc}
+      </li>
+    `).join("");
+
+  } catch (e) {
+    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento.</li>`;
+  }
+}
+
+loadZeroDayWatchlist();
+	</script>	
 
 </body>
 </html>
