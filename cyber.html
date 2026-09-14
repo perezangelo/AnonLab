@@ -654,6 +654,42 @@ loadSupplyRisk();
 setInterval(loadSupplyRisk, 60000);
 </script>
 
+	<div class="ti-section" style="margin-top:25px;">
+  <h4 class="ti-title">Mini Incident Timeline</h4>
+
+  <p style="color:#999; font-size:13px; margin-top:6px; line-height:1.5;">
+    Sequenza sintetica degli eventi SOC rilevati nelle ultime ore. 
+    Evidenzia attività anomale, escalation e interventi effettuati 
+    dal team di sicurezza.
+  </p>
+
+  <ul id="incident-timeline" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+    <li>Caricamento timeline...</li>
+  </ul>
+</div>
+
+	<script>
+	async function loadIncidentTimeline() {
+  const el = document.getElementById("incident-timeline");
+
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/incidents.php");
+    const data = await res.json();
+
+    el.innerHTML = data.items.map(i => `
+      <li>
+        <strong style="color:#00eaff;">${i.time}</strong> — ${i.event}
+      </li>
+    `).join("");
+
+  } catch (e) {
+    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento.</li>`;
+  }
+}
+
+		loadIncidentTimeline();
+</script>
+
 <ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;"></ul>
 
 <script>
