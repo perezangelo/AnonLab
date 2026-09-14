@@ -654,16 +654,23 @@ loadSupplyRisk();
 setInterval(loadSupplyRisk, 60000);
 </script>
 
-	<div class="ti-section" style="margin-top:25px;">
-  <h4 class="ti-title">Mini Incident Timeline</h4>
+	<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #aa00ffcc;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #aa00ffcc;
+">
+  <h3 style="color:#aa00ff;">Mini Incident Timeline</h3>
 
-  <p style="color:#999; font-size:13px; margin-top:6px; line-height:1.5;">
+  <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
     Sequenza sintetica degli eventi SOC rilevati nelle ultime ore. 
     Evidenzia attività anomale, escalation e interventi effettuati 
     dal team di sicurezza.
   </p>
 
-  <ul id="incident-timeline" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+  <ul id="incident-timeline" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:12px;">
     <li>Caricamento timeline...</li>
   </ul>
 </div>
