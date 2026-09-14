@@ -1374,6 +1374,23 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+			 <!-- SOC OPERATIONS STATUS -->
+<div class="ti-section" style="margin-top:25px;">
+  <h4 class="ti-title">SOC Operations Status</h4>
+
+  <p style="color:#ccc; font-size:14px; line-height:1.6; margin-bottom:10px;">
+    Stato operativo del Security Operations Center: indicatori chiave aggiornati ogni minuto.
+    <br>
+    <a href="https://anonlab.it/soc.html" style="color:#00eaff; font-size:13px;">
+      Scopri come funziona un SOC →
+    </a>
+  </p>
+
+  <ul id="soc-ops-status" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+    <li>Caricamento stato SOC...</li>
+  </ul>
+</div>
+
 <!-- ========================= -->
 <!-- SCRIPT PRINCIPALE CORRETTO -->
 <!-- ========================= -->
@@ -1696,9 +1713,11 @@ async function loadOpsDashboard() {
 
 loadZeroDay();
 loadOpsDashboard();
+	loadSocOpsStatus();
 
 setInterval(loadZeroDay, 60000);
 setInterval(loadOpsDashboard, 60000);
+	setInterval(loadSocOpsStatus, 60000);
 </script>
 
     </section>
@@ -1829,6 +1848,25 @@ async function loadIncidentResponse() {
 
 loadIncidentResponse();
 setInterval(loadIncidentResponse, 60000);
+</script>
+
+	<script>
+async function loadSocOpsStatus() {
+  const el = document.getElementById("soc-ops-status");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/soc-status.php");
+    const data = await res.json();
+
+    el.innerHTML = data.status.map(s => `
+      <li>
+        <strong style="color:#00eaff;">${s.label}:</strong> ${s.value}
+      </li>
+    `).join("");
+
+  } catch (e) {
+    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento dello stato SOC.</li>`;
+  }
+}
 </script>
 
 </body>
