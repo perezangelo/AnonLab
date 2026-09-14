@@ -1713,11 +1713,9 @@ async function loadOpsDashboard() {
 
 loadZeroDay();
 loadOpsDashboard();
-	loadSocOpsStatus();
 
 setInterval(loadZeroDay, 60000);
 setInterval(loadOpsDashboard, 60000);
-	setInterval(loadSocOpsStatus, 60000);
 </script>
 
     </section>
@@ -1867,6 +1865,9 @@ async function loadSocOpsStatus() {
     el.innerHTML = `<li style="color:#f66;">Errore nel caricamento dello stato SOC.</li>`;
   }
 }
+
+loadSocOpsStatus();
+setInterval(loadSocOpsStatus, 60000);
 </script>
 
 </body>
