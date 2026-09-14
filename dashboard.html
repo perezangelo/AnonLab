@@ -1099,7 +1099,54 @@ startMalwareMonitor();
   startDarkWebSignals();
   </script>
 </div>
-		
+
+		<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Real‑Time Threat Surface Monitor</h3>
+
+  <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
+    Monitoraggio dinamico del panorama delle minacce globali. 
+    I dati provengono da feed pubblici aggiornati in tempo reale 
+    (CISA, NVD, Ransomware.live, ThreatFox).
+  </p>
+
+  <ul id="threat-surface" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:12px;">
+    <li>Caricamento dati...</li>
+  </ul>
+</div>
+
+		 /* ============================================================
+         Real‑Time Threat Surface Monitor (RTTSM) — Versione Reale Altervista
+     ============================================================ */
+
+		async function loadThreatSurface() {
+  const el = document.getElementById("threat-surface");
+
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
+    const d = await res.json();
+
+    el.innerHTML = `
+      <li><strong style="color:#00eaff;">CVE attive:</strong> ${d.cve}</li>
+      <li><strong style="color:#00eaff;">Exploit attivi:</strong> ${d.exploits}</li>
+      <li><strong style="color:#00eaff;">Gruppi ransomware attivi:</strong> ${d.ransom}</li>
+      <li><strong style="color:#00eaff;">Domini malevoli:</strong> ${d.malicious_domains}</li>
+      <li><strong style="color:#00eaff;">IOC aggiornati:</strong> ${d.ioc}</li>
+    `;
+  } catch (e) {
+    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento.</li>`;
+  }
+}
+
+loadThreatSurface();
+setInterval(loadThreatSurface, 60000);
+
 <script>
 function startThreatLevel() {
     const valueBox = document.getElementById("threat-value");
