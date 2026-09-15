@@ -1210,6 +1210,205 @@ loadIOCFeed();
 setInterval(loadIOCFeed, 60000);
 </script>
 
+		<div class="cyber-box" style="
+    background:#00101a;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">IOC Search</h3>
+
+  <input id="ioc-search" type="text" placeholder="Cerca un IOC..." 
+    style="width:100%; padding:10px; background:#000; color:#00eaff; border:1px solid #00eaff;">
+  
+  <div id="ioc-search-results" style="margin-top:20px; color:#ccc;"></div>
+</div>
+
+<script>
+let IOC_CACHE = [];
+
+async function loadIOCSearch() {
+  const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
+  const d = await res.json();
+  IOC_CACHE = d.ioc_list || [];
+}
+
+document.getElementById("ioc-search").addEventListener("input", function() {
+  const q = this.value.toLowerCase();
+  const box = document.getElementById("ioc-search-results");
+
+  if (!q) {
+    box.innerHTML = "";
+    return;
+  }
+
+  const results = IOC_CACHE.filter(i => i.toLowerCase().includes(q)).slice(0, 50);
+
+  if (results.length === 0) {
+    box.innerHTML = "<div style='color:#f66;'>Nessun risultato.</div>";
+    return;
+  }
+
+  box.innerHTML = results.map(i => `
+    <div style="padding:6px 0; border-bottom:1px solid #112;">
+      <span style="color:#00eaff;">IOC:</span> ${i}
+    </div>
+  `).join("");
+});
+
+loadIOCSearch();
+</script>
+
+<div class="cyber-box" style="
+    background:#001a11;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">IOC Analyzer</h3>
+
+  <input id="ioc-analyze" type="text" placeholder="Inserisci un IOC (URL/IP)" 
+    style="width:100%; padding:10px; background:#000; color:#00eaff; border:1px solid #00eaff;">
+  
+  <button onclick="analyzeIOC()" style="
+      margin-top:10px; padding:10px 20px; background:#00eaff; border:none; color:#000;">
+    Analizza
+  </button>
+
+  <div id="ioc-analysis" style="margin-top:20px; color:#ccc;"></div>
+</div>
+
+<script>
+async function analyzeIOC() {
+  const ioc = document.getElementById("ioc-analyze").value.trim();
+  const box = document.getElementById("ioc-analysis");
+
+  if (!ioc) {
+    box.innerHTML = "<div style='color:#f66;'>Inserisci un IOC.</div>";
+    return;
+  }
+
+  box.innerHTML = "Analisi in corso...";
+
+  try {
+    const whois = await fetch(`https://api.hackertarget.com/whois/?q=${ioc}`).then(r => r.text());
+    const dns = await fetch(`https://api.hackertarget.com/dnslookup/?q=${ioc}`).then(r => r.text());
+    const geo = await fetch(`https://api.hackertarget.com/geoip/?q=${ioc}`).then(r => r.text());
+
+    box.innerHTML = `
+      <pre style="color:#00eaff;">WHOIS:\n${whois}</pre>
+      <pre style="color:#00eaff;">DNS:\n${dns}</pre>
+      <pre style="color:#00eaff;">GeoIP:\n${geo}</pre>
+    `;
+  } catch (e) {
+    box.innerHTML = "<div style='color:#f66;'>Errore nell'analisi.</div>";
+  }
+}
+</script>
+
+		<div class="cyber-box" style="
+    background:#001a00;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">IOC Reputation</h3>
+
+  <input id="ioc-rep" type="text" placeholder="Inserisci un IOC (URL/IP)" 
+    style="width:100%; padding:10px; background:#000; color:#00eaff; border:1px solid #00eaff;">
+  
+  <button onclick="checkReputation()" style="
+      margin-top:10px; padding:10px 20px; background:#00eaff; border:none; color:#000;">
+    Verifica
+  </button>
+
+  <div id="ioc-rep-result" style="margin-top:20px; color:#ccc;"></div>
+</div>
+
+<script>
+const VT_KEY = "INSERISCI_LA_TUA_API_KEY";
+const ABUSE_KEY = "INSERISCI_LA_TUA_API_KEY";
+
+async function checkReputation() {
+  const ioc = document.getElementById("ioc-rep").value.trim();
+  const box = document.getElementById("ioc-rep-result");
+
+  if (!ioc) {
+    box.innerHTML = "<div style='color:#f66;'>Inserisci un IOC.</div>";
+    return;
+  }
+
+  box.innerHTML = "Verifica in corso...";
+
+  try {
+    const vt = await fetch(`https://www.virustotal.com/api/v3/urls/${btoa(ioc)}`, {
+      headers: { "x-apikey": VT_KEY }
+    }).then(r => r.json());
+
+    const abuse = await fetch(`https://api.abuseipdb.com/api/v2/check?ipAddress=${ioc}`, {
+      headers: { "Key": ABUSE_KEY, "Accept": "application/json" }
+    }).then(r => r.json());
+
+    box.innerHTML = `
+      <pre style="color:#00eaff;">VirusTotal:\n${JSON.stringify(vt, null, 2)}</pre>
+      <pre style="color:#00eaff;">AbuseIPDB:\n${JSON.stringify(abuse, null, 2)}</pre>
+    `;
+  } catch (e) {
+    box.innerHTML = "<div style='color:#f66;'>Errore nella reputazione.</div>";
+  }
+}
+</script>
+
+		<div class="cyber-box" style="
+    background:#000a14;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">IOC Timeline</h3>
+  <canvas id="ioc-chart" height="120"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+async function loadIOCTimeline() {
+  const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
+  const d = await res.json();
+
+  const ctx = document.getElementById("ioc-chart").getContext("2d");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["Oggi"],
+      datasets: [{
+        label: "IOC Totali",
+        data: [d.ioc_count],
+        borderColor: "#00eaff",
+        backgroundColor: "rgba(0,234,255,0.2)",
+        tension: 0.3
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+}
+
+loadIOCTimeline();
+</script>
+
 <script>
 function startThreatLevel() {
     const valueBox = document.getElementById("threat-value");
