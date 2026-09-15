@@ -1149,6 +1149,67 @@ loadThreatSurface();
 setInterval(loadThreatSurface, 60000);
 	</script>
 
+		<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">IOC Intelligence Feed</h3>
+
+  <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
+    Ultimi Indicatori di Compromissione (IOC) raccolti da URLhaus e ThreatFox.
+    Feed aggiornato in tempo reale tramite Cloudflare Workers.
+  </p>
+
+  <div id="ioc-feed" style="
+      margin-top:15px;
+      max-height:260px;
+      overflow-y:auto;
+      padding-right:10px;
+      color:#ccc;
+      font-size:14px;
+      line-height:1.6;
+  ">
+    <div>Caricamento IOC...</div>
+  </div>
+</div>
+
+<script>
+async function loadIOCFeed() {
+  const box = document.getElementById("ioc-feed");
+
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
+    const d = await res.json();
+
+    if (!d.ioc_list || d.ioc_list.length === 0) {
+      box.innerHTML = "<div style='color:#f66;'>Nessun IOC disponibile.</div>";
+      return;
+    }
+
+    let html = "";
+    d.ioc_list.slice(0, 200).forEach(ioc => {
+      html += `
+        <div style="padding:6px 0; border-bottom:1px solid #112;">
+          <span style="color:#00eaff;">IOC:</span> ${ioc}
+        </div>
+      `;
+    });
+
+    box.innerHTML = html;
+
+  } catch (e) {
+    box.innerHTML = "<div style='color:#f66;'>Errore nel caricamento IOC.</div>";
+  }
+}
+
+loadIOCFeed();
+setInterval(loadIOCFeed, 60000);
+</script>
+
 <script>
 function startThreatLevel() {
     const valueBox = document.getElementById("threat-value");
