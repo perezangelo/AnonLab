@@ -1,5 +1,60 @@
 [
   {
+    "title": "Hackers target WordPress sites via third-party WooCommerce plugin",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-target-wordpress-sites-via-third-party-woocommerce-plugin/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/03/wordpress.jpg"
+  },
+  {
+    "title": "What Zero-Day Response Should Be in the Post-Mythos Era",
+    "link": "https://www.bleepingcomputer.com/news/security/what-zero-day-response-should-be-in-the-post-mythos-era/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/10/picus-assembly-line.jpg"
+  },
+  {
+    "title": "Thai Broadband Provider Hacked via Fortinet Vulnerability",
+    "link": "https://www.securityweek.com/thai-broadband-provider-hacked-via-fortinet-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/01/broadband-internet-wi-fi.jpeg"
+  },
+  {
+    "title": "OpenAI Investigates Report Linking AI Agents to RubyGems Attack",
+    "link": "https://www.securityweek.com/openai-investigates-report-linking-ai-agents-to-rubygems-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Agent-AI-Security.jpg"
+  },
+  {
+    "title": "CISA: Critical VMware RCE flaw now exploited by ransomware gangs",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-critical-vmware-vcenter-rce-flaw-now-exploited-by-ransomware-gangs/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/11/18/VMware.jpg"
+  },
+  {
+    "title": "Protecting Tokens and Assertions from Forgery, Theft, and Misuse: Implementation Recommendations for Agencies and Cloud Service Providers",
+    "link": "https://www.cisa.gov/resources-tools/resources/protecting-tokens-and-assertions-forgery-theft-and-misuse-implementation-recommendations-agencies",
+    "image": ""
+  },
+  {
+    "title": "Human Attacker Exploits Marimo RCE, Reaches SSH Bastion in Eight Seconds",
+    "link": "https://thehackernews.com/2026/09/human-attacker-exploits-marimo-rce.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzWVpv5OsfVGAYPz4or_uMgVNDXTSzyXpTB8XLtCFHdzk9IliH8Aydez_Zo9hDGSj7__A0cFwnjKUpRWn5nn4CSd5wlaIJ1-BpU29tUyeh3pC63H_kXIn9ANQna1FBENp-td6TCC6z50ZEcAeNjAZMA-tIA9_x9nYrlHqbnJOijQpbeHsQmW5tKMczy4ek/s1600/marimo%20%281%29.jpg"
+  },
+  {
+    "title": "240,000 Hit by Data Breach at Japan\u2019s Digital Agency",
+    "link": "https://www.securityweek.com/240000-hit-by-data-breach-at-japans-digital-agency/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Japan.jpeg"
+  },
+  {
+    "title": "Attack Chains, Not Just Attack Surfaces: Why Testing Individual Techniques Misses the Point",
+    "link": "https://thehackernews.com/2026/09/attack-chains-not-just-attack-surfaces.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ5FtIC97mlzzBT1tKZW7igSSWnJsEI-gEDuUjX-_smFr3Q-loPw-bYG2rEqPBOFPOm0SeL3Go5NvyiJo_DbqnF7ECWdg1EA0DaUML5koDFnXi_lTpJ_Vuow5bsBeQvqLTN25x3O0seE7Qxv5o3S9KoIKuQAVIu7FTPPoZm6ly5XtS97tng5LAaw3tCCY/s1600/live.jpg"
+  },
+  {
+    "title": "Mass-Scanning Campaign Exploits Vite Flaw to Extract Cloud Credentials From Exposed Dev Servers",
+    "link": "https://thehackernews.com/2026/09/mass-scanning-campaign-exploits-vite.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDvoBVfJIN7YwGuf64F0CQWt9GrAVzaxDWGJetCrAGM_QgGEfpZm_I7f3FTkWBydY7v_iV4n8RWPAr4jfp7ZhN9DVbVZGDryBYlZiL6dn5RuYzLd811NH_sARdjbwWIpf9kOj-jtXfLzb7BTuy-iMpHbsgB9n8J5T7Hx0qp0D1_XeJR-ANcGQ5p88YH3fE/s1600/vite.jpg"
+  },
+  {
+    "title": "Apple Patches 200 Vulnerabilities With New iOS 27, macOS Golden Gate 27 Releases",
+    "link": "https://www.securityweek.com/apple-patches-200-vulnerabilities-with-new-ios-27-macos-golden-gate-27-releases/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
+  },
+  {
     "title": "Suspected Black Axe gang leaders face cybercrime charges in the US",
     "link": "https://www.bleepingcomputer.com/news/security/black-axe-gang-members-extradited-to-us-face-cybercrime-charges/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/24/Hackers_headpic.jpg"
@@ -75,11 +130,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2021/10/07/Twitch_headpic.jpg"
   },
   {
-    "title": "Hackers hijack HBO Max Reddit account to push malware in ClickFix ads",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-hijack-hbo-max-reddit-account-to-push-malware-in-clickfix-ads/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2021/06/18/hbo-max-header.jpg"
-  },
-  {
     "title": "New DDRop Attack Breaks Intel TDX and AMD SEV-SNP Confidential Computing",
     "link": "https://thehackernews.com/2026/09/new-ddrop-attack-breaks-intel-tdx-and.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4IfzHWVZbbX-Jlw_WME4viVgnupLfVdkxzfZ0skzjQpB5I32f-nua5-Gt6UJGJ9-cwTyrHqaCxBFndtNkIFx_Tj9sf3LnxfrqlecJ0zh0N83i5YRdukZRTpTiUP-kVrkpF4gMJZN-tONZy7jjk2gqdq87ELsUHDlyjQDFCIX6Rioz3ljHItZ2IeLDqb-w/s1600/DDRop.gif"
@@ -98,55 +148,5 @@
     "title": "Red Heron Exploits Gitea RCE to Compromise 13 Organizations Across Six Countries",
     "link": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijvj2lBIP05rWNCbhHf0wzhfJ35HBSL0rrr99VOwBa-AzBrvlz0hpopABC1zCHMLj6mqJTNSiij7cFcocgbHUyRbh1QV3V7OCWDLXn3fJ_fRJQxaj63BC8UOjjNlcBdwZ0jdD3zWDA6XpA3Xt2an-6vAE-kyo3sPOpjNa5tzWnntDxaeia-0zzKa-PuywC/s1600/gitea-hacked.jpg"
-  },
-  {
-    "title": "Anthropic CEO: Time to Shift From Improving to Controlling AI",
-    "link": "https://www.darkreading.com/cyber-risk/anthropic-ceo-shift-from-improving-to-controlling-ai",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdc1ceecd5c1e4406/6aa7f8ab9253248bcbbd9bdb/AI_agent_concept_Brain_light_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hackers target exposed Vite dev servers to steal AWS, Azure secrets",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-target-exposed-vite-dev-servers-to-steal-aws-azure-secrets/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
-  },
-  {
-    "title": "WordPress Adds Automated Plugin Reviews to Block High-Risk Updates Before Distribution",
-    "link": "https://thehackernews.com/2026/09/wordpress-adds-automated-plugin-reviews.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6NRxf0-3Ca12cwdQVS-bicsxwk-06KQZJaLMbd2d217NkuO82Bld3P_E96WP8OEqZXSjDoLtW0JfnRYkQSyl0BlQDNkQoBOf7x-Q5wOmpc59Z4v1ycux0YWShQpPIyvYmMmIRJ0c5Zv_38VFrhwtdcdoxycqIm0b5Df7AeYjbr-8KCJlbujHVhmpvdtrk/s1600/wordpress-auto.jpg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: Rogue AI Agents, WeChat Worm, PaperCut Attacks, AI Espionage, and Rootkits",
-    "link": "https://thehackernews.com/2026/09/weekly-recap-rogue-ai-agents-wechat.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgubijVX34VFFHDXzT2j2iTTWrHaElVXjylLKHKAjeSU59q3jTZvRM_O35zw5QOCnrT8ejrYHTG-kjYyt0-R127H_2qEgIWJNuKynEL1FcM9JLyPbsJPY5OZW9rrkJpRprrxpWP8oAGZA2ARZ3xg_0DvBw1I2wbIoXKItcVEjNXQH-CXCMRyuqp1u53ALj7/s1600/recap-cyber.jpg"
-  },
-  {
-    "title": "Beijing Hits Back at Anthropic CEO\u2019s Call to Curb China\u2019s AI Development",
-    "link": "https://www.securityweek.com/beijing-hits-back-at-anthropic-ceos-call-to-curb-chinas-ai-development/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Why Patch Automation Needs Brakes, Not Just an Accelerator",
-    "link": "https://www.bleepingcomputer.com/news/security/why-patch-automation-needs-brakes-not-just-an-accelerator/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/09/action1-cybersecurity-lock.jpg"
-  },
-  {
-    "title": "New Warnings About the Risks of AI to Humanity Revive a Long-Running Debate",
-    "link": "https://www.securityweek.com/new-warnings-about-the-risks-of-ai-to-humanity-revive-a-long-running-debate/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
-  },
-  {
-    "title": "Personal, Financial Info Exposed in Revolut Data Breach",
-    "link": "https://www.securityweek.com/personal-financial-info-exposed-in-revolut-data-breach/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Revolut.jpeg"
-  },
-  {
-    "title": "The Race to Control AI and Protect What Makes Us Human",
-    "link": "https://www.securityweek.com/the-race-to-control-ai-and-protect-what-makes-us-human/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/AI_Kill-Humanity.jpg"
-  },
-  {
-    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/09/14/cisa-adds-one-known-exploited-vulnerability-catalog",
-    "image": ""
   }
 ]
