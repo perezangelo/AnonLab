@@ -1,5 +1,40 @@
 [
   {
+    "title": "Acronis warns of actively exploited flaw in its cPanel backup plugin",
+    "link": "https://www.bleepingcomputer.com/news/security/acronis-warns-of-actively-exploited-flaw-in-its-cpanel-backup-plugin/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/26/Acronis.jpg"
+  },
+  {
+    "title": "Malcious Admin Menu Editor Pro plugin backdoors 1,500 WordPress sites",
+    "link": "https://www.bleepingcomputer.com/news/security/malcious-admin-menu-editor-pro-plugin-backdoors-1-500-wordpress-sites/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/18/WordPress.jpg"
+  },
+  {
+    "title": "Microsoft Commits to Sweeping AI Privacy Rules for Students. Will Other Tech Giants Follow?",
+    "link": "https://www.securityweek.com/microsoft-commits-to-sweeping-ai-privacy-rules-for-students-will-other-tech-giants-follow/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Microsoft Issues Emergency Fixes After Massive Patch Tuesday",
+    "link": "https://www.darkreading.com/application-security/microsoft-emergency-fixes-patch-tuesday",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf29a4f8e7f31399c/6aa99ef8490d641d3386d500/patching-da-kuk-Getty-2219524542.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "\u201cWe Think the Security Control Is Working\u201d Is No Longer Good Enough",
+    "link": "https://www.securityweek.com/we-think-the-security-control-is-working-is-no-longer-good-enough/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Black Hat USA 2026 | The 'Breaking' News: The OpenAI\u2013Hugging Face Incident",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/bhusa26huggingfacetalk",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt886d5ec4d2c71007/6aa99c49ca8ea7e099dd4980/huggingfacescreenshot.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "KREMLIN Banking Malware Hijacks Chrome and Edge to Steal Credentials and Session Tokens",
+    "link": "https://thehackernews.com/2026/09/kremlin-banking-malware-hijacks-chrome.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPTs6qupSdjinGg233zkoldOvlD4cva51loWufV3l9GrlDopNRIKsV9yluCDjbGELBAAvVGx_h4R-sjx4jvDp290Znzhv6j546sq5JB0NJUShGVV3w0gKU7nu4dBVCosaPeKW-Pr1_WHn4FV26aEJRgEo7oSJsgUE5_ZGCMKWPPBdZ7NMh5XRr04Cs6qTh/s1600/browser-malware.jpg"
+  },
+  {
     "title": "VectraRAT Can Hack Windows Enterprises for $250 per Month",
     "link": "https://www.darkreading.com/endpoint-security/vectrarat-hack-windows-enterprises",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdd19a1ede5fda05d/6aa9273ab525586149ce55e2/rat-David_Chapman-Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -113,40 +148,5 @@
     "title": "Human Attacker Exploits Marimo RCE, Reaches SSH Bastion in Eight Seconds",
     "link": "https://thehackernews.com/2026/09/human-attacker-exploits-marimo-rce.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzWVpv5OsfVGAYPz4or_uMgVNDXTSzyXpTB8XLtCFHdzk9IliH8Aydez_Zo9hDGSj7__A0cFwnjKUpRWn5nn4CSd5wlaIJ1-BpU29tUyeh3pC63H_kXIn9ANQna1FBENp-td6TCC6z50ZEcAeNjAZMA-tIA9_x9nYrlHqbnJOijQpbeHsQmW5tKMczy4ek/s1600/marimo%20%281%29.jpg"
-  },
-  {
-    "title": "240,000 Hit by Data Breach at Japan\u2019s Digital Agency",
-    "link": "https://www.securityweek.com/240000-hit-by-data-breach-at-japans-digital-agency/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Japan.jpeg"
-  },
-  {
-    "title": "Attack Chains, Not Just Attack Surfaces: Why Testing Individual Techniques Misses the Point",
-    "link": "https://thehackernews.com/2026/09/attack-chains-not-just-attack-surfaces.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ5FtIC97mlzzBT1tKZW7igSSWnJsEI-gEDuUjX-_smFr3Q-loPw-bYG2rEqPBOFPOm0SeL3Go5NvyiJo_DbqnF7ECWdg1EA0DaUML5koDFnXi_lTpJ_Vuow5bsBeQvqLTN25x3O0seE7Qxv5o3S9KoIKuQAVIu7FTPPoZm6ly5XtS97tng5LAaw3tCCY/s1600/live.jpg"
-  },
-  {
-    "title": "Mass-Scanning Campaign Exploits Vite Flaw to Extract Cloud Credentials From Exposed Dev Servers",
-    "link": "https://thehackernews.com/2026/09/mass-scanning-campaign-exploits-vite.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDvoBVfJIN7YwGuf64F0CQWt9GrAVzaxDWGJetCrAGM_QgGEfpZm_I7f3FTkWBydY7v_iV4n8RWPAr4jfp7ZhN9DVbVZGDryBYlZiL6dn5RuYzLd811NH_sARdjbwWIpf9kOj-jtXfLzb7BTuy-iMpHbsgB9n8J5T7Hx0qp0D1_XeJR-ANcGQ5p88YH3fE/s1600/vite.jpg"
-  },
-  {
-    "title": "Apple Patches 200 Vulnerabilities With New iOS 27, macOS Golden Gate 27 Releases",
-    "link": "https://www.securityweek.com/apple-patches-200-vulnerabilities-with-new-ios-27-macos-golden-gate-27-releases/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
-  },
-  {
-    "title": "Suspected Black Axe gang leaders face cybercrime charges in the US",
-    "link": "https://www.bleepingcomputer.com/news/security/black-axe-gang-members-extradited-to-us-face-cybercrime-charges/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/24/Hackers_headpic.jpg"
-  },
-  {
-    "title": "Microsoft AI Code of Conduct Sets Cyberattack Boundaries, Chain of Command, Safety Constraints",
-    "link": "https://www.securityweek.com/microsoft-ai-code-of-conduct-sets-cyberattack-boundaries-chain-of-command-safety-constraints/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/AI-artificial-intelligence-training.jpeg"
-  },
-  {
-    "title": "Hacked HBO Max Reddit Account Used for Malware Delivery via ClickFix Attack",
-    "link": "https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/Reddit.jpeg"
   }
 ]
