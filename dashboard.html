@@ -1138,7 +1138,7 @@ startMalwareMonitor();
       <li><strong style="color:#00eaff;">Exploit attivi:</strong> ${d.exploits}</li>
       <li><strong style="color:#00eaff;">Gruppi ransomware attivi:</strong> ${d.ransom}</li>
       <li><strong style="color:#00eaff;">Domini malevoli:</strong> ${d.malicious_domains}</li>
-      <li><strong style="color:#00eaff;">IOC aggiornati:</strong> ${d.ioc}</li>
+      <li><strong style="color:#00eaff;">IOC aggiornati:</strong> ${d.ioc_count}</li>
     `;
   } catch (e) {
     el.innerHTML = `<li style="color:#f66;">Errore nel caricamento.</li>`;
