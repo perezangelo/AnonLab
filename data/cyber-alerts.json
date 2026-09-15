@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-76081",
-    "summary": "ZITADEL: Improper Role Revocation on Granted Projects during Multiple Role Deletions",
-    "severity": "MODERATE",
-    "published": "2026-09-14T21:31:37Z",
-    "ghsa": "GHSA-v859-c572-qh5p"
-  },
-  {
-    "id": "CVE-2026-56668",
-    "summary": "ZITADEL: Unauthorized Token Privilege Escalation in OAuth2 Token Exchange",
+    "id": "CVE-2026-88975",
+    "summary": "Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE",
     "severity": "HIGH",
-    "published": "2026-09-14T21:28:23Z",
-    "ghsa": "GHSA-vrh8-c9cm-wh8v"
+    "published": "2026-09-15T20:01:22Z",
+    "ghsa": "GHSA-gq9p-f254-h286"
   },
   {
-    "id": "CVE-2026-59178",
-    "summary": "ESPHome Device Builder: Renamed auth env vars silently disable dashboard authentication on upgrade",
-    "severity": "CRITICAL",
-    "published": "2026-09-14T18:08:57Z",
-    "ghsa": "GHSA-rrxg-g2pf-6hh4"
-  },
-  {
-    "id": "GHSA-2xmm-m4wv-3fjh",
-    "summary": "October CMS: Incomplete Scheme Validation in Image Resizer",
-    "severity": "LOW",
-    "published": "2026-09-14T17:15:44Z",
-    "ghsa": "GHSA-2xmm-m4wv-3fjh"
-  },
-  {
-    "id": "CVE-2026-49400",
-    "summary": "October CMS: PHP Object Injection via Backend Widget Session Storage",
-    "severity": "LOW",
-    "published": "2026-09-14T17:08:06Z",
-    "ghsa": "GHSA-2ff2-mx52-q8wp"
-  },
-  {
-    "id": "CVE-2026-46696",
-    "summary": "October CMS: Safe Mode Sandbox Bypass via Session Store and Forwarded Builder Calls",
-    "severity": "LOW",
-    "published": "2026-09-14T16:02:35Z",
-    "ghsa": "GHSA-xv9m-fm3w-8w5x"
-  },
-  {
-    "id": "CVE-2026-56666",
-    "summary": " ZITADEL: Auto-linking by email: IdP-side email verification is not checked",
-    "severity": "MODERATE",
-    "published": "2026-09-11T22:13:21Z",
-    "ghsa": "GHSA-992q-9gwp-7r79"
-  },
-  {
-    "id": "CVE-2026-61534",
-    "summary": "yayson: Prototype pollution in Store/LegacyStore deserialization",
-    "severity": "CRITICAL",
-    "published": "2026-09-11T22:11:38Z",
-    "ghsa": "GHSA-325j-mg25-8q58"
-  },
-  {
-    "id": "CVE-2026-59148",
-    "summary": "@Mockoon/commons-server: Unauthenticated admin API + wildcard CORS allows mock-state hijack and secret theft",
+    "id": "CVE-2026-61544",
+    "summary": "libp2p-quic: Remote panic via certificate expiry race during QUIC handshake",
     "severity": "HIGH",
-    "published": "2026-09-11T22:04:42Z",
-    "ghsa": "GHSA-rqx4-3f6q-3x2v"
+    "published": "2026-09-15T20:01:17Z",
+    "ghsa": "GHSA-5hq8-qhww-jm7q"
   },
   {
-    "id": "CVE-2026-59149",
-    "summary": "@Mockoon/commons-server: Path traversal in templated `filePath` lets a request escape the served directory (prefix-only base check)",
+    "id": "CVE-2026-69201",
+    "summary": "Http4s: ResourceService and Webjar Service path escape via percent-encoded separators",
     "severity": "MODERATE",
-    "published": "2026-09-11T22:04:32Z",
-    "ghsa": "GHSA-8wqc-v2q8-vff2"
+    "published": "2026-09-15T20:01:12Z",
+    "ghsa": "GHSA-crq5-92j2-j7wv"
+  },
+  {
+    "id": "CVE-2026-69218",
+    "summary": "Http4s Ember HTTP/2: unbounded continuation frame accumulation",
+    "severity": "HIGH",
+    "published": "2026-09-15T20:01:08Z",
+    "ghsa": "GHSA-cp4q-fqw9-4hf6"
+  },
+  {
+    "id": "CVE-2026-69216",
+    "summary": "Http4s: Ember chunk parser lenience (TE.TE request smuggling)",
+    "severity": "MODERATE",
+    "published": "2026-09-15T20:01:00Z",
+    "ghsa": "GHSA-jrpm-956j-96jg"
+  },
+  {
+    "id": "CVE-2026-69215",
+    "summary": "Http4s: CookieJar middleware matches by substring, leaking cookies cross-origin",
+    "severity": "MODERATE",
+    "published": "2026-09-15T20:00:54Z",
+    "ghsa": "GHSA-grh8-3p95-f9rr"
+  },
+  {
+    "id": "CVE-2026-69214",
+    "summary": "Http4s: CookieJar middleware accepts arbitrary Set-Cookie domain",
+    "severity": "MODERATE",
+    "published": "2026-09-15T20:00:43Z",
+    "ghsa": "GHSA-wv64-j4fq-5f9x"
+  },
+  {
+    "id": "CVE-2026-69213",
+    "summary": "Http4s Ember HTTP/2 has an unbounded outbound frame queue",
+    "severity": "HIGH",
+    "published": "2026-09-15T20:00:36Z",
+    "ghsa": "GHSA-8f3q-3jmv-7prw"
+  },
+  {
+    "id": "CVE-2026-69208",
+    "summary": "Http4s: DigestAuth nonce map grows unbounded",
+    "severity": "HIGH",
+    "published": "2026-09-15T19:54:37Z",
+    "ghsa": "GHSA-fm4g-76c9-7w69"
+  },
+  {
+    "id": "CVE-2026-69206",
+    "summary": "Http4s: DigestAuth allows replay of captured requests",
+    "severity": "MODERATE",
+    "published": "2026-09-15T19:54:32Z",
+    "ghsa": "GHSA-9xww-74xv-gjfp"
   }
 ]
