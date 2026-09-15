@@ -1130,7 +1130,7 @@ startMalwareMonitor();
   const el = document.getElementById("threat-surface");
 
   try {
-    const res = await fetch("soc/threat-surface.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
     const d = await res.json();
 
     el.innerHTML = `
