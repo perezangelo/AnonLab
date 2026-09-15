@@ -1197,10 +1197,30 @@ async function loadIOCFeed() {
     }
 
     let html = "";
+
     d.ioc_list.slice(0, 200).forEach(ioc => {
       html += `
-        <div style="padding:6px 0; border-bottom:1px solid #112;">
-          <span style="color:#00eaff;">IOC:</span> ${ioc}
+        <div style="
+          padding:12px;
+          margin-bottom:12px;
+          border:1px solid #00eaff55;
+          border-radius:6px;
+          background:#001021;
+          box-shadow:0 0 8px #00eaff55;
+        ">
+          <div style="color:#00eaff; font-weight:bold; font-size:15px;">
+            ${ioc.ip_address}:${ioc.port}
+          </div>
+
+          <div style="color:#ccc; font-size:13px; margin-top:6px;">
+            <strong style="color:#00eaff;">Malware:</strong> ${ioc.malware}<br>
+            <strong style="color:#00eaff;">Stato:</strong> ${ioc.status}<br>
+            <strong style="color:#00eaff;">Paese:</strong> ${ioc.country}<br>
+            <strong style="color:#00eaff;">ASN:</strong> ${ioc.as_name} (${ioc.as_number})<br>
+            <strong style="color:#00eaff;">Hostname:</strong> ${ioc.hostname ?? "N/A"}<br>
+            <strong style="color:#00eaff;">First Seen:</strong> ${ioc.first_seen}<br>
+            <strong style="color:#00eaff;">Last Online:</strong> ${ioc.last_online}
+          </div>
         </div>
       `;
     });
