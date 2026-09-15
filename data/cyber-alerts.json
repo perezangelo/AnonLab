@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-61559",
+    "summary": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
+    "severity": "CRITICAL",
+    "published": "2026-09-15T20:57:28Z",
+    "ghsa": "GHSA-2h44-8472-frjj"
+  },
+  {
+    "id": "CVE-2026-61568",
+    "summary": "@zereight/mcp-gitlab: DNS rebinding reaches local Streamable HTTP MCP transport",
+    "severity": "CRITICAL",
+    "published": "2026-09-15T20:54:55Z",
+    "ghsa": "GHSA-vmp7-252j-cwp7"
+  },
+  {
+    "id": "GHSA-5648-rgj9-v224",
+    "summary": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list bypass, unauthenticated transports, session-exhaustion DoS",
+    "severity": "HIGH",
+    "published": "2026-09-15T20:48:22Z",
+    "ghsa": "GHSA-5648-rgj9-v224"
+  },
+  {
+    "id": "CVE-2026-61554",
+    "summary": "emp3r0r has an unauthenticated HTTP Polling DoS",
+    "severity": "HIGH",
+    "published": "2026-09-15T20:47:17Z",
+    "ghsa": "GHSA-4595-rvpx-4q34"
+  },
+  {
     "id": "CVE-2026-88975",
     "summary": "Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE",
     "severity": "HIGH",
@@ -40,33 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-09-15T20:00:54Z",
     "ghsa": "GHSA-grh8-3p95-f9rr"
-  },
-  {
-    "id": "CVE-2026-69214",
-    "summary": "Http4s: CookieJar middleware accepts arbitrary Set-Cookie domain",
-    "severity": "MODERATE",
-    "published": "2026-09-15T20:00:43Z",
-    "ghsa": "GHSA-wv64-j4fq-5f9x"
-  },
-  {
-    "id": "CVE-2026-69213",
-    "summary": "Http4s Ember HTTP/2 has an unbounded outbound frame queue",
-    "severity": "HIGH",
-    "published": "2026-09-15T20:00:36Z",
-    "ghsa": "GHSA-8f3q-3jmv-7prw"
-  },
-  {
-    "id": "CVE-2026-69208",
-    "summary": "Http4s: DigestAuth nonce map grows unbounded",
-    "severity": "HIGH",
-    "published": "2026-09-15T19:54:37Z",
-    "ghsa": "GHSA-fm4g-76c9-7w69"
-  },
-  {
-    "id": "CVE-2026-69206",
-    "summary": "Http4s: DigestAuth allows replay of captured requests",
-    "severity": "MODERATE",
-    "published": "2026-09-15T19:54:32Z",
-    "ghsa": "GHSA-9xww-74xv-gjfp"
   }
 ]
