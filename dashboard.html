@@ -1196,26 +1196,60 @@ async function loadIOCFeed() {
       return;
     }
 
+    // Ordinamento: malware più critici in alto
+    const criticalOrder = ["QakBot", "Emotet", "TrickBot", "IcedID", "Mozi", "Mirai"];
+    d.ioc_list.sort((a, b) => {
+      const ai = criticalOrder.indexOf(a.malware);
+      const bi = criticalOrder.indexOf(b.malware);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
+
     let html = "";
 
     d.ioc_list.slice(0, 200).forEach(ioc => {
+
+      // Badge malware colorati
+      let malwareColor = "#00eaff";
+      if (ioc.malware?.toLowerCase().includes("qakbot")) malwareColor = "#ff4444";
+      if (ioc.malware?.toLowerCase().includes("emotet")) malwareColor = "#ff8800";
+      if (ioc.malware?.toLowerCase().includes("mozi")) malwareColor = "#44ff44";
+      if (ioc.malware?.toLowerCase().includes("mirai")) malwareColor = "#bb44ff";
+
+      // Stato online/offline
+      const statusIcon = ioc.status === "online" ? "🟢" : "🔴";
+
+      // Flag paese
+      const countryFlag = ioc.country 
+        ? ioc.country.replace(/./g, c => 
+            String.fromCodePoint(0x1F1E6 - 65 + c.charCodeAt(0))
+          )
+        : "🏳️";
+
       html += `
         <div style="
-          padding:12px;
-          margin-bottom:12px;
+          padding:14px;
+          margin-bottom:14px;
           border:1px solid #00eaff55;
-          border-radius:6px;
+          border-radius:8px;
           background:#001021;
-          box-shadow:0 0 8px #00eaff55;
+          box-shadow:0 0 10px #00eaff55;
         ">
-          <div style="color:#00eaff; font-weight:bold; font-size:15px;">
-            ${ioc.ip_address}:${ioc.port}
+          <div style="color:#00eaff; font-weight:bold; font-size:16px;">
+            ${statusIcon} ${ioc.ip_address}:${ioc.port}
           </div>
 
-          <div style="color:#ccc; font-size:13px; margin-top:6px;">
-            <strong style="color:#00eaff;">Malware:</strong> ${ioc.malware}<br>
-            <strong style="color:#00eaff;">Stato:</strong> ${ioc.status}<br>
-            <strong style="color:#00eaff;">Paese:</strong> ${ioc.country}<br>
+          <div style="
+            color:${malwareColor};
+            font-weight:bold;
+            margin-top:6px;
+            font-size:15px;
+            text-shadow:0 0 6px ${malwareColor};
+          ">
+            ${ioc.malware}
+          </div>
+
+          <div style="color:#ccc; font-size:13px; margin-top:8px; line-height:1.6;">
+            <strong style="color:#00eaff;">Paese:</strong> ${countryFlag} (${ioc.country})<br>
             <strong style="color:#00eaff;">ASN:</strong> ${ioc.as_name} (${ioc.as_number})<br>
             <strong style="color:#00eaff;">Hostname:</strong> ${ioc.hostname ?? "N/A"}<br>
             <strong style="color:#00eaff;">First Seen:</strong> ${ioc.first_seen}<br>
