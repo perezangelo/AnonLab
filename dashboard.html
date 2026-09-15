@@ -1149,7 +1149,11 @@ loadThreatSurface();
 setInterval(loadThreatSurface, 60000);
 	</script>
 
-		<div class="cyber-box" style="
+		<!-- ============================
+     IOC INTELLIGENCE FEED
+     ============================ -->
+
+<div class="cyber-box" style="
     background:#000814;
     border:1px solid #00eaffaa;
     padding:25px;
@@ -1160,8 +1164,10 @@ setInterval(loadThreatSurface, 60000);
   <h3 style="color:#00eaff;">IOC Intelligence Feed</h3>
 
   <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
-    Ultimi Indicatori di Compromissione (IOC) raccolti da URLhaus e ThreatFox.
-    Feed aggiornato in tempo reale tramite Cloudflare Workers.
+    Gli IOC (Indicatori di Compromissione) sono elementi della rete — URL, domini o indirizzi IP —
+    utilizzati in attività malevole come malware, phishing o ransomware.
+    Questo feed mostra gli ultimi IOC rilevati dai principali servizi di threat intelligence
+    tramite il proxy Cloudflare Workers.
   </p>
 
   <div id="ioc-feed" style="
@@ -1210,15 +1216,25 @@ loadIOCFeed();
 setInterval(loadIOCFeed, 60000);
 </script>
 
-		<div class="cyber-box" style="
+		<!-- ============================
+     IOC SEARCH
+     ============================ -->
+
+<div class="cyber-box" style="
     background:#00101a;
     border:1px solid #00eaffaa;
     padding:25px;
-    margin-top:30px;
+    margin-top:40px;
     border-radius:8px;
     box-shadow:0 0 12px #00eaffaa;
 ">
+
   <h3 style="color:#00eaff;">IOC Search</h3>
+
+  <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
+    Cerca rapidamente un dominio, URL o indirizzo IP per verificare se è stato
+    segnalato come malevolo nei feed globali.
+  </p>
 
   <input id="ioc-search" type="text" placeholder="Cerca un IOC..." 
     style="width:100%; padding:10px; background:#000; color:#00eaff; border:1px solid #00eaff;">
@@ -1261,15 +1277,25 @@ document.getElementById("ioc-search").addEventListener("input", function() {
 loadIOCSearch();
 </script>
 
+<!-- ============================
+     IOC ANALYZER
+     ============================ -->
+
 <div class="cyber-box" style="
     background:#001a11;
     border:1px solid #00eaffaa;
     padding:25px;
-    margin-top:30px;
+    margin-top:40px;
     border-radius:8px;
     box-shadow:0 0 12px #00eaffaa;
 ">
+
   <h3 style="color:#00eaff;">IOC Analyzer</h3>
+
+  <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
+    Analizza un IOC per ottenere informazioni WHOIS, DNS e geolocalizzazione del server.
+    Utile per capire chi ha registrato un dominio e dove si trova.
+  </p>
 
   <input id="ioc-analyze" type="text" placeholder="Inserisci un IOC (URL/IP)" 
     style="width:100%; padding:10px; background:#000; color:#00eaff; border:1px solid #00eaff;">
@@ -1310,15 +1336,25 @@ async function analyzeIOC() {
 }
 </script>
 
-		<div class="cyber-box" style="
+		<!-- ============================
+     IOC REPUTATION
+     ============================ -->
+
+<div class="cyber-box" style="
     background:#001a00;
     border:1px solid #00eaffaa;
     padding:25px;
-    margin-top:30px;
+    margin-top:40px;
     border-radius:8px;
     box-shadow:0 0 12px #00eaffaa;
 ">
+
   <h3 style="color:#00eaff;">IOC Reputation</h3>
+
+  <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
+    Verifica la reputazione di un IOC tramite VirusTotal e AbuseIPDB.
+    Richiede API Key personali.
+  </p>
 
   <input id="ioc-rep" type="text" placeholder="Inserisci un IOC (URL/IP)" 
     style="width:100%; padding:10px; background:#000; color:#00eaff; border:1px solid #00eaff;">
@@ -1365,15 +1401,25 @@ async function checkReputation() {
 }
 </script>
 
-		<div class="cyber-box" style="
+		<!-- ============================
+     IOC TIMELINE
+     ============================ -->
+
+<div class="cyber-box" style="
     background:#000a14;
     border:1px solid #00eaffaa;
     padding:25px;
-    margin-top:30px;
+    margin-top:40px;
     border-radius:8px;
     box-shadow:0 0 12px #00eaffaa;
 ">
+
   <h3 style="color:#00eaff;">IOC Timeline</h3>
+
+  <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
+    Andamento degli IOC rilevati oggi. In futuro potrai aggiungere uno storico.
+  </p>
+
   <canvas id="ioc-chart" height="120"></canvas>
 </div>
 
