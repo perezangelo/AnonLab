@@ -4,26 +4,17 @@ fetch("/data/news.json")
     const container = document.getElementById("tech-container");
     if (!container) return;
 
-    // Categorie considerate "tech"
     const techCategories = [
-      "ai",
-      "security",
-      "strategy",
-      "threat",
-      "intelligence",
-      "technology",
-      "tech"
+      "ai", "security", "strategy", "threat", "intelligence", "technology", "tech"
     ];
 
     const filtered = news.filter(n =>
-      techCategories.some(cat =>
-        n.category.toLowerCase().includes(cat)
-      )
+      techCategories.some(cat => n.category.toLowerCase().includes(cat))
     );
 
     container.innerHTML = filtered.map(item => `
       <article class="news-card">
-        <img src="${item.img}" class="news-thumb" alt="${item.title}">
+        <img src="${item.img}" class="news-thumb" alt="${item.title || 'Notizia tecnologia'}">
         <div class="news-content">
           <span class="news-category">${item.category}</span>
           <h3 class="news-title">${item.title}</h3>
