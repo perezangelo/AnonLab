@@ -1,12 +1,8 @@
 /* ============================
-   HOME NEWS — FEED MULTIPLO CYBER (versione corretta)
+   HOME NEWS — FEED MULTIPLO CYBER (versione definitiva)
    - The Hacker News
    - HackRead (via proxy PHP AlterVista)
    - DarkReading
-   - BleepingComputer
-   - SecurityWeek
-   - CyberNews
-   - CISA Alerts
 ============================ */
 
 async function loadHomeNews() {
@@ -17,14 +13,19 @@ async function loadHomeNews() {
     const feeds = [
         "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
 
-        // ⭐ HackRead via proxy AlterVista (XML)
+        // ⭐ PATCH DEFINITIVA HackRead via proxy PHP AlterVista
         "https://angelonline.altervista.org/api/hackread.php",
 
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.bleepingcomputer.com/feed/",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/securityweek",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://cybernews.com/feed/",
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.cisa.gov/news.xml"
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
+    ];
+
+    // Link esterni personalizzati (in ordine)
+    const externalLinks = [
+        "https://www.ctm360.com/blog/govtrap-campaign",
+        "https://www.netskope.com/blog/work-moved-into-the-browser-security-didnt",
+        "https://www.rubrik.com/blog/why-your-backups-might-not-save-you",
+        "https://www.securityweek.com/anthropic-mcp-design-flaw-rce-risk",
+        "https://www.gartner.com/en/articles/threat-intelligence-missing-link-ctem"
     ];
 
     // Loader iniziale
@@ -40,60 +41,64 @@ async function loadHomeNews() {
     try {
         let allItems = [];
 
-        /* ============================
-           CARICAMENTO PARALLELO — Promise.allSettled()
-           (non blocca gli altri feed se uno fallisce)
-        ============================= */
-        const results = await Promise.allSettled(
-            feeds.map(async url => {
-                const response = await fetch(url);
+        // CARICAMENTO MULTI-FEED
+        for (const url of feeds) {
+            try {
+                const res = await fetch(url);
 
-                // ⭐ HackRead (XML)
+                // ⭐ PATCH: HackRead → XML parsing via proxy PHP
                 if (url.includes("hackread.php")) {
-                    const xmlText = await response.text();
+                    const xmlText = await res.text();
                     const xml = new DOMParser().parseFromString(xmlText, "text/xml");
 
-                    return [...xml.querySelectorAll("item")].map(item => ({
+                    const items = [...xml.querySelectorAll("item")].map(item => ({
                         title: item.querySelector("title")?.textContent || "",
                         link: item.querySelector("link")?.textContent || "",
                         description: item.querySelector("description")?.textContent || "",
                         pubDate: item.querySelector("pubDate")?.textContent || "",
                         categories: [...item.querySelectorAll("category")].map(c => c.textContent)
                     }));
+
+                    allItems = allItems.concat(items);
+                    continue; // evita JSON rss2json
                 }
 
-                // ⭐ Feed RSS2JSON (JSON)
-                const data = await response.json();
-                return data.items || [];
-            })
-        );
+                // ⭐ Feed normali via RSS2JSON
+                const data = await res.json();
 
-        // Unisci tutti i risultati validi
-        results.forEach(result => {
-            if (result.status === "fulfilled") {
-                allItems = allItems.concat(result.value);
+                if (data.items && Array.isArray(data.items)) {
+                    allItems = allItems.concat(data.items);
+                }
+            } catch (err) {
+                console.warn("Errore nel feed:", url, err);
             }
-        });
+        }
 
         // FALLBACK — nessun feed disponibile
         if (allItems.length === 0) {
+            console.warn("Nessun feed disponibile. Uso fallback locale.");
             allItems = [
                 {
-                    title: "Nessun feed disponibile",
-                    description: "I servizi esterni non rispondono.",
+                    title: "CTM360 Exposes Global GovTrap Campaign...",
+                    description: "Analisi della campagna GovTrap e delle sue implicazioni sulla sicurezza globale.",
                     pubDate: new Date().toISOString(),
                     categories: ["Cyber"],
                     thumbnail: "/img/default-news.jpg",
-                    link: "#"
+                    link: "https://www.ctm360.com/blog/govtrap-campaign"
+                },
+                {
+                    title: "Work Moved Into the Browser...",
+                    description: "Perché la sicurezza del browser è la nuova frontiera della difesa aziendale.",
+                    pubDate: new Date().toISOString(),
+                    categories: ["Security"],
+                    thumbnail: "/img/default-news.jpg",
+                    link: "https://www.netskope.com/blog/work-moved-into-the-browser-security-didnt"
                 }
             ];
         }
 
-        /* ============================
-           ORDINAMENTO PER DATA
-           + aumento limite articoli
-        ============================= */
-        const maxNews = 20;
+        // ORDINAMENTO PER DATA E LIMITE NEWS
+        const maxNews = 8;
 
         allItems = allItems
             .map(item => ({
@@ -103,9 +108,7 @@ async function loadHomeNews() {
             .sort((a, b) => b.parsedDate - a.parsedDate)
             .slice(0, maxNews);
 
-        /* ============================
-           RENDERING NEWS
-        ============================= */
+        // RENDERING NEWS
         container.innerHTML = allItems
             .map((item, index) => {
                 const category =
@@ -113,7 +116,7 @@ async function loadHomeNews() {
                         ? item.categories[0]
                         : "News";
 
-                // FIX IMMAGINI
+                // FIX IMMAGINI MANCANTI / NON VALIDE / BLOCCATE
                 const image =
                     (item.thumbnail && item.thumbnail.startsWith("http")) ? item.thumbnail :
                     (item.image && item.image.startsWith("http")) ? item.image :
@@ -128,8 +131,7 @@ async function loadHomeNews() {
                     ? item.parsedDate.toLocaleDateString("it-IT")
                     : "Oggi";
 
-                // ⭐ CORREZIONE: usa SOLO il link originale
-                const link = item.link || "#";
+                const link = externalLinks[index] || item.link || "#";
 
                 return `
                     <article class="news-card" id="news-${index + 1}">
@@ -144,9 +146,9 @@ async function loadHomeNews() {
 
                             <p class="news-excerpt">${excerpt}</p>
 
-                            <a href="${link}" class="news-link" target="_blank" rel="noopener noreferrer">
-                                Leggi l'articolo →
-                            </a>
+<a href="${link}" class="news-link" target="_blank" rel="noopener noreferrer">
+    Leggi l'articolo: ${item.title} →
+</a>
                         </div>
                     </article>
                 `;
@@ -158,7 +160,9 @@ async function loadHomeNews() {
 
         container.innerHTML = `
             <article class="news-card">
-                <img src="/img/default-news.jpg" class="news-thumb" alt="Immagine predefinita">
+                <img src="/img/default-news.jpg" 
+     class="news-thumb" 
+     alt="Immagine predefinita per notizia">
                 <div class="news-content">
                     <h3 class="news-title">Impossibile caricare le news</h3>
                     <p class="news-excerpt">Il feed esterno non risponde. Riprova più tardi.</p>
