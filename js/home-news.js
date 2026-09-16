@@ -160,7 +160,9 @@ async function loadHomeNews() {
 
         container.innerHTML = `
             <article class="news-card">
-                <img src="/img/default-news.jpg" class="news-thumb">
+                <img src="/img/default-news.jpg" 
+     class="news-thumb" 
+     alt="Immagine predefinita per notizia">
                 <div class="news-content">
                     <h3 class="news-title">Impossibile caricare le news</h3>
                     <p class="news-excerpt">Il feed esterno non risponde. Riprova più tardi.</p>
