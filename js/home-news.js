@@ -146,9 +146,9 @@ async function loadHomeNews() {
 
                             <p class="news-excerpt">${excerpt}</p>
 
-                            <a href="${link}" class="news-link" target="_blank" rel="noopener noreferrer">
-                                Leggi di più →
-                            </a>
+<a href="${link}" class="news-link" target="_blank" rel="noopener noreferrer">
+    Leggi l'articolo: ${item.title} →
+</a>
                         </div>
                     </article>
                 `;
