@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-68904",
-    "summary": "node-opcua: TCP Socket Leak (FIN-WAIT-2) via keepalive reconnection cycle - Resource Exhaustion",
+    "id": "CVE-2026-61709",
+    "summary": "OpenFGA: ListUsers returns a deliberately-excluded user when a `but not` exclusion under a type-bound wildcard is intersected (`and`) with another relation that also grants that user",
+    "severity": "MODERATE",
+    "published": "2026-09-16T22:15:09Z",
+    "ghsa": "GHSA-g3pg-frfm-pr2m"
+  },
+  {
+    "id": "CVE-2026-58657",
+    "summary": "Grav: Stored CSS injection via Markdown image resize() bypasses prior media style sanitizers in Grav",
+    "severity": "MODERATE",
+    "published": "2026-09-16T22:14:53Z",
+    "ghsa": "GHSA-ffmg-hfvg-jhg9"
+  },
+  {
+    "id": "CVE-2026-63671",
+    "summary": "@nuxtjs/mdc's URL sanitizer misses SVG xlink:href and data:text/html, allowing XSS from untrusted markdown at the default configuration",
     "severity": "HIGH",
-    "published": "2026-09-16T16:19:21Z",
-    "ghsa": "GHSA-r2pf-9cw4-5j65"
+    "published": "2026-09-16T22:14:01Z",
+    "ghsa": "GHSA-mxm6-v9r6-r94c"
   },
   {
-    "id": "CVE-2026-61593",
-    "summary": "djust has Cross-Site Request Forgery on the Server-Sent-Events transport: a cross-origin page can drive a victim-authenticated SSE session",
+    "id": "CVE-2026-63128",
+    "summary": "RMCP: Unauthenticated permanent session-table leak in rmcp Streamable HTTP server transport leads to remote denial-of-service",
     "severity": "HIGH",
-    "published": "2026-09-16T15:45:03Z",
-    "ghsa": "GHSA-pg97-jvmf-qfvc"
+    "published": "2026-09-16T22:13:34Z",
+    "ghsa": "GHSA-9pj6-vhgr-3mwh"
   },
   {
-    "id": "CVE-2025-59953",
-    "summary": "LMdeploy has Remote Code Execution by Pickle Deserialization via zmq_rpc.call_and_response() in InterLM/lmdeploy",
-    "severity": "CRITICAL",
-    "published": "2026-09-16T15:34:27Z",
-    "ghsa": "GHSA-5h8j-6crg-7rmw"
-  },
-  {
-    "id": "CVE-2026-61595",
-    "summary": "djust: Multi-tenant isolation fails open on the WebSocket/SSE path, disclosing other tenants' data",
+    "id": "CVE-2026-63127",
+    "summary": "RMCP: Missing Resource Field Validation in OAuth Protected Resource Metadata Discovery",
     "severity": "HIGH",
-    "published": "2026-09-16T15:32:10Z",
-    "ghsa": "GHSA-3492-cvg7-9mr2"
+    "published": "2026-09-16T22:13:26Z",
+    "ghsa": "GHSA-33f5-2c5q-wgwj"
   },
   {
-    "id": "CVE-2026-61598",
-    "summary": "djust: Client mass-assignment of arbitrary view attributes via the default dj-model update_model handler",
+    "id": "CVE-2026-61453",
+    "summary": "Grav: XSS Blueprint Validation Bypass via Twig String Concatenation",
+    "severity": "MODERATE",
+    "published": "2026-09-16T22:13:17Z",
+    "ghsa": "GHSA-2c4f-86xc-cr74"
+  },
+  {
+    "id": "CVE-2026-57173",
+    "summary": "vLLM: Unauthenticated audio decompression-bomb DoS in /v1/chat/completions",
+    "severity": "MODERATE",
+    "published": "2026-09-16T22:12:17Z",
+    "ghsa": "GHSA-hcwq-8wjf-3gcr"
+  },
+  {
+    "id": "CVE-2026-59193",
+    "summary": "Grav CMS — Improper Handling of Highly Compressed Data in Installer::unZip()",
+    "severity": "MODERATE",
+    "published": "2026-09-16T22:12:10Z",
+    "ghsa": "GHSA-2vcx-h8p2-9pg9"
+  },
+  {
+    "id": "CVE-2026-61599",
+    "summary": "djust has an unauthenticated arbitrary module import via the WebSocket/SSE view-mount path",
     "severity": "HIGH",
-    "published": "2026-09-16T13:55:48Z",
-    "ghsa": "GHSA-cc7c-9jff-58wj"
+    "published": "2026-09-16T22:09:38Z",
+    "ghsa": "GHSA-7prp-2623-8g45"
   },
   {
-    "id": "CVE-2026-81192",
-    "summary": "OpenTelemetry.Resources.Host vulnerable to arbitrary code execution via local PATH hijacking on macOS",
-    "severity": "HIGH",
-    "published": "2026-09-16T13:54:16Z",
-    "ghsa": "GHSA-v8pv-4842-x354"
-  },
-  {
-    "id": "CVE-2026-61590",
-    "summary": "djust's observability endpoints are network-exposed: the localhost gate is an opt-in middleware the docs omit, and the views enforce only DEBUG",
-    "severity": "HIGH",
-    "published": "2026-09-16T13:49:19Z",
-    "ghsa": "GHSA-8g2f-g3gq-5rjv"
-  },
-  {
-    "id": "CVE-2026-61560",
-    "summary": "@zereight/mcp-gitlab: Unauthenticated arbitrary file read via `upload_markdown` enables PAT exfiltration and full account takeover",
-    "severity": "CRITICAL",
-    "published": "2026-09-16T13:48:28Z",
-    "ghsa": "GHSA-cv3r-c5h8-f4g5"
-  },
-  {
-    "id": "CVE-2026-61559",
-    "summary": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
-    "severity": "CRITICAL",
-    "published": "2026-09-15T20:57:28Z",
-    "ghsa": "GHSA-2h44-8472-frjj"
-  },
-  {
-    "id": "CVE-2026-61568",
-    "summary": "@zereight/mcp-gitlab: DNS rebinding reaches local Streamable HTTP MCP transport",
-    "severity": "CRITICAL",
-    "published": "2026-09-15T20:54:55Z",
-    "ghsa": "GHSA-vmp7-252j-cwp7"
+    "id": "CVE-2026-61589",
+    "summary": "djust: WebSocket/runtime reconstructed request omits the client Host, causing host/subdomain TenantResolvers to misresolve the tenant on the live path",
+    "severity": "MODERATE",
+    "published": "2026-09-16T22:07:52Z",
+    "ghsa": "GHSA-v9rj-xjfv-xj9r"
   }
 ]
