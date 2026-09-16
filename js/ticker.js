@@ -64,10 +64,9 @@ function buildTickerTrain() {
                 margin-right:40px;
                 text-shadow:0 0 8px ${neon};
             ">
-                <img src="${img}" style="
-                    height:20px;width:20px;object-fit:cover;
-                    border-radius:4px;margin-right:6px;
-                ">
+                <img src="${img}" 
+     alt="${item.title || 'Notizia cyber'}"
+     style="height:20px;width:20px;object-fit:cover;border-radius:4px;margin-right:6px;">
                 <span style="margin-right:6px;">${icon}</span>
                 <span>${item.title}</span>
             </a>
