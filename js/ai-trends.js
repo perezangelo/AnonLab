@@ -9,9 +9,10 @@ fetch('https://angelonline.altervista.org/api/ai-trends.php')
           
           <!-- IMMAGINE PICCOLA A SINISTRA -->
           <img src="${item.image}" 
-               alt="" 
-               class="tech-thumb" 
-               style="width:90px;height:auto;border-radius:6px;flex-shrink:0;">
+     alt="${item.title || 'AI trend'}"
+     width="90" height="60"
+     class="tech-thumb"
+     style="width:90px;height:auto;border-radius:6px;flex-shrink:0;">
 
           <!-- TESTO A DESTRA -->
           <div class="box-content" style="flex:1;">
