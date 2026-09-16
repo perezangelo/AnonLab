@@ -1,5 +1,61 @@
 [
   {
+    "id": "CVE-2026-68904",
+    "summary": "node-opcua: TCP Socket Leak (FIN-WAIT-2) via keepalive reconnection cycle - Resource Exhaustion",
+    "severity": "HIGH",
+    "published": "2026-09-16T16:19:21Z",
+    "ghsa": "GHSA-r2pf-9cw4-5j65"
+  },
+  {
+    "id": "CVE-2026-61593",
+    "summary": "djust has Cross-Site Request Forgery on the Server-Sent-Events transport: a cross-origin page can drive a victim-authenticated SSE session",
+    "severity": "HIGH",
+    "published": "2026-09-16T15:45:03Z",
+    "ghsa": "GHSA-pg97-jvmf-qfvc"
+  },
+  {
+    "id": "CVE-2025-59953",
+    "summary": "LMdeploy has Remote Code Execution by Pickle Deserialization via zmq_rpc.call_and_response() in InterLM/lmdeploy",
+    "severity": "CRITICAL",
+    "published": "2026-09-16T15:34:27Z",
+    "ghsa": "GHSA-5h8j-6crg-7rmw"
+  },
+  {
+    "id": "CVE-2026-61595",
+    "summary": "djust: Multi-tenant isolation fails open on the WebSocket/SSE path, disclosing other tenants' data",
+    "severity": "HIGH",
+    "published": "2026-09-16T15:32:10Z",
+    "ghsa": "GHSA-3492-cvg7-9mr2"
+  },
+  {
+    "id": "CVE-2026-61598",
+    "summary": "djust: Client mass-assignment of arbitrary view attributes via the default dj-model update_model handler",
+    "severity": "HIGH",
+    "published": "2026-09-16T13:55:48Z",
+    "ghsa": "GHSA-cc7c-9jff-58wj"
+  },
+  {
+    "id": "CVE-2026-81192",
+    "summary": "OpenTelemetry.Resources.Host vulnerable to arbitrary code execution via local PATH hijacking on macOS",
+    "severity": "HIGH",
+    "published": "2026-09-16T13:54:16Z",
+    "ghsa": "GHSA-v8pv-4842-x354"
+  },
+  {
+    "id": "CVE-2026-61590",
+    "summary": "djust's observability endpoints are network-exposed: the localhost gate is an opt-in middleware the docs omit, and the views enforce only DEBUG",
+    "severity": "HIGH",
+    "published": "2026-09-16T13:49:19Z",
+    "ghsa": "GHSA-8g2f-g3gq-5rjv"
+  },
+  {
+    "id": "CVE-2026-61560",
+    "summary": "@zereight/mcp-gitlab: Unauthenticated arbitrary file read via `upload_markdown` enables PAT exfiltration and full account takeover",
+    "severity": "CRITICAL",
+    "published": "2026-09-16T13:48:28Z",
+    "ghsa": "GHSA-cv3r-c5h8-f4g5"
+  },
+  {
     "id": "CVE-2026-61559",
     "summary": "@zereight/mcp-gitlab Vulnerable to Server-Side Request Forgery",
     "severity": "CRITICAL",
@@ -12,61 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-09-15T20:54:55Z",
     "ghsa": "GHSA-vmp7-252j-cwp7"
-  },
-  {
-    "id": "GHSA-5648-rgj9-v224",
-    "summary": "@zereight/mcp-gitlab has multiple safety-control bypasses: execute_graphql read-only + allow-list bypass, unauthenticated transports, session-exhaustion DoS",
-    "severity": "HIGH",
-    "published": "2026-09-15T20:48:22Z",
-    "ghsa": "GHSA-5648-rgj9-v224"
-  },
-  {
-    "id": "CVE-2026-61554",
-    "summary": "emp3r0r has an unauthenticated HTTP Polling DoS",
-    "severity": "HIGH",
-    "published": "2026-09-15T20:47:17Z",
-    "ghsa": "GHSA-4595-rvpx-4q34"
-  },
-  {
-    "id": "CVE-2026-88975",
-    "summary": "Http4s: Ember HTTP/2 buffers a frame's declared payload before checking SETTINGS_MAX_FRAME_SIZE",
-    "severity": "HIGH",
-    "published": "2026-09-15T20:01:22Z",
-    "ghsa": "GHSA-gq9p-f254-h286"
-  },
-  {
-    "id": "CVE-2026-61544",
-    "summary": "libp2p-quic: Remote panic via certificate expiry race during QUIC handshake",
-    "severity": "HIGH",
-    "published": "2026-09-15T20:01:17Z",
-    "ghsa": "GHSA-5hq8-qhww-jm7q"
-  },
-  {
-    "id": "CVE-2026-69201",
-    "summary": "Http4s: ResourceService and Webjar Service path escape via percent-encoded separators",
-    "severity": "MODERATE",
-    "published": "2026-09-15T20:01:12Z",
-    "ghsa": "GHSA-crq5-92j2-j7wv"
-  },
-  {
-    "id": "CVE-2026-69218",
-    "summary": "Http4s Ember HTTP/2: unbounded continuation frame accumulation",
-    "severity": "HIGH",
-    "published": "2026-09-15T20:01:08Z",
-    "ghsa": "GHSA-cp4q-fqw9-4hf6"
-  },
-  {
-    "id": "CVE-2026-69216",
-    "summary": "Http4s: Ember chunk parser lenience (TE.TE request smuggling)",
-    "severity": "MODERATE",
-    "published": "2026-09-15T20:01:00Z",
-    "ghsa": "GHSA-jrpm-956j-96jg"
-  },
-  {
-    "id": "CVE-2026-69215",
-    "summary": "Http4s: CookieJar middleware matches by substring, leaking cookies cross-origin",
-    "severity": "MODERATE",
-    "published": "2026-09-15T20:00:54Z",
-    "ghsa": "GHSA-grh8-3p95-f9rr"
   }
 ]
