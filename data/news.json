@@ -1,5 +1,75 @@
 [
   {
+    "title": "US, UK, Dutch Agencies Expose Iranian \u2018Chosen Brick\u2019 Surveillance Malware",
+    "link": "https://www.securityweek.com/us-uk-dutch-agencies-expose-iranian-chosen-brick-surveillance-malware/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Iran-Cyberattacks.jpg"
+  },
+  {
+    "title": "Unauthenticated RCE Flaws Could Expose 200,000+ WordPress Sites to Takeover",
+    "link": "https://www.securityweek.com/unauthenticated-rce-flaws-could-expose-200000-wordpress-sites-to-takeover/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+  },
+  {
+    "title": "Google Patches Pixel Modem Flaw Amid Signs of Limited Targeted Exploitation",
+    "link": "https://thehackernews.com/2026/09/google-patches-pixel-modem-flaw-amid.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdVCezHTU2PU4DuL9ysF0nQFJLLR2QyxyexdJN5iv1QQnl4-mFFupADzryOhW_lsM_nI5OgHH5krMBLOErLl9GNmyJeaGEDGQNnhhyphenhyphenNs2ZXIwBLTIY8poIVxLKPNRRAipPFbKv_a7CPzE86rB_nItrsiirydPRuCZrvkDymktX28d1O7kSbEhIgmEPh6oy/s1600/pixel.jpg"
+  },
+  {
+    "title": "Threat Intelligence Alone Won't Close the Exploitation Gap",
+    "link": "https://thehackernews.com/2026/09/threat-intelligence-alone-wont-close.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNTaZ2mJpwks9AMkwh4I_Q5sK5sgj01Fd4eW4c47_ZsHN_8hKPjptnlJ_P0RboejQy7PB6Ad4UXLFggJXAGlVsBigp46txL8LoSlpMuwQ0sXkAPQZ4TYtg89jNIa6SLPxuv-YC-_LlNZq2FZdNHRnrP_iQUYPSj2-MzugjnlL_CrIJw80lMzbVCZEf0x8/s1600/pentera.jpg"
+  },
+  {
+    "title": "Critical ScreenConnect flaw now actively exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-screenconnect-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect-headpic.jpg"
+  },
+  {
+    "title": "Hackuity Raises $19 Million for AI-Powered Vulnerability Management",
+    "link": "https://www.securityweek.com/hackuity-raises-19-million-for-ai-powered-vulnerability-management/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Acronis cPanel Backup Plugin Vulnerability Exploited in Targeted Attacks",
+    "link": "https://thehackernews.com/2026/09/acronis-cpanel-backup-plugin.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOvbeWtAztd1-F4zbNa4Ei7kEh-C7s4QGW-rmB8ug7-mXRIcdL_mAqtAA_hqAG7QtaHUMTxSYa5dFw0080LoR66SUCPLGybqueRLeUJvQQ6unmg4WqExx08rrv0NZaZkQldGURtIDMZRpregBaFLhjws2d_eRt0I0VcZdaSGZS6twj0AvBK74TAJx-veBz/s1600/acronis.jpg"
+  },
+  {
+    "title": "280,000 Impacted by Premier Medical Group Data Breach",
+    "link": "https://www.securityweek.com/280000-impacted-by-premier-medical-group-data-breach/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
+  },
+  {
+    "title": "Chrome, Firefox Updates Patch 115 Vulnerabilities",
+    "link": "https://www.securityweek.com/chrome-firefox-updates-patch-115-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Chrome-Firefox.jpeg"
+  },
+  {
+    "title": "Acronis Patches Exploited Vulnerability in cPanel Backup Plugin",
+    "link": "https://www.securityweek.com/acronis-patches-exploited-vulnerability-in-cpanel-backup-plugin/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/vulnerability-software-bug.webp"
+  },
+  {
+    "title": "Windows Server 2022 reaches end of mainstream support next month",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-server-2022-reaches-end-of-mainstream-support-next-month/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/27/Windows_Server.jpg"
+  },
+  {
+    "title": "Enterprises Warned of Attacks Exploiting WSO2 Vulnerability",
+    "link": "https://www.securityweek.com/enterprises-warned-of-attacks-exploiting-wso2-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Vulnerability-Databases.jpg"
+  },
+  {
+    "title": "Oracle Patches 800+ Vulnerabilities in September 2026 Security Update",
+    "link": "https://www.securityweek.com/oracle-patches-800-vulnerabilities-in-september-2026-security-update/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Oracle.jpeg"
+  },
+  {
+    "title": "Google fixes actively exploited Android zero-day on Pixel devices",
+    "link": "https://www.bleepingcomputer.com/news/security/google-fixes-actively-exploited-android-zero-day-on-pixel-devices/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/Google-Pixel-11-Pro-Fold.jpg"
+  },
+  {
     "title": "Attackers Exploit WooCommerce Wholesale Lead Capture Flaw to Plant PHP Web Shells",
     "link": "https://thehackernews.com/2026/09/attackers-exploit-woocommerce-wholesale.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaDJy8WPrkf8CE0D66EluNlAxZjtSyl-SeLt9BmCzqINPxm9H08ACj6o1nZWYQxcR5FYK-RrzDRXe014EEAMDH1wBa-SSXV1HNXJyLZsOWzNxU533Err9iI0Z_PQwy2Z6pY3LkGMSB2xKwQPIJe5mXgCJFeeUGj8qDKSmA9I9RS0MNl7jtlUhqkVPOkIfL/s1600/wordpress-shell.jpg"
@@ -65,21 +135,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZTZstgI7jZKSq2kVj82ewI26neoU-YsSa1z0LIJdjqdsCSk8zS3VYdvhFyfE0rq75UOlst77oTDBZ-mVzRDaqljLl-jJrvxWzLBmj74k8kWFjld5o2uTB59tskHlBqM0JTuf5yuTMsWMBuE-Y_2LtkIfKT-l9C-h5Y5rvkAJKlIGD5rQLbUuWRNx8y5k/s1600/iran-malware.jpg"
   },
   {
-    "title": "$1 Million Sandbox Challenge Uncovers Linux Kernel Flaws",
-    "link": "https://www.securityweek.com/1-million-sandbox-challenge-uncovers-linux-kernel-flaws/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Linux-vulnerability-malware.jpeg"
-  },
-  {
-    "title": "Exein Secures $270M at $1.7B Valuation for Physical AI Security",
-    "link": "https://www.securityweek.com/exein-secures-270m-at-1-7b-valuation-for-physical-ai-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cybersecurity-funding.jpeg"
-  },
-  {
-    "title": "Texas Utility CenterPoint Energy Confirms Breach After Hacker Leaks Data",
-    "link": "https://www.securityweek.com/texas-utility-centerpoint-energy-confirms-breach-after-hacker-leaks-data/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/CenterPoint-Energy.jpeg"
-  },
-  {
     "title": "BambooToken Malware Uses MQTT to Control Windows and Linux Systems",
     "link": "https://thehackernews.com/2026/09/bambootoken-malware-uses-mqtt-to.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7hFIl_GRAlPuegwLGZ2PzXVsPEUTEevpEYhkU2Va9isB7aC8a0jJCLVszVOUc_CAIb4IkIkmRjkvyaTIadUizNNEhHTxvzlPX0EUN6UQutjyrauyi35fzRtBjFudyOW4HlAnTRNC9XDj39uNBMKUWHUV2g0Rt8o3aSADZAeAIYgLN-dT0q8gIH9cWUDBF/s1600/windows-linux.jpg"
@@ -93,60 +148,5 @@
     "title": "Hackers target WordPress sites via third-party WooCommerce plugin",
     "link": "https://www.bleepingcomputer.com/news/security/hackers-target-wordpress-sites-via-third-party-woocommerce-plugin/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/03/wordpress.jpg"
-  },
-  {
-    "title": "What Zero-Day Response Should Be in the Post-Mythos Era",
-    "link": "https://www.bleepingcomputer.com/news/security/what-zero-day-response-should-be-in-the-post-mythos-era/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/10/picus-assembly-line.jpg"
-  },
-  {
-    "title": "Thai Broadband Provider Hacked via Fortinet Vulnerability",
-    "link": "https://www.securityweek.com/thai-broadband-provider-hacked-via-fortinet-vulnerability/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/01/broadband-internet-wi-fi.jpeg"
-  },
-  {
-    "title": "OpenAI Investigates Report Linking AI Agents to RubyGems Attack",
-    "link": "https://www.securityweek.com/openai-investigates-report-linking-ai-agents-to-rubygems-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Agent-AI-Security.jpg"
-  },
-  {
-    "title": "CISA: Critical VMware RCE flaw now exploited by ransomware gangs",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-critical-vmware-vcenter-rce-flaw-now-exploited-by-ransomware-gangs/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/11/18/VMware.jpg"
-  },
-  {
-    "title": "Protecting Tokens and Assertions from Forgery, Theft, and Misuse: Implementation Recommendations for Agencies and Cloud Service Providers",
-    "link": "https://www.cisa.gov/resources-tools/resources/protecting-tokens-and-assertions-forgery-theft-and-misuse-implementation-recommendations-agencies",
-    "image": ""
-  },
-  {
-    "title": "Digital Watchdog VMAX DVR and NVR Product Lineups",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-01",
-    "image": ""
-  },
-  {
-    "title": "mySCADA myPRO Manager",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-03",
-    "image": ""
-  },
-  {
-    "title": "Schneider Electric SCADAPack x70 Products",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-04",
-    "image": ""
-  },
-  {
-    "title": "Siemens Teamcenter",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-07",
-    "image": ""
-  },
-  {
-    "title": "Siemens Mendix SAML",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-06",
-    "image": ""
-  },
-  {
-    "title": "W\u00e4rtsil\u00e4 FOS-Onboard",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-02",
-    "image": ""
   }
 ]
