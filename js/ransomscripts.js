@@ -47,10 +47,11 @@ function startRansomTracker() {
                     safeStatus.toLowerCase() === "inactive" ? "#555" :
                     "#0066ff";
 
-                const iconHTML = safeIcon
-                    ? `<img src="${safeIcon}" style="width:24px;height:24px;margin-right:6px;border-radius:4px;">`
-                    : `<div style="width:24px;height:24px;background:#333;margin-right:6px;border-radius:4px;"></div>`;
-
+                const iconHTML = safeIcon ? 
+  `<img src="${safeIcon}" 
+        alt="${safeGroup || 'Icona gruppo ransomware'}"
+        style="width:24px;height:24px;margin-right:6px;border-radius:4px;">` 
+  : ...
                 const leakHTML = safeLeak
                     ? `<a href="${safeLeak}" target="_blank" style="color:#0ff;font-size:12px;">Leak Site</a>`
                     : `<span style="color:#555;font-size:12px;">No Leak Site</span>`;
@@ -144,9 +145,11 @@ function showRansomPopup(data) {
     const leak = data.leak || "";
     const icon = data.icon || "";
 
-    const iconBlock = icon
-        ? `<img src="${icon}" style="width:32px;height:32px;margin-bottom:10px;border-radius:4px;">`
-        : "";
+    const iconBlock = icon ? 
+  `<img src="${icon}" 
+        alt="${group || 'Icona gruppo ransomware'}"
+        style="width:32px;height:32px;margin-bottom:10px;border-radius:4px;">` 
+  : "";
 
     popup.innerHTML = `
         <div style="display:flex;flex-direction:column;align-items:flex-start;">
