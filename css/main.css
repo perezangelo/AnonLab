@@ -379,21 +379,19 @@ h3 {
 
 /* Loghi feed */
 .feed-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .feed-logos img {
-    width: 43px;
-    height: 47px;
-    object-fit: contain;
-    display: block;
-    border-radius: 6px;
-    opacity: 0.95;
+  width: calc(20% - 6px);
+  max-width: 60px;
+  height: auto;
+  border-radius: 6px;
+  opacity: 0.95;
 }
 
 /* ============================================================
