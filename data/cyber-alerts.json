@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-75831",
-    "summary": "Grav: Stored XSS via Markdown audio/video media <source> URL",
-    "severity": "MODERATE",
-    "published": "2026-09-17T17:31:41Z",
-    "ghsa": "GHSA-6qw9-4vv5-jr97"
-  },
-  {
-    "id": "CVE-2026-86038",
-    "summary": "libp2p: Gossipsub StrictSign accepts attacker-signed messages as a victim RSA peer ID",
+    "id": "CVE-2026-72695",
+    "summary": "Grav: Path Traversal in MediaUploadTrait::deleteFile() Allows Arbitrary File Deletion",
     "severity": "HIGH",
-    "published": "2026-09-17T17:29:31Z",
-    "ghsa": "GHSA-c3gv-825q-fvmp"
+    "published": "2026-09-17T20:34:05Z",
+    "ghsa": "GHSA-jq29-c7v8-rg55"
   },
   {
-    "id": "CVE-2026-72832",
-    "summary": "Grav: Stored XSS via quoted-attribute bypass in detectXss",
-    "severity": "MODERATE",
-    "published": "2026-09-17T17:28:34Z",
-    "ghsa": "GHSA-269c-h76q-8cxw"
-  },
-  {
-    "id": "CVE-2026-85717",
-    "summary": "AsyncHttpClient re-sends client-wide realm credentials to a cross-origin redirect target",
-    "severity": "MODERATE",
-    "published": "2026-09-17T17:19:31Z",
-    "ghsa": "GHSA-f8m2-889x-vw4x"
-  },
-  {
-    "id": "CVE-2026-85720",
-    "summary": "AsyncHttpClient sends origin credentials to the proxy on the plaintext CONNECT request",
-    "severity": "MODERATE",
-    "published": "2026-09-17T17:19:12Z",
-    "ghsa": "GHSA-xr57-gcx8-52hf"
-  },
-  {
-    "id": "CVE-2026-85721",
-    "summary": "AsyncHttpClient's unbounded HTTP/1.1 response decompression enables a decompression-bomb denial of service",
+    "id": "CVE-2026-86003",
+    "summary": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
     "severity": "HIGH",
-    "published": "2026-09-17T17:18:56Z",
-    "ghsa": "GHSA-7grg-jcf7-rpmx"
+    "published": "2026-09-17T20:33:05Z",
+    "ghsa": "GHSA-9gm5-9rfh-m6vx"
   },
   {
-    "id": "CVE-2026-85716",
-    "summary": "AsyncHttpClient doesn't verify SCRAM and Digest mutual-authentication responses",
-    "severity": "LOW",
-    "published": "2026-09-17T17:18:39Z",
-    "ghsa": "GHSA-fj9w-c36g-h5x8"
+    "id": "CVE-2026-86000",
+    "summary": "Soup Sieve: Polynomial-time ReDoS (O(n²)) in the `IDENTIFIER` / `VALUE` selector sub-patterns",
+    "severity": "MODERATE",
+    "published": "2026-09-17T20:32:58Z",
+    "ghsa": "GHSA-gjv8-xp57-g29c"
   },
   {
-    "id": "CVE-2026-85756",
-    "summary": "SSH.NET: ScpClient allows server-side RCE via default SCP path handling",
+    "id": "CVE-2026-85999",
+    "summary": "Soup Sieve: Polynomial-time ReDoS (O(n²)) in the whitespace/comment trimming regex `RE_WS_END` (triggers on VALID selectors)",
+    "severity": "MODERATE",
+    "published": "2026-09-17T20:32:53Z",
+    "ghsa": "GHSA-j934-xhv5-fg8f"
+  },
+  {
+    "id": "CVE-2026-88976",
+    "summary": "@platejs/core HTML deserialization can trigger browser behavior during parsing",
+    "severity": "MODERATE",
+    "published": "2026-09-17T20:32:47Z",
+    "ghsa": "GHSA-qrfj-mgw8-j9c6"
+  },
+  {
+    "id": "CVE-2026-84997",
+    "summary": "react/http: A malformed HTTP chunked body can lead to a denial-of-service and peg the CPU",
     "severity": "HIGH",
-    "published": "2026-09-17T17:18:01Z",
-    "ghsa": "GHSA-mggc-4xg6-vcxf"
+    "published": "2026-09-17T20:32:39Z",
+    "ghsa": "GHSA-x424-64qh-5j54"
   },
   {
-    "id": "CVE-2026-73245",
-    "summary": "Kestra: Unauthenticated management/actuator endpoints exposed on port 8081 (/env, /loggers) bypass API basic-auth",
-    "severity": "MODERATE",
-    "published": "2026-09-17T17:17:55Z",
-    "ghsa": "GHSA-hpj9-grjp-7vc7"
+    "id": "CVE-2026-82399",
+    "summary": "CoreDNS: Unauthenticated memory exhaustion in custom transports",
+    "severity": "HIGH",
+    "published": "2026-09-17T20:32:27Z",
+    "ghsa": "GHSA-mrg3-qvqr-jw29"
   },
   {
-    "id": "CVE-2026-69147",
-    "summary": "vLLM: Request-selected PyNvVideoCodec GPU decode bypasses static VRAM reservation",
-    "severity": "MODERATE",
-    "published": "2026-09-17T17:17:39Z",
-    "ghsa": "GHSA-8pw2-6jv3-mj5j"
+    "id": "CVE-2026-81876",
+    "summary": "HAPI FHIR: SHCParser DEFLATE infinite loop causes denial of service",
+    "severity": "HIGH",
+    "published": "2026-09-17T20:32:21Z",
+    "ghsa": "GHSA-gq9c-wmrm-5hvr"
+  },
+  {
+    "id": "CVE-2026-81875",
+    "summary": "HAPI FHIR: SHCParser unbounded DEFLATE decompression causes denial of service",
+    "severity": "HIGH",
+    "published": "2026-09-17T20:32:16Z",
+    "ghsa": "GHSA-3w98-rrpr-fprr"
+  },
+  {
+    "id": "GHSA-xjw9-38cr-6372",
+    "summary": "djust: A template binding inherits a context safety grant it never earned (XSS)",
+    "severity": "HIGH",
+    "published": "2026-09-17T20:31:48Z",
+    "ghsa": "GHSA-xjw9-38cr-6372"
   }
 ]
