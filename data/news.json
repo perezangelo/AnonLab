@@ -1,5 +1,45 @@
 [
   {
+    "title": "[Virtual Event] Cybersecurity Outlook 2027",
+    "link": "https://www.darkreading.com/events/virtual-event-cybersecurity-outlook-2027",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc94608acf452fd67/655cf371ab171e040a838b2a/329050_DR23_Graphics_Website_V5_Default_Image_v1.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "New RatHat Android malware uses AI to automate device control",
+    "link": "https://www.bleepingcomputer.com/news/security/new-rathat-android-malware-uses-ai-to-automate-device-control/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/05/03/Android.jpg"
+  },
+  {
+    "title": "CISA Ditches Weekly Vulnerability Roundups for Risk-Based Focus",
+    "link": "https://www.darkreading.com/cyber-risk/cisa-ditches-weekly-vuln-roundups-risk-based-focus",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltff913968a26e2946/6aac4af4108059de52c02196/cisa_Jack_the_sparow_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "China's FamousSparrow APT Spies on US Politics in Latin America",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/china-famoussparrow-spies-latin-america",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdb2f18082a854a7f/6aac39581080593b25c02180/sparrow-KenCanning-GettyImages-157477304_(1).jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "OpenAI details more cases of AI agents taking unauthorized actions",
+    "link": "https://www.bleepingcomputer.com/news/security/openai-details-more-cases-of-ai-agents-taking-unauthorized-actions/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/17/OpenAI.jpg"
+  },
+  {
+    "title": "Brevo supply-chain attack injected ClickFix scripts on customer sites",
+    "link": "https://www.bleepingcomputer.com/news/security/brevo-supply-chain-attack-injected-clickfix-scripts-on-customer-sites/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/12/10/hacker-box.jpg"
+  },
+  {
+    "title": "Cyberattacks on Two Oil Tankers Prompt Coast Guard, FBI to Board Vessels",
+    "link": "https://www.securityweek.com/cyberattacks-on-two-oil-tankers-prompt-coast-guard-fbi-to-board-vessels/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/oil-tanker-ship-maritime-vessel.jpeg"
+  },
+  {
+    "title": "OpenAI Says Its Models Searched GitHub for Leaked API Keys During Training",
+    "link": "https://www.securityweek.com/openai-says-its-models-hunted-github-for-leaked-api-keys-during-training/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
+  },
+  {
     "title": "CISA Retires Weekly Vulnerability Bulletin in Risk-Based Pivot",
     "link": "https://www.securityweek.com/cisa-retires-weekly-vulnerability-bulletin-in-risk-based-pivot/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/04/CISA-Cybersecurity.jpg"
@@ -45,6 +85,46 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Cisco-company-logo.jpeg"
   },
   {
+    "title": "Mitsubishi Electric CC-Link IE TSN Communication Protocol (Update A)",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-07",
+    "image": ""
+  },
+  {
+    "title": "Mitsubishi Electric GX Works3 and Motion Control Settings",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-260-02",
+    "image": ""
+  },
+  {
+    "title": "Hitachi Energy FACTS Control Platform (FCP)",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-260-03",
+    "image": ""
+  },
+  {
+    "title": "Bransys ELD",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-260-01",
+    "image": ""
+  },
+  {
+    "title": "Schneider Electric NetBotz 5 750/755",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-260-05",
+    "image": ""
+  },
+  {
+    "title": "Schneider Electric Modicon M340 Controller and Communication Modules",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-260-04",
+    "image": ""
+  },
+  {
+    "title": "Schneider Electric PowerChute Serial Shutdown",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-260-07",
+    "image": ""
+  },
+  {
+    "title": "ABB Ability Edgenius",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-260-06",
+    "image": ""
+  },
+  {
     "title": "Can You Prove a New CVE Is Exploitable Before Attackers Do? Learn How in This Webinar",
     "link": "https://thehackernews.com/2026/09/can-you-prove-new-cve-is-exploitable.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVgJqM9WZF6u_WZBeTJKqe35CDnh_4kxjLjZa3w63XbqfKBRNUENbTh5HGVrgYUGtmLRW9Px3GGzNcewMJWzd7CRxsk66eY1D70or8gasHUroPNdbUJ6ordqjxb7s8gKqQwuyWxCWC2BT0Matusn6PLXV9xus1PlqqqD3JITL_Unxt2xP8UK6zlX9Tmr0A/s1600/cves.jpg"
@@ -68,85 +148,5 @@
     "title": "OpenAI Reveals Six Model Incidents Involving Hidden Failures and Unauthorized Uploads",
     "link": "https://thehackernews.com/2026/09/openai-reveals-six-model-incidents.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz2xdqQbSjGZGGkNO0hRMgoEWNFpWVp0DDsBvsbQekWezeScq_sLAPfzY-kJenfNHYFnSqDcU93F30gmINBYYobl0Jf1thyPsXm34lbJPqMfZwPXoRy1UvpQcS_eHwF_nVqk-rDBTd83B8iteh4e23r2pnbtUsOgFPmYVRi-IlrW6-9FFUf7-DiZ8yyAOJ/s1600/openai-models.jpg"
-  },
-  {
-    "title": "Chinese hackers use SparroWocky malware in govt espionage attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-sparrowocky-malware-in-govt-espionage-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/23/China.jpg"
-  },
-  {
-    "title": "Microsoft shares workaround for Windows domain login issues",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-workaround-for-windows-domain-login-authentication-issues/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/02/07/Windows_11.jpg"
-  },
-  {
-    "title": "BIND 9 Update Fixes 14 Flaws, Including an Unauthenticated Crash Over DNS-over-HTTPS",
-    "link": "https://thehackernews.com/2026/09/bind-9-update-fixes-14-flaws-including.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEd6WLqBvkSx9Y2P6HrNL-VApj7Xb05Wlhnw4pPW6-X9NwGiAeAm_Hf4KYj_1hEy6uITGe8kh3xgYeTAha8nR5inx0snMzfWGP2Qd8kRuiOp0h4O49J-33kPpA1cuGhClV2qAvPyhyr2BqSYj9ZIvI6c-wncUNGESpGK-3tivnS-HIrOj9ZdSJALq_8Ts/s1600/bind9.jpg"
-  },
-  {
-    "title": "CISA Releases Cyber Decoy Guidance to Strengthen Critical Infrastructure Defenses",
-    "link": "https://www.securityweek.com/cisa-releases-guidance-on-deploying-cyber-decoys/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/CISA-Agency-Cybersecurity.jpg"
-  },
-  {
-    "title": "AI Agents Can Retrain Own Models Mid-Task, Leaking Secrets and Erasing Refusals",
-    "link": "https://www.securityweek.com/ai-agents-can-retrain-own-models-mid-task-leaking-secrets-and-erasing-refusals/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/rogue-AI-artificial-intelligence.jpeg"
-  },
-  {
-    "title": "Gyazo Breach Exposes 23.62 Million User Records and 490 Million Image Metadata Records",
-    "link": "https://thehackernews.com/2026/09/gyazo-breach-exposes-2362-million-user.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjo_VMcM5A8FocwrVqXOjmk-BvMd3D_JA6RIur9wT4Gca5jQjiLLinldpcu3u2hWmJQeJZg5nhVRBwxHe2y0BHg1TZEd046RkPLatyX5JN-7_WtuRyPMX3VnMCAs7tfCYOSghFuBCUT6HFyCBH-bLeAPWlAj9TPtAn1sitCktd2vp_pJr6VtzHd2_EFDpo/s1600/gyazo.jpg"
-  },
-  {
-    "title": "Cisco warns of max severity ISE zero-day exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-identity-service-engine-zero-day-exploited-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/02/Cisco.jpg"
-  },
-  {
-    "title": "Cisco Warns of New Zero-Day ISE Auth Bypass (CVSS 10.0) Exploited in Active Attacks",
-    "link": "https://thehackernews.com/2026/09/cisco-warns-of-new-zero-day-ise-auth.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKC3hrw_VedPPLj2lAD6qhUn-7eJuJ8dqSBMAOwTEjUdYxlwnOla9dFF4pwOBNr-QsjzJPuXEtkA6orbkLHUqHI3RbWMBR0VeNaYvZqSnkNnM5HH-T9ofLeBzrZcOXn5nbZyNC2YeQjANmTzBAhaAwhDoGoXLJOeB1nFbIr-TJuFTHM8y0TAzj6Hxd0MYM/s1600/cisco-0-day.jpg"
-  },
-  {
-    "title": "Active Exploitation Triggers Emergency Patch for Cisco ISE Zero-Day",
-    "link": "https://www.securityweek.com/active-exploitation-triggers-emergency-patch-for-cisco-ise-zero-day/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
-  },
-  {
-    "title": "U.S. Seizes NightmareStresser Domains Linked to Hundreds of Thousands of DDoS Attacks",
-    "link": "https://thehackernews.com/2026/09/us-seizes-nightmarestresser-domains.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiizrhUTj3tjdgb7IhljezkW3bnwYpTrYnUKKPyx7s7RWalycDu2JiqKhRZDgnpZdafbKxkyBrx4kjkpGTNSNXYZ-nL2wFQ_kKcRBVo14lJ5Da5SF2sq2-eOzHeRXxuJ3skSWSn5AC0XA4NjwQrhTWFOuFxvSRsmOC63AIKBxV-9bfmABkLGW4BgyfV3CSM/s1600/domain.jpg"
-  },
-  {
-    "title": "Anthropic wants Claude to analyze your bank account and financial data",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-wants-claude-to-analyze-your-bank-account-and-financial-data/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png"
-  },
-  {
-    "title": "AI Security Spending Jumps as Fear Outpaces Proof of Value",
-    "link": "https://www.darkreading.com/cybersecurity-operations/ai-security-spending-jumps-fear-outpaces-proof-value",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltcb03b6fd2d90125e/6aab0ffae6306a5a1058a24b/aiinvestment-chiewr-Getty-2220824575.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Windows 11 KB5124008 update breaks domain trust for some users",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5124008-update-breaks-domain-trust-for-some-users/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/10/02/Windows_11_headpic.jpg"
-  },
-  {
-    "title": "Iranian hackers use CHOSEN BRICK Windows malware to spy on targets",
-    "link": "https://www.bleepingcomputer.com/news/security/iranian-hackers-use-chosen-brick-windows-malware-to-spy-on-targets/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/07/Iranian-hackers.jpg"
-  },
-  {
-    "title": "Malware bypasses browser checks to force install Chrome, Edge extensions",
-    "link": "https://www.bleepingcomputer.com/news/security/malware-bypasses-browser-checks-to-force-install-chrome-edge-extensions/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/12/01/edge-chrome-buttons.jpg"
-  },
-  {
-    "title": "Fighting Your Dragons Through Tough Tech Times",
-    "link": "https://www.darkreading.com/cybersecurity-careers/finding-hope-brutal-job-market",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0469f94bd17817ff/6642699959fdc64aa5f9c5fa/dark-reading-confidential-logo-sq.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
