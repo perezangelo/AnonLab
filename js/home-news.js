@@ -1,47 +1,29 @@
 /* ============================
    ANONLAB — HOME NEWS
-   Versione 1005
+   Versione 1007
 
-   Il browser chiama soltanto il proxy PHP
-   dello stesso dominio. I feed RSS vengono
-   recuperati lato server con cURL.
+   Il browser chiama il proxy PHP AlterVista.
+   Il proxy recupera i feed RSS lato server
+   tramite cURL, evitando i problemi CORS.
 ============================ */
 
-const HOME_NEWS_VERSION = "1005";
+const HOME_NEWS_VERSION = "1007";
 
 const HOME_NEWS_ENDPOINT =
     `https://angelonline.altervista.org/api/news-proxy.php?source=all&v=${HOME_NEWS_VERSION}`;
 
+const HOME_NEWS_DEFAULT_IMAGE =
+    "https://anonlab.it/img/anonymous.png";
+
 const HOME_NEWS_FALLBACK = [
     {
-        title: "CTM360 Exposes Global GovTrap Campaign",
-        description:
-            "Analisi della campagna GovTrap e delle sue implicazioni sulla sicurezza globale.",
+        title: "AnonLab Cyber News",
+        description: "Le fonti RSS non sono temporaneamente disponibili.",
         pubDate: new Date().toISOString(),
         categories: ["Cybersecurity"],
-        image: "/img/default-news.jpg",
-        link: "https://www.ctm360.com/blog/govtrap-campaign",
-        source: "fallback"
-    },
-    {
-        title: "Work Moved Into the Browser",
-        description:
-            "Perché la sicurezza del browser è la nuova frontiera della difesa aziendale.",
-        pubDate: new Date().toISOString(),
-        categories: ["Security"],
-        image: "/img/default-news.jpg",
-        link: "https://www.netskope.com/blog/work-moved-into-the-browser-security-didnt",
-        source: "fallback"
-    },
-    {
-        title: "Why Your Backups Might Not Save You",
-        description:
-            "Strategie di resilienza, backup e recupero dopo un incidente informatico.",
-        pubDate: new Date().toISOString(),
-        categories: ["Resilience"],
-        image: "/img/default-news.jpg",
-        link: "https://www.rubrik.com/blog/why-your-backups-might-not-save-you",
-        source: "fallback"
+        image: HOME_NEWS_DEFAULT_IMAGE,
+        link: "https://anonlab.it/cyber.html",
+        source: "AnonLab"
     }
 ];
 
@@ -56,7 +38,7 @@ function escapeHtml(value = "") {
 
 function safeUrl(value, fallback = "#") {
     try {
-        const url = new URL(String(value), window.location.origin);
+        const url = new URL(String(value || ""), window.location.href);
 
         if (url.protocol === "http:" || url.protocol === "https:") {
             return url.href;
@@ -80,56 +62,61 @@ function normalizeItem(item = {}) {
         item.date ||
         "";
 
+    const imageValue =
+        item.image ||
+        item.thumbnail ||
+        item.image_url ||
+        item.imageUrl ||
+        item.enclosureUrl ||
+        "";
+
     return {
         title: String(item.title || "Notizia senza titolo").trim(),
+
         description: String(
             item.description ||
             item.summary ||
             item.content ||
             ""
         ).trim(),
-        link: safeUrl(item.link || item.url || "#"),
+
+        link: safeUrl(item.link || item.url || "", "#"),
+
         image: safeUrl(
-            item.image ||
-            item.thumbnail ||
-            item.image_url ||
-            item.imageUrl ||
-            "/img/cloud-hosting.jpg",
-            "/img/cloud-hosting.jpg"
+            imageValue,
+            HOME_NEWS_DEFAULT_IMAGE
         ),
+
         pubDate: String(dateValue).trim(),
+
         categories: categories
             .map(category => String(category).trim())
             .filter(Boolean),
-        source: String(item.source || "feed").trim()
+
+        source: String(item.source || "Feed RSS").trim()
     };
 }
 
-function getDate(item) {
-    const timestamp = Date.parse(item.pubDate);
-
+function parseDate(item) {
+    const timestamp = Date.parse(item.pubDate || "");
     return Number.isNaN(timestamp) ? 0 : timestamp;
 }
 
-function getCategory(item) {
-    return item.categories?.[0] || "News";
-}
-
 function getExcerpt(description, maxLength = 160) {
-    const clean = String(description || "")
+    const cleanText = String(description || "")
         .replace(/<script[\s\S]*?<\/script>/gi, "")
         .replace(/<style[\s\S]*?<\/style>/gi, "")
-        .replace(/<[^>]*>/g, "")
+        .replace(/<[^>]+>/g, "")
         .replace(/\s+/g, " ")
         .trim();
 
-    if (!clean) {
+    if (!cleanText) {
         return "Nessuna descrizione disponibile.";
     }
 
-    return clean.length > maxLength
-        ? `${clean.slice(0, maxLength).trim()}...`
-        : clean;
+    return cleanText.length > maxLength
+        ? `${cleanText.slice(0, maxLength).trim()}...`
+        : cleanText;
 }
 
 function deduplicateItems(items) {
@@ -138,7 +125,7 @@ function deduplicateItems(items) {
     return items.filter(item => {
         const key = item.link || item.title;
 
-        if (seen.has(key)) {
+        if (!key || seen.has(key)) {
             return false;
         }
 
@@ -153,23 +140,40 @@ function renderNews(container, rawItems) {
             .map(normalizeItem)
             .filter(item => item.title && item.link !== "#")
     )
-        .sort((a, b) => getDate(b) - getDate(a))
+        .sort((a, b) => parseDate(b) - parseDate(a))
         .slice(0, 8);
 
     if (!items.length) {
-        renderError(container, "Nessuna notizia disponibile al momento.");
+        renderError(
+            container,
+            "Nessuna notizia valida disponibile al momento."
+        );
         return;
     }
 
     container.innerHTML = items.map((item, index) => {
         const title = escapeHtml(item.title);
-        const category = escapeHtml(getCategory(item));
-        const date = getDate(item)
-            ? new Date(getDate(item)).toLocaleDateString("it-IT")
+        const description = escapeHtml(
+            getExcerpt(item.description)
+        );
+
+        const category = escapeHtml(
+            item.categories?.[0] || "News"
+        );
+
+        const date = parseDate(item)
+            ? new Date(parseDate(item))
+                .toLocaleDateString("it-IT")
             : "Oggi";
-        const excerpt = escapeHtml(getExcerpt(item.description));
-        const link = safeUrl(item.link);
-        const image = safeUrl(item.image, "/img/cloud-hosting.jpg");
+
+        const link = escapeHtml(
+            safeUrl(item.link, "#")
+        );
+
+        const image = escapeHtml(
+            safeUrl(item.image, HOME_NEWS_DEFAULT_IMAGE)
+        );
+
         const source = escapeHtml(item.source);
 
         return `
@@ -180,18 +184,25 @@ function renderNews(container, rawItems) {
                     alt="${title}"
                     loading="lazy"
                     decoding="async"
-                    onerror="this.onerror=null;this.src='/img/cloud-hosting.jpg';"
+                    onerror="this.onerror=null;this.src='${HOME_NEWS_DEFAULT_IMAGE}';"
                 >
 
                 <div class="news-content">
                     <h3 class="news-title">${title}</h3>
 
                     <div class="news-meta">
-                        <span class="news-category">${category}</span>
-                        <span class="news-time">${escapeHtml(date)}</span>
+                        <span class="news-category">
+                            ${category}
+                        </span>
+
+                        <span class="news-time">
+                            ${escapeHtml(date)}
+                        </span>
                     </div>
 
-                    <p class="news-excerpt">${excerpt}</p>
+                    <p class="news-excerpt">
+                        ${description}
+                    </p>
 
                     <a
                         href="${link}"
@@ -215,14 +226,19 @@ function renderError(container, message) {
     container.innerHTML = `
         <article class="news-card">
             <img
-                src="/img/default-news.jpg"
+                src="${HOME_NEWS_DEFAULT_IMAGE}"
                 class="news-thumb"
                 alt="Immagine predefinita per notizia"
             >
 
             <div class="news-content">
-                <h3 class="news-title">News temporaneamente non disponibili</h3>
-                <p class="news-excerpt">${escapeHtml(message)}</p>
+                <h3 class="news-title">
+                    News temporaneamente non disponibili
+                </h3>
+
+                <p class="news-excerpt">
+                    ${escapeHtml(message)}
+                </p>
             </div>
         </article>
     `;
@@ -243,16 +259,16 @@ async function fetchNewsFromProxy() {
         throw new Error(`Proxy news HTTP ${response.status}`);
     }
 
-    const contentType = response.headers.get("content-type") || "";
-
-    if (!contentType.toLowerCase().includes("application/json")) {
-        throw new Error("Il proxy non ha restituito JSON");
-    }
-
     const data = await response.json();
 
-    if (!data || data.success !== true || !Array.isArray(data.items)) {
-        throw new Error(data?.error || "Risposta proxy non valida");
+    if (
+        !data ||
+        data.success !== true ||
+        !Array.isArray(data.items)
+    ) {
+        throw new Error(
+            data?.error || "Risposta del proxy non valida"
+        );
     }
 
     return data.items;
@@ -269,7 +285,10 @@ async function loadHomeNews() {
     container.innerHTML = `
         <article class="news-card">
             <div class="news-content">
-                <h3 class="news-title">Caricamento delle ultime news...</h3>
+                <h3 class="news-title">
+                    Caricamento delle ultime news...
+                </h3>
+
                 <p class="news-excerpt">
                     Recupero delle notizie dal mondo cyber in corso.
                 </p>
@@ -281,18 +300,20 @@ async function loadHomeNews() {
         const items = await fetchNewsFromProxy();
 
         console.info(
-            `Home news: ${items.length} articoli ricevuti dal proxy.`
+            `Home news: ${items.length} articoli ricevuti.`
         );
 
         renderNews(container, items);
     } catch (error) {
         console.error("Errore caricamento news:", error);
-
         console.warn("Attivo il fallback locale.");
 
         renderNews(container, HOME_NEWS_FALLBACK);
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadHomeNews);
+document.addEventListener(
+    "DOMContentLoaded",
+    loadHomeNews
+);
 
