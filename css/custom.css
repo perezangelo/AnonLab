@@ -1498,3 +1498,108 @@ details input {
 .sidebar-box ul li {
     margin-bottom: 4px;
 }
+
+/* ============================================================
+   CLS FIX — HOME NEWS + CONTENT SHIFT
+============================================================ */
+
+#home-news {
+    min-height: 700px;
+    contain: layout paint;
+}
+
+#home-news .news-card {
+    min-height: 126px;
+}
+
+#home-news .news-thumb {
+    width: 140px;
+    height: 90px;
+    aspect-ratio: 14 / 9;
+    object-fit: cover;
+    display: block;
+    flex: 0 0 140px;
+    background: #111;
+}
+
+#home-news img {
+    background-color: #111;
+}
+
+#header {
+    min-height: 72px;
+}
+
+#ticker {
+    min-height: 42px;
+}
+
+#sidebar {
+    min-height: 300px;
+}
+
+.hero-favicon {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+
+.anon-slider img {
+    aspect-ratio: 380 / 220;
+    object-fit: cover;
+}
+
+.news-card-placeholder {
+    min-height: 126px;
+}
+
+.news-thumb-placeholder {
+    width: 140px;
+    height: 90px;
+    flex: 0 0 140px;
+    border-radius: 6px;
+    background: linear-gradient(
+        90deg,
+        #111 25%,
+        #1d1d1d 37%,
+        #111 63%
+    );
+    background-size: 400% 100%;
+    animation: newsPlaceholder 1.4s ease infinite;
+}
+
+@keyframes newsPlaceholder {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #home-news {
+        min-height: 1320px;
+    }
+
+    #home-news .news-card {
+        min-height: 260px;
+    }
+
+    #home-news .news-thumb {
+        width: 100%;
+        height: 170px;
+        aspect-ratio: 16 / 9;
+        flex: 0 0 170px;
+    }
+
+    .news-card-placeholder {
+        min-height: 260px;
+    }
+
+    .news-thumb-placeholder {
+        width: 100%;
+        height: 170px;
+        flex-basis: 170px;
+    }
+}
