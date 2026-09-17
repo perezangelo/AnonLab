@@ -1,5 +1,47 @@
 [
   {
+    "id": "CVE-2026-72819",
+    "summary": "Grav CMS vulnerable to remote code execution via .zip file upload",
+    "severity": "HIGH",
+    "published": "2026-09-17T20:45:57Z",
+    "ghsa": "GHSA-r94f-hx44-8jqf"
+  },
+  {
+    "id": "CVE-2026-75837",
+    "summary": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to escalate to super-admin",
+    "severity": "HIGH",
+    "published": "2026-09-17T20:45:15Z",
+    "ghsa": "GHSA-xhfv-7758-r9hx"
+  },
+  {
+    "id": "CVE-2026-75834",
+    "summary": "Grav: Single invalid UTF-8 byte disables every rule in Security::detectXss(), bypassing the page-content XSS safety gate",
+    "severity": "MODERATE",
+    "published": "2026-09-17T20:44:39Z",
+    "ghsa": "GHSA-q2j8-x8hf-63ch"
+  },
+  {
+    "id": "CVE-2026-75827",
+    "summary": "Grav: Blueprint dynamic-data bare-function branch is denylist-gated and omits error_log, giving arbitrary file write",
+    "severity": "CRITICAL",
+    "published": "2026-09-17T20:44:16Z",
+    "ghsa": "GHSA-f8wv-xp27-6gq7"
+  },
+  {
+    "id": "CVE-2026-75828",
+    "summary": "Grav: detectXss() misses an event-handler attribute after an unpaired quote in an unquoted attribute value, giving stored XSS",
+    "severity": "CRITICAL",
+    "published": "2026-09-17T20:43:43Z",
+    "ghsa": "GHSA-vfmf-q6x9-cw96"
+  },
+  {
+    "id": "CVE-2026-74907",
+    "summary": "Grav: Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` Static Asset Server (`index.php`)",
+    "severity": "HIGH",
+    "published": "2026-09-17T20:43:16Z",
+    "ghsa": "GHSA-4v9q-p283-qc2m"
+  },
+  {
     "id": "CVE-2026-72695",
     "summary": "Grav: Path Traversal in MediaUploadTrait::deleteFile() Allows Arbitrary File Deletion",
     "severity": "HIGH",
@@ -26,47 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-09-17T20:32:53Z",
     "ghsa": "GHSA-j934-xhv5-fg8f"
-  },
-  {
-    "id": "CVE-2026-88976",
-    "summary": "@platejs/core HTML deserialization can trigger browser behavior during parsing",
-    "severity": "MODERATE",
-    "published": "2026-09-17T20:32:47Z",
-    "ghsa": "GHSA-qrfj-mgw8-j9c6"
-  },
-  {
-    "id": "CVE-2026-84997",
-    "summary": "react/http: A malformed HTTP chunked body can lead to a denial-of-service and peg the CPU",
-    "severity": "HIGH",
-    "published": "2026-09-17T20:32:39Z",
-    "ghsa": "GHSA-x424-64qh-5j54"
-  },
-  {
-    "id": "CVE-2026-82399",
-    "summary": "CoreDNS: Unauthenticated memory exhaustion in custom transports",
-    "severity": "HIGH",
-    "published": "2026-09-17T20:32:27Z",
-    "ghsa": "GHSA-mrg3-qvqr-jw29"
-  },
-  {
-    "id": "CVE-2026-81876",
-    "summary": "HAPI FHIR: SHCParser DEFLATE infinite loop causes denial of service",
-    "severity": "HIGH",
-    "published": "2026-09-17T20:32:21Z",
-    "ghsa": "GHSA-gq9c-wmrm-5hvr"
-  },
-  {
-    "id": "CVE-2026-81875",
-    "summary": "HAPI FHIR: SHCParser unbounded DEFLATE decompression causes denial of service",
-    "severity": "HIGH",
-    "published": "2026-09-17T20:32:16Z",
-    "ghsa": "GHSA-3w98-rrpr-fprr"
-  },
-  {
-    "id": "GHSA-xjw9-38cr-6372",
-    "summary": "djust: A template binding inherits a context safety grant it never earned (XSS)",
-    "severity": "HIGH",
-    "published": "2026-09-17T20:31:48Z",
-    "ghsa": "GHSA-xjw9-38cr-6372"
   }
 ]
