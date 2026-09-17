@@ -1,5 +1,75 @@
 [
   {
+    "title": "CISA Retires Weekly Vulnerability Bulletin in Risk-Based Pivot",
+    "link": "https://www.securityweek.com/cisa-retires-weekly-vulnerability-bulletin-in-risk-based-pivot/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/CISA-Cybersecurity.jpg"
+  },
+  {
+    "title": "What Recent AI-Powered Attacks Mean for Your Identity Security",
+    "link": "https://www.bleepingcomputer.com/news/security/what-recent-ai-powered-attacks-mean-for-your-identity-security/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/09/specops-hands-typing.jpg"
+  },
+  {
+    "title": "Revolut Data Breach: 5 Months, 680 High-Profile Accounts, $3M Ransom",
+    "link": "https://www.securityweek.com/revolut-data-breach-5-months-680-high-profile-accounts-3m-ransom/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Revolut.jpeg"
+  },
+  {
+    "title": "Windows 11 24H2 Home and Pro reach end of support in October",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-24h2-home-and-pro-reach-end-of-support-in-october/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/01/Windows_11.jpg"
+  },
+  {
+    "title": "Comp AI Raises $34 Million for AI-Native Compliance and Security",
+    "link": "https://www.securityweek.com/comp-ai-raises-34-million-for-ai-native-compliance-and-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
+  },
+  {
+    "title": "ISC Patches 14 Vulnerabilities in BIND 9 Security Update",
+    "link": "https://www.securityweek.com/isc-patches-14-vulnerabilities-in-bind-9-security-update/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/02/DNS.jpeg"
+  },
+  {
+    "title": "Critical Unbound DNSSEC Validator Flaw Could Allow RCE via a Malicious DNS Zone",
+    "link": "https://thehackernews.com/2026/09/critical-unbound-dnssec-validator-flaw.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiFNFekCjM7qSAMNaeoNatwUPsjJY0Nj67yGKdlhq_zzLH9tyjQrXAByn9B6BvXEcMabyWnO5oWWE11_orN2h7G-7jRjGPSW48xtd4HySWIkI1fQzCbUDCVzRyc_KG3curUoXk4LgyckPwUO8aP65kR0CYnc90pkfXctHKXVQ7grKsc43drFZ63yRur20/s1600/dns-admin.jpg"
+  },
+  {
+    "title": "Ransomware Attacks on Manufacturers Surge as Supply Chain Risk Grows",
+    "link": "https://www.securityweek.com/ransomware-attacks-on-manufacturers-surge-as-supply-chain-risk-grows/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/AI-artificial-intelligence-industrial-OT-ICS.webp"
+  },
+  {
+    "title": "Cisco Fixes Dozens of Flaws Across FMC, ISE and Nexus Dashboard",
+    "link": "https://www.securityweek.com/cisco-fixes-dozens-of-flaws-across-fmc-ise-and-nexus-dashboard/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Cisco-company-logo.jpeg"
+  },
+  {
+    "title": "Can You Prove a New CVE Is Exploitable Before Attackers Do? Learn How in This Webinar",
+    "link": "https://thehackernews.com/2026/09/can-you-prove-new-cve-is-exploitable.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVgJqM9WZF6u_WZBeTJKqe35CDnh_4kxjLjZa3w63XbqfKBRNUENbTh5HGVrgYUGtmLRW9Px3GGzNcewMJWzd7CRxsk66eY1D70or8gasHUroPNdbUJ6ordqjxb7s8gKqQwuyWxCWC2BT0Matusn6PLXV9xus1PlqqqD3JITL_Unxt2xP8UK6zlX9Tmr0A/s1600/cves.jpg"
+  },
+  {
+    "title": "US takes down NightmareStresser DDoS-for-hire platform",
+    "link": "https://www.bleepingcomputer.com/news/security/fbi-seizes-nightmarestresser-service-linked-to-thousands-of-ddos-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/06/12/DDoS-outage-map-globe.jpg"
+  },
+  {
+    "title": "CISO's Expert Guide to Agentic Pentesting for Websites",
+    "link": "https://thehackernews.com/2026/09/cisos-expert-guide-to-agentic.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqOqtV_80Gn3utPVzonjyU94CgrwrcRNCUvdMEMZbOJGmKGOGD_ly8yH-V5AVwUtyNADgEPXySLFga7FZiWBSHCESverdknL-LS6MJSrkv6ejTaFkDM087mWkfBfur7UQ_vXsM8gcBByxyYyn0g3rAENhqJamGszCkPf2LM31d3wDgEUpCuFrGt4mZnUE/s1600/REFF.jpg"
+  },
+  {
+    "title": "China-Aligned FamousSparrow Deploys SparroWocky Backdoor Across Latin America",
+    "link": "https://thehackernews.com/2026/09/china-aligned-famoussparrow-deploys.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOuXwG1YyG0uUU23HOcrfuGGEs6q0HvIDe8f7tcoTc3Vg049ITdUDCK_oyfFs8F68GEANNMqayc_75ARq5bBdbIu8qplp_nwC8hWxALOjCCGyf_Pb76GvNjEEfoWybq1nM9WXuxoPvYiRN_vJewkghj5IAYOaCh9JulsW4DnZLCEOhg_mXL_ykI0_oJwah/s1600/chinese-hackers.jpg"
+  },
+  {
+    "title": "OpenAI Reveals Six Model Incidents Involving Hidden Failures and Unauthorized Uploads",
+    "link": "https://thehackernews.com/2026/09/openai-reveals-six-model-incidents.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz2xdqQbSjGZGGkNO0hRMgoEWNFpWVp0DDsBvsbQekWezeScq_sLAPfzY-kJenfNHYFnSqDcU93F30gmINBYYobl0Jf1thyPsXm34lbJPqMfZwPXoRy1UvpQcS_eHwF_nVqk-rDBTd83B8iteh4e23r2pnbtUsOgFPmYVRi-IlrW6-9FFUf7-DiZ8yyAOJ/s1600/openai-models.jpg"
+  },
+  {
     "title": "Chinese hackers use SparroWocky malware in govt espionage attacks",
     "link": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-sparrowocky-malware-in-govt-espionage-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/23/China.jpg"
@@ -10,7 +80,12 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2025/02/07/Windows_11.jpg"
   },
   {
-    "title": "CISA Releases Guidance on Deploying Cyber Decoys",
+    "title": "BIND 9 Update Fixes 14 Flaws, Including an Unauthenticated Crash Over DNS-over-HTTPS",
+    "link": "https://thehackernews.com/2026/09/bind-9-update-fixes-14-flaws-including.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEd6WLqBvkSx9Y2P6HrNL-VApj7Xb05Wlhnw4pPW6-X9NwGiAeAm_Hf4KYj_1hEy6uITGe8kh3xgYeTAha8nR5inx0snMzfWGP2Qd8kRuiOp0h4O49J-33kPpA1cuGhClV2qAvPyhyr2BqSYj9ZIvI6c-wncUNGESpGK-3tivnS-HIrOj9ZdSJALq_8Ts/s1600/bind9.jpg"
+  },
+  {
+    "title": "CISA Releases Cyber Decoy Guidance to Strengthen Critical Infrastructure Defenses",
     "link": "https://www.securityweek.com/cisa-releases-guidance-on-deploying-cyber-decoys/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/01/CISA-Agency-Cybersecurity.jpg"
   },
@@ -20,14 +95,29 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/08/rogue-AI-artificial-intelligence.jpeg"
   },
   {
+    "title": "Gyazo Breach Exposes 23.62 Million User Records and 490 Million Image Metadata Records",
+    "link": "https://thehackernews.com/2026/09/gyazo-breach-exposes-2362-million-user.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjo_VMcM5A8FocwrVqXOjmk-BvMd3D_JA6RIur9wT4Gca5jQjiLLinldpcu3u2hWmJQeJZg5nhVRBwxHe2y0BHg1TZEd046RkPLatyX5JN-7_WtuRyPMX3VnMCAs7tfCYOSghFuBCUT6HFyCBH-bLeAPWlAj9TPtAn1sitCktd2vp_pJr6VtzHd2_EFDpo/s1600/gyazo.jpg"
+  },
+  {
     "title": "Cisco warns of max severity ISE zero-day exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-identity-service-engine-zero-day-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/02/Cisco.jpg"
   },
   {
+    "title": "Cisco Warns of New Zero-Day ISE Auth Bypass (CVSS 10.0) Exploited in Active Attacks",
+    "link": "https://thehackernews.com/2026/09/cisco-warns-of-new-zero-day-ise-auth.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKC3hrw_VedPPLj2lAD6qhUn-7eJuJ8dqSBMAOwTEjUdYxlwnOla9dFF4pwOBNr-QsjzJPuXEtkA6orbkLHUqHI3RbWMBR0VeNaYvZqSnkNnM5HH-T9ofLeBzrZcOXn5nbZyNC2YeQjANmTzBAhaAwhDoGoXLJOeB1nFbIr-TJuFTHM8y0TAzj6Hxd0MYM/s1600/cisco-0-day.jpg"
+  },
+  {
     "title": "Active Exploitation Triggers Emergency Patch for Cisco ISE Zero-Day",
     "link": "https://www.securityweek.com/active-exploitation-triggers-emergency-patch-for-cisco-ise-zero-day/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
+  },
+  {
+    "title": "U.S. Seizes NightmareStresser Domains Linked to Hundreds of Thousands of DDoS Attacks",
+    "link": "https://thehackernews.com/2026/09/us-seizes-nightmarestresser-domains.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiizrhUTj3tjdgb7IhljezkW3bnwYpTrYnUKKPyx7s7RWalycDu2JiqKhRZDgnpZdafbKxkyBrx4kjkpGTNSNXYZ-nL2wFQ_kKcRBVo14lJ5Da5SF2sq2-eOzHeRXxuJ3skSWSn5AC0XA4NjwQrhTWFOuFxvSRsmOC63AIKBxV-9bfmABkLGW4BgyfV3CSM/s1600/domain.jpg"
   },
   {
     "title": "Anthropic wants Claude to analyze your bank account and financial data",
@@ -58,95 +148,5 @@
     "title": "Fighting Your Dragons Through Tough Tech Times",
     "link": "https://www.darkreading.com/cybersecurity-careers/finding-hope-brutal-job-market",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0469f94bd17817ff/6642699959fdc64aa5f9c5fa/dark-reading-confidential-logo-sq.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Spain's data agency gets first report of AI-powered data breach",
-    "link": "https://www.bleepingcomputer.com/news/security/spains-data-agency-gets-first-report-of-ai-powered-data-breach/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/23/ai-1.jpg"
-  },
-  {
-    "title": "BragJack Attack Can Turn a Browser's Agentic AI Against It",
-    "link": "https://www.darkreading.com/endpoint-security/bragjack-browser-agentic-ai",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt64d615142d7be882/6882572f618f869f048e5227/Agentic_AI_(1800)_Pattara_Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "First Agentic AI Data Breach Reported to Spanish Regulator",
-    "link": "https://www.securityweek.com/first-agentic-ai-data-breach-reported-to-spanish-regulator/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
-  },
-  {
-    "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Execution",
-    "link": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5aXi8Vt3MH8e38-ViNXz-m4hRPrbqDMGcpbMtOc3b-cDLIyEZEjqGvSscW6mR34ZrmPM4lSnv6C9XFTHlgq3UyGLA24gySGqcCzdKr-hIY2QZO8VSXnC-KAsdEz6vTkgdRnVxAZVM7NyrhgpL2xDWR8lcvPInEwgvj0pTgHkC7KStUFglwcLext7eb3w5/s1600/issa.jpg"
-  },
-  {
-    "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and Wipers",
-    "link": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMMZZrs8eh-baUC-73E9tejQYA0JZzWyoElUJGhCi0N4_f2EzmPPhQW3xY0kmNZv775T26ywu4czdta-vHaLp1gaI03eqho2SSe3riHMZP8hLTrU1ETnIv-k1ywOpnBFvbkyQJNZt7F4Xx4NndvvS8esTt1jzaCdeN9JZNkNB8sBU1vytibSRAjMsLZzc6/s1600/russian-groups.jpg"
-  },
-  {
-    "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon and Claude",
-    "link": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnDFTLauyvgkyhmqrKcQ3QI3yCM1vbu_L8iwQK997zJz25tL7Gkm50y5S_wiSVF7hSJ7sLUMJEwXzxaubfjQc9JTdwttimIg5POxADfGNPLZEWbplFqzlKn2SZPvPuAyN0BhFtsc8PCzV2bZdBtx3z6qnRdRfw9tj-zk3aWL3t4TufGwksVdAjBuhVdO0/s1600/jack.jpg"
-  },
-  {
-    "title": "Virtual Event Today: Attack Surface Management Summit",
-    "link": "https://www.securityweek.com/virtual-event-today-attack-surface-management-summit-2/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/ASM_Summit.jpg"
-  },
-  {
-    "title": "EU Chief Warns of AI-Powered Hacking, Moves to Rein In Social Media",
-    "link": "https://www.securityweek.com/eu-chief-warns-of-ai-powered-hacking-moves-to-rein-in-social-media/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
-  },
-  {
-    "title": "The true cost of a ransomware attack, with and without BCDR",
-    "link": "https://www.bleepingcomputer.com/news/security/the-true-cost-of-a-ransomware-attack-with-and-without-bcdr/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/09/ransomware-attack-invoice.jpg"
-  },
-  {
-    "title": "AIUC Raises $40 Million to Certify Enterprise AI Agents",
-    "link": "https://www.securityweek.com/aiuc-raises-40-million-to-certify-enterprise-ai-agents/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-1.jpeg"
-  },
-  {
-    "title": "Attacker Hijacks AI Coding Assistant Session, Spreads Shai-Hulud Across About 100 Repositories",
-    "link": "https://thehackernews.com/2026/09/attacker-hijacks-ai-coding-assistant.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghZsSi9JbsiALEhfWv_49vjKw2uHa-lBOUWCwhyphenhyphensppIZLuNgoQ-VQTs2EjRmXjemfvM0Fj9knUSdDIYbSWg5Pf_sqKBOGV5BA67GVYn_lNreIN_Kwpp3u0yxKgF4dIHXRj-NKcCyimE0kwHUWHqxP7SHUd-Tu31S3jfzxOPmN8_Xk8d5GYRce2N4MdmYY/s1600/shai.jpg"
-  },
-  {
-    "title": "Parallels Desktop Flaw Lets Non-Admin Mac Users Gain Root, but Intel Macs Can't Install Fix",
-    "link": "https://thehackernews.com/2026/09/parallels-desktop-flaw-lets-non-admin.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjExQfYsCTPbCiUrkVUWdKhrZNgpAVRtutRYt2c4x-f5ClJdNYjERcet4Fctan3gEOl0DPk64GUGZv5IK3Cd_pi3Jk1cyH3tdYig9mpc2XTLjJaK0KM3aiqE6W1OeGiKr_kRWNRmty1u4Cwf_9-S1KrKdqUeL25YwL6tt5Z-nUcvzj0F8NemzMbSUmvTJ4/s1600/parashells.jpg"
-  },
-  {
-    "title": "Pixel Modem Zero-Day Exploited in Targeted Attacks",
-    "link": "https://www.securityweek.com/pixel-modem-zero-day-exploited-in-targeted-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/Pixel-10.jpeg"
-  },
-  {
-    "title": "Microsoft says Copilot buttons still missing in classic Outlook",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-shares-workaround-for-missing-outlook-copilot-buttons/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/Microsoft-Copilot.jpg"
-  },
-  {
-    "title": "US, UK, Dutch Agencies Expose Iranian \u2018Chosen Brick\u2019 Surveillance Malware",
-    "link": "https://www.securityweek.com/us-uk-dutch-agencies-expose-iranian-chosen-brick-surveillance-malware/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Iran-Cyberattacks.jpg"
-  },
-  {
-    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-one-known-exploited-vulnerability-catalog",
-    "image": ""
-  },
-  {
-    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "Using Cyber Decoys to Strengthen Detection and Response",
-    "link": "https://www.cisa.gov/resources-tools/resources/using-cyber-decoys-strengthen-detection-and-response",
-    "image": ""
   }
 ]
