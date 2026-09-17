@@ -1,19 +1,15 @@
 /* ============================
    ANONLAB — HOME NEWS
-   Versione 1007
-
-   Il browser chiama il proxy PHP AlterVista.
-   Il proxy recupera i feed RSS lato server
-   tramite cURL, evitando i problemi CORS.
+   Versione 1008
 ============================ */
 
-const HOME_NEWS_VERSION = "1007";
+const HOME_NEWS_VERSION = "1008";
+
+const HOME_NEWS_DEFAULT_IMAGE =
+    "https://anonlab.it/img/cloud-hosting.jpg";
 
 const HOME_NEWS_ENDPOINT =
     `https://angelonline.altervista.org/api/news-proxy.php?source=all&v=${HOME_NEWS_VERSION}`;
-
-const HOME_NEWS_DEFAULT_IMAGE =
-    "https://anonlab.it/img/anonymous.png";
 
 const HOME_NEWS_FALLBACK = [
     {
@@ -55,19 +51,19 @@ function normalizeItem(item = {}) {
         ? item.categories
         : [];
 
-    const dateValue =
-        item.pubDate ||
-        item.published ||
-        item.updated ||
-        item.date ||
-        "";
-
     const imageValue =
         item.image ||
         item.thumbnail ||
         item.image_url ||
         item.imageUrl ||
         item.enclosureUrl ||
+        "";
+
+    const dateValue =
+        item.pubDate ||
+        item.published ||
+        item.updated ||
+        item.date ||
         "";
 
     return {
@@ -97,29 +93,29 @@ function normalizeItem(item = {}) {
     };
 }
 
-function parseDate(item) {
+function getTimestamp(item) {
     const timestamp = Date.parse(item.pubDate || "");
     return Number.isNaN(timestamp) ? 0 : timestamp;
 }
 
-function getExcerpt(description, maxLength = 160) {
-    const cleanText = String(description || "")
+function getExcerpt(value, maxLength = 160) {
+    const text = String(value || "")
         .replace(/<script[\s\S]*?<\/script>/gi, "")
         .replace(/<style[\s\S]*?<\/style>/gi, "")
         .replace(/<[^>]+>/g, "")
         .replace(/\s+/g, " ")
         .trim();
 
-    if (!cleanText) {
+    if (!text) {
         return "Nessuna descrizione disponibile.";
     }
 
-    return cleanText.length > maxLength
-        ? `${cleanText.slice(0, maxLength).trim()}...`
-        : cleanText;
+    return text.length > maxLength
+        ? `${text.slice(0, maxLength).trim()}...`
+        : text;
 }
 
-function deduplicateItems(items) {
+function removeDuplicates(items) {
     const seen = new Set();
 
     return items.filter(item => {
@@ -135,12 +131,12 @@ function deduplicateItems(items) {
 }
 
 function renderNews(container, rawItems) {
-    const items = deduplicateItems(
+    const items = removeDuplicates(
         rawItems
             .map(normalizeItem)
             .filter(item => item.title && item.link !== "#")
     )
-        .sort((a, b) => parseDate(b) - parseDate(a))
+        .sort((a, b) => getTimestamp(b) - getTimestamp(a))
         .slice(0, 8);
 
     if (!items.length) {
@@ -158,28 +154,28 @@ function renderNews(container, rawItems) {
         );
 
         const category = escapeHtml(
-            item.categories?.[0] || "News"
+            item.categories[0] || "News"
         );
 
-        const date = parseDate(item)
-            ? new Date(parseDate(item))
-                .toLocaleDateString("it-IT")
+        const timestamp = getTimestamp(item);
+
+        const date = timestamp
+            ? new Date(timestamp).toLocaleDateString("it-IT")
             : "Oggi";
 
-        const link = escapeHtml(
-            safeUrl(item.link, "#")
+        const image = safeUrl(
+            item.image,
+            HOME_NEWS_DEFAULT_IMAGE
         );
 
-        const image = escapeHtml(
-            safeUrl(item.image, HOME_NEWS_DEFAULT_IMAGE)
-        );
+        const link = safeUrl(item.link, "#");
 
         const source = escapeHtml(item.source);
 
         return `
             <article class="news-card" id="news-${index + 1}">
                 <img
-                    src="${image}"
+                    src="${escapeHtml(image)}"
                     class="news-thumb"
                     alt="${title}"
                     loading="lazy"
@@ -205,7 +201,7 @@ function renderNews(container, rawItems) {
                     </p>
 
                     <a
-                        href="${link}"
+                        href="${escapeHtml(link)}"
                         class="news-link"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -259,6 +255,14 @@ async function fetchNewsFromProxy() {
         throw new Error(`Proxy news HTTP ${response.status}`);
     }
 
+    const contentType = (
+        response.headers.get("content-type") || ""
+    ).toLowerCase();
+
+    if (!contentType.includes("json")) {
+        throw new Error("Il proxy non ha restituito JSON");
+    }
+
     const data = await response.json();
 
     if (
@@ -300,7 +304,7 @@ async function loadHomeNews() {
         const items = await fetchNewsFromProxy();
 
         console.info(
-            `Home news: ${items.length} articoli ricevuti.`
+            `Home news: ${items.length} articoli ricevuti dal proxy.`
         );
 
         renderNews(container, items);
@@ -316,4 +320,3 @@ document.addEventListener(
     "DOMContentLoaded",
     loadHomeNews
 );
-
