@@ -186,16 +186,14 @@
 <section class="hero-big">
   <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
 
-  <img
-  src="/img/eyes.png"
-  alt="AnonLab Eyes"
-  class="hero-favicon"
-  width="260"
-  height="260"
-  loading="eager"
-  decoding="async"
-  fetchpriority="high"
->
+  <img 
+    src="img/eyes.png" 
+    alt="AnonLab Eyes" 
+    class="hero-favicon"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  >
 
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
@@ -265,23 +263,17 @@
 </div>
 
 <!-- IMMAGINE SOTTO IL MENU -->
-<img
-  src="/img/ai-soc.jpg"
-  alt="AI SOC"
-  width="220"
-  height="147"
-  loading="eager"
-  decoding="async"
-  style="
-    width:220px;
-    height:auto;
-    margin-top:0;
-    margin-bottom:25px;
-    border-radius:6px;
-    box-shadow:0 0 12px #ff7b00aa;
-    display:block;
-  "
->
+<img src="img/ai-soc.jpg"
+     alt="AI SOC"
+     style="
+       width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
+       height:auto;
+       margin-top:0px;   /* leggero rialzo */
+       margin-bottom:25px; /* 🔥 stacco dal box sottostante */
+       border-radius:6px;
+       box-shadow:0 0 12px #ff7b00aa;
+       display:block;
+     ">
 
 <script>
 const toggle = document.getElementById("newsToggle");
@@ -746,32 +738,21 @@ async function sendNewsletter(e) {
 
 <!-- ========================= FINE BLOCCO SEO MASSIVO ========================= -->     
 
-      <section class="widget-large home-news-widget">
+      <!-- ULTIME NEWS -->
+<section class="widget-large">
   <h2>Ultime dal mondo cyber</h2>
-
-  <div id="home-news" aria-live="polite">
-    <article class="news-card news-card-placeholder">
-      <div class="news-thumb news-thumb-placeholder"></div>
-
-      <div class="news-content">
-        <h3 class="news-title">Caricamento delle ultime news...</h3>
-        <p class="news-excerpt">Recupero delle notizie dal mondo cyber in corso.</p>
-      </div>
-    </article>
-  </div>
+  <div id="home-news"></div>
 </section>
 
 <!-- Immagine Anonymous sopra Cyber Threat Level -->
 <div style="width:100%; margin:0 0 16px 0;">
-  <img
-    src="/img/anonymous.png"
-    alt="Anonymous"
-    width="1200"
-    height="675"
-    style="width:100%; height:auto; border-radius:10px;"
-    loading="lazy"
-    decoding="async"
-  >
+    <img 
+      src="/img/anonymous.png" 
+      alt="Anonymous" 
+      style="width:100%; height:auto; border-radius:10px;"
+      loading="lazy"
+      decoding="async"
+    >
 </div>
 
 <!-- SLIDER STORICO ANONYMOUS -->
@@ -1750,7 +1731,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- SCRIPT ORDINATI CORRETTAMENTE -->
 <script src="https://angelonline.altervista.org/js/news.js"></script>
-<script src="https://angelonline.altervista.org/js/home-news.js?v=1009"></script>
+<script src="https://angelonline.altervista.org/js/home-news.js?v=1008"></script>
 
 <!-- UI GENERALE -->
 <script src="https://angelonline.altervista.org/js/ui.js"></script>
