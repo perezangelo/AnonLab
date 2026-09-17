@@ -331,19 +331,13 @@ document.addEventListener("click", (e) => {
         gap:15px;
         width:100%;
     ">
-        <img
-    src="/img/gears.png"
-    alt="Gears Icon"
-    width="93"
-    height="70"
-    style="
-        width:42px;
-        height:auto;
-        aspect-ratio:93 / 70;
-        object-fit:contain;
-        filter:drop-shadow(0 0 10px #00eaff);
-    "
->
+        <img src="img/gears.png"
+             alt="Gears Icon"
+             style="
+                width:42px;
+                height:42px;
+                filter:drop-shadow(0 0 10px #00eaff);
+             ">
 
         <form action="https://www.google.com/search" method="GET"
               style="
@@ -390,19 +384,14 @@ document.addEventListener("click", (e) => {
     gap:15px;
     width:100%;
 ">
-    <img
-    src="/img/newsletter.png"
-    alt="Newsletter Icon"
-    width="301"
-    height="168"
-    style="
-        width:42px;
-        height:auto;
-        aspect-ratio:301 / 168;
-        object-fit:contain;
-        filter:drop-shadow(0 0 10px #00eaff);
-    "
->
+    <img src="img/newsletter.png"
+         alt="Newsletter Icon"
+         style="
+            width:42px;
+            height:42px;
+            filter:drop-shadow(0 0 10px #00eaff);
+         ">
+
     <form onsubmit="return sendNewsletter(event)"
           style="
             display:flex;
@@ -1569,18 +1558,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
   <div style="display:flex;align-items:center;gap:15px;margin-bottom:10px;">
-    <img
-    src="${tool.icon}"
-    alt="${tool.name}"
-    width="48"
-    height="48"
-    style="
-        width:48px;
-        height:48px;
-        object-fit:contain;
-        border-radius:6px;
-    "
->
+    <img src="${tool.icon}" alt="${tool.name}" 
+         style="width:48px;height:48px;border-radius:6px;">
     <h4 style="color:#00eaff;margin:0;">${tool.name}</h4>
   </div>
 
