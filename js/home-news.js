@@ -2,21 +2,18 @@
    HOME NEWS — FEED MULTIPLO CYBER (versione definitiva)
    - The Hacker News
    - HackRead (via proxy PHP AlterVista)
-   - DarkReading
+   - DarkReading (via proxy PHP AlterVista)
 ============================ */
 
 async function loadHomeNews() {
     const container = document.getElementById("home-news");
     if (!container) return;
 
-    // FEED MULTIPLI (via rss2json + proxy PHP HackRead)
+    // FEED MULTIPLI UNIFORMATI (Uso diretto dei proxy JSON nativi per evitare blocchi)
     const feeds = [
         "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
-
-        // ⭐ PATCH DEFINITIVA HackRead via proxy PHP AlterVista
         "https://angelonline.altervista.org/api/hackread.php",
-
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
+        "https://altervista.org"
     ];
 
     // Link esterni personalizzati (in ordine)
@@ -45,32 +42,24 @@ async function loadHomeNews() {
         for (const url of feeds) {
             try {
                 const res = await fetch(url);
+                const data = await res.json(); // Tutti gli endpoint ora restituiscono JSON nativo
 
-                // ⭐ PATCH: HackRead → XML parsing via proxy PHP
-                if (url.includes("hackread.php")) {
-                    const xmlText = await res.text();
-                    const xml = new DOMParser().parseFromString(xmlText, "text/xml");
-
-                    const items = [...xml.querySelectorAll("item")].map(item => ({
-                        title: item.querySelector("title")?.textContent || "",
-                        link: item.querySelector("link")?.textContent || "",
-                        description: item.querySelector("description")?.textContent || "",
-                        pubDate: item.querySelector("pubDate")?.textContent || "",
-                        categories: [...item.querySelectorAll("category")].map(c => c.textContent)
-                    }));
-
-                    allItems = allItems.concat(items);
-                    continue; // evita JSON rss2json
+                // Salta il feed se l'API PHP ha risposto con un errore interno strutturato
+                if (data && data.error) {
+                    console.warn(`Errore segnalato dall'endpoint [${url}]:`, data.error);
+                    continue;
                 }
 
-                // ⭐ Feed normali via RSS2JSON
-                const data = await res.json();
-
-                if (data.items && Array.isArray(data.items)) {
+                // Gestione dei dati: se è un array nativo (i nostri proxy PHP)
+                if (Array.isArray(data)) {
+                    allItems = allItems.concat(data);
+                } 
+                // Se sono dati provenienti dal servizio di pulizia rss2json standard
+                else if (data && data.items && Array.isArray(data.items)) {
                     allItems = allItems.concat(data.items);
                 }
             } catch (err) {
-                console.warn("Errore nel feed:", url, err);
+                console.warn("Errore nel recupero/parsing del feed:", url, err);
             }
         }
 
@@ -116,7 +105,7 @@ async function loadHomeNews() {
                         ? item.categories[0]
                         : "News";
 
-                // FIX IMMAGINI MANCANTI / NON VALIDE / BLOCCATE
+                // FIX IMMAGINI MANCANTI / NON VALIDE / BLOCCATE (Incluso supporto nativo .thumbnail delle nuove API)
                 const image =
                     (item.thumbnail && item.thumbnail.startsWith("http")) ? item.thumbnail :
                     (item.image && item.image.startsWith("http")) ? item.image :
@@ -127,7 +116,7 @@ async function loadHomeNews() {
                     ? item.description.replace(/<[^>]+>/g, "").slice(0, 160) + "..."
                     : "";
 
-                const date = item.parsedDate
+                const date = item.parsedDate && !isNaN(item.parsedDate)
                     ? item.parsedDate.toLocaleDateString("it-IT")
                     : "Oggi";
 
@@ -146,9 +135,9 @@ async function loadHomeNews() {
 
                             <p class="news-excerpt">${excerpt}</p>
 
-<a href="${link}" class="news-link" target="_blank" rel="noopener noreferrer">
-    Leggi l'articolo: ${item.title} →
-</a>
+                            <a href="${link}" class="news-link" target="_blank" rel="noopener noreferrer">
+                                Leggi l'articolo: ${item.title} →
+                            </a>
                         </div>
                     </article>
                 `;
@@ -156,13 +145,11 @@ async function loadHomeNews() {
             .join("");
 
     } catch (err) {
-        console.error("Errore nel caricamento RSS:", err);
+        console.error("Errore critico nel caricamento globale RSS:", err);
 
         container.innerHTML = `
             <article class="news-card">
-                <img src="/img/default-news.jpg" 
-     class="news-thumb" 
-     alt="Immagine predefinita per notizia">
+                <img src="/img/default-news.jpg" class="news-thumb" alt="Immagine predefinita per notizia">
                 <div class="news-content">
                     <h3 class="news-title">Impossibile caricare le news</h3>
                     <p class="news-excerpt">Il feed esterno non risponde. Riprova più tardi.</p>
@@ -173,3 +160,4 @@ async function loadHomeNews() {
 }
 
 document.addEventListener("DOMContentLoaded", loadHomeNews);
+
