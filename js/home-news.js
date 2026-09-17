@@ -10,7 +10,7 @@
 const HOME_NEWS_VERSION = "1005";
 
 const HOME_NEWS_ENDPOINT =
-    `/api/news-proxy.php?source=all&v=${HOME_NEWS_VERSION}`;
+https://angelonline.altervista.org/api/news-proxy.php?source=all&v=${HOME_NEWS_VERSION}`;
 
 const HOME_NEWS_FALLBACK = [
     {
