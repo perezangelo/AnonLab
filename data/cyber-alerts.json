@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-61709",
-    "summary": "OpenFGA: ListUsers returns a deliberately-excluded user when a `but not` exclusion under a type-bound wildcard is intersected (`and`) with another relation that also grants that user",
+    "id": "CVE-2026-75831",
+    "summary": "Grav: Stored XSS via Markdown audio/video media <source> URL",
     "severity": "MODERATE",
-    "published": "2026-09-16T22:15:09Z",
-    "ghsa": "GHSA-g3pg-frfm-pr2m"
+    "published": "2026-09-17T17:31:41Z",
+    "ghsa": "GHSA-6qw9-4vv5-jr97"
   },
   {
-    "id": "CVE-2026-58657",
-    "summary": "Grav: Stored CSS injection via Markdown image resize() bypasses prior media style sanitizers in Grav",
-    "severity": "MODERATE",
-    "published": "2026-09-16T22:14:53Z",
-    "ghsa": "GHSA-ffmg-hfvg-jhg9"
-  },
-  {
-    "id": "CVE-2026-63671",
-    "summary": "@nuxtjs/mdc's URL sanitizer misses SVG xlink:href and data:text/html, allowing XSS from untrusted markdown at the default configuration",
+    "id": "CVE-2026-86038",
+    "summary": "libp2p: Gossipsub StrictSign accepts attacker-signed messages as a victim RSA peer ID",
     "severity": "HIGH",
-    "published": "2026-09-16T22:14:01Z",
-    "ghsa": "GHSA-mxm6-v9r6-r94c"
+    "published": "2026-09-17T17:29:31Z",
+    "ghsa": "GHSA-c3gv-825q-fvmp"
   },
   {
-    "id": "CVE-2026-63128",
-    "summary": "RMCP: Unauthenticated permanent session-table leak in rmcp Streamable HTTP server transport leads to remote denial-of-service",
+    "id": "CVE-2026-72832",
+    "summary": "Grav: Stored XSS via quoted-attribute bypass in detectXss",
+    "severity": "MODERATE",
+    "published": "2026-09-17T17:28:34Z",
+    "ghsa": "GHSA-269c-h76q-8cxw"
+  },
+  {
+    "id": "CVE-2026-85717",
+    "summary": "AsyncHttpClient re-sends client-wide realm credentials to a cross-origin redirect target",
+    "severity": "MODERATE",
+    "published": "2026-09-17T17:19:31Z",
+    "ghsa": "GHSA-f8m2-889x-vw4x"
+  },
+  {
+    "id": "CVE-2026-85720",
+    "summary": "AsyncHttpClient sends origin credentials to the proxy on the plaintext CONNECT request",
+    "severity": "MODERATE",
+    "published": "2026-09-17T17:19:12Z",
+    "ghsa": "GHSA-xr57-gcx8-52hf"
+  },
+  {
+    "id": "CVE-2026-85721",
+    "summary": "AsyncHttpClient's unbounded HTTP/1.1 response decompression enables a decompression-bomb denial of service",
     "severity": "HIGH",
-    "published": "2026-09-16T22:13:34Z",
-    "ghsa": "GHSA-9pj6-vhgr-3mwh"
+    "published": "2026-09-17T17:18:56Z",
+    "ghsa": "GHSA-7grg-jcf7-rpmx"
   },
   {
-    "id": "CVE-2026-63127",
-    "summary": "RMCP: Missing Resource Field Validation in OAuth Protected Resource Metadata Discovery",
+    "id": "CVE-2026-85716",
+    "summary": "AsyncHttpClient doesn't verify SCRAM and Digest mutual-authentication responses",
+    "severity": "LOW",
+    "published": "2026-09-17T17:18:39Z",
+    "ghsa": "GHSA-fj9w-c36g-h5x8"
+  },
+  {
+    "id": "CVE-2026-85756",
+    "summary": "SSH.NET: ScpClient allows server-side RCE via default SCP path handling",
     "severity": "HIGH",
-    "published": "2026-09-16T22:13:26Z",
-    "ghsa": "GHSA-33f5-2c5q-wgwj"
+    "published": "2026-09-17T17:18:01Z",
+    "ghsa": "GHSA-mggc-4xg6-vcxf"
   },
   {
-    "id": "CVE-2026-61453",
-    "summary": "Grav: XSS Blueprint Validation Bypass via Twig String Concatenation",
+    "id": "CVE-2026-73245",
+    "summary": "Kestra: Unauthenticated management/actuator endpoints exposed on port 8081 (/env, /loggers) bypass API basic-auth",
     "severity": "MODERATE",
-    "published": "2026-09-16T22:13:17Z",
-    "ghsa": "GHSA-2c4f-86xc-cr74"
+    "published": "2026-09-17T17:17:55Z",
+    "ghsa": "GHSA-hpj9-grjp-7vc7"
   },
   {
-    "id": "CVE-2026-57173",
-    "summary": "vLLM: Unauthenticated audio decompression-bomb DoS in /v1/chat/completions",
+    "id": "CVE-2026-69147",
+    "summary": "vLLM: Request-selected PyNvVideoCodec GPU decode bypasses static VRAM reservation",
     "severity": "MODERATE",
-    "published": "2026-09-16T22:12:17Z",
-    "ghsa": "GHSA-hcwq-8wjf-3gcr"
-  },
-  {
-    "id": "CVE-2026-59193",
-    "summary": "Grav CMS — Improper Handling of Highly Compressed Data in Installer::unZip()",
-    "severity": "MODERATE",
-    "published": "2026-09-16T22:12:10Z",
-    "ghsa": "GHSA-2vcx-h8p2-9pg9"
-  },
-  {
-    "id": "CVE-2026-61599",
-    "summary": "djust has an unauthenticated arbitrary module import via the WebSocket/SSE view-mount path",
-    "severity": "HIGH",
-    "published": "2026-09-16T22:09:38Z",
-    "ghsa": "GHSA-7prp-2623-8g45"
-  },
-  {
-    "id": "CVE-2026-61589",
-    "summary": "djust: WebSocket/runtime reconstructed request omits the client Host, causing host/subdomain TenantResolvers to misresolve the tenant on the live path",
-    "severity": "MODERATE",
-    "published": "2026-09-16T22:07:52Z",
-    "ghsa": "GHSA-v9rj-xjfv-xj9r"
+    "published": "2026-09-17T17:17:39Z",
+    "ghsa": "GHSA-8pw2-6jv3-mj5j"
   }
 ]
