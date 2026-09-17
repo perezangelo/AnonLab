@@ -1,9 +1,13 @@
 /* ============================
    ANONLAB — HOME NEWS
-   Versione 1008
+   Versione 1009
+   - The Hacker News
+   - HackRead
+   - DarkReading
+   - Proxy PHP AlterVista
 ============================ */
 
-const HOME_NEWS_VERSION = "1008";
+const HOME_NEWS_VERSION = "1009";
 
 const HOME_NEWS_DEFAULT_IMAGE =
     "https://anonlab.it/img/cloud-hosting.jpg";
@@ -158,7 +162,6 @@ function renderNews(container, rawItems) {
         );
 
         const timestamp = getTimestamp(item);
-
         const date = timestamp
             ? new Date(timestamp).toLocaleDateString("it-IT")
             : "Oggi";
@@ -177,6 +180,8 @@ function renderNews(container, rawItems) {
                 <img
                     src="${escapeHtml(image)}"
                     class="news-thumb"
+                    width="140"
+                    height="90"
                     alt="${title}"
                     loading="lazy"
                     decoding="async"
@@ -224,6 +229,8 @@ function renderError(container, message) {
             <img
                 src="${HOME_NEWS_DEFAULT_IMAGE}"
                 class="news-thumb"
+                width="140"
+                height="90"
                 alt="Immagine predefinita per notizia"
             >
 
@@ -287,7 +294,9 @@ async function loadHomeNews() {
     }
 
     container.innerHTML = `
-        <article class="news-card">
+        <article class="news-card news-card-placeholder">
+            <div class="news-thumb news-thumb-placeholder"></div>
+
             <div class="news-content">
                 <h3 class="news-title">
                     Caricamento delle ultime news...
