@@ -149,7 +149,6 @@ function loadFeed(endpoint, target) {
         .then(r => r.json())
         .then(data => {
 
-            // 🔒 Protezione: se non è un array → fallback
             if (!Array.isArray(data)) {
                 console.warn("Feed non valido:", endpoint, data);
                 data = [];
