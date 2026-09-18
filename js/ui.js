@@ -366,40 +366,47 @@ document.addEventListener("click", function (e) {
 })();
 
 /* ============================================================
-   CONTATORE VISITE — VERSIONE DEFINITIVA CORRETTA
+   CONTATORE VISITE — VERSIONE DEFINITIVA
 ============================================================ */
 
 function initVisitCounter() {
 
+    const currentPage = window.location.pathname.replace("/", "") || "index.html";
+
     /* ============================================================
-       1) AGGIORNA IL FILE visits.json
-       (incrementa total, pages, timeline, hours, recent, online)
+       1) AGGIORNA IL FILE visits.json UNA SOLA VOLTA
     ============================================================ */
-    fetch("https://angelonline.altervista.org/counter/update.php?cache=" + Date.now())
+    fetch("https://angelonline.altervista.org/counter/update.php?page=" + currentPage)
         .catch(err => console.error("Errore update.php:", err));
 
     /* ============================================================
-       2) LEGGE IL FILE visits.json TRAMITE IL PROXY
-       (CORS OK, restituisce JSON pulito)
+       2) PRIMA LETTURA
     ============================================================ */
+    loadCounterData();
+
+    /* ============================================================
+       3) AGGIORNAMENTO AUTOMATICO OGNI 10 SECONDI
+    ============================================================ */
+    setInterval(loadCounterData, 10000);
+}
+
+/* ============================================================
+   LETTURA DEL JSON
+============================================================ */
+function loadCounterData() {
     fetch("https://angelonline.altervista.org/counter/proxy.php?cache=" + Date.now())
         .then(r => r.json())
-        .then(data => {
-            updateCounterUI(data);
-        })
+        .then(data => updateCounterUI(data))
         .catch(err => console.error("Errore counter frontend:", err));
 }
 
 /* ============================================================
-   AGGIORNAMENTO UI DEL CONTATORE
+   AGGIORNAMENTO UI
 ============================================================ */
-
 function updateCounterUI(data) {
 
     const elTotal       = document.getElementById("visit-counter");
     const elPagesTotal  = document.getElementById("page-counter");
-
-    // ⭐ Elementi opzionali (non presenti nel DOM attuale)
     const elCurrentPage = document.getElementById("current-page-count");
     const elPagesList   = document.getElementById("pages-list");
 
@@ -431,7 +438,7 @@ function updateCounterUI(data) {
     if (elOnline) elOnline.textContent = Object.keys(data.online || {}).length;
 
     /* ============================================================
-       PAGINA CORRENTE (opzionale)
+       PAGINA CORRENTE
     ============================================================ */
     const currentPage = window.location.pathname.replace("/", "") || "index.html";
     const pageCount   = data.pages?.[currentPage] ?? 0;
@@ -439,7 +446,7 @@ function updateCounterUI(data) {
     if (elCurrentPage) elCurrentPage.textContent = pageCount;
 
     /* ============================================================
-       LISTA PAGINE VISITATE (opzionale)
+       LISTA PAGINE VISITATE
     ============================================================ */
     if (elPagesList) {
         elPagesList.innerHTML = "";
