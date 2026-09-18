@@ -145,10 +145,12 @@ fetch("/partials/ticker.html")
 <ul id="innovation-feed"></ul>
 <script>
 function loadFeed(endpoint, target) {
+
     fetch("https://angelonline.altervista.org/newsops/" + endpoint + "?t=" + Date.now())
         .then(r => r.json())
         .then(data => {
 
+            // Se il PHP restituisce qualcosa che NON è un array → fallback
             if (!Array.isArray(data)) {
                 console.warn("Feed non valido:", endpoint, data);
                 data = [];
@@ -157,7 +159,22 @@ function loadFeed(endpoint, target) {
             const box = document.getElementById(target);
             box.innerHTML = "";
 
+            // Se il feed è vuoto → messaggio elegante
+            if (data.length === 0) {
+                box.innerHTML = `
+                    <li style="color:#b8dfff; list-style:none; margin-bottom:20px;">
+                        Nessun contenuto disponibile al momento.
+                    </li>
+                `;
+                return;
+            }
+
+            // Rendering delle news
             data.forEach(item => {
+
+                const title = item.title || "Titolo non disponibile";
+                const desc  = item.description || item.desc || "Nessuna descrizione disponibile";
+
                 box.innerHTML += `
                     <li style="list-style:none; margin-bottom:20px;">
                         <span style="
@@ -168,7 +185,7 @@ function loadFeed(endpoint, target) {
                             margin-bottom:4px;
                             text-shadow:0 0 6px rgba(0,234,255,0.6);
                         ">
-                            ▣ ${item.title}
+                            ▣ ${title}
                         </span>
 
                         <span style="
@@ -177,7 +194,7 @@ function loadFeed(endpoint, target) {
                             font-size:0.9rem;
                             line-height:1.4;
                         ">
-                            ${item.description || item.desc || ""}
+                            ${desc}
                         </span>
 
                         <div style="
@@ -197,8 +214,31 @@ function loadFeed(endpoint, target) {
         })
         .catch(err => {
             console.error("Errore feed:", endpoint, err);
+
+            const box = document.getElementById(target);
+            box.innerHTML = `
+                <li style="color:#ff6b6b; list-style:none; margin-bottom:20px;">
+                    Errore nel caricamento del feed.
+                </li>
+            `;
         });
 }
+
+// Caricamento iniziale
+loadFeed("tech/tech-news.php", "tech-news");
+loadFeed("tech/tech-ai-trends.php", "ai-trends");
+loadFeed("tech/tech-hardware.php", "hardware-feed");
+loadFeed("tech/tech-software.php", "software-feed");
+loadFeed("tech/tech-innovation.php", "innovation-feed");
+
+// Aggiornamento automatico ogni 60 secondi
+setInterval(() => {
+    loadFeed("tech/tech-news.php", "tech-news");
+    loadFeed("tech/tech-ai-trends.php", "ai-trends");
+    loadFeed("tech/tech-hardware.php", "hardware-feed");
+    loadFeed("tech/tech-software.php", "software-feed");
+    loadFeed("tech/tech-innovation.php", "innovation-feed");
+}, 60000);
 </script>
 
       <p class="tech-seo-text">
