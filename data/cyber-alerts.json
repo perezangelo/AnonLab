@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2025-53837",
+    "summary": "org.xwiki.rendering:xwiki-rendering-xml has an Eval Injection issue",
+    "severity": "CRITICAL",
+    "published": "2026-09-18T15:05:13Z",
+    "ghsa": "GHSA-26vp-8gxg-v4pg"
+  },
+  {
+    "id": "CVE-2026-77615",
+    "summary": "Opencast: Stored XSS in Paella player via WebVTT/DFXP caption cue text",
+    "severity": "HIGH",
+    "published": "2026-09-18T13:11:59Z",
+    "ghsa": "GHSA-m6c8-jcw2-5r25"
+  },
+  {
+    "id": "CVE-2026-77281",
+    "summary": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity bypass",
+    "severity": "MODERATE",
+    "published": "2026-09-18T13:09:27Z",
+    "ghsa": "GHSA-j8px-rmrx-76h9"
+  },
+  {
     "id": "CVE-2026-72819",
     "summary": "Grav CMS vulnerable to remote code execution via .zip file upload",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-17T20:34:05Z",
     "ghsa": "GHSA-jq29-c7v8-rg55"
-  },
-  {
-    "id": "CVE-2026-86003",
-    "summary": "CoreDNS DoH/DoQ/gRPC bypass UPDATE rejection enforced on UDP/TCP",
-    "severity": "HIGH",
-    "published": "2026-09-17T20:33:05Z",
-    "ghsa": "GHSA-9gm5-9rfh-m6vx"
-  },
-  {
-    "id": "CVE-2026-86000",
-    "summary": "Soup Sieve: Polynomial-time ReDoS (O(n²)) in the `IDENTIFIER` / `VALUE` selector sub-patterns",
-    "severity": "MODERATE",
-    "published": "2026-09-17T20:32:58Z",
-    "ghsa": "GHSA-gjv8-xp57-g29c"
-  },
-  {
-    "id": "CVE-2026-85999",
-    "summary": "Soup Sieve: Polynomial-time ReDoS (O(n²)) in the whitespace/comment trimming regex `RE_WS_END` (triggers on VALID selectors)",
-    "severity": "MODERATE",
-    "published": "2026-09-17T20:32:53Z",
-    "ghsa": "GHSA-j934-xhv5-fg8f"
   }
 ]
