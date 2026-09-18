@@ -251,15 +251,46 @@
 
   </div>
 </div>
-      <!-- DASH ADMIN IMAGE BUTTON -->
-<div style="text-align:right; margin-bottom:20px; width:100%; position:relative; z-index:20;">
+      
+		<!-- DASH ADMIN IMAGE BUTTON + ANIMAL -->
+<div style="
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+    width:100%;
+    position:relative;
+    z-index:20;
+">
+
+    <!-- Immagine animal -->
+    <img src="/img/animal.png"
+         alt="Animal"
+         style="
+           width:150px;
+           height:auto;
+           border-radius:8px;
+           filter:drop-shadow(0 0 12px #00eaff);
+           transition:0.2s;
+         "
+         onmouseover="this.style.filter='drop-shadow(0 0 20px #00eaff)';"
+         onmouseout="this.style.filter='drop-shadow(0 0 12px #00eaff)';">
+
+    <!-- Accesso amministratore -->
     <a href="https://anonlab.it/login.html" style="display:inline-block;">
         <img src="/img/OIP.png"
              alt="Admin Access"
-             style="width:150px; filter:drop-shadow(0 0 12px #ff0000); transition:0.2s;"
+             style="
+               width:150px;
+               height:auto;
+               filter:drop-shadow(0 0 12px #ff0000);
+               transition:0.2s;
+             "
              onmouseover="this.style.filter='drop-shadow(0 0 18px #ff3333)';"
              onmouseout="this.style.filter='drop-shadow(0 0 12px #ff0000)';">
     </a>
+
 </div>
 
 <!-- IMMAGINE SOTTO IL MENU -->
