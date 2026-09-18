@@ -390,7 +390,7 @@ async function ipLookup() {
             <h3 style="color:#00eaff;">Informazioni su ${ip}</h3>
 
             <div style="margin-bottom:20px;">
-                <h4 style="color:#00eaff;">🌍 Localizzazione</h4>
+                <h3 style="color:#00eaff;">🌍 Localizzazione</h3>
                 <p>Paese: ${data.country} (${data.countryCode})</p>
                 <p>Regione: ${data.regionName}</p>
                 <p>Città: ${data.city}</p>
@@ -398,7 +398,7 @@ async function ipLookup() {
             </div>
 
             <div style="margin-bottom:20px;">
-                <h4 style="color:#00eaff;">📡 Rete</h4>
+                <h3 style="color:#00eaff;">📡 Rete</h3>
                 <p>ISP: ${data.isp}</p>
                 <p>Organizzazione: ${data.org}</p>
                 <p>ASN: ${data.as}</p>
@@ -406,19 +406,19 @@ async function ipLookup() {
             </div>
 
             <div style="margin-bottom:20px;">
-                <h4 style="color:#00eaff;">📌 Coordinate</h4>
+                <h3 style="color:#00eaff;">📌 Coordinate</h3>
                 <p>Latitudine: ${data.lat}</p>
                 <p>Longitudine: ${data.lon}</p>
             </div>
 
             <div style="margin-bottom:20px;">
-                <h4 style="color:#00eaff;">🗺️ Mappa</h4>
+                <h3 style="color:#00eaff;">🗺️ Mappa</h3>
                 <iframe width="100%" height="250" frameborder="0" style="border:1px solid #00eaff;"
                     src="https://www.openstreetmap.org/export/embed.html?bbox=${data.lon-0.01}%2C${data.lat-0.01}%2C${data.lon+0.01}%2C${data.lat+0.01}&layer=mapnik&marker=${data.lat}%2C${data.lon}">
                 </iframe>
             </div>
 
-            <h4 style="color:#00eaff;">📄 JSON Completo</h4>
+            <h3 style="color:#00eaff;">📄 JSON Completo</h3>
             <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
 ${JSON.stringify(data, null, 2)}
             </pre>
@@ -805,7 +805,7 @@ async function expandURL() {
             <p><strong>URL Finale:</strong><br>${data.expanded}</p>
             <p><strong>HTTP Status:</strong> ${data.status}</p>
 
-            <h4 style="color:#00eaff;">JSON Completo</h4>
+            <h3 style="color:#00eaff;">JSON Completo</h3>
             <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
 ${JSON.stringify(data, null, 2)}
             </pre>
