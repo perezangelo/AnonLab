@@ -148,6 +148,13 @@ function loadFeed(endpoint, target) {
     fetch("https://angelonline.altervista.org/newsops/" + endpoint + "?t=" + Date.now())
         .then(r => r.json())
         .then(data => {
+
+            // 🔒 Protezione: se non è un array → fallback
+            if (!Array.isArray(data)) {
+                console.warn("Feed non valido:", endpoint, data);
+                data = [];
+            }
+
             const box = document.getElementById(target);
             box.innerHTML = "";
 
@@ -171,7 +178,7 @@ function loadFeed(endpoint, target) {
                             font-size:0.9rem;
                             line-height:1.4;
                         ">
-                            ${item.desc}
+                            ${item.description || item.desc || ""}
                         </span>
 
                         <div style="
@@ -188,24 +195,11 @@ function loadFeed(endpoint, target) {
                     </li>
                 `;
             });
+        })
+        .catch(err => {
+            console.error("Errore feed:", endpoint, err);
         });
 }
-
-// Caricamento iniziale
-loadFeed("tech/tech-news.php", "tech-news");
-loadFeed("tech/tech-ai-trends.php", "ai-trends");
-loadFeed("tech/tech-hardware.php", "hardware-feed");
-loadFeed("tech/tech-software.php", "software-feed");
-loadFeed("tech/tech-innovation.php", "innovation-feed");
-
-// Aggiornamento automatico ogni 60 secondi
-setInterval(() => {
-    loadFeed("tech/tech-news.php", "tech-news");
-loadFeed("tech/tech-ai-trends.php", "ai-trends");
-loadFeed("tech/tech-hardware.php", "hardware-feed");
-loadFeed("tech/tech-software.php", "software-feed");
-loadFeed("tech/tech-innovation.php", "innovation-feed");
-}, 60000);
 </script>
 
       <p class="tech-seo-text">
