@@ -5,9 +5,59 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc94608acf452fd67/655cf371ab171e040a838b2a/329050_DR23_Graphics_Website_V5_Default_Image_v1.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
+    "title": "In Other News: Ransomware Developer Sentenced, Plugin4Shell AI Attack, Critical SAP Flaw",
+    "link": "https://www.securityweek.com/in-other-news-ransomware-developer-sentenced-plugin4shell-ai-attack-critical-sap-flaw/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "Secure enterprise sharing with access reviews for Microsoft 365",
+    "link": "https://www.bleepingcomputer.com/news/security/secure-enterprise-sharing-with-access-reviews-for-microsoft-365/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/09/tenfold-upload.jpg"
+  },
+  {
+    "title": "Microsoft Teams will let admins block custom file extensions",
+    "link": "https://www.bleepingcomputer.com/news/security/microsoft-teams-will-let-admins-block-custom-file-extensions/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/18/Microsoft-Teams.jpg"
+  },
+  {
+    "title": "Webinar: Which Google Workspace security controls actually matter?",
+    "link": "https://www.bleepingcomputer.com/news/security/webinar-which-google-workspace-security-controls-actually-matter/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/06/29/Google_Workspace.jpg"
+  },
+  {
+    "title": "Microsoft Patches CVSS 10.0 Azure AI Foundry Flaw Enabling Unauthorized Privilege Escalation",
+    "link": "https://thehackernews.com/2026/09/microsoft-patches-cvss-100-azure-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiML2C2l_2QmIUPPt9Gs6K9nVdVk9WZWhJaeBQjf92a7R0O0ghnhNznkqPHwG1quCmfadrkibl0WJhLioNmbATDXGxPcy6EHuDVvUrcDF_q0m23IQD1CxL0DsMZT2ZnXCtOyGADMztIcBmgQzaAvNQR39JWnvbG085s4q4W01UQnH4g-Yj15_ZKrJXDaOpQ/s1600/ms-azure.jpg"
+  },
+  {
+    "title": "AI-Built Exploit and Sign-In Flaw Opened Path to Internal OpenAI Code",
+    "link": "https://www.securityweek.com/ai-built-exploit-and-sign-in-flaw-opened-path-to-internal-openai-code/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
+  },
+  {
+    "title": "Microsoft fixes bug behind \u2018Defender Antivirus is turned off\u2019 alerts",
+    "link": "https://www.bleepingcomputer.com/news/security/microsoft-fixes-bug-behind-defender-antivirus-is-turned-off-alerts/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/18/Microsoft-Defender.jpg"
+  },
+  {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
     "title": "23 Million User Records Compromised in Gyazo Data Breach",
     "link": "https://www.securityweek.com/23-million-user-records-compromised-in-gyazo-data-breach/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/image-file-photo-sharing.jpeg"
+  },
+  {
+    "title": "An Abandoned CDN Domain Was Re-Registered. Thousands of Sites Still Call It.",
+    "link": "https://thehackernews.com/2026/09/an-abandoned-cdn-domain-was-re.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4A312zOZ7ftKXmWapCccs7ZW6g3d61vCPFzToGj6Y9nRb2cXUHcQ9__5Taotig6y1W_tljoo5ih74cJCTxZzfz5Ii0MMoLcBuUZS6fQCgn_L4zmq92Zamf2FJM-oT3ptyyzPM-2c1oyZSZSn3eYiUp0QidqC2N2tYT9GFrqAYitjrco1cmrDJRCm6HEk/s1600/report-uri.jpg"
+  },
+  {
+    "title": "Plugin4Shell Lets Repository Owners Swap Pinned Plugin Code Across Four AI Coding Agents",
+    "link": "https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizNK9maRYTbrRVwr9_9b7Sm_IizPdRJh0AbH1GtKU1BNPrcxJydnUdRQxRxauE5p1ejpfk4ihANpP7HAoXbRCDD1Pu-ZZD1dnfzLFjysOSJm7gGRKYrkUjxVF-tX-0neJMQtN87iyk1DRD70hKKtFU_J6idWK4aoZr3k4DAz4q8pkjTfKTX10Vttaiwag/s1600/coding-agents.jpg"
   },
   {
     "title": "Microsoft Patches 18 Vulnerabilities in AI, Cloud Products",
@@ -98,55 +148,5 @@
     "title": "ThreatsDay: Self-Rewriting Agents, 800+ Flaws Patched, Insider SIM Swaps and 22 More New Stories",
     "link": "https://thehackernews.com/2026/09/threatsday-self-rewriting-agents-800.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizRobrCcZcWNzLjEmyk91HaJj5g2vkMbOgX_lP1vNQqfvh8krm4975WJ5zi9VFY1FsF44ZTJ5znBY5sBuKYiN-riJQspK3iLLnvhW5crViG9fJMPF_SCEN3dKPk-ypSjFQfD_gN1zA-KbryzexASNOVcKRHf4hf3iZ1XBuvYG9WKWhBdVWbs1dzJS9BUIQ/s1600/threatsday-main.jpg"
-  },
-  {
-    "title": "Brevo supply-chain attack injected ClickFix scripts on customer sites",
-    "link": "https://www.bleepingcomputer.com/news/security/brevo-supply-chain-attack-injected-clickfix-scripts-on-customer-sites/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/12/10/hacker-box.jpg"
-  },
-  {
-    "title": "Cyberattacks on Two Oil Tankers Prompt Coast Guard, FBI to Board Vessels",
-    "link": "https://www.securityweek.com/cyberattacks-on-two-oil-tankers-prompt-coast-guard-fbi-to-board-vessels/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/oil-tanker-ship-maritime-vessel.jpeg"
-  },
-  {
-    "title": "OpenAI Says Its Models Searched GitHub for Leaked API Keys During Training",
-    "link": "https://www.securityweek.com/openai-says-its-models-hunted-github-for-leaked-api-keys-during-training/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
-  },
-  {
-    "title": "Critical Docker Sandboxes Flaw Lets Malicious Guest Code Read and Modify macOS Host Files",
-    "link": "https://thehackernews.com/2026/09/critical-docker-sandboxes-flaw-lets.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJbYvRH1MRTGK43JYSWe2X3djxWAuNa3_r94FvOPBjt9sWrkRiEQi7D0DPksj3NH9vDPjm7MGSGY9UEc7JqePjd4aA-c4zuMzLZXH0Y5NWKWGnzNgbFe0tYlEFSFLrJFWVRuRKs_PQN8IKkdzYYNn8T7YWuUkZC4_2skq3deXYAw7i0aqWdx6G0FQwVzs/s1600/docker-macos.jpg"
-  },
-  {
-    "title": "CISA Retires Weekly Vulnerability Bulletin in Risk-Based Pivot",
-    "link": "https://www.securityweek.com/cisa-retires-weekly-vulnerability-bulletin-in-risk-based-pivot/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/CISA-Cybersecurity.jpg"
-  },
-  {
-    "title": "Iran-Linked Handala Hack Tied to HEAVYGRAM Telegram Backdoor That Can Steal Passwords",
-    "link": "https://thehackernews.com/2026/09/iran-linked-handala-hack-tied-to.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdqFZ07lueoUFevcbuCOBavlR6CaAxmFqFs7hLpyqw-maKbLcISxW0Q-y7JwvoRrhDumRNaJo_Z4T6QRrGLUTDEE8yYqFfoRLmkoc_J4omdeCAmew1_5k-NwnNWJyYawal5nni-TVZu8M4aDsGNhbwlpp1Y7wLUSjsFR-olY89Mls9hD4CiL9jq0roUpzA/s1600/telegram-handala.jpg"
-  },
-  {
-    "title": "What Recent AI-Powered Attacks Mean for Your Identity Security",
-    "link": "https://www.bleepingcomputer.com/news/security/what-recent-ai-powered-attacks-mean-for-your-identity-security/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/09/specops-hands-typing.jpg"
-  },
-  {
-    "title": "Windows 11 24H2 Home and Pro reach end of support in October",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-24h2-home-and-pro-reach-end-of-support-in-october/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/01/Windows_11.jpg"
-  },
-  {
-    "title": "Critical Unbound DNSSEC Validator Flaw Could Allow RCE via a Malicious DNS Zone",
-    "link": "https://thehackernews.com/2026/09/critical-unbound-dnssec-validator-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiFNFekCjM7qSAMNaeoNatwUPsjJY0Nj67yGKdlhq_zzLH9tyjQrXAByn9B6BvXEcMabyWnO5oWWE11_orN2h7G-7jRjGPSW48xtd4HySWIkI1fQzCbUDCVzRyc_KG3curUoXk4LgyckPwUO8aP65kR0CYnc90pkfXctHKXVQ7grKsc43drFZ63yRur20/s1600/dns-admin.jpg"
-  },
-  {
-    "title": "Mitsubishi Electric CC-Link IE TSN Communication Protocol (Update A)",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-07",
-    "image": ""
   }
 ]
