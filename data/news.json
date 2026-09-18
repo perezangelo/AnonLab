@@ -5,6 +5,26 @@
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc94608acf452fd67/655cf371ab171e040a838b2a/329050_DR23_Graphics_Website_V5_Default_Image_v1.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
+    "title": "New WordPress Click2Shell Flaw Forces Theme Installs, Can Chain to Code Execution",
+    "link": "https://thehackernews.com/2026/09/new-wordpress-click2shell-flaw-forces.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRmEdVvBEJZEaIzJ4GYHX3cDjJq5YaLQby6GeVwDl-uVl_qIR_tkRSx6aKpzoYhGVvp0E3NDIe9aum5f5N_lI-RPz6eDNGHC7vpKMa0UrlT1J1_bRJrJ8Wk0htpyFoR3ezoqh-BCJePJU914UFlL7gS45RXbWoVi3Lp49iNSkUt7eLrJyQTAEIGE-VRgY/s1600/click2shell.gif"
+  },
+  {
+    "title": "Gyazo server flaw exploited to steal 23.6 million user records",
+    "link": "https://www.bleepingcomputer.com/news/security/gyazo-server-flaw-exploited-to-steal-236-million-user-records/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/18/gyazo.jpg"
+  },
+  {
+    "title": "Transparent Tribe Deploys New Rust Backdoor Using Private GitHub Repositories for C2",
+    "link": "https://thehackernews.com/2026/09/transparent-tribe-deploys-new-rust.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhBM0nXgCLpwEyXmAdxLO_GatYww1Cem0yuGGqhmMwCB5N8w-TeoMm7jV4SbH4hjfYmxctUjyPiSlR3Caj2cSu7L_1nxTzg5xtfJrxhq5y0elL7yh8J2S5lakpnTbck3XhMVB1iG3obibSh64E8z877YcECkeJBs_rrZARXefKDeYQJ9Nf2u8pnxD0gEnx/s1600/rust-malware.jpg"
+  },
+  {
+    "title": "Fake LastPass Authenticator GitHub repos push new Rapuncel infostealer",
+    "link": "https://www.bleepingcomputer.com/news/security/fake-lastpass-authenticator-github-repos-push-new-rapuncel-infostealer/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/23/lastpass.jpg"
+  },
+  {
     "title": "In Other News: Ransomware Developer Sentenced, Plugin4Shell AI Attack, Critical SAP Flaw",
     "link": "https://www.securityweek.com/in-other-news-ransomware-developer-sentenced-plugin4shell-ai-attack-critical-sap-flaw/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
@@ -128,25 +148,5 @@
     "title": "CISA Ditches Weekly Vulnerability Roundups for Risk-Based Focus",
     "link": "https://www.darkreading.com/cyber-risk/cisa-ditches-weekly-vuln-roundups-risk-based-focus",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltff913968a26e2946/6aac4af4108059de52c02196/cisa_Jack_the_sparow_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "China's FamousSparrow APT Spies on US Politics in Latin America",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/china-famoussparrow-spies-latin-america",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdb2f18082a854a7f/6aac39581080593b25c02180/sparrow-KenCanning-GettyImages-157477304_(1).jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI details more cases of AI agents taking unauthorized actions",
-    "link": "https://www.bleepingcomputer.com/news/security/openai-details-more-cases-of-ai-agents-taking-unauthorized-actions/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/17/OpenAI.jpg"
-  },
-  {
-    "title": "Critical Check Point Management Flaw Lets Unauthenticated Attackers Run Code as Root",
-    "link": "https://thehackernews.com/2026/09/critical-check-point-management-server.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuFSb4LQQ7e_Iz1RS0JfQEDY9G9LcQZ23RM0h6ladr56GJ6nN3kPwVoZPpNVJUyJEBmLVEyMaIxytF2XqyQs8fGjIdd_ymPjwaZA8Q8R7JiXC-srMFj0_YBd-a94juv46HZm4ie72j7PTj45veyTgOBaeuN53HvktSH3JTgasvV_Mo-RwjsTPnRLlHFVk/s1600/cp-main.jpg"
-  },
-  {
-    "title": "ThreatsDay: Self-Rewriting Agents, 800+ Flaws Patched, Insider SIM Swaps and 22 More New Stories",
-    "link": "https://thehackernews.com/2026/09/threatsday-self-rewriting-agents-800.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizRobrCcZcWNzLjEmyk91HaJj5g2vkMbOgX_lP1vNQqfvh8krm4975WJ5zi9VFY1FsF44ZTJ5znBY5sBuKYiN-riJQspK3iLLnvhW5crViG9fJMPF_SCEN3dKPk-ypSjFQfD_gN1zA-KbryzexASNOVcKRHf4hf3iZ1XBuvYG9WKWhBdVWbs1dzJS9BUIQ/s1600/threatsday-main.jpg"
   }
 ]
