@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2025-53837",
-    "summary": "org.xwiki.rendering:xwiki-rendering-xml has an Eval Injection issue",
-    "severity": "CRITICAL",
-    "published": "2026-09-18T15:05:13Z",
-    "ghsa": "GHSA-26vp-8gxg-v4pg"
-  },
-  {
-    "id": "CVE-2026-77615",
-    "summary": "Opencast: Stored XSS in Paella player via WebVTT/DFXP caption cue text",
+    "id": "GHSA-jgh3-fggc-mcpm",
+    "summary": "Obot: Server-Side Request Forgery via remote MCP server URL",
     "severity": "HIGH",
-    "published": "2026-09-18T13:11:59Z",
-    "ghsa": "GHSA-m6c8-jcw2-5r25"
+    "published": "2026-09-18T17:59:46Z",
+    "ghsa": "GHSA-jgh3-fggc-mcpm"
   },
   {
-    "id": "CVE-2026-77281",
-    "summary": "Caddy: rewrite placeholder re-expansion, unbounded body buffer DoS, and fileHidden case-sensitivity bypass",
+    "id": "GHSA-pr6h-vr44-xq8j",
+    "summary": "Obot: MCP Registry API readable without authentication",
     "severity": "MODERATE",
-    "published": "2026-09-18T13:09:27Z",
-    "ghsa": "GHSA-j8px-rmrx-76h9"
+    "published": "2026-09-18T17:59:40Z",
+    "ghsa": "GHSA-pr6h-vr44-xq8j"
   },
   {
-    "id": "CVE-2026-72819",
-    "summary": "Grav CMS vulnerable to remote code execution via .zip file upload",
+    "id": "GHSA-xwmw-prc4-v3cr",
+    "summary": "Obot: OAuth Dynamic Client Registration Enables API Token Theft via Audience Confusion",
     "severity": "HIGH",
-    "published": "2026-09-17T20:45:57Z",
-    "ghsa": "GHSA-r94f-hx44-8jqf"
+    "published": "2026-09-18T17:59:35Z",
+    "ghsa": "GHSA-xwmw-prc4-v3cr"
   },
   {
-    "id": "CVE-2026-75837",
-    "summary": "Grav: Missing admin.super guard on core group blueprint access field allows admin.users operator to escalate to super-admin",
-    "severity": "HIGH",
-    "published": "2026-09-17T20:45:15Z",
-    "ghsa": "GHSA-xhfv-7758-r9hx"
-  },
-  {
-    "id": "CVE-2026-75834",
-    "summary": "Grav: Single invalid UTF-8 byte disables every rule in Security::detectXss(), bypassing the page-content XSS safety gate",
+    "id": "CVE-2026-71537",
+    "summary": "Paymenter has a credit-refund double-spend race condition in service downgrade (doUpgrade)",
     "severity": "MODERATE",
-    "published": "2026-09-17T20:44:39Z",
-    "ghsa": "GHSA-q2j8-x8hf-63ch"
+    "published": "2026-09-18T17:58:55Z",
+    "ghsa": "GHSA-5gmm-hjfj-8ff7"
   },
   {
-    "id": "CVE-2026-75827",
-    "summary": "Grav: Blueprint dynamic-data bare-function branch is denylist-gated and omits error_log, giving arbitrary file write",
-    "severity": "CRITICAL",
-    "published": "2026-09-17T20:44:16Z",
-    "ghsa": "GHSA-f8wv-xp27-6gq7"
-  },
-  {
-    "id": "CVE-2026-75828",
-    "summary": "Grav: detectXss() misses an event-handler attribute after an unpaired quote in an unquoted attribute value, giving stored XSS",
-    "severity": "CRITICAL",
-    "published": "2026-09-17T20:43:43Z",
-    "ghsa": "GHSA-vfmf-q6x9-cw96"
-  },
-  {
-    "id": "CVE-2026-74907",
-    "summary": "Grav: Unauthenticated Path Traversal via Missing Directory-Boundary Check in `plugin-asset-map.php` Static Asset Server (`index.php`)",
+    "id": "CVE-2026-85058",
+    "summary": "io.moquette:moquette-broker has a Missing Authorization issue",
     "severity": "HIGH",
-    "published": "2026-09-17T20:43:16Z",
-    "ghsa": "GHSA-4v9q-p283-qc2m"
+    "published": "2026-09-18T17:58:39Z",
+    "ghsa": "GHSA-9jjc-fw8x-fmwx"
   },
   {
-    "id": "CVE-2026-72695",
-    "summary": "Grav: Path Traversal in MediaUploadTrait::deleteFile() Allows Arbitrary File Deletion",
+    "id": "CVE-2026-59163",
+    "summary": "Mnemosyne has JWT signature verification bypass sync server that allows authentication bypass",
+    "severity": "CRITICAL",
+    "published": "2026-09-18T17:54:26Z",
+    "ghsa": "GHSA-xcw4-53cc-hv32"
+  },
+  {
+    "id": "CVE-2026-63445",
+    "summary": "Perses's unvalidated project parameter enables filesystem path traversal",
     "severity": "HIGH",
-    "published": "2026-09-17T20:34:05Z",
-    "ghsa": "GHSA-jq29-c7v8-rg55"
+    "published": "2026-09-18T17:40:03Z",
+    "ghsa": "GHSA-vr5f-w35q-98jp"
+  },
+  {
+    "id": "CVE-2026-63199",
+    "summary": "Perses's missing authorization in datasource proxy allows cross-scope secret disclosure",
+    "severity": "HIGH",
+    "published": "2026-09-18T17:39:48Z",
+    "ghsa": "GHSA-4227-9989-jrhx"
+  },
+  {
+    "id": "CVE-2026-63458",
+    "summary": "Perses's project query parameter authorization bypass exposes cross-project resources",
+    "severity": "HIGH",
+    "published": "2026-09-18T17:39:31Z",
+    "ghsa": "GHSA-cjgj-2fwf-4c2w"
+  },
+  {
+    "id": "CVE-2026-91127",
+    "summary": "File Viewer: DOM XSS via unsafe hyperlink schemes in the legacy DOC renderer",
+    "severity": "HIGH",
+    "published": "2026-09-18T17:19:42Z",
+    "ghsa": "GHSA-3753-m2x2-q623"
   }
 ]
