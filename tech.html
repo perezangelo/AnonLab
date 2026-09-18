@@ -143,6 +143,31 @@ fetch("/partials/ticker.html")
 
 <h2 style="color:#00eaff; text-shadow:0 0 5px #00eaff;">🚀 Innovazione Digitale</h2>
 <ul id="innovation-feed"></ul>
+		<script>
+function syncColumnHeight() {
+    // Sidebar reale (quella che contiene Google Maps)
+    const sidebar = document.querySelector(".sidebar");
+
+    // Contenitore dei feed
+    const techContent = document.getElementById("tech-content");
+
+    if (!sidebar || !techContent) return;
+
+    // Altezza reale della sidebar
+    const sidebarHeight = sidebar.offsetHeight;
+
+    // Applica altezza identica alla colonna dei feed
+    techContent.style.maxHeight = sidebarHeight + "px";
+    techContent.style.overflowY = "auto";   // scroll interno
+    techContent.style.paddingRight = "10px";
+}
+
+// Sincronizza all’avvio
+syncColumnHeight();
+
+// Sincronizza se la finestra cambia
+window.addEventListener("resize", syncColumnHeight);
+</script>
 <script>
 function loadFeed(endpoint, target) {
 
