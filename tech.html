@@ -152,19 +152,27 @@ fetch("/partials/ticker.html")
 
 		<script>
 function syncColumnHeight() {
+    // Sidebar reale (quella che contiene Google Maps)
     const sidebar = document.querySelector(".sidebar");
+
+    // Contenitore dei feed
     const techContent = document.getElementById("tech-content");
 
     if (!sidebar || !techContent) return;
 
+    // Altezza reale della sidebar
     const sidebarHeight = sidebar.offsetHeight;
 
+    // Applica altezza identica alla colonna dei feed
     techContent.style.maxHeight = sidebarHeight + "px";
-    techContent.style.overflowY = "auto";
+    techContent.style.overflowY = "auto";   // scroll interno
     techContent.style.paddingRight = "10px";
 }
 
+// Sincronizza all’avvio
 syncColumnHeight();
+
+// Sincronizza se la finestra cambia
 window.addEventListener("resize", syncColumnHeight);
 </script>
 
