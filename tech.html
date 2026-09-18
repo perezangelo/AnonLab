@@ -111,69 +111,152 @@ fetch("/partials/ticker.html")
       <section style="margin-bottom:25px;">
   <div style="display:flex; align-items:center; gap:22px;">
     <img src="/img/tech-hero-chip.png" alt="Tecnologia" style="
-      width:140px;
-      height:auto;
-      object-fit:contain;
+      width:140px; height:auto; object-fit:contain;
       filter:drop-shadow(0 0 6px #00eaff);
     ">
-
-    <div>
-      <h1 style="
-        margin:0;
-        color:#00eaff;
-        font-size:2rem;
-        text-shadow:0 0 5px #00eaff;
-      ">
-        Tecnologia
-      </h1>
-    </div>
+    <h1 style="margin:0; color:#00eaff; font-size:2rem; text-shadow:0 0 5px #00eaff;">
+      Tecnologia
+    </h1>
   </div>
 </section>
 
-<!-- CONTENITORE CHE MANCAVA -->
-<div id="tech-content" style="border-left:2px solid #00eaff; padding-left:10px;">
+<!-- TABS -->
+<div style="display:flex; gap:10px; margin-bottom:15px;">
+  <button class="tab" data-target="tech-news" style="
+    background:#0a0a0a; border:1px solid #00eaff; color:#00eaff;
+    padding:8px 14px; border-radius:6px; cursor:pointer;
+    text-shadow:0 0 6px #00eaff;
+  ">Tech News</button>
 
-<h2 style="color:#00eaff; text-shadow:0 0 5px #00eaff;">🔧 Tech News</h2>
-<ul id="tech-news"></ul>
+  <button class="tab" data-target="ai-trends" style="
+    background:#0a0a0a; border:1px solid #00eaff; color:#00eaff;
+    padding:8px 14px; border-radius:6px; cursor:pointer;
+    text-shadow:0 0 6px #00eaff;
+  ">AI Trends</button>
 
-<h2 style="color:#00eaff; text-shadow:0 0 5px #00eaff;">🤖 AI Trends</h2>
-<ul id="ai-trends"></ul>
+  <button class="tab" data-target="hardware-feed" style="
+    background:#0a0a0a; border:1px solid #00eaff; color:#00eaff;
+    padding:8px 14px; border-radius:6px; cursor:pointer;
+    text-shadow:0 0 6px #00eaff;
+  ">Hardware</button>
 
-<h2 style="color:#00eaff; text-shadow:0 0 5px #00eaff;">⚙️ Hardware & Performance</h2>
-<ul id="hardware-feed"></ul>
+  <button class="tab" data-target="software-feed" style="
+    background:#0a0a0a; border:1px solid #00eaff; color:#00eaff;
+    padding:8px 14px; border-radius:6px; cursor:pointer;
+    text-shadow:0 0 6px #00eaff;
+  ">Software</button>
 
-<h2 style="color:#00eaff; text-shadow:0 0 5px #00eaff;">🧩 Software & Tools</h2>
-<ul id="software-feed"></ul>
+  <button class="tab" data-target="innovation-feed" style="
+    background:#0a0a0a; border:1px solid #00eaff; color:#00eaff;
+    padding:8px 14px; border-radius:6px; cursor:pointer;
+    text-shadow:0 0 6px #00eaff;
+  ">Innovazione</button>
+</div>
 
-<h2 style="color:#00eaff; text-shadow:0 0 5px #00eaff;">🚀 Innovazione Digitale</h2>
-<ul id="innovation-feed"></ul>
+<!-- SEARCH -->
+<input id="tech-search" placeholder="Cerca negli articoli..." style="
+  width:100%; padding:10px; margin-bottom:15px;
+  background:#0a0a0a; border:1px solid #00eaff;
+  border-radius:6px; color:#fff;
+">
 
-</div> <!-- CHIUSURA CONTENITORE -->
+<!-- CONTENITORE SCORREVOLE -->
+<div id="tech-content" style="
+  border-left:2px solid #00eaff;
+  padding-left:10px;
+  overflow-y:auto;
+  padding-right:10px;
+">
 
-		<script>
+  <ul id="tech-news"></ul>
+  <ul id="ai-trends" style="display:none;"></ul>
+  <ul id="hardware-feed" style="display:none;"></ul>
+  <ul id="software-feed" style="display:none;"></ul>
+  <ul id="innovation-feed" style="display:none;"></ul>
+
+</div>
+
+<script>
+// Sincronizza altezza colonna con sidebar
 function syncColumnHeight() {
-    // Sidebar reale (quella che contiene Google Maps)
     const sidebar = document.querySelector(".sidebar");
-
-    // Contenitore dei feed
     const techContent = document.getElementById("tech-content");
 
     if (!sidebar || !techContent) return;
 
-    // Altezza reale della sidebar
-    const sidebarHeight = sidebar.offsetHeight;
-
-    // Applica altezza identica alla colonna dei feed
-    techContent.style.maxHeight = sidebarHeight + "px";
-    techContent.style.overflowY = "auto";   // scroll interno
-    techContent.style.paddingRight = "10px";
+    techContent.style.maxHeight = sidebar.offsetHeight + "px";
 }
 
-// Sincronizza all’avvio
 syncColumnHeight();
-
-// Sincronizza se la finestra cambia
 window.addEventListener("resize", syncColumnHeight);
+
+// Tabs
+document.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(b => {
+            b.style.background = "#0a0a0a";
+            b.style.color = "#00eaff";
+        });
+
+        btn.style.background = "#00eaff";
+        btn.style.color = "#000";
+
+        const target = btn.dataset.target;
+
+        document.querySelectorAll("#tech-content ul").forEach(ul => ul.style.display = "none");
+        document.getElementById(target).style.display = "block";
+    });
+});
+
+// Ricerca live
+document.getElementById("tech-search").addEventListener("input", function() {
+    const term = this.value.toLowerCase();
+    const activeList = document.querySelector("#tech-content ul:not([style*='display: none'])");
+
+    activeList.querySelectorAll("li").forEach(item => {
+        item.style.display = item.innerText.toLowerCase().includes(term) ? "block" : "none";
+    });
+});
+
+// Loader feed
+function loadFeed(endpoint, target) {
+    fetch("https://angelonline.altervista.org/newsops/" + endpoint + "?t=" + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            if (!Array.isArray(data)) data = [];
+
+            const box = document.getElementById(target);
+            box.innerHTML = "";
+
+            data.forEach(item => {
+                box.innerHTML += `
+                    <li style="list-style:none; margin-bottom:20px;">
+                        <span style="display:block; color:#00eaff; font-weight:600; font-size:1.05rem;">
+                            ▣ ${item.title}
+                        </span>
+                        <span style="display:block; color:#b8dfff; font-size:0.9rem;">
+                            ${item.description || ""}
+                        </span>
+                        <div style="
+                            width:100%; height:1px; margin:12px 0;
+                            background:linear-gradient(90deg,
+                                rgba(0,234,255,0) 0%,
+                                rgba(0,234,255,0.8) 50%,
+                                rgba(0,234,255,0) 100%
+                            );
+                        "></div>
+                    </li>
+                `;
+            });
+        });
+}
+
+// Carica feed
+loadFeed("tech/tech-news.php", "tech-news");
+loadFeed("tech/tech-ai-trends.php", "ai-trends");
+loadFeed("tech/tech-hardware.php", "hardware-feed");
+loadFeed("tech/tech-software.php", "software-feed");
+loadFeed("tech/tech-innovation.php", "innovation-feed");
 </script>
 
 <script>
