@@ -343,7 +343,7 @@ async function dnsLookup() {
 <div class="widget-large tools-box" id="iplookup">
     <div class="box-title-row">
         <img src="/img/ip.png" alt="Icona IP Information" class="box-title-icon">
-        <h2>IP Information</h2>
+        <h3>IP Information</h3>
     </div>
 
     <input id="ipInput" type="text" placeholder="es: 8.8.8.8"
@@ -436,7 +436,7 @@ ${JSON.stringify(data, null, 2)}
         <div class="widget-large tools-box">
             <div class="box-title-row">
                 <img src="/img/password.png" alt="Icona Password Generator" class="box-title-icon">
-                <h2>Password Generator</h2>
+                <h3>Password Generator</h3>
             </div>
             <iframe src="/tools/password.html" width="100%" height="180" frameborder="0"></iframe>
         </div>
@@ -445,7 +445,7 @@ ${JSON.stringify(data, null, 2)}
 <div class="widget-large tools-box" id="hashanalyzer">
     <div class="box-title-row">
         <img src="/img/hash.png" alt="Icona Hash Generator" class="box-title-icon">
-        <h2>Hash Generator</h2>
+        <h3>Hash Generator</h3>
     </div>
 
     <textarea id="hashInput" placeholder="Inserisci testo da convertire in hash..."
@@ -610,7 +610,7 @@ function md5(str) {
         <div class="widget-large tools-box">
             <div class="box-title-row">
                 <img src="/img/base64.png" alt="Icona Base64" class="box-title-icon">
-                <h2>Base64 Encode / Decode</h2>
+                <h3>Base64 Encode / Decode</h3>
             </div>
             <iframe src="/tools/base64.html" width="100%" height="180" frameborder="0"></iframe>
         </div>
@@ -619,7 +619,7 @@ function md5(str) {
 <div class="widget-large tools-box" id="portscanner">
     <div class="box-title-row">
         <img src="/img/port.png" alt="Icona Port Scanner" class="box-title-icon">
-        <h2>Port Scanner</h2>
+        <h3>Port Scanner</h3>
     </div>
 
     <input id="scanHost" type="text" placeholder="es: 8.8.8.8"
@@ -706,7 +706,7 @@ async function startScan() {
 <div class="widget-large tools-box" id="headerinspector">
     <div class="box-title-row">
         <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
-        <h2>HTTP Headers</h2>
+        <h3>HTTP Headers</h3>
     </div>
 
     <input id="headerUrl" type="text" placeholder="es: https://example.com"
@@ -761,7 +761,7 @@ ${JSON.stringify(data.headers, null, 2)}
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/url.png" alt="Icona URL Expander" class="box-title-icon">
-        <h2>URL Expander</h2>
+        <h3>URL Expander</h3>
     </div
 
     <input id="expandInput" type="text" placeholder="es: https://bit.ly/3xyz"
@@ -823,7 +823,7 @@ ${JSON.stringify(data, null, 2)}
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/qr.png" alt="Icona QR Code" class="box-title-icon">
-        <h2>QR Code Generator</h2>
+        <h3>QR Code Generator</h3>
     </div>
 
     <input id="qrInput" type="text" placeholder="Inserisci testo o URL"
@@ -874,7 +874,7 @@ async function generateQR() {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/json.png" alt="Icona JSON Formatter" class="box-title-icon">
-        <h2>JSON Formatter</h2>
+        <h3>JSON Formatter</h3>
     </div>
 
     <textarea id="jsonInput" placeholder="Incolla JSON qui..."
@@ -921,7 +921,7 @@ function formatJSON() {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/regex.png" alt="Icona Regex Tester" class="box-title-icon">
-        <h2>Regex Tester</h2>
+        <h3>Regex Tester</h3>
     </div>
 
     <input id="regexPattern" type="text" placeholder="Regex (es: ^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)"
@@ -985,7 +985,7 @@ function testRegex() {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/uuid.png" alt="Icona UUID Generator" class="box-title-icon">
-        <h2>UUID Generator</h2>
+        <h3>UUID Generator</h3>
     </div>
 
     <button onclick="genUUID()" style="
@@ -1009,7 +1009,7 @@ function genUUID() {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/lorem.png" alt="Icona Lorem Ipsum" class="box-title-icon">
-        <h2>Lorem Ipsum Generator</h2>
+        <h3>Lorem Ipsum Generator</h3>
     </div>
 
     <button onclick="genLorem()" style="
@@ -1113,7 +1113,7 @@ function nowTimestamp() {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/diff.png" alt="Icona Text Diff per confronto testi" class="box-title-icon">
-        <h2>Text Diff</h2>
+        <h3>Text Diff</h3>
     </div>
 
     <textarea id="diffA" placeholder="Testo A"
