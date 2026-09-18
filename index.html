@@ -315,54 +315,58 @@ document.addEventListener("click", (e) => {
     width:100%;
 ">
 
-<!-- GOOGLE SEARCH -->
-<div style="
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:15px;
-    width:100%;
-    flex-wrap:wrap;
-">
-    <img src="img/gears.png"
-         alt="Gears Icon"
-         style="
-            width:42px;
-            height:42px;
-            filter:drop-shadow(0 0 10px #00eaff);
-            flex-shrink:0;
-         ">
+    <!-- GOOGLE SEARCH -->
+    <div style="
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+        gap:15px;
+        width:100%;
+    ">
+        <img src="img/gears.png"
+             alt="Gears Icon"
+             style="
+                width:42px;
+                height:42px;
+                filter:drop-shadow(0 0 10px #00eaff);
+             ">
 
-    <form action="https://www.google.com/search" method="GET"
-          style="
-            display:flex;
-            gap:8px;
-            width:100%;
-            max-width:100%;
-            justify-content:flex-end;
-          ">
-        <input type="text" name="q" placeholder="Cerca su Google"
-               style="
-                   flex:1;
-                   padding:8px 12px;
-                   border-radius:6px;
-                   border:1px solid #00eaff;
-                   background:#0a0a0a;
-                   color:#fff;
-               ">
-        <button type="submit"
-                style="
-                    padding:8px 14px;
-                    background:#00eaff;
-                    border:none;
-                    border-radius:6px;
-                    color:#000;
-                    font-weight:bold;
-                ">
-            Cerca
-        </button>
-    </form>
-</div>
+        <form action="https://www.google.com/search" method="GET"
+              style="
+                display:flex;
+                gap:8px;
+                width:100%;
+                max-width:300px;
+                justify-content:flex-end;
+              ">
+            <input type="text" name="q"
+                   placeholder="Cerca su Google..."
+                   style="
+                     width:100%;
+                     padding:10px 12px;
+                     font-size:1rem;
+                     border-radius:8px;
+                     border:1px solid #00eaff;
+                     background:#000814;
+                     color:#e0faff;
+                     box-shadow:0 0 10px #00eaff55;
+                   ">
+
+            <button type="submit"
+                    style="
+                      padding:10px 14px;
+                      background:#00eaff;
+                      color:#000;
+                      font-weight:bold;
+                      border:none;
+                      border-radius:8px;
+                      cursor:pointer;
+                      box-shadow:0 0 10px #00eaffaa;
+                    ">
+              Cerca
+            </button>
+        </form>
+    </div>
 
 <!-- NEWSLETTER -->
 <div style="
