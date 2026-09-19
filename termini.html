@@ -131,18 +131,6 @@
 <body>
 
 <div id="header"></div>
-<div id="ticker"></div>
-
-<script>
-fetch("/partials/ticker.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("ticker").innerHTML = html;
-      if (typeof initTicker === "function") initTicker();
-  });
-</script>
-
-<script src="/js/ticker.js"></script>
 
 <main class="page">
 <section class="main-column">
