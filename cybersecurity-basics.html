@@ -369,6 +369,17 @@ AnonLab continua a evolversi come osservatorio tecnico sulle minacce digitali.
   </ul>
 </div>
 </div>
+	
+	<!-- ⭐ FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("/partials/footer.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("footer").innerHTML = html;
+  });
+</script>
 
 	<div id="sidebar" class="sidebar"></div>
 
@@ -388,16 +399,6 @@ AnonLab continua a evolversi come osservatorio tecnico sulle minacce digitali.
     });
 </script>
 	
-	<!-- ⭐ FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch("/partials/footer.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("footer").innerHTML = html;
-  });
-</script>
 	<!-- ⭐ BACK TO TOP -->
 <button id="backToTop">↑</button>
 
