@@ -144,24 +144,6 @@ fetch("/partials/ticker.html")
 
 <script src="/js/ticker.js"></script>
 
-	<div id="sidebar" class="sidebar"></div>
-
-    <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
- <script>
-    fetch("/partials/sidebar.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("sidebar").innerHTML = data;
-
-        initCalculator();
-        initRadio();
-        initYouTubePlayer();
-        initOroscopo();
-
-        console.log("Sidebar caricata — Widget inizializzati");
-    });
-</script>
-
 <main class="page">
 <section class="main-column">
 
@@ -328,6 +310,24 @@ fetch("/partials/ticker.html")
     </div>
 
 </section>
+
+	<div id="sidebar" class="sidebar"></div>
+
+    <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
+ <script>
+    fetch("/partials/sidebar.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("sidebar").innerHTML = data;
+
+        initCalculator();
+        initRadio();
+        initYouTubePlayer();
+        initOroscopo();
+
+        console.log("Sidebar caricata — Widget inizializzati");
+    });
+</script>
 </main>
 
 <div id="footer"></div>
