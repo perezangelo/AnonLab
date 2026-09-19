@@ -391,20 +391,46 @@ AnonLab continua a evolversi come osservatorio tecnico sulle minacce digitali.
 </div>
 		    </section>
 
+	  <script src="/js/main.js"></script>
+<script src="/js/ui.js"></script>
+
 	  <div id="sidebar" class="sidebar"></div>
 
     <script>
-      fetch("/partials/sidebar.html")
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("sidebar").innerHTML = html;
+fetch("/partials/sidebar.html")
+  .then(response => {
+      if (!response.ok) {
+          throw new Error("Errore caricamento sidebar: " + response.status);
+      }
+      return response.text();
+  })
+  .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
 
-          if (typeof initCalculator === "function") initCalculator();
-          if (typeof initRadio === "function") initRadio();
-          if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-          if (typeof initOroscopo === "function") initOroscopo();
-        });
-    </script>
+      if (typeof initCalculator === "function") {
+          initCalculator();
+      }
+
+      if (typeof initRadio === "function") {
+          initRadio();
+      }
+
+      if (typeof initYouTubePlayer === "function") {
+          initYouTubePlayer();
+      }
+
+      if (typeof initOroscopo === "function") {
+          initOroscopo();
+      }
+
+      if (typeof initVisitCounter === "function") {
+          initVisitCounter();
+      }
+  })
+  .catch(error => {
+      console.error("Errore sidebar:", error);
+  });
+</script>
 	  
     <!-- /main-column -->
 	
