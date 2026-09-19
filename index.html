@@ -1742,10 +1742,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- UI GENERALE -->
 <script src="https://angelonline.altervista.org/js/ui.js"></script>
-	<!-- CONTATORE VISITE -->
-<script src="https://angelonline.altervista.org/js/visit_counter.js?v=1001"></script>
+
+<!-- CONTATORE VISITE -->
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof initVisitCounter === "function") {
     initVisitCounter();
+  } else {
+    console.warn("initVisitCounter non disponibile");
+  }
+});
 </script>
 
 	<!-- SCRIPT BACK TO TOP -->
