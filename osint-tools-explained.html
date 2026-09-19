@@ -110,6 +110,40 @@ a { color:#00eaff; }
 
 <body>
 
+	<div id="header"></div>
+
+  <div id="ticker" aria-label="Ticker informazioni"></div>
+
+  <!-- Il file deve essere caricato prima dell'inizializzazione -->
+  <script src="/js/ticker.js"></script>
+
+  <script>
+    fetch("/partials/ticker.html")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Ticker non caricato");
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById("ticker").innerHTML = html;
+
+        /*
+         * ticker.js attualmente non contiene initTicker().
+         * La funzione disponibile è loadTickerNews().
+         */
+        if (typeof loadTickerNews === "function") {
+          loadTickerNews();
+        }
+      })
+      .catch(error => {
+        console.error("Errore caricamento ticker:", error);
+      });
+  </script>
+
+  <main class="page">
+    <section class="main-column">
+
 <h1>OSINT Tools Explained — Raccolta e Analisi delle Informazioni</h1>
 
 <div class="section">
@@ -358,6 +392,51 @@ Questa pagina offre una panoramica completa e aggiornata degli strumenti e delle
   </ul>
 </div>
 </div>
+
+	</section>
+
+	  <script src="/js/main.js"></script>
+<script src="/js/ui.js"></script>
+
+	  <div id="sidebar" class="sidebar"></div>
+
+    <script>
+fetch("/partials/sidebar.html")
+  .then(response => {
+      if (!response.ok) {
+          throw new Error("Errore caricamento sidebar: " + response.status);
+      }
+      return response.text();
+  })
+  .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
+
+      if (typeof initCalculator === "function") {
+          initCalculator();
+      }
+
+      if (typeof initRadio === "function") {
+          initRadio();
+      }
+
+      if (typeof initYouTubePlayer === "function") {
+          initYouTubePlayer();
+      }
+
+      if (typeof initOroscopo === "function") {
+          initOroscopo();
+      }
+
+      if (typeof initVisitCounter === "function") {
+          initVisitCounter();
+      }
+  })
+  .catch(error => {
+      console.error("Errore sidebar:", error);
+  });
+</script>
+	  
+    <!-- /main-column -->
 
 		<!-- ⭐ FOOTER -->
 <div id="footer"></div>
