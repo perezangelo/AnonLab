@@ -565,7 +565,7 @@
 
   <!-- LOGHI CENTRATI SENZA ANDARE A CAPO -->
   <div class="feed-logos"
-       style="display:flex; justify-content:center; gap:8px; margin-bottom:12px; overflow:hidden;">
+       style="display:flex; justify-content:center; flex-wrap:nowrap; gap:6px; overflow-x:auto; padding-bottom:10px;">
     <img src="/img/skytg24.png" alt="Logo Sky TG24" style="height:48px;">
     <img src="/img/ansa.png" alt="Logo ANSA" style="height:48px;">
     <img src="/img/bbc.png" alt="Logo BBC News" style="height:48px;">
@@ -578,104 +578,71 @@
     Feed Euronews
   </h3>
 
-  <!-- LISTA MIGLIORATA CON SEPARATORI NEON E ICONE -->
+  <!-- LISTA MIGLIORATA CON NEON + ICONE ALLINEATE -->
   <ul class="feed-links" style="list-style:none; padding:0; margin:0;">
 
-    <li style="padding:10px 0; text-align:left; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
-      <span style="color:#ff7b00; margin-right:6px;">➤</span>
-      <a href="https://www.euronews.com/news" target="_blank" rel="noopener noreferrer"
-         style="color:#ff7b00 !important; text-decoration:none;"
-         onmouseover="this.style.color='#ff9a40'"
-         onmouseout="this.style.color='#ff7b00'">
-         Ultime notizie
-      </a>
+    <li style="padding:10px 0; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="color:#ff7b00;">➤</span>
+        <a href="https://www.euronews.com/news" target="_blank" rel="noopener noreferrer"
+           style="color:#ff7b00 !important; text-decoration:none;"
+           onmouseover="this.style.color='#ff9a40'"
+           onmouseout="this.style.color='#ff7b00'">
+           Ultime notizie
+        </a>
+      </div>
     </li>
 
-    <li style="padding:10px 0; text-align:left; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
-      <span style="color:#ff7b00; margin-right:6px;">➤</span>
-      <a href="https://www.euronews.com/world" target="_blank" rel="noopener noreferrer"
-         style="color:#ff7b00 !important; text-decoration:none;"
-         onmouseover="this.style.color='#ff9a40'"
-         onmouseout="this.style.color='#ff7b00'">
-         Mondo
-      </a>
+    <li style="padding:10px 0; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="color:#ff7b00;">➤</span>
+        <a href="https://www.euronews.com/world" target="_blank" rel="noopener noreferrer"
+           style="color:#ff7b00 !important; text-decoration:none;"
+           onmouseover="this.style.color='#ff9a40'"
+           onmouseout="this.style.color='#ff7b00'">
+           Mondo
+        </a>
+      </div>
     </li>
 
-    <li style="padding:10px 0; text-align:left; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
-      <span style="color:#ff7b00; margin-right:6px;">➤</span>
-      <a href="https://www.euronews.com/my-europe/europe-news" target="_blank" rel="noopener noreferrer"
-         style="color:#ff7b00 !important; text-decoration:none;"
-         onmouseover="this.style.color='#ff9a40'"
-         onmouseout="this.style.color='#ff7b00'">
-         Europa
-      </a>
+    <li style="padding:10px 0; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="color:#ff7b00;">➤</span>
+        <a href="https://www.euronews.com/my-europe/europe-news" target="_blank" rel="noopener noreferrer"
+           style="color:#ff7b00 !important; text-decoration:none;"
+           onmouseover="this.style.color='#ff9a40'"
+           onmouseout="this.style.color='#ff7b00'">
+           Europa
+        </a>
+      </div>
     </li>
 
-    <li style="padding:10px 0; text-align:left; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
-      <span style="color:#ff7b00; margin-right:6px;">➤</span>
-      <a href="https://www.euronews.com/business" target="_blank" rel="noopener noreferrer"
-         style="color:#ff7b00 !important; text-decoration:none;"
-         onmouseover="this.style.color='#ff9a40'"
-         onmouseout="this.style.color='#ff7b00'">
-         Economia
-      </a>
+    <li style="padding:10px 0; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="color:#ff7b00;">➤</span>
+        <a href="https://www.euronews.com/business" target="_blank" rel="noopener noreferrer"
+           style="color:#ff7b00 !important; text-decoration:none;"
+           onmouseover="this.style.color='#ff9a40'"
+           onmouseout="this.style.color='#ff7b00'">
+           Economia
+        </a>
+      </div>
     </li>
 
-    <li style="padding:10px 0; text-align:left;">
-      <span style="color:#ff7b00; margin-right:6px;">➤</span>
-      <a href="https://www.euronews.com/next" target="_blank" rel="noopener noreferrer"
-         style="color:#ff7b00 !important; text-decoration:none;"
-         onmouseover="this.style.color='#ff9a40'"
-         onmouseout="this.style.color='#ff7b00'">
-         Tecnologia
-      </a>
+    <!-- ULTIMO BLOCCO CON CORNICE NEON -->
+    <li style="padding:10px 0; border-bottom:2px solid #ff7b00; box-shadow:0 0 6px #ff7b00;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="color:#ff7b00;">➤</span>
+        <a href="https://www.euronews.com/next" target="_blank" rel="noopener noreferrer"
+           style="color:#ff7b00 !important; text-decoration:none;"
+           onmouseover="this.style.color='#ff9a40'"
+           onmouseout="this.style.color='#ff7b00'">
+           Tecnologia
+        </a>
+      </div>
     </li>
 
   </ul>
-</div>
-
-    <div class="sidebar-box" style="text-align:center; margin-top:20px;">
-    <!-- Banner AlterVista - Sidebar 300x250 (Secondo Banner) -->
-    <script>
-    !function(d,l,e,s,c){
-        e=d.createElement("script");
-        e.src="//ad.altervista.org/js2.ad/size=300X250/?ref="+encodeURIComponent(l.hostname+l.pathname)+"&r="+Date.now();
-        s=d.scripts;
-        c=d.currentScript||s[s.length-1];
-        c.parentNode.insertBefore(e,c)
-    }(document,location)
-    </script>
-</div>
-
-<!-- ============================
-    SIDEBAR COMPLETA — BLOCCO 2/4
-    CALCOLATRICE + OROSCOPO + SOCIAL + VIDEO
-============================= -->
-
-<!-- METEO NEON HUD (REALTIME) -->
-<div class="sidebar-box" aria-label="Previsioni meteo Varese"
-     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:34px 12px 26px 12px;">
-
-  <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Meteo</h3>
-
-  <!-- ICONA METEO — FUORI DA .meteo-box -->
-  <div style="text-align:center; margin-bottom:14px; padding-top:26px; margin-top:12px;">
-    <img id="meteo-icon" src="/img/img/meteo/default.svg"
-         style="width:100px; filter:drop-shadow(0 0 10px #00eaff);" alt="Icona Meteo">
-  </div>
-
-  <!-- TESTO METEO -->
-  <div id="meteo-box" class="meteo-box"
-       style="font-size:13px; color:#8be9ff; text-align:center;">
-    <div style="margin-bottom:4px;">
-      <span id="meteo-city" style="color:#ff7b00; font-weight:bold;">Varese</span>
-    </div>
-    <div>
-      <span id="meteo-temp">--°C</span> —
-      <span id="meteo-desc">Caricamento meteo...</span>
-    </div>
-  </div>
-
 </div>
 
 <div class="sidebar-box" aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
