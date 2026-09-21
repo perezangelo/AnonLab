@@ -239,40 +239,6 @@ try {
 </div> 
         <script>
 async function dnsLookup() {
-    const dominio = document.getElementById("dnsInput").value.trim();
-    const output = document.getElementById("dnsResult");
-
-    if (!dominio) {
-        output.innerText = "Inserisci un dominio valido.";
-        return;
-    }
-
-    output.innerText = "Caricamento DNS...";
-
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/dns.php?domain=" + dominio);
-        const data = await res.json();
-
-        if (data.error) {
-            output.innerText = "Errore DNS: " + data.error;
-            return;
-        }
-
-        output.innerText = JSON.stringify(data, null, 2);
-
-    } catch (e) {
-        output.innerText = "Errore durante la richiesta DNS.";
-    }
-}
-            function cleanDomain(input) {
-    return input
-        .replace(/^https?:\/\//i, "")
-        .replace(/\/.*$/, "")
-        .replace(/^www\./i, "")
-        .trim();
-}
-
-async function dnsLookup() {
     const raw = document.getElementById("dnsInput").value;
     const dominio = cleanDomain(raw);
     const output = document.getElementById("dnsResult");
@@ -1027,7 +993,7 @@ nisi ut aliquip ex ea commodo consequat.`;
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/timestamp.png" alt="Icona Timestamp Converter" class="box-title-icon">
-        <h2>Timestamp Converter</h2>
+        <h3>Timestamp Converter</h3>
     </div>
     <input id="tsInput" type="text" placeholder="Inserisci timestamp UNIX (es: 1717920000)"
            style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
