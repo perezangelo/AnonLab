@@ -105,9 +105,11 @@ html { scroll-behavior: smooth; } </style>
 
         <div class="tools-hero-text">
             <h1>Cyber Tools Center</h1>
-            <p>Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
-        Questa sezione è il punto di partenza per operazioni tecniche,
-        verifiche di rete, analisi di domini, IP, protocolli e molto altro..</p>
+            <p>
+  Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
+  Questa sezione è il punto di partenza per operazioni tecniche,
+  verifiche di rete, analisi di domini, IP, protocolli e molto altro.
+</p>
         </div>
     </section>
 
@@ -221,7 +223,7 @@ try {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/dns.png" alt="Icona DNS Lookup" class="box-title-icon">
-        <h2>DNS Lookup</h2>
+        <h4>DNS Lookup</h4>
     </div>
 
     <input id="dnsInput" type="text" placeholder="es: google.com"
@@ -298,7 +300,7 @@ async function dnsLookup() {
 <div class="widget-large tools-box" id="iplookup">
     <div class="box-title-row">
         <img src="/img/ip.png" alt="Icona IP Information" class="box-title-icon">
-        <h3>IP Information</h3>
+        <h4>IP Information</h4>
     </div>
 
     <input id="ipInput" type="text" placeholder="es: 8.8.8.8"
@@ -393,7 +395,7 @@ ${JSON.stringify(data, null, 2)}
                 <img src="/img/password.png" alt="Icona Password Generator" class="box-title-icon">
                 <h3>Password Generator</h3>
             </div>
-            <iframe src="/tools/password.html" width="100%" height="180" frameborder="0"></iframe>
+            <iframe src="/tools/password.html" width="100%" height="180" frameborder="0" loading="lazy"></iframe>
         </div>
 
         <!-- Hash Generator -->
@@ -567,7 +569,7 @@ function md5(str) {
                 <img src="/img/base64.png" alt="Icona Base64" class="box-title-icon">
                 <h3>Base64 Encode / Decode</h3>
             </div>
-            <iframe src="/tools/base64.html" width="100%" height="180" frameborder="0"></iframe>
+            <iframe src="/tools/base64.html" width="100%" height="180" frameborder="0" loading="lazy"></iframe>
         </div>
 
         <!-- Port Scanner -->
@@ -661,7 +663,7 @@ async function startScan() {
 <div class="widget-large tools-box" id="headerinspector">
     <div class="box-title-row">
         <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
-        <h3>HTTP Headers</h3>
+        <h4>HTTP Headers</h4>
     </div>
 
     <input id="headerUrl" type="text" placeholder="es: https://example.com"
@@ -716,7 +718,7 @@ ${JSON.stringify(data.headers, null, 2)}
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/url.png" alt="Icona URL Expander" class="box-title-icon">
-        <h3>URL Expander</h3>
+        <h4>URL Expander</h4>
 	</div>
 
     <input id="expandInput" type="text" placeholder="es: https://bit.ly/3xyz"
@@ -778,7 +780,7 @@ ${JSON.stringify(data, null, 2)}
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/qr.png" alt="Icona QR Code" class="box-title-icon">
-        <h3>QR Code Generator</h3>
+        <h4>QR Code Generator</h4>
     </div>
 
     <input id="qrInput" type="text" placeholder="Inserisci testo o URL"
@@ -829,7 +831,7 @@ async function generateQR() {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/json.png" alt="Icona JSON Formatter" class="box-title-icon">
-        <h3>JSON Formatter</h3>
+        <h4>JSON Formatter</h4>
     </div>
 
     <textarea id="jsonInput" placeholder="Incolla JSON qui..."
@@ -876,7 +878,7 @@ function formatJSON() {
 <div class="widget-large tools-box">
     <div class="box-title-row">
         <img src="/img/regex.png" alt="Icona Regex Tester" class="box-title-icon">
-        <h3>Regex Tester</h3>
+        <h4>Regex Tester</h4>
     </div>
 
     <input id="regexPattern" type="text" placeholder="Regex (es: ^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)"
