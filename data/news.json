@@ -1,8 +1,28 @@
 [
   {
-    "title": "[Virtual Event] Cybersecurity Outlook 2027",
-    "link": "https://www.darkreading.com/events/virtual-event-cybersecurity-outlook-2027",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc94608acf452fd67/655cf371ab171e040a838b2a/329050_DR23_Graphics_Website_V5_Default_Image_v1.png?disable=upscale&width=1200&height=630&fit=crop"
+    "title": "How AI Agents Can Trigger Runaway Costs for Enterprises",
+    "link": "https://www.darkreading.com/application-security/how-ai-agents-can-trigger-runaway-costs",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt4d507c20a824455e/6ab1a65e4e44f033edad8e57/computecosts-Cristina_Bustiuc-Getty-2290322223.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "BigCommerce alerts merchants of data breach linked to Ribon apps",
+    "link": "https://www.bleepingcomputer.com/news/security/bigcommerce-alerts-merchants-of-data-breach-linked-to-ribon-apps/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2021/11/25/OnlineShopping.jpg"
+  },
+  {
+    "title": "CISA alerts of active exploitation of three Linux kernel flaws",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-alerts-of-active-exploitation-of-three-linux-kernel-flaws/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/01/13/CISA.jpg"
+  },
+  {
+    "title": "ShinyHunters Hacked Clop. Now What About Clop's Victims?",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-hacked-clop-what-about-clops-victims",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8e0bef42c03290a5/6ab183286295de5dae48dbb1/horses_running-winhorse-GettyImages-157523740.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Cybercriminals Are Hiding New Malware in Torrents for Popular Films",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/cybercriminals-hiding-new-malware-torrents-popular-films",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "WordPress Click2Shell flaw lets hackers execute PHP on the server",
@@ -90,6 +110,11 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2024/11/android-banking-malware.png"
   },
   {
+    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/21/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "image": ""
+  },
+  {
     "title": "Rust Team Members and Popular Crate Owners Targeted via Video Calls",
     "link": "https://www.securityweek.com/rust-team-members-and-popular-crate-owners-targeted-via-video-calls/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/01/application-security-vulnerabilities.jpeg"
@@ -123,30 +148,5 @@
     "title": "Google Confirms Gemini AI Breached Three Firms",
     "link": "https://www.securityweek.com/google-confirms-gemini-ai-breached-three-firms/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/08/rogue-AI-artificial-intelligence.jpeg"
-  },
-  {
-    "title": "Jade Sleet Linked to Indian IT Provider Breach With FLATROOF and ROOFDECK Backdoors",
-    "link": "https://thehackernews.com/2026/09/jade-sleet-linked-to-indian-it-provider.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-xFiujwBJLdl6_4wZSMCWdeyCgev2EqszOLkIJ5I9Kbanu6YNmQ36nM615XmLQ-sq2aqldOHfl47jaMNRtDd80RT8k5f6I7eQuszf7wsIg49sEdMW36hsEKUtVUkZabRlGvvDxn7H7COmRCV8qP2pzQm9LNo5QKRnnptxmxTlJ8BMcPxuiqdaMjn-are0/s1600/it-services.jpg"
-  },
-  {
-    "title": "Malicious npm packages evade install-script defenses at runtime",
-    "link": "https://www.bleepingcomputer.com/news/security/malicious-npm-packages-evade-install-script-defenses-at-runtime/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/15/npm.jpg"
-  },
-  {
-    "title": "Researchers escape OpenAI Codex sandbox to run commands on host",
-    "link": "https://www.bleepingcomputer.com/news/security/researchers-escape-openai-codex-sandbox-to-run-commands-on-host/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/17/OpenAI.jpg"
-  },
-  {
-    "title": "Claude Opus 5 Helped Researchers Take Over OpenAI Staff Accounts via Chained Flaws",
-    "link": "https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAElV4rXwWf_kTjj5e0UJFsEG-a0B7MUsCFqhFLYEA76kk2A7UeXbaG0DfRt-Syf7dxx4bHUanr0lVvwIUFyFgtPIfhyphenhyphenx61ccuo3oDZr6-wKROoEAVWjrAcKWuZ5WdlvL_pmKC91i9juBrsnI3FiLTGGgjnnJRAnjTgAxAbMjcbCTxZSWybZPPtG8HN1E/s1600/claude-openai.jpg"
-  },
-  {
-    "title": "BragJack attacks hijack AI browser agents through malicious extensions",
-    "link": "https://www.bleepingcomputer.com/news/security/bragjack-attacks-hijack-ai-browser-agents-through-malicious-extensions/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/19/browsers-header.jpg"
   }
 ]
