@@ -1498,3 +1498,9 @@ details input {
 .sidebar-box ul li {
     margin-bottom: 4px;
 }
+
+.news-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
