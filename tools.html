@@ -1,1181 +1,1187 @@
-<!DOCTYPE html> 
-<html lang="it"> 
-	<head> 
-		<meta name="description" content="Raccolta di strumenti cyber di AnonLab: scanner, analizzatori, utility di rete e tool per la sicurezza informatica."> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Tools — Cyber Operations Center | AnonLab</title>
-<!-- CSS -->
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/custom.css">
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="description" content="Raccolta di strumenti cyber di AnonLab: scanner, analizzatori, utility di rete e tool per la sicurezza informatica.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools — Cyber Operations Center | AnonLab</title>
 
-<style>
-    /* BOX TOOLS NEON CYBER */
-    .tools-box {
-        max-width: 540px;
-        margin: 0 auto 40px auto;
-        width: 100%;
-        background: #0a0f14;
-        border: 1px solid #00eaff55;
-        box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
-        border-radius: 10px;
-        padding: 20px;
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <style>
+        /* BOX TOOLS NEON CYBER */
+        .tools-box {
+            max-width: 540px;
+            margin: 0 auto 40px auto;
+            width: 100%;
+            background: #0a0f14;
+            border: 1px solid #00eaff55;
+            box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .box-title-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .box-title-icon {
+            width: 46px;
+            height: 46px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 170, 255, 0.28);
+            box-shadow: 0 0 12px rgba(0, 170, 255, 0.28);
+            opacity: 0.95;
+            margin-right: 12px;
+        }
+
+        .tools-hero {
+            max-width: 540px;
+            margin: 0 auto 40px auto;
+        }
+    </style>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+
+    <!-- CARICAMENTO JAVASCRIPT DEL SITO -->
+    <script src="/js/main.js"></script>
+
+    <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
+    <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
+    <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+    <script>
+    (_iub=self._iub||[]).csConfiguration={
+        cookiePolicyId: 12413505,
+        siteId: 4661380,
+        localConsentDomain: 'anonlab.it',
+        timeoutLoadConfiguration: 30000,
+        lang: 'it',
+        enableTcf: true,
+        tcfVersion: 2,
+        tcfPurposes: {
+             "2": "consent_only",
+             "3": "consent_only",
+             "4": "consent_only",
+             "5": "consent_only",
+             "6": "consent_only",
+             "7": "consent_only",
+             "8": "consent_only",
+             "9": "consent_only",
+            "10": "consent_only"
+        },
+        invalidateConsentWithoutLog: true,
+        googleAdditionalConsentMode: true,
+        consentOnContinuedBrowsing: false,
+        banner: {
+            position: "bottom",
+            acceptButtonDisplay: true,
+            customizeButtonDisplay: true,
+            closeButtonDisplay: true,
+            closeButtonRejects: true,
+            fontSizeBody: "14px",
+        },
     }
-
-    .box-title-row {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-    .box-title-icon {
-  width: 46px;
-  height: 46px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 170, 255, 0.28);
-  box-shadow: 0 0 12px rgba(0, 170, 255, 0.28);
-  opacity: 0.95;
-  margin-right: 12px;
-}
-
-    .tools-hero {
-        max-width: 540px;
-        margin: 0 auto 40px auto;
-    }
-</style>
-<style>
-html { scroll-behavior: smooth; } </style>
-
-<!-- CARICAMENTO JAVASCRIPT DEL SITO -->
-<script src="/js/main.js"></script>
-
-  <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
-<script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-<script>
-(_iub=self._iub||[]).csConfiguration={
-	cookiePolicyId: 12413505,
-	siteId: 4661380,
-	localConsentDomain: 'anonlab.it',
-	timeoutLoadConfiguration: 30000,
-	lang: 'it',
-	enableTcf: true,
-	tcfVersion: 2,
-	tcfPurposes: {
-		 "2": "consent_only",
-		 "3": "consent_only",
-		 "4": "consent_only",
-		 "5": "consent_only",
-		 "6": "consent_only",
-		 "7": "consent_only",
-		 "8": "consent_only",
-		 "9": "consent_only",
-		"10": "consent_only"
-	},
-	invalidateConsentWithoutLog: true,
-	googleAdditionalConsentMode: true,
-	consentOnContinuedBrowsing: false,
-	banner: {
-		position: "bottom",
-		acceptButtonDisplay: true,
-		customizeButtonDisplay: true,
-		closeButtonDisplay: true,
-		closeButtonRejects: true,
-		fontSizeBody: "14px",
-	},
-}
-</script>
+    </script>
 </head>
 
-    <body>
-<!-- PARTIALS --> <div id="header"></div> <div id="ticker" aria-label="Ticker informazioni"></div> <!-- CARICAMENTO TICKER --> <script> fetch("/partials/ticker.html") .then(r => r.text()) .then(html => { document.getElementById("ticker").innerHTML = html;
-  // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
-  if (typeof initTicker === "function") {
-      initTicker();
-  }
-}); </script>
-<!-- SCRIPT TICKER --> <script src="/js/ticker.js"></script>
-<main class="page">
-<!-- ============================
-     COLONNA PRINCIPALE
-============================= -->
-<section class="main-column">
+<body>
+    <!-- PARTIALS -->
+    <div id="header"></div>
+    <div id="ticker" aria-label="Ticker informazioni"></div>
 
-    <!-- HERO -->
-    <section class="tools-hero">
-        <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
-
-        <div class="tools-hero-text">
-            <h1>Cyber Tools Center</h1>
-            <p>
-  Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
-  Questa sezione è il punto di partenza per operazioni tecniche,
-  verifiche di rete, analisi di domini, IP, protocolli e molto altro.
-</p>
-        </div>
-    </section>
-
-    <div class="tools-box">
-    <div class="tools-links" style="font-size:15px; color:#7fdfff; line-height:1.6;">
-  <p style="color:#ccc; margin-bottom:10px;">
-    Questa sezione raccoglie strumenti operativi utili per analisi di rete, diagnostica,
-    sicurezza informatica e attività OSINT.  
-    Se ti servono approfondimenti, dashboard avanzate o contenuti tecnici correlati,
-    puoi esplorare anche le sezioni qui sotto:
-  </p>
-
-  <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
-  panoramica generale dello stato dei sistemi e indicatori cyber.
-
-  <br>
-
-  <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —  
-  monitoraggio avanzato, threat level, log eventi e attività sospette.
-
-  <br>
-
-  <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
-  raccolta completa di strumenti, VPN, browser tools e risorse tecniche.
-
-  <br>
-
-  <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
-  articoli e contenuti dedicati alla sicurezza informatica.
-
-  <br>
-
-  <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
-  guida completa agli strumenti OSINT e alle tecniche investigative.
-
-  <br>
-
-  <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
-  analisi tecniche delle vulnerabilità più rilevanti.
-
-  <br>
-
-  <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —  
-  report sulle minacce attuali e indicatori di compromissione.
-
-  <br>
-
-  <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —  
-  indagine reale basata su tecniche OSINT.
-    </div>
-</div>
-
-    <!-- ============================
-         WIDGET TOOLS
-    ============================= -->
-
-    <!-- WHOIS Lookup -->
-<div class="widget-large tools-box"> <div class="box-title-row"> <img src="/img/whois.png" alt="Icona WHOIS Lookup" class="box-title-icon"> <h2>WHOIS Lookup</h2> </div>
-<input id="whoisInput" type="text" placeholder="es: anonlab.it"
-       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
-
-<button onclick="whoisLookup()" style="
-    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
-">Cerca WHOIS</button>
-
-<pre id="whoisResult" style="
-    background:#000; color:#0ff; padding:15px; margin-top:15px;
-    max-height:300px; overflow-y:auto; border:1px solid #00eaff;
-    white-space:pre-wrap;
-"></pre>
-</div>
-<script> async function whoisLookup() { const dominio = document.getElementById("whoisInput").value.trim(); const output = document.getElementById("whoisResult");
-if (!dominio) {
-    output.innerText = "Inserisci un dominio valido.";
-    return;
-}
-
-output.innerText = "Caricamento WHOIS...";
-
-try {
-    const res = await fetch("https://angelonline.altervista.org/widgets/whois.php?domain=" + dominio);
-    const data = await res.json();
-
-    if (data.error) {
-        output.innerText = "Errore WHOIS: " + data.error;
-        return;
-    }
-
-    const status = Array.isArray(data.domain_status)
-        ? data.domain_status.join(", ")
-        : (data.domain_status || "Non disponibile");
-
-    const raw = data.raw_text || "Non disponibile";
-
-    output.innerText =
-        "Dominio: " + (data.domain || "Non disponibile") + "\n" +
-        "Stato: " + status + "\n" +
-        "Creato: " + (data.create_date || "Non disponibile") + "\n" +
-        "Aggiornato: " + (data.update_date || "Non disponibile") + "\n" +
-        "Scadenza: " + (data.expire_date || "Non disponibile") + "\n" +
-        "Registrar: " + (data.registrar?.name || "Non disponibile") + "\n" +
-        "\n--- RAW WHOIS ---\n\n" +
-        raw;
-
-} catch (e) {
-    output.innerText = "Errore durante la richiesta WHOIS.";
-}
-} </script>
-        
-        <!-- DNS Lookup -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/dns.png" alt="Icona DNS Lookup" class="box-title-icon">
-        <h4>DNS Lookup</h4>
-    </div>
-
-    <input id="dnsInput" type="text" placeholder="es: google.com"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
-
-    <button onclick="dnsLookup()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
-    ">Cerca</button>
-
-    <div id="dnsResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;
-    "></div>
-</div> 
-        <script>
-async function dnsLookup() {
-    const raw = document.getElementById("dnsInput").value;
-    const dominio = cleanDomain(raw);
-    const output = document.getElementById("dnsResult");
-
-    if (!dominio) {
-        output.innerText = "Inserisci un dominio valido.";
-        return;
-    }
-
-    output.innerText = "Caricamento DNS...";
-
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/dns.php?domain=" + dominio);
-        const data = await res.json();
-
-        if (!data.Answer) {
-            output.innerText = "Nessun record DNS trovato.";
-            return;
-        }
-
-        let html = "";
-
-        const typeNames = {
-            1: "A",
-            28: "AAAA",
-            5: "CNAME",
-            15: "MX",
-            16: "TXT",
-            2: "NS",
-            6: "SOA"
-        };
-
-        const grouped = {};
-
-        data.Answer.forEach(rec => {
-            const type = typeNames[rec.type] || rec.type;
-            if (!grouped[type]) grouped[type] = [];
-            grouped[type].push(rec);
+    <!-- CARICAMENTO TICKER -->
+    <script>
+    fetch("/partials/ticker.html")
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById("ticker").innerHTML = html;
+            if (typeof initTicker === "function") {
+                initTicker();
+            }
         });
+    </script>
+    <script src="/js/ticker.js"></script>
 
-        for (const type in grouped) {
-            html += `<div style="margin-bottom:15px;">
-                        <h3 style="color:#00eaff; border-bottom:1px solid #00eaff;">${type} Records</h3>
-                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${JSON.stringify(grouped[type], null, 2)}</pre>
-                     </div>`;
-        }
+    <main class="page">
+        <!-- COLONNA PRINCIPALE -->
+        <section class="main-column">
 
-        output.innerHTML = html;
+            <!-- HERO -->
+            <section class="tools-hero">
+                <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
+                <div class="tools-hero-text">
+                    <h1>Cyber Tools Center</h1>
+                    <p>
+                        Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
+                        Questa sezione è il punto di partenza per operazioni tecniche,
+                        verifiche di rete, analisi di domini, IP, protocolli e molto altro.
+                    </p>
+                </div>
+            </section>
 
-    } catch (e) {
-        output.innerText = "Errore durante la richiesta DNS.";
-    }
-}
-</script>
+            <div class="tools-box">
+                <div class="tools-links" style="font-size:15px; color:#7fdfff; line-height:1.6;">
+                    <p style="color:#ccc; margin-bottom:10px;">
+                        Questa sezione raccoglie strumenti operativi utili per analisi di rete, diagnostica,
+                        sicurezza informatica e attività OSINT.
+                        Se ti servono approfondimenti, dashboard avanzate o contenuti tecnici correlati,
+                        puoi esplorare anche le sezioni qui sotto:
+                    </p>
 
-      <!-- IP Info -->
-<div class="widget-large tools-box" id="iplookup">
-    <div class="box-title-row">
-        <img src="/img/ip.png" alt="Icona IP Information" class="box-title-icon">
-        <h4>IP Information</h4>
-    </div>
+                    <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —
+                    panoramica generale dello stato dei sistemi e indicatori cyber.<br>
 
-    <input id="ipInput" type="text" placeholder="es: 8.8.8.8"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                    <a href="/anonlab-soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —
+                    monitoraggio avanzato, threat level, log eventi e attività sospette.<br>
 
-    <button onclick="ipLookup()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;
-    ">Cerca</button>
+                    <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —
+                    raccolta completa di strumenti, VPN, browser tools e risorse tecniche.<br>
 
-    <div id="ipResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:500px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;
-    "></div>
-</div>
+                    <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —
+                    articoli e contenuti dedicati alla sicurezza informatica.<br>
 
-<script>
-function cleanIP(ip) {
-    return ip.trim().replace(/[^0-9a-fA-F\.:]/g, "");
-}
+                    <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —
+                    guida completa agli strumenti OSINT e alle tecniche investigative.<br>
 
-async function ipLookup() {
-    const raw = document.getElementById("ipInput").value;
-    const ip = cleanIP(raw);
-    const output = document.getElementById("ipResult");
+                    <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —
+                    analisi tecniche delle vulnerabilità più rilevanti.<br>
 
-    if (!ip) {
-        output.innerText = "Inserisci un IP valido.";
-        return;
-    }
+                    <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —
+                    report sulle minacce attuali e indicatori di compromissione.<br>
 
-    output.innerText = "Caricamento informazioni IP...";
+                    <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —
+                    indagine reale basata su tecniche OSINT.
+                </div>
+            </div>
+            <!-- WHOIS Lookup -->
+            <div class="widget-large tools-box" id="whoislookup" aria-label="WHOIS Lookup">
+                <div class="box-title-row">
+                    <img src="/img/whois.png" alt="Icona WHOIS Lookup" class="box-title-icon">
+                    <h3>WHOIS Lookup</h3>
+                </div>
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/ip.php?ip=" + ip);
-        const data = await res.json();
+                <input id="whoisInput" type="text" placeholder="es: anonlab.it"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-        if (data.status !== "success") {
-            output.innerText = "Errore: " + (data.message || "IP non valido");
-            return;
-        }
+                <button onclick="whoisLookup()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Cerca WHOIS
+                </button>
 
-        let html = `
-            <h3 style="color:#00eaff;">Informazioni su ${ip}</h3>
-
-            <div style="margin-bottom:20px;">
-                <h3 style="color:#00eaff;">🌍 Localizzazione</h3>
-                <p>Paese: ${data.country} (${data.countryCode})</p>
-                <p>Regione: ${data.regionName}</p>
-                <p>Città: ${data.city}</p>
-                <p>Timezone: ${data.timezone}</p>
+                <pre id="whoisResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:300px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></pre>
             </div>
 
-            <div style="margin-bottom:20px;">
-                <h3 style="color:#00eaff;">📡 Rete</h3>
-                <p>ISP: ${data.isp}</p>
-                <p>Organizzazione: ${data.org}</p>
-                <p>ASN: ${data.as}</p>
-                <p>Reverse DNS: ${data.reverse || "N/A"}</p>
+            <script>
+            async function whoisLookup() {
+                const dominio = document.getElementById("whoisInput").value.trim();
+                const output = document.getElementById("whoisResult");
+
+                if (!dominio) {
+                    output.innerText = "Inserisci un dominio valido.";
+                    return;
+                }
+
+                output.innerText = "Caricamento WHOIS...";
+
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/whois.php?domain=" + dominio);
+                    const data = await res.json();
+
+                    if (data.error) {
+                        output.innerText = "Errore WHOIS: " + data.error;
+                        return;
+                    }
+
+                    const status = Array.isArray(data.domain_status)
+                        ? data.domain_status.join(", ")
+                        : (data.domain_status || "Non disponibile");
+
+                    const raw = data.raw_text || "Non disponibile";
+
+                    output.innerText =
+                        "Dominio: " + (data.domain || "Non disponibile") + "\n" +
+                        "Stato: " + status + "\n" +
+                        "Creato: " + (data.create_date || "Non disponibile") + "\n" +
+                        "Aggiornato: " + (data.update_date || "Non disponibile") + "\n" +
+                        "Scadenza: " + (data.expire_date || "Non disponibile") + "\n" +
+                        "Registrar: " + (data.registrar?.name || "Non disponibile") + "\n" +
+                        "\n--- RAW WHOIS ---\n\n" +
+                        raw;
+
+                } catch (e) {
+                    output.innerText = "Errore durante la richiesta WHOIS.";
+                }
+            }
+            </script>
+
+            <!-- DNS Lookup -->
+            <div class="widget-large tools-box" id="dnslookup" aria-label="DNS Lookup">
+                <div class="box-title-row">
+                    <img src="/img/dns.png" alt="Icona DNS Lookup" class="box-title-icon">
+                    <h3>DNS Lookup</h3>
+                </div>
+
+                <input id="dnsInput" type="text" placeholder="es: google.com"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+                <button onclick="dnsLookup()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Cerca
+                </button>
+
+                <div id="dnsResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
             </div>
 
-            <div style="margin-bottom:20px;">
-                <h3 style="color:#00eaff;">📌 Coordinate</h3>
-                <p>Latitudine: ${data.lat}</p>
-                <p>Longitudine: ${data.lon}</p>
+            <script>
+            function cleanDomain(input) {
+                return input
+                    .replace(/^https?:\/\//i, "")
+                    .replace(/\/.*$/, "")
+                    .replace(/^www\./i, "")
+                    .trim();
+            }
+
+            async function dnsLookup() {
+                const raw = document.getElementById("dnsInput").value;
+                const dominio = cleanDomain(raw);
+                const output = document.getElementById("dnsResult");
+
+                if (!dominio) {
+                    output.innerText = "Inserisci un dominio valido.";
+                    return;
+                }
+
+                output.innerText = "Caricamento DNS...";
+
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/dns.php?domain=" + dominio);
+                    const data = await res.json();
+
+                    if (!data.Answer) {
+                        output.innerText = "Nessun record DNS trovato.";
+                        return;
+                    }
+
+                    let html = "";
+                    const typeNames = {
+                        1: "A",
+                        28: "AAAA",
+                        5: "CNAME",
+                        15: "MX",
+                        16: "TXT",
+                        2: "NS",
+                        6: "SOA"
+                    };
+
+                    const grouped = {};
+
+                    data.Answer.forEach(rec => {
+                        const type = typeNames[rec.type] || rec.type;
+                        if (!grouped[type]) grouped[type] = [];
+                        grouped[type].push(rec);
+                    });
+
+                    for (const type in grouped) {
+                        html += `<div style="margin-bottom:15px;">
+                                    <h4 style="color:#00eaff; border-bottom:1px solid #00eaff;">${type} Records</h4>
+                                    <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${JSON.stringify(grouped[type], null, 2)}</pre>
+                                 </div>`;
+                    }
+
+                    output.innerHTML = html;
+
+                } catch (e) {
+                    output.innerText = "Errore durante la richiesta DNS.";
+                }
+            }
+            </script>
+
+            <!-- IP Info -->
+            <div class="widget-large tools-box" id="iplookup" aria-label="IP Information">
+                <div class="box-title-row">
+                    <img src="/img/ip.png" alt="Icona IP Information" class="box-title-icon">
+                    <h3>IP Information</h3>
+                </div>
+
+                <input id="ipInput" type="text" placeholder="es: 8.8.8.8"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+                <button onclick="ipLookup()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Cerca
+                </button>
+
+                <div id="ipResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:500px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
             </div>
 
-            <div style="margin-bottom:20px;">
-                <h3 style="color:#00eaff;">🗺️ Mappa</h3>
-                <iframe 
-    width="100%" 
-    height="250" 
-    frameborder="0" 
-    loading="lazy"
-    style="border:1px solid #00eaff;"
-    src="https://www.openstreetmap.org/export/embed.html?bbox=${data.lon-0.01}%2C${data.lat-0.01}%2C${data.lon+0.01}%2C${data.lat+0.01}&layer=mapnik&marker=${data.lat}%2C${data.lon}">
-</iframe>
-            </div>
+            <script>
+            function cleanIP(ip) {
+                return ip.trim().replace(/[^0-9a-fA-F\.:]/g, "");
+            }
 
-            <h3 style="color:#00eaff;">📄 JSON Completo</h3>
-            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
+            async function ipLookup() {
+                const raw = document.getElementById("ipInput").value;
+                const ip = cleanIP(raw);
+                const output = document.getElementById("ipResult");
+
+                if (!ip) {
+                    output.innerText = "Inserisci un IP valido.";
+                    return;
+                }
+
+                output.innerText = "Caricamento informazioni IP...";
+
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/ip.php?ip=" + ip);
+                    const data = await res.json();
+
+                    if (data.status !== "success") {
+                        output.innerText = "Errore: " + (data.message || "IP non valido");
+                        return;
+                    }
+
+                    let html = `
+                        <h4 style="color:#00eaff;">Informazioni su ${ip}</h4>
+
+                        <div style="margin-bottom:20px;">
+                            <h4 style="color:#00eaff;">🌍 Localizzazione</h4>
+                            <p>Paese: ${data.country} (${data.countryCode})</p>
+                            <p>Regione: ${data.regionName}</p>
+                            <p>Città: ${data.city}</p>
+                            <p>Timezone: ${data.timezone}</p>
+                        </div>
+
+                        <div style="margin-bottom:20px;">
+                            <h4 style="color:#00eaff;">📡 Rete</h4>
+                            <p>ISP: ${data.isp}</p>
+                            <p>Organizzazione: ${data.org}</p>
+                            <p>ASN: ${data.as}</p>
+                            <p>Reverse DNS: ${data.reverse || "N/A"}</p>
+                        </div>
+
+                        <div style="margin-bottom:20px;">
+                            <h4 style="color:#00eaff;">📌 Coordinate</h4>
+                            <p>Latitudine: ${data.lat}</p>
+                            <p>Longitudine: ${data.lon}</p>
+                        </div>
+
+                        <div style="margin-bottom:20px;">
+                            <h4 style="color:#00eaff;">🗺️ Mappa</h4>
+                            <iframe loading="lazy" width="100%" height="250" frameborder="0" style="border:1px solid #00eaff;"
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=${data.lon-0.01}%2C${data.lat-0.01}%2C${data.lon+0.01}%2C${data.lat+0.01}&layer=mapnik&marker=${data.lat}%2C${data.lon}">
+                            </iframe>
+                        </div>
+
+                        <h4 style="color:#00eaff;">📄 JSON Completo</h4>
+                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
 ${JSON.stringify(data, null, 2)}
-            </pre>
-        `;
+                        </pre>
+                    `;
 
-        output.innerHTML = html;
+                    output.innerHTML = html;
 
-    } catch (e) {
-        output.innerText = "Errore durante la richiesta IP.";
-    }
-}
-</script>
+                } catch (e) {
+                    output.innerText = "Errore durante la richiesta IP.";
+                }
+            }
+            </script>
 
-        <!-- Password Generator -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/password.png" alt="Icona Password Generator" class="box-title-icon">
-                <h3>Password Generator</h3>
+            <!-- Password Generator -->
+            <div class="widget-large tools-box" id="passwordgen" aria-label="Password Generator">
+                <div class="box-title-row">
+                    <img src="/img/password.png" alt="Icona Password Generator" class="box-title-icon">
+                    <h3>Password Generator</h3>
+                </div>
+                <iframe loading="lazy" src="/tools/password.html" width="100%" height="180" frameborder="0"></iframe>
             </div>
-            <iframe src="/tools/password.html" width="100%" height="180" frameborder="0" loading="lazy"></iframe>
-        </div>
 
-        <!-- Hash Generator -->
-<div class="widget-large tools-box" id="hashanalyzer">
-    <div class="box-title-row">
-        <img src="/img/hash.png" alt="Icona Hash Generator" class="box-title-icon">
-        <h3>Hash Generator</h3>
-    </div>
+            <!-- Hash Generator -->
+            <div class="widget-large tools-box" id="hashanalyzer" aria-label="Hash Generator">
+                <div class="box-title-row">
+                    <img src="/img/hash.png" alt="Icona Hash Generator" class="box-title-icon">
+                    <h3>Hash Generator</h3>
+                </div>
 
-    <textarea id="hashInput" placeholder="Inserisci testo da convertire in hash..."
-        style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                <textarea id="hashInput" placeholder="Inserisci testo da convertire in hash..."
+                    style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
-    <select id="hashAlgo" style="
-        width:100%; padding:10px; margin-bottom:10px; background:#111; color:#00eaff; border:1px solid #00eaff;">
-        <option value="MD5">MD5</option>
-        <option value="SHA-1">SHA1</option>
-        <option value="SHA-256" selected>SHA256</option>
-        <option value="SHA-384">SHA384</option>
-        <option value="SHA-512">SHA512</option>
-    </select>
+                <select id="hashAlgo" style="
+                    width:100%; padding:10px; margin-bottom:10px; background:#111; color:#00eaff; border:1px solid #00eaff;">
+                    <option value="MD5">MD5</option>
+                    <option value="SHA-1">SHA1</option>
+                    <option value="SHA-256" selected>SHA256</option>
+                    <option value="SHA-384">SHA384</option>
+                    <option value="SHA-512">SHA512</option>
+                </select>
 
-    <button onclick="generateHash()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Genera Hash
-    </button>
+                <button onclick="generateHash()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Genera Hash
+                </button>
 
-    <div id="hashResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:300px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;"></div>
-</div>
-
-<script>
-async function generateHash() {
-    const text = document.getElementById("hashInput").value.trim();
-    const algo = document.getElementById("hashAlgo").value;
-    const output = document.getElementById("hashResult");
-
-    if (!text) {
-        output.innerText = "Inserisci del testo.";
-        return;
-    }
-
-    output.innerText = "Generazione hash...";
-
-    try {
-        if (algo === "MD5") {
-            // MD5 non è supportato da SubtleCrypto → implementazione JS
-            output.innerText = md5(text);
-            return;
-        }
-
-        const encoder = new TextEncoder();
-        const data = encoder.encode(text);
-        const hashBuffer = await crypto.subtle.digest(algo, data);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-
-        output.innerText = hashHex;
-
-    } catch (e) {
-        output.innerText = "Errore durante la generazione dell'hash.";
-    }
-}
-
-/* Implementazione MD5 in JS (versione compatta e stabile) */
-function md5(str) {
-    function L(k, d) { return (k << d) | (k >>> (32 - d)); }
-    function K(G, k) { var I, d, F, H, x; F = (G & 2147483648); H = (k & 2147483648); I = (G & 1073741824); d = (k & 1073741824); x = (G & 1073741823) + (k & 1073741823); if (I & d) return (x ^ 2147483648 ^ F ^ H); if (I | d) { if (x & 1073741824) return (x ^ 3221225472 ^ F ^ H); else return (x ^ 1073741824 ^ F ^ H); } else return (x ^ F ^ H); }
-    function r(d, F, k) { return (d & F) | ((~d) & k); }
-    function q(d, F, k) { return (d & k) | (F & (~k)); }
-    function p(d, F, k) { return (d ^ F ^ k); }
-    function n(d, F, k) { return (F ^ (d | (~k))); }
-    function u(G, F, aa, Z, k, H, I) { G = K(G, K(K(r(F, aa, Z), k), I)); return K(L(G, H), F); }
-    function f(G, F, aa, Z, k, H, I) { G = K(G, K(K(q(F, aa, Z), k), I)); return K(L(G, H), F); }
-    function D(G, F, aa, Z, k, H, I) { G = K(G, K(K(p(F, aa, Z), k), I)); return K(L(G, H), F); }
-    function t(G, F, aa, Z, k, H, I) { G = K(G, K(K(n(F, aa, Z), k), I)); return K(L(G, H), F); }
-    function e(G) {
-        var Z, F = G.length, x = F + 8, k = (x - (x % 64)) / 64, I = (k + 1) * 16, aa = Array(I - 1), d = 0, H = 0;
-        while (H < F) { Z = (H - (H % 4)) / 4; d = (H % 4) * 8; aa[Z] = (aa[Z] | (G.charCodeAt(H) << d)); H++; }
-        Z = (H - (H % 4)) / 4; d = (H % 4) * 8; aa[Z] = aa[Z] | (128 << d); aa[I - 2] = F << 3; aa[I - 1] = F >>> 29; return aa;
-    }
-    function B(x) {
-        var k = "", F = "", G, d;
-        for (d = 0; d <= 3; d++) { G = (x >>> (d * 8)) & 255; F = "0" + G.toString(16); k += F.substr(F.length - 2, 2); }
-        return k;
-    }
-    var C = [], P, h, E, v, g, Y, X, W, V, U = 7, T = 12, S = 17, R = 22, Q = 5, O = 9, N = 14, M = 20, J = 4, I = 11, H = 16, z = 23, y = 6, w = 10, o = 15, m = 21;
-    str = unescape(encodeURIComponent(str));
-    C = e(str);
-    Y = 1732584193; X = 4023233417; W = 2562383102; V = 271733878;
-    for (P = 0; P < C.length; P += 16) {
-        h = Y; E = X; v = W; g = V;
-        Y = u(Y, X, W, V, C[P + 0], U, 3614090360);
-        V = u(V, Y, X, W, C[P + 1], T, 3905402710);
-        W = u(W, V, Y, X, C[P + 2], S, 606105819);
-        X = u(X, W, V, Y, C[P + 3], R, 3250441966);
-        Y = u(Y, X, W, V, C[P + 4], U, 4118548399);
-        V = u(V, Y, X, W, C[P + 5], T, 1200080426);
-        W = u(W, V, Y, X, C[P + 6], S, 2821735955);
-        X = u(X, W, V, Y, C[P + 7], R, 4249261313);
-        Y = u(Y, X, W, V, C[P + 8], U, 1770035416);
-        V = u(V, Y, X, W, C[P + 9], T, 2336552879);
-        W = u(W, V, Y, X, C[P + 10], S, 4294925233);
-        X = u(X, W, V, Y, C[P + 11], R, 2304563134);
-        Y = u(Y, X, W, V, C[P + 12], U, 1804603682);
-        V = u(V, Y, X, W, C[P + 13], T, 4254626195);
-        W = u(W, V, Y, X, C[P + 14], S, 2792965006);
-        X = u(X, W, V, Y, C[P + 15], R, 1236535329);
-
-        Y = f(Y, X, W, V, C[P + 1], Q, 4129170786);
-        V = f(V, Y, X, W, C[P + 6], O, 3225465664);
-        W = f(W, V, Y, X, C[P + 11], N, 643717713);
-        X = f(X, W, V, Y, C[P + 0], M, 3921069994);
-        Y = f(Y, X, W, V, C[P + 5], Q, 3593408605);
-        V = f(V, Y, X, W, C[P + 10], O, 38016083);
-        W = f(W, V, Y, X, C[P + 15], N, 3634488961);
-        X = f(X, W, V, Y, C[P + 4], M, 3889429448);
-        Y = f(Y, X, W, V, C[P + 9], Q, 568446438);
-        V = f(V, Y, X, W, C[P + 14], O, 3275163606);
-        W = f(W, V, Y, X, C[P + 3], N, 4107603335);
-        X = f(X, W, V, Y, C[P + 8], M, 1163531501);
-        Y = f(Y, X, W, V, C[P + 13], Q, 2850285829);
-        V = f(V, Y, X, W, C[P + 2], O, 4243563512);
-        W = f(W, V, Y, X, C[P + 7], N, 1735328473);
-        X = f(X, W, V, Y, C[P + 12], M, 2368359562);
-
-        Y = D(Y, X, W, V, C[P + 5], J, 4294588738);
-        V = D(V, Y, X, W, C[P + 8], I, 2272392833);
-        W = D(W, V, Y, X, C[P + 11], H, 1839030562);
-        X = D(X, W, V, Y, C[P + 14], z, 4259657740);
-        Y = D(Y, X, W, V, C[P + 1], J, 2763975236);
-        V = D(V, Y, X, W, C[P + 4], I, 1272893353);
-        W = D(W, V, Y, X, C[P + 7], H, 4139469664);
-        X = D(X, W, V, Y, C[P + 10], z, 3200236656);
-        Y = D(Y, X, W, V, C[P + 13], J, 681279174);
-        V = D(V, Y, X, W, C[P + 0], I, 3936430074);
-        W = D(W, V, Y, X, C[P + 3], H, 3572445317);
-        X = D(X, W, V, Y, C[P + 6], z, 76029189);
-        Y = D(Y, X, W, V, C[P + 9], J, 3654602809);
-        V = D(V, Y, X, W, C[P + 12], I, 3873151461);
-        W = D(W, V, Y, X, C[P + 15], H, 530742520);
-        X = D(X, W, V, Y, C[P + 2], z, 3299628645);
-
-        Y = t(Y, X, W, V, C[P + 0], y, 4096336452);
-        V = t(V, Y, X, W, C[P + 7], w, 1126891415);
-        W = t(W, V, Y, X, C[P + 14], o, 2878612391);
-        X = t(X, W, V, Y, C[P + 5], m, 4237533241);
-        Y = t(Y, X, W, V, C[P + 12], y, 1700485571);
-        V = t(V, Y, X, W, C[P + 3], w, 2399980690);
-        W = t(W, V, Y, X, C[P + 10], o, 4293915773);
-        X = t(X, W, V, Y, C[P + 1], m, 2240044497);
-        Y = t(Y, X, W, V, C[P + 8], y, 1873313359);
-        V = t(V, Y, X, W, C[P + 15], w, 4264355552);
-        W = t(W, V, Y, X, C[P + 6], o, 2734768916);
-        X = t(X, W, V, Y, C[P + 13], m, 1309151649);
-        Y = t(Y, X, W, V, C[P + 4], y, 4149444226);
-        V = t(V, Y, X, W, C[P + 11], w, 3174756917);
-        W = t(W, V, Y, X, C[P + 2], o, 718787259);
-        X = t(X, W, V, Y, C[P + 9], m, 3951481745);
-
-        Y = K(Y, h); X = K(X, E); W = K(W, v); V = K(V, g);
-    }
-    return (B(Y) + B(X) + B(W) + B(V)).toLowerCase();
-}
-</script>
-
-        <!-- Base64 -->
-        <div class="widget-large tools-box">
-            <div class="box-title-row">
-                <img src="/img/base64.png" alt="Icona Base64" class="box-title-icon">
-                <h3>Base64 Encode / Decode</h3>
+                <div id="hashResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:300px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
             </div>
-            <iframe src="/tools/base64.html" width="100%" height="180" frameborder="0" loading="lazy"></iframe>
-        </div>
 
-        <!-- Port Scanner -->
-<div class="widget-large tools-box" id="portscanner">
-    <div class="box-title-row">
-        <img src="/img/port.png" alt="Icona Port Scanner" class="box-title-icon">
-        <h3>Port Scanner</h3>
-    </div>
+            <script>
+            async function generateHash() {
+                const text = document.getElementById("hashInput").value.trim();
+                const algo = document.getElementById("hashAlgo").value;
+                const output = document.getElementById("hashResult");
 
-    <input id="scanHost" type="text" placeholder="es: 8.8.8.8"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                if (!text) {
+                    output.innerText = "Inserisci del testo.";
+                    return;
+                }
 
-    <input id="scanPorts" type="text" placeholder="porte es: 80,443,8080,22"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                output.innerText = "Generazione hash...";
 
-    <button onclick="startScan()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Scansiona Porte
-    </button>
+                try {
+                    if (algo === "MD5") {
+                        output.innerText = md5(text);
+                        return;
+                    }
 
-    <div id="scanResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;"></div>
-</div>
+                    const encoder = new TextEncoder();
+                    const data = encoder.encode(text);
+                    const hashBuffer = await crypto.subtle.digest(algo, data);
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 
-<script>
-async function scanPort(host, port, timeout = 1500) {
-    return new Promise(resolve => {
-        let ws;
+                    output.innerText = hashHex;
 
-        try {
-            ws = new WebSocket(`ws://${host}:${port}`);
-        } catch (e) {
-            return resolve({ port, status: "chiusa" });
-        }
-
-        let done = false;
-
-        const timer = setTimeout(() => {
-            if (!done) {
-                done = true;
-                ws.close();
-                resolve({ port, status: "chiusa" });
+                } catch (e) {
+                    output.innerText = "Errore durante la generazione dell'hash.";
+                }
             }
-        }, timeout);
 
-        ws.onerror = () => {
-            if (!done) {
-                done = true;
-                clearTimeout(timer);
-                resolve({ port, status: "aperta" });
+            function md5(str) {
+                function L(k, d) { return (k << d) | (k >>> (32 - d)); }
+                function K(G, k) { var I, d, F, H, x; F = (G & 2147483648); H = (k & 2147483648); I = (G & 1073741824); d = (k & 1073741824); x = (G & 1073741823) + (k & 1073741823); if (I & d) return (x ^ 2147483648 ^ F ^ H); if (I | d) { if (x & 1073741824) return (x ^ 3221225472 ^ F ^ H); else return (x ^ 1073741824 ^ F ^ H); } else return (x ^ F ^ H); }
+                function r(d, F, k) { return (d & F) | ((~d) & k); }
+                function q(d, F, k) { return (d & k) | (F & (~k)); }
+                function p(d, F, k) { return (d ^ F ^ k); }
+                function n(d, F, k) { return (F ^ (d | (~k))); }
+                function u(G, F, aa, Z, k, H, I) { G = K(G, K(K(r(F, aa, Z), k), I)); return K(L(G, H), F); }
+                function f(G, F, aa, Z, k, H, I) { G = K(G, K(K(q(F, aa, Z), k), I)); return K(L(G, H), F); }
+                function D(G, F, aa, Z, k, H, I) { G = K(G, K(K(p(F, aa, Z), k), I)); return K(L(G, H), F); }
+                function t(G, F, aa, Z, k, H, I) { G = K(G, K(K(n(F, aa, Z), k), I)); return K(L(G, H), F); }
+                function e(G) {
+                    var Z, F = G.length, x = F + 8, k = (x - (x % 64)) / 64, I = (k + 1) * 16, aa = Array(I - 1), d = 0, H = 0;
+                    while (H < F) { Z = (H - (H % 4)) / 4; d = (H % 4) * 8; aa[Z] = (aa[Z] | (G.charCodeAt(H) << d)); H++; }
+                    Z = (H - (H % 4)) / 4; d = (H % 4) * 8; aa[Z] = aa[Z] | (128 << d); aa[I - 2] = F << 3; aa[I - 1] = F >>> 29; return aa;
+                }
+                function B(x) {
+                    var k = "", F = "", G, d;
+                    for (d = 0; d <= 3; d++) { G = (x >>> (d * 8)) & 255; F = "0" + G.toString(16); k += F.substr(F.length - 2, 2); }
+                    return k;
+                }
+                var C = [], P, h, E, v, g, Y, X, W, V, U = 7, T = 12, S = 17, R = 22, Q = 5, O = 9, N = 14, M = 20, J = 4, I = 11, H = 16, z = 23, y = 6, w = 10, o = 15, m = 21;
+                str = unescape(encodeURIComponent(str));
+                C = e(str);
+                Y = 1732584193; X = 4023233417; W = 2562383102; V = 271733878;
+                for (P = 0; P < C.length; P += 16) {
+                    h = Y; E = X; v = W; g = V;
+                    Y = u(Y, X, W, V, C[P + 0], U, 3614090360);
+                    V = u(V, Y, X, W, C[P + 1], T, 3905402710);
+                    W = u(W, V, Y, X, C[P + 2], S, 606105819);
+                    X = u(X, W, V, Y, C[P + 3], R, 3250441966);
+                    Y = u(Y, X, W, V, C[P + 4], U, 4118548399);
+                    V = u(V, Y, X, W, C[P + 5], T, 1200080426);
+                    W = u(W, V, Y, X, C[P + 6], S, 2821735955);
+                    X = u(X, W, V, Y, C[P + 7], R, 4249261313);
+                    Y = u(Y, X, W, V, C[P + 8], U, 1770035416);
+                    V = u(V, Y, X, W, C[P + 9], T, 2336552879);
+                    W = u(W, V, Y, X, C[P + 10], S, 4294925233);
+                    X = u(X, W, V, Y, C[P + 11], R, 2304563134);
+                    Y = u(Y, X, W, V, C[P + 12], U, 1804603682);
+                    V = u(V, Y, X, W, C[P + 13], T, 4254626195);
+                    W = u(W, V, Y, X, C[P + 14], S, 2792965006);
+                    X = u(X, W, V, Y, C[P + 15], R, 1236535329);
+
+                    Y = f(Y, X, W, V, C[P + 1], Q, 4129170786);
+                    V = f(V, Y, X, W, C[P + 6], O, 3225465664);
+                    W = f(W, V, Y, X, C[P + 11], N, 643717713);
+                    X = f(X, W, V, Y, C[P + 0], M, 3921069994);
+                    Y = f(Y, X, W, V, C[P + 5], Q, 3593408605);
+                    V = f(V, Y, X, W, C[P + 10], O, 38016083);
+                    W = f(W, V, Y, X, C[P + 15], N, 3634488961);
+                    X = f(X, W, V, Y, C[P + 4], M, 3889429448);
+                    Y = f(Y, X, W, V, C[P + 9], Q, 568446438);
+                    V = f(V, Y, X, W, C[P + 14], O, 3275163606);
+                    W = f(W, V, Y, X, C[P + 3], N, 4107603335);
+                    X = f(X, W, V, Y, C[P + 8], M, 1163531501);
+                    Y = f(Y, X, W, V, C[P + 13], Q, 2850285829);
+                    V = f(V, Y, X, W, C[P + 2], O, 4243563512);
+                    W = f(W, V, Y, X, C[P + 7], N, 1735328473);
+                    X = f(X, W, V, Y, C[P + 12], M, 2368359562);
+
+                    Y = D(Y, X, W, V, C[P + 5], J, 4294588738);
+                    V = D(V, Y, X, W, C[P + 8], I, 2272392833);
+                    W = D(W, V, Y, X, C[P + 11], H, 1839030562);
+                    X = D(X, W, V, Y, C[P + 14], z, 4259657740);
+                    Y = D(Y, X, W, V, C[P + 1], J, 2763975236);
+                    V = D(V, Y, X, W, C[P + 4], I, 1272893353);
+                    W = D(W, V, Y, X, C[P + 7], H, 4139469664);
+                    X = D(X, W, V, Y, C[P + 10], z, 3200236656);
+                    Y = D(Y, X, W, V, C[P + 13], J, 681279174);
+                    V = D(V, Y, X, W, C[P + 0], I, 3936430074);
+                    W = D(W, V, Y, X, C[P + 3], H, 3572445317);
+                    X = D(X, W, V, Y, C[P + 6], z, 76029189);
+                    Y = D(Y, X, W, V, C[P + 9], J, 3654602809);
+                    V = D(V, Y, X, W, C[P + 12], I, 3873151461);
+                    W = D(W, V, Y, X, C[P + 15], H, 530742520);
+                    X = D(X, W, V, Y, C[P + 2], z, 3299628645);
+
+                    Y = t(Y, X, W, V, C[P + 0], y, 4096336452);
+                    V = t(V, Y, X, W, C[P + 7], w, 1126891415);
+                    W = t(W, V, Y, X, C[P + 14], o, 2878612391);
+                    X = t(X, W, V, Y, C[P + 5], m, 4237533241);
+                    Y = t(Y, X, W, V, C[P + 12], y, 1700485571);
+                    V = t(V, Y, X, W, C[P + 3], w, 2399980690);
+                    W = t(W, V, Y, X, C[P + 10], o, 4293915773);
+                    X = t(X, W, V, Y, C[P + 1], m, 2240044497);
+                    Y = t(Y, X, W, V, C[P + 8], y, 1873313359);
+                    V = t(V, Y, X, W, C[P + 15], w, 4264355552);
+                    W = t(W, V, Y, X, C[P + 6], o, 2734768916);
+                    X = t(X, W, V, Y, C[P + 13], m, 1309151649);
+                    Y = t(Y, X, W, V, C[P + 4], y, 4149444226);
+                    V = t(V, Y, X, W, C[P + 11], w, 3174756917);
+                    W = t(W, V, Y, X, C[P + 2], o, 718787259);
+                    X = t(X, W, V, Y, C[P + 9], m, 3951481745);
+
+                    Y = K(Y, h); X = K(X, E); W = K(W, v); V = K(V, g);
+                }
+                return (B(Y) + B(X) + B(W) + B(V)).toLowerCase();
             }
-        };
+            </script>
 
-        ws.onopen = () => {
-            if (!done) {
-                done = true;
-                clearTimeout(timer);
-                ws.close();
-                resolve({ port, status: "aperta" });
+            <!-- Base64 -->
+            <div class="widget-large tools-box" id="base64" aria-label="Base64 Encode / Decode">
+                <div class="box-title-row">
+                    <img src="/img/base64.png" alt="Icona Base64" class="box-title-icon">
+                    <h3>Base64 Encode / Decode</h3>
+                </div>
+                <iframe loading="lazy" src="/tools/base64.html" width="100%" height="180" frameborder="0"></iframe>
+            </div>
+
+            <!-- Port Scanner -->
+            <div class="widget-large tools-box" id="portscanner" aria-label="Port Scanner">
+                <div class="box-title-row">
+                    <img src="/img/port.png" alt="Icona Port Scanner" class="box-title-icon">
+                    <h3>Port Scanner</h3>
+                </div>
+
+                <input id="scanHost" type="text" placeholder="es: 8.8.8.8"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+                <input id="scanPorts" type="text" placeholder="porte es: 80,443,8080,22"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+                <button onclick="startScan()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Scansiona Porte
+                </button>
+
+                <div id="scanResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
+            </div>
+
+            <script>
+            async function scanPort(host, port, timeout = 1500) {
+                return new Promise(resolve => {
+                    let ws;
+
+                    try {
+                        ws = new WebSocket(`ws://${host}:${port}`);
+                    } catch (e) {
+                        return resolve({ port, status: "chiusa" });
+                    }
+
+                    let done = false;
+
+                    const timer = setTimeout(() => {
+                        if (!done) {
+                            done = true;
+                            ws.close();
+                            resolve({ port, status: "chiusa" });
+                        }
+                    }, timeout);
+
+                    ws.onerror = () => {
+                        if (!done) {
+                            done = true;
+                            clearTimeout(timer);
+                            resolve({ port, status: "aperta" });
+                        }
+                    };
+
+                    ws.onopen = () => {
+                        if (!done) {
+                            done = true;
+                            clearTimeout(timer);
+                            ws.close();
+                            resolve({ port, status: "aperta" });
+                        }
+                    };
+                });
             }
-        };
-    });
-}
 
-async function startScan() {
-    const host = document.getElementById("scanHost").value.trim();
-    const ports = document.getElementById("scanPorts").value.trim();
-    const output = document.getElementById("scanResult");
+            async function startScan() {
+                const host = document.getElementById("scanHost").value.trim();
+                const ports = document.getElementById("scanPorts").value.trim();
+                const output = document.getElementById("scanResult");
 
-    if (!host || !ports) {
-        output.innerText = "Inserisci host e porte.";
-        return;
-    }
+                if (!host || !ports) {
+                    output.innerText = "Inserisci host e porte.";
+                    return;
+                }
 
-    const portList = ports.split(",").map(p => parseInt(p.trim())).filter(p => !isNaN(p));
+                const portList = ports.split(",").map(p => parseInt(p.trim())).filter(p => !isNaN(p));
 
-    output.innerText = "Scansione in corso...\n\n";
+                output.innerText = "Scansione in corso...\n\n";
 
-    for (const port of portList) {
-        const result = await scanPort(host, port);
-        output.innerText += `Porta ${port}: ${result.status}\n`;
-    }
+                for (const port of portList) {
+                    const result = await scanPort(host, port);
+                    output.innerText += `Porta ${port}: ${result.status}\n`;
+                }
 
-    output.innerText += "\nScansione completata.";
-}
-</script>
+                output.innerText += "\nScansione completata.";
+            }
+            </script>
+            <!-- HTTP Headers -->
+            <div class="widget-large tools-box" id="headerinspector" aria-label="HTTP Headers">
+                <div class="box-title-row">
+                    <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
+                    <h3>HTTP Headers</h3>
+                </div>
 
-       <!-- HTTP Headers -->
-<div class="widget-large tools-box" id="headerinspector">
-    <div class="box-title-row">
-        <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
-        <h4>HTTP Headers</h4>
-    </div>
+                <input id="headerUrl" type="text" placeholder="es: https://example.com"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-    <input id="headerUrl" type="text" placeholder="es: https://example.com"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                <button onclick="fetchHeaders()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Analizza Headers
+                </button>
 
-    <button onclick="fetchHeaders()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Analizza Headers
-    </button>
+                <div id="headerResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
+            </div>
 
-    <div id="headerResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;"></div>
-</div>
+            <script>
+            async function fetchHeaders() {
+                const url = document.getElementById("headerUrl").value.trim();
+                const output = document.getElementById("headerResult");
 
-<script>
-async function fetchHeaders() {
-    const url = document.getElementById("headerUrl").value.trim();
-    const output = document.getElementById("headerResult");
+                if (!url) {
+                    output.innerText = "Inserisci un URL valido.";
+                    return;
+                }
 
-    if (!url) {
-        output.innerText = "Inserisci un URL valido.";
-        return;
-    }
+                output.innerText = "Caricamento headers...";
 
-    output.innerText = "Caricamento headers...";
+                try {
+                    const apiUrl = "https://httpbin.org/headers";
+                    const res = await fetch(apiUrl);
+                    const data = await res.json();
 
-    try {
-        // Usiamo un proxy sicuro che restituisce gli headers reali
-        const apiUrl = "https://httpbin.org/headers";
-
-        const res = await fetch(apiUrl);
-        const data = await res.json();
-
-        let html = `
-            <h3 style="color:#00eaff;">HTTP Headers</h3>
-            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
+                    let html = `
+                        <h4 style="color:#00eaff;">HTTP Headers</h4>
+                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
 ${JSON.stringify(data.headers, null, 2)}
-            </pre>
-        `;
+                        </pre>
+                    `;
 
-        output.innerHTML = html;
+                    output.innerHTML = html;
 
-    } catch (e) {
-        output.innerText = "Errore durante il recupero degli headers.";
-    }
-}
-</script>
-        
-        <!-- URL Expander -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/url.png" alt="Icona URL Expander" class="box-title-icon">
-        <h4>URL Expander</h4>
-	</div>
+                } catch (e) {
+                    output.innerText = "Errore durante il recupero degli headers.";
+                }
+            }
+            </script>
 
-    <input id="expandInput" type="text" placeholder="es: https://bit.ly/3xyz"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+            <!-- URL Expander -->
+            <div class="widget-large tools-box" id="urlexpander" aria-label="URL Expander">
+                <div class="box-title-row">
+                    <img src="/img/url.png" alt="Icona URL Expander" class="box-title-icon">
+                    <h3>URL Expander</h3>
+                </div>
 
-    <button onclick="expandURL()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Espandi URL
-    </button>
+                <input id="expandInput" type="text" placeholder="es: https://bit.ly/3xyz"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-    <div id="expandResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:300px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;"></div>
-</div>
-<script>
-async function expandURL() {
-    const raw = document.getElementById("expandInput").value.trim();
-    const output = document.getElementById("expandResult");
+                <button onclick="expandURL()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Espandi URL
+                </button>
 
-    if (!raw) {
-        output.innerText = "Inserisci un URL valido.";
-        return;
-    }
+                <div id="expandResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:300px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
+            </div>
 
-    output.innerText = "Espansione in corso...";
+            <script>
+            async function expandURL() {
+                const raw = document.getElementById("expandInput").value.trim();
+                const output = document.getElementById("expandResult");
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/urlexpand.php?url=" + encodeURIComponent(raw));
-        const data = await res.json();
+                if (!raw) {
+                    output.innerText = "Inserisci un URL valido.";
+                    return;
+                }
 
-        if (data.error) {
-            output.innerText = "Errore: " + data.error;
-            return;
-        }
+                output.innerText = "Espansione in corso...";
 
-        let html = `
-            <h3 style="color:#00eaff;">Risultato Espansione</h3>
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/urlexpand.php?url=" + encodeURIComponent(raw));
+                    const data = await res.json();
 
-            <p><strong>URL Inserito:</strong><br>${data.input}</p>
-            <p><strong>URL Finale:</strong><br>${data.expanded}</p>
-            <p><strong>HTTP Status:</strong> ${data.status}</p>
+                    if (data.error) {
+                        output.innerText = "Errore: " + data.error;
+                        return;
+                    }
 
-            <h3 style="color:#00eaff;">JSON Completo</h3>
-            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
+                    let html = `
+                        <h4 style="color:#00eaff;">Risultato Espansione</h4>
+
+                        <p><strong>URL Inserito:</strong><br>${data.input}</p>
+                        <p><strong>URL Finale:</strong><br>${data.expanded}</p>
+                        <p><strong>HTTP Status:</strong> ${data.status}</p>
+
+                        <h4 style="color:#00eaff;">JSON Completo</h4>
+                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
 ${JSON.stringify(data, null, 2)}
-            </pre>
-        `;
+                        </pre>
+                    `;
 
-        output.innerHTML = html;
+                    output.innerHTML = html;
 
-    } catch (e) {
-        output.innerText = "Errore durante l'espansione dell'URL.";
-    }
-}
-</script>
+                } catch (e) {
+                    output.innerText = "Errore durante l'espansione dell'URL.";
+                }
+            }
+            </script>
 
-       <!-- QR Code Generator -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/qr.png" alt="Icona QR Code" class="box-title-icon">
-        <h4>QR Code Generator</h4>
-    </div>
+            <!-- QR Code Generator -->
+            <div class="widget-large tools-box" id="qrcodegen" aria-label="QR Code Generator">
+                <div class="box-title-row">
+                    <img src="/img/qr.png" alt="Icona QR Code" class="box-title-icon">
+                    <h3>QR Code Generator</h3>
+                </div>
 
-    <input id="qrInput" type="text" placeholder="Inserisci testo o URL"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                <input id="qrInput" type="text" placeholder="Inserisci testo o URL"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-    <button onclick="generateQR()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Genera QR Code
-    </button>
+                <button onclick="generateQR()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Genera QR Code
+                </button>
 
-    <div id="qrResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        border:1px solid #00eaff; text-align:center;"></div>
-</div>
-<script>
-async function generateQR() {
-    const text = document.getElementById("qrInput").value.trim();
-    const output = document.getElementById("qrResult");
+                <div id="qrResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; text-align:center;"></div>
+            </div>
 
-    if (!text) {
-        output.innerText = "Inserisci del testo.";
-        return;
-    }
+            <script>
+            async function generateQR() {
+                const text = document.getElementById("qrInput").value.trim();
+                const output = document.getElementById("qrResult");
 
-    output.innerText = "Generazione QR Code...";
+                if (!text) {
+                    output.innerText = "Inserisci del testo.";
+                    return;
+                }
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/qrcode.php?text=" + encodeURIComponent(text));
-        const data = await res.json();
+                output.innerText = "Generazione QR Code...";
 
-        if (data.error) {
-            output.innerText = "Errore: " + data.error;
-            return;
-        }
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/qrcode.php?text=" + encodeURIComponent(text));
+                    const data = await res.json();
 
-        output.innerHTML = `
-            <h3 style="color:#00eaff;">QR Code Generato</h3>
-            <img src="${data.image}" alt="QR code generato per ${data.input}" style="width:200px; height:200px; border:1px solid #00eaff;">
-            <p style="margin-top:10px; color:#0ff;">${data.input}</p>
-        `;
-    } catch (e) {
-        output.innerText = "Errore durante la generazione del QR Code.";
-    }
-}
-</script>
+                    if (data.error) {
+                        output.innerText = "Errore: " + data.error;
+                        return;
+                    }
 
-       <!-- JSON Formatter -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/json.png" alt="Icona JSON Formatter" class="box-title-icon">
-        <h4>JSON Formatter</h4>
-    </div>
+                    output.innerHTML = `
+                        <h4 style="color:#00eaff;">QR Code Generato</h4>
+                        <img src="${data.image}" alt="QR code generato per ${data.input}" style="width:200px; height:200px; border:1px solid #00eaff;">
+                        <p style="margin-top:10px; color:#0ff;">${data.input}</p>
+                    `;
+                } catch (e) {
+                    output.innerText = "Errore durante la generazione del QR Code.";
+                }
+            }
+            </script>
 
-    <textarea id="jsonInput" placeholder="Incolla JSON qui..."
-        style="width:100%; height:150px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+            <!-- JSON Formatter -->
+            <div class="widget-large tools-box" id="jsonformatter" aria-label="JSON Formatter">
+                <div class="box-title-row">
+                    <img src="/img/json.png" alt="Icona JSON Formatter" class="box-title-icon">
+                    <h3>JSON Formatter</h3>
+                </div>
 
-    <button onclick="formatJSON()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Format JSON
-    </button>
+                <textarea id="jsonInput" placeholder="Incolla JSON qui..."
+                    style="width:100%; height:150px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
-    <div id="jsonOutput" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;"></div>
-</div>
+                <button onclick="formatJSON()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Format JSON
+                </button>
 
-<script>
-function formatJSON() {
-    const raw = document.getElementById("jsonInput").value.trim();
-    const output = document.getElementById("jsonOutput");
+                <div id="jsonOutput" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
+            </div>
 
-    if (!raw) {
-        output.innerText = "Inserisci del JSON.";
-        return;
-    }
+            <script>
+            function formatJSON() {
+                const raw = document.getElementById("jsonInput").value.trim();
+                const output = document.getElementById("jsonOutput");
 
-    try {
-        const parsed = JSON.parse(raw);
-        const formatted = JSON.stringify(parsed, null, 4);
+                if (!raw) {
+                    output.innerText = "Inserisci del JSON.";
+                    return;
+                }
 
-        output.innerHTML = `
-            <h3 style="color:#00eaff;">JSON Formattato</h3>
-            <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${formatted}</pre>
-        `;
-    } catch (e) {
-        output.innerHTML = `
-            <span style="color:#ff4444;">JSON non valido.</span>
-        `;
-    }
-}
-</script>
+                try {
+                    const parsed = JSON.parse(raw);
+                    const formatted = JSON.stringify(parsed, null, 4);
 
-       <!-- Regex Tester -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/regex.png" alt="Icona Regex Tester" class="box-title-icon">
-        <h4>Regex Tester</h4>
-    </div>
+                    output.innerHTML = `
+                        <h4 style="color:#00eaff;">JSON Formattato</h4>
+                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${formatted}</pre>
+                    `;
+                } catch (e) {
+                    output.innerHTML = `
+                        <span style="color:#ff4444;">JSON non valido.</span>
+                    `;
+                }
+            }
+            </script>
 
-    <input id="regexPattern" type="text" placeholder="Regex (es: ^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+            <!-- Regex Tester -->
+            <div class="widget-large tools-box" id="regextester" aria-label="Regex Tester">
+                <div class="box-title-row">
+                    <img src="/img/regex.png" alt="Icona Regex Tester" class="box-title-icon">
+                    <h3>Regex Tester</h3>
+                </div>
 
-    <input id="regexFlags" type="text" placeholder="Flag (es: gi)"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                <input id="regexPattern" type="text" placeholder="Regex (es: ^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-    <textarea id="regexText" placeholder="Testo su cui applicare la regex..."
-        style="width:100%; height:120px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                <input id="regexFlags" type="text" placeholder="Flag (es: gi)"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-    <button onclick="testRegex()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Test Regex
-    </button>
+                <textarea id="regexText" placeholder="Testo su cui applicare la regex..."
+                    style="width:100%; height:120px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
-    <div id="regexResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;"></div>
-</div>
+                <button onclick="testRegex()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Test Regex
+                </button>
 
-<script>
-function testRegex() {
-    const pattern = document.getElementById("regexPattern").value.trim();
-    const flags = document.getElementById("regexFlags").value.trim();
-    const text = document.getElementById("regexText").value;
-    const output = document.getElementById("regexResult");
+                <div id="regexResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
+            </div>
 
-    if (!pattern) {
-        output.innerText = "Inserisci una regex.";
-        return;
-    }
+            <script>
+            function testRegex() {
+                const pattern = document.getElementById("regexPattern").value.trim();
+                const flags = document.getElementById("regexFlags").value.trim();
+                const text = document.getElementById("regexText").value;
+                const output = document.getElementById("regexResult");
 
-    try {
-        const regex = new RegExp(pattern, flags);
-        const matches = text.match(regex);
+                if (!pattern) {
+                    output.innerText = "Inserisci una regex.";
+                    return;
+                }
 
-        if (!matches) {
-            output.innerHTML = "<span style='color:#ff4444;'>Nessuna corrispondenza trovata.</span>";
-            return;
-        }
+                try {
+                    const regex = new RegExp(pattern, flags);
+                    const matches = text.match(regex);
 
-        let html = "<h3 style='color:#00eaff;'>Match trovati</h3><ul>";
+                    if (!matches) {
+                        output.innerHTML = "<span style='color:#ff4444;'>Nessuna corrispondenza trovata.</span>";
+                        return;
+                    }
 
-        matches.forEach((m, i) => {
-            html += `<li><strong>Match ${i + 1}:</strong> ${m}</li>`;
-        });
+                    let html = "<h4 style='color:#00eaff;'>Match trovati</h4><ul>";
 
-        html += "</ul>";
+                    matches.forEach((m, i) => {
+                        html += `<li><strong>Match ${i + 1}:</strong> ${m}</li>`;
+                    });
 
-        output.innerHTML = html;
+                    html += "</ul>";
 
-    } catch (e) {
-        output.innerHTML = "<span style='color:#ff4444;'>Regex non valida.</span>";
-    }
-}
-</script>
+                    output.innerHTML = html;
 
-      <!-- UUID Generator -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/uuid.png" alt="Icona UUID Generator" class="box-title-icon">
-        <h3>UUID Generator</h3>
-    </div>
+                } catch (e) {
+                    output.innerHTML = "<span style='color:#ff4444;'>Regex non valida.</span>";
+                }
+            }
+            </script>
 
-    <button onclick="genUUID()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
-        Genera UUID
-    </button>
+            <!-- UUID Generator -->
+            <div class="widget-large tools-box" id="uuidgen" aria-label="UUID Generator">
+                <div class="box-title-row">
+                    <img src="/img/uuid.png" alt="Icona UUID Generator" class="box-title-icon">
+                    <h3>UUID Generator</h3>
+                </div>
 
-    <div id="uuidOutput" style="
-        background:#000; color:#0ff; padding:15px; margin-top:10px;
-        border:1px solid #00eaff; white-space:pre-wrap;"></div>
-</div>
+                <button onclick="genUUID()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
+                    Genera UUID
+                </button>
 
-<script>
-function genUUID() {
-    const uuid = crypto.randomUUID();
-    document.getElementById("uuidOutput").innerText = uuid;
-}
-</script>
+                <div id="uuidOutput" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:10px;
+                    border:1px solid #00eaff; white-space:pre-wrap;"></div>
+            </div>
 
-       <!-- Lorem Ipsum Generator -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/lorem.png" alt="Icona Lorem Ipsum" class="box-title-icon">
-        <h3>Lorem Ipsum Generator</h3>
-    </div>
+            <script>
+            function genUUID() {
+                const uuid = crypto.randomUUID();
+                document.getElementById("uuidOutput").innerText = uuid;
+            }
+            </script>
 
-    <button onclick="genLorem()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
-        Genera Lorem Ipsum
-    </button>
+            <!-- Lorem Ipsum Generator -->
+            <div class="widget-large tools-box" id="loremgen" aria-label="Lorem Ipsum Generator">
+                <div class="box-title-row">
+                    <img src="/img/lorem.png" alt="Icona Lorem Ipsum" class="box-title-icon">
+                    <h3>Lorem Ipsum Generator</h3>
+                </div>
 
-    <div id="loremOutput" style="
-        background:#000; color:#0ff; padding:15px; margin-top:10px;
-        border:1px solid #00eaff; white-space:pre-wrap; max-height:300px; overflow-y:auto;"></div>
-</div>
+                <button onclick="genLorem()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
+                    Genera Lorem Ipsum
+                </button>
 
-<script>
-function genLorem() {
-    const text = 
-`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                <div id="loremOutput" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:10px;
+                    border:1px solid #00eaff; white-space:pre-wrap; max-height:300px; overflow-y:auto;"></div>
+            </div>
+
+            <script>
+            function genLorem() {
+                const text =
+`Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 nisi ut aliquip ex ea commodo consequat.`;
 
-    document.getElementById("loremOutput").innerText = text;
-}
-</script>
-        
-       <!-- Timestamp Converter -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/timestamp.png" alt="Icona Timestamp Converter" class="box-title-icon">
-        <h3>Timestamp Converter</h3>
-    </div>
-    <input id="tsInput" type="text" placeholder="Inserisci timestamp UNIX (es: 1717920000)"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                document.getElementById("loremOutput").innerText = text;
+            }
+            </script>
 
-    <button onclick="convertTimestamp()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
-        Converti Timestamp → Data
-    </button>
+            <!-- Timestamp Converter -->
+            <div class="widget-large tools-box" id="timestampconverter" aria-label="Timestamp Converter">
+                <div class="box-title-row">
+                    <img src="/img/timestamp.png" alt="Icona Timestamp Converter" class="box-title-icon">
+                    <h3>Timestamp Converter</h3>
+                </div>
 
-    <button onclick="convertToTimestamp()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
-        Converti Data → Timestamp
-    </button>
+                <input id="tsInput" type="text" placeholder="Inserisci timestamp UNIX (es: 1717920000)"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-    <button onclick="nowTimestamp()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Timestamp Attuale
-    </button>
+                <button onclick="convertTimestamp()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
+                    Converti Timestamp → Data
+                </button>
 
-    <div id="tsOutput" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        border:1px solid #00eaff; white-space:pre-wrap;"></div>
-</div>
+                <button onclick="convertToTimestamp()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
+                    Converti Data → Timestamp
+                </button>
 
-<script>
-function convertTimestamp() {
-    const input = document.getElementById("tsInput").value.trim();
-    const output = document.getElementById("tsOutput");
+                <button onclick="nowTimestamp()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Timestamp Attuale
+                </button>
 
-    if (!input || isNaN(input)) {
-        output.innerText = "Inserisci un timestamp valido.";
-        return;
-    }
+                <div id="tsOutput" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; white-space:pre-wrap;"></div>
+            </div>
 
-    const date = new Date(parseInt(input) * 1000);
+            <script>
+            function convertTimestamp() {
+                const input = document.getElementById("tsInput").value.trim();
+                const output = document.getElementById("tsOutput");
 
-    output.innerText =
-        "Data locale: " + date.toLocaleString() + "\n" +
-        "ISO: " + date.toISOString() + "\n" +
-        "UTC: " + date.toUTCString();
-}
+                if (!input || isNaN(input)) {
+                    output.innerText = "Inserisci un timestamp valido.";
+                    return;
+                }
 
-function convertToTimestamp() {
-    const input = document.getElementById("tsInput").value.trim();
-    const output = document.getElementById("tsOutput");
+                const date = new Date(parseInt(input) * 1000);
 
-    const date = new Date(input);
+                output.innerText =
+                    "Data locale: " + date.toLocaleString() + "\n" +
+                    "ISO: " + date.toISOString() + "\n" +
+                    "UTC: " + date.toUTCString();
+            }
 
-    if (date.toString() === "Invalid Date") {
-        output.innerText = "Inserisci una data valida (es: 2026-06-09 12:30).";
-        return;
-    }
+            function convertToTimestamp() {
+                const input = document.getElementById("tsInput").value.trim();
+                const output = document.getElementById("tsOutput");
 
-    const ts = Math.floor(date.getTime() / 1000);
+                const date = new Date(input);
 
-    output.innerText =
-        "Timestamp UNIX: " + ts + "\n" +
-        "ISO: " + date.toISOString();
-}
+                if (date.toString() === "Invalid Date") {
+                    output.innerText = "Inserisci una data valida (es: 2026-06-09 12:30).";
+                    return;
+                }
 
-function nowTimestamp() {
-    const output = document.getElementById("tsOutput");
-    const now = Math.floor(Date.now() / 1000);
+                const ts = Math.floor(date.getTime() / 1000);
 
-    output.innerText =
-        "Timestamp attuale: " + now + "\n" +
-        "ISO: " + new Date().toISOString();
-}
-</script>
+                output.innerText =
+                    "Timestamp UNIX: " + ts + "\n" +
+                    "ISO: " + date.toISOString();
+            }
 
-       <!-- Text Diff -->
-<div class="widget-large tools-box">
-    <div class="box-title-row">
-        <img src="/img/diff.png" alt="Icona Text Diff per confronto testi" class="box-title-icon">
-        <h3>Text Diff</h3>
-    </div>
+            function nowTimestamp() {
+                const output = document.getElementById("tsOutput");
+                const now = Math.floor(Date.now() / 1000);
 
-    <textarea id="diffA" placeholder="Testo A"
-        style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                output.innerText =
+                    "Timestamp attuale: " + now + "\n" +
+                    "ISO: " + new Date().toISOString();
+            }
+            </script>
 
-    <textarea id="diffB" placeholder="Testo B"
-        style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+            <!-- Text Diff -->
+            <div class="widget-large tools-box" id="textdiff" aria-label="Text Diff">
+                <div class="box-title-row">
+                    <img src="/img/diff.png" alt="Icona Text Diff per confronto testi" class="box-title-icon">
+                    <h3>Text Diff</h3>
+                </div>
 
-    <button onclick="runDiffLocal()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Confronta
-    </button>
+                <textarea id="diffA" placeholder="Testo A"
+                    style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
-    <div id="diffResult" style="
-        background:#000; color:#0ff; padding:15px; margin-top:15px;
-        max-height:400px; overflow-y:auto; border:1px solid #00eaff;
-        white-space:pre-wrap;"></div>
-</div>
+                <textarea id="diffB" placeholder="Testo B"
+                    style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
-<script>
-function runDiffLocal() {
-    const a = document.getElementById("diffA").value.split("\n");
-    const b = document.getElementById("diffB").value.split("\n");
-    const output = document.getElementById("diffResult");
+                <button onclick="runDiffLocal()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Confronta
+                </button>
 
-    let out = "";
+                <div id="diffResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    max-height:400px; overflow-y:auto; border:1px solid #00eaff;
+                    white-space:pre-wrap;"></div>
+            </div>
 
-    for (let i = 0; i < Math.max(a.length, b.length); i++) {
-        if (a[i] !== b[i]) {
-            out += `- ${a[i] || ""}\n+ ${b[i] || ""}\n\n`;
-        }
-    }
+            <script>
+            function runDiffLocal() {
+                const a = document.getElementById("diffA").value.split("\n");
+                const b = document.getElementById("diffB").value.split("\n");
+                const output = document.getElementById("diffResult");
 
-    output.innerText = out || "Nessuna differenza.";
-}
-</script>
+                let out = "";
 
-    </section>
+                for (let i = 0; i < Math.max(a.length, b.length); i++) {
+                    if (a[i] !== b[i]) {
+                        out += `- ${a[i] || ""}\n+ ${b[i] || ""}\n\n`;
+                    }
+                }
 
-    <!-- SIDEBAR -->
-    <aside id="sidebar"></aside>
+                output.innerText = out || "Nessuna differenza.";
+            }
+            </script>
+        </section>
 
-</main>
+        <!-- SIDEBAR -->
+        <aside id="sidebar"></aside>
+    </main>
 
-<!-- FOOTER -->
-<div id="footer"></div>
+    <!-- FOOTER -->
+    <div id="footer"></div>
 
-<!-- SCRIPT -->
-<script src="/js/main.js"></script>
-<script src="/js/ui.js"></script>
+    <!-- SCRIPT -->
+    <script src="/js/main.js"></script>
+    <script src="/js/ui.js"></script>
+
     <!-- BACK TO TOP BUTTON -->
-<button id="backToTop">↑</button>
+    <button id="backToTop">↑</button>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const backToTop = document.getElementById('backToTop');
-    if (!backToTop) return;
-
-    backToTop.style.display = 'none';
-
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
-
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
     <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
+    document.addEventListener('DOMContentLoaded', function () {
+        const backToTop = document.getElementById('backToTop');
+        if (!backToTop) return;
 
-  if (hash) {
-    const target = document.querySelector(hash);
-    if (target) {
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 200);
-    }
-  }
-});
-</script>
+        backToTop.style.display = 'none';
 
-		 <script type="text/javascript">
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 400) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const hash = window.location.hash;
+
+        if (hash) {
+            const target = document.querySelector(hash);
+            if (target) {
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 200);
+            }
+        }
+    });
+    </script>
+
+    <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
-</script> 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>   
-		
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
+            crossorigin="anonymous"></script>
+
 </body>
 </html>
