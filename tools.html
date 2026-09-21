@@ -370,9 +370,14 @@ async function ipLookup() {
 
             <div style="margin-bottom:20px;">
                 <h3 style="color:#00eaff;">🗺️ Mappa</h3>
-                <iframe width="100%" height="250" frameborder="0" style="border:1px solid #00eaff;"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=${data.lon-0.01}%2C${data.lat-0.01}%2C${data.lon+0.01}%2C${data.lat+0.01}&layer=mapnik&marker=${data.lat}%2C${data.lon}">
-                </iframe>
+                <iframe 
+    width="100%" 
+    height="250" 
+    frameborder="0" 
+    loading="lazy"
+    style="border:1px solid #00eaff;"
+    src="https://www.openstreetmap.org/export/embed.html?bbox=${data.lon-0.01}%2C${data.lat-0.01}%2C${data.lon+0.01}%2C${data.lat+0.01}&layer=mapnik&marker=${data.lat}%2C${data.lon}">
+</iframe>
             </div>
 
             <h3 style="color:#00eaff;">📄 JSON Completo</h3>
