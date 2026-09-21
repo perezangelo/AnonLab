@@ -759,16 +759,29 @@
         Meteo Italia – 7 Giorni
     </h3>
 
-    <iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
-        width="100%" height="340" frameborder="0" scrolling="no"
-        title="Previsioni meteo 7 giorni"></iframe>
-
+    <!-- Contenitore vuoto: Bing lo vede così -->
+    <div id="meteo-box" style="width:100%; height:340px; background:#0b0b0b; border:1px solid #222; border-radius:6px;">
+        <!-- Il widget verrà inserito DOPO il rendering, quindi Bing non lo vede -->
+    </div>
 
     <a href="https://www.3bmeteo.com/meteo/italia"
        style="color:#00eaff; text-decoration:none; font-size:13px;">
        Previsioni complete →
     </a>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Ritardo di 1.5 secondi → Bing NON esegue JS → NON vede il widget
+    setTimeout(() => {
+        document.getElementById("meteo-box").innerHTML = `
+            <iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
+                width="100%" height="340" frameborder="0" scrolling="no"
+                title="Previsioni meteo 7 giorni"></iframe>
+        `;
+    }, 1500);
+});
+</script>
 
 <!-- CALCOLATRICE CYBER NEON -->
 <div class="sidebar-box" aria-label="Calcolatrice"
