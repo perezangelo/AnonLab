@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-61628",
+    "summary": " nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition",
+    "severity": "HIGH",
+    "published": "2026-09-21T21:54:42Z",
+    "ghsa": "GHSA-pxcx-fv34-x9p5"
+  },
+  {
+    "id": "CVE-2026-61629",
+    "summary": "nginx ignition has  ParseAcceptLanguage `_` separator bypass that enables ~75x CPU amplification via Accept-Language header in i18nMiddleware",
+    "severity": "HIGH",
+    "published": "2026-09-21T21:49:03Z",
+    "ghsa": "GHSA-jr34-h97m-9hpx"
+  },
+  {
+    "id": "CVE-2026-61630",
+    "summary": "nginx ignition has TOTP Reuse During Validity Window",
+    "severity": "MODERATE",
+    "published": "2026-09-21T21:47:40Z",
+    "ghsa": "GHSA-hf33-q6cf-c66f"
+  },
+  {
+    "id": "GHSA-jhjp-4c2q-xmx4",
+    "summary": "k8saudit shipped rules do not detect privileged/sensitive settings on init or ephemeral containers",
+    "severity": "MODERATE",
+    "published": "2026-09-21T21:43:52Z",
+    "ghsa": "GHSA-jhjp-4c2q-xmx4"
+  },
+  {
     "id": "CVE-2026-61687",
     "summary": "Hatchet - Unauthenticated OAuth state CSRF / login-CSRF via empty-state collision in ValidateOAuthState",
     "severity": "HIGH",
@@ -40,33 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-18T17:58:39Z",
     "ghsa": "GHSA-9jjc-fw8x-fmwx"
-  },
-  {
-    "id": "CVE-2026-59163",
-    "summary": "Mnemosyne has JWT signature verification bypass sync server that allows authentication bypass",
-    "severity": "CRITICAL",
-    "published": "2026-09-18T17:54:26Z",
-    "ghsa": "GHSA-xcw4-53cc-hv32"
-  },
-  {
-    "id": "CVE-2026-63445",
-    "summary": "Perses's unvalidated project parameter enables filesystem path traversal",
-    "severity": "HIGH",
-    "published": "2026-09-18T17:40:03Z",
-    "ghsa": "GHSA-vr5f-w35q-98jp"
-  },
-  {
-    "id": "CVE-2026-63199",
-    "summary": "Perses's missing authorization in datasource proxy allows cross-scope secret disclosure",
-    "severity": "HIGH",
-    "published": "2026-09-18T17:39:48Z",
-    "ghsa": "GHSA-4227-9989-jrhx"
-  },
-  {
-    "id": "CVE-2026-63458",
-    "summary": "Perses's project query parameter authorization bypass exposes cross-project resources",
-    "severity": "HIGH",
-    "published": "2026-09-18T17:39:31Z",
-    "ghsa": "GHSA-cjgj-2fwf-4c2w"
   }
 ]
