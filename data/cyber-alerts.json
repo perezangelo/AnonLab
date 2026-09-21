@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-61687",
+    "summary": "Hatchet - Unauthenticated OAuth state CSRF / login-CSRF via empty-state collision in ValidateOAuthState",
+    "severity": "HIGH",
+    "published": "2026-09-21T15:47:01Z",
+    "ghsa": "GHSA-phg3-3g28-wq9v"
+  },
+  {
     "id": "GHSA-jgh3-fggc-mcpm",
     "summary": "Obot: Server-Side Request Forgery via remote MCP server URL",
     "severity": "HIGH",
@@ -61,12 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-18T17:39:31Z",
     "ghsa": "GHSA-cjgj-2fwf-4c2w"
-  },
-  {
-    "id": "CVE-2026-91127",
-    "summary": "File Viewer: DOM XSS via unsafe hyperlink schemes in the legacy DOC renderer",
-    "severity": "HIGH",
-    "published": "2026-09-18T17:19:42Z",
-    "ghsa": "GHSA-3753-m2x2-q623"
   }
 ]
