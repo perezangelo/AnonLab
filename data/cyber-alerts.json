@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-58268",
-    "summary": "SIPGO: DoS via unvalidated Content-Length in the stream parser",
-    "severity": "HIGH",
-    "published": "2026-09-22T19:57:51Z",
-    "ghsa": "GHSA-pg59-5vwg-4jxq"
+    "id": "CVE-2026-91130",
+    "summary": "Home Assistant: XSS in Statistics Graph Card",
+    "severity": "CRITICAL",
+    "published": "2026-09-22T20:40:55Z",
+    "ghsa": "GHSA-wx4m-69m9-gx3m"
   },
   {
-    "id": "CVE-2026-63116",
-    "summary": "deepstream: PATCH_MULTI action bypasses Valve permission system allowing unauthorized record writes",
-    "severity": "HIGH",
-    "published": "2026-09-22T19:56:34Z",
-    "ghsa": "GHSA-89vx-jh4q-vg3w"
-  },
-  {
-    "id": "CVE-2026-62985",
-    "summary": "request-filtering-agent: Synchronous throw from createConnection() for literal private-IP hosts bypasses req.on('error'), crashing the Node.js process",
-    "severity": "HIGH",
-    "published": "2026-09-22T19:54:18Z",
-    "ghsa": "GHSA-r3r9-wp5j-pq5g"
-  },
-  {
-    "id": "CVE-2026-62866",
-    "summary": "Dasel: Selector lexer panics on trailing whitespace in `parseCurRune`",
+    "id": "CVE-2026-91129",
+    "summary": "Home Assistant: mDNS Server-Side Request Forgery",
     "severity": "MODERATE",
-    "published": "2026-09-22T19:52:16Z",
-    "ghsa": "GHSA-65gg-g7rw-6cpc"
+    "published": "2026-09-22T20:40:51Z",
+    "ghsa": "GHSA-4ghv-53cq-7wp3"
   },
   {
-    "id": "CVE-2026-59168",
-    "summary": "Dasel: Unbounded recursion in JSON and XML readers causes unrecoverable stack-overflow DoS",
+    "id": "CVE-2026-88010",
+    "summary": "Traefik: BasicAuth singleflight coalescing reintroduces an unauthenticated username-enumeration timing oracle",
     "severity": "MODERATE",
-    "published": "2026-09-22T19:51:07Z",
-    "ghsa": "GHSA-cqxr-jxr2-85pq"
+    "published": "2026-09-22T20:40:49Z",
+    "ghsa": "GHSA-8fcf-v89g-xpg6"
   },
   {
-    "id": "CVE-2026-62282",
-    "summary": "OpenCVE: Server-Side Request Forgery (SSRF) in notifications",
+    "id": "CVE-2026-88978",
+    "summary": "Hatchet DurableTask WorkerStatus gRPC resolves caller-supplied durable-task UUIDs via ListSatisfiedEntries with no tenant_id filter",
     "severity": "MODERATE",
-    "published": "2026-09-22T19:48:05Z",
-    "ghsa": "GHSA-ch3g-4xvr-674q"
+    "published": "2026-09-22T20:40:46Z",
+    "ghsa": "GHSA-992g-9cr3-vm5x"
   },
   {
-    "id": "CVE-2026-59991",
-    "summary": "psd-tools composite/numpy has uncontrolled memory allocation via crafted PSD geometry",
+    "id": "CVE-2026-84298",
+    "summary": "Hatchet: Cross-tenant durable callback payload disclosure in Hatchet V1 Dispatcher",
+    "severity": "LOW",
+    "published": "2026-09-22T20:40:43Z",
+    "ghsa": "GHSA-9q4h-f4x5-ffq8"
+  },
+  {
+    "id": "CVE-2026-79913",
+    "summary": "Cloudreve: SSRF guard bypass: checkIP does not decode IPv6-transition wrappers (NAT64, IPv4-compatible, 6to4) reaching internal and cloud-metadata addresses",
+    "severity": "MODERATE",
+    "published": "2026-09-22T20:40:41Z",
+    "ghsa": "GHSA-jvh5-97xg-v99f"
+  },
+  {
+    "id": "CVE-2026-79767",
+    "summary": "Gardener: Authorization Bypass via Group Subject Injection",
+    "severity": "MODERATE",
+    "published": "2026-09-22T20:40:38Z",
+    "ghsa": "GHSA-gfjv-gqf2-c888"
+  },
+  {
+    "id": "CVE-2026-77637",
+    "summary": "Cloudreve: Privilege Scope Bypass: State-Mutating Admin Operations Accessible via Read-Only OAuth Scope",
+    "severity": "LOW",
+    "published": "2026-09-22T20:40:35Z",
+    "ghsa": "GHSA-w89x-c962-c44g"
+  },
+  {
+    "id": "CVE-2026-77633",
+    "summary": "Cloudreve: Storage-quota TOCTOU race allows quota bypass and storage-based denial of service",
     "severity": "HIGH",
-    "published": "2026-09-22T19:45:51Z",
-    "ghsa": "GHSA-8q6g-vjhf-jp8m"
+    "published": "2026-09-22T20:40:33Z",
+    "ghsa": "GHSA-xj3h-wwxq-gfcj"
   },
   {
-    "id": "CVE-2026-61670",
-    "summary": "microsandbox: Secret values exposed in world-readable process arguments",
-    "severity": "MODERATE",
-    "published": "2026-09-22T19:43:04Z",
-    "ghsa": "GHSA-m8f5-rh7h-vgg3"
-  },
-  {
-    "id": "CVE-2026-56682",
-    "summary": "9Router has a Login Brute-Force Lockout Bypass via Spoofable X-9r-Real-Ip Header",
-    "severity": "MODERATE",
-    "published": "2026-09-22T16:34:18Z",
-    "ghsa": "GHSA-32gc-64m7-hj7v"
-  },
-  {
-    "id": "CVE-2026-56681",
-    "summary": "9Router has an Authentication Bypass in Public LLM API via Spoofable X-9r-Real-Ip Header",
+    "id": "CVE-2026-94462",
+    "summary": "Spree: Broken Access Control in `PATCH /api/v3/store/carts/:id/associate` (IDOR)",
     "severity": "HIGH",
-    "published": "2026-09-22T16:34:06Z",
-    "ghsa": "GHSA-5mj8-gf6m-fhw8"
+    "published": "2026-09-22T20:40:30Z",
+    "ghsa": "GHSA-4825-p4xm-pcf2"
   }
 ]
