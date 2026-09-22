@@ -675,15 +675,15 @@ img, video {
   position: absolute;
   left: 50%;
   top: 38%;
-  transform: translateX(-85%);
+  transform: translateX(-50%);
   width: 32%;
   max-width: 260px;
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
   z-index: 6;
 
   /* Maschera occhi — fade più ampio */
-mask-image: radial-gradient(circle, black 62%, transparent 100%);
--webkit-mask-image: radial-gradient(circle, black 62%, transparent 100%);
+mask-image: radial-gradient(circle, black 68%, transparent 100%);
+-webkit-mask-image: radial-gradient(circle, black 68%, transparent 100%);
 
 /* ============================
    MEDIA QUERY
