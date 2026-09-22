@@ -4,27 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale | AnonLab</title>
+<title>AnonLab SOC Dashboard — Architettura, Funzioni e Analisi Tecniche</title>
 
-<meta name="description" content="Cybersecurity Basics: guida completa ai fondamenti della sicurezza informatica, minacce moderne, difesa digitale, SOC, threat intelligence e best practice. Pagina tecnica e aggiornata per professionisti e appassionati.">
-<link rel="canonical" href="https://anonlab.it/cybersecurity-basics.html">
+<meta name="description" content="AnonLab SOC Dashboard: guida completa alla struttura, ai widget, alle API, al backend PHP e alle funzioni di monitoraggio. Dashboard avanzata per cybersecurity, threat intelligence e analisi tecniche.">
+<link rel="canonical" href="https://anonlab.it/soc-dashboard.html">
 
 <meta name="robots" content="index, follow">
 <meta name="author" content="AnonLab">
 
-<meta property="og:title" content="Cybersecurity Basics — Fondamenti e Difesa Digitale">
-<meta property="og:description" content="Guida completa alla cybersecurity: minacce, difesa, SOC, threat intelligence e best practice.">
+<meta property="og:title" content="AnonLab SOC Dashboard — Architettura e Funzioni">
+<meta property="og:description" content="Analisi completa della dashboard SOC di AnonLab: widget, API, backend, threat intelligence e monitoraggio.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://anonlab.it/cybersecurity-basics.html">
+<meta property="og:url" content="https://anonlab.it/soc-dashboard.html">
 <meta property="og:image" content="https://anonlab.it/img/eyes.png">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cybersecurity Basics — Fondamenti e Difesa Digitale">
-<meta name="twitter:description" content="Guida completa alla sicurezza informatica moderna.">
+<meta name="twitter:title" content="AnonLab SOC Dashboard — Architettura e Funzioni">
+<meta name="twitter:description" content="Dashboard SOC avanzata per cybersecurity e threat intelligence.">
 <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
-
-<meta name="google-adsense-account" content="ca-pub-1655066977213725">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/custom.css">
@@ -49,20 +46,16 @@ a { color:#00eaff; }
     border:1px solid #00eaff33;
     margin-bottom:40px;
 }
-table {
-    width:100%;
-    border-collapse:collapse;
+.widget-box {
+    background:#0a0f14;
+    border:1px solid #0f2a3a;
+    padding:15px;
+    border-radius:10px;
     margin-top:20px;
 }
-table th, table td {
-    border:1px solid #00eaff33;
-    padding:10px;
-    text-align:left;
-}
-table th {
-    background:#0f1a20;
-}
 </style>
+
+<script src="/js/main.js"></script>
 
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
@@ -103,38 +96,6 @@ table th {
 </script>
 <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale",
-  "description": "Guida completa ai fondamenti della sicurezza informatica, minacce moderne, difesa digitale, SOC, threat intelligence e best practice.",
-  "author": {
-    "@type": "Organization",
-    "name": "AnonLab"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://anonlab.it/cybersecurity-basics.html"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "AnonLab"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anonlab.it/" },
-    { "@type": "ListItem", "position": 2, "name": "Cybersecurity", "item": "https://anonlab.it/cybersecurity.html" },
-    { "@type": "ListItem", "position": 3, "name": "Cybersecurity Basics", "item": "https://anonlab.it/cybersecurity-basics.html" }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -160,345 +121,149 @@ fetch("/partials/ticker.html")
 <main class="page">
 <section class="main-column">
 
-<h1>Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale</h1>
+<h1>AnonLab SOC Dashboard — Architettura, Funzioni e Analisi Tecniche</h1>
+<div class="dashboard-links" style="margin:14px 0 26px; font-size:15px; color:#7fdfff; line-height:1.6;">
+  <p style="color:#ccc; margin-bottom:10px;">
+    Questa SOC Dashboard mostra indicatori avanzati, log eventi, attività sospette e metriche operative.
+    Se vuoi approfondire altri aspetti della sicurezza o consultare strumenti tecnici,
+    puoi visitare anche le sezioni correlate qui sotto:
+  </p>
 
+  <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> — panoramica generale dello stato dei sistemi.<br>
+  <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> — strumenti, software, VPN, browser tools.<br>
+  <a href="/tools.html" style="color:#00eaff;">Tools</a> — utility operative per attività cyber.<br>
+  <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> — articoli e contenuti tecnici.<br>
+  <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> — guida agli strumenti investigativi.<br>
+  <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> — analisi vulnerabilità critiche.<br>
+  <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> — report e IOC.<br>
+  <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> — indagine reale OSINT.<br>
+</div>
 <div class="section">
 <p>
-La cybersecurity è l’insieme delle tecniche, delle tecnologie e delle procedure utilizzate per proteggere sistemi, reti, applicazioni e dati da accessi non autorizzati, attacchi informatici e danni accidentali.
-Nel 2026 la sicurezza informatica è diventata un elemento strategico per aziende, professionisti e utenti privati: la digitalizzazione ha ampliato la superficie d’attacco e ha reso le minacce più sofisticate, automatizzate e difficili da rilevare.
+La <strong>AnonLab SOC Dashboard</strong> è una piattaforma avanzata progettata per offrire una visione completa e centralizzata delle attività di sicurezza informatica, threat intelligence e monitoraggio tecnico.
 </p>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti fondamentali</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📘 <a href="https://www.sans.org/cybersecurity" target="_blank">SANS Cybersecurity Essentials</a></li>
-    <li>📘 <a href="https://www.cisa.gov/cybersecurity-awareness" target="_blank">CISA Cybersecurity Awareness</a></li>
-    <li>📘 <a href="https://www.cyber.gc.ca/en/guidance" target="_blank">Canadian Centre for Cyber Security — Guidance</a></li>
-  </ul>
-</div>
-</div>
-<!-- Annuncio AdSense -->
-<ins class="adsbygoogle"
-     style="display:block; margin:25px 0;"
-     data-ad-client="ca-pub-1655066977213725"
-     data-ad-slot="1122334455"
-     data-ad-format="auto"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<div class="section">
-<h2>Le principali minacce informatiche</h2>
-
-<h3>Malware</h3>
-<p>Software malevolo progettato per infettare dispositivi, rubare dati o danneggiare sistemi.</p>
-
-<h3>Phishing</h3>
-<p>Attacco basato sull’ingegneria sociale per rubare credenziali o informazioni sensibili.</p>
-
-<h3>Ransomware</h3>
-<p>Cifra i dati della vittima e richiede un riscatto.</p>
-
-<h3>Attacchi DDoS</h3>
-<p>Sovraccaricano un servizio con traffico malevolo.</p>
-
-<h3>Vulnerabilità software</h3>
-<p>Falle nei programmi che permettono accessi non autorizzati.</p>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti sulle minacce</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>⚠️ <a href="https://www.avast.com/c-threat-intelligence" target="_blank">Avast Threat Intelligence</a></li>
-    <li>⚠️ <a href="https://www.bitdefender.com/blog" target="_blank">Bitdefender Threat Reports</a></li>
-    <li>⚠️ <a href="https://www.eset.com/int/business/security-report" target="_blank">ESET Security Report</a></li>
-  </ul>
-</div>
-</div>
-
-<!-- Annuncio AdSense -->
-<ins class="adsbygoogle"
-     style="display:block; margin:25px 0;"
-     data-ad-client="ca-pub-1655066977213725"
-     data-ad-slot="9876543210"
-     data-ad-format="horizontal"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<div class="section">
-<h2>Threat Intelligence</h2>
-<p>
-La Threat Intelligence è la raccolta e analisi di informazioni sulle minacce informatiche.
-Serve a identificare attacchi in anticipo e comprendere le tecniche degli attaccanti.
-</p>
-
-<p>
-AnonLab integra elementi di threat intelligence per monitorare vulnerabilità, analizzare IOC,
-osservare trend di attacco e fornire insight tecnici utili a SOC e analisti.
-</p>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti TI</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🛰️ <a href="https://www.trellix.com/en-us/advanced-research-center.html" target="_blank">Trellix Advanced Research Center</a></li>
-    <li>🛰️ <a href="https://www.sophos.com/en-us/security-news" target="_blank">Sophos Security News</a></li>
-    <li>🛰️ <a href="https://www.secureworks.com/research" target="_blank">Secureworks Counter Threat Unit</a></li>
-  </ul>
-</div>
-</div>
-<div class="section">
-<h2>I pilastri della sicurezza informatica</h2>
 
 <ul>
-  <li><strong>Confidenzialità</strong></li>
-  <li><strong>Integrità</strong></li>
-  <li><strong>Disponibilità</strong></li>
-  <li><strong>Autenticazione</strong></li>
-  <li><strong>Autorizzazione</strong></li>
-  <li><strong>Monitoraggio continuo</strong></li>
-</ul>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📚 <a href="https://www.isaca.org/resources" target="_blank">ISACA Cybersecurity Resources</a></li>
-    <li>📚 <a href="https://www.nist.gov/cyberframework" target="_blank">NIST Cybersecurity Framework</a></li>
-  </ul>
-</div>
-</div>
-
-<div class="section">
-<h2>Il ruolo del SOC (Security Operations Center)</h2>
-
-<p>Un SOC è un centro operativo dedicato alla sicurezza informatica.</p>
-
-<ul>
-  <li>Monitoraggio 24/7</li>
-  <li>Analisi degli eventi</li>
-  <li>Risposta agli incidenti</li>
-  <li>Gestione delle vulnerabilità</li>
-  <li>Threat hunting</li>
-  <li>Reportistica tecnica</li>
+<li><strong>Frontend statico</strong> su GitHub Pages</li>
+<li><strong>Backend dinamico</strong> su AlterVista (PHP + MySQL)</li>
+<li><strong>Widget interattivi</strong> in JavaScript</li>
+<li><strong>API personalizzate</strong> per dati real‑time</li>
+<li><strong>Stile cyber‑neon</strong> per una visualizzazione moderna</li>
 </ul>
 
 <p>
-AnonLab si ispira alla struttura di un SOC moderno, offrendo dashboard tecniche, widget di stato,
-radar delle minacce, strumenti OSINT e analisi tecniche.
+Questa pagina spiega nel dettaglio come funziona la dashboard, quali componenti contiene e come viene utilizzata per analisi tecniche, monitoraggio e threat intelligence.
 </p>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti SOC</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🛡️ <a href="https://www.ibm.com/reports/threat-intelligence" target="_blank">IBM X‑Force Threat Intelligence</a></li>
-    <li>🛡️ <a href="https://www.spamhaus.org/statistics" target="_blank">Spamhaus Threat Statistics</a></li>
-  </ul>
 </div>
-</div>
-
 <div class="section">
-<h2>Strumenti fondamentali per la cybersecurity</h2>
+<h2>Architettura della Dashboard</h2>
 
-<h3>Firewall</h3>
-<p>Filtra il traffico in entrata e uscita.</p>
-
-<h3>EDR / Antivirus avanzati</h3>
-<p>Protezione contro malware e attacchi fileless.</p>
-
-<h3>SIEM</h3>
-<p>Analisi log e correlazioni.</p>
-
-<h3>OSINT Tools</h3>
-<p>Strumenti per investigazioni digitali.</p>
-
-<h3>Vulnerability Scanner</h3>
-<p>Identifica falle nei sistemi.</p>
-
-<h3>Backup e Disaster Recovery</h3>
-<p>Garantisce continuità operativa.</p>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Strumenti utili</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🧩 <a href="https://www.virustotal.com" target="_blank">VirusTotal</a></li>
-    <li>🧩 <a href="https://www.hybrid-analysis.com" target="_blank">Hybrid Analysis</a></li>
-    <li>🧩 <a href="https://www.osintframework.com" target="_blank">OSINT Framework</a></li>
-  </ul>
-</div>
-</div>
-
-<div class="section">
-<h2>Best practice per proteggersi</h2>
+<h3>Frontend: GitHub Pages</h3>
+<p>Il frontend è ospitato su GitHub Pages, ideale per velocità, affidabilità e assenza di costi.</p>
 
 <ul>
-  <li>Password robuste</li>
-  <li>Autenticazione a due fattori</li>
-  <li>Software aggiornati</li>
-  <li>Backup regolari</li>
-  <li>Attenzione agli allegati</li>
-  <li>Verifica delle email</li>
-  <li>Connessioni sicure</li>
-  <li>Monitoraggio log</li>
+<li>blocchi neon</li>
+<li>widget interattivi</li>
+<li>grafici</li>
+<li>radar delle minacce</li>
+<li>pannelli informativi</li>
 </ul>
 
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Risorse utili</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🔐 <a href="https://www.lastpass.com/password-manager" target="_blank">LastPass Password Manager</a></li>
-    <li>🔐 <a href="https://haveibeenpwned.com" target="_blank">Have I Been Pwned</a></li>
-  </ul>
-</div>
-</div>
+<h3>Backend: AlterVista (PHP + MySQL)</h3>
+<p>AlterVista gestisce API, database, log tecnici e dati dinamici.</p>
 
-<!-- RISORSE AVANZATE -->
+<pre>
+https://angelonline.altervista.org/api/get-threats.php
+https://angelonline.altervista.org/api/system-status.php
+https://angelonline.altervista.org/api/radar-data.php
+</pre>
+
+<p>Questa separazione garantisce sicurezza, modularità e performance.</p>
+</div>
 <div class="section">
-<h2>Risorse utili: Video, Guide e Strumenti</h2>
+<h2>Widget della SOC Dashboard</h2>
 
-<p>Contenuti multimediali e strumenti operativi per migliorare la propria sicurezza digitale.</p>
+<div class="widget-box">
+  <h3>System Status</h3>
+  <p>Monitoraggio uptime, latenza, servizi critici.</p>
+  <div id="system-status-widget"></div>
+</div>
 
-<h3>Video correlati</h3>
+<div class="widget-box">
+  <h3>Threat Radar</h3>
+  <p>Visualizzazione minacce attive, categorie, severità.</p>
+  <div id="threat-radar-widget"></div>
+</div>
+
+<div class="widget-box">
+  <h3>IOC Intelligence</h3>
+  <p>IP malevoli, hash, domini, URL sospetti.</p>
+  <div id="ioc-intel-widget"></div>
+</div>
+
+<div class="widget-box">
+  <h3>CVE Monitor</h3>
+  <p>Vulnerabilità critiche, CVSS, exploit pubblici.</p>
+  <div id="cve-monitor-widget"></div>
+</div>
+
+<div class="widget-box">
+  <h3>Ransomware Feed</h3>
+  <p>Gruppi attivi, leak recenti, infrastrutture note.</p>
+  <div id="ransomware-feed-widget"></div>
+</div>
+</div>
+<div class="section">
+<h2>Risorse utili per analisti SOC</h2>
+
+<h3>Video tecnici</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
   <li>🎥 <a href="https://www.youtube.com/watch?v=ulKNoB-sAP8" target="_blank">Cyber Threat Intelligence Overview — Cybrary</a></li>
   <li>🎥 <a href="https://www.youtube.com/watch?v=J9Fq0YpVwHk" target="_blank">What is Cyber Threat Intelligence? — Check Point</a></li>
-  <li>🎥 <a href="https://www.youtube.com/watch?v=V4kzLJZQK2E" target="_blank">Threat Intelligence Explained in 5 Minutes — Heimdal Security</a></li>
 </ul>
 
-<h3>Guide PDF scaricabili</h3>
-<ul style="list-style:none; padding-left:0; line-height:1.7;">
-  <li>📄 <a href="/docs/cybersecurity-basics.pdf" download>Cybersecurity Basics — Guida completa</a></li>
-  <li>📄 <a href="/docs/safe-browsing.pdf" download>Navigazione Sicura — Best Practice</a></li>
-</ul>
-
-<h3>Strumenti operativi AnonLab</h3>
+<h3>Strumenti operativi</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
   <li>🛠️ <a href="/tools/ip-lookup.html">IP Lookup Tool</a></li>
   <li>🛠️ <a href="/tools/dns-checker.html">DNS Checker</a></li>
   <li>🛠️ <a href="/tools/hash-analyzer.html">Hash Analyzer</a></li>
   <li>🛠️ <a href="/tools/port-scanner.html">Port Scanner</a></li>
-  <li>🛡️ <a href="/widgets/security-advice.html">Security Advice Widget</a></li>
 </ul>
 
-<h3>Difesa Digitale</h3>
+<h3>Fonti TI</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
-  <li>🔐 <a href="https://www.privacyguides.org" target="_blank">Proteggere la propria identità digitale</a></li>
-  <li>🔐 <a href="https://haveibeenpwned.com" target="_blank">Verificare se un account è compromesso</a></li>
-  <li>🔐 <a href="https://www.virustotal.com" target="_blank">Analizzare un link sospetto</a></li>
-  <li>🔐 <a href="https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks" target="_blank">Riconoscere un attacco phishing (CISA)</a></li>
+  <li>🛰️ <a href="https://www.trellix.com/en-us/advanced-research-center.html" target="_blank">Trellix Research Center</a></li>
+  <li>🛰️ <a href="https://www.secureworks.com/research" target="_blank">Secureworks CTU</a></li>
+  <li>🛰️ <a href="https://www.sophos.com/en-us/security-news" target="_blank">Sophos Security News</a></li>
+</ul>
+</div>
+<div class="section">
+<h2>Esplora altre sezioni AnonLab</h2>
+<ul style="list-style:none; padding-left:0; line-height:1.7;">
+  <li>📘 <a href="/cybersecurity-basics.html">Cybersecurity Basics</a></li>
+  <li>📘 <a href="/osint-tools-explained.html">OSINT Tools Explained</a></li>
+  <li>📘 <a href="/osint-investigation-case-study.html">OSINT Case Study</a></li>
+  <li>📘 <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità & CVE Analysis</a></li>
+  <li>📘 <a href="/threat-intelligence-report.html">Threat Intelligence Report</a></li>
 </ul>
 </div>
 
-<!-- LINK INTERNI -->
-<div class="section" style="margin-top:25px;">
-  <h4 style="color:#00eaff;">Esplora altre sezioni AnonLab</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📘 <a href="/cybersecurity-basics.html">Cybersecurity Basics</a></li>
-    <li>📘 <a href="/anonlab-soc-dashboard.html">AnonLab SOC Dashboard</a></li>
-    <li>📘 <a href="/osint-tools-explained.html">OSINT Tools Explained</a></li>
-    <li>📘 <a href="/osint-investigation-case-study.html">OSINT Case Study</a></li>
-    <li>📘 <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità & CVE Analysis</a></li>
-    <li>📘 <a href="/threat-intelligence-report.html">Threat Intelligence Report</a></li>
-  </ul>
-</div>
-
-<!-- CONCLUSIONE -->
 <div class="section">
 <h2>Conclusione</h2>
 <p>
-Questa pagina offre una panoramica chiara e completa dei fondamenti della cybersecurity.
-AnonLab continua a evolversi come osservatorio tecnico sulle minacce digitali.
+La SOC Dashboard di AnonLab offre una visione tecnica e immediata del panorama cyber,
+con strumenti utili per analisti e professionisti.
 </p>
+</div>
 
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti finali</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📚 <a href="https://www.cyberdefensemagazine.com" target="_blank">Cyber Defense Magazine</a></li>
-    <li>📚 <a href="https://www.techrepublic.com/topic/security" target="_blank">TechRepublic Security</a></li>
-  </ul>
-</div>
-</div>
 </section>
 
-<!-- SCRIPT PRINCIPALI -->
-<script src="/js/main.js"></script>
-<script src="/js/ui.js"></script>
-
-<!-- SIDEBAR -->
-<div id="sidebar" class="sidebar"></div>
-
-<script>
-fetch("/partials/sidebar.html")
-  .then(response => {
-      if (!response.ok) {
-          throw new Error("Errore caricamento sidebar: " + response.status);
-      }
-      return response.text();
-  })
-  .then(data => {
-      document.getElementById("sidebar").innerHTML = data;
-
-      if (typeof initCalculator === "function") initCalculator();
-      if (typeof initRadio === "function") initRadio();
-      if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-      if (typeof initOroscopo === "function") initOroscopo();
-      if (typeof initVisitCounter === "function") initVisitCounter();
-  })
-  .catch(error => {
-      console.error("Errore sidebar:", error);
-  });
-</script>
-
-<!-- FOOTER -->
 <div id="footer"></div>
-
 <script>
 fetch("/partials/footer.html")
   .then(r => r.text())
-  .then(html => {
-      document.getElementById("footer").innerHTML = html;
-  });
+  .then(html => { document.getElementById("footer").innerHTML = html; });
 </script>
-
-<!-- BACK TO TOP -->
-<button id="backToTop">↑</button>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const backToTop = document.getElementById("backToTop");
-  if (!backToTop) return;
-
-  window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    backToTop.style.display = scrollTop > 50 ? "block" : "none";
-  });
-
-  backToTop.addEventListener("click", () => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-    document.body.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  function adjustBackToTopPosition() {
-    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
-
-    if (iubendaLogo) {
-      const rect = iubendaLogo.getBoundingClientRect();
-      const offset = window.innerHeight - rect.top + 10;
-      backToTop.style.bottom = offset + "px";
-    } else {
-      backToTop.style.bottom = "80px";
-    }
-  }
-
-  adjustBackToTopPosition();
-  setInterval(adjustBackToTopPosition, 800);
-});
-</script>
-
-<!-- CLARITY -->
-<script type="text/javascript">
-(function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "y46cg93s3m");
-</script>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>
 
 </main>
 </body>
