@@ -681,10 +681,9 @@ img, video {
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
   z-index: 6;
 
-  /* Maschera occhi */
-  mask-image: radial-gradient(circle, black 50%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%);
-}
+  /* Maschera occhi — fade più ampio */
+mask-image: radial-gradient(circle, black 62%, transparent 100%);
+-webkit-mask-image: radial-gradient(circle, black 62%, transparent 100%);
 
 /* ============================
    MEDIA QUERY
