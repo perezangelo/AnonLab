@@ -1,5 +1,55 @@
 [
   {
+    "title": "Malicious B-tree NPM Package Accumulates Millions of Downloads",
+    "link": "https://www.securityweek.com/malicious-b-tree-npm-package-accumulates-millions-of-downloads/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
+  },
+  {
+    "title": "WordPress Patches \u2018Click2Shell\u2019 Vulnerability",
+    "link": "https://www.securityweek.com/wordpress-patches-click2shell-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+  },
+  {
+    "title": "New Windows Defender zero-day blocks Microsoft antivirus updates",
+    "link": "https://www.bleepingcomputer.com/news/security/new-windows-defender-zero-day-blocks-microsoft-antivirus-updates/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/17/Microsoft-Defender.jpg"
+  },
+  {
+    "title": "Malicious npm Package indexed-btree Hid Its Loader in Runtime Code Before Removal",
+    "link": "https://thehackernews.com/2026/09/malicious-npm-package-indexed-btree-hid.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaN7aXt0PoPdZQ_VG77wkwdIyNugcdkFD6MnMvlj5LN_byw2ZrX8-gtpDld4CviuW1MOhHiElsvFtIkO9IfhBr4af-sJwM1zvR-RFICRll4G5jG4JNPX1vx4sup3omlw8uTJgro9UUfzecLMI1Whls3ihqZ9OXYJliIBjhpoodf4WI9j1lA6EUjms7x1pG/s1600/rth.jpg"
+  },
+  {
+    "title": "CISA orders feds to patch Zyxel flaw exploited for data theft",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-zyxel-flaw-by-thursday/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/08/CISA.jpg"
+  },
+  {
+    "title": "Japan Dismantles First North Korean Laptop Farm as US and Allies Detail Wider Scheme",
+    "link": "https://www.securityweek.com/japan-dismantles-first-north-korean-laptop-farm-as-us-and-allies-detail-wider-scheme/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/North-Korea-hacking.jpeg"
+  },
+  {
+    "title": "SideCopy Broadens India Targeting to Academia With ReverseRAT Spear-Phishing",
+    "link": "https://thehackernews.com/2026/09/sidecopy-broadens-india-targeting-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVXTuBFDgZyaNFTznwdu5HXSKuVHU5xpM7JDvXP_Ra-68CsYd68bb6xMWPXbjmsM5oO211hZgzIN0NENk_cMBZZpL88LMsIaNkfSEpIWRRzyjRt7Ke6ZMeUXvIKcH3ncgDouKN8FGuunAFQFMolel0GgTBm1lzdVDH28WpWFUCI4Fvl9ju0q4Vv0S55PVx/s1600/word-school.jpg"
+  },
+  {
+    "title": "One Hidden Meta Muse Setting Could Let Attackers Turn the AI Assistant Into a Backdoor",
+    "link": "https://thehackernews.com/2026/09/one-hidden-meta-muse-setting-could-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjZLVTtI-AEbGRQqJ7aGa0tbXedD5L6P7VCEKIOGXOBZe7S3mhA-PnoHVEoZf3LBMzhcZSIX5sCTveGyZ-8qAqyAVaMXfEoxPL70OIESq-Iolqjkv8GuDjcVs1Jgh3k3SoOOGPDWFr6Lmk83avLqG1whcaiDclv5waXYhCuEqXk569wfwV8Ilrmvv3IKE/s1600/muse.jpg"
+  },
+  {
+    "title": "WordPress Comment2Shell Flaw Can Turn Anonymous Comment XSS Into RCE via Admin Session",
+    "link": "https://thehackernews.com/2026/09/wordpress-comment2shell-flaw-can-turn.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPBWV1XNsTGB5ImLNRGJTygk0-82k7xTHmuOr7lTivRRDcF83ddu4jLOpdkQYMq7VB3j5SMpA9zBRvM3-SUkDLBhN5-j-Z6UltcTnVfXOxHDzfBYWiw_fRiRefAYa1XSiFu5JMzb06dwqV4PhKaZkPt3vKZFHQjdVFUgbr2B3nOEoFs_qHe6zwGayHM2I/s1600/wordpress-comment.jpg"
+  },
+  {
+    "title": "Zyxel and Veeam Flaws Under Active Exploitation With Command and SYSTEM Access",
+    "link": "https://thehackernews.com/2026/09/zyxel-and-veeam-flaws-under-active.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjj9eouOxeSvnYBzl5A8tWvEQ4w_CCx94YcFmpBAXXqHWNqvFBWj4vOgeZdHYAf0MU-chY63biCpHDnzRC0pwR7s3pTdQAWwPAVI-olRZuBwG0ilgAxnIY_1KofE3cpuA8lKOE01U26EFHYE_nLrXYXOWl47G1KaoFTZ5UOO81Cw0Kb20pFSfAc1b9i9E_K/s1600/veeam.jpg"
+  },
+  {
     "title": "US Proposes AI Incident Alert System in Talks With China, Bessent Says",
     "link": "https://www.securityweek.com/us-proposes-ai-incident-alert-system-in-talks-with-china-bessent-says/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
@@ -98,55 +148,5 @@
     "title": "FBI's CJIS v6.1: What Security Teams Need to Know.",
     "link": "https://www.bleepingcomputer.com/news/security/fbis-cjis-v61-what-security-teams-need-to-know/",
     "image": "https://www.bleepstatic.com/content/posts/2026/09/14/specops-legal-doc.jpg"
-  },
-  {
-    "title": "Dragos Completes NetRise and runZero Acquisitions Following Accenture Deal",
-    "link": "https://www.securityweek.com/dragos-completes-netrise-and-runzero-acquisitions-following-accenture-deal/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/MA-merger-acquisition.webp"
-  },
-  {
-    "title": "Microsoft reminds admins to migrate Entra ID users to passkeys",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-reminds-admins-to-migrate-entra-id-users-to-passkeys/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/12/Hacking_login.jpg"
-  },
-  {
-    "title": "RatHat Android Trojan Uses AI for Automation",
-    "link": "https://www.securityweek.com/rathat-android-trojan-uses-ai-for-automation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/11/android-banking-malware.png"
-  },
-  {
-    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/09/21/cisa-adds-one-known-exploited-vulnerability-catalog",
-    "image": ""
-  },
-  {
-    "title": "Rust Team Members and Popular Crate Owners Targeted via Video Calls",
-    "link": "https://www.securityweek.com/rust-team-members-and-popular-crate-owners-targeted-via-video-calls/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/application-security-vulnerabilities.jpeg"
-  },
-  {
-    "title": "Microsoft: September updates break File History backup feature",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-september-updates-break-file-history-backup-feature/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows-headpic.jpg"
-  },
-  {
-    "title": "CrowdSec Confirms Source Code Stolen in Supply Chain Attack",
-    "link": "https://www.securityweek.com/crowdsec-confirms-source-code-stolen-in-supply-chain-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/Code-3rd-Party-Risk.jpg"
-  },
-  {
-    "title": "Colorado Water Utilities Hit by Cyberattacks Targeting OT Systems",
-    "link": "https://www.securityweek.com/colorado-water-utilities-hit-by-cyberattacks-targeting-ot-systems/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Water-Utility-Cyberattack.jpg"
-  },
-  {
-    "title": "Organizations Warned of 3 Exploited Linux Kernel Vulnerabilities",
-    "link": "https://www.securityweek.com/organizations-warned-of-3-exploited-linux-kernel-vulnerabilities/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Linux.jpeg"
-  },
-  {
-    "title": "ClickFix Lures Deploy ChainScript RAT Using Polygon to Rotate C2 Infrastructure",
-    "link": "https://thehackernews.com/2026/09/clickfix-lures-deploy-chainscript-rat.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-cgmwQRZh142Z19A3s7K7tpaXtsyy6Imy9cYGM7nFP1DAZoSK9gDw8T0dGXlkFWOGDFShJWMNjC7jbwoSvLokr1pX27u2B1SABpBL-aWtaXj2hYYrqVwTE7LpEDn_iIbRYCro8sH2hzAEsjHLGkpFqTjEKlFHi2o2pgacFJQvYkPDCKVEhkJgW8OWhpZA/s1600/poly.jpg"
   }
 ]
