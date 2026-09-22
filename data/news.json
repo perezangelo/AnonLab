@@ -1,5 +1,30 @@
 [
   {
+    "title": "Rogue external MFA providers can steal passwords during logins",
+    "link": "https://www.bleepingcomputer.com/news/security/rogue-external-mfa-providers-can-steal-passwords-during-logins/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/09/19/MFA.jpg"
+  },
+  {
+    "title": "Sweden fines Milj\u00f6data $183,000 over breach affecting 2.2 million",
+    "link": "https://www.bleepingcomputer.com/news/security/sweden-fines-milj-data-183-000-over-breach-affecting-22-million/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/08/27/sweden.jpg"
+  },
+  {
+    "title": "Relays Are Masking Chinese Access to Frontier AI Models in the US",
+    "link": "https://www.darkreading.com/cyber-risk/relays-masking-chinese-access-frontier-ai-models",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6d51b19d4c1fd6ff/6ab2e505f707d04dc9ded8c1/proxy_Josie_Elias_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Chinese hackers exploit WordPress, Zyxel flaws to steal govt data",
+    "link": "https://www.bleepingcomputer.com/news/security/chinese-hackers-exploit-multiple-technologies-to-steal-govt-data/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/05/chinese-hacker-flag.jpg"
+  },
+  {
+    "title": "Microsoft Disrupts EvilTokens Device Code Phishing Service",
+    "link": "https://www.darkreading.com/identity-access-management-security/microsoft-disrupts-eviltokens-device-code-phishing-service",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt3163f248ce2f1013/6ab2d46dc8295fafe642a234/skull_coins-breakermaximus-GettyImages-2092767456.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "ShinyHunters claims FBI hack, data theft in PeopleSoft zero-day breach",
     "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/12/16/FBI__headpic.jpg"
@@ -115,38 +140,13 @@
     "image": ""
   },
   {
+    "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
     "title": "lwIP (Lightweight IP)",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
-    "image": ""
-  },
-  {
-    "title": "Siemens WTV676 and WTV776",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-08",
-    "image": ""
-  },
-  {
-    "title": "Siemens SIPLUS and SIMATIC Products",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-04",
-    "image": ""
-  },
-  {
-    "title": "Siemens Desigo CC family",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-05",
-    "image": ""
-  },
-  {
-    "title": "Siemens SIMOVE Fleetmanager and SIPLANT",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-07",
-    "image": ""
-  },
-  {
-    "title": "Siemens Siveillance Control",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-03",
-    "image": ""
-  },
-  {
-    "title": "lwIP TCP/IP Stack MQTT Client Application",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-01",
     "image": ""
   }
 ]
