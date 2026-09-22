@@ -94,6 +94,27 @@ a { color:#00eaff; }
 </script>
 <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 
+	<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OSINT Tools Explained — Raccolta e Analisi delle Informazioni",
+  "description": "Guida completa agli strumenti OSINT moderni e alle tecniche di intelligence digitale.",
+  "author": {
+    "@type": "Organization",
+    "name": "AnonLab"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anonlab.it/osint-tools-explained.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AnonLab"
+  }
+}
+</script>
+
 <!-- CARICAMENTO JAVASCRIPT DEL SITO -->
 <script src="/js/main.js"></script>
 
@@ -142,7 +163,13 @@ a { color:#00eaff; }
 L’OSINT (Open Source Intelligence) è la disciplina che si occupa della raccolta e analisi di informazioni provenienti da fonti pubbliche.  
 Nel 2026 l’OSINT è diventato uno dei pilastri fondamentali per investigatori digitali, analisti SOC, ricercatori di cybersecurity, giornalisti investigativi e forze dell’ordine.
 </p>
-
+<div class="section" style="margin-top:25px;">
+  <h4 style="color:#00eaff;">Pagine correlate</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>➡️ <a href="/cybersecurity-basics.html">Cybersecurity Basics</a> — Concetti fondamentali della sicurezza informatica</li>
+    <li>➡️ <a href="/anonlab-soc-dashboard.html">AnonLab SOC Dashboard</a> — Widget, API e struttura della dashboard SOC</li>
+  </ul>
+</div>
 <p>
 Questa pagina offre una panoramica completa e aggiornata sugli strumenti OSINT più utilizzati, sulle tecniche di raccolta dati e sulle metodologie di analisi.  
 È progettata per essere una risorsa di valore sia per professionisti che per utenti che vogliono comprendere il funzionamento dell’intelligence moderna.
@@ -229,7 +256,12 @@ L’OSINT consiste nell’analisi di informazioni disponibili pubblicamente, sen
 
 <div class="section">
 <h2>Strumenti OSINT fondamentali</h2>
-
+<div class="section" style="margin-top:25px;">
+  <h4 style="color:#00eaff;">Approfondimenti OSINT</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🔗 <a href="/osint-investigation-case-study.html">OSINT Case Study</a> — Indagine OSINT reale con correlazione dati</li>
+  </ul>
+</div>
 <h3>1. Motori di ricerca avanzati</h3>
 <p>
 Google, Bing e DuckDuckGo sono strumenti OSINT potentissimi se utilizzati con operatori avanzati:
@@ -306,6 +338,23 @@ Solo fonti pubbliche e legali:
 </ul>
 
 <h3>7. OSINT Framework</h3>
+	<h2>Tipologie di strumenti OSINT</h2>
+
+<h3>Domain & Network Intelligence</h3>
+<p>Strumenti che permettono di analizzare domini, IP, DNS, ASN, porte aperte e infrastrutture correlate.</p>
+
+<h3>SOCMINT — Social Media Intelligence</h3>
+<p>Analisi di profili, post, relazioni, geolocalizzazioni e attività sospette sui social network.</p>
+
+<h3>GEOINT — Geospatial Intelligence</h3>
+<p>Intelligence basata su mappe, coordinate, immagini satellitari e dati geolocalizzati.</p>
+
+<h3>Metadata & File Intelligence</h3>
+<p>Estrazione di informazioni nascoste da documenti, PDF, immagini e file multimediali.</p>
+
+<h3>Dark Web Reconnaissance</h3>
+<p>Raccolta di informazioni da fonti pubbliche del dark web, directory e motori di ricerca onion.</p>
+
 <p>
 Una delle risorse più complete per categorizzare strumenti OSINT:
 </p>
@@ -322,8 +371,40 @@ Una delle risorse più complete per categorizzare strumenti OSINT:
      data-ad-layout="in-article"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
+		<h2>Glossario OSINT</h2>
+		<h2>Confronto strumenti OSINT</h2>
+
+<table>
+<thead>
+<tr><th>Tool</th><th>Funzione</th><th>Livello</th><th>Gratis/Premium</th></tr>
+</thead>
+<tbody>
+<tr><td>Whois</td><td>Analisi dominio</td><td>Base</td><td>Gratis</td></tr>
+<tr><td>Shodan</td><td>Scansione dispositivi</td><td>Avanzato</td><td>Premium</td></tr>
+<tr><td>Maltego</td><td>Link analysis</td><td>Avanzato</td><td>Premium</td></tr>
+<tr><td>SpiderFoot</td><td>Automazione OSINT</td><td>Avanzato</td><td>Gratis/Premium</td></tr>
+<tr><td>FOCA</td><td>Metadata extraction</td><td>Intermedio</td><td>Gratis</td></tr>
+</tbody>
+</table>
+
+<ul>
+  <li><strong>Footprinting</strong> — raccolta preliminare di informazioni su un target.</li>
+  <li><strong>Pivoting</strong> — collegare un dato ad altri elementi correlati.</li>
+  <li><strong>Link Analysis</strong> — analisi delle relazioni tra entità.</li>
+  <li><strong>Metadata Extraction</strong> — estrazione di informazioni nascoste nei file.</li>
+  <li><strong>SOCMINT</strong> — intelligence basata sui social media.</li>
+  <li><strong>GEOINT</strong> — intelligence basata su mappe e geolocalizzazione.</li>
+</ul>
+
 <div class="section">
 <h2>Metodologie OSINT moderne</h2>
+	<div class="section" style="margin-top:25px;">
+  <h4 style="color:#00eaff;">Threat Intelligence</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🛡️ <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità & CVE Analysis</a> — Analisi delle vulnerabilità più critiche</li>
+    <li>🛡️ <a href="/threat-intelligence-report.html">Threat Intelligence Report</a> — Trend globali e minacce emergenti</li>
+  </ul>
+</div>
 
 <h3>Raccolta</h3>
 <p>Identificazione delle fonti e estrazione dei dati.</p>
@@ -347,6 +428,25 @@ Una delle risorse più complete per categorizzare strumenti OSINT:
 </div>
 </div>
 
+		<h2>Esempi di analisi OSINT</h2>
+
+<h3>Analisi dominio</h3>
+<pre>
+whois anonlab.it
+nslookup anonlab.it
+curl -I https://anonlab.it
+</pre>
+
+<h3>Analisi IP</h3>
+<pre>
+shodan host 8.8.8.8
+</pre>
+
+<h3>Analisi metadati</h3>
+<pre>
+exiftool immagine.jpg
+</pre>
+
 <div class="section">
 <h2>Best practice OSINT</h2>
 
@@ -368,6 +468,17 @@ Una delle risorse più complete per categorizzare strumenti OSINT:
 </div>
 </div>
 
+		<h2>FAQ OSINT</h2>
+
+<h3>Cos’è un OSINT tool?</h3>
+<p>Uno strumento che permette di raccogliere informazioni da fonti pubbliche e open data.</p>
+
+<h3>Quali sono i migliori OSINT tools del 2026?</h3>
+<p>Shodan, Maltego, SpiderFoot, FOCA, TheHarvester.</p>
+
+<h3>Come si usa un OSINT tool per analizzare un dominio?</h3>
+<p>Si parte da whois, DNS, IP, porte aperte, servizi esposti e correlazioni con altri domini.</p>
+
 <div class="section">
 <h2>Conclusione</h2>
 <p>
@@ -384,6 +495,16 @@ Questa pagina offre una panoramica completa e aggiornata degli strumenti e delle
 </div>
 </div>
 
+		<div class="section" style="margin-top:25px;">
+  <h4 style="color:#00eaff;">Esplora altre sezioni AnonLab</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>📘 <a href="/cybersecurity-basics.html">Cybersecurity Basics</a></li>
+    <li>📘 <a href="/anonlab-soc-dashboard.html">AnonLab SOC Dashboard</a></li>
+    <li>📘 <a href="/osint-investigation-case-study.html">OSINT Case Study</a></li>
+    <li>📘 <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità & CVE Analysis</a></li>
+    <li>📘 <a href="/threat-intelligence-report.html">Threat Intelligence Report</a></li>
+  </ul>
+</div>
 	</section>
 
 	  <script src="/js/main.js"></script>
