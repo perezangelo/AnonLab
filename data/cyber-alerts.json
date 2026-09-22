@@ -1,5 +1,61 @@
 [
   {
+    "id": "CVE-2026-58268",
+    "summary": "SIPGO: DoS via unvalidated Content-Length in the stream parser",
+    "severity": "HIGH",
+    "published": "2026-09-22T19:57:51Z",
+    "ghsa": "GHSA-pg59-5vwg-4jxq"
+  },
+  {
+    "id": "CVE-2026-63116",
+    "summary": "deepstream: PATCH_MULTI action bypasses Valve permission system allowing unauthorized record writes",
+    "severity": "HIGH",
+    "published": "2026-09-22T19:56:34Z",
+    "ghsa": "GHSA-89vx-jh4q-vg3w"
+  },
+  {
+    "id": "CVE-2026-62985",
+    "summary": "request-filtering-agent: Synchronous throw from createConnection() for literal private-IP hosts bypasses req.on('error'), crashing the Node.js process",
+    "severity": "HIGH",
+    "published": "2026-09-22T19:54:18Z",
+    "ghsa": "GHSA-r3r9-wp5j-pq5g"
+  },
+  {
+    "id": "CVE-2026-62866",
+    "summary": "Dasel: Selector lexer panics on trailing whitespace in `parseCurRune`",
+    "severity": "MODERATE",
+    "published": "2026-09-22T19:52:16Z",
+    "ghsa": "GHSA-65gg-g7rw-6cpc"
+  },
+  {
+    "id": "CVE-2026-59168",
+    "summary": "Dasel: Unbounded recursion in JSON and XML readers causes unrecoverable stack-overflow DoS",
+    "severity": "MODERATE",
+    "published": "2026-09-22T19:51:07Z",
+    "ghsa": "GHSA-cqxr-jxr2-85pq"
+  },
+  {
+    "id": "CVE-2026-62282",
+    "summary": "OpenCVE: Server-Side Request Forgery (SSRF) in notifications",
+    "severity": "MODERATE",
+    "published": "2026-09-22T19:48:05Z",
+    "ghsa": "GHSA-ch3g-4xvr-674q"
+  },
+  {
+    "id": "CVE-2026-59991",
+    "summary": "psd-tools composite/numpy has uncontrolled memory allocation via crafted PSD geometry",
+    "severity": "HIGH",
+    "published": "2026-09-22T19:45:51Z",
+    "ghsa": "GHSA-8q6g-vjhf-jp8m"
+  },
+  {
+    "id": "CVE-2026-61670",
+    "summary": "microsandbox: Secret values exposed in world-readable process arguments",
+    "severity": "MODERATE",
+    "published": "2026-09-22T19:43:04Z",
+    "ghsa": "GHSA-m8f5-rh7h-vgg3"
+  },
+  {
     "id": "CVE-2026-56682",
     "summary": "9Router has a Login Brute-Force Lockout Bypass via Spoofable X-9r-Real-Ip Header",
     "severity": "MODERATE",
@@ -12,61 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-22T16:34:06Z",
     "ghsa": "GHSA-5mj8-gf6m-fhw8"
-  },
-  {
-    "id": "CVE-2026-61612",
-    "summary": "@aborruso/ckan-mcp-server has SSRF via DNS-name → internal IP — incomplete fix of CVE-2026-53509",
-    "severity": "MODERATE",
-    "published": "2026-09-22T14:51:20Z",
-    "ghsa": "GHSA-798p-78g2-v556"
-  },
-  {
-    "id": "CVE-2026-58272",
-    "summary": "Sync-in Server has Username/Login Enumeration via Timing Side-Channel on POST /api/auth/login (incomplete fix of the prior timing-attack advisory)",
-    "severity": "MODERATE",
-    "published": "2026-09-22T14:49:23Z",
-    "ghsa": "GHSA-29hq-23m2-2j47"
-  },
-  {
-    "id": "CVE-2026-58270",
-    "summary": "Sync-in Server has a ReDoS via Unsanitized Regex in Sync Diff `pathFilters`",
-    "severity": "MODERATE",
-    "published": "2026-09-22T14:47:56Z",
-    "ghsa": "GHSA-jx63-h26r-8cph"
-  },
-  {
-    "id": "CVE-2026-58269",
-    "summary": "Sync-in Server has a complete 2FA Bypass via `POST /api/auth/token`",
-    "severity": "HIGH",
-    "published": "2026-09-22T14:46:30Z",
-    "ghsa": "GHSA-92cr-jxw4-5wjg"
-  },
-  {
-    "id": "CVE-2026-58271",
-    "summary": "@sync-in/server vulnerable to TOTP Brute-Force via `POST /api/app/sync/register`",
-    "severity": "MODERATE",
-    "published": "2026-09-22T14:44:43Z",
-    "ghsa": "GHSA-274f-6w77-8qm9"
-  },
-  {
-    "id": "CVE-2026-61647",
-    "summary": "@roomi-fields/notebooklm-mcp has a path traversal in vault.batch tool that allows arbitrary file write outside intended vault directory",
-    "severity": "HIGH",
-    "published": "2026-09-22T14:43:26Z",
-    "ghsa": "GHSA-jjhp-8crj-mppq"
-  },
-  {
-    "id": "CVE-2026-61628",
-    "summary": " nginx ignition has Unauthenticated Admin Account Creation via Onboarding Race Condition",
-    "severity": "HIGH",
-    "published": "2026-09-21T21:54:42Z",
-    "ghsa": "GHSA-pxcx-fv34-x9p5"
-  },
-  {
-    "id": "CVE-2026-61629",
-    "summary": "nginx ignition has  ParseAcceptLanguage `_` separator bypass that enables ~75x CPU amplification via Accept-Language header in i18nMiddleware",
-    "severity": "HIGH",
-    "published": "2026-09-21T21:49:03Z",
-    "ghsa": "GHSA-jr34-h97m-9hpx"
   }
 ]
