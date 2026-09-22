@@ -1,8 +1,73 @@
 [
   {
+    "title": "EvilTokens PhaaS disrupted after compromising 12,000 Microsoft accounts",
+    "link": "https://www.bleepingcomputer.com/news/security/eviltokens-phaas-disrupted-after-compromising-12-000-microsoft-accounts/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/22/phishing.jpg"
+  },
+  {
+    "title": "Cyera Raises $400 Million at $12+ Billion Valuation",
+    "link": "https://www.securityweek.com/cyera-raises-400-million-at-12-billion-valuation/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
+  },
+  {
+    "title": "Nightmare Eclipse Drops New Microsoft Defender Exploit After Revealing Identity",
+    "link": "https://www.securityweek.com/nightmare-eclipse-drops-new-microsoft-defender-exploit-after-revealing-identity/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/hacker-unmasked.jpeg"
+  },
+  {
+    "title": "Webinar tomorrow: Inside real-world Google Workspace breaches",
+    "link": "https://www.bleepingcomputer.com/news/security/webinar-tomorrow-inside-real-world-google-workspace-breaches/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/22/google-workspace-breach.jpg"
+  },
+  {
+    "title": "D-Link warns of max severity zero-day bug in DIR-822A routers",
+    "link": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-max-severity-zero-day-bug-in-dir-822a-routers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/22/D-Link.jpg"
+  },
+  {
+    "title": "AI Agents Are Rewriting the Rules of Lateral Movement",
+    "link": "https://thehackernews.com/2026/09/ai-agents-are-rewriting-rules-of.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9ivhHLwWwT7Ptbr537Fd2CV3d_maDSNRmH0up0x67UPpc5x45Uuz0Bg8EnLkjrtB3DYXldW7aKbzx5uljQSF7IhQlzHHA1HR0F16Eaxs8Y3tgURkizSrA79L3EqyD5RDlqPGljbXCTQj0tFFG2EOVueksvhyrmdmC-v6VFjs76KdzZlCg1juWiVOPDnU/s1600/token.jpg"
+  },
+  {
+    "title": "New CVSS 10.0 VeloCloud Orchestrator Flaw Actively Exploited in Certificate-Based Setups",
+    "link": "https://thehackernews.com/2026/09/new-cvss-100-velocloud-orchestrator.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN5Up_REU7_SnA-Ce9D8UGRsM8WbkkcjR6kjirzb-tSFejrL-qnZkXrp2gNa3OA-4PgvkUqHs59j9Qc8srbfm2JOUIOvEa1c_d8Il3kUDAGyr49FuXwq_n438Vf9txfq1fVwcpykkZAKz1o2QFGUJDLF4wnXzNWLdH1tYft3bd-vJywPppGjEfoikG22s/s1600/VeloCloud.jpg"
+  },
+  {
+    "title": "Only 13% of OT Network Segments Are Fully Isolated: Analysis",
+    "link": "https://www.securityweek.com/only-13-of-ot-network-segments-are-fully-isolated-analysis/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/01/network-security-integration.jpg"
+  },
+  {
+    "title": "More Than a Third of Industrial Orgs See Cybersecurity Risk as a Top Obstacle to Growth, Study Finds",
+    "link": "https://www.darkreading.com/cyber-risk/third-industrial-orgs-see-cybersecurity-risk-top-obstacle",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Recent ZyXEL Switch Vulnerability Exploited by Chinese Hackers",
+    "link": "https://www.securityweek.com/recent-zyxel-switch-vulnerability-exploited-by-chinese-hackers/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/switch-router.webp"
+  },
+  {
+    "title": "DORA Year Two: Can Your SOC Actually See the Attack?",
+    "link": "https://thehackernews.com/2026/09/dora-year-two-can-your-soc-actually-see.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSfPPym5AUNkyGqTS_emtDBNfEzrtWQJSHGSMl0V3KkDS2_hMcu_cpDslIX9LUv9nvHbQzY9hnwDEKjdlxe6vFS3N2_PHkTk_0TdKBE7RrAdniL9dObHd24tudc-Ymy8FTsV9y6Io68EhjR6fRrRwMEJhdKczg6vpRP2Bp06cxX_EqgmqXps8ih3Tfq08/s1600/core.jpg"
+  },
+  {
+    "title": "New Linux Kernel Flaw Gives ARM64 KVM Guests Read-Write Access to Host Memory",
+    "link": "https://thehackernews.com/2026/09/new-linux-kernel-flaw-gives-arm64-kvm.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCjDxUEx5QKzby2TlrL6Swi0MV7BdrkgjM6Y5Xby9IU8L9JSdG09pwRemVtrYQtUrvp8QIDduyiDuojZVzZ6GrpzUJIVrThvC4CZ_kd8kckdhBt0MLWDLXD_QwN2wciIA9bqLee51246mEpWx0ZnlcOfXD2U3QWpvmpKZyxx75T7MXK-b8zBMmrouCZJc/s1600/linux-kvm.jpg"
+  },
+  {
     "title": "Malicious B-tree NPM Package Accumulates Millions of Downloads",
     "link": "https://www.securityweek.com/malicious-b-tree-npm-package-accumulates-millions-of-downloads/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
+  },
+  {
+    "title": "SharePoint Flaw Initially Listed as Spoofing by Microsoft Enables Authenticated RCE",
+    "link": "https://thehackernews.com/2026/09/sharepoint-flaw-initially-listed-as.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu0R8P6iyk50vNReEGl0FkwYoFPk5n2fkVC3_3Mf2J5SaQ7yFIHbA3xuQpCATCQ9Y5Ie2ysz9EVaDb_vR5Bbnp209w28bSDK2Rqggotv4NPQbFB5LX4SUT4eztA-6939clsV9QQ41MHwIl8MFSzaJwyFFeBusztZ9H7oZhiUOlFYrL8BQh6hXWegn39uU/s1600/ms-rce.jpg"
   },
   {
     "title": "WordPress Patches \u2018Click2Shell\u2019 Vulnerability",
@@ -83,70 +148,5 @@
     "title": "WordPress Click2Shell flaw lets hackers execute PHP on the server",
     "link": "https://www.bleepingcomputer.com/news/security/wordpress-click2shell-flaw-lets-hackers-execute-php-on-the-server/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/15/WordPress.jpg"
-  },
-  {
-    "title": "Microsoft to retire Microsoft 365 Companion apps in December",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-to-retire-microsoft-365-companion-apps-in-december/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/09/05/Microsoft-365.jpg"
-  },
-  {
-    "title": "Fake LastPass Authenticator Installer Abuses Microsoft-Signed Driver to Kill Antivirus and EDR",
-    "link": "https://thehackernews.com/2026/09/fake-lastpass-authenticator-installer.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil-5ZV6QK7R23fL7Vtl-pdxgFYPAG9dT_cIIrXWgR70hLZRM705Ij3WuRpCL00VuDop9dTmVNf1t3QS60nqRGV9GCzsZ792yd7mFY_pjvgfufOK9D-oQJdxP4ZtrXiyeq08KNUBv3-mhQ_KCiCOMWIbeQpCAyF_h4lMZw54T0l9AcDdGf6aRptXAZJNcU/s1600/last.jpg"
-  },
-  {
-    "title": "Google Hit With $463 Million Fine for EU Location Data Rule Breach",
-    "link": "https://www.securityweek.com/google-hit-with-463-million-fine-for-eu-location-data-rule-breach/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/07/Google.jpeg"
-  },
-  {
-    "title": "Contagious Interview Campaign Compromises 30,000 Devices, Steals $10.71M in Crypto",
-    "link": "https://thehackernews.com/2026/09/contagious-interview-campaign.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjuVP0IzjchtSeuT6WwQHPupLynSiYhe7KinKtQVVE_EgFE5iG9SWV4HrgseuXaSUo-TaamFPzHl6SCnUPsbz29nzEo1BJeZVE4VB43KdMBmKEld7snbryRJIeIIAmiRZNEhFCJ-58klU6qGrvwg2Hn26FtkHv1s4cAj_zX9AWmdeym2-d4hScWr9dLiOY/s1600/exec.jpg"
-  },
-  {
-    "title": "Google Fined \u20ac403 Million Over GDPR Violations Tied to Location Data",
-    "link": "https://thehackernews.com/2026/09/google-fined-403-million-over-gdpr.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrjOPn27sYW7sjjV6-SlFPjlnnAtZ2bVGvrJRbbussed8ddYCwrRnmyIBKOsJy9p3QGdwzMuxmxhtyNvyPQD9u53V0T84o-Pi1Euo1SPlHX9DiaFzVby2cKpyfdma7mA0b4F1gqDCvjWBrk3n916K6Su1Y1TaJcOKXHsuzNn0cxOmVzlUK1NIjPtElIXM/s1600/google-location.jpg"
-  },
-  {
-    "title": "Fake LastPass Installers Push Kernel-Level EDR Killer, \u2018Rapuncel\u2019 Stealer",
-    "link": "https://www.securityweek.com/fake-lastpass-installers-push-kernel-level-edr-killer-rapuncel-stealer/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
-  },
-  {
-    "title": "Google fined \u20ac403 million over location data privacy violations",
-    "link": "https://www.bleepingcomputer.com/news/security/google-fined-403-million-over-location-data-privacy-violations/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/12/Google.jpg"
-  },
-  {
-    "title": "Rogue Behavior: OpenAI Reveals More Model Misalignment Incidents",
-    "link": "https://www.darkreading.com/cyber-risk/rogue-behavior-openai-more-model-misalignment-incidents",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt41e8b038eeab1c52/6ab128df417cfc426c650132/balance-balls-1800-sondem_Alamy-Stock-Photo.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Microsoft fixes broken Excel copy and paste for all Office users",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-broken-excel-copy-and-paste-for-all-office-users/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/18/Microsoft-Excel.jpg"
-  },
-  {
-    "title": "CISO Conversations: Noopur Davis \u2013 The Accidental Global CISO at Comcast",
-    "link": "https://www.securityweek.com/ciso-conversations-noopur-davis-the-accidental-global-ciso-at-comcast/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/CISO_Noopur-Davis.jpeg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: Cisco 0-Day, AI Agent RCE, ClickFix Attacks, ClickFix Surge, and Browser Hijacks",
-    "link": "https://thehackernews.com/2026/09/weekly-recap-cisco-0-day-ai-agent-rce.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjovXeakmAmPG68i_kNoeGFJjwSSGDdpj-29aojemBxtTQVOHzR668zKtV5GGPhnJ0zyCEdlsNCc11LIT-F8n1U8Rkv3jr-3AAt6HC4YwwyfENs_Y8V-O_OlPC4_WByxrsUBq6NifTKHQpgWuSnIqnV4bg4rXVoe9BrtMtgRCo4ECfMLWHRIKOQsqjb0zEt/s1600/recap-2.jpg"
-  },
-  {
-    "title": "TASK#STOMP PowerShell Backdoor Steals Documents, Wi-Fi Passwords, and Clipboard Data",
-    "link": "https://thehackernews.com/2026/09/taskstomp-powershell-backdoor-steals.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC3vJ8DX6852JxHepz1kGmunH3ZXsStcK4LINkLBCrzS8ZacBhqL-7epmGuzSNGI-jpF4GtkM-FXUsrv3croTLimjG_SBbw-rpO8NBIHf6Wvr6BMmYYSDKxEPQI-nrSFYrc9vmojcKn50LRFbc1t3h8qFA8dE_pZ3kMvelRpBFVFe2ZmCVJhPCWlMxYZpO/s1600/stomp.jpg"
-  },
-  {
-    "title": "FBI's CJIS v6.1: What Security Teams Need to Know.",
-    "link": "https://www.bleepingcomputer.com/news/security/fbis-cjis-v61-what-security-teams-need-to-know/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/14/specops-legal-doc.jpg"
   }
 ]
