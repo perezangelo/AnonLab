@@ -3,26 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AnonLab SOC Dashboard — Architettura, Funzioni e Analisi Tecniche</title>
 
-<meta name="description" content="AnonLab SOC Dashboard: guida completa alla struttura, ai widget, alle API, al backend PHP e alle funzioni di monitoraggio. Dashboard avanzata per cybersecurity, threat intelligence e analisi tecniche.">
+<meta name="description" content="AnonLab SOC Dashboard: guida completa alla struttura, ai widget, alle API, al backend PHP e alle funzioni di monitoraggio. Una dashboard avanzata per cybersecurity, threat intelligence e analisi tecniche.">
 <link rel="canonical" href="https://anonlab.it/soc-dashboard.html">
 
+<!-- SEO -->
 <meta name="robots" content="index, follow">
 <meta name="author" content="AnonLab">
 
+<!-- Open Graph -->
 <meta property="og:title" content="AnonLab SOC Dashboard — Architettura e Funzioni">
 <meta property="og:description" content="Analisi completa della dashboard SOC di AnonLab: widget, API, backend, threat intelligence e monitoraggio.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://anonlab.it/soc-dashboard.html">
 <meta property="og:image" content="https://anonlab.it/img/eyes.png">
 
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AnonLab SOC Dashboard — Architettura e Funzioni">
 <meta name="twitter:description" content="Dashboard SOC avanzata per cybersecurity e threat intelligence.">
 <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
 
+<!-- CSS -->
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/custom.css">
 
@@ -55,12 +58,12 @@ a { color:#00eaff; }
 }
 </style>
 
+<!-- CARICAMENTO JAVASCRIPT DEL SITO -->
 <script src="/js/main.js"></script>
 
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
 <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-
 <script>
 (_iub=self._iub||[]).csConfiguration={
     cookiePolicyId: 12413505,
@@ -97,31 +100,39 @@ a { color:#00eaff; }
 <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 
 </head>
+
 <body>
 
 <div id="header"></div>
 
 <div id="ticker" aria-label="Ticker informazioni"></div>
 
+<!-- Il file deve essere caricato prima dell'inizializzazione -->
 <script src="/js/ticker.js"></script>
 
 <script>
 fetch("/partials/ticker.html")
   .then(response => {
-    if (!response.ok) throw new Error("Ticker non caricato");
+    if (!response.ok) {
+      throw new Error("Ticker non caricato");
+    }
     return response.text();
   })
   .then(html => {
     document.getElementById("ticker").innerHTML = html;
-    if (typeof loadTickerNews === "function") loadTickerNews();
+    if (typeof loadTickerNews === "function") {
+      loadTickerNews();
+    }
   })
-  .catch(error => console.error("Errore caricamento ticker:", error));
+  .catch(error => {
+    console.error("Errore caricamento ticker:", error);
+  });
 </script>
 
 <main class="page">
-<section class="main-column">
-
+  <section class="main-column">
 <h1>AnonLab SOC Dashboard — Architettura, Funzioni e Analisi Tecniche</h1>
+
 <div class="dashboard-links" style="margin:14px 0 26px; font-size:15px; color:#7fdfff; line-height:1.6;">
   <p style="color:#ccc; margin-bottom:10px;">
     Questa SOC Dashboard mostra indicatori avanzati, log eventi, attività sospette e metriche operative.
@@ -129,18 +140,42 @@ fetch("/partials/ticker.html")
     puoi visitare anche le sezioni correlate qui sotto:
   </p>
 
-  <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> — panoramica generale dello stato dei sistemi.<br>
-  <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> — strumenti, software, VPN, browser tools.<br>
-  <a href="/tools.html" style="color:#00eaff;">Tools</a> — utility operative per attività cyber.<br>
-  <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> — articoli e contenuti tecnici.<br>
-  <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> — guida agli strumenti investigativi.<br>
-  <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> — analisi vulnerabilità critiche.<br>
-  <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> — report e IOC.<br>
-  <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> — indagine reale OSINT.<br>
+  <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —  
+  panoramica generale dello stato dei sistemi e dei principali indicatori cyber.
+  <br>
+
+  <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —  
+  raccolta completa di strumenti, software, VPN, browser tools e risorse tecniche.
+  <br>
+
+  <a href="/tools.html" style="color:#00eaff;">Tools</a> —  
+  utility operative per attività cyber, OSINT e analisi.
+  <br>
+
+  <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —  
+  articoli e contenuti dedicati alla sicurezza informatica.
+  <br>
+
+  <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —  
+  guida completa agli strumenti OSINT e alle tecniche investigative.
+  <br>
+
+  <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —  
+  analisi tecniche delle vulnerabilità più rilevanti.
+  <br>
+
+  <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —  
+  report sulle minacce attuali e indicatori di compromissione.
+  <br>
+
+  <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —  
+  indagine reale basata su tecniche OSINT.
 </div>
+
 <div class="section">
 <p>
-La <strong>AnonLab SOC Dashboard</strong> è una piattaforma avanzata progettata per offrire una visione completa e centralizzata delle attività di sicurezza informatica, threat intelligence e monitoraggio tecnico.
+La <strong>AnonLab SOC Dashboard</strong> è una piattaforma avanzata progettata per offrire una visione completa e centralizzata delle attività di sicurezza informatica, threat intelligence e monitoraggio tecnico.  
+È costruita con un’architettura ibrida che combina:
 </p>
 
 <ul>
@@ -155,11 +190,33 @@ La <strong>AnonLab SOC Dashboard</strong> è una piattaforma avanzata progettata
 Questa pagina spiega nel dettaglio come funziona la dashboard, quali componenti contiene e come viene utilizzata per analisi tecniche, monitoraggio e threat intelligence.
 </p>
 </div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="1122334455"
+     data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 <div class="section">
 <h2>Architettura della Dashboard</h2>
 
 <h3>Frontend: GitHub Pages</h3>
-<p>Il frontend è ospitato su GitHub Pages, ideale per velocità, affidabilità e assenza di costi.</p>
+<p>
+Il frontend della dashboard è ospitato su GitHub Pages, una soluzione ideale per:
+</p>
+
+<ul>
+<li>velocità di caricamento</li>
+<li>affidabilità</li>
+<li>assenza di costi</li>
+<li>perfetta integrazione con HTML, CSS e JavaScript</li>
+</ul>
+
+<p>
+La parte visiva della dashboard include:
+</p>
 
 <ul>
 <li>blocchi neon</li>
@@ -170,7 +227,21 @@ Questa pagina spiega nel dettaglio come funziona la dashboard, quali componenti 
 </ul>
 
 <h3>Backend: AlterVista (PHP + MySQL)</h3>
-<p>AlterVista gestisce API, database, log tecnici e dati dinamici.</p>
+<p>
+AlterVista viene utilizzato come backend per:
+</p>
+
+<ul>
+<li>API PHP</li>
+<li>database MySQL</li>
+<li>gestione dei dati dinamici</li>
+<li>log tecnici</li>
+<li>endpoint per i widget</li>
+</ul>
+
+<p>
+Il sito anonlab.it punta a GitHub Pages, mentre AlterVista fornisce i dati tramite API come:
+</p>
 
 <pre>
 https://angelonline.altervista.org/api/get-threats.php
@@ -178,48 +249,157 @@ https://angelonline.altervista.org/api/system-status.php
 https://angelonline.altervista.org/api/radar-data.php
 </pre>
 
-<p>Questa separazione garantisce sicurezza, modularità e performance.</p>
+<p>
+Questa separazione garantisce sicurezza, modularità e performance.
+</p>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="9876543210"
+     data-ad-format="horizontal"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Componenti principali della SOC Dashboard</h2>
+
+<h3>1. System Status Widget</h3>
+<p>
+Mostra lo stato dei sistemi monitorati: uptime, risorse, servizi attivi, API funzionanti.  
+Utilizza chiamate AJAX verso AlterVista per ottenere dati aggiornati.
+</p>
+
+<h3>2. Threat Monitor</h3>
+<p>
+Analizza indicatori di compromissione (IOC), vulnerabilità recenti (CVE), feed di minacce e trend globali.  
+Il widget è progettato per essere leggero ma informativo.
+</p>
+
+<h3>3. Radar delle Minacce</h3>
+<p>
+Il radar è uno dei componenti più avanzati della dashboard.  
+Visualizza:
+</p>
+
+<ul>
+<li>livello di rischio</li>
+<li>categoria della minaccia</li>
+<li>origine</li>
+<li>trend temporale</li>
+</ul>
+
+<p>
+Il rendering è gestito da <strong>radar.js</strong>, un modulo personalizzato che interpreta i dati provenienti dal backend AlterVista.
+</p>
+
+<h3>4. OSINT Tools Panel</h3>
+<p>
+Una sezione dedicata agli strumenti OSINT integrati nella dashboard, con link rapidi e funzioni utili per investigazioni digitali.
+</p>
+
+<h3>5. Download Center</h3>
+<p>
+Un pannello che raccoglie software utili per cybersecurity, con link diretti e blocchi neon personalizzati.
+</p>
+
+<h3>6. Log Viewer</h3>
+<p>
+Permette di visualizzare log tecnici provenienti dal backend, utili per analisi e debugging.
+</p>
+</div>
+
+<!-- Annuncio AdSense -->
+<ins class="adsbygoogle"
+     style="display:block; margin:25px 0;"
+     data-ad-client="ca-pub-1655066977213725"
+     data-ad-slot="5566778899"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Integrazione con API e Backend</h2>
+<p>
+La dashboard comunica con AlterVista tramite API PHP.  
+Ogni widget effettua richieste come:
+</p>
+
+<pre>
+fetch("https://angelonline.altervista.org/api/system-status.php")
+  .then(r => r.json())
+  .then(data => updateWidget(data));
+</pre>
+
+<p>
+Questa architettura permette:
+</p>
+
+<ul>
+<li>aggiornamenti real‑time</li>
+<li>separazione tra frontend e backend</li>
+<li>scalabilità</li>
+<li>sicurezza</li>
+<li>manutenzione semplificata</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Design Cyber‑Neon</h2>
+<p>
+La dashboard utilizza uno stile cyber‑neon con:
+</p>
+
+<ul>
+<li>colori blu elettrico</li>
+<li>glow effects</li>
+<li>pannelli scuri</li>
+<li>bordo luminoso</li>
+<li>animazioni leggere</li>
+</ul>
+
+<p>
+Questo stile non è solo estetico: migliora la leggibilità e rende la dashboard moderna e professionale.
+</p>
+</div>
+
+<div class="section">
+<h2>Funzioni avanzate</h2>
+
+<h3>Alerting</h3>
+<p>
+Il sistema può generare alert visivi quando rileva anomalie o minacce elevate.
+</p>
+
+<h3>Auto‑refresh</h3>
+<p>
+I widget possono aggiornarsi automaticamente ogni pochi secondi.
+</p>
+
+<h3>Data normalization</h3>
+<p>
+I dati provenienti dal backend vengono normalizzati per garantire coerenza e leggibilità.
+</p>
+
+<h3>Modularità</h3>
+<p>
+Ogni componente può essere aggiornato o sostituito senza modificare l’intera dashboard.
+</p>
 </div>
 <div class="section">
-<h2>Widget della SOC Dashboard</h2>
-
-<div class="widget-box">
-  <h3>System Status</h3>
-  <p>Monitoraggio uptime, latenza, servizi critici.</p>
-  <div id="system-status-widget"></div>
-</div>
-
-<div class="widget-box">
-  <h3>Threat Radar</h3>
-  <p>Visualizzazione minacce attive, categorie, severità.</p>
-  <div id="threat-radar-widget"></div>
-</div>
-
-<div class="widget-box">
-  <h3>IOC Intelligence</h3>
-  <p>IP malevoli, hash, domini, URL sospetti.</p>
-  <div id="ioc-intel-widget"></div>
-</div>
-
-<div class="widget-box">
-  <h3>CVE Monitor</h3>
-  <p>Vulnerabilità critiche, CVSS, exploit pubblici.</p>
-  <div id="cve-monitor-widget"></div>
-</div>
-
-<div class="widget-box">
-  <h3>Ransomware Feed</h3>
-  <p>Gruppi attivi, leak recenti, infrastrutture note.</p>
-  <div id="ransomware-feed-widget"></div>
-</div>
-</div>
-<div class="section">
-<h2>Risorse utili per analisti SOC</h2>
+<h2>Risorse avanzate per analisti SOC</h2>
 
 <h3>Video tecnici</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
   <li>🎥 <a href="https://www.youtube.com/watch?v=ulKNoB-sAP8" target="_blank">Cyber Threat Intelligence Overview — Cybrary</a></li>
   <li>🎥 <a href="https://www.youtube.com/watch?v=J9Fq0YpVwHk" target="_blank">What is Cyber Threat Intelligence? — Check Point</a></li>
+</ul>
+
+<h3>Guide PDF scaricabili</h3>
+<ul style="list-style:none; padding-left:0; line-height:1.7;">
+  <li>📄 <a href="/docs/anonlab-soc-dashboard-guide.pdf" download>AnonLab SOC Dashboard — Guida Tecnica</a></li>
+  <li>📄 <a href="/docs/anonlab-threat-monitoring.pdf" download>Threat Monitoring — Best Practice</a></li>
 </ul>
 
 <h3>Strumenti operativi</h3>
@@ -229,41 +409,132 @@ https://angelonline.altervista.org/api/radar-data.php
   <li>🛠️ <a href="/tools/hash-analyzer.html">Hash Analyzer</a></li>
   <li>🛠️ <a href="/tools/port-scanner.html">Port Scanner</a></li>
 </ul>
-
-<h3>Fonti TI</h3>
-<ul style="list-style:none; padding-left:0; line-height:1.7;">
-  <li>🛰️ <a href="https://www.trellix.com/en-us/advanced-research-center.html" target="_blank">Trellix Research Center</a></li>
-  <li>🛰️ <a href="https://www.secureworks.com/research" target="_blank">Secureworks CTU</a></li>
-  <li>🛰️ <a href="https://www.sophos.com/en-us/security-news" target="_blank">Sophos Security News</a></li>
-</ul>
 </div>
-<div class="section">
-<h2>Esplora altre sezioni AnonLab</h2>
-<ul style="list-style:none; padding-left:0; line-height:1.7;">
-  <li>📘 <a href="/cybersecurity-basics.html">Cybersecurity Basics</a></li>
-  <li>📘 <a href="/osint-tools-explained.html">OSINT Tools Explained</a></li>
-  <li>📘 <a href="/osint-investigation-case-study.html">OSINT Case Study</a></li>
-  <li>📘 <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità & CVE Analysis</a></li>
-  <li>📘 <a href="/threat-intelligence-report.html">Threat Intelligence Report</a></li>
-</ul>
+
+<div class="section" style="margin-top:25px;">
+  <h2>Esplora altre sezioni AnonLab</h2>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>📘 <a href="/cybersecurity-basics.html">Cybersecurity Basics</a></li>
+    <li>📘 <a href="/anonlab-soc-dashboard.html">AnonLab SOC Dashboard</a></li>
+    <li>📘 <a href="/osint-tools-explained.html">OSINT Tools Explained</a></li>
+    <li>📘 <a href="/osint-investigation-case-study.html">OSINT Case Study</a></li>
+    <li>📘 <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità & CVE Analysis</a></li>
+    <li>📘 <a href="/threat-intelligence-report.html">Threat Intelligence Report</a></li>
+  </ul>
 </div>
 
 <div class="section">
 <h2>Conclusione</h2>
 <p>
-La SOC Dashboard di AnonLab offre una visione tecnica e immediata del panorama cyber,
-con strumenti utili per analisti e professionisti.
+La <strong>AnonLab SOC Dashboard</strong> è una piattaforma completa, moderna e altamente personalizzata per analisi tecniche, threat intelligence e monitoraggio.  
+La combinazione GitHub Pages + AlterVista + API + widget neon crea un ecosistema potente, veloce e professionale.
+</p>
+
+<p>
+Questa pagina fornisce una panoramica dettagliata della struttura e delle funzioni della dashboard, contribuendo a migliorare la qualità dei contenuti del sito e a soddisfare i requisiti di Google AdSense.
 </p>
 </div>
 
 </section>
 
+<script src="/js/main.js"></script>
+<script src="/js/ui.js"></script>
+
+<div id="sidebar" class="sidebar"></div>
+
+<script>
+fetch("/partials/sidebar.html")
+  .then(response => {
+      if (!response.ok) {
+          throw new Error("Errore caricamento sidebar: " + response.status);
+      }
+      return response.text();
+  })
+  .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
+
+      if (typeof initCalculator === "function") {
+          initCalculator();
+      }
+
+      if (typeof initRadio === "function") {
+          initRadio();
+      }
+
+      if (typeof initYouTubePlayer === "function") {
+          initYouTubePlayer();
+      }
+
+      if (typeof initOroscopo === "function") {
+          initOroscopo();
+      }
+
+      if (typeof initVisitCounter === "function") {
+          initVisitCounter();
+      }
+  })
+  .catch(error => {
+      console.error("Errore sidebar:", error);
+  });
+</script>
+
+<!-- ⭐ FOOTER -->
 <div id="footer"></div>
+
 <script>
 fetch("/partials/footer.html")
   .then(r => r.text())
-  .then(html => { document.getElementById("footer").innerHTML = html; });
+  .then(html => {
+      document.getElementById("footer").innerHTML = html;
+  });
 </script>
+
+<!-- ⭐ BACK TO TOP -->
+<button id="backToTop">↑</button>
+
+<!-- SCRIPT BACK TO TOP -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTop = document.getElementById("backToTop");
+  if (!backToTop) return;
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    backToTop.style.display = scrollTop > 50 ? "block" : "none";
+  });
+
+  backToTop.addEventListener("click", () => {
+    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    document.body.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  function adjustBackToTopPosition() {
+    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+
+    if (iubendaLogo) {
+      const rect = iubendaLogo.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
+      backToTop.style.bottom = offset + "px";
+    } else {
+      backToTop.style.bottom = "80px"; // fallback sicuro
+    }
+  }
+
+  adjustBackToTopPosition();
+  setInterval(adjustBackToTopPosition, 800);
+});
+</script>
+
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "y46cg93s3m");
+</script> 
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
+     crossorigin="anonymous"></script>
 
 </main>
 </body>
