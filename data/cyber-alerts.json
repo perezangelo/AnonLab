@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-85724",
-    "summary": "Moquette: Pattern-ACL wildcard injection (cross-tenant authorization bypass) plus a remote-unauthenticated DoS cluster, a Will-message authorization bypass, and a cross-session durable-corruption bug",
-    "severity": "CRITICAL",
-    "published": "2026-09-23T16:11:18Z",
-    "ghsa": "GHSA-5f42-97gr-vfhq"
-  },
-  {
-    "id": "CVE-2026-73858",
-    "summary": "Solspace Freeform: Limited Twig template injection via submitted field values",
+    "id": "GHSA-8pcw-h6w9-h46g",
+    "summary": "plone.app.contenttypes has a Denial of Service in File Upload due to excessive filename length",
     "severity": "MODERATE",
-    "published": "2026-09-23T14:31:10Z",
-    "ghsa": "GHSA-gxrg-x694-283w"
+    "published": "2026-09-23T21:49:51Z",
+    "ghsa": "GHSA-8pcw-h6w9-h46g"
   },
   {
-    "id": "CVE-2026-88974",
-    "summary": "WPGraphQL: Contributor can publish and modify posts without the required capabilities via updatePost",
+    "id": "CVE-2026-57576",
+    "summary": "plone.app.dexterity has a Denial of Service due to excessive title or description length",
     "severity": "MODERATE",
-    "published": "2026-09-23T14:13:04Z",
-    "ghsa": "GHSA-5mmc-8pc9-wggg"
+    "published": "2026-09-23T21:48:22Z",
+    "ghsa": "GHSA-5426-92w4-wvhv"
   },
   {
-    "id": "CVE-2026-63000",
-    "summary": "REDAXO: Missing CSRF Protection on Package Update Action Allows Forced Addon Updates",
-    "severity": "MODERATE",
-    "published": "2026-09-23T14:09:15Z",
-    "ghsa": "GHSA-m8r3-22v6-g877"
-  },
-  {
-    "id": "CVE-2026-63002",
-    "summary": "REDAXO: Stored XSS in Mediapool Sync Page via Unescaped Filesystem Filenames",
-    "severity": "MODERATE",
-    "published": "2026-09-23T14:06:04Z",
-    "ghsa": "GHSA-w998-qmw9-mf4m"
-  },
-  {
-    "id": "CVE-2026-63001",
-    "summary": "REDAXO: Stored XSS via Unescaped Media Manager Type Name in `mediaIsInUse()`",
-    "severity": "MODERATE",
-    "published": "2026-09-23T14:04:40Z",
-    "ghsa": "GHSA-mf2p-wjp4-99pq"
-  },
-  {
-    "id": "CVE-2026-54892",
-    "summary": " Plug: quadratic-time decoding of nested query/body parameters enables denial of service",
+    "id": "CVE-2026-77394",
+    "summary": "OpenC3 COSMOS: Stored, cross-user XSS via Telemetry screen BUTTON widget",
     "severity": "HIGH",
-    "published": "2026-09-23T14:00:22Z",
-    "ghsa": "GHSA-j43x-5hjq-rgxf"
+    "published": "2026-09-23T21:24:11Z",
+    "ghsa": "GHSA-gvf2-2rh5-mpgf"
   },
   {
-    "id": "CVE-2026-61541",
-    "summary": "Zapros has an Unbounded Content-Encoding decompression chain that allows denial of service",
-    "severity": "MODERATE",
-    "published": "2026-09-23T13:58:35Z",
-    "ghsa": "GHSA-5vjj-2r48-q622"
-  },
-  {
-    "id": "CVE-2026-61652",
-    "summary": "Zapros: Streaming decoders ignored the requested chunk size, allowing a single compressed response chunk to allocate unbounded memory (decompression bomb)",
+    "id": "CVE-2026-82407",
+    "summary": "Klever-Go: Validator registration accepts an unvalidated BLS public key → consensus liveness DoS",
     "severity": "HIGH",
-    "published": "2026-09-23T13:57:48Z",
-    "ghsa": "GHSA-6cp7-3m3c-5x5c"
+    "published": "2026-09-23T21:24:08Z",
+    "ghsa": "GHSA-9wh6-9hq7-9688"
   },
   {
-    "id": "CVE-2026-57149",
-    "summary": "plone.app.portlets Vulnerable to Remote Code Execution via TALES Injection",
-    "severity": "CRITICAL",
-    "published": "2026-09-23T13:55:47Z",
-    "ghsa": "GHSA-rr49-f9g6-c9r5"
+    "id": "CVE-2026-82409",
+    "summary": "Klever-Go: Elasticsearch bulk / painless injection via on-chain account name -> explorer/indexer data forgery",
+    "severity": "HIGH",
+    "published": "2026-09-23T21:24:06Z",
+    "ghsa": "GHSA-7c7c-373r-gfjj"
+  },
+  {
+    "id": "CVE-2026-82406",
+    "summary": "Klever-Go: Zombie-order theft: `Buy` missing `IsClaimed` guard in native marketplace",
+    "severity": "HIGH",
+    "published": "2026-09-23T21:24:03Z",
+    "ghsa": "GHSA-26r5-4mm2-px5c"
+  },
+  {
+    "id": "CVE-2026-76089",
+    "summary": "Formie: Missing authorization on sent notification resend modal exposes submission PII",
+    "severity": "HIGH",
+    "published": "2026-09-23T21:24:01Z",
+    "ghsa": "GHSA-9rg8-2wvr-fgjh"
+  },
+  {
+    "id": "CVE-2026-61814",
+    "summary": "Jawn: Quadratic parsing effort in AsyncParser",
+    "severity": "HIGH",
+    "published": "2026-09-23T21:23:58Z",
+    "ghsa": "GHSA-w4cm-gvhj-cgw6"
+  },
+  {
+    "id": "CVE-2026-59990",
+    "summary": "Jawn: Uncontrolled nesting depth in JSON parser",
+    "severity": "HIGH",
+    "published": "2026-09-23T21:23:54Z",
+    "ghsa": "GHSA-cc4v-rvgp-2pf3"
+  },
+  {
+    "id": "CVE-2026-82405",
+    "summary": "Klever-Go Account takeover: `kleverUpdateAccountPermission` authorizes on attacker-controlled `RecipientAddr` instead of the authenticated caller",
+    "severity": "HIGH",
+    "published": "2026-09-23T19:27:08Z",
+    "ghsa": "GHSA-97cv-x867-6xhm"
   }
 ]
