@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-91130",
-    "summary": "Home Assistant: XSS in Statistics Graph Card",
+    "id": "CVE-2026-85724",
+    "summary": "Moquette: Pattern-ACL wildcard injection (cross-tenant authorization bypass) plus a remote-unauthenticated DoS cluster, a Will-message authorization bypass, and a cross-session durable-corruption bug",
     "severity": "CRITICAL",
-    "published": "2026-09-22T20:40:55Z",
-    "ghsa": "GHSA-wx4m-69m9-gx3m"
+    "published": "2026-09-23T16:11:18Z",
+    "ghsa": "GHSA-5f42-97gr-vfhq"
   },
   {
-    "id": "CVE-2026-91129",
-    "summary": "Home Assistant: mDNS Server-Side Request Forgery",
+    "id": "CVE-2026-73858",
+    "summary": "Solspace Freeform: Limited Twig template injection via submitted field values",
     "severity": "MODERATE",
-    "published": "2026-09-22T20:40:51Z",
-    "ghsa": "GHSA-4ghv-53cq-7wp3"
+    "published": "2026-09-23T14:31:10Z",
+    "ghsa": "GHSA-gxrg-x694-283w"
   },
   {
-    "id": "CVE-2026-88010",
-    "summary": "Traefik: BasicAuth singleflight coalescing reintroduces an unauthenticated username-enumeration timing oracle",
+    "id": "CVE-2026-88974",
+    "summary": "WPGraphQL: Contributor can publish and modify posts without the required capabilities via updatePost",
     "severity": "MODERATE",
-    "published": "2026-09-22T20:40:49Z",
-    "ghsa": "GHSA-8fcf-v89g-xpg6"
+    "published": "2026-09-23T14:13:04Z",
+    "ghsa": "GHSA-5mmc-8pc9-wggg"
   },
   {
-    "id": "CVE-2026-88978",
-    "summary": "Hatchet DurableTask WorkerStatus gRPC resolves caller-supplied durable-task UUIDs via ListSatisfiedEntries with no tenant_id filter",
+    "id": "CVE-2026-63000",
+    "summary": "REDAXO: Missing CSRF Protection on Package Update Action Allows Forced Addon Updates",
     "severity": "MODERATE",
-    "published": "2026-09-22T20:40:46Z",
-    "ghsa": "GHSA-992g-9cr3-vm5x"
+    "published": "2026-09-23T14:09:15Z",
+    "ghsa": "GHSA-m8r3-22v6-g877"
   },
   {
-    "id": "CVE-2026-84298",
-    "summary": "Hatchet: Cross-tenant durable callback payload disclosure in Hatchet V1 Dispatcher",
-    "severity": "LOW",
-    "published": "2026-09-22T20:40:43Z",
-    "ghsa": "GHSA-9q4h-f4x5-ffq8"
-  },
-  {
-    "id": "CVE-2026-79913",
-    "summary": "Cloudreve: SSRF guard bypass: checkIP does not decode IPv6-transition wrappers (NAT64, IPv4-compatible, 6to4) reaching internal and cloud-metadata addresses",
+    "id": "CVE-2026-63002",
+    "summary": "REDAXO: Stored XSS in Mediapool Sync Page via Unescaped Filesystem Filenames",
     "severity": "MODERATE",
-    "published": "2026-09-22T20:40:41Z",
-    "ghsa": "GHSA-jvh5-97xg-v99f"
+    "published": "2026-09-23T14:06:04Z",
+    "ghsa": "GHSA-w998-qmw9-mf4m"
   },
   {
-    "id": "CVE-2026-79767",
-    "summary": "Gardener: Authorization Bypass via Group Subject Injection",
+    "id": "CVE-2026-63001",
+    "summary": "REDAXO: Stored XSS via Unescaped Media Manager Type Name in `mediaIsInUse()`",
     "severity": "MODERATE",
-    "published": "2026-09-22T20:40:38Z",
-    "ghsa": "GHSA-gfjv-gqf2-c888"
+    "published": "2026-09-23T14:04:40Z",
+    "ghsa": "GHSA-mf2p-wjp4-99pq"
   },
   {
-    "id": "CVE-2026-77637",
-    "summary": "Cloudreve: Privilege Scope Bypass: State-Mutating Admin Operations Accessible via Read-Only OAuth Scope",
-    "severity": "LOW",
-    "published": "2026-09-22T20:40:35Z",
-    "ghsa": "GHSA-w89x-c962-c44g"
-  },
-  {
-    "id": "CVE-2026-77633",
-    "summary": "Cloudreve: Storage-quota TOCTOU race allows quota bypass and storage-based denial of service",
+    "id": "CVE-2026-54892",
+    "summary": " Plug: quadratic-time decoding of nested query/body parameters enables denial of service",
     "severity": "HIGH",
-    "published": "2026-09-22T20:40:33Z",
-    "ghsa": "GHSA-xj3h-wwxq-gfcj"
+    "published": "2026-09-23T14:00:22Z",
+    "ghsa": "GHSA-j43x-5hjq-rgxf"
   },
   {
-    "id": "CVE-2026-94462",
-    "summary": "Spree: Broken Access Control in `PATCH /api/v3/store/carts/:id/associate` (IDOR)",
+    "id": "CVE-2026-61541",
+    "summary": "Zapros has an Unbounded Content-Encoding decompression chain that allows denial of service",
+    "severity": "MODERATE",
+    "published": "2026-09-23T13:58:35Z",
+    "ghsa": "GHSA-5vjj-2r48-q622"
+  },
+  {
+    "id": "CVE-2026-61652",
+    "summary": "Zapros: Streaming decoders ignored the requested chunk size, allowing a single compressed response chunk to allocate unbounded memory (decompression bomb)",
     "severity": "HIGH",
-    "published": "2026-09-22T20:40:30Z",
-    "ghsa": "GHSA-4825-p4xm-pcf2"
+    "published": "2026-09-23T13:57:48Z",
+    "ghsa": "GHSA-6cp7-3m3c-5x5c"
+  },
+  {
+    "id": "CVE-2026-57149",
+    "summary": "plone.app.portlets Vulnerable to Remote Code Execution via TALES Injection",
+    "severity": "CRITICAL",
+    "published": "2026-09-23T13:55:47Z",
+    "ghsa": "GHSA-rr49-f9g6-c9r5"
   }
 ]
