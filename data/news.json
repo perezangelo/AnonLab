@@ -1,5 +1,55 @@
 [
   {
+    "title": "Arista Urges Immediate Patching of Exploited VCO Zero-Day",
+    "link": "https://www.securityweek.com/arista-urges-immediate-patching-of-exploited-vco-zero-day/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/arista.jpeg"
+  },
+  {
+    "title": "F5 Patches Critical BIG-IP APM Zero-Day Exploited for Unauthenticated RCE on OAuth Servers",
+    "link": "https://thehackernews.com/2026/09/f5-patches-critical-big-ip-apm-zero-day.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_ZqCwuuKS7TqNWQ7GpeE07JLzHNn4Jdb2O6iQAlY34SiP2it2VwgmeVm5OjAzoAEHFQRVJENdDNGQL94ibPy1AiB9qkpNxZ3ILA89tYlwqm2OO9tEOH_BZ9HZzObw0nrzszQoKnaCQ-Q8ez5DPsnrKjq40qhm2tu_DhMSFunkVRsHeEIc0IA2NL-yZ5g/s1600/f5-zero-day.jpg"
+  },
+  {
+    "title": "Chinese Hackers Exploit Chrome-Windows Zero-Day Chain to Deploy CLEANGULP Malware",
+    "link": "https://thehackernews.com/2026/09/chinese-hackers-exploit-chrome-windows.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikVEmuPJKZAlboodZWejG4dGZXXejOLThyXPoOnycqTY8lznAewTW5ovv8XFJzhyjPRMXT-njudYOVWFEYCLvmEPDyUrfDTZzAmp1S4KE4DuzsDFxt8R-biL2puZZBWG36_dkhfzvpeigcPb9WJNy31oIXo6Oh3zMUzL3JG6MEr4OaGE4Yi_k5JCpohVrZ/s1600/windows-china.jpg"
+  },
+  {
+    "title": "Ryuk ransomware member sentenced to 24 months in prison",
+    "link": "https://www.bleepingcomputer.com/news/security/ryuk-ransomware-member-sentenced-to-24-months-in-prison/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/23/RYUK_ransomware.jpg"
+  },
+  {
+    "title": "Critical F5 BIG-IP Vulnerability Exploited as Zero-Day",
+    "link": "https://www.securityweek.com/critical-f5-big-ip-vulnerability-exploited-as-zero-day/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/F5-Vulnerability.jpg"
+  },
+  {
+    "title": "F5 patches BIG-IP APM zero-day flaw exploited in RCE attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/f5-warns-of-big-ip-apm-remote-code-execution-zero-day-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/18/F5.jpg"
+  },
+  {
+    "title": "ShinyHunters Claims FBI Hack, Demands Retraction of Threat Report",
+    "link": "https://www.securityweek.com/shinyhunters-claims-fbi-hack-demands-retraction-of-threat-report/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/data-leak.jpeg"
+  },
+  {
+    "title": "Critical Next.js ImageResponse Flaw Can Lead to Server Code Execution via Crafted SVG Input",
+    "link": "https://thehackernews.com/2026/09/critical-nextjs-imageresponse-flaw-can.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBxfEfPNHZcocTp156lW-VbOENuCxmLM_7xUUY5QWEppPDsL04KhbN7yaT52b_XTCXW6ensPqjF8QBXuQWUgna8jerFExtxAfkCd4NqOGcQwUn8088DU87PMD7cgYhQ-dY2_xFdwPyaKU-kD9HBx_YcjAzvzwEQzLoKUu1cRRpOT5A1luhBCE6e6ChORw/s1600/next.jpg"
+  },
+  {
+    "title": "Check Point Patches Exploited Management Server Zero-Day",
+    "link": "https://www.securityweek.com/check-point-patches-exploited-management-server-zero-day/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Check-Point-Software.jpg"
+  },
+  {
+    "title": "ShinyHunters Claims FBI Breach, Says It Stole Data on Agents and Job Applicants",
+    "link": "https://thehackernews.com/2026/09/shinyhunters-claims-fbi-breach-says-it.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBUSHHkVbK1vPy2WO_E9jEZ2NEd8UcPTpCFgCYTkbSPiSzDEpXRe6HRXan3z9Xg1huRk3-47hZbveFeG06vkRhAmGuL73zdPFjQEkVb6LISZIcHpPugYCMKQPtsEIihip_T7F1GWczJNWNTikwbM-SzC_UNeQsUjrg6AIeHYBwOnpOUlSOWyimHb07TzWz/s1600/shinyhunters.png"
+  },
+  {
     "title": "Rogue external MFA providers can steal passwords during logins",
     "link": "https://www.bleepingcomputer.com/news/security/rogue-external-mfa-providers-can-steal-passwords-during-logins/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/09/19/MFA.jpg"
@@ -98,55 +148,5 @@
     "title": "Cyera Raises $400 Million at $12+ Billion Valuation",
     "link": "https://www.securityweek.com/cyera-raises-400-million-at-12-billion-valuation/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
-  },
-  {
-    "title": "Nightmare Eclipse Drops New Microsoft Defender Exploit After Revealing Identity",
-    "link": "https://www.securityweek.com/nightmare-eclipse-drops-new-microsoft-defender-exploit-after-revealing-identity/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/hacker-unmasked.jpeg"
-  },
-  {
-    "title": "Webinar tomorrow: Inside real-world Google Workspace breaches",
-    "link": "https://www.bleepingcomputer.com/news/security/webinar-tomorrow-inside-real-world-google-workspace-breaches/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/22/google-workspace-breach.jpg"
-  },
-  {
-    "title": "D-Link warns of max severity zero-day bug in DIR-822A routers",
-    "link": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-max-severity-zero-day-bug-in-dir-822a-routers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/22/D-Link.jpg"
-  },
-  {
-    "title": "AI Agents Are Rewriting the Rules of Lateral Movement",
-    "link": "https://thehackernews.com/2026/09/ai-agents-are-rewriting-rules-of.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9ivhHLwWwT7Ptbr537Fd2CV3d_maDSNRmH0up0x67UPpc5x45Uuz0Bg8EnLkjrtB3DYXldW7aKbzx5uljQSF7IhQlzHHA1HR0F16Eaxs8Y3tgURkizSrA79L3EqyD5RDlqPGljbXCTQj0tFFG2EOVueksvhyrmdmC-v6VFjs76KdzZlCg1juWiVOPDnU/s1600/token.jpg"
-  },
-  {
-    "title": "New CVSS 10.0 VeloCloud Orchestrator Flaw Actively Exploited in Certificate-Based Setups",
-    "link": "https://thehackernews.com/2026/09/new-cvss-100-velocloud-orchestrator.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN5Up_REU7_SnA-Ce9D8UGRsM8WbkkcjR6kjirzb-tSFejrL-qnZkXrp2gNa3OA-4PgvkUqHs59j9Qc8srbfm2JOUIOvEa1c_d8Il3kUDAGyr49FuXwq_n438Vf9txfq1fVwcpykkZAKz1o2QFGUJDLF4wnXzNWLdH1tYft3bd-vJywPppGjEfoikG22s/s1600/VeloCloud.jpg"
-  },
-  {
-    "title": "Only 13% of OT Network Segments Are Fully Isolated: Analysis",
-    "link": "https://www.securityweek.com/only-13-of-ot-network-segments-are-fully-isolated-analysis/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/01/network-security-integration.jpg"
-  },
-  {
-    "title": "Siemens Industrial Edge Management",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-06",
-    "image": ""
-  },
-  {
-    "title": "OpenPLC Runtime v3",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09",
-    "image": ""
-  },
-  {
-    "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/09/22/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "lwIP (Lightweight IP)",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-02",
-    "image": ""
   }
 ]
