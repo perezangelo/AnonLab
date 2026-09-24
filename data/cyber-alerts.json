@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-56669",
+    "summary": "elysia has Inefficient Algorithmic Complexity and Interpretation Conflict",
+    "severity": "HIGH",
+    "published": "2026-09-23T21:54:50Z",
+    "ghsa": "GHSA-9643-4qgh-g8mx"
+  },
+  {
+    "id": "CVE-2026-61685",
+    "summary": "ReactPress has SQL injection via dynamic column names in TypeORM query builders",
+    "severity": "HIGH",
+    "published": "2026-09-23T21:51:59Z",
+    "ghsa": "GHSA-wmw4-mw6x-6vfm"
+  },
+  {
     "id": "GHSA-8pcw-h6w9-h46g",
     "summary": "plone.app.contenttypes has a Denial of Service in File Upload due to excessive filename length",
     "severity": "MODERATE",
@@ -54,19 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-23T21:23:58Z",
     "ghsa": "GHSA-w4cm-gvhj-cgw6"
-  },
-  {
-    "id": "CVE-2026-59990",
-    "summary": "Jawn: Uncontrolled nesting depth in JSON parser",
-    "severity": "HIGH",
-    "published": "2026-09-23T21:23:54Z",
-    "ghsa": "GHSA-cc4v-rvgp-2pf3"
-  },
-  {
-    "id": "CVE-2026-82405",
-    "summary": "Klever-Go Account takeover: `kleverUpdateAccountPermission` authorizes on attacker-controlled `RecipientAddr` instead of the authenticated caller",
-    "severity": "HIGH",
-    "published": "2026-09-23T19:27:08Z",
-    "ghsa": "GHSA-97cv-x867-6xhm"
   }
 ]
