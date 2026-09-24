@@ -1,5 +1,35 @@
 [
   {
+    "title": "US Court Sentences Armenian Man to Prison for Ryuk Ransomware Attacks",
+    "link": "https://www.securityweek.com/us-court-sentences-armenian-man-to-prison-for-ryuk-ransomware-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/hacker-prison-sentence.jpeg"
+  },
+  {
+    "title": "Microsoft fixes bug that broke Windows File History backup feature",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-windows-backup-feature-broken-by-september-updates/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
+  },
+  {
+    "title": "Critical WordPress Vulnerability Exploited Immediately After Disclosure",
+    "link": "https://www.securityweek.com/critical-wordpress-vulnerability-exploited-immediately-after-disclosure/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+  },
+  {
+    "title": "OpenAI Agent Bypassed Australian Medicare Portal Controls to Access Non-Public Files",
+    "link": "https://thehackernews.com/2026/09/openai-agent-bypassed-australian.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcAVdhDdHS-lMa6x8Y_wK35pNfiQpKjJPFKBf-euOlWYyYschDjjXlah44o4VfYeKJyaeWKFxyOkEwQEnW_qBfSc6rwynqdqB8UAq1CSuKzJOz6lxno1eI9DxmU0RzTX0eWig9f5L5vWGkW1vZnp8o7rDqe86PIyHtTHl-IQSdLmZWAVOyedE86QaUy4I/s1600/openai-agents.jpg"
+  },
+  {
+    "title": "TeamFiltration Campaign Compromises Seven Microsoft 365 Accounts Using Default Passwords",
+    "link": "https://thehackernews.com/2026/09/teamfiltration-compromises-seven.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQgKN3zS7GtEpakDcL7zk0tL-zcz3GJMkVf9vMLCVXf33XZ1Yad77dg3Zen_EEB58BltCG_pj0c-yVDm6VbV9cw5Baxtf26vVtRwW4qwDDy1s8HYMFKfTyl382lwJIRfSWBSA-WK6RAZ8lmy9zf5IZb_Ilqol0AcVdEaMp599tZ4NxqUc-KY4-fyFNYYFg/s1600/ms-365.jpg"
+  },
+  {
+    "title": "Attackers Exploit WordPress CVE-2026-87902 Within Hours of Disclosure",
+    "link": "https://thehackernews.com/2026/09/attackers-exploit-wordpress-cve-2026.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizoRcyQE1N3fGUKa2FY_q_T7EG_CyjTpMGGk1oFUF-XpBZa0zCA6V2yEuv3_Z1OrEjMmhbHdaVmo6NMrwb98U9VFGXDpRcItboVuZH7qc9QgPd5ZLDudfJPWoaSDbtkoXJeLTZw-6JDbq5F6YEp4AkeoJd10Nb_H9tuU0fYdgqkLrP6BTpAPOYwO6WdmkN/s1600/wordpress-exploits.jpg"
+  },
+  {
     "title": "Placeholder domain used in dev docs now serves ClickFix attacks",
     "link": "https://www.bleepingcomputer.com/news/security/placeholder-domain-used-in-dev-docs-now-serves-clickfix-attacks/",
     "image": "https://www.bleepstatic.com/content/posts/2026/09/23/third-party-clickfix-red.jpg"
@@ -12,7 +42,7 @@
   {
     "title": "EDR Evasion Stack Helps Process Injection Slip Past Defenses",
     "link": "https://www.darkreading.com/endpoint-security/edr-evasion-stack-helps-process-injection-slip-past-defenses",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5729777b5599bc1e/6ab427662474c510d68cbd53/special_agent_dark_corridor-Kemter-GettyImages-503113022.jpg?disable=upscale&width=1200&height=630&fit=crop"
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc94608acf452fd67/655cf371ab171e040a838b2a/329050_DR23_Graphics_Website_V5_Default_Image_v1.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "GitLab Email Addresses Can Be Weaponized for Supply Chain Attacks",
@@ -25,7 +55,7 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/23/Check-Point.jpg"
   },
   {
-    "title": "IonQ Targets Quantum Error-Correction Bottleneck With Single-CPU DecoderIonQ Says Sin",
+    "title": "IonQ Targets Quantum Error-Correction Bottleneck With Single-CPU Decoder",
     "link": "https://www.securityweek.com/ionq-targets-quantum-error-correction-bottleneck-with-single-cpu-decoderionq-says-sin/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/08/quantum.jpg"
   },
@@ -115,38 +145,8 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio2c14ELRJEhvTuDrxQmhUG4G9aGoVRrooBMMfuK7LyHPKW6HuJbI9PkKF-WG_5HlEz8NKcuj08XRmv1jNqfBtiDwXmC7e9P9lxoSHK5nUz023YCgoLQuo0BI_9hX4U9Vv97bGJejb4W0jvgv_3btkfj6BWnXwalfyI3k34wveC6n3k47ZdoGq2P0Yaw0/s1600/main.png"
   },
   {
-    "title": "Anthropic and OpenAI Models Still Attempt Restricted Actions in Safety Tests",
-    "link": "https://thehackernews.com/2026/09/anthropic-and-openai-models-still.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_ytuRh_WTu4R3TBnroGXO6IUgATMIi9vgx8DA7j0JJ0e_cTfAjlUIS6zAjb2q9EPdTI8gLwby7r2fijYkH83j2SwisKf-ANFKr6YTdwAHeds99dYrng0QN3nmkqDtIvSHoK8m47e_V0x01B0PuzIezcqtnc2VZlUCVYErOkaKQF7pbk0l35uLwmTl8Is1/s1600/CLAUDE-CHATGPT.jpg"
-  },
-  {
     "title": "Adobe Patches Critical Flaws in Connect, AEM Forms",
     "link": "https://www.securityweek.com/adobe-patches-critical-flaws-in-connect-aem-forms/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Adobe.jpg"
-  },
-  {
-    "title": "AI-Powered Phishing Platform EvilTokens Disrupted by Microsoft",
-    "link": "https://www.securityweek.com/ai-powered-phishing-platform-eviltokens-disrupted-by-microsoft/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
-  },
-  {
-    "title": "Microsoft: September Windows updates break Always On VPN connections",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2026-windows-updates-break-always-on-vpn-connections/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows-headpic.jpg"
-  },
-  {
-    "title": "Exploit Released for Unpatched Ubuntu Linux Flaw Enabling Host-Root Container Escape",
-    "link": "https://thehackernews.com/2026/09/exploit-released-for-unpatched-ubuntu.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZjw_aCdQxMfwTv_-KFLK5KRCd96MoivCQPTAZcAWJal5_84FgCny9Um8csMgDDqta40CUGMPDO14hdbUo9CRk-FMJwY70MsDfV25AC8VmL-8_yDO_UWHYXbmeJ9jZANptIeHqJX9axqzxxn68AHEj8zFhYbh8coIbxWAVC9XbtG9CjxMBpQqclG14QuM/s1600/linux.gif"
-  },
-  {
-    "title": "Chrome 154 Patches 108 Vulnerabilities",
-    "link": "https://www.securityweek.com/chrome-154-patches-108-vulnerabilities/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Chrome-Zero-Day-exploits.jpg"
-  },
-  {
-    "title": "A Look at AI Doomsday Scenarios That Researchers Say Could Put Humanity at Risk",
-    "link": "https://www.securityweek.com/a-look-at-ai-doomsday-scenarios-that-researchers-say-could-put-humanity-at-risk/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/AI_Kill-Humanity.jpg"
   }
 ]
