@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-56669",
-    "summary": "elysia has Inefficient Algorithmic Complexity and Interpretation Conflict",
+    "id": "CVE-2026-56744",
+    "summary": "`@bsv/wallet-toolbox` / `-client` / `-mobile` don't verify storage-supplied recipient output scripts against caller-requested outputs in createAction",
     "severity": "HIGH",
-    "published": "2026-09-23T21:54:50Z",
-    "ghsa": "GHSA-9643-4qgh-g8mx"
+    "published": "2026-09-24T19:32:00Z",
+    "ghsa": "GHSA-36f9-7rg5-cpf8"
   },
   {
-    "id": "CVE-2026-61685",
-    "summary": "ReactPress has SQL injection via dynamic column names in TypeORM query builders",
+    "id": "CVE-2026-56738",
+    "summary": "phpMyFAQ has SQL Injection in `StopWords::add()` — Unescaped Stop Word Insertion",
     "severity": "HIGH",
-    "published": "2026-09-23T21:51:59Z",
-    "ghsa": "GHSA-wmw4-mw6x-6vfm"
+    "published": "2026-09-24T19:30:07Z",
+    "ghsa": "GHSA-rw77-vq4g-x3hp"
   },
   {
-    "id": "GHSA-8pcw-h6w9-h46g",
-    "summary": "plone.app.contenttypes has a Denial of Service in File Upload due to excessive filename length",
+    "id": "CVE-2026-56737",
+    "summary": "phpMyFAQ's two-factor authentication login bypasses the password factor",
+    "severity": "HIGH",
+    "published": "2026-09-24T19:29:27Z",
+    "ghsa": "GHSA-8gpw-xvpf-hvx5"
+  },
+  {
+    "id": "CVE-2026-56736",
+    "summary": "phpMyFAQ has Stored XSS in Admin FAQ Editor via HTML Entity Bypass in Frontend FAQ Submission",
+    "severity": "HIGH",
+    "published": "2026-09-24T19:28:43Z",
+    "ghsa": "GHSA-pgwp-vc7q-cvj3"
+  },
+  {
+    "id": "GHSA-g28h-2cmm-rj9x",
+    "summary": "langchain-nvidia-ai-endpoints has local file disclosure through VLM image inputs",
+    "severity": "HIGH",
+    "published": "2026-09-24T19:25:36Z",
+    "ghsa": "GHSA-g28h-2cmm-rj9x"
+  },
+  {
+    "id": "CVE-2026-57439",
+    "summary": "CyberChef: Prototype pollution in Series Chart operation",
     "severity": "MODERATE",
-    "published": "2026-09-23T21:49:51Z",
-    "ghsa": "GHSA-8pcw-h6w9-h46g"
+    "published": "2026-09-24T19:24:30Z",
+    "ghsa": "GHSA-fx6f-382r-j72c"
   },
   {
-    "id": "CVE-2026-57576",
-    "summary": "plone.app.dexterity has a Denial of Service due to excessive title or description length",
-    "severity": "MODERATE",
-    "published": "2026-09-23T21:48:22Z",
-    "ghsa": "GHSA-5426-92w4-wvhv"
+    "id": "CVE-2026-61604",
+    "summary": "ixo Blockchain x/bonds DID-resolved payer drain + x/entity ICA authorization bypass",
+    "severity": "CRITICAL",
+    "published": "2026-09-24T19:22:53Z",
+    "ghsa": "GHSA-w3rp-4cm2-4wgc"
   },
   {
-    "id": "CVE-2026-77394",
-    "summary": "OpenC3 COSMOS: Stored, cross-user XSS via Telemetry screen BUTTON widget",
+    "id": "CVE-2026-61732",
+    "summary": "Decepticon: Role-boundary forgery via ChatML special-token literals in web crawl output composed into LLM context",
+    "severity": "CRITICAL",
+    "published": "2026-09-24T19:17:49Z",
+    "ghsa": "GHSA-g5f9-3xfg-p9mf"
+  },
+  {
+    "id": "CVE-2026-12958",
+    "summary": "Language Servers for AWS vulnerable to arbitrary file write",
     "severity": "HIGH",
-    "published": "2026-09-23T21:24:11Z",
-    "ghsa": "GHSA-gvf2-2rh5-mpgf"
+    "published": "2026-09-24T19:15:39Z",
+    "ghsa": "GHSA-6v3r-4p5c-mrp5"
   },
   {
-    "id": "CVE-2026-82407",
-    "summary": "Klever-Go: Validator registration accepts an unvalidated BLS public key → consensus liveness DoS",
+    "id": "CVE-2026-12957",
+    "summary": "Language Servers for AWS Vulnerable to Arbitrary Code Execution",
     "severity": "HIGH",
-    "published": "2026-09-23T21:24:08Z",
-    "ghsa": "GHSA-9wh6-9hq7-9688"
-  },
-  {
-    "id": "CVE-2026-82409",
-    "summary": "Klever-Go: Elasticsearch bulk / painless injection via on-chain account name -> explorer/indexer data forgery",
-    "severity": "HIGH",
-    "published": "2026-09-23T21:24:06Z",
-    "ghsa": "GHSA-7c7c-373r-gfjj"
-  },
-  {
-    "id": "CVE-2026-82406",
-    "summary": "Klever-Go: Zombie-order theft: `Buy` missing `IsClaimed` guard in native marketplace",
-    "severity": "HIGH",
-    "published": "2026-09-23T21:24:03Z",
-    "ghsa": "GHSA-26r5-4mm2-px5c"
-  },
-  {
-    "id": "CVE-2026-76089",
-    "summary": "Formie: Missing authorization on sent notification resend modal exposes submission PII",
-    "severity": "HIGH",
-    "published": "2026-09-23T21:24:01Z",
-    "ghsa": "GHSA-9rg8-2wvr-fgjh"
-  },
-  {
-    "id": "CVE-2026-61814",
-    "summary": "Jawn: Quadratic parsing effort in AsyncParser",
-    "severity": "HIGH",
-    "published": "2026-09-23T21:23:58Z",
-    "ghsa": "GHSA-w4cm-gvhj-cgw6"
+    "published": "2026-09-24T19:13:53Z",
+    "ghsa": "GHSA-xhcr-j4j9-3gh7"
   }
 ]
