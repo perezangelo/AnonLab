@@ -1,5 +1,40 @@
 [
   {
+    "title": "'Salesbleed' Exploits Salesforce Agents to Enable Slack Phishing",
+    "link": "https://www.darkreading.com/application-security/salesbleed-exploits-salesforce-agents-slack-phishing",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte47deb12795d1329/6ab55cc6323c1e2e79062eb7/Cloud_painting-Igor_Miller-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "MacSync malware uses public iCloud calendars to deliver new payloads",
+    "link": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icloud-calendars-to-deliver-new-payloads/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/18/Apple.jpg"
+  },
+  {
+    "title": "Autonomous AI Hacks Raise Thorny Questions of Legal Accountability",
+    "link": "https://www.securityweek.com/autonomous-ai-hacks-raise-thorny-questions-of-legal-accountability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
+  },
+  {
+    "title": "SectopRAT Returns, Hiding Inside a Legitimate Application",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/sectoprat-returns-hiding-inside-legitimate-application",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb62b34e9ee11beba/6ab57fc3bdd2950319376ffa/rat-maljalen-Getty-186306387.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "New Carbonato malware uses AI agents to hijack exposed Docker hosts",
+    "link": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/04/21/Docker__headpic.jpg"
+  },
+  {
+    "title": "Unpatched OnePlus Flaws Let Installed Android Apps Gain Root Without Permissions",
+    "link": "https://thehackernews.com/2026/09/unpatched-oneplus-flaws-let-installed.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiGu2guziH88Cs_LnFsPkCJ4zuxqgSX7q3SRrBXdSAEeJPhmYnpNp-c0WCNCqoOoyCv6NcnmCKm20rhqSb2rjw7KZ6Kh6UssR2fZG5SZX9Pjhb_fjONdBfgpxqpWNABPDvSmD9Hp913nErgH4PQm1ehlyspJt5RXASYckP6jHE3G0V2ou5fwkG7JOZyBY/s1600/oneplus.jpg"
+  },
+  {
+    "title": "ThreatsDay: AI Search Poisoning, AI Coding Tool Leaking Repos, One-Click Code Execution and 13 More Stories",
+    "link": "https://thehackernews.com/2026/09/threatsday-ai-search-poisoning-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQeh1uEFjgxcgPPJkrXkAnJxZRxA9_ZolFQXNONWmfMGLViusszn4KTiJ9-8_r-AV94NS5BQlZ5eOrFnTvinPXcJB_G4o_BEZdv7xXMdAqfvZPfiUzKjlE70q2V6C9ze8H58pqYh-suKm_Yu1q3LoevignMd7nfjbjV7qx_vEad6BEFKUHwV5UlTFW1-dh/s1600/threatsday-sep.jpg"
+  },
+  {
     "title": "Exposed GitLab project email addresses let attackers push code",
     "link": "https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/",
     "image": "https://www.bleepstatic.com/content/hl-images/2024/05/01/GitLab.jpg"
@@ -70,6 +105,11 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhitRqKj3-JlcQ69xxlsxJs80aq7MNxgAc_VrV-TCrHGTVEwdWKIdvAiwB4szXMT3cRKpkzCRVObZxAO47CLl3JWLRerxVSITKy9xorsP-XY212M07JzDkZ7VXOA-r0maycB0jMv0r5Kl3q0VgrxpoeYfHJ_gkeXbzXLKz_3gAhDGy1ML06lfta_5w8u_Xo/s1600/1000110893.jpg"
   },
   {
+    "title": "Eufy Omni C20, Omni X10 Pro",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02",
+    "image": ""
+  },
+  {
     "title": "Botslab G980H Dashcams",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-01",
     "image": ""
@@ -80,8 +120,8 @@
     "image": ""
   },
   {
-    "title": "Eufy Omni C20, Omni X10 Pro",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02",
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/24/cisa-adds-two-known-exploited-vulnerabilities-catalog",
     "image": ""
   },
   {
@@ -108,45 +148,5 @@
     "title": "CISA: Ransomware gangs now exploiting critical TeamCity flaw",
     "link": "https://www.bleepingcomputer.com/news/security/cisa-ransomware-gangs-now-exploiting-critical-teamcity-flaw/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/24/TeamCity.jpg"
-  },
-  {
-    "title": "SolarWinds Patches Critical RCE Flaws in Observability Self-Hosted",
-    "link": "https://www.securityweek.com/solarwinds-patches-critical-rce-flaws-in-observability-self-hosted/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/SolarWinds-Hack-CISO.jpg"
-  },
-  {
-    "title": "Astrana Health Data Breach Impacts Private, Confidential Information",
-    "link": "https://www.securityweek.com/astrana-health-data-breach-impacts-private-confidential-information/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
-  },
-  {
-    "title": "OpenAI hacked Australian Medicare govt site, probed data providers",
-    "link": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/24/robot.jpg"
-  },
-  {
-    "title": "17,000 URLs Reveal How ClickFix Turns Trusted Websites Into Malware Traps: Report by CTM360",
-    "link": "https://thehackernews.com/2026/09/17000-urls-reveal-how-clickfix-turns.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOah63YM6pjk2RAIcCXy-NSbO_uPPCSp4DsR-9-jeGLCRZCd9E1QSd0_b4c6xc5wFp_ncqCH3LPtBR_C1auF3Fid-DNSCtQh9eEArgNe0syhvA4I9EdDU454uAqieiAGyyI-dXW5AsA5X4zsbhTpHKjXfIbgM35i4MOC7Jcbk5SiILRU9_BgcV2H-_BxI/s1600/ctm360.jpg"
-  },
-  {
-    "title": "US Court Sentences Armenian Man to Prison for Ryuk Ransomware Attacks",
-    "link": "https://www.securityweek.com/us-court-sentences-armenian-man-to-prison-for-ryuk-ransomware-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/10/hacker-prison-sentence.jpeg"
-  },
-  {
-    "title": "Microsoft fixes bug that broke Windows File History backup feature",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-windows-backup-feature-broken-by-september-updates/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/03/10/Windows.jpg"
-  },
-  {
-    "title": "Critical WordPress Vulnerability Exploited Immediately After Disclosure",
-    "link": "https://www.securityweek.com/critical-wordpress-vulnerability-exploited-immediately-after-disclosure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
-  },
-  {
-    "title": "OpenAI Agent Bypassed Australian Medicare Portal Controls to Access Non-Public Files",
-    "link": "https://thehackernews.com/2026/09/openai-agent-bypassed-australian.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcAVdhDdHS-lMa6x8Y_wK35pNfiQpKjJPFKBf-euOlWYyYschDjjXlah44o4VfYeKJyaeWKFxyOkEwQEnW_qBfSc6rwynqdqB8UAq1CSuKzJOz6lxno1eI9DxmU0RzTX0eWig9f5L5vWGkW1vZnp8o7rDqe86PIyHtTHl-IQSdLmZWAVOyedE86QaUy4I/s1600/openai-agents.jpg"
   }
 ]
