@@ -1,24 +1,123 @@
-<!-- RISORSE ANONLAB BLOG FORUM NEWS CYBER SECURITY -->
-<div class="sidebar-box" aria-label="Risorse AnonLab">
-  <h3>Risorse AnonLab</h3>
-  
-  <div class="social-icons" style="font-size: 14px; color: #ffffff;">
+<section class="widget-large">
 
-    <!-- Blog -->
-    <a href="https://altervista.org" target="_blank" rel="noopener noreferrer" aria-label="Blog AnonLab" style="display: inline-block; width: 32px; height: 32px; text-decoration: none; vertical-align: middle;">
-      <img src="/img/blog.png" width="32" height="32" alt="Blog AnonLab" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
-    </a>_  _<!-- Trattini inseriti nel testo tra i link -->
+  <div class="box-title-row">
+    <img src="/img/Cybersecurity.png"
+         class="box-title-icon"
+         alt="Cybersecurity">
 
-    <!-- Forum -->
-    <a href="https://altervista.org" target="_blank" rel="noopener noreferrer" aria-label="Forum AnonLab" style="display: inline-block; width: 32px; height: 32px; text-decoration: none; vertical-align: middle;">
-      <img src="/img/forum.png" width="32" height="32" alt="Forum AnonLab" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
-    </a>_  _<!-- Trattini inseriti nel testo tra i link -->
-
-    <!-- Cyber Security News -->
-    <a href="https://anonlab.it" target="_blank" rel="noopener noreferrer" aria-label="Cyber Security News" style="display: inline-block; width: 32px; height: 32px; text-decoration: none; vertical-align: middle;">
-      <img src="/img/cyber-security-news.png" width="32" height="32" alt="Cyber Security News" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+    <h2>26"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Apri il report ENISA NIS360 2026"
+       title="Consulta il report ENISA NIS360 2026"
+       style="color:#ff7b00;">
+      ENISA Threat Landscape →
     </a>
-
   </div>
-</div>
 
+  <!-- Descrizione SEO -->
+  <div class="widget-description" style="margin-bottom:20px;color:#aaa;font-size:.95rem;line-height:1.5;">
+    <p>
+      Benvenuto nel <strong>Tech Radar di AnonLab</strong>, il centro di monitoraggio dedicato a tecnologie emergenti,
+      framework di sviluppo, piattaforme cloud, strumenti SIEM, EDR, XDR e soluzioni di cybersecurity utilizzate da
+      professionisti, aziende e ricercatori della sicurezza informatica.
+    </p>
+
+    <p>
+      Il radar aggrega informazioni provenienti da fonti ufficiali e documentazioni tecniche per offrire una panoramica
+      aggiornata sullo stato di maturità, supporto e diffusione delle tecnologie monitorate.
+    </p>
+
+    <p style="font-size:.85rem;color:#777;">
+      <strong>Nota:</strong> i dati mostrati nelle schede vengono aggiornati automaticamente per garantire informazioni
+      sempre allineate alle fonti ufficiali.
+    </p>
+  </div>
+
+  <div id="tech-radar"
+       aria-live="polite"
+       aria-label="Elenco delle tecnologie monitorate">
+  </div>
+
+</section>
+
+<script>
+async function loadTechRadar() {
+  const radarBox = document.getElementById("tech-radar");
+  if (!radarBox) return;
+
+  radarBox.style.display = "grid";
+  radarBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
+  radarBox.style.gap = "20px";
+
+  try {
+    const res = await fetch(
+      "https://angelonline.altervista.org/api/tech-radar.php?ts=" + Date.now()
+    );
+
+    const data = await res.json();
+
+    radarBox.innerHTML = "";
+
+    data.forEach(item => {
+
+      const title = item.title || "";
+      const category = item.category || "";
+      const source = item.source || "";
+      const updated = item.updated || "";
+      const url = item.url || "#";
+
+      const card = document.createElement("div");
+
+      card.style.background = "#0d0d0d";
+      card.style.border = "1px solid #1a1a1a";
+      card.style.borderRadius = "10px";
+      card.style.padding = "15px";
+      card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+      card.style.transition = "transform .2s ease, box-shadow .2s ease";
+
+      card.innerHTML = `
+        <h3 style="color:#00eaff;margin:0 0 10px 0;">
+          ${title}
+        </h3>
+
+        <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
+          <strong>Categoria:</strong> ${category}<br>
+          <strong>Fonte:</strong> ${source}<br>
+          <strong>Aggiornato:</strong> ${updated}
+        </p>
+
+        <a href="${url}"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
+          Vai alla risorsa →
+        </a>
+      `;
+
+      card.addEventListener("mouseenter", () => {
+        card.style.transform = "translateY(-4px)";
+        card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "translateY(0)";
+        card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+      });
+
+      radarBox.appendChild(card);
+    });
+
+  } catch (err) {
+    radarBox.innerHTML =
+      "<p style='color:#ff7b00;'>Impossibile caricare il Tech Radar.</p>";
+
+    console.error("Tech Radar error:", err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadTechRadar);
+
+/* Aggiornamento ogni 5 minuti */
+setInterval(loadTechRadar, 300000);
+</script>
