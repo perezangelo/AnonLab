@@ -1,5 +1,25 @@
 [
   {
+    "title": "ShinyHunters hacked Clop leak site using Grav CMS path traversal flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacked-clop-leak-site-using-grav-cms-path-traversal-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/12/10/hacker-box.jpg"
+  },
+  {
+    "title": "AI Sandbox Escapes: Why Forensic Readiness Matters More Than Containment",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/ai-sandbox-escapes-forensic-readiness",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt33c1376950d82e3b/6ab6c3109aed719a106d58d7/sandbox-almaphoto-Getty-2255089996.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Elementor WordPress flaw lets attackers create admin accounts",
+    "link": "https://www.bleepingcomputer.com/news/security/elementor-wordpress-flaw-lets-attackers-create-admin-accounts/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/12/07/back-2.jpg"
+  },
+  {
+    "title": "What We Missed: Google Gemini Joins the AI Escape Party",
+    "link": "https://www.darkreading.com/cyber-risk/what-we-missed-google-gemini-ai-escape-party",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2b2c9d6b9326d649/6ab5930f4df1903bce49b5db/aibots-Gremlin-Getty-1494693841.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "CISA warns of Sharepoint, WSO2, Adobe Commerce flaws exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-sharepoint-wso2-adobe-commerce-flaws-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/CISA.jpg"
@@ -23,6 +43,11 @@
     "title": "With the Rise of AI Agents, SOC 2 Should Adapt or Risk Irrelevance",
     "link": "https://www.bleepingcomputer.com/news/security/with-the-rise-of-ai-agents-soc-2-should-adapt-or-risk-irrelevance/",
     "image": "https://www.bleepstatic.com/content/posts/2026/09/25/token-security-doors.jpg"
+  },
+  {
+    "title": "Stopping IT Worker Scams Requires Revamped HR Process",
+    "link": "https://www.darkreading.com/cyber-risk/stopping-it-worker-scams-revamped-hr-process",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf21a6316df171b0e/6ab67c37f1423b08bb4916ee/IT-worker-silouette-manufacturing-DC_Studio-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "Compromised GitHub Actions Came Back Online and Resumed Executing Mini Shai-Hulud Malware",
@@ -57,6 +82,11 @@
   {
     "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
     "link": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
+    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-one-known-exploited-vulnerability-catalog",
     "image": ""
   },
   {
@@ -100,6 +130,11 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2020/12/21/Bitcoin-cryptocurrency.jpg"
   },
   {
+    "title": "Russia's Hybrid Cyber-Physical War in Europe Heats Up",
+    "link": "https://www.darkreading.com/physical-security/russia-hybrid-cyber-physical-war-europe",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8a27dbac2edf719a/6ab57742417cfced0b651132/Cyber_Russia-traffic_analyzer-GettyImages-952919134.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Roundcube Webmail Vulnerability in Attackers\u2019 Crosshairs",
     "link": "https://www.securityweek.com/roundcube-webmail-vulnerability-in-attackers-crosshairs/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/08/Email-Security.jpg"
@@ -113,40 +148,5 @@
     "title": "WSO2 and Adobe Commerce Flaws Exploited in Attacks, Added to CISA KEV",
     "link": "https://thehackernews.com/2026/09/wso2-and-adobe-commerce-flaws-exploited.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqTAzyCx7Cezy4z5oRz-uAHvdvW1IZDrQlfIqT_ZDJ22Hvarb4lmYWkjqBDI_CngiSy2wuot68b2CgMS_0CWVZS93lYo5wqJsd5-WdFQgO3dieodXpVQiizcFjQsPzUOlVrs32zkBaHAwOyD7S4GCZ3b1d-Jyt4-ZTaMltfU0jG5dwBw5cxj880D4Cx8W0/s1600/ADOBE-CISA.jpg"
-  },
-  {
-    "title": "MacSync malware uses public iCloud calendars to deliver new payloads",
-    "link": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icloud-calendars-to-deliver-new-payloads/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/18/Apple.jpg"
-  },
-  {
-    "title": "Autonomous AI Hacks Raise Thorny Questions of Legal Accountability",
-    "link": "https://www.securityweek.com/autonomous-ai-hacks-raise-thorny-questions-of-legal-accountability/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
-  },
-  {
-    "title": "New Carbonato malware uses AI agents to hijack exposed Docker hosts",
-    "link": "https://www.bleepingcomputer.com/news/security/new-carbonato-malware-uses-ai-agents-to-hijack-exposed-docker-hosts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/04/21/Docker__headpic.jpg"
-  },
-  {
-    "title": "Unpatched OnePlus Flaws Let Installed Android Apps Gain Root Without Permissions",
-    "link": "https://thehackernews.com/2026/09/unpatched-oneplus-flaws-let-installed.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiGu2guziH88Cs_LnFsPkCJ4zuxqgSX7q3SRrBXdSAEeJPhmYnpNp-c0WCNCqoOoyCv6NcnmCKm20rhqSb2rjw7KZ6Kh6UssR2fZG5SZX9Pjhb_fjONdBfgpxqpWNABPDvSmD9Hp913nErgH4PQm1ehlyspJt5RXASYckP6jHE3G0V2ou5fwkG7JOZyBY/s1600/oneplus.jpg"
-  },
-  {
-    "title": "ThreatsDay: AI Search Poisoning, AI Coding Tool Leaking Repos, One-Click Code Execution and 13 More Stories",
-    "link": "https://thehackernews.com/2026/09/threatsday-ai-search-poisoning-ai.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQeh1uEFjgxcgPPJkrXkAnJxZRxA9_ZolFQXNONWmfMGLViusszn4KTiJ9-8_r-AV94NS5BQlZ5eOrFnTvinPXcJB_G4o_BEZdv7xXMdAqfvZPfiUzKjlE70q2V6C9ze8H58pqYh-suKm_Yu1q3LoevignMd7nfjbjV7qx_vEad6BEFKUHwV5UlTFW1-dh/s1600/threatsday-sep.jpg"
-  },
-  {
-    "title": "Kontext Security Emerges With $4 Million for AI Agent Runtime Controls",
-    "link": "https://www.securityweek.com/kontext-security-emerges-with-4-million-for-ai-agent-runtime-controls/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
-  },
-  {
-    "title": "Placeholder third-party[.]com Referenced Across 1,700+ Repositories Now Serves Malicious Content",
-    "link": "https://thehackernews.com/2026/09/placeholder-third-partycom-referenced.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhy4aXDWSC5cKzOZO8lRbk8o5I1fHPlCGbfxxYL6tyJxauEL-8EVj7-AypDhYt_Wg6bDLqlj0UK4LrGJdeI4ChsksaB6tTZxo8ikCLdwC0wjRfJPE_Z1qM_CVUg7s1ORdmWW2XTDtlPPDcI8JvelrbmJhcjVthnqYWQrZ7ySnIMMPRZfa_VzgaBCWyWc_JJ/s1600/third.jpg"
   }
 ]
