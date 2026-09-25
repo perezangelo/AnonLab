@@ -1,5 +1,54 @@
 [
   {
+    "id": "CVE-2026-57443",
+    "summary": "SCBE-AETHERMOORE Unauthenticated AetherBrowser Ops API Exposes Operator Email Digests",
+    "severity": "HIGH",
+    "published": "2026-09-25T21:48:03Z",
+    "ghsa": "GHSA-q986-4x7x-gx39"
+  },
+  {
+    "id": "GHSA-vj8p-hp9x-gh47",
+    "summary": "mpp vulnerable to Gas Draining with low gas limit",
+    "severity": "HIGH",
+    "published": "2026-09-25T21:47:36Z",
+    "ghsa": "GHSA-vj8p-hp9x-gh47"
+  },
+  {
+    "id": "GHSA-qpxh-ff8m-c62v",
+    "summary": "mpp vulnerable to Gas Draining with access list",
+    "severity": "MODERATE",
+    "published": "2026-09-25T21:45:16Z",
+    "ghsa": "GHSA-qpxh-ff8m-c62v"
+  },
+  {
+    "id": "GHSA-vv77-66rf-pm86",
+    "summary": "mpp vulnerable to Gas Draining with no limit",
+    "severity": "HIGH",
+    "published": "2026-09-25T21:44:12Z",
+    "ghsa": "GHSA-vv77-66rf-pm86"
+  },
+  {
+    "id": "CVE-2026-100368",
+    "summary": "CliInvoke.Specializations has command injection in PowerShell and Cmd shell wrappers",
+    "severity": "HIGH",
+    "published": "2026-09-25T21:41:48Z",
+    "ghsa": "GHSA-wrvw-254r-wpmv"
+  },
+  {
+    "id": "CVE-2026-100369",
+    "summary": "CliInvoke: Argument Injection in Extensibility Runner Factory",
+    "severity": "HIGH",
+    "published": "2026-09-25T21:41:36Z",
+    "ghsa": "GHSA-j73w-8hfr-4gc9"
+  },
+  {
+    "id": "GHSA-62mm-xwmv-crhg",
+    "summary": "khoj has an unauthenticated path traversal in /home/ endpoint that allows file read from server filesystem",
+    "severity": "HIGH",
+    "published": "2026-09-25T21:38:15Z",
+    "ghsa": "GHSA-62mm-xwmv-crhg"
+  },
+  {
     "id": "CVE-2026-86439",
     "summary": "Knowns Unrestricted Path Traversal leading to out-of-bounds arbitrary .md file read, write, and deletion in MCP Docs + Memory Tools",
     "severity": "HIGH",
@@ -19,54 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-09-25T19:27:59Z",
     "ghsa": "GHSA-pg57-6jwg-q645"
-  },
-  {
-    "id": "CVE-2026-92161",
-    "summary": "FriendsOfFlarum OAuth: Unauthenticated account takeover via unverified email trust in Discord OAuth provider",
-    "severity": "CRITICAL",
-    "published": "2026-09-25T15:55:07Z",
-    "ghsa": "GHSA-g7vj-c29h-3h5m"
-  },
-  {
-    "id": "CVE-2026-57440",
-    "summary": "Mediawiki EmbedVideo Extension has stored XSS via malformed src url with $wgEmbedVideoRequireConsent disabled",
-    "severity": "HIGH",
-    "published": "2026-09-25T15:03:43Z",
-    "ghsa": "GHSA-v65j-hff3-753c"
-  },
-  {
-    "id": "CVE-2026-61823",
-    "summary": "code16 Sharp vulnerable to stored XSS via iframe srcdoc Attribute",
-    "severity": "HIGH",
-    "published": "2026-09-25T15:02:11Z",
-    "ghsa": "GHSA-qxg3-46rw-79j8"
-  },
-  {
-    "id": "CVE-2026-61825",
-    "summary": "code16/sharp has a stored XSS via data-html-content Sanitizer Bypass",
-    "severity": "HIGH",
-    "published": "2026-09-25T15:00:44Z",
-    "ghsa": "GHSA-vj3q-vp3g-j9c8"
-  },
-  {
-    "id": "CVE-2026-57232",
-    "summary": "Contao: Server-Side Request Forgery (SSRF) via Unvalidated RSS Feed URL in Feed Reader Module",
-    "severity": "LOW",
-    "published": "2026-09-24T19:59:16Z",
-    "ghsa": "GHSA-87mg-5grr-rhwh"
-  },
-  {
-    "id": "CVE-2026-57179",
-    "summary": "social-auth-core has a Session Fixation issue",
-    "severity": "MODERATE",
-    "published": "2026-09-24T19:58:14Z",
-    "ghsa": "GHSA-vqg6-3fw6-j9jg"
-  },
-  {
-    "id": "CVE-2026-57178",
-    "summary": "social-auth-core: VK App backend accepts unsigned callback data when auth_key is missing",
-    "severity": "HIGH",
-    "published": "2026-09-24T19:57:22Z",
-    "ghsa": "GHSA-3c93-f73f-qc9h"
   }
 ]
