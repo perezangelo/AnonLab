@@ -1,5 +1,45 @@
 [
   {
+    "title": "CISA warns of Sharepoint, WSO2, Adobe Commerce flaws exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-sharepoint-wso2-adobe-commerce-flaws-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/CISA.jpg"
+  },
+  {
+    "title": "Anthropic rolls out up to $250 in free Claude Code credits, but only for cloud sessions",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-rolls-out-up-to-250-in-free-claude-code-credits-but-only-for-cloud-sessions/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/ClaudeChats.png"
+  },
+  {
+    "title": "In Other News: Clop Leak Site Takeover, Docker Botnet Hunts AI Keys, Water Utility Exposure",
+    "link": "https://www.securityweek.com/in-other-news-clop-leak-site-takeover-docker-botnet-hunts-ai-keys-water-utility-exposure/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "OpenAI is preparing a $500 ChatGPT Pro Max plan with faster Codex",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-a-500-chatgpt-pro-max-plan-with-faster-codex/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg"
+  },
+  {
+    "title": "With the Rise of AI Agents, SOC 2 Should Adapt or Risk Irrelevance",
+    "link": "https://www.bleepingcomputer.com/news/security/with-the-rise-of-ai-agents-soc-2-should-adapt-or-risk-irrelevance/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/25/token-security-doors.jpg"
+  },
+  {
+    "title": "Compromised GitHub Actions Came Back Online and Resumed Executing Mini Shai-Hulud Malware",
+    "link": "https://thehackernews.com/2026/09/compromised-github-actions-came-back.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJFMIQ6v0uJDRoxyIhqsoqsYoXN00dcDH4IvkdQAkRBRj6ha5LIu2-2yzzvQk1OZTc-7tK1fjeqyIh8xvRNvz_CotOtGNsYnejlbHED7cI-bmZFP80JIdxk_0D9I6Zo10-6b4x4euCTaRtz8c6ncYKykDsW7Bt4oFEVYWTe3AHJdiUxM32R6hGP9C0Y0Xf/s1600/github-shai.jpg"
+  },
+  {
+    "title": "North Korea Suspected in $351 Million Bitget Crypto Heist",
+    "link": "https://www.securityweek.com/north-korea-suspected-in-351-million-bitget-crypto-heist/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/bitcoin-cryptocurrency.jpeg"
+  },
+  {
+    "title": "PamStealer macOS Malware Adds Live C2 Payload Decryption and Multi-Layer Persistence",
+    "link": "https://thehackernews.com/2026/09/pamstealer-macos-malware-adds-live-c2.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRZ3gQjU3cKnH6bHzlz8PjeaUqGcrVWnRx-bT-mgDBYv-G4CM2Iix8afTJe8sAXEghuPTiD5KszOYzA0peRhyoGKNW9YE1QtwLubBFuv9YZjXnANEGyMGwi7-oEdIqmtRBWPzUZV7S91WiUX4cI2YVMHVSQbByCmIwAX9oZxvzjb2ScVJmpmMCzpDKaKtN/s1600/macos.jpg"
+  },
+  {
     "title": "Microsoft plans to deprecate Windows Deployment Services",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-to-deprecate-windows-deployment-services-after-windows-server-2025/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/15/Windows_Server.jpg"
@@ -13,6 +53,11 @@
     "title": "Kosovar Owner of Rydox Marketplace Pleads Guilty in US Court",
     "link": "https://www.securityweek.com/kosovar-owner-of-rydox-marketplace-pleads-guilty-in-us-court/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/plead-guilty-hacker-court.jpeg"
+  },
+  {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
   },
   {
     "title": "Rydox marketplace admin pleads guilty, faces 22 years in prison",
@@ -55,11 +100,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2020/12/21/Bitcoin-cryptocurrency.jpg"
   },
   {
-    "title": "Russia's Hybrid Cyber-Physical War in Europe Heats Up",
-    "link": "https://www.darkreading.com/physical-security/russia-hybrid-cyber-physical-war-europe",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8a27dbac2edf719a/6ab57742417cfced0b651132/Cyber_Russia-traffic_analyzer-GettyImages-952919134.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
     "title": "Roundcube Webmail Vulnerability in Attackers\u2019 Crosshairs",
     "link": "https://www.securityweek.com/roundcube-webmail-vulnerability-in-attackers-crosshairs/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/08/Email-Security.jpg"
@@ -75,11 +115,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqTAzyCx7Cezy4z5oRz-uAHvdvW1IZDrQlfIqT_ZDJ22Hvarb4lmYWkjqBDI_CngiSy2wuot68b2CgMS_0CWVZS93lYo5wqJsd5-WdFQgO3dieodXpVQiizcFjQsPzUOlVrs32zkBaHAwOyD7S4GCZ3b1d-Jyt4-ZTaMltfU0jG5dwBw5cxj880D4Cx8W0/s1600/ADOBE-CISA.jpg"
   },
   {
-    "title": "'Salesbleed' Exploits Salesforce Agents to Enable Slack Phishing",
-    "link": "https://www.darkreading.com/application-security/salesbleed-exploits-salesforce-agents-slack-phishing",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte47deb12795d1329/6ab55cc6323c1e2e79062eb7/Cloud_painting-Igor_Miller-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
     "title": "MacSync malware uses public iCloud calendars to deliver new payloads",
     "link": "https://www.bleepingcomputer.com/news/security/macsync-malware-uses-public-icloud-calendars-to-deliver-new-payloads/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/18/Apple.jpg"
@@ -88,11 +123,6 @@
     "title": "Autonomous AI Hacks Raise Thorny Questions of Legal Accountability",
     "link": "https://www.securityweek.com/autonomous-ai-hacks-raise-thorny-questions-of-legal-accountability/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
-  },
-  {
-    "title": "SectopRAT Returns, Hiding Inside a Legitimate Application",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/sectoprat-returns-hiding-inside-legitimate-application",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb62b34e9ee11beba/6ab57fc3bdd2950319376ffa/rat-maljalen-Getty-186306387.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "New Carbonato malware uses AI agents to hijack exposed Docker hosts",
@@ -110,11 +140,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQeh1uEFjgxcgPPJkrXkAnJxZRxA9_ZolFQXNONWmfMGLViusszn4KTiJ9-8_r-AV94NS5BQlZ5eOrFnTvinPXcJB_G4o_BEZdv7xXMdAqfvZPfiUzKjlE70q2V6C9ze8H58pqYh-suKm_Yu1q3LoevignMd7nfjbjV7qx_vEad6BEFKUHwV5UlTFW1-dh/s1600/threatsday-sep.jpg"
   },
   {
-    "title": "Exposed GitLab project email addresses let attackers push code",
-    "link": "https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/05/01/GitLab.jpg"
-  },
-  {
     "title": "Kontext Security Emerges With $4 Million for AI Agent Runtime Controls",
     "link": "https://www.securityweek.com/kontext-security-emerges-with-4-million-for-ai-agent-runtime-controls/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/12/cyber-security-investment.jpeg"
@@ -123,30 +148,5 @@
     "title": "Placeholder third-party[.]com Referenced Across 1,700+ Repositories Now Serves Malicious Content",
     "link": "https://thehackernews.com/2026/09/placeholder-third-partycom-referenced.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhy4aXDWSC5cKzOZO8lRbk8o5I1fHPlCGbfxxYL6tyJxauEL-8EVj7-AypDhYt_Wg6bDLqlj0UK4LrGJdeI4ChsksaB6tTZxo8ikCLdwC0wjRfJPE_Z1qM_CVUg7s1ORdmWW2XTDtlPPDcI8JvelrbmJhcjVthnqYWQrZ7ySnIMMPRZfa_VzgaBCWyWc_JJ/s1600/third.jpg"
-  },
-  {
-    "title": "3 Cyber Threats That Defined the Summer of 2026",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/3-cyber-threats-defined-summer-2026",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltcaceb4dbae83cc73/6ab2a824f707d014a4ded803/GettyImages-2212090355.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI Agents Probed Websites for Vulnerabilities While Fetching Public Data",
-    "link": "https://www.securityweek.com/openai-agents-probed-websites-for-vulnerabilities-while-fetching-public-data/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/AI-artificial-intelligence.webp"
-  },
-  {
-    "title": "Hacked Ukrainian Sites Serve Fake Cloudflare ClickFix Lures for Psychedelic Stealer",
-    "link": "https://thehackernews.com/2026/09/hacked-ukrainian-sites-serve-fake.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1xvw3iNKwWUngfdShXBAPKrbRDMZSCQ3_FdiHNKvwrLkip9fUiikko0FKN-cfgzBIgkLvKDR9xIlnfEZVQgHgOW2qTz8Pd4Ur0-DCYdUssgN_9vglgxRU6u5ZRK_FlQYmgV_sbv8pfA1YnSJcojUOhWC-7lkPbA07An_X-vNHmZ8xT2Okq9HiRfTBVt1h/s1600/UK-CLICK.jpg"
-  },
-  {
-    "title": "How to Build A SASE Framework for Modern Cybersecurity",
-    "link": "https://www.darkreading.com/cloud-security/how-to-build-sase-framework",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltb78cadaedd123808/6728c89f936b643041fefd4a/framework-jozef_sedmak-Alamy-resized.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "FedRAMP VDR & VER: Daily Scans Are Only the Beginning",
-    "link": "https://www.bleepingcomputer.com/news/security/fedramp-vdr-and-ver-daily-scans-are-only-the-beginning/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/23/anecdotes-fedramp.jpg"
   }
 ]
