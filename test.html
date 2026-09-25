@@ -1,12 +1,9 @@
 <section class="widget-large">
 
   <div class="box-title-row">
-    <img src="/img/Cybersecurity.png"
-         class="box-title-icon"
-         alt="Cybersecurity">
+    <img src="/img/Cybersecurity<h2>Tech Radar</h2>
 
-    <a>
-      <h2>26"
+    <a href="https://www.enisa.europa.eu/enisa-nis360-2026"
        target="_blank"
        rel="noopener noreferrer"
        aria-label="Apri il report ENISA NIS360 2026"
@@ -16,35 +13,34 @@
     </a>
   </div>
 
-  <!-- Descrizione SEO -->
-  <div class="widget-description" style="margin-bottom:20px;color:#aaa;font-size:.95rem;line-height:1.5;">
-    <p>
-      Benvenuto nel <strong>Tech Radar di AnonLab</strong>, il centro di monitoraggio dedicato a tecnologie emergenti,
-      framework di sviluppo, piattaforme cloud, strumenti SIEM, EDR, XDR e soluzioni di cybersecurity utilizzate da
-      professionisti, aziende e ricercatori della sicurezza informatica.
-    </p>
+  <p style="margin:10px 0 20px;color:#cccccc;line-height:1.6;">
+    Il Tech Radar di AnonLab raccoglie tecnologie emergenti, framework di sicurezza,
+    standard, strumenti e risorse utilizzate nel settore della cybersecurity.
+    Le schede vengono aggiornate periodicamente per fornire una panoramica delle
+    tendenze tecnologiche, delle iniziative europee e delle soluzioni adottate
+    da SOC, analisti di Threat Intelligence, ricercatori OSINT e professionisti
+    della sicurezza informatica.
+  </p>
 
-    <p>
-      Il radar aggrega informazioni provenienti da fonti ufficiali e documentazioni tecniche per offrire una panoramica
-      aggiornata sullo stato di maturità, supporto e diffusione delle tecnologie monitorate.
-    </p>
-
-    <p style="font-size:.85rem;color:#777;">
-      <strong>Nota:</strong> i dati mostrati nelle schede vengono aggiornati automaticamente per garantire informazioni
-      sempre allineate alle fonti ufficiali.
+  <div style="background:#111;border-left:4px solid #00eaff;padding:12px 15px;margin:15px 0;">
+    <strong style="color:#00eaff;">Come leggere il Tech Radar</strong>
+    <p style="margin-top:8px;color:#ccc;">
+      Ogni scheda contiene una tecnologia, una risorsa o un'iniziativa rilevante.
+      La categoria identifica l'ambito di utilizzo, la fonte indica
+      l'organizzazione di riferimento e la data di aggiornamento aiuta a
+      valutarne l'attualità.
     </p>
   </div>
 
-  <div id="tech-radar"
-       aria-live="polite"
-       aria-label="Elenco delle tecnologie monitorate">
-  </div>
+  <div id="tech-radar"></div>
 
 </section>
 
 <script>
 async function loadTechRadar() {
+
   const radarBox = document.getElementById("tech-radar");
+
   if (!radarBox) return;
 
   radarBox.style.display = "grid";
@@ -52,6 +48,7 @@ async function loadTechRadar() {
   radarBox.style.gap = "20px";
 
   try {
+
     const res = await fetch(
       "https://angelonline.altervista.org/api/tech-radar.php?ts=" + Date.now()
     );
@@ -61,12 +58,6 @@ async function loadTechRadar() {
     radarBox.innerHTML = "";
 
     data.forEach(item => {
-
-      const title = item.title || "";
-      const category = item.category || "";
-      const source = item.source || "";
-      const updated = item.updated || "";
-      const url = item.url || "#";
 
       const card = document.createElement("div");
 
@@ -78,17 +69,17 @@ async function loadTechRadar() {
       card.style.transition = "transform .2s ease, box-shadow .2s ease";
 
       card.innerHTML = `
-        <h3 style="color:#00eaff;margin:0 0 10px 0;">
-          ${title}
+        <h3 style="color:#00eaff;margin:0 0 10px;">
+          ${item.title}
         </h3>
 
-        <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
-          <strong>Categoria:</strong> ${category}<br>
-          <strong>Fonte:</strong> ${source}<br>
-          <strong>Aggiornato:</strong> ${updated}
+        <p style="color:#ccc;margin:0 0 10px;font-size:0.9rem;">
+          <strong>Categoria:</strong> ${item.category}<br>
+          <strong>Fonte:</strong> ${item.source}<br>
+          <strong>Aggiornato:</strong> ${item.updated}
         </p>
 
-        <a href="${url}"
+        <a href="${item.url}"
            target="_blank"
            rel="noopener noreferrer"
            style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
@@ -96,20 +87,21 @@ async function loadTechRadar() {
         </a>
       `;
 
-      card.addEventListener("mouseenter", () => {
+      card.onmouseenter = () => {
         card.style.transform = "translateY(-4px)";
         card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
-      });
+      };
 
-      card.addEventListener("mouseleave", () => {
+      card.onmouseleave = () => {
         card.style.transform = "translateY(0)";
         card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
-      });
+      };
 
       radarBox.appendChild(card);
     });
 
   } catch (err) {
+
     radarBox.innerHTML =
       "<p style='color:#ff7b00;'>Impossibile caricare il Tech Radar.</p>";
 
@@ -119,6 +111,22 @@ async function loadTechRadar() {
 
 document.addEventListener("DOMContentLoaded", loadTechRadar);
 
-/* Aggiornamento ogni 5 minuti */
-setInterval(loadTechRadar, 300000);
+setInterval(loadTechRadar, 15000);
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+
+  navigator.serviceWorker
+    .getRegistrations()
+    .then(registrations => {
+      for (let reg of registrations) {
+        reg.unregister();
+      }
+    });
+
+  caches.keys().then(keys => {
+    keys.forEach(key => caches.delete(key));
+  });
+}
 </script>
