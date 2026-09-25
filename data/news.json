@@ -1,5 +1,60 @@
 [
   {
+    "title": "Microsoft plans to deprecate Windows Deployment Services",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-to-deprecate-windows-deployment-services-after-windows-server-2025/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/15/Windows_Server.jpg"
+  },
+  {
+    "title": "CISA Election Security Plan Flags Patching Barriers, Voter Database Attacks",
+    "link": "https://www.securityweek.com/cisa-election-security-plan-flags-patching-barriers-voter-database-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/election-voting.jpeg"
+  },
+  {
+    "title": "Kosovar Owner of Rydox Marketplace Pleads Guilty in US Court",
+    "link": "https://www.securityweek.com/kosovar-owner-of-rydox-marketplace-pleads-guilty-in-us-court/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/plead-guilty-hacker-court.jpeg"
+  },
+  {
+    "title": "Rydox marketplace admin pleads guilty, faces 22 years in prison",
+    "link": "https://www.bleepingcomputer.com/news/security/rydox-marketplace-admin-pleads-guilty-faces-22-years-in-prison/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/25/Hacker-prison.jpg"
+  },
+  {
+    "title": "The SOC Doesn't Need to Start Over with Every Alert",
+    "link": "https://thehackernews.com/2026/09/the-soc-doesnt-need-to-start-over-with.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0sz5D5hiSWYuUfbRDYDloMNzbx5dpvVQjC5ZVoYzIgvWL_Tkyx8AjNHjZ27RAwaPbCIQXNWB6o_FYzxjimFYHY2pHfp6m6b97tARxhdhqSHBkp2lYpfekwVLvUIm63ruwsHR7RlQkR-2jfOPELG2hjZrrYr9JYr4ndSfVaYIajhTpmB6Ud0DIXz1D_uI/s1600/soc-1.jpg"
+  },
+  {
+    "title": "Windows, Linux, Android File Notification Systems Leak User Activity",
+    "link": "https://www.securityweek.com/windows-linux-android-file-notification-systems-leak-user-activity/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/software-leak-operating-system.jpeg"
+  },
+  {
+    "title": "Bitget Says Suspected North Korean Hackers Stole $351.6M After Backend Compromise",
+    "link": "https://thehackernews.com/2026/09/bitget-says-suspected-north-korean.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpydVf-1UN81MyiMH8sAYBd4xiIBuM52UV7kyWmhhBlqohwuaFwgnP5wVx35gG3dHMWrtw0aoPh2zPLW-NaUI4qc_nmpybfA87lo6bzZmLb4WXnpNkYyEYEYMk7kaHeKH4G01yOeEBm44R8a7uAQmabg1k2pEd7MBRp9FM4QN4uA3rsXxkAfuKLWBUxQd_/s1600/bitget.jpg"
+  },
+  {
+    "title": "Microsoft: Recent Windows updates cause desktop loading issues",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-recent-windows-updates-cause-desktop-loading-issues/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/14/Windows-11.jpg"
+  },
+  {
+    "title": "Roundcube Pre-Auth SQL Injection Flaw Actively Exploited in the Wild",
+    "link": "https://thehackernews.com/2026/09/roundcube-pre-auth-sql-injection-flaw.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8MACS_IO_gIvzTjppTIaHyXZKPha3ZR13_sXQS7u9Ajphpz-FRL5GNIQzhpbveUPPLuMCq72MYNtdX5o6gF-9MZZg4rPF7mbOP_pjSXyTVOFy3XtzlQiMH6sIdTdsqgZpgQf-yZmk688M6BiOWdUNYZswJVQETAInFkZVZCl99ZoYoGhhgtpJZ0hs9JmV/s1600/roundcube.jpg"
+  },
+  {
+    "title": "\u2018SalesBleed\u2019 Flaws in Salesforce Agentforce Enabled Zero-Click Data Exfiltration",
+    "link": "https://www.securityweek.com/salesbleed-flaws-in-salesforce-agentforce-enabled-zero-click-data-exfiltration/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/08/Salesforce-e1759749812840.jpg"
+  },
+  {
+    "title": "Hackers steal $351.6 million in Bitget crypto exchange hack",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-steal-3516-million-in-bitget-crypto-exchange-hack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2020/12/21/Bitcoin-cryptocurrency.jpg"
+  },
+  {
     "title": "Russia's Hybrid Cyber-Physical War in Europe Heats Up",
     "link": "https://www.darkreading.com/physical-security/russia-hybrid-cyber-physical-war-europe",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8a27dbac2edf719a/6ab57742417cfced0b651132/Cyber_Russia-traffic_analyzer-GettyImages-952919134.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -93,60 +148,5 @@
     "title": "FedRAMP VDR & VER: Daily Scans Are Only the Beginning",
     "link": "https://www.bleepingcomputer.com/news/security/fedramp-vdr-and-ver-daily-scans-are-only-the-beginning/",
     "image": "https://www.bleepstatic.com/content/posts/2026/09/23/anecdotes-fedramp.jpg"
-  },
-  {
-    "title": "Ghost Service Accounts Enable M365 Data Theft in Chile",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/ghost-service-accounts-m365-data-theft-chile",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt616fa081889caa0c/6ab405d757365f201ef41265/Chile-Gwengoat-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hackers now exploit critical Roundcube flaw in code injection attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/critical-roundcube-flaw-now-actively-exploited-in-code-injection-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/24/Roundcube.jpg"
-  },
-  {
-    "title": "Prompt-Injection Bug Hits $4B Agentic AI App 'Manus'",
-    "link": "https://www.darkreading.com/application-security/prompt-injection-bug-agentic-ai-app-manus",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6cc4d4a12e6b7c68/6ab0590fdb2c1e1226ff0b0f/Hand_snap-Viktar_Sarkisian-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "AI-Powered Campaign Targets Hundreds of Online Retailers",
-    "link": "https://www.securityweek.com/ai-powered-campaign-targets-hundreds-of-online-retailers/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/dark-web-marketplace-credit-card.jpeg"
-  },
-  {
-    "title": "Windows 11 KB5124010 update released with 46 changes and fixes",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5124010-update-released-with-46-changes-and-fixes/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/27/Windows_11.jpg"
-  },
-  {
-    "title": "Corp MDM Spyware Targets Logistics Firms, Steals New SMS and Redirects Calls",
-    "link": "https://thehackernews.com/2026/09/corp-mdm-spyware-targets-logistics.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhitRqKj3-JlcQ69xxlsxJs80aq7MNxgAc_VrV-TCrHGTVEwdWKIdvAiwB4szXMT3cRKpkzCRVObZxAO47CLl3JWLRerxVSITKy9xorsP-XY212M07JzDkZ7VXOA-r0maycB0jMv0r5Kl3q0VgrxpoeYfHJ_gkeXbzXLKz_3gAhDGy1ML06lfta_5w8u_Xo/s1600/1000110893.jpg"
-  },
-  {
-    "title": "Eufy Omni C20, Omni X10 Pro",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02",
-    "image": ""
-  },
-  {
-    "title": "Botslab G980H Dashcams",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-01",
-    "image": ""
-  },
-  {
-    "title": "Siemens Mendix Runtime (Update A)",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-209-02",
-    "image": ""
-  },
-  {
-    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/09/24/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-    "image": ""
-  },
-  {
-    "title": "Island Raises $400 Million at $6.4 Billion Valuation",
-    "link": "https://www.securityweek.com/island-raises-400-million-at-6-4-billion-valuation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/funding-round.jpeg"
   }
 ]
