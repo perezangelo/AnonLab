@@ -1,132 +1,19 @@
-<section class="widget-large">
+<div class="widget-description" style="margin-bottom:20px;color:#aaa;font-size:.95rem;line-height:1.5;">
 
-  <div class="box-title-row">
-    <img src="/img/Cybersecurity<h2>Tech Radar</h2>
-
-    <a href="https://www.enisa.europa.eu/enisa-nis360-2026"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Apri il report ENISA NIS360 2026"
-       title="Consulta il report ENISA NIS360 2026"
-       style="color:#ff7b00;">
-      ENISA Threat Landscape →
-    </a>
-  </div>
-
-  <p style="margin:10px 0 20px;color:#cccccc;line-height:1.6;">
-    Il Tech Radar di AnonLab raccoglie tecnologie emergenti, framework di sicurezza,
-    standard, strumenti e risorse utilizzate nel settore della cybersecurity.
-    Le schede vengono aggiornate periodicamente per fornire una panoramica delle
-    tendenze tecnologiche, delle iniziative europee e delle soluzioni adottate
-    da SOC, analisti di Threat Intelligence, ricercatori OSINT e professionisti
-    della sicurezza informatica.
+  <p>
+    <strong>Strumenti Cyber di AnonLab</strong> raccoglie e organizza una selezione di tool utilizzati nell'ambito della cybersecurity,
+    dell'OSINT, del vulnerability management, del threat hunting, della digital forensics e della network security.
   </p>
 
-  <div style="background:#111;border-left:4px solid #00eaff;padding:12px 15px;margin:15px 0;">
-    <strong style="color:#00eaff;">Come leggere il Tech Radar</strong>
-    <p style="margin-top:8px;color:#ccc;">
-      Ogni scheda contiene una tecnologia, una risorsa o un'iniziativa rilevante.
-      La categoria identifica l'ambito di utilizzo, la fonte indica
-      l'organizzazione di riferimento e la data di aggiornamento aiuta a
-      valutarne l'attualità.
-    </p>
-  </div>
+  <p>
+    La sezione include piattaforme per l'analisi delle vulnerabilità, il monitoraggio delle minacce informatiche,
+    l'analisi degli indirizzi IP, la raccolta di informazioni open source, il controllo della reputazione dei domini,
+    la scansione dei servizi esposti e la valutazione della superficie di attacco.
+  </p>
 
-  <div id="tech-radar"></div>
+  <p>
+    Ogni scheda contiene una descrizione sintetica dello strumento, il collegamento diretto alla relativa risorsa
+    e informazioni utili per professionisti della sicurezza, studenti, ricercatori e appassionati di cyber defense.
+  </p>
 
-</section>
-
-<script>
-async function loadTechRadar() {
-
-  const radarBox = document.getElementById("tech-radar");
-
-  if (!radarBox) return;
-
-  radarBox.style.display = "grid";
-  radarBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
-  radarBox.style.gap = "20px";
-
-  try {
-
-    const res = await fetch(
-      "https://angelonline.altervista.org/api/tech-radar.php?ts=" + Date.now()
-    );
-
-    const data = await res.json();
-
-    radarBox.innerHTML = "";
-
-    data.forEach(item => {
-
-      const card = document.createElement("div");
-
-      card.style.background = "#0d0d0d";
-      card.style.border = "1px solid #1a1a1a";
-      card.style.borderRadius = "10px";
-      card.style.padding = "15px";
-      card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
-      card.style.transition = "transform .2s ease, box-shadow .2s ease";
-
-      card.innerHTML = `
-        <h3 style="color:#00eaff;margin:0 0 10px;">
-          ${item.title}
-        </h3>
-
-        <p style="color:#ccc;margin:0 0 10px;font-size:0.9rem;">
-          <strong>Categoria:</strong> ${item.category}<br>
-          <strong>Fonte:</strong> ${item.source}<br>
-          <strong>Aggiornato:</strong> ${item.updated}
-        </p>
-
-        <a href="${item.url}"
-           target="_blank"
-           rel="noopener noreferrer"
-           style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
-          Vai alla risorsa →
-        </a>
-      `;
-
-      card.onmouseenter = () => {
-        card.style.transform = "translateY(-4px)";
-        card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
-      };
-
-      card.onmouseleave = () => {
-        card.style.transform = "translateY(0)";
-        card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
-      };
-
-      radarBox.appendChild(card);
-    });
-
-  } catch (err) {
-
-    radarBox.innerHTML =
-      "<p style='color:#ff7b00;'>Impossibile caricare il Tech Radar.</p>";
-
-    console.error("Tech Radar error:", err);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", loadTechRadar);
-
-setInterval(loadTechRadar, 15000);
-</script>
-
-<script>
-if ('serviceWorker' in navigator) {
-
-  navigator.serviceWorker
-    .getRegistrations()
-    .then(registrations => {
-      for (let reg of registrations) {
-        reg.unregister();
-      }
-    });
-
-  caches.keys().then(keys => {
-    keys.forEach(key => caches.delete(key));
-  });
-}
-</script>
+</div>
