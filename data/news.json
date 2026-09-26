@@ -1,5 +1,20 @@
 [
   {
+    "title": "Claude Opus 5.5 uses 95% fewer em dashes, but its answers are getting longer",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-opus-55-uses-95-percent-fewer-em-dashes-but-its-answers-are-getting-longer/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png"
+  },
+  {
+    "title": "Microsoft pauses KB5002907 update after Office license deactivations",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-365-kb5002907-update-paused-after-office-license-deactivations/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/19/Microsoft365.jpg"
+  },
+  {
+    "title": "GitHub Actions re-enabled with Mini Shai-Hulud payload still active",
+    "link": "https://www.bleepingcomputer.com/news/security/github-actions-re-enabled-with-mini-shai-hulud-payload-still-active/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/Hackerbox.jpg"
+  },
+  {
     "title": "OpenAI's AI agents accidentally uploaded user-provided images to third-party sites",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-ai-agents-accidentally-uploaded-user-provided-images-to-third-party-sites/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/08/OpenAI.jpg"
@@ -8,6 +23,16 @@
     "title": "New x47.c Windows Botnet Weaponizes xAI Grok, AI API Draining",
     "link": "https://www.securityweek.com/new-x47-c-windows-botnet-weaponizes-xai-grok-ai-api-draining/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/12/botnet.jpeg"
+  },
+  {
+    "title": "Attackers Bypass WAFs to Exploit Oracle PeopleSoft Flaw and Deploy Web Shells",
+    "link": "https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYN2VWIT2g8mQkV0GeZWzYErKcubb0-baI8J__2nmdElucECc7HrLkdPsR1dz93qjMBI5sr_dL8yPWHf2bwWCBXa3YfutHAeJ-70UCSMuJrHhyOB3RO4OkuDjuw7gxRLXUnK-CeK9jZO0uOJRy-N3w-rV7uZ4t1FnFIWNjEsKtSYQINUvPX31mKzV_5Ert/s1600/oracle-flaw.jpg"
+  },
+  {
+    "title": "Zero Trust for AI Agents Starts With Fixing Zero Visibility",
+    "link": "https://thehackernews.com/2026/09/zero-trust-for-ai-agents-starts-with.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbfTXTCeNSvaPIRWOUJJxKPfYp45QnSjl24XZ1Set210zScJhg03o_TYX0QKPQdcSq-vkiWnymSqBu-bSwcCm1Kb2Te5do1VIcbCQjc_-TOOR6VwqRiHu5LE-tBb0gdrDjmPuDADfUraASQenGh-1gI4PF_xa2GwREsDM4vq4_C-aEU8EJsBBvhykJ1E0/s1600/sans-article.jpg"
   },
   {
     "title": "OpenAI Says Its Models Engaged With US Government Websites in New Model Misbehavior Disclosure",
@@ -75,11 +100,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg"
   },
   {
-    "title": "With the Rise of AI Agents, SOC 2 Should Adapt or Risk Irrelevance",
-    "link": "https://www.bleepingcomputer.com/news/security/with-the-rise-of-ai-agents-soc-2-should-adapt-or-risk-irrelevance/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/25/token-security-doors.jpg"
-  },
-  {
     "title": "Stopping IT Worker Scams Requires Revamped HR Process",
     "link": "https://www.darkreading.com/cyber-risk/stopping-it-worker-scams-revamped-hr-process",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf21a6316df171b0e/6ab67c37f1423b08bb4916ee/IT-worker-silouette-manufacturing-DC_Studio-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -98,11 +118,6 @@
     "title": "PamStealer macOS Malware Adds Live C2 Payload Decryption and Multi-Layer Persistence",
     "link": "https://thehackernews.com/2026/09/pamstealer-macos-malware-adds-live-c2.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRZ3gQjU3cKnH6bHzlz8PjeaUqGcrVWnRx-bT-mgDBYv-G4CM2Iix8afTJe8sAXEghuPTiD5KszOYzA0peRhyoGKNW9YE1QtwLubBFuv9YZjXnANEGyMGwi7-oEdIqmtRBWPzUZV7S91WiUX4cI2YVMHVSQbByCmIwAX9oZxvzjb2ScVJmpmMCzpDKaKtN/s1600/macos.jpg"
-  },
-  {
-    "title": "Microsoft plans to deprecate Windows Deployment Services",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-to-deprecate-windows-deployment-services-after-windows-server-2025/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/15/Windows_Server.jpg"
   },
   {
     "title": "CISA Election Security Plan Flags Patching Barriers, Voter Database Attacks",
@@ -125,11 +140,6 @@
     "image": ""
   },
   {
-    "title": "Rydox marketplace admin pleads guilty, faces 22 years in prison",
-    "link": "https://www.bleepingcomputer.com/news/security/rydox-marketplace-admin-pleads-guilty-faces-22-years-in-prison/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/25/Hacker-prison.jpg"
-  },
-  {
     "title": "The SOC Doesn't Need to Start Over with Every Alert",
     "link": "https://thehackernews.com/2026/09/the-soc-doesnt-need-to-start-over-with.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0sz5D5hiSWYuUfbRDYDloMNzbx5dpvVQjC5ZVoYzIgvWL_Tkyx8AjNHjZ27RAwaPbCIQXNWB6o_FYzxjimFYHY2pHfp6m6b97tARxhdhqSHBkp2lYpfekwVLvUIm63ruwsHR7RlQkR-2jfOPELG2hjZrrYr9JYr4ndSfVaYIajhTpmB6Ud0DIXz1D_uI/s1600/soc-1.jpg"
@@ -138,15 +148,5 @@
     "title": "Windows, Linux, Android File Notification Systems Leak User Activity",
     "link": "https://www.securityweek.com/windows-linux-android-file-notification-systems-leak-user-activity/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/software-leak-operating-system.jpeg"
-  },
-  {
-    "title": "Bitget Says Suspected North Korean Hackers Stole $351.6M After Backend Compromise",
-    "link": "https://thehackernews.com/2026/09/bitget-says-suspected-north-korean.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpydVf-1UN81MyiMH8sAYBd4xiIBuM52UV7kyWmhhBlqohwuaFwgnP5wVx35gG3dHMWrtw0aoPh2zPLW-NaUI4qc_nmpybfA87lo6bzZmLb4WXnpNkYyEYEYMk7kaHeKH4G01yOeEBm44R8a7uAQmabg1k2pEd7MBRp9FM4QN4uA3rsXxkAfuKLWBUxQd_/s1600/bitget.jpg"
-  },
-  {
-    "title": "Roundcube Pre-Auth SQL Injection Flaw Actively Exploited in the Wild",
-    "link": "https://thehackernews.com/2026/09/roundcube-pre-auth-sql-injection-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8MACS_IO_gIvzTjppTIaHyXZKPha3ZR13_sXQS7u9Ajphpz-FRL5GNIQzhpbveUPPLuMCq72MYNtdX5o6gF-9MZZg4rPF7mbOP_pjSXyTVOFy3XtzlQiMH6sIdTdsqgZpgQf-yZmk688M6BiOWdUNYZswJVQETAInFkZVZCl99ZoYoGhhgtpJZ0hs9JmV/s1600/roundcube.jpg"
   }
 ]
