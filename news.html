@@ -767,7 +767,21 @@ fetch("/partials/ticker.html")
         <p style="color:#ff7b00; font-weight:bold;">Approfondimento tecnico</p>
         <div id="predTech">Caricamento approfondimento...</div>
     </div>
-
+	
+<!-- Pulsante Scarica PDF -->
+	<button id="predPDF" style="
+margin-top:15px;
+background:#0077ff;
+color:#fff;
+padding:10px 15px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+box-shadow:0 0 10px #0077ffaa;
+">
+Scarica report previsionale 2026
+</button>
 </div>
 
     </section>
@@ -1795,6 +1809,18 @@ window.addEventListener("DOMContentLoaded", function() {
     expand.addEventListener("click", () => {
         techDiv.style.display = techDiv.style.display === "none" ? "block" : "none";
     });
+
+	// Pulsante PDF
+const predPDF = document.getElementById("predPDF");
+ 
+predPDF.addEventListener("click", () => {
+ 
+window.open(
+"https://www.enisa.europa.eu/publications/enisa-threat-landscape",
+"_blank"
+);
+ 
+});
 
     loadPredictions();
 });
