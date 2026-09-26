@@ -1707,9 +1707,13 @@ window.addEventListener("DOMContentLoaded", function() {
 
     // Pulsante PDF
     const pdfBtn = document.getElementById("insightsPDF");
-    pdfBtn.addEventListener("click", () => {
-        alert("Funzione PDF disponibile quando creiamo la pagina dedicata.");
-    });
+ 
+pdfBtn.addEventListener("click", () => {
+window.open(
+"https://www.enisa.europa.eu/sites/default/files/2026-09/ENISA%20Threat%20Landscape%202026_Final.pdf",
+"_blank"
+);
+});
 
     loadInsights();
 });
