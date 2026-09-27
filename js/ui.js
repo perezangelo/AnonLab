@@ -144,14 +144,23 @@ async function initOroscopo() {
 
         const base = "https://anonlab.it/img/oroscopo/";
 
-        function updateOroscopo() {
+       function updateOroscopo() {
+
     const sign = select.value;
     const signLabel = select.options[select.selectedIndex].text;
 
     img.src = base + sign + ".svg";
-    text.textContent = data[sign] || "Oroscopo non disponibile";
-    link.href = "https://www.google.com/search?q=oroscopo+" + encodeURIComponent(sign);
-    link.textContent = `Leggi l'oroscopo di ${signLabel} →`;
+
+    text.textContent =
+        data[sign] || "Oroscopo non disponibile";
+
+    link.href =
+        "https://www.corriere.it/oroscopo/oggi/" +
+        sign +
+        "/";
+
+    link.textContent =
+        `Leggi l'oroscopo di ${signLabel} →`;
 }
 
         updateOroscopo();
