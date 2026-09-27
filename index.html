@@ -1790,33 +1790,31 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
      
 <section class="widget-large">
-<div class="box-title-row">
-/img/threat-2.png
-<h2>Hacker Activity Intelligence</h2>
-<a href="/cyber.html"
-style="color:#ff7b00; text-decoration:none;"
-onmouseover="this.style.color='#ff9a40'"
-onmouseout="this.style.color='#ff7b00'">
-Cyber Threat Intelligence →
-</a>
-</div>
- 
-<div class="widget-description" style="margin:15px 0 20px;color:#aaa;font-size:.95rem;line-height:1.5;">
+  <div class="box-title-row">
+    <img src="/img/threat-2.png" class="box-title-icon" alt="Digital Shield">
+    <h2>Hacker Activity Intelligence</h2>
+    <a href="/cyber.html"
+       style="color:#ff7b00; text-decoration:none;"
+       onmouseover="this.style.color='#ff9a40'"
+       onmouseout="this.style.color='#ff7b00'">
+       Cyber Threat Intelligence →
+    </a>
+  </div>
+	<div class="widget-description" style="margin:15px 0 20px;color:#aaa;font-size:.95rem;line-height:1.5;">
 <p>
 <strong>Hacker Activity Intelligence</strong> monitora l'evoluzione delle attività cyber osservate a livello globale, analizzando>
 Le informazioni raccolte consentono di comprendere quali minacce risultano maggiormente attive, individuare trend emergenti nel panorama della sicurezza informatica e supportare attività di analisi, prevenzione e gestione del rischio cyber.
 </p>
 </div>
- 
-<div id="hacker-activity"></div>
+  <div id="hacker-activity"></div>
 </section>
- 
-/js/hacker-activity.jsscript>
+
+<script src="/js/hacker-activity.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-if (typeof initHackerActivity === "function") {
-initHackerActivity();
-}
+    if (typeof initHackerActivity === "function") {
+        initHackerActivity();
+    }
 });
 </script>
 
