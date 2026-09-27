@@ -162,7 +162,7 @@ async function initOroscopo() {
     link.textContent =
         `Leggi l'oroscopo di ${signLabel} →`;
 }
-
+       
         updateOroscopo();
         select.addEventListener("change", updateOroscopo);
 
