@@ -155,9 +155,7 @@ async function initOroscopo() {
         data[sign] || "Oroscopo non disponibile";
 
     link.href =
-        "https://www.corriere.it/oroscopo/oggi/" +
-        sign +
-        "/";
+        https://tg24.sky.it/lifestyle/oroscopo/${sign}/oggi`;
 
     link.textContent =
         `Leggi l'oroscopo di ${signLabel} →`;
