@@ -127,48 +127,74 @@ async function loadMeteo() {
 }
 
 /* ============================================================
-   OROSCOPO — VERSIONE DEFINITIVA
+OROSCOPO — VERSIONE DEFINITIVA SKY TG24
 ============================================================ */
-
+ 
 async function initOroscopo() {
-    const select = document.getElementById("oroscopo-select");
-    const img = document.getElementById("oroscopo-img");
-    const text = document.getElementById("oroscopo-text");
-    const link = document.getElementById("oroscopo-link");
-
-    if (!select || !img || !text || !link) return;
-
-    try {
-        const res = await fetch("https://anonlab.it/data/oroscopo.json");
-        const data = await res.json();
-
-        const base = "https://anonlab.it/img/oroscopo/";
-
-       function updateOroscopo() {
-
-    const sign = select.value;
-    const signLabel = select.options[select.selectedIndex].text;
-
-    img.src = base + sign + ".svg";
-
-    text.textContent =
-        data[sign] || "Oroscopo non disponibile";
-
-    link.href =
-        https://tg24.sky.it/lifestyle/oroscopo/${sign}/oggi`;
-
-    link.textContent =
-        `Leggi l'oroscopo di ${signLabel} →`;
+ 
+const select = document.getElementById("oroscopo-select");
+const img = document.getElementById("oroscopo-img");
+const text = document.getElementById("oroscopo-text");
+const link = document.getElementById("oroscopo-link");
+ 
+if (!select || !img || !text || !link) return;
+ 
+try {
+ 
+const res = await fetch(
+"https://anonlab.it/data/oroscopo.json"
+);
+ 
+const data = await res.json();
+ 
+const baseImg =
+"https://anonlab.it/img/oroscopo/";
+ 
+function updateOroscopo() {
+ 
+const sign = select.value;
+const signLabel =
+select.options[select.selectedIndex].text;
+ 
+img.src =
+`${baseImg}${sign}.svg`;
+ 
+text.textContent =
+data[sign] || "Oroscopo non disponibile";
+ 
+link.href =
+`https://tg24.sky.it/lifestyle/oroscopo/${sign}/oggi`;
+ 
+link.target = "_blank";
+link.rel = "noopener noreferrer";
+ 
+link.textContent =
+`Leggi l'oroscopo di ${signLabel} →`;
 }
-       
-        updateOroscopo();
-        select.addEventListener("change", updateOroscopo);
-
-    } catch (e) {
-        console.error("Errore oroscopo:", e);
-        text.textContent = "Oroscopo non disponibile";
-    }
+ 
+updateOroscopo();
+ 
+select.addEventListener(
+"change",
+updateOroscopo
+);
+ 
+} catch (error) {
+ 
+console.error(
+"Errore oroscopo:",
+error
+);
+ 
+text.textContent =
+"Oroscopo non disponibile";
 }
+}
+ 
+document.addEventListener(
+"DOMContentLoaded",
+initOroscopo
+);
 
 /* ============================================================
    OROSCOPO — ISCRIZIONE NEWSLETTER
