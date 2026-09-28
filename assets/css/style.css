@@ -142,11 +142,8 @@ img.src =
 text.textContent =
 data[sign] || "Oroscopo non disponibile";
  
-// LINK DIRETTO SKY TG24
 link.href =
-"https://www.google.com/search?q=oroscopo+" +
-sign +
-"+sky+tg24";
+`https://tg24.sky.it/lifestyle/oroscopo/${sign}/oggi`;
  
 link.target = "_blank";
 link.rel = "noopener noreferrer";
