@@ -1,16 +1,16 @@
 name: Oroscopo Newsletter
- 
+
 on:
-schedule:
-- cron: '0 4 * * *'
- 
-workflow_dispatch:
- 
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
 jobs:
-*send-newsletter:
-runs-on: ubun*u-latest
- 
-steps:
-- name:*Invia newsletter oroscopo
-*un: |
-curl -L "https://a*gelonline.altervista.org/backend/o*oscopo_newsletter.php?token=ANONLA*2026"
+  send-newsletter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invia newsletter oroscopo
+        run: |
+          curl -L "https://altervista.org"
+
