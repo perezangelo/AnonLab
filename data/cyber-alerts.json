@@ -1,5 +1,61 @@
 [
   {
+    "id": "CVE-2026-83557",
+    "summary": "jackson-databind: Comparable missing from DefaultBaseTypeLimitingValidator's unsafe base types (incomplete PolymorphicTypeValidator denylist)",
+    "severity": "MODERATE",
+    "published": "2026-09-28T20:44:25Z",
+    "ghsa": "GHSA-gx83-3vf8-gh7j"
+  },
+  {
+    "id": "CVE-2026-101913",
+    "summary": "ip-address: Address6.isLinkLocal() recognizes fe80::/64 rather than fe80::/10, allowing SSRF and trust-boundary bypass to on-link hosts",
+    "severity": "MODERATE",
+    "published": "2026-09-28T20:43:55Z",
+    "ghsa": "GHSA-rpw4-54j3-4h4q"
+  },
+  {
+    "id": "CVE-2026-101910",
+    "summary": "ip-address: no classifier recognizes the NAT64 local-use range 64:ff9b:1::/48, allowing SSRF and trust-boundary bypass",
+    "severity": "MODERATE",
+    "published": "2026-09-28T20:43:03Z",
+    "ghsa": "GHSA-2vr4-cq9g-pvrc"
+  },
+  {
+    "id": "CVE-2026-88058",
+    "summary": "Angular SSR: XSS via Unescaped Processing Instruction (<?...?>) Nodes in Fallback Raw-Content Elements",
+    "severity": "HIGH",
+    "published": "2026-09-28T20:39:26Z",
+    "ghsa": "GHSA-j3r3-mxqp-r2p4"
+  },
+  {
+    "id": "CVE-2026-68497",
+    "summary": "jackson-databind: Duration XMLGregorianCalendar Unbounded Number Parse DoS",
+    "severity": "HIGH",
+    "published": "2026-09-28T20:19:46Z",
+    "ghsa": "GHSA-q4xh-88c3-wmh7"
+  },
+  {
+    "id": "CVE-2026-19032",
+    "summary": "jackson-databind: Path Deserialization Missing Scheme Allowlist for FileSystemProvider Resolution",
+    "severity": "MODERATE",
+    "published": "2026-09-28T20:19:19Z",
+    "ghsa": "GHSA-wjgm-6hv5-3cvf"
+  },
+  {
+    "id": "CVE-2026-77310",
+    "summary": "jackson-databind: Incomplete fix for CVE-2026-54514: eager DNS resolution (SSRF) still present in InetAddress deserialization",
+    "severity": "MODERATE",
+    "published": "2026-09-28T20:17:41Z",
+    "ghsa": "GHSA-vvgp-rfg2-7rr6"
+  },
+  {
+    "id": "CVE-2026-101914",
+    "summary": "@grpc/grpc-js: The exact path match matcher incorrectly only applies a prefix match for case-insensitive matches",
+    "severity": "MODERATE",
+    "published": "2026-09-28T19:43:51Z",
+    "ghsa": "GHSA-88h9-xgvx-hvf2"
+  },
+  {
     "id": "CVE-2026-61834",
     "summary": "scim-patch: Mutation of Inherited Built-in Method Objects",
     "severity": "MODERATE",
@@ -12,61 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-28T13:59:43Z",
     "ghsa": "GHSA-456v-xq2p-r4cj"
-  },
-  {
-    "id": "CVE-2026-57443",
-    "summary": "SCBE-AETHERMOORE Unauthenticated AetherBrowser Ops API Exposes Operator Email Digests",
-    "severity": "HIGH",
-    "published": "2026-09-25T21:48:03Z",
-    "ghsa": "GHSA-q986-4x7x-gx39"
-  },
-  {
-    "id": "GHSA-vj8p-hp9x-gh47",
-    "summary": "mpp vulnerable to Gas Draining with low gas limit",
-    "severity": "HIGH",
-    "published": "2026-09-25T21:47:36Z",
-    "ghsa": "GHSA-vj8p-hp9x-gh47"
-  },
-  {
-    "id": "GHSA-qpxh-ff8m-c62v",
-    "summary": "mpp vulnerable to Gas Draining with access list",
-    "severity": "MODERATE",
-    "published": "2026-09-25T21:45:16Z",
-    "ghsa": "GHSA-qpxh-ff8m-c62v"
-  },
-  {
-    "id": "GHSA-vv77-66rf-pm86",
-    "summary": "mpp vulnerable to Gas Draining with no limit",
-    "severity": "HIGH",
-    "published": "2026-09-25T21:44:12Z",
-    "ghsa": "GHSA-vv77-66rf-pm86"
-  },
-  {
-    "id": "CVE-2026-100368",
-    "summary": "CliInvoke.Specializations has command injection in PowerShell and Cmd shell wrappers",
-    "severity": "HIGH",
-    "published": "2026-09-25T21:41:48Z",
-    "ghsa": "GHSA-wrvw-254r-wpmv"
-  },
-  {
-    "id": "CVE-2026-100369",
-    "summary": "CliInvoke: Argument Injection in Extensibility Runner Factory",
-    "severity": "HIGH",
-    "published": "2026-09-25T21:41:36Z",
-    "ghsa": "GHSA-j73w-8hfr-4gc9"
-  },
-  {
-    "id": "GHSA-62mm-xwmv-crhg",
-    "summary": "khoj has an unauthenticated path traversal in /home/ endpoint that allows file read from server filesystem",
-    "severity": "HIGH",
-    "published": "2026-09-25T21:38:15Z",
-    "ghsa": "GHSA-62mm-xwmv-crhg"
-  },
-  {
-    "id": "CVE-2026-86439",
-    "summary": "Knowns Unrestricted Path Traversal leading to out-of-bounds arbitrary .md file read, write, and deletion in MCP Docs + Memory Tools",
-    "severity": "HIGH",
-    "published": "2026-09-25T19:32:05Z",
-    "ghsa": "GHSA-9gfj-28hw-jchp"
   }
 ]
