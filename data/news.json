@@ -1,5 +1,75 @@
 [
   {
+    "title": "Prison Sentence for Former US Soldier Who Hacked AT&T and Verizon",
+    "link": "https://www.securityweek.com/prison-sentence-for-former-us-soldier-who-hacked-att-and-verizon/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-sentenced-prison.jpeg"
+  },
+  {
+    "title": "Webinar: How to Govern AI Agents, Reduce Excessive Access, and Control Shadow AI",
+    "link": "https://thehackernews.com/2026/09/webinar-how-to-govern-ai-agents-reduce.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibRtgg2jeMV3szE5OkdAQtqtUYgPjYEf96vKrzXPpd8_9XDiXOC9iTBfh-neWto1RsFBY0qXpLpc71bz9OwQQ8agSkvr6zYzcqwI157keOyKgX-_L-mwGdLJxLrGhbV_yK4wQn2Jc4E72zhY7XPa05O61GOgFR3-9cpbgYbACE-dR9CqqHuavdrJV8GVg/s1600/webinar-agents.jpg"
+  },
+  {
+    "title": "Carbonato Botnet Compromises Docker Hosts to Deploy Telegram-Controlled Hermes AI Agent",
+    "link": "https://thehackernews.com/2026/09/carbonato-botnet-compromises-docker.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3O4ih8J3-A5sGh57xyYKMGbnSqaXbWhu2g9HBE_mG11gEdedMUmYyeeYpA9TnNPwRsB4t-5V9UTW54iOR0VNzyaaa0fWhOG4Oi46KwGvrrVQRdWIDS7GX6YxjaMrA6sF9RHWNyO8gBttCQ7Nc8LUmrhhH24jSp1lPDuhok9r3CfKxgGJRObZRqRTW-5Gf/s1600/hermes-telegram.jpg"
+  },
+  {
+    "title": "DC Health Agency Exposes 400,000 Beneficiary Records",
+    "link": "https://www.securityweek.com/dc-health-agency-exposes-400000-beneficiary-records/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/05/healthcare-medical-data-breach-.jpeg"
+  },
+  {
+    "title": "Google Warns of ShinyHunters\u2019 Fresh Oracle PeopleSoft Campaign",
+    "link": "https://www.securityweek.com/google-warns-of-shinyhunters-fresh-oracle-peoplesoft-campaign/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Oracle-PeopleSoft.jpeg"
+  },
+  {
+    "title": "New Mexico Jury Finds Facebook Liable for Deceiving Users About Privacy Protections",
+    "link": "https://www.securityweek.com/new-mexico-jury-finds-facebook-liable-for-deceiving-users-about-privacy-protections/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/01/instagram-facebook-meta-threads-social-media.jpeg"
+  },
+  {
+    "title": "Nvidia Unveils AI Agent Safety Platform With Hardware-Based Watchdog",
+    "link": "https://www.securityweek.com/nvidia-unveils-ai-agent-safety-platform-with-hardware-based-watchdog/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Nvidia-AI.webp"
+  },
+  {
+    "title": "Kiteworks Urges Server Shutdown, Finds Advanced Forms Vulnerability",
+    "link": "https://www.securityweek.com/kiteworks-urges-server-shutdown-finds-advanced-forms-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/file-transfer-Moveit.jpg"
+  },
+  {
+    "title": "Bitget resumes Bitcoin withdrawals after $387.5 million crypto heist",
+    "link": "https://www.bleepingcomputer.com/news/security/bitget-resumes-bitcoin-withdrawals-after-3875-million-crypto-heist/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/28/Bitget.jpg"
+  },
+  {
+    "title": "JADEPUFFER-Linked Attackers Used Compromised Service Principals to Delete Azure Resources",
+    "link": "https://thehackernews.com/2026/09/jadepuffer-linked-attackers-used.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHYvL1hsEQjB3x7u-jNflFT0QK3a9IEFse8ghWqV9SxkawlFerAn8pzjfYgztccVleVlLzZcDlOSvu7gqJhHP_XLWL1lqZkeIVCifya8Ohinriqk_o-kpzzdtv4x7NinDhQgWbE9B7yJliuJPGZ2x0qh9jRgkWfyNyPexujdTWpLTbfe7MKRVQT1Z3BAQ9/s1600/azure-ai.jpg"
+  },
+  {
+    "title": "US soldier gets 70 months in prison for extorting 10 tech, telecom firms",
+    "link": "https://www.bleepingcomputer.com/news/security/us-soldier-gets-70-months-in-prison-for-extorting-10-tech-telecom-firms/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/28/Prison.jpg"
+  },
+  {
+    "title": "Citrix Confirms 2 NetScaler Zero-Days After Admins Pulled the Plug",
+    "link": "https://www.securityweek.com/citrix-confirms-2-netscaler-zero-days-after-admins-pulled-the-plug/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Citrix-vulnerability.jpeg"
+  },
+  {
+    "title": "CISA Says Attackers Are Exploiting Two Critical Citrix NetScaler Flaws Globally",
+    "link": "https://thehackernews.com/2026/09/cisa-says-attackers-are-exploiting-two.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjG1pBfETB-EOlAvKfZwROp5B3Nr3d00xBbxRPhsq5hDBvK8QTVYmc2r8tR8RNz7omvXWoufetWbVk1S-tZ74b-z0nxsHS_Zz7XnN4Vs7VGvDtlnOhsfG0ecx-LX_kuRwBLJwkIMN-26auGXjzdcAS2Yz8sdQ2U_kDtKpQOnOYD18r6WEu1twQ79p_ZJGhD/s1600/ct.jpg"
+  },
+  {
+    "title": "CISA orders feds to patch exploited Citrix flaws by Wednesday",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-citrix-flaws-by-wednesday/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/20/Citrix.jpg"
+  },
+  {
     "title": "OpenAI is preparing \u201co,\u201d an always-on ChatGPT assistant that could handle email",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-o-an-always-on-chatgpt-assistant-that-could-handle-email/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/03/24/ChatGPT-logo.jpg"
@@ -65,16 +135,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/05/19/Microsoft365.jpg"
   },
   {
-    "title": "GitHub Actions re-enabled with Mini Shai-Hulud payload still active",
-    "link": "https://www.bleepingcomputer.com/news/security/github-actions-re-enabled-with-mini-shai-hulud-payload-still-active/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/Hackerbox.jpg"
-  },
-  {
-    "title": "OpenAI's AI agents accidentally uploaded user-provided images to third-party sites",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-ai-agents-accidentally-uploaded-user-provided-images-to-third-party-sites/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/08/OpenAI.jpg"
-  },
-  {
     "title": "New x47.c Windows Botnet Weaponizes xAI Grok, AI API Draining",
     "link": "https://www.securityweek.com/new-x47-c-windows-botnet-weaponizes-xai-grok-ai-api-draining/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/12/botnet.jpeg"
@@ -88,65 +148,5 @@
     "title": "Zero Trust for AI Agents Starts With Fixing Zero Visibility",
     "link": "https://thehackernews.com/2026/09/zero-trust-for-ai-agents-starts-with.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbfTXTCeNSvaPIRWOUJJxKPfYp45QnSjl24XZ1Set210zScJhg03o_TYX0QKPQdcSq-vkiWnymSqBu-bSwcCm1Kb2Te5do1VIcbCQjc_-TOOR6VwqRiHu5LE-tBb0gdrDjmPuDADfUraASQenGh-1gI4PF_xa2GwREsDM4vq4_C-aEU8EJsBBvhykJ1E0/s1600/sans-article.jpg"
-  },
-  {
-    "title": "OpenAI Says Its Models Engaged With US Government Websites in New Model Misbehavior Disclosure",
-    "link": "https://www.securityweek.com/openai-says-its-models-engaged-with-us-government-websites-in-new-model-misbehavior-disclosure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Elementor CSRF Flaw Lets Attackers Take Over Sites After Admin Clicks Crafted Link",
-    "link": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoCsmpn_im_gimeko6yEdebgucFfzjRrTH0Hmvl1triNXT64w_JdoBIqCrFEApRZ9mmKBYfJQ1fqgfubPH3ZRaWW7SJ2HSr18mBsjSdFE6AwVl362SwcdzHp0EtlL2qoVuYARkSKmOqQaORUjjYVAM-PCT9Itvvkgb69lyVLttezAFtAuCw86RpPu3lAo4/s1600/wordpress-ele.jpg"
-  },
-  {
-    "title": "SharePoint RCE and MikroTik RouterOS Flaws Actively Exploited in the Wild",
-    "link": "https://thehackernews.com/2026/09/sharepoint-rce-and-mikrotik-routeros.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEPamtRBBEzltsUWnj-F8umrMf4eUUhTmGUJdhHlrvWZamHWpBtXcrpQKDArTziRiiIWv8psX4DTZyN9kLBtcAyLOPJma9_M7sYKgYz6WBISbOhJrRlfByfCKfTTMdBqaYUp-0nskrt2ndt3poUFLDGegEFJojS0EzEvwAqzaUNtvX26jZopYE4zA4S3K/s1600/share-kev.jpg"
-  },
-  {
-    "title": "Kiteworks Urges Customers to Shut Down Systems for 9 Hours Over Possible Cyber Attack",
-    "link": "https://thehackernews.com/2026/09/kiteworks-urges-customers-to-shut-down.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv53vaJYNeZNicsGcrBICKzTEXfHanPN-VR6-pTFsSJEV2IGpJn2MainwfMgqV2k96VN_ocXYLbmykTSVpwTPZr16tauFV37hU3g-lA4X31aqJQFYIsdwlHwNUIhNn9euB8SddL8d7wRKa7Ira2vNi51WNHyJivZ2Z3kkRDcAZtCQfSyvZHNLrZbqbF7jr/s1600/kite.jpg"
-  },
-  {
-    "title": "Kiteworks urges 6-hour server shutdown over potential zero-day attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/kiteworks-urges-6-hour-server-shutdown-over-potential-zero-day-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/25/kiteworks-bright.jpg"
-  },
-  {
-    "title": "How the CISO CFO Relationship is a Key to Cybersecurity Success",
-    "link": "https://www.darkreading.com/cyber-risk/how-to-manage-ciso-cfo-relationship-cybersecurity-success",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1682014f9a4fac6c/6762e3fbfe28e22e7d279cce/CFO_(1800)_Dzmitry_Skazau_Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "AI Sandbox Escapes: Why Forensic Readiness Matters More Than Containment",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/ai-sandbox-escapes-forensic-readiness",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt33c1376950d82e3b/6ab6c3109aed719a106d58d7/sandbox-almaphoto-Getty-2255089996.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "What We Missed: Google Gemini Joins the AI Escape Party",
-    "link": "https://www.darkreading.com/cyber-risk/what-we-missed-google-gemini-ai-escape-party",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2b2c9d6b9326d649/6ab5930f4df1903bce49b5db/aibots-Gremlin-Getty-1494693841.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "In Other News: Clop Leak Site Takeover, Docker Botnet Hunts AI Keys, Water Utility Exposure",
-    "link": "https://www.securityweek.com/in-other-news-clop-leak-site-takeover-docker-botnet-hunts-ai-keys-water-utility-exposure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-  },
-  {
-    "title": "Stopping IT Worker Scams Requires Revamped HR Process",
-    "link": "https://www.darkreading.com/cyber-risk/stopping-it-worker-scams-revamped-hr-process",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltf21a6316df171b0e/6ab67c37f1423b08bb4916ee/IT-worker-silouette-manufacturing-DC_Studio-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Compromised GitHub Actions Came Back Online and Resumed Executing Mini Shai-Hulud Malware",
-    "link": "https://thehackernews.com/2026/09/compromised-github-actions-came-back.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJFMIQ6v0uJDRoxyIhqsoqsYoXN00dcDH4IvkdQAkRBRj6ha5LIu2-2yzzvQk1OZTc-7tK1fjeqyIh8xvRNvz_CotOtGNsYnejlbHED7cI-bmZFP80JIdxk_0D9I6Zo10-6b4x4euCTaRtz8c6ncYKykDsW7Bt4oFEVYWTe3AHJdiUxM32R6hGP9C0Y0Xf/s1600/github-shai.jpg"
-  },
-  {
-    "title": "North Korea Suspected in $351 Million Bitget Crypto Heist",
-    "link": "https://www.securityweek.com/north-korea-suspected-in-351-million-bitget-crypto-heist/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/bitcoin-cryptocurrency.jpeg"
   }
 ]
