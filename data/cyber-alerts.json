@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-61834",
+    "summary": "scim-patch: Mutation of Inherited Built-in Method Objects",
+    "severity": "MODERATE",
+    "published": "2026-09-28T14:01:15Z",
+    "ghsa": "GHSA-2mhw-wcx5-v3xj"
+  },
+  {
+    "id": "GHSA-456v-xq2p-r4cj",
+    "summary": "code-ollama: `grep_search` Command Injection via Unescaped `$()` Shell Substitution (CWE-78)",
+    "severity": "HIGH",
+    "published": "2026-09-28T13:59:43Z",
+    "ghsa": "GHSA-456v-xq2p-r4cj"
+  },
+  {
     "id": "CVE-2026-57443",
     "summary": "SCBE-AETHERMOORE Unauthenticated AetherBrowser Ops API Exposes Operator Email Digests",
     "severity": "HIGH",
@@ -54,19 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-25T19:32:05Z",
     "ghsa": "GHSA-9gfj-28hw-jchp"
-  },
-  {
-    "id": "GHSA-29h2-jr22-frmh",
-    "summary": "OpenZeppelin Confidential Contracts `VestingWalletConfidential`: a malicious ERC-7984 token is able to extract private data from the vesting wallet",
-    "severity": "HIGH",
-    "published": "2026-09-25T19:31:08Z",
-    "ghsa": "GHSA-29h2-jr22-frmh"
-  },
-  {
-    "id": "CVE-2026-53493",
-    "summary": "Containerd has image-pull DoS via crafted OCI index graph amplification",
-    "severity": "MODERATE",
-    "published": "2026-09-25T19:27:59Z",
-    "ghsa": "GHSA-pg57-6jwg-q645"
   }
 ]
