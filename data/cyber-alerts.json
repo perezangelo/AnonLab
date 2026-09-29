@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-6vj9-mwq6-2f5v",
-    "summary": "Nodemailer: Process-global DNS cache reuses TLS `servername` across transports, enabling cross-tenant SMTP credential disclosure",
-    "severity": "MODERATE",
-    "published": "2026-09-28T21:56:05Z",
-    "ghsa": "GHSA-6vj9-mwq6-2f5v"
-  },
-  {
-    "id": "CVE-2026-85024",
-    "summary": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
-    "severity": "MODERATE",
-    "published": "2026-09-28T21:42:37Z",
-    "ghsa": "GHSA-3wwx-pv8p-q78v"
-  },
-  {
-    "id": "CVE-2026-88932",
-    "summary": "multer vulnerable to Denial of Service via orphaned disk writes on aborted uploads",
-    "severity": "MODERATE",
-    "published": "2026-09-28T21:34:58Z",
-    "ghsa": "GHSA-3pph-fpjx-jg34"
-  },
-  {
-    "id": "CVE-2026-87859",
-    "summary": "morgan vulnerable to Log Injection via unescaped double quote in quoted log fields",
-    "severity": "MODERATE",
-    "published": "2026-09-28T21:33:08Z",
-    "ghsa": "GHSA-9f6g-j8ch-79g4"
-  },
-  {
-    "id": "CVE-2026-101895",
-    "summary": "Angular SSR: Denial of Service (DoS) via Infinite Loop on Malformed DOCTYPE",
+    "id": "GHSA-rcw4-f5rp-g42v",
+    "summary": "adm-zip: Decompression-bomb protection (fix for CVE-2026-39244) can be bypassed by declaring uncompressed size as 0",
     "severity": "HIGH",
-    "published": "2026-09-28T21:31:21Z",
-    "ghsa": "GHSA-f67j-2jqw-jpq7"
+    "published": "2026-09-29T18:25:20Z",
+    "ghsa": "GHSA-rcw4-f5rp-g42v"
   },
   {
-    "id": "CVE-2026-84292",
-    "summary": "fast-uri vulnerable to authority injection via an unvalidated port in serialize",
+    "id": "CVE-2026-102282",
+    "summary": "adm-zip extraction preserves SUID/SGID bits from untrusted ZIPs -> local privilege escalation",
     "severity": "HIGH",
-    "published": "2026-09-28T21:24:39Z",
-    "ghsa": "GHSA-qw65-cvwx-89v3"
+    "published": "2026-09-29T18:24:57Z",
+    "ghsa": "GHSA-j5f4-cc29-5x44"
   },
   {
-    "id": "CVE-2026-84394",
-    "summary": "fast-uri vulnerable to host confusion via an unclosed bracket in the URI authority",
+    "id": "CVE-2026-102279",
+    "summary": "Laravel: XSS in Debug Page Information",
+    "severity": "LOW",
+    "published": "2026-09-29T18:24:25Z",
+    "ghsa": "GHSA-jh5r-qr3c-85q8"
+  },
+  {
+    "id": "GHSA-8vvx-rff5-p5rq",
+    "summary": "Nodemailer: Nested structured recipient arrays bypass the parser depth limit and cause stack exhaustion DoS",
+    "severity": "MODERATE",
+    "published": "2026-09-29T18:23:50Z",
+    "ghsa": "GHSA-8vvx-rff5-p5rq"
+  },
+  {
+    "id": "CVE-2026-102274",
+    "summary": "PyJWT: Malformed RSA JWK aborts parsing of an entire JWK Set",
+    "severity": "MODERATE",
+    "published": "2026-09-29T18:23:01Z",
+    "ghsa": "GHSA-w6j9-cwv2-h6wq"
+  },
+  {
+    "id": "CVE-2026-18149",
+    "summary": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
+    "severity": "MODERATE",
+    "published": "2026-09-29T18:22:34Z",
+    "ghsa": "GHSA-pmjh-fq2x-6v4x"
+  },
+  {
+    "id": "CVE-2026-18540",
+    "summary": "undici vulnerable to downstream response splitting via retry interceptor",
+    "severity": "LOW",
+    "published": "2026-09-29T18:22:07Z",
+    "ghsa": "GHSA-r53p-7pc4-xj5r"
+  },
+  {
+    "id": "CVE-2026-19534",
+    "summary": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
     "severity": "HIGH",
-    "published": "2026-09-28T21:23:35Z",
-    "ghsa": "GHSA-58mr-gqgx-xq4g"
+    "published": "2026-09-29T18:21:33Z",
+    "ghsa": "GHSA-rfgv-xxqx-mfg5"
   },
   {
-    "id": "CVE-2026-83557",
-    "summary": "jackson-databind: Comparable missing from DefaultBaseTypeLimitingValidator's unsafe base types (incomplete PolymorphicTypeValidator denylist)",
+    "id": "CVE-2026-84890",
+    "summary": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
     "severity": "MODERATE",
-    "published": "2026-09-28T20:44:25Z",
-    "ghsa": "GHSA-gx83-3vf8-gh7j"
+    "published": "2026-09-29T18:20:37Z",
+    "ghsa": "GHSA-3xpg-4rpp-hhhm"
   },
   {
-    "id": "CVE-2026-101913",
-    "summary": "ip-address: Address6.isLinkLocal() recognizes fe80::/64 rather than fe80::/10, allowing SSRF and trust-boundary bypass to on-link hosts",
+    "id": "CVE-2026-84933",
+    "summary": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
     "severity": "MODERATE",
-    "published": "2026-09-28T20:43:55Z",
-    "ghsa": "GHSA-rpw4-54j3-4h4q"
-  },
-  {
-    "id": "CVE-2026-101910",
-    "summary": "ip-address: no classifier recognizes the NAT64 local-use range 64:ff9b:1::/48, allowing SSRF and trust-boundary bypass",
-    "severity": "MODERATE",
-    "published": "2026-09-28T20:43:03Z",
-    "ghsa": "GHSA-2vr4-cq9g-pvrc"
+    "published": "2026-09-29T18:19:58Z",
+    "ghsa": "GHSA-2jfj-6hjv-fm6j"
   }
 ]
