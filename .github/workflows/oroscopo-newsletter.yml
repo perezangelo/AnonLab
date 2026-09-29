@@ -1,4 +1,4 @@
-name: Oroscopo Newsletter
+name: Newsletter Oroscopo
 
 on:
   schedule:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Invia newsletter oroscopo
+      - name: Avvia newsletter
         run: |
-          curl -L "https://altervista.org"
+          curl -L "https://angelonline.altervista.org/backend/cron-newsletter-oroscopo.php?token=ANONLAB2026"
 
