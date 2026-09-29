@@ -1,13 +1,68 @@
 [
   {
-    "title": "New Spectre v2 attack variant leaks Linux root password hash in minutes",
-    "link": "https://www.bleepingcomputer.com/news/security/new-spectre-v2-attack-variant-leaks-linux-root-password-hash-in-minutes/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/06/02/motherboard-cpu-bios.jpg"
+    "title": "Unsloth Studio Flaw Turns Routine Model Inspection Into Code Execution",
+    "link": "https://www.darkreading.com/application-security/unsloth-studio-flaw-model-inspection-code-execution",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt8798a931788fea60/6abc103774949935866a41da/sloth-webguzs-GettyImages-2249770137.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Custom ChatGPTs push ClickFix attacks to deploy RAT malware",
+    "link": "https://www.bleepingcomputer.com/news/security/custom-chatgpts-push-clickfix-attacks-to-deploy-rat-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/chatgpt.jpg"
+  },
+  {
+    "title": "OpenAI CEO Announces New AI Agent and Avoids Mention of Security Concerns at Developer Conference",
+    "link": "https://www.securityweek.com/openai-ceo-announces-new-ai-agent-and-avoids-mention-of-security-concerns-at-developer-conference/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "FBI tells ShinyHunters members to turn themselves in after recent arrest",
+    "link": "https://www.bleepingcomputer.com/news/security/fbi-tells-shinyhunters-members-to-turn-themselves-in-after-recent-arrest/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/fbi-danger.jpg"
+  },
+  {
+    "title": "Hackers exploit Citrix NetScaler zero-day to deploy web shells",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-exploit-citrix-netscaler-zero-day-to-deploy-web-shells/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/07/21/citrix_headpic.jpg"
+  },
+  {
+    "title": "Former US Air Force members sent to prison over BEC attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/former-us-air-force-members-sent-to-prison-over-bec-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/Hackers-Dollars.jpg"
+  },
+  {
+    "title": "French Tax Data Theft Using Stolen Staff Passwords Went Undetected for Seven Weeks",
+    "link": "https://thehackernews.com/2026/09/french-tax-data-theft-using-stolen.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9h550xeoGqzMnMqY6B6Ejo9xeSvbx4fnnu1OmLWvhYAvYeLNB1zeik8F8yYB82oW685qieusoRaI27P68ugA34Vg0720ZZdLfQUJtuIjxkUYRgq_hQtivtsopRYYoddpwb4mICLERqQrVKtZv5EHg78rU14dlQmgevB0KsOR0ePvG4E8cpqKB1TyliaE/s1600/france.jpg"
+  },
+  {
+    "title": "Windows 11 2026 Update released, here's everything you need to know",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-2026-update-released-heres-everything-you-need-to-know/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/03/Windows-11.jpg"
+  },
+  {
+    "title": "DARPA Selects Xint to Use AI in Securing Military Messaging Apps",
+    "link": "https://www.securityweek.com/darpa-selects-xint-to-use-ai-in-securing-military-messaging-apps/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/DARPA-Technology.jpg"
   },
   {
     "title": "New Spectre-v2 BTR Attack Leaks Linux Memory Despite Existing Defenses",
     "link": "https://thehackernews.com/2026/09/new-spectre-v2-btr-attack-leaks-linux.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCNHT9zDz8oOamcA5EH8a3KGAtk9R9bE_UxGY_uPThgxZJu9vX-YG1olbgiX5WBVdwDd52LpDfSyryC6GZ45tUi2bKLe_aWnbj0Ir3WQZeGYF8Vr7U7icoPn4tcuwfpOZagVfry-KG5_jzLPb-fbPiFBlv142UOgqAPpC193t6BslvCE1l1XWo2z5_mFYV/s1600/linux-intel.jpg"
+  },
+  {
+    "title": "Russia's Star Blizzard Targets 100+ Organizations With Fake Event Invites to Deliver Backdoor",
+    "link": "https://thehackernews.com/2026/09/russias-star-blizzard-targets-100.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQDuuJUT-WU7XzUYYoKEDtFKt7QAra8I4G0ptQRyveku8G6fD6R0aSWw32hi-2fd0L28qUxjqJoTlQoJbLiBYH6NBOVYirQZ9LfH-UvD8JG5uiL_m4ZkBVnPLiArcivCsdMNegW1XGxFEzas4cwkzFVeY4r22qTqSp2U1Fo3Nw7urOlnWRKGFHW8pW91E/s1600/ms-invite.jpg"
+  },
+  {
+    "title": "New Spectre v2 attack variant leaks Linux root password hash in minutes",
+    "link": "https://www.bleepingcomputer.com/news/security/new-spectre-v2-attack-variant-leaks-linux-root-password-hash-in-minutes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/06/02/motherboard-cpu-bios.jpg"
+  },
+  {
+    "title": "Cloudflare Announces Public Certificate Authority for the Post-Quantum Web",
+    "link": "https://www.darkreading.com/cloud-security/cloudflare-announces-public-certificate-authority-post-quantum-web",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "New Spectre v2 Variant Exposes Intel, AMD, Arm CPUs to Data Leaks",
@@ -93,60 +148,5 @@
     "title": "Toptech TMS7 and TopHAT",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-02",
     "image": ""
-  },
-  {
-    "title": "Lantronix G520 Series Cellular Gateway",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-01",
-    "image": ""
-  },
-  {
-    "title": "Rig Security Emerges From Stealth With $12M to Tackle Agentic AI Identity Risks",
-    "link": "https://www.securityweek.com/rig-security-emerges-from-stealth-with-12m-to-tackle-agentic-ai-identity-risks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Vietnamese man charged in $16 million 'pig butchering' crypto scam",
-    "link": "https://www.bleepingcomputer.com/news/security/vietnamese-man-charged-in-16-million-pig-butchering-crypto-scam/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/27/Hacker-Bitcoin-Dollars.jpg"
-  },
-  {
-    "title": "Four Cyber Threats Harboring Big Plans for the Future",
-    "link": "https://www.securityweek.com/four-cyber-threats-harboring-big-plans-for-the-future/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "OpenAI Calls Off GPT-6.1 Astra Launch, Details Safety Cases for Frontier Training",
-    "link": "https://www.securityweek.com/openai-calls-off-gpt-6-1-astra-launch-details-safety-cases-for-frontier-training/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/OpenAI.jpeg"
-  },
-  {
-    "title": "Dutch Police Arrest Convicted Hacker in ShinyHunters Investigation",
-    "link": "https://www.securityweek.com/dutch-police-arrest-convicted-hacker-in-shinyhunters-investigation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/hacker-arrested.jpeg"
-  },
-  {
-    "title": "Daemon Tools Hackers\u2019 NeedyMantis Malware Dissected by Microsoft",
-    "link": "https://www.securityweek.com/daemon-tools-hackers-needymantis-malware-dissected-by-microsoft/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
-  },
-  {
-    "title": "Kiteworks patches critical flaw, brings customer systems online",
-    "link": "https://www.bleepingcomputer.com/news/security/kiteworks-lifts-shutdown-warning-after-patching-critical-flaw/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/Kiteworks.jpg"
-  },
-  {
-    "title": "Dutch Police Arrest 24-Year-Old Amsterdam Man in ShinyHunters Investigation",
-    "link": "https://thehackernews.com/2026/09/dutch-police-arrest-24-year-old.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWsGNpV8Y5_YLcyxRYju8E3caiN3I3Zttrlvxhz5iXfzVIR_Ayp_d_Zn2Wk12ZBkz5nW4eYfKeEs-xxs9kYuS_paAwO3wJleeUxdMRbrbU_lXwWVuG7ajiFH0UOEcoj3almps5b54DXt-mGy73GhXjCQzGsNNDJkhdfJXRI9XWeFF5hfsr4zjQty-Wued5/s1600/1000111943.jpg"
-  },
-  {
-    "title": "Apple patches CoreGraphics zero-day flaw exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/Apple.jpg"
-  },
-  {
-    "title": "Official MCP Python SDK Flaw Can Let Malicious Servers Steal OAuth Credentials",
-    "link": "https://thehackernews.com/2026/09/official-mcp-python-sdk-flaw-can-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2N5owhsoQXHTQV74afwfngdyitjwcW37BHLX2QKkq6xZAxP8_AOXAh1ODPj5DyvvmMUq3mKH9eR2B1r7owc6djzLViK2U4BY_hw3rTWmaHjhFEyyh8LPlUMPZ7MdWkqN7bjtQyMByBLrsI5m0mAU9y-IbrsAe9OPhZXHN63AWwuv_1OB5MSrpRdVZ9CM/s1600/mcp-python.jpg"
   }
 ]
