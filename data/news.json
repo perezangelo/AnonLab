@@ -1,5 +1,65 @@
 [
   {
+    "title": "Vietnamese man charged in $16 million 'pig butchering' crypto scam",
+    "link": "https://www.bleepingcomputer.com/news/security/vietnamese-man-charged-in-16-million-pig-butchering-crypto-scam/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/27/Hacker-Bitcoin-Dollars.jpg"
+  },
+  {
+    "title": "Four Cyber Threats Harboring Big Plans for the Future",
+    "link": "https://www.securityweek.com/four-cyber-threats-harboring-big-plans-for-the-future/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "OpenAI Calls Off GPT-6.1 Astra Launch, Details Safety Cases for Frontier Training",
+    "link": "https://www.securityweek.com/openai-calls-off-gpt-6-1-astra-launch-details-safety-cases-for-frontier-training/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/OpenAI.jpeg"
+  },
+  {
+    "title": "Dutch Police Arrest Convicted Hacker in ShinyHunters Investigation",
+    "link": "https://www.securityweek.com/dutch-police-arrest-convicted-hacker-in-shinyhunters-investigation/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/hacker-arrested.jpeg"
+  },
+  {
+    "title": "Daemon Tools Hackers\u2019 NeedyMantis Malware Dissected by Microsoft",
+    "link": "https://www.securityweek.com/daemon-tools-hackers-needymantis-malware-dissected-by-microsoft/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
+  },
+  {
+    "title": "Kiteworks patches critical flaw, brings customer systems online",
+    "link": "https://www.bleepingcomputer.com/news/security/kiteworks-lifts-shutdown-warning-after-patching-critical-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/Kiteworks.jpg"
+  },
+  {
+    "title": "Dutch Police Arrest 24-Year-Old Amsterdam Man in ShinyHunters Investigation",
+    "link": "https://thehackernews.com/2026/09/dutch-police-arrest-24-year-old.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWsGNpV8Y5_YLcyxRYju8E3caiN3I3Zttrlvxhz5iXfzVIR_Ayp_d_Zn2Wk12ZBkz5nW4eYfKeEs-xxs9kYuS_paAwO3wJleeUxdMRbrbU_lXwWVuG7ajiFH0UOEcoj3almps5b54DXt-mGy73GhXjCQzGsNNDJkhdfJXRI9XWeFF5hfsr4zjQty-Wued5/s1600/1000111943.jpg"
+  },
+  {
+    "title": "Apple patches CoreGraphics zero-day flaw exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/apple-patches-coregraphics-zero-day-flaw-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/Apple.jpg"
+  },
+  {
+    "title": "Apple Patches Zero-Day Linked to \u2018Extremely Sophisticated Attack\u2019",
+    "link": "https://www.securityweek.com/apple-patches-meta-reported-zero-day-linked-to-extremely-sophisticated-attack/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
+  },
+  {
+    "title": "Official MCP Python SDK Flaw Can Let Malicious Servers Steal OAuth Credentials",
+    "link": "https://thehackernews.com/2026/09/official-mcp-python-sdk-flaw-can-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2N5owhsoQXHTQV74afwfngdyitjwcW37BHLX2QKkq6xZAxP8_AOXAh1ODPj5DyvvmMUq3mKH9eR2B1r7owc6djzLViK2U4BY_hw3rTWmaHjhFEyyh8LPlUMPZ7MdWkqN7bjtQyMByBLrsI5m0mAU9y-IbrsAe9OPhZXHN63AWwuv_1OB5MSrpRdVZ9CM/s1600/mcp-python.jpg"
+  },
+  {
+    "title": "OpenAI Shelves GPT-6.1 Astra After Tests Find Deception and Unauthorized Actions",
+    "link": "https://thehackernews.com/2026/09/openai-shelves-gpt-61-astra-after-tests.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeiHpQjvEicRlkD9F-pR6I5h9MLRWRtX0Wd84u8ThZ5XIsZ-TZwHjTyXj93Z6GV0-5MNhAO2bCQCGfMHuoW7-0ovwpXFwxTy-gvBNJ3iCrlDjBAimAS-ayH7ZfzIL9kzMaV5Wn8FwBR17ehonB72Yvweyp4msb6uPEZxvnEj0QDMF2BDFYkPfU9_GGakFi/s1600/astra.jpg"
+  },
+  {
+    "title": "OpenAI Pauses Tool Use After Agent Bypasses Internet Controls to Reach External Chatbot",
+    "link": "https://thehackernews.com/2026/09/openai-pauses-tool-use-after-agent.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2NfY2zvkkU95qQwwR7N_yQQf_H2AjYcXccbK2yH7xzzeAqmu3mH9ItszzC14M2suvDnfz6EBB-QzMkCTUBIgaoX9teGfhmBIBvU9R-wsKQBcC90f5lytvP-hYfCy8o-YTDTh8rIqz8mj1NIikN27BE2vsWyaRgiKPeAe3zbmrkdy6Dkg8htztnoyJwS4o/s1600/openai-chatbot.jpg"
+  },
+  {
     "title": "One Packet Can Crash OT Servers in Industrial Sectors",
     "link": "https://www.darkreading.com/ics-ot-security/one-packet-crash-servers-tdengine",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1a4e2e84866c963b/6abad9206f2a1229af4c529c/bugconcept_Elena_Abrazhevich_shutterstock_REVISED_FOR_16_BY_9.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -88,65 +148,5 @@
     "title": "\u26a1 Weekly Recap: $387M Crypto Hack, Citrix Exploits, AI Agents Go Off-Script, and More Threats",
     "link": "https://thehackernews.com/2026/09/weekly-recap-387m-crypto-hack-citrix.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4-eWVCAN2nvZGZrKlwm-wminZE56MzJ_bVRK6CJfdBw9TXU4yQy6t9T0hDi0hSOskE9Xs6M-KCVEbVvBuL2DLDkew97W2iobOPZa9zqEBeGPWBnW8cftdD1FwzBLz7CIGVhJb1FwnS-35B62Jqc331zNQ67hZP-V2jKBT7yUxUV4rn8jMr27QCommYp-j/s1600/c-recap.jpg"
-  },
-  {
-    "title": "80,000+ Organizations Had AI Logins Stolen: From Shadow AI to LLMjacking",
-    "link": "https://www.bleepingcomputer.com/news/security/80-000-plus-organizations-had-ai-logins-stolen-from-shadow-ai-to-llmjacking/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/24/socradar-identity-exposure-report.jpg"
-  },
-  {
-    "title": "Prison Sentence for Former US Soldier Who Hacked AT&T and Verizon",
-    "link": "https://www.securityweek.com/prison-sentence-for-former-us-soldier-who-hacked-att-and-verizon/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-sentenced-prison.jpeg"
-  },
-  {
-    "title": "Webinar: How to Govern AI Agents, Reduce Excessive Access, and Control Shadow AI",
-    "link": "https://thehackernews.com/2026/09/webinar-how-to-govern-ai-agents-reduce.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibRtgg2jeMV3szE5OkdAQtqtUYgPjYEf96vKrzXPpd8_9XDiXOC9iTBfh-neWto1RsFBY0qXpLpc71bz9OwQQ8agSkvr6zYzcqwI157keOyKgX-_L-mwGdLJxLrGhbV_yK4wQn2Jc4E72zhY7XPa05O61GOgFR3-9cpbgYbACE-dR9CqqHuavdrJV8GVg/s1600/webinar-agents.jpg"
-  },
-  {
-    "title": "Carbonato Botnet Compromises Docker Hosts to Deploy Telegram-Controlled Hermes AI Agent",
-    "link": "https://thehackernews.com/2026/09/carbonato-botnet-compromises-docker.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3O4ih8J3-A5sGh57xyYKMGbnSqaXbWhu2g9HBE_mG11gEdedMUmYyeeYpA9TnNPwRsB4t-5V9UTW54iOR0VNzyaaa0fWhOG4Oi46KwGvrrVQRdWIDS7GX6YxjaMrA6sF9RHWNyO8gBttCQ7Nc8LUmrhhH24jSp1lPDuhok9r3CfKxgGJRObZRqRTW-5Gf/s1600/hermes-telegram.jpg"
-  },
-  {
-    "title": "DC Health Agency Exposes 400,000 Beneficiary Records",
-    "link": "https://www.securityweek.com/dc-health-agency-exposes-400000-beneficiary-records/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/05/healthcare-medical-data-breach-.jpeg"
-  },
-  {
-    "title": "Google Warns of ShinyHunters\u2019 Fresh Oracle PeopleSoft Campaign",
-    "link": "https://www.securityweek.com/google-warns-of-shinyhunters-fresh-oracle-peoplesoft-campaign/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Oracle-PeopleSoft.jpeg"
-  },
-  {
-    "title": "New Mexico Jury Finds Facebook Liable for Deceiving Users About Privacy Protections",
-    "link": "https://www.securityweek.com/new-mexico-jury-finds-facebook-liable-for-deceiving-users-about-privacy-protections/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/01/instagram-facebook-meta-threads-social-media.jpeg"
-  },
-  {
-    "title": "Nvidia Unveils AI Agent Safety Platform With Hardware-Based Watchdog",
-    "link": "https://www.securityweek.com/nvidia-unveils-ai-agent-safety-platform-with-hardware-based-watchdog/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Nvidia-AI.webp"
-  },
-  {
-    "title": "Kiteworks Urges Server Shutdown, Finds Advanced Forms Vulnerability",
-    "link": "https://www.securityweek.com/kiteworks-urges-server-shutdown-finds-advanced-forms-vulnerability/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/12/file-transfer-Moveit.jpg"
-  },
-  {
-    "title": "Bitget resumes Bitcoin withdrawals after $387.5 million crypto heist",
-    "link": "https://www.bleepingcomputer.com/news/security/bitget-resumes-bitcoin-withdrawals-after-3875-million-crypto-heist/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/28/Bitget.jpg"
-  },
-  {
-    "title": "JADEPUFFER-Linked Attackers Used Compromised Service Principals to Delete Azure Resources",
-    "link": "https://thehackernews.com/2026/09/jadepuffer-linked-attackers-used.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHYvL1hsEQjB3x7u-jNflFT0QK3a9IEFse8ghWqV9SxkawlFerAn8pzjfYgztccVleVlLzZcDlOSvu7gqJhHP_XLWL1lqZkeIVCifya8Ohinriqk_o-kpzzdtv4x7NinDhQgWbE9B7yJliuJPGZ2x0qh9jRgkWfyNyPexujdTWpLTbfe7MKRVQT1Z3BAQ9/s1600/azure-ai.jpg"
-  },
-  {
-    "title": "US soldier gets 70 months in prison for extorting 10 tech, telecom firms",
-    "link": "https://www.bleepingcomputer.com/news/security/us-soldier-gets-70-months-in-prison-for-extorting-10-tech-telecom-firms/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/28/Prison.jpg"
   }
 ]
