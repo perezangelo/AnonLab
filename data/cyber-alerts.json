@@ -1,5 +1,54 @@
 [
   {
+    "id": "GHSA-6vj9-mwq6-2f5v",
+    "summary": "Nodemailer: Process-global DNS cache reuses TLS `servername` across transports, enabling cross-tenant SMTP credential disclosure",
+    "severity": "MODERATE",
+    "published": "2026-09-28T21:56:05Z",
+    "ghsa": "GHSA-6vj9-mwq6-2f5v"
+  },
+  {
+    "id": "CVE-2026-85024",
+    "summary": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+    "severity": "MODERATE",
+    "published": "2026-09-28T21:42:37Z",
+    "ghsa": "GHSA-3wwx-pv8p-q78v"
+  },
+  {
+    "id": "CVE-2026-88932",
+    "summary": "multer vulnerable to Denial of Service via orphaned disk writes on aborted uploads",
+    "severity": "MODERATE",
+    "published": "2026-09-28T21:34:58Z",
+    "ghsa": "GHSA-3pph-fpjx-jg34"
+  },
+  {
+    "id": "CVE-2026-87859",
+    "summary": "morgan vulnerable to Log Injection via unescaped double quote in quoted log fields",
+    "severity": "MODERATE",
+    "published": "2026-09-28T21:33:08Z",
+    "ghsa": "GHSA-9f6g-j8ch-79g4"
+  },
+  {
+    "id": "CVE-2026-101895",
+    "summary": "Angular SSR: Denial of Service (DoS) via Infinite Loop on Malformed DOCTYPE",
+    "severity": "HIGH",
+    "published": "2026-09-28T21:31:21Z",
+    "ghsa": "GHSA-f67j-2jqw-jpq7"
+  },
+  {
+    "id": "CVE-2026-84292",
+    "summary": "fast-uri vulnerable to authority injection via an unvalidated port in serialize",
+    "severity": "HIGH",
+    "published": "2026-09-28T21:24:39Z",
+    "ghsa": "GHSA-qw65-cvwx-89v3"
+  },
+  {
+    "id": "CVE-2026-84394",
+    "summary": "fast-uri vulnerable to host confusion via an unclosed bracket in the URI authority",
+    "severity": "HIGH",
+    "published": "2026-09-28T21:23:35Z",
+    "ghsa": "GHSA-58mr-gqgx-xq4g"
+  },
+  {
     "id": "CVE-2026-83557",
     "summary": "jackson-databind: Comparable missing from DefaultBaseTypeLimitingValidator's unsafe base types (incomplete PolymorphicTypeValidator denylist)",
     "severity": "MODERATE",
@@ -19,54 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-09-28T20:43:03Z",
     "ghsa": "GHSA-2vr4-cq9g-pvrc"
-  },
-  {
-    "id": "CVE-2026-88058",
-    "summary": "Angular SSR: XSS via Unescaped Processing Instruction (<?...?>) Nodes in Fallback Raw-Content Elements",
-    "severity": "HIGH",
-    "published": "2026-09-28T20:39:26Z",
-    "ghsa": "GHSA-j3r3-mxqp-r2p4"
-  },
-  {
-    "id": "CVE-2026-68497",
-    "summary": "jackson-databind: Duration XMLGregorianCalendar Unbounded Number Parse DoS",
-    "severity": "HIGH",
-    "published": "2026-09-28T20:19:46Z",
-    "ghsa": "GHSA-q4xh-88c3-wmh7"
-  },
-  {
-    "id": "CVE-2026-19032",
-    "summary": "jackson-databind: Path Deserialization Missing Scheme Allowlist for FileSystemProvider Resolution",
-    "severity": "MODERATE",
-    "published": "2026-09-28T20:19:19Z",
-    "ghsa": "GHSA-wjgm-6hv5-3cvf"
-  },
-  {
-    "id": "CVE-2026-77310",
-    "summary": "jackson-databind: Incomplete fix for CVE-2026-54514: eager DNS resolution (SSRF) still present in InetAddress deserialization",
-    "severity": "MODERATE",
-    "published": "2026-09-28T20:17:41Z",
-    "ghsa": "GHSA-vvgp-rfg2-7rr6"
-  },
-  {
-    "id": "CVE-2026-101914",
-    "summary": "@grpc/grpc-js: The exact path match matcher incorrectly only applies a prefix match for case-insensitive matches",
-    "severity": "MODERATE",
-    "published": "2026-09-28T19:43:51Z",
-    "ghsa": "GHSA-88h9-xgvx-hvf2"
-  },
-  {
-    "id": "CVE-2026-61834",
-    "summary": "scim-patch: Mutation of Inherited Built-in Method Objects",
-    "severity": "MODERATE",
-    "published": "2026-09-28T14:01:15Z",
-    "ghsa": "GHSA-2mhw-wcx5-v3xj"
-  },
-  {
-    "id": "GHSA-456v-xq2p-r4cj",
-    "summary": "code-ollama: `grep_search` Command Injection via Unescaped `$()` Shell Substitution (CWE-78)",
-    "severity": "HIGH",
-    "published": "2026-09-28T13:59:43Z",
-    "ghsa": "GHSA-456v-xq2p-r4cj"
   }
 ]
