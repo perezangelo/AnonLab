@@ -1,5 +1,110 @@
 [
   {
+    "title": "New Spectre v2 attack variant leaks Linux root password hash in minutes",
+    "link": "https://www.bleepingcomputer.com/news/security/new-spectre-v2-attack-variant-leaks-linux-root-password-hash-in-minutes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/06/02/motherboard-cpu-bios.jpg"
+  },
+  {
+    "title": "New Spectre-v2 BTR Attack Leaks Linux Memory Despite Existing Defenses",
+    "link": "https://thehackernews.com/2026/09/new-spectre-v2-btr-attack-leaks-linux.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCNHT9zDz8oOamcA5EH8a3KGAtk9R9bE_UxGY_uPThgxZJu9vX-YG1olbgiX5WBVdwDd52LpDfSyryC6GZ45tUi2bKLe_aWnbj0Ir3WQZeGYF8Vr7U7icoPn4tcuwfpOZagVfry-KG5_jzLPb-fbPiFBlv142UOgqAPpC193t6BslvCE1l1XWo2z5_mFYV/s1600/linux-intel.jpg"
+  },
+  {
+    "title": "New Spectre v2 Variant Exposes Intel, AMD, Arm CPUs to Data Leaks",
+    "link": "https://www.securityweek.com/new-spectre-v2-variant-exposes-intel-amd-arm-cpus-to-data-leaks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/08/CPU-attack.jpg"
+  },
+  {
+    "title": "Automated AI agent used to breach cybersecurity nonprofit DIVD",
+    "link": "https://www.bleepingcomputer.com/news/security/automated-ai-agent-used-to-breach-cybersecurity-nonprofit-divd/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/botnet.jpg"
+  },
+  {
+    "title": "'NeedyMantis' Provides Long-Term Access to Compromised Networks",
+    "link": "https://www.darkreading.com/threat-intelligence/needymantis-long-term-access-compromised-networks",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt587de2f4ce0cd974/6abba097ef266a69c6555f1a/Valentin_Baciu-preying-mantis-shutterstock.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "RemoteThreat Launches With $7 Million for Offensive Operations Platform",
+    "link": "https://www.securityweek.com/remotethreat-launches-with-7-million-for-offensive-operations-platform/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/funding-round.jpeg"
+  },
+  {
+    "title": "Dual NetScaler Zero-Days Trigger Chaos for Citrix Customers",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/netscaler-zero-days-chaos-citrix",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt5de91a8011e409dc/68ae00c0ae4a7a4290bef1c1/citrix_JHVEPhoto_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Kiteworks Fixes Critical Flaw Found During Nine-Hour Precautionary Shutdown",
+    "link": "https://thehackernews.com/2026/09/kiteworks-fixes-critical-flaw-found.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv9oZ7uWtniIGlzNM3FXdS2v4WjdHi8ajTw0evMWbzhC9ihnkOwrxAqV7sgJou4SMDrJo2z5uDOQPRX1Bb0Hx1P1Str7iZQ4wssATmqsb6o0IfOPafzmnX6UXgkweBDB_QKqBVJZsNdMibEvAykjIzluSiJEnxnhFehzw-q2bhZ7heCFv97on69dZMjPrb/s1600/kiteworks.jpg"
+  },
+  {
+    "title": "Catch threats before they escalate with real-time Identity Telemetry",
+    "link": "https://www.bleepingcomputer.com/news/security/catch-threats-before-they-escalate-with-real-time-identity-telemetry/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/25/tenfold-handcuffs.jpg"
+  },
+  {
+    "title": "101 Malicious npm Packages Add Developers' WhatsApp Accounts to Groups Without Consent",
+    "link": "https://thehackernews.com/2026/09/101-malicious-npm-packages-add.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhUmW5o4XCEsBlPE2MKecTG-IHCrk1WHeLajiNnRTpGtT-DDhpYVID3Pon7cseFiJN24GulDnjR7TPRe6h-kQEuJBPRl87atgBytMvKbiRV4h_DHWtxQEtogyy3U-aAD6ErNCrYiOQV-tHvHcw_P4W8z37PpR-jo70sePvtLIvMwKx7MJuE8Fazhyphenhyphen7_KI5/s1600/npm-whatsapp.jpg"
+  },
+  {
+    "title": "Reco Raises $55 Million for Agentic Security",
+    "link": "https://www.securityweek.com/reco-raises-55-million-for-agentic-security/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/funding-investment.jpeg"
+  },
+  {
+    "title": "Hackers Use ChatGPT Custom GPTs in ClickFix Attacks",
+    "link": "https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/03/AI_Risks-ChatGPT.jpg"
+  },
+  {
+    "title": "Pentagon Personnel Agency Data Breach Impacts 3 Million People",
+    "link": "https://www.securityweek.com/pentagon-personnel-agency-data-breach-impacts-3-million-people/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/03/Pentagon.jpeg"
+  },
+  {
+    "title": "Baicells Nova 430H",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-04",
+    "image": ""
+  },
+  {
+    "title": "MikroTik RouterOS",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-06",
+    "image": ""
+  },
+  {
+    "title": "VIVOTEK Camera Firmware",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-03",
+    "image": ""
+  },
+  {
+    "title": "Anjvision YSSD-RTMP-H5",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-05",
+    "image": ""
+  },
+  {
+    "title": "Viidure Dashcam Android Application",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-07",
+    "image": ""
+  },
+  {
+    "title": "Toptech TMS7 and TopHAT",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-02",
+    "image": ""
+  },
+  {
+    "title": "Lantronix G520 Series Cellular Gateway",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-01",
+    "image": ""
+  },
+  {
+    "title": "Rig Security Emerges From Stealth With $12M to Tackle Agentic AI Identity Risks",
+    "link": "https://www.securityweek.com/rig-security-emerges-from-stealth-with-12m-to-tackle-agentic-ai-identity-risks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
     "title": "Vietnamese man charged in $16 million 'pig butchering' crypto scam",
     "link": "https://www.bleepingcomputer.com/news/security/vietnamese-man-charged-in-16-million-pig-butchering-crypto-scam/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/04/27/Hacker-Bitcoin-Dollars.jpg"
@@ -40,113 +145,8 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/Apple.jpg"
   },
   {
-    "title": "Apple Patches Zero-Day Linked to \u2018Extremely Sophisticated Attack\u2019",
-    "link": "https://www.securityweek.com/apple-patches-meta-reported-zero-day-linked-to-extremely-sophisticated-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Apple-MacBook-iPhone.jpeg"
-  },
-  {
     "title": "Official MCP Python SDK Flaw Can Let Malicious Servers Steal OAuth Credentials",
     "link": "https://thehackernews.com/2026/09/official-mcp-python-sdk-flaw-can-let.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2N5owhsoQXHTQV74afwfngdyitjwcW37BHLX2QKkq6xZAxP8_AOXAh1ODPj5DyvvmMUq3mKH9eR2B1r7owc6djzLViK2U4BY_hw3rTWmaHjhFEyyh8LPlUMPZ7MdWkqN7bjtQyMByBLrsI5m0mAU9y-IbrsAe9OPhZXHN63AWwuv_1OB5MSrpRdVZ9CM/s1600/mcp-python.jpg"
-  },
-  {
-    "title": "OpenAI Shelves GPT-6.1 Astra After Tests Find Deception and Unauthorized Actions",
-    "link": "https://thehackernews.com/2026/09/openai-shelves-gpt-61-astra-after-tests.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeiHpQjvEicRlkD9F-pR6I5h9MLRWRtX0Wd84u8ThZ5XIsZ-TZwHjTyXj93Z6GV0-5MNhAO2bCQCGfMHuoW7-0ovwpXFwxTy-gvBNJ3iCrlDjBAimAS-ayH7ZfzIL9kzMaV5Wn8FwBR17ehonB72Yvweyp4msb6uPEZxvnEj0QDMF2BDFYkPfU9_GGakFi/s1600/astra.jpg"
-  },
-  {
-    "title": "OpenAI Pauses Tool Use After Agent Bypasses Internet Controls to Reach External Chatbot",
-    "link": "https://thehackernews.com/2026/09/openai-pauses-tool-use-after-agent.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2NfY2zvkkU95qQwwR7N_yQQf_H2AjYcXccbK2yH7xzzeAqmu3mH9ItszzC14M2suvDnfz6EBB-QzMkCTUBIgaoX9teGfhmBIBvU9R-wsKQBcC90f5lytvP-hYfCy8o-YTDTh8rIqz8mj1NIikN27BE2vsWyaRgiKPeAe3zbmrkdy6Dkg8htztnoyJwS4o/s1600/openai-chatbot.jpg"
-  },
-  {
-    "title": "One Packet Can Crash OT Servers in Industrial Sectors",
-    "link": "https://www.darkreading.com/ics-ot-security/one-packet-crash-servers-tdengine",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1a4e2e84866c963b/6abad9206f2a1229af4c529c/bugconcept_Elena_Abrazhevich_shutterstock_REVISED_FOR_16_BY_9.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Japan's Keio confirms ransomware attack disrupted business systems",
-    "link": "https://www.bleepingcomputer.com/news/security/japans-keio-confirms-ransomware-attack-disrupted-business-systems/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/28/tokyo-train.jpg"
-  },
-  {
-    "title": "Times Car confirms data breach affecting 6.6 million user accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/times-car-confirms-data-breach-affecting-66-million-user-accounts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/28/timescar.jpg"
-  },
-  {
-    "title": "Carbonato Botnet Puts an AI Agent on Hacked Docker Hosts",
-    "link": "https://www.darkreading.com/identity-access-management-security/carbonato-botnet-ai-agent-hacked-docker-hosts",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte42c5730d22cf0f1/6abab79a8ce025f8ce48d849/botnet_cyber_attack-Hengki_Lestio-GettyImages-2232351432.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Dutch police confirm arrest in ShinyHunters hacking investigation",
-    "link": "https://www.bleepingcomputer.com/news/security/dutch-police-confirm-arrest-in-shinyhunters-hacking-investigation/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2021/10/29/arrest-cuffs.jpg"
-  },
-  {
-    "title": "Apple Patches CoreGraphics Flaw Possibly Exploited in Targeted Attacks",
-    "link": "https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO5I5gnKOqAs0ZCjgQnQirUHdSjRqGZRMp-Fioy684EzZWuQm72wSrCW1hWZEYlvvOXoCtkQyr3sB48AoZ71PM6tMCsz_AGZmEYZz8u2AbrH1gpjutU-mFtDQpuJcI_pKEG9q4-cZEo7T3Yp7hyphenhyphen4_MCZvloRnVKszE7rjTDUKZBaH1eQ47-K0fPno50T3S/s1600/apple-0day.jpg"
-  },
-  {
-    "title": "Over 16,000 Supabase databases expose PII, passwords, auth tokens",
-    "link": "https://www.bleepingcomputer.com/news/security/misconfigured-supabase-apps-expose-data-in-over-16-000-databases/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/29/DataLeak.jpg"
-  },
-  {
-    "title": "AI Agents Are Privileged Users; Who Is Auditing Their Access?",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/ai-agents-are-privileged-users-who-is-auditing-their-access",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6c9f5fa659c439fa/6abab77dfee74bb9c8c001cc/AI_agent-MF3d-Getty-2217030312.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hackers Use NeedyMantis to Maintain Long-Term Access in Breached Networks",
-    "link": "https://thehackernews.com/2026/09/hackers-use-needymantis-to-maintain.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJgqNtFBBtX_6em5nY1VC9Q4M6HMG7gzxiQspFHsQRfQgm3LK5kTsHi-9SbwEx8kaeVv7BtKGFq3u1SmTGFEOe0z78fxFCxRFVEb09v0FMZ5tT-FNl7sUBnsGPPpDlAaQh4E_CSQQnwFakxNll2AvKiBvidb9ljEatmOzdJV4T4z8r5lmYG3DINHy-wR0/s1600/hackers.jpg"
-  },
-  {
-    "title": "IAM for AI agents: A Practical Enterprise Framework",
-    "link": "https://thehackernews.com/2026/09/iam-for-ai-agent.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5iI5XAgqXDB1IvqmdWgs2QFGVb5cAbMuJgwtgpKwvRtamF2xs9Od5F4Xwv7JhH8HC0yDOUx1ErLjZaeOBSu8mkCR3ewFb3x3VTV-IFbfXwUR2Pzoqf6_JKFq9de2wf1enmkMSK8M5QU2FBGovMkMkhLzI2qV90LuQYTgdMW-ymc5zxrv_yieHXBUr4Ck/s1600/OR.jpg"
-  },
-  {
-    "title": "Bitget Says Attacker Exploited Third-Party Security Product Flaw to Steal $388M",
-    "link": "https://thehackernews.com/2026/09/bitget-says-attacker-exploited-third.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgA8s-yMULxIXnKcHnHw7w1dF9pt58MDYc_-_wfJPo8ifPgGoD0GZcgE408ZdC1GbZvjp2wOOEYrlR8obpFEXZ-KUSjIBXFFb3LcswKfAd3EODISE5hSkU-QplYeZDnK95i0QrJhNZKcKEVgedmkKjAme9PV4vDLV-OY7Bh9KhCINbGuglY49greoPLCJQ/s1600/bitget-hacker.jpg"
-  },
-  {
-    "title": "RatHat Android Malware Console Uses Gemini to Identify Higher-Value Victims",
-    "link": "https://thehackernews.com/2026/09/rathat-android-malware-console-uses.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvGUhf2JsmovUtvjDk66AKULOtbtRwTqgcT_6lr5l8AEuwc-12IQTTWfvjKCYEn6-wwc4ZLDWAWh6Edv3-XcPDL1HHPFwRkwY1Nc_BUItyEO8iCXBDKEitrgYapLi__gpKnYqtFNm1M2c4tGiY3qrS_CgRG5ZF5qnqVUv4Gx9Pqk_cPz4N05KVwUNgTcw/s1600/gemini-malware.jpg"
-  },
-  {
-    "title": "Modulate Raises $25 Million to Advance Deepfake Detection",
-    "link": "https://www.securityweek.com/modulate-raises-25-million-to-advance-deepfake-detection/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Chrome Store Hosts 'Poper Blocker' Spyware Downloaded by Millions",
-    "link": "https://www.darkreading.com/application-security/chrome-store-poper-blocker-spyware-downloaded-millions",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt58ef6fb504edd4a8/6ab6fbfc80fa6786057ac6ea/Spying-DrAfter123-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "JadePuffer agentic AI attacks target Azure, destroy cloud resources",
-    "link": "https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-ai-attacks-target-azure-destroy-cloud-resources/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/01/Azure.jpg"
-  },
-  {
-    "title": "JadePuffer AI Actor Compromises Azure Tenant in Destructive Cloud Attack",
-    "link": "https://www.darkreading.com/cloud-security/jadepuffer-ai-actor-azure-tenant-destructive-cloud-attack",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbc06310368e21110/6a4bdbe6a6d4757864059ce1/llm-Boy_Wirat-Getty-2149059417.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Call for Presentations Open for 2026 CISO Forum Virtual Summit",
-    "link": "https://www.securityweek.com/call-for-presentations-open-for-2026-ciso-forum-virtual-summit/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/CISO_Forum-CFP-2026.jpg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: $387M Crypto Hack, Citrix Exploits, AI Agents Go Off-Script, and More Threats",
-    "link": "https://thehackernews.com/2026/09/weekly-recap-387m-crypto-hack-citrix.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4-eWVCAN2nvZGZrKlwm-wminZE56MzJ_bVRK6CJfdBw9TXU4yQy6t9T0hDi0hSOskE9Xs6M-KCVEbVvBuL2DLDkew97W2iobOPZa9zqEBeGPWBnW8cftdD1FwzBLz7CIGVhJb1FwnS-35B62Jqc331zNQ67hZP-V2jKBT7yUxUV4rn8jMr27QCommYp-j/s1600/c-recap.jpg"
   }
 ]
