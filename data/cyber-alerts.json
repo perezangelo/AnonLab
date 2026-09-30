@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-84377",
+    "summary": "LiteLLM: Authenticated SSRF and provider-credential exfiltration via unvalidated request-body routing parameters",
+    "severity": "MODERATE",
+    "published": "2026-09-30T21:11:25Z",
+    "ghsa": "GHSA-3cv6-jpf6-8222"
+  },
+  {
     "id": "CVE-2026-101918",
     "summary": "PyJWT: Unauthenticated RecursionError DoS in pre-verification payload parse (PyJWKClient.get_signing_key_from_jwt / verify_signature=False)",
     "severity": "MODERATE",
@@ -61,12 +68,5 @@
     "severity": "HIGH",
     "published": "2026-09-30T15:35:53Z",
     "ghsa": "GHSA-m9gg-hp2v-232j"
-  },
-  {
-    "id": "CVE-2026-101915",
-    "summary": "@grpc/grpc-js: The server transmits some error messages thrown by method handlers to the client in status messages",
-    "severity": "LOW",
-    "published": "2026-09-30T15:35:41Z",
-    "ghsa": "GHSA-f596-whhp-79r4"
   }
 ]
