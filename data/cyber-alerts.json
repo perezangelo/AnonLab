@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-rcw4-f5rp-g42v",
-    "summary": "adm-zip: Decompression-bomb protection (fix for CVE-2026-39244) can be bypassed by declaring uncompressed size as 0",
+    "id": "CVE-2026-102281",
+    "summary": "Nest: Remote process termination via a deeply nested microservice message pattern",
     "severity": "HIGH",
-    "published": "2026-09-29T18:25:20Z",
-    "ghsa": "GHSA-rcw4-f5rp-g42v"
+    "published": "2026-09-29T23:54:44Z",
+    "ghsa": "GHSA-m8vh-jmq9-5rjg"
   },
   {
-    "id": "CVE-2026-102282",
-    "summary": "adm-zip extraction preserves SUID/SGID bits from untrusted ZIPs -> local privilege escalation",
+    "id": "CVE-2026-86472",
+    "summary": "fast-uri vulnerable to inconsistent host case normalization via percent-encoded octets",
+    "severity": "MODERATE",
+    "published": "2026-09-29T23:54:25Z",
+    "ghsa": "GHSA-hrr3-gc8f-f4qj"
+  },
+  {
+    "id": "CVE-2026-86818",
+    "summary": "fast-uri vulnerable to mailto header injection via percent-encoded field-name desynchronization",
+    "severity": "MODERATE",
+    "published": "2026-09-29T23:51:16Z",
+    "ghsa": "GHSA-jvvf-x445-j334"
+  },
+  {
+    "id": "CVE-2026-101894",
+    "summary": "@xhmikosr/decompress: Path traversal via symlink chain",
+    "severity": "CRITICAL",
+    "published": "2026-09-29T23:49:42Z",
+    "ghsa": "GHSA-hrh2-vp3x-79xf"
+  },
+  {
+    "id": "CVE-2026-101912",
+    "summary": "ip-address: isInSubnet() and isHostInSubnet() compare addresses of different families as if they shared an address space, allowing an allowlist check to admit an address outside its range",
+    "severity": "MODERATE",
+    "published": "2026-09-29T23:46:52Z",
+    "ghsa": "GHSA-j6r3-76f7-8jcv"
+  },
+  {
+    "id": "CVE-2026-101911",
+    "summary": "ip-address: Address6 builds a parse diagnostic proportional to the input with no length bound, allowing a single long string to stall or crash the process",
+    "severity": "MODERATE",
+    "published": "2026-09-29T23:46:39Z",
+    "ghsa": "GHSA-h3mg-xc3c-68pw"
+  },
+  {
+    "id": "CVE-2026-17495",
+    "summary": "moment vulnerable to Path Traversal via crafted non-string locale name",
+    "severity": "MODERATE",
+    "published": "2026-09-29T23:46:02Z",
+    "ghsa": "GHSA-4p3w-j4w9-5jqw"
+  },
+  {
+    "id": "CVE-2026-102277",
+    "summary": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+    "severity": "MODERATE",
+    "published": "2026-09-29T23:45:39Z",
+    "ghsa": "GHSA-q2hr-2g5m-vwhr"
+  },
+  {
+    "id": "CVE-2026-102278",
+    "summary": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
     "severity": "HIGH",
-    "published": "2026-09-29T18:24:57Z",
-    "ghsa": "GHSA-j5f4-cc29-5x44"
+    "published": "2026-09-29T23:45:17Z",
+    "ghsa": "GHSA-qhr7-859c-m2p7"
   },
   {
-    "id": "CVE-2026-102279",
-    "summary": "Laravel: XSS in Debug Page Information",
-    "severity": "LOW",
-    "published": "2026-09-29T18:24:25Z",
-    "ghsa": "GHSA-jh5r-qr3c-85q8"
-  },
-  {
-    "id": "GHSA-8vvx-rff5-p5rq",
-    "summary": "Nodemailer: Nested structured recipient arrays bypass the parser depth limit and cause stack exhaustion DoS",
-    "severity": "MODERATE",
-    "published": "2026-09-29T18:23:50Z",
-    "ghsa": "GHSA-8vvx-rff5-p5rq"
-  },
-  {
-    "id": "CVE-2026-102274",
-    "summary": "PyJWT: Malformed RSA JWK aborts parsing of an entire JWK Set",
-    "severity": "MODERATE",
-    "published": "2026-09-29T18:23:01Z",
-    "ghsa": "GHSA-w6j9-cwv2-h6wq"
-  },
-  {
-    "id": "CVE-2026-18149",
-    "summary": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
-    "severity": "MODERATE",
-    "published": "2026-09-29T18:22:34Z",
-    "ghsa": "GHSA-pmjh-fq2x-6v4x"
-  },
-  {
-    "id": "CVE-2026-18540",
-    "summary": "undici vulnerable to downstream response splitting via retry interceptor",
-    "severity": "LOW",
-    "published": "2026-09-29T18:22:07Z",
-    "ghsa": "GHSA-r53p-7pc4-xj5r"
-  },
-  {
-    "id": "CVE-2026-19534",
-    "summary": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+    "id": "CVE-2026-102276",
+    "summary": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
     "severity": "HIGH",
-    "published": "2026-09-29T18:21:33Z",
-    "ghsa": "GHSA-rfgv-xxqx-mfg5"
-  },
-  {
-    "id": "CVE-2026-84890",
-    "summary": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
-    "severity": "MODERATE",
-    "published": "2026-09-29T18:20:37Z",
-    "ghsa": "GHSA-3xpg-4rpp-hhhm"
-  },
-  {
-    "id": "CVE-2026-84933",
-    "summary": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
-    "severity": "MODERATE",
-    "published": "2026-09-29T18:19:58Z",
-    "ghsa": "GHSA-2jfj-6hjv-fm6j"
+    "published": "2026-09-29T23:44:58Z",
+    "ghsa": "GHSA-6j4f-fj2g-mc7p"
   }
 ]
