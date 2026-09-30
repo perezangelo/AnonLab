@@ -1,5 +1,70 @@
 [
   {
+    "title": "CISA warns of critical pre-auth RCE flaw in MikroTik RouterOS",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-pre-auth-rce-flaw-in-mikrotik-routeros/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/mikrotik.jpg"
+  },
+  {
+    "title": "Cisco Warns of Attackers Exploiting Critical Authentication Bypass in SD-WAN Manager",
+    "link": "https://thehackernews.com/2026/09/cisco-warns-of-attackers-exploiting.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDRBMRmTwQer5G9fB3V6UvczV_QEpVLnIpRMEjpkiSKOC1vvem-ZkM9zP2vgBIYDlH-jveY5oeV2qcYJ2YiVD1-z1q4bJNBrPYpewyUqOOgbl89xV3JCsQeor1fhrWLS6EEvtNCIHlyuNB8jRnDzqdO9bQZ4hNN0yvEE6ceXw0A43onar4xorpsnM1qog/s1600/cisco-admin.jpg"
+  },
+  {
+    "title": "Russia's Star Blizzard Ditches ClickFix to Widen Phishing Net",
+    "link": "https://www.darkreading.com/threat-intelligence/russia-star-blizzard-apt-ditches-clickfix-widen-phishing-net",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6f6d60565804fe81/6abcff0189b51bddd40e0d6e/snowflakes-Ulrick-T-Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Attackers Abuse ChatGPT Custom GPTs to Deliver RAT via ClickFix Lures",
+    "link": "https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-E2KBc2Kl1xfsJ_ayeCwrbYODEJELskOif8C_YQFyt7DoGklZczzFD3IetvE9mFBUeQN9SQWCE41WtJA-NkE6dya1xAOznACZzeRCMRhvfSQaGipfmD-z1F2rWFPFGLvYSJwrfKhUrbdzwMc_b4OkpTA8huBozpABL2OBcxCM1cod7Hvr0eH23GgE1sEo/s1600/custom-gpt.jpg"
+  },
+  {
+    "title": "Cisco warns of new SD-WAN zero-day exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-sd-wan-authentication-bypass-zero-day-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/04/Cisco_headpic.jpg"
+  },
+  {
+    "title": "Google: AI Is Changing the Pace and Profile of Vulnerability Discovery",
+    "link": "https://www.securityweek.com/google-ai-is-changing-the-pace-and-profile-of-vulnerability-discovery/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
+  },
+  {
+    "title": "AI's Third Wave: Coworkers Break the Security Model That Worked for Agents",
+    "link": "https://www.bleepingcomputer.com/news/security/ais-third-wave-coworkers-break-the-security-model-that-worked-for-agents/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/29/token-security-ai-agent.jpg"
+  },
+  {
+    "title": "Microsoft to block Entra ID script injection attacks starting October",
+    "link": "https://www.bleepingcomputer.com/news/security/microsoft-to-block-entra-id-script-injection-attacks-starting-october/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2021/09/15/Microsoft_passwordless.jpg"
+  },
+  {
+    "title": "WatchGuard Patches Critical Fireware OS Code Injection Vulnerability",
+    "link": "https://www.securityweek.com/watchguard-patches-critical-fireware-os-code-injection-vulnerability/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/04/coding-vulnerability-software-development.jpeg"
+  },
+  {
+    "title": "Government, Finance Orgs Targeted in Weeks-Long NetScaler Zero-Day Attacks",
+    "link": "https://www.securityweek.com/government-finance-orgs-targeted-in-weeks-long-netscaler-zero-day-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Citrix-vulnerability.jpeg"
+  },
+  {
+    "title": "TeamViewer urges users to patch severe flaws \u201cas soon as possible\u201d",
+    "link": "https://www.bleepingcomputer.com/news/security/teamviewer-urges-users-to-patch-severe-flaws-as-soon-as-possible/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/30/TeamViewer_red.jpg"
+  },
+  {
+    "title": "Chrome, Firefox Updates Patch Over 100 Vulnerabilities",
+    "link": "https://www.securityweek.com/chrome-firefox-updates-patch-over-100-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Chrome-Firefox.jpeg"
+  },
+  {
+    "title": "Know Your Enemy: Browser-Based Attack Techniques in 2026",
+    "link": "https://thehackernews.com/2026/09/know-your-enemy-browser-based-attack.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHy63Qp6WLBgRhCGaWARbZzjcdu6DhFo9JxZXTE9Rt4B42ImiW_cB0Fdq2yV_HYiZohMmVMRxTu1DxcbiOE9GNu4lAF2HZZ61QiCrWSEKGJFjEt5E5pKpXhjGK9DsZrqTxHFqF2IIaToRSTItghSELEiA_kgTP69_iOwbHdT35ht3yLCqIiNb5ysgDeuM/s1600/push-phish.jpg"
+  },
+  {
     "title": "AI Coding Agents Exposed 13,000 Internal Images, Including Billing Records, on GitHub",
     "link": "https://thehackernews.com/2026/09/ai-coding-agents-exposed-13000-internal.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqbuWmNSxYv66udOpYi9NRKukBSDiTroF54tDrBaVYBBTfDC7PMMr26tRoFatdmmRPsPy3MCdoUNLr8YN9mC2ni3pvDWfBNsoKz12evoNrZggcUI4izEc7-hEAr_2wFv4IInBnon19PcEPSXlJU-AMahLHFNAk_5FiVbV7EhfdiLKHcUc8Tiso63xca2c/s1600/git-images.jpg"
@@ -83,70 +148,5 @@
     "title": "Custom ChatGPTs push ClickFix attacks to deploy RAT malware",
     "link": "https://www.bleepingcomputer.com/news/security/custom-chatgpts-push-clickfix-attacks-to-deploy-rat-malware/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/chatgpt.jpg"
-  },
-  {
-    "title": "OpenAI CEO Announces New AI Agent and Avoids Mention of Security Concerns at Developer Conference",
-    "link": "https://www.securityweek.com/openai-ceo-announces-new-ai-agent-and-avoids-mention-of-security-concerns-at-developer-conference/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "FBI tells ShinyHunters members to turn themselves in after recent arrest",
-    "link": "https://www.bleepingcomputer.com/news/security/fbi-tells-shinyhunters-members-to-turn-themselves-in-after-recent-arrest/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/fbi-danger.jpg"
-  },
-  {
-    "title": "Hackers exploit Citrix NetScaler zero-day to deploy web shells",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-exploit-citrix-netscaler-zero-day-to-deploy-web-shells/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/07/21/citrix_headpic.jpg"
-  },
-  {
-    "title": "Former US Air Force members sent to prison over BEC attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/former-us-air-force-members-sent-to-prison-over-bec-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/29/Hackers-Dollars.jpg"
-  },
-  {
-    "title": "French Tax Data Theft Using Stolen Staff Passwords Went Undetected for Seven Weeks",
-    "link": "https://thehackernews.com/2026/09/french-tax-data-theft-using-stolen.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9h550xeoGqzMnMqY6B6Ejo9xeSvbx4fnnu1OmLWvhYAvYeLNB1zeik8F8yYB82oW685qieusoRaI27P68ugA34Vg0720ZZdLfQUJtuIjxkUYRgq_hQtivtsopRYYoddpwb4mICLERqQrVKtZv5EHg78rU14dlQmgevB0KsOR0ePvG4E8cpqKB1TyliaE/s1600/france.jpg"
-  },
-  {
-    "title": "Windows 11 2026 Update released, here's everything you need to know",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-2026-update-released-heres-everything-you-need-to-know/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/03/Windows-11.jpg"
-  },
-  {
-    "title": "DARPA Selects Xint to Use AI in Securing Military Messaging Apps",
-    "link": "https://www.securityweek.com/darpa-selects-xint-to-use-ai-in-securing-military-messaging-apps/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/DARPA-Technology.jpg"
-  },
-  {
-    "title": "New Spectre-v2 BTR Attack Leaks Linux Memory Despite Existing Defenses",
-    "link": "https://thehackernews.com/2026/09/new-spectre-v2-btr-attack-leaks-linux.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCNHT9zDz8oOamcA5EH8a3KGAtk9R9bE_UxGY_uPThgxZJu9vX-YG1olbgiX5WBVdwDd52LpDfSyryC6GZ45tUi2bKLe_aWnbj0Ir3WQZeGYF8Vr7U7icoPn4tcuwfpOZagVfry-KG5_jzLPb-fbPiFBlv142UOgqAPpC193t6BslvCE1l1XWo2z5_mFYV/s1600/linux-intel.jpg"
-  },
-  {
-    "title": "Russia's Star Blizzard Targets 100+ Organizations With Fake Event Invites to Deliver Backdoor",
-    "link": "https://thehackernews.com/2026/09/russias-star-blizzard-targets-100.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQDuuJUT-WU7XzUYYoKEDtFKt7QAra8I4G0ptQRyveku8G6fD6R0aSWw32hi-2fd0L28qUxjqJoTlQoJbLiBYH6NBOVYirQZ9LfH-UvD8JG5uiL_m4ZkBVnPLiArcivCsdMNegW1XGxFEzas4cwkzFVeY4r22qTqSp2U1Fo3Nw7urOlnWRKGFHW8pW91E/s1600/ms-invite.jpg"
-  },
-  {
-    "title": "New Spectre v2 attack variant leaks Linux root password hash in minutes",
-    "link": "https://www.bleepingcomputer.com/news/security/new-spectre-v2-attack-variant-leaks-linux-root-password-hash-in-minutes/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/06/02/motherboard-cpu-bios.jpg"
-  },
-  {
-    "title": "Cloudflare Announces Public Certificate Authority for the Post-Quantum Web",
-    "link": "https://www.darkreading.com/cloud-security/cloudflare-announces-public-certificate-authority-post-quantum-web",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "New Spectre v2 Variant Exposes Intel, AMD, Arm CPUs to Data Leaks",
-    "link": "https://www.securityweek.com/new-spectre-v2-variant-exposes-intel-amd-arm-cpus-to-data-leaks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/08/CPU-attack.jpg"
-  },
-  {
-    "title": "Automated AI agent used to breach cybersecurity nonprofit DIVD",
-    "link": "https://www.bleepingcomputer.com/news/security/automated-ai-agent-used-to-breach-cybersecurity-nonprofit-divd/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/27/botnet.jpg"
   }
 ]
