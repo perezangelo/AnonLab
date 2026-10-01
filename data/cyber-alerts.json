@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-84377",
-    "summary": "LiteLLM: Authenticated SSRF and provider-credential exfiltration via unvalidated request-body routing parameters",
+    "id": "CVE-2026-102930",
+    "summary": "virtualenv: Downloaded seed wheels (pip/setuptools) are not integrity-checked before use",
+    "severity": "HIGH",
+    "published": "2026-09-30T23:54:13Z",
+    "ghsa": "GHSA-94p9-xgh2-xp45"
+  },
+  {
+    "id": "CVE-2026-102938",
+    "summary": "virtualenv writes prompt values into pyvenv.cfg without sanitizing line boundaries, allowing configuration injection",
     "severity": "MODERATE",
-    "published": "2026-09-30T21:11:25Z",
-    "ghsa": "GHSA-3cv6-jpf6-8222"
+    "published": "2026-09-30T23:53:58Z",
+    "ghsa": "GHSA-9h9j-4vrj-gf7g"
   },
   {
-    "id": "CVE-2026-101918",
-    "summary": "PyJWT: Unauthenticated RecursionError DoS in pre-verification payload parse (PyJWKClient.get_signing_key_from_jwt / verify_signature=False)",
+    "id": "CVE-2026-92081",
+    "summary": "fastify vulnerable to Denial of Service via unhandled exception on HTTP/2 trailer responses",
     "severity": "MODERATE",
-    "published": "2026-09-30T15:41:05Z",
-    "ghsa": "GHSA-42vr-xj54-vc7v"
+    "published": "2026-09-30T23:53:44Z",
+    "ghsa": "GHSA-4mh8-r7rc-xpvc"
   },
   {
-    "id": "CVE-2026-101896",
-    "summary": "Angular Server-Side Rendering (SSR): Denial of Service via Numeric URL Matrix Parameters",
-    "severity": "HIGH",
-    "published": "2026-09-30T15:40:47Z",
-    "ghsa": "GHSA-ff3f-86qr-9cv3"
-  },
-  {
-    "id": "CVE-2026-97711",
-    "summary": "Serialize JavaScript: Cross-site scripting (XSS) via unescaped </script> in serialized function bodies",
-    "severity": "LOW",
-    "published": "2026-09-30T15:40:05Z",
-    "ghsa": "GHSA-gfhx-hw2g-v5hg"
-  },
-  {
-    "id": "GHSA-p98j-92pf-mc4p",
-    "summary": "DOMPurify: IN_PLACE: node-removing afterSanitize hook leaves detached subtree event handlers armed, causing DOM XSS",
-    "severity": "LOW",
-    "published": "2026-09-30T15:37:57Z",
-    "ghsa": "GHSA-p98j-92pf-mc4p"
-  },
-  {
-    "id": "CVE-2026-91777",
-    "summary": "jackson-databind quadratic forward-reference completion ",
-    "severity": "HIGH",
-    "published": "2026-09-30T15:37:24Z",
-    "ghsa": "GHSA-cxp5-3px4-pw24"
-  },
-  {
-    "id": "CVE-2026-91776",
-    "summary": "jackson-databind retains every unknown raw type ID ",
-    "severity": "HIGH",
-    "published": "2026-09-30T15:36:55Z",
-    "ghsa": "GHSA-wv8q-qhhj-9h54"
-  },
-  {
-    "id": "GHSA-97jj-33gv-5xf9",
-    "summary": "league/commonmark: DisallowedRawHtml bypassed when a disallowed tag name ends the raw-HTML literal",
+    "id": "CVE-2026-103001",
+    "summary": "PyJWT.decode() reintroduces options-dict mutation, enabling silent claim-verification bypass on dict reuse",
     "severity": "MODERATE",
-    "published": "2026-09-30T15:36:33Z",
-    "ghsa": "GHSA-97jj-33gv-5xf9"
+    "published": "2026-09-30T23:53:17Z",
+    "ghsa": "GHSA-gvp8-978c-rx2q"
   },
   {
-    "id": "GHSA-3q6v-r5mr-hxv8",
-    "summary": "league/commonmark: Quadratic-time denial of service in the GitHub Flavored Markdown Table extension block-start scan",
-    "severity": "HIGH",
-    "published": "2026-09-30T15:36:13Z",
-    "ghsa": "GHSA-3q6v-r5mr-hxv8"
+    "id": "GHSA-3hv7-mjh2-fv65",
+    "summary": "Tornado: Unbounded query-string argument count allows event-loop-stalling DoS",
+    "severity": "MODERATE",
+    "published": "2026-09-30T23:49:25Z",
+    "ghsa": "GHSA-3hv7-mjh2-fv65"
   },
   {
-    "id": "CVE-2026-101916",
-    "summary": "@grpc/grpc-js: In certain configurations, getAuthContext can return unauthorized certificates as though they were authorized",
+    "id": "GHSA-chx6-46f5-w4vp",
+    "summary": "tornado: CurlAsyncHTTPClient enforces no response-size limit — decompression bomb drives unbounded memory accumulation to OOM",
     "severity": "HIGH",
-    "published": "2026-09-30T15:35:53Z",
-    "ghsa": "GHSA-m9gg-hp2v-232j"
+    "published": "2026-09-30T23:49:13Z",
+    "ghsa": "GHSA-chx6-46f5-w4vp"
+  },
+  {
+    "id": "GHSA-c2m8-h5v5-343r",
+    "summary": "Tornado: StaticFileHandler follows symlinks outside static root (path traversal)",
+    "severity": "HIGH",
+    "published": "2026-09-30T23:48:55Z",
+    "ghsa": "GHSA-c2m8-h5v5-343r"
+  },
+  {
+    "id": "GHSA-59cr-6r3x-644w",
+    "summary": "GitPython submodule update path traversal can write outside the repository",
+    "severity": "MODERATE",
+    "published": "2026-09-30T23:47:12Z",
+    "ghsa": "GHSA-59cr-6r3x-644w"
+  },
+  {
+    "id": "CVE-2026-93981",
+    "summary": "hono/jsx renders plain strings unescaped in boundary components, leading to XSS",
+    "severity": "MODERATE",
+    "published": "2026-09-30T23:46:16Z",
+    "ghsa": "GHSA-hxh3-vqpv-xpqv"
+  },
+  {
+    "id": "CVE-2026-84504",
+    "summary": "fastify vulnerable to request body replacement via an async validation result collision",
+    "severity": "HIGH",
+    "published": "2026-09-30T23:45:45Z",
+    "ghsa": "GHSA-667r-xxjv-c9mm"
   }
 ]
