@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-102930",
-    "summary": "virtualenv: Downloaded seed wheels (pip/setuptools) are not integrity-checked before use",
+    "id": "CVE-2026-73606",
+    "summary": "SiYuan: The reference filter for getRefIDs checks visibility but not the password tier, disclosing that password-protected documents reference a given block",
+    "severity": "MODERATE",
+    "published": "2026-10-01T16:29:35Z",
+    "ghsa": "GHSA-vg99-7gj7-2fr5"
+  },
+  {
+    "id": "GHSA-9cqf-hhrq-7v45",
+    "summary": "SiYuan: getAttributeViewSearchTarget returns database row content to anonymous readers with no publish-access check, reopening the class closed one day earlier at the adjacent route",
     "severity": "HIGH",
-    "published": "2026-09-30T23:54:13Z",
-    "ghsa": "GHSA-94p9-xgh2-xp45"
+    "published": "2026-10-01T16:24:38Z",
+    "ghsa": "GHSA-9cqf-hhrq-7v45"
   },
   {
-    "id": "CVE-2026-102938",
-    "summary": "virtualenv writes prompt values into pyvenv.cfg without sanitizing line boundaries, allowing configuration injection",
+    "id": "CVE-2026-73609",
+    "summary": "SiYuan: getBookmarkLabels returns every bookmark label in the workspace to anonymous readers, with no publish-access filtering",
     "severity": "MODERATE",
-    "published": "2026-09-30T23:53:58Z",
-    "ghsa": "GHSA-9h9j-4vrj-gf7g"
+    "published": "2026-10-01T16:23:37Z",
+    "ghsa": "GHSA-j4ph-9xwf-wcj4"
   },
   {
-    "id": "CVE-2026-92081",
-    "summary": "fastify vulnerable to Denial of Service via unhandled exception on HTTP/2 trailer responses",
+    "id": "CVE-2026-73605",
+    "summary": "SiYuan: getUniqueFilename passes an unvalidated client-supplied path to the filesystem, giving anonymous readers an existence oracle over the entire host filesystem",
     "severity": "MODERATE",
-    "published": "2026-09-30T23:53:44Z",
-    "ghsa": "GHSA-4mh8-r7rc-xpvc"
+    "published": "2026-10-01T15:46:01Z",
+    "ghsa": "GHSA-hf8h-97gm-4x2p"
   },
   {
-    "id": "CVE-2026-103001",
-    "summary": "PyJWT.decode() reintroduces options-dict mutation, enabling silent claim-verification bypass on dict reuse",
+    "id": "CVE-2026-73607",
+    "summary": "SiYuan: Outline state for any document, including documents forbidden to readers, is returned by /api/storage/getOutlineStorage with no access check",
     "severity": "MODERATE",
-    "published": "2026-09-30T23:53:17Z",
-    "ghsa": "GHSA-gvp8-978c-rx2q"
+    "published": "2026-10-01T15:44:46Z",
+    "ghsa": "GHSA-53fp-9jmv-227g"
   },
   {
-    "id": "GHSA-3hv7-mjh2-fv65",
-    "summary": "Tornado: Unbounded query-string argument count allows event-loop-stalling DoS",
+    "id": "CVE-2026-92952",
+    "summary": "vm2: Incomplete nodejs.* symbol filtering lets sandbox override host WebStream state checks",
     "severity": "MODERATE",
-    "published": "2026-09-30T23:49:25Z",
-    "ghsa": "GHSA-3hv7-mjh2-fv65"
+    "published": "2026-10-01T15:42:15Z",
+    "ghsa": "GHSA-jf8q-945g-9q4c"
   },
   {
-    "id": "GHSA-chx6-46f5-w4vp",
-    "summary": "tornado: CurlAsyncHTTPClient enforces no response-size limit — decompression bomb drives unbounded memory accumulation to OOM",
+    "id": "CVE-2026-92948",
+    "summary": "vm2: NodeVM builtin allowlist bypass via node:test.run() execArgv allows sandbox escape",
+    "severity": "CRITICAL",
+    "published": "2026-10-01T15:41:31Z",
+    "ghsa": "GHSA-qhwx-74w5-xhxq"
+  },
+  {
+    "id": "CVE-2026-92950",
+    "summary": "vm2 CLI provides no sandbox isolation - host-realm require() is reachable from sandboxed scripts",
     "severity": "HIGH",
-    "published": "2026-09-30T23:49:13Z",
-    "ghsa": "GHSA-chx6-46f5-w4vp"
+    "published": "2026-10-01T15:40:45Z",
+    "ghsa": "GHSA-jxxv-8r27-vm4p"
   },
   {
-    "id": "GHSA-c2m8-h5v5-343r",
-    "summary": "Tornado: StaticFileHandler follows symlinks outside static root (path traversal)",
-    "severity": "HIGH",
-    "published": "2026-09-30T23:48:55Z",
-    "ghsa": "GHSA-c2m8-h5v5-343r"
+    "id": "CVE-2026-92940",
+    "summary": "vm2 exposes host HTTPS credentials and TLS traffic through globalAgent",
+    "severity": "CRITICAL",
+    "published": "2026-10-01T15:38:26Z",
+    "ghsa": "GHSA-h85j-hv3c-qfgq"
   },
   {
-    "id": "GHSA-59cr-6r3x-644w",
-    "summary": "GitPython submodule update path traversal can write outside the repository",
-    "severity": "MODERATE",
-    "published": "2026-09-30T23:47:12Z",
-    "ghsa": "GHSA-59cr-6r3x-644w"
-  },
-  {
-    "id": "CVE-2026-93981",
-    "summary": "hono/jsx renders plain strings unescaped in boundary components, leading to XSS",
-    "severity": "MODERATE",
-    "published": "2026-09-30T23:46:16Z",
-    "ghsa": "GHSA-hxh3-vqpv-xpqv"
-  },
-  {
-    "id": "CVE-2026-84504",
-    "summary": "fastify vulnerable to request body replacement via an async validation result collision",
-    "severity": "HIGH",
-    "published": "2026-09-30T23:45:45Z",
-    "ghsa": "GHSA-667r-xxjv-c9mm"
+    "id": "CVE-2026-92951",
+    "summary": "vm2 Custom Module Resolver Can Bypass the External Package Allowlist by Loading a Colliding Host Package",
+    "severity": "CRITICAL",
+    "published": "2026-10-01T15:37:19Z",
+    "ghsa": "GHSA-c48m-32m9-vx93"
   }
 ]
