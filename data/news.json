@@ -1,5 +1,70 @@
 [
   {
+    "title": "In Other News: $15K iCloud Spoofing Bugs, AI Policy Experts Phished, Adblocker Spies on AI Chats",
+    "link": "https://www.securityweek.com/in-other-news-15k-icloud-spoofing-bugs-ai-policy-experts-phished-adblocker-spies-on-ai-chats/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "The EDR blind spot: 3 ways browser attacks evade endpoint telemetry",
+    "link": "https://www.bleepingcomputer.com/news/security/the-edr-blind-spot-3-ways-browser-attacks-evade-endpoint-telemetry/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/09/27/nord-radar-header.png"
+  },
+  {
+    "title": "Vulnerability Backlogs Are an Ownership Problem",
+    "link": "https://www.darkreading.com/cybersecurity-operations/vulnerability-backlogs-ownership-problem",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd7af7ba810dddd22/6abeaceed099771c4068c437/key_-_igoriss-getty-1276829944.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "macOS Users Targeted by Fake Zoom Installer Carrying CloudSyncD Backdoor",
+    "link": "https://www.securityweek.com/macos-users-targeted-by-fake-zoom-installer-carrying-cloudsyncd-backdoor/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Malicious Linux Implants Mimic Asian Mail Security Products",
+    "link": "https://www.darkreading.com/threat-intelligence/malicious-linux-implants-mimic-asian-mail-security",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6ae8adbdedb5109a/6abeaf448f0ddb6d837f64ef/Fake_mustache-Liudmila_Chernetska-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Dell asks admins to patch max severity CSM flaws as soon as possible",
+    "link": "https://www.bleepingcomputer.com/news/security/new-max-severity-dell-csm-flaws-give-hackers-admin-privileges/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/14/Dell.jpg"
+  },
+  {
+    "title": "OpenAI Parts Ways With Three Safety Researchers Over Sensitive Information Mishandling",
+    "link": "https://thehackernews.com/2026/10/openai-parts-ways-with-three-safety.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvjuuIAEhjBjrbXQna97zki-AKSZ9hVcu2CHSFRronvsVxEcHsfg66bldy7UzBETlNj1wTjKhkE11aFSmOxTjmR-XVp7qwzM2rBM745vy0Jy2n_CDoWQowbrzcQ7pVMubxWXNxVhOptHQiV5nMSGf24ZpI2wdpr40A0ez16cO3IH6peI6A2L07_UuOHbaJ/s1600/openai-servers.jpg"
+  },
+  {
+    "title": "Crypto Scammers Hijack Microsoft\u2019s Official X Account",
+    "link": "https://www.securityweek.com/crypto-scammers-hijack-microsofts-official-x-account/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/X-Twitter.jpeg"
+  },
+  {
+    "title": "Why CISOs Struggle to Answer the Board's Three Hardest Questions, and How to Fix the Report",
+    "link": "https://thehackernews.com/2026/10/why-cisos-struggle-to-answer-boards.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0hKMtHvRqPQiVRgaUAvYQ1XOUA_EToiZ3Tx-v7pSvbqwlnoo7qr5jQ_5KJuYpRFW0MzE3bLPePNT-rn4m8bEz7eTMVysO0OcfFwNKKFgKIo6tiT0JKKauf9MFxYTet3LiqJ2lXxfxVuKzRIPloaGR-_bOUEXOz_-ONc3AXfHKZV-PhAW8wEfayC-iwZE/s1600/ciso-ready.jpg"
+  },
+  {
+    "title": "In Rare Move, Alleged Iranian State Hacker Extradited to US",
+    "link": "https://www.securityweek.com/in-rare-move-iranian-hacker-accused-of-working-for-irgc-extradited-to-us/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/03/Irianian-cyberattacks-hacks.jpg"
+  },
+  {
+    "title": "Warlock Expands SharePoint Exploitation in Critical Infrastructure Attacks",
+    "link": "https://www.securityweek.com/warlock-expands-sharepoint-exploitation-in-critical-infrastructure-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/06/SharePoint-Ransomware-attack.jpg"
+  },
+  {
+    "title": "Microsoft\u2019s X account hacked in crypto pump-and-dump scheme",
+    "link": "https://www.bleepingcomputer.com/news/security/microsofts-x-account-hacked-in-crypto-token-pump-and-dump-scheme/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/02/Microsoft-X.jpg"
+  },
+  {
+    "title": "AI Agents Aimed SQL Injection at US and Canadian Government Sites",
+    "link": "https://www.securityweek.com/ai-agents-aimed-sql-injection-at-us-and-canadian-government-sites/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/rogue-AI-artificial-intelligence.jpeg"
+  },
+  {
     "title": "Exploited Fortinet FortiMail Zero-Day Calls for Urgent Action",
     "link": "https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/11/Fortinet-Vulnerability.jpg"
@@ -65,19 +130,9 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Hacker-Conversations-Rob-Juncker.jpeg"
   },
   {
-    "title": "Enterprises Struggle to Prepare for AI and Quantum Threats, PwC Says",
-    "link": "https://www.securityweek.com/enterprises-struggle-to-prepare-for-ai-and-quantum-threats-pwc-says/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
     "title": "Police dismantle KillSec ransomware gang allegedly led by 16-year-old",
     "link": "https://www.bleepingcomputer.com/news/security/police-dismantle-killsec-ransomware-gang-allegedly-led-by-16-year-old/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/01/operation-killswitch-header.jpg"
-  },
-  {
-    "title": "Police Shut Down KillSec Ransomware, Identify Alleged Teen Leader",
-    "link": "https://www.securityweek.com/police-shut-down-killsec-ransomware-identify-alleged-teen-leader/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/KillSwitch.jpg"
   },
   {
     "title": "The Day-One Hole in Zero Trust Architecture",
@@ -90,63 +145,8 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/01/Kiteworks.jpg"
   },
   {
-    "title": "AI Has Changed Attack Speed, Not Security Fundamentals",
-    "link": "https://www.securityweek.com/ai-has-changed-attack-speed-not-security-fundamentals/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Cybersecurity-Professionalization.jpg"
-  },
-  {
     "title": "Warlock Ransomware Hits Large Spanish, Portuguese Orgs",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/warlock-ransomware-spanish-portuguese",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9bb24e8bd32cc751/6abd41d4a6381712feda02db/Warlock-Grandfailure-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Zimbra Vulnerability Exploited in the Wild Prior to Public Disclosure",
-    "link": "https://www.securityweek.com/zimbra-vulnerability-exploited-in-the-wild-prior-to-public-disclosure/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/enterprise-collaboration-Zimbra.jpeg"
-  },
-  {
-    "title": "Armatura LLC Armatura One",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-01",
-    "image": ""
-  },
-  {
-    "title": "Meari IoT Cloud Platform OpenAPI Service",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-06",
-    "image": ""
-  },
-  {
-    "title": "Monta monta.app",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-02",
-    "image": ""
-  },
-  {
-    "title": "Johnson Controls EasyIO Neo Series EC and CW Controllers",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-04",
-    "image": ""
-  },
-  {
-    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/10/01/cisa-adds-one-known-exploited-vulnerability-catalog",
-    "image": ""
-  },
-  {
-    "title": "ABB Protection and Control IED Manager PCM600",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-03",
-    "image": ""
-  },
-  {
-    "title": "CISA Malcolm",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-254-01",
-    "image": ""
-  },
-  {
-    "title": "How Financial Services Companies Can Modernize Their Software Supply Chain",
-    "link": "https://thehackernews.com/2026/10/how-financial-services-companies-can.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwJsDvv_9QEV86mmDsIBPpGS2Kt2o8WPu2L6kUb9IExDqX-2lDKksEMMJp3NqFwDUqplX6JCeUpJfI_8rt_febX1CjMorRii_RpDccPPynWQHW_abdrNSWj774Ad0XH-RmiP-Lzki-Btsu6mh1cUsIffeSIOfUQ29qEJJwBTsaL-olM3GK18D2LYoxJlg/s1600/chain.png.jpg"
-  },
-  {
-    "title": "Kevin Mandia\u2019s Armadin Raises $255 Million at $2.5 Billion Valuation",
-    "link": "https://www.securityweek.com/kevin-mandias-armadin-raises-255-million-at-2-5-billion-valuation/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/03/Kevin-Mandia-Armadin.jpg"
   }
 ]
