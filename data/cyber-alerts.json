@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-73606",
-    "summary": "SiYuan: The reference filter for getRefIDs checks visibility but not the password tier, disclosing that password-protected documents reference a given block",
-    "severity": "MODERATE",
-    "published": "2026-10-01T16:29:35Z",
-    "ghsa": "GHSA-vg99-7gj7-2fr5"
-  },
-  {
-    "id": "GHSA-9cqf-hhrq-7v45",
-    "summary": "SiYuan: getAttributeViewSearchTarget returns database row content to anonymous readers with no publish-access check, reopening the class closed one day earlier at the adjacent route",
+    "id": "GHSA-xxv7-2vv3-h682",
+    "summary": "Trigger.dev: Server-side request forgery via unvalidated webhook alert-channel URL",
     "severity": "HIGH",
-    "published": "2026-10-01T16:24:38Z",
-    "ghsa": "GHSA-9cqf-hhrq-7v45"
+    "published": "2026-10-02T19:31:33Z",
+    "ghsa": "GHSA-xxv7-2vv3-h682"
   },
   {
-    "id": "CVE-2026-73609",
-    "summary": "SiYuan: getBookmarkLabels returns every bookmark label in the workspace to anonymous readers, with no publish-access filtering",
-    "severity": "MODERATE",
-    "published": "2026-10-01T16:23:37Z",
-    "ghsa": "GHSA-j4ph-9xwf-wcj4"
-  },
-  {
-    "id": "CVE-2026-73605",
-    "summary": "SiYuan: getUniqueFilename passes an unvalidated client-supplied path to the filesystem, giving anonymous readers an existence oracle over the entire host filesystem",
-    "severity": "MODERATE",
-    "published": "2026-10-01T15:46:01Z",
-    "ghsa": "GHSA-hf8h-97gm-4x2p"
-  },
-  {
-    "id": "CVE-2026-73607",
-    "summary": "SiYuan: Outline state for any document, including documents forbidden to readers, is returned by /api/storage/getOutlineStorage with no access check",
-    "severity": "MODERATE",
-    "published": "2026-10-01T15:44:46Z",
-    "ghsa": "GHSA-53fp-9jmv-227g"
-  },
-  {
-    "id": "CVE-2026-92952",
-    "summary": "vm2: Incomplete nodejs.* symbol filtering lets sandbox override host WebStream state checks",
-    "severity": "MODERATE",
-    "published": "2026-10-01T15:42:15Z",
-    "ghsa": "GHSA-jf8q-945g-9q4c"
-  },
-  {
-    "id": "CVE-2026-92948",
-    "summary": "vm2: NodeVM builtin allowlist bypass via node:test.run() execArgv allows sandbox escape",
-    "severity": "CRITICAL",
-    "published": "2026-10-01T15:41:31Z",
-    "ghsa": "GHSA-qhwx-74w5-xhxq"
-  },
-  {
-    "id": "CVE-2026-92950",
-    "summary": "vm2 CLI provides no sandbox isolation - host-realm require() is reachable from sandboxed scripts",
+    "id": "GHSA-qxpp-qjg8-x4jv",
+    "summary": "Trigger.dev: Run replay injects a task run into an attacker-chosen environment (cross-tenant write)",
     "severity": "HIGH",
-    "published": "2026-10-01T15:40:45Z",
-    "ghsa": "GHSA-jxxv-8r27-vm4p"
+    "published": "2026-10-02T19:31:17Z",
+    "ghsa": "GHSA-qxpp-qjg8-x4jv"
   },
   {
-    "id": "CVE-2026-92940",
-    "summary": "vm2 exposes host HTTPS credentials and TLS traffic through globalAgent",
-    "severity": "CRITICAL",
-    "published": "2026-10-01T15:38:26Z",
-    "ghsa": "GHSA-h85j-hv3c-qfgq"
+    "id": "CVE-2026-59944",
+    "summary": "Composer: GHSA-gjfg-22fp-rrxx fix bypass via symlinked package bin path",
+    "severity": "MODERATE",
+    "published": "2026-10-02T19:14:34Z",
+    "ghsa": "GHSA-96h3-5x6v-m776"
   },
   {
-    "id": "CVE-2026-92951",
-    "summary": "vm2 Custom Module Resolver Can Bypass the External Package Allowlist by Loading a Colliding Host Package",
-    "severity": "CRITICAL",
-    "published": "2026-10-01T15:37:19Z",
-    "ghsa": "GHSA-c48m-32m9-vx93"
+    "id": "GHSA-8mcx-5rqc-vhmf",
+    "summary": "Dulwich: Arbitrary File Write (RCE) on Windows via Unvalidated Drive Letters in Tree Paths",
+    "severity": "HIGH",
+    "published": "2026-10-02T19:14:21Z",
+    "ghsa": "GHSA-8mcx-5rqc-vhmf"
+  },
+  {
+    "id": "GHSA-35mr-4567-66vg",
+    "summary": "Dulwich: Infinite Loop Denial of Service (DoS) in Packfile Object Resolution",
+    "severity": "MODERATE",
+    "published": "2026-10-02T18:54:39Z",
+    "ghsa": "GHSA-35mr-4567-66vg"
+  },
+  {
+    "id": "GHSA-8w8g-wq8h-fq33",
+    "summary": "Dulwich: Symlink write-through in checkout(paths=[]) via raw os.open bypasses all symlink protections",
+    "severity": "HIGH",
+    "published": "2026-10-02T18:53:35Z",
+    "ghsa": "GHSA-8w8g-wq8h-fq33"
+  },
+  {
+    "id": "GHSA-5fqc-mrg8-w798",
+    "summary": "Dulwich: Symlink directory traversal in filter-branch index_filter via cross-commit state persistence",
+    "severity": "HIGH",
+    "published": "2026-10-02T18:53:05Z",
+    "ghsa": "GHSA-5fqc-mrg8-w798"
+  },
+  {
+    "id": "GHSA-cm62-gvxx-vmxx",
+    "summary": "Dulwich: Symlink directory traversal in stash pop allows arbitrary file write via intermediate directory symlinks",
+    "severity": "HIGH",
+    "published": "2026-10-02T18:52:53Z",
+    "ghsa": "GHSA-cm62-gvxx-vmxx"
+  },
+  {
+    "id": "GHSA-6g2r-675j-hx59",
+    "summary": "xxhash-rust: Safe xxh3 custom-secret API accepts too-short secret in release",
+    "severity": "LOW",
+    "published": "2026-10-02T18:29:13Z",
+    "ghsa": "GHSA-6g2r-675j-hx59"
+  },
+  {
+    "id": "CVE-2026-61586",
+    "summary": "Copernik XML Factory (stock JDK provider) has Improper restriction of XInclude resource resolution",
+    "severity": "HIGH",
+    "published": "2026-10-02T18:27:17Z",
+    "ghsa": "GHSA-xm28-xvqc-gxxg"
   }
 ]
