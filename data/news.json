@@ -1,5 +1,60 @@
 [
   {
+    "title": "Frontline Education breach exposes school district employee data",
+    "link": "https://www.bleepingcomputer.com/news/security/frontline-education-data-breach-impacts-school-district-employees/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/15/School-hacker.jpg"
+  },
+  {
+    "title": "Warlock ransomware breach SharePoint in water, telecom operator attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/warlock-ransomware-breach-sharepoint-in-water-telecom-operator-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/26/Microsoft-SharePoint.jpg"
+  },
+  {
+    "title": "GitLab Patches Critical 9.9 AI Gateway Flaw Allowing Command Execution on Self-Hosted Servers",
+    "link": "https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXhnbLdlAtkMBrrXYLiOxfbEdXI4PrEIq6dy3SL8Xa5SzPF6if9sf8GGu4PtkUTI3EYQHqBde4cDp4Y60OjgQBmqtZHTlL_gvgvlxNSeZ6nrRnriOmH3m23vq7f2bpylilVl39c_X-RNpvYQlRrC91gU_oHbk6e_ZbZ-7_fglpsQCFoLFp3sHkcn44960/s1600/gitlab-rce.jpg"
+  },
+  {
+    "title": "Antino Backdoor Uses Outlook and OneDrive for C2 in China-Nexus Espionage Campaign",
+    "link": "https://thehackernews.com/2026/10/antino-backdoor-uses-outlook-and.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE3s79KuB4kHE3Kf6kjA84HqdcQ2TTVyJCgIkLcSnpbMr6vCwjaLjJVE1KiXT2lZfcx_CbKlHjiX9PrEppf53uaTvQ_Vyicl447mGIkdz1ZOzmGR1hPJzgODM2J_lnsbKPhTBvvTgdDcSS4V1JzJ-feSpyJFDyDkKS0BfK7AXTCNWaL9DZ60tmWVysyVo0/s1600/ms-cyber.jpg"
+  },
+  {
+    "title": "Dell CSM Flaws Enable Unauthenticated Admin Access and Root on Kubernetes Nodes",
+    "link": "https://thehackernews.com/2026/10/dell-csm-flaws-enable-unauthenticated.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiypcfC3W6keUc31zSJympZfpI6eLwDhyphenhyphen4uy_0M3VFljfoSn2pjzBmS3yyAZTzILPxi_sXeOx2jyeu6mdSPKqjiFv7LAMd2mn6Q8GvIRq6yVXUoQm5MiXeEs96i9IT-ZCP2W7hAzR08B9JOuOJv8NNI7o7DfCSa7cplzrsT_x_0R0dPVSQxKmdLP8NvAsnp/s1600/dell.jpg"
+  },
+  {
+    "title": "Kiteworks &amp; Citrix Incidents Show Challenges of Zero-Day Response",
+    "link": "https://www.darkreading.com/cybersecurity-operations/kiteworks-citrix-incidents-challenges-zero-day-response",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt3f39295ab2cc8617/6abec652493aca7db2e138d1/hear-no-evil-see-no-evil-monkeys-robert_lemos.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "SWIFT Banking &amp; Government Middleware Enables RCE",
+    "link": "https://www.darkreading.com/cybersecurity-operations/swift-banking-govt-middleware-rce",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt20cb2cd941ab8738/6abfc2b68e913fc976ab5ea7/USB-years-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "GitLab warns of critical RCE vulnerability in AI Gateway service",
+    "link": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-critical-rce-vulnerability-in-ai-gateway-service/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/14/GitLab.jpg"
+  },
+  {
+    "title": "Is Your Organization Ready for 2027's AI Accountability Era?",
+    "link": "https://www.darkreading.com/cybersecurity-operations/is-your-organization-ready-for-2027-s-ai-accountability-era-",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta6129261e6e03886/69fe1d8aac518193326b56b8/AI_orchestration_NicoElNino_Alamy.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Is It Fair to Blame 'Rogue' AI for Security Failures?",
+    "link": "https://www.darkreading.com/insider-threats/blame-rogue-ai-security-failures",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt51b569a789927083/6abe888c953215e732ad4e3b/accountability-wildpixel-GettyImages-2189491114.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "US sanctions Tren de Aragua gang members in ATM hacks crackdown",
+    "link": "https://www.bleepingcomputer.com/news/security/us-sanctions-tren-de-aragua-members-in-atm-jackpotting-crackdown/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/01/09/US_Treasury.jpg"
+  },
+  {
     "title": "In Other News: $15K iCloud Spoofing Bugs, AI Policy Experts Phished, Adblocker Spies on AI Chats",
     "link": "https://www.securityweek.com/in-other-news-15k-icloud-spoofing-bugs-ai-policy-experts-phished-adblocker-spies-on-ai-chats/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
@@ -93,60 +148,5 @@
     "title": "Autonomous AI agents tried to hack US, Canadian government websites",
     "link": "https://www.bleepingcomputer.com/news/security/autonomous-ai-agents-tried-to-hack-us-canadian-government-websites/",
     "image": "https://www.bleepstatic.com/content/hl-images/2022/05/12/ai-cybersecurity-hacker.jpg"
-  },
-  {
-    "title": "Microsoft says threat actors are ahead in the early AI race",
-    "link": "https://www.bleepingcomputer.com/news/security/microsoft-says-threat-actors-are-ahead-in-the-early-ai-race/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/23/AI-2.jpg"
-  },
-  {
-    "title": "Zero Trust Creator Says Model Holds Firm Against AI-Assisted Attacks",
-    "link": "https://www.securityweek.com/zero-trust-creator-says-model-holds-firm-against-ai-assisted-attacks/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Zero-Trust-John-Kindervag.jpg"
-  },
-  {
-    "title": "Osavul Lands $10 Million to Spot Hostile Intent Across Cyber, Physical Domains",
-    "link": "https://www.securityweek.com/osavul-lands-10-million-to-spot-hostile-intent-across-cyber-physical-domains/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
-  },
-  {
-    "title": "Police Arrest 16-Year-Old Suspected of Running KillSec, Seize Ransomware Leak Site and Servers",
-    "link": "https://thehackernews.com/2026/10/police-arrest-16-year-old-suspected-of.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy6XYYOXNZNjc51viw5FvCk49pWIXCCRS6yr_hl0ZKdwhBWRfYrCQ7bM6AJZJdmI_W3AEz1V3X0DAP6k39KfgjlKFfB5JcFaKN9zzIl1-7c49Vnuaz55yhRXjdmY5K2kIPuY_-7624KyVHqkHzikJIi11iClljnXv_3i2X21JiRCMU8ElmiHiZdHVQ7ws/s1600/killsec-ransomware.jpg"
-  },
-  {
-    "title": "ThreatsDay: AI-Powered Zero-Day Chain, 543K Live Secrets, Model Inspection RCE and 13 More Stories",
-    "link": "https://thehackernews.com/2026/10/threatsday-ai-powered-zero-day-chain.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOZPv0LS8-qPBgL_d1m8BLNikw8psPt9qtB_HiFNoYnVwBacYvwz4DdEixukdlHcy7IXmUB9dI9E_Hcx48HJIL7sQzmDeextP-Y_tHO9SX51i_SditMkVsRgWxyMekufW3yZFn2jI9nf29y3JEM2a_yFv8iTLDb6d3r1roNsea_Yk5TWCiMcvkmE5ZbP6B/s1600/oct-threatsday.jpg"
-  },
-  {
-    "title": "WordPress Backdoor Rebuilds Itself After Cleanup Using Files, Database, and Shared Memory",
-    "link": "https://thehackernews.com/2026/10/wordpress-backdoor-rebuilds-itself.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbdAzWwJ7WC6PL7vtBZDUWfVyYu9iIBlT3X5gZn-Yl9aRuZAEeW3RjEU81RQWsvH_7og6v7-somVgG-fR35drKy6bxLMcHdpJQAi6ydXw-m3oMxZ1hlDC7kr8Wsu0dOfRt6ZLEasAsYNGq-pzmQiBNWMbEBzqa9zYdAu16NtgIfDe3PpOvCVzGj6yFqmet/s1600/wordpress-exploit.jpg"
-  },
-  {
-    "title": "Hacker Conversations: Rob Juncker, a Knock at the Door and a Moral Compass",
-    "link": "https://www.securityweek.com/hacker-conversations-rob-juncker-a-knock-at-the-door-and-a-moral-compass/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/Hacker-Conversations-Rob-Juncker.jpeg"
-  },
-  {
-    "title": "Police dismantle KillSec ransomware gang allegedly led by 16-year-old",
-    "link": "https://www.bleepingcomputer.com/news/security/police-dismantle-killsec-ransomware-gang-allegedly-led-by-16-year-old/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/01/operation-killswitch-header.jpg"
-  },
-  {
-    "title": "The Day-One Hole in Zero Trust Architecture",
-    "link": "https://www.bleepingcomputer.com/news/security/the-day-one-hole-in-zero-trust-architecture/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/09/23/specops-question-mark.jpg"
-  },
-  {
-    "title": "Kiteworks patches max severity code injection vulnerability",
-    "link": "https://www.bleepingcomputer.com/news/security/kiteworks-patches-max-severity-email-protection-gateway-code-injection-vulnerability/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/01/Kiteworks.jpg"
-  },
-  {
-    "title": "Warlock Ransomware Hits Large Spanish, Portuguese Orgs",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/warlock-ransomware-spanish-portuguese",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9bb24e8bd32cc751/6abd41d4a6381712feda02db/Warlock-Grandfailure-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
