@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-xxv7-2vv3-h682",
-    "summary": "Trigger.dev: Server-side request forgery via unvalidated webhook alert-channel URL",
-    "severity": "HIGH",
-    "published": "2026-10-02T19:31:33Z",
-    "ghsa": "GHSA-xxv7-2vv3-h682"
+    "id": "CVE-2026-73802",
+    "summary": "gitea-runner: workflow container.options passes host namespaces and capability flags to job container when privileged mode is disabled",
+    "severity": "CRITICAL",
+    "published": "2026-10-02T23:18:12Z",
+    "ghsa": "GHSA-x4q3-gcj3-m6cf"
   },
   {
-    "id": "GHSA-qxpp-qjg8-x4jv",
-    "summary": "Trigger.dev: Run replay injects a task run into an attacker-chosen environment (cross-tenant write)",
+    "id": "CVE-2026-104861",
+    "summary": "probe-image-size: Quadratic-time Denial of Service in the SVG Parser",
     "severity": "HIGH",
-    "published": "2026-10-02T19:31:17Z",
-    "ghsa": "GHSA-qxpp-qjg8-x4jv"
+    "published": "2026-10-02T23:18:02Z",
+    "ghsa": "GHSA-gjj5-9665-rwrc"
   },
   {
-    "id": "CVE-2026-59944",
-    "summary": "Composer: GHSA-gjfg-22fp-rrxx fix bypass via symlinked package bin path",
+    "id": "GHSA-x8gv-g2g3-65fj",
+    "summary": "SiYuan Agent Tools SSRF via DNS-Rebinding TOCTOU (Bypass of CheckHostSSRF)",
+    "severity": "HIGH",
+    "published": "2026-10-02T23:17:16Z",
+    "ghsa": "GHSA-x8gv-g2g3-65fj"
+  },
+  {
+    "id": "GHSA-p23f-cm6q-2qp8",
+    "summary": "SiYuan MCP asset.upload Reads Arbitrary Absolute File Paths (Workspace Boundary Bypass)",
     "severity": "MODERATE",
-    "published": "2026-10-02T19:14:34Z",
-    "ghsa": "GHSA-96h3-5x6v-m776"
+    "published": "2026-10-02T23:16:56Z",
+    "ghsa": "GHSA-p23f-cm6q-2qp8"
   },
   {
-    "id": "GHSA-8mcx-5rqc-vhmf",
-    "summary": "Dulwich: Arbitrary File Write (RCE) on Windows via Unvalidated Drive Letters in Tree Paths",
+    "id": "CVE-2026-19481",
+    "summary": "@fastify/busboy vulnerable to Denial of Service via prototype-named multipart part header",
     "severity": "HIGH",
-    "published": "2026-10-02T19:14:21Z",
-    "ghsa": "GHSA-8mcx-5rqc-vhmf"
+    "published": "2026-10-02T23:16:36Z",
+    "ghsa": "GHSA-x8mw-p69m-v3mx"
   },
   {
-    "id": "GHSA-35mr-4567-66vg",
-    "summary": "Dulwich: Infinite Loop Denial of Service (DoS) in Packfile Object Resolution",
+    "id": "CVE-2026-19484",
+    "summary": "@fastify/busboy vulnerable to Denial of Service via oversized multipart boundary",
+    "severity": "HIGH",
+    "published": "2026-10-02T23:16:17Z",
+    "ghsa": "GHSA-xjh9-v7x6-24jw"
+  },
+  {
+    "id": "GHSA-mwm8-39rw-8826",
+    "summary": "sqlite3-ruby: Use-After-Free in SQLite Aggregate Arguments in Heap-Allocated Argument Array",
     "severity": "MODERATE",
-    "published": "2026-10-02T18:54:39Z",
-    "ghsa": "GHSA-35mr-4567-66vg"
+    "published": "2026-10-02T23:11:51Z",
+    "ghsa": "GHSA-mwm8-39rw-8826"
   },
   {
-    "id": "GHSA-8w8g-wq8h-fq33",
-    "summary": "Dulwich: Symlink write-through in checkout(paths=[]) via raw os.open bypasses all symlink protections",
+    "id": "GHSA-cjcg-cxmh-9wcr",
+    "summary": "Praxis affected by HTTP/2 Bomb ",
     "severity": "HIGH",
-    "published": "2026-10-02T18:53:35Z",
-    "ghsa": "GHSA-8w8g-wq8h-fq33"
+    "published": "2026-10-02T23:09:37Z",
+    "ghsa": "GHSA-cjcg-cxmh-9wcr"
   },
   {
-    "id": "GHSA-5fqc-mrg8-w798",
-    "summary": "Dulwich: Symlink directory traversal in filter-branch index_filter via cross-commit state persistence",
+    "id": "CVE-2026-71416",
+    "summary": "Headroom vulnerable to Cross-Site WebSocket Hijacking (CSWSH)",
     "severity": "HIGH",
-    "published": "2026-10-02T18:53:05Z",
-    "ghsa": "GHSA-5fqc-mrg8-w798"
+    "published": "2026-10-02T23:09:15Z",
+    "ghsa": "GHSA-h46j-26q3-rggf"
   },
   {
-    "id": "GHSA-cm62-gvxx-vmxx",
-    "summary": "Dulwich: Symlink directory traversal in stash pop allows arbitrary file write via intermediate directory symlinks",
+    "id": "CVE-2026-74904",
+    "summary": "SiYuan: 17 block metadata/content endpoints in kernel/api/block.go have zero publish-access filtering, reachable by anonymous publish-mode readers",
     "severity": "HIGH",
-    "published": "2026-10-02T18:52:53Z",
-    "ghsa": "GHSA-cm62-gvxx-vmxx"
-  },
-  {
-    "id": "GHSA-6g2r-675j-hx59",
-    "summary": "xxhash-rust: Safe xxh3 custom-secret API accepts too-short secret in release",
-    "severity": "LOW",
-    "published": "2026-10-02T18:29:13Z",
-    "ghsa": "GHSA-6g2r-675j-hx59"
-  },
-  {
-    "id": "CVE-2026-61586",
-    "summary": "Copernik XML Factory (stock JDK provider) has Improper restriction of XInclude resource resolution",
-    "severity": "HIGH",
-    "published": "2026-10-02T18:27:17Z",
-    "ghsa": "GHSA-xm28-xvqc-gxxg"
+    "published": "2026-10-02T23:05:33Z",
+    "ghsa": "GHSA-4vpg-gwqq-w44c"
   }
 ]
