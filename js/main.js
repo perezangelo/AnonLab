@@ -116,12 +116,12 @@ function initSessionTimer() {
     }
 
     let startTime =
-    sessionStorage.getItem("anonlabStartTime");
+        sessionStorage.getItem("anonlabStartTime");
 
-if (!startTime) {
-    startTime = Date.now();
-    sessionStorage.setItem("anonlabStartTime", startTime);
-}
+    if (!startTime) {
+        startTime = Date.now();
+        sessionStorage.setItem("anonlabStartTime", startTime);
+    }
 
     function updateTimer() {
 
@@ -144,7 +144,6 @@ if (!startTime) {
     }
 
     updateTimer();
-
     setInterval(updateTimer, 1000);
 
     console.log("✅ Session timer avviato");
