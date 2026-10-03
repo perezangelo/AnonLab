@@ -115,17 +115,20 @@ function initSessionTimer() {
         return;
     }
 
-    let startTime = sessionStorage.getItem("anonlabStartTime");
+    const startTime =
+        sessionStorage.getItem("anonlabStartTime");
 
     if (!startTime) {
-        startTime = Date.now();
-        sessionStorage.setItem("anonlabStartTime", startTime);
+        console.warn("Session start time non trovato");
+        return;
     }
 
     function updateTimer() {
 
         const elapsed =
-            Math.floor((Date.now() - parseInt(startTime, 10)) / 1000);
+            Math.floor(
+                (Date.now() - parseInt(startTime, 10)) / 1000
+            );
 
         const hours =
             String(Math.floor(elapsed / 3600)).padStart(2, "0");
@@ -141,6 +144,7 @@ function initSessionTimer() {
     }
 
     updateTimer();
+
     setInterval(updateTimer, 1000);
 
     console.log("✅ Session timer avviato");
