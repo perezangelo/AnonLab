@@ -115,11 +115,11 @@ function initSessionTimer() {
         return;
     }
 
-    let startTime = localStorage.getItem("anonlabStartTime");
+    let startTime = sessionStorage.getItem("anonlabStartTime");
 
     if (!startTime) {
         startTime = Date.now();
-        localStorage.setItem("anonlabStartTime", startTime);
+        sessionStorage.setItem("anonlabStartTime", startTime);
     }
 
     function updateTimer() {
@@ -145,6 +145,8 @@ function initSessionTimer() {
 
     console.log("✅ Session timer avviato");
 }
+
+document.addEventListener("DOMContentLoaded", initSessionTimer);
 
 // ===============================
 // DOM READY — INIZIALIZZAZIONI
