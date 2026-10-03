@@ -115,13 +115,13 @@ function initSessionTimer() {
         return;
     }
 
-    const startTime =
-        sessionStorage.getItem("anonlabStartTime");
+    let startTime =
+    sessionStorage.getItem("anonlabStartTime");
 
-    if (!startTime) {
-        console.warn("Session start time non trovato");
-        return;
-    }
+if (!startTime) {
+    startTime = Date.now();
+    sessionStorage.setItem("anonlabStartTime", startTime);
+}
 
     function updateTimer() {
 
