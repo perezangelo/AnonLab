@@ -52,28 +52,4 @@
 </script>
 </div>
 
-    <script>
-if (!localStorage.getItem("anonlabStartTime")) {
-    localStorage.setItem("anonlabStartTime", Date.now());
-}
-
-const anonlabStartTime = parseInt(localStorage.getItem("anonlabStartTime"), 10);
-
-function updateSessionTimer() {
-    const elapsed = Math.floor((Date.now() - anonlabStartTime) / 1000);
-
-    const hours = String(Math.floor(elapsed / 3600)).padStart(2, "0");
-    const minutes = String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
-    const seconds = String(elapsed % 60).padStart(2, "0");
-
-    const timer = document.getElementById("session-timer");
-    if (timer) {
-        timer.textContent = `${hours}:${minutes}:${seconds}`;
-    }
-}
-
-updateSessionTimer();
-setInterval(updateSessionTimer, 1000);
-</script>
-
 </footer>
