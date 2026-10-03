@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Inizializza YouTube player
     initYouTubePlayer();
 
-// TIMER SESSIONE
+    // TIMER SESSIONE
     initSessionTimer();
 
     // ⭐ Il contatore visite è ora gestito dal nuovo script in index.html
