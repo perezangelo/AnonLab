@@ -103,53 +103,6 @@ function initMobileMenu() {
 }
 
 // ===============================
-// TIMER SESSIONE
-// ===============================
-
-function initSessionTimer() {
-
-    const timer = document.getElementById("session-timer");
-
-    if (!timer) {
-        console.warn("Session timer non trovato");
-        return;
-    }
-
-    let startTime =
-        sessionStorage.getItem("anonlabStartTime");
-
-    if (!startTime) {
-        startTime = Date.now();
-        sessionStorage.setItem("anonlabStartTime", startTime);
-    }
-
-    function updateTimer() {
-
-        const elapsed =
-            Math.floor(
-                (Date.now() - parseInt(startTime, 10)) / 1000
-            );
-
-        const hours =
-            String(Math.floor(elapsed / 3600)).padStart(2, "0");
-
-        const minutes =
-            String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
-
-        const seconds =
-            String(elapsed % 60).padStart(2, "0");
-
-        timer.textContent =
-            `${hours}:${minutes}:${seconds}`;
-    }
-
-    updateTimer();
-    setInterval(updateTimer, 1000);
-
-    console.log("✅ Session timer avviato");
-}
-
-// ===============================
 // DOM READY — INIZIALIZZAZIONI
 // ===============================
 
@@ -168,9 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inizializza YouTube player
     initYouTubePlayer();
-
-    // Timer sessione
-    initSessionTimer();
 
     // ⭐ Il contatore visite è ora gestito dal nuovo script in index.html
 });
