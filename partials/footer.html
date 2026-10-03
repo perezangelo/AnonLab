@@ -24,6 +24,10 @@
 
     </div>
 
+    <div class="session-counter" style="font-size:0.75rem; color:#00ff88; font-family:monospace; margin-bottom:8px;">
+    🟢 Sessione attiva da: <span id="session-timer">00:00:00</span>
+</div>
+
     <p class="footer-copy" style="font-size: 0.75rem;">
         © 2026 AnonLab — Cybersecurity & Cultura Digitale
     </p>
@@ -40,5 +44,29 @@
 }(document,location)
 </script>
 </div>
+
+    <script>
+if (!localStorage.getItem("anonlabStartTime")) {
+    localStorage.setItem("anonlabStartTime", Date.now());
+}
+
+const anonlabStartTime = parseInt(localStorage.getItem("anonlabStartTime"), 10);
+
+function updateSessionTimer() {
+    const elapsed = Math.floor((Date.now() - anonlabStartTime) / 1000);
+
+    const hours = String(Math.floor(elapsed / 3600)).padStart(2, "0");
+    const minutes = String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
+    const seconds = String(elapsed % 60).padStart(2, "0");
+
+    const timer = document.getElementById("session-timer");
+    if (timer) {
+        timer.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+}
+
+updateSessionTimer();
+setInterval(updateSessionTimer, 1000);
+</script>
 
 </footer>
