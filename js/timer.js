@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
         const s = String(elapsed % 60).padStart(2, "0");
 
-        timer.textContent = `█ ONLINE SESSION █ ${h}:${m}:${s}`;
+        timer.textContent =
+    "█ ONLINE SESSION █ ${hours}:${minutes}:${seconds}";
     }
 
     updateTimer();
