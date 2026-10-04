@@ -46,61 +46,7 @@
         ● ONLINE SESSION: 00:00:00
     </span>
 </li>
-
-<script>
-(function () {
-
-    const timer = document.getElementById("session-timer");
-
-    if (!timer) {
-        console.warn("Session timer: elemento non trovato");
-        return;
-    }
-
-    /*
-     * Crea l'inizio sessione una sola volta.
-     * Rimane valido finché resta aperta questa scheda.
-     */
-    let startTime = sessionStorage.getItem("anonlabStartTime");
-
-    if (!startTime) {
-        startTime = Date.now().toString();
-        sessionStorage.setItem("anonlabStartTime", startTime);
-    }
-
-    startTime = parseInt(startTime, 10);
-
-    function updateSessionTimer() {
-
-        const elapsed = Math.max(
-            0,
-            Math.floor((Date.now() - startTime) / 1000)
-        );
-
-        const hours = String(
-            Math.floor(elapsed / 3600)
-        ).padStart(2, "0");
-
-        const minutes = String(
-            Math.floor((elapsed % 3600) / 60)
-        ).padStart(2, "0");
-
-        const seconds = String(
-            elapsed % 60
-        ).padStart(2, "0");
-
-        timer.textContent =
-            `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
-    }
-
-    updateSessionTimer();
-
-    setInterval(updateSessionTimer, 1000);
-
-    console.log("✅ Online Session timer avviato");
-
-})();
-</script>
+            
 </nav>
 
     </div>
