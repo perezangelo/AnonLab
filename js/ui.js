@@ -261,7 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Caricamento partials
     loadPartial("header", "partials/header.html");
     });
-
     loadPartial("ticker", "partials/ticker.html").then(() => {
         if (typeof loadTickerNews === "function") loadTickerNews();
     });
