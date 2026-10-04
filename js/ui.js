@@ -564,4 +564,3 @@ function initSessionTimer() {
     console.log("✅ Session timer avviato");
 }
 
-document.addEventListener("DOMContentLoaded", initSessionTimer);
