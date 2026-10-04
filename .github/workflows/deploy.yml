@@ -21,9 +21,17 @@ jobs:
           password: ${{ secrets.angelo71 }}
 
           exclude: |
-            **/.git*
-            **/.github/**
-            **/backend/**
-            **/counter/**
-            **/data/**
-            **/*.php
+  **/.git*
+  **/.github/**
+
+  **/*.php
+  **/*.sql
+  **/*.log
+
+  backend/**
+  counter/**
+  data/**
+  newsletter/**
+  api/**
+  logs/**
+  tmp/**
