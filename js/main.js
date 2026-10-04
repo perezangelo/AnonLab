@@ -5,6 +5,17 @@
 console.log("AnonLab UI loaded");
 
 // ===============================
+// SESSION START
+// ===============================
+
+if (!sessionStorage.getItem("anonlabStartTime")) {
+    sessionStorage.setItem(
+        "anonlabStartTime",
+        Date.now().toString()
+    );
+}
+
+// ===============================
 // CALCOLATRICE
 // ===============================
 
@@ -99,6 +110,85 @@ function initMobileMenu() {
 
     toggle.addEventListener("click", () => {
         nav.classList.toggle("open");
+    });
+}
+
+// ===============================
+// ONLINE SESSION TIMER
+// ===============================
+
+function initSessionTimer() {
+
+    function startTimer() {
+
+        const timer = document.getElementById("session-timer");
+
+        // La navbar potrebbe essere caricata dopo main.js
+        if (!timer) {
+            return false;
+        }
+
+        // Evita doppie inizializzazioni
+        if (timer.dataset.timerStarted === "true") {
+            return true;
+        }
+
+        timer.dataset.timerStarted = "true";
+
+        const startTime = parseInt(
+            sessionStorage.getItem("anonlabStartTime"),
+            10
+        );
+
+        function updateTimer() {
+
+            const elapsed = Math.max(
+                0,
+                Math.floor((Date.now() - startTime) / 1000)
+            );
+
+            const hours = String(
+                Math.floor(elapsed / 3600)
+            ).padStart(2, "0");
+
+            const minutes = String(
+                Math.floor((elapsed % 3600) / 60)
+            ).padStart(2, "0");
+
+            const seconds = String(
+                elapsed % 60
+            ).padStart(2, "0");
+
+            timer.textContent =
+                `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
+        }
+
+        updateTimer();
+
+        setInterval(updateTimer, 1000);
+
+        console.log("✅ ONLINE SESSION TIMER AVVIATO");
+
+        return true;
+    }
+
+    // Prova subito
+    if (startTimer()) {
+        return;
+    }
+
+    // La navbar potrebbe arrivare tramite fetch()
+    const observer = new MutationObserver(() => {
+
+        if (startTimer()) {
+            observer.disconnect();
+        }
+
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
     });
 }
 
