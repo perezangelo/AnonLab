@@ -103,7 +103,7 @@ function initMobileMenu() {
 }
 
 // ===============================
-// TIMER SESSIONE
+// TIMER SESSIONE — ANONLAB CYBER
 // ===============================
 
 if (!sessionStorage.getItem("anonlabStartTime")) {
@@ -115,45 +115,50 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
 
 function initSessionTimer() {
 
-    const timer = document.getElementById("session-timer");
+    function startTimer() {
 
-    if (!timer) {
-        console.warn("Session timer non trovato");
-        return;
-    }
+        const timer = document.getElementById("session-timer");
 
-    const startTime =
-        parseInt(
+        if (!timer) {
+            setTimeout(startTimer, 300);
+            return;
+        }
+
+        const startTime = parseInt(
             sessionStorage.getItem("anonlabStartTime"),
             10
         );
 
-    function updateTimer() {
+        function updateTimer() {
 
-        const elapsed = Math.floor(
-            (Date.now() - startTime) / 1000
-        );
+            const elapsed = Math.max(
+                0,
+                Math.floor((Date.now() - startTime) / 1000)
+            );
 
-        const hours = String(
-            Math.floor(elapsed / 3600)
-        ).padStart(2, "0");
+            const hours = String(
+                Math.floor(elapsed / 3600)
+            ).padStart(2, "0");
 
-        const minutes = String(
-            Math.floor((elapsed % 3600) / 60)
-        ).padStart(2, "0");
+            const minutes = String(
+                Math.floor((elapsed % 3600) / 60)
+            ).padStart(2, "0");
 
-        const seconds = String(
-            elapsed % 60
-        ).padStart(2, "0");
+            const seconds = String(
+                elapsed % 60
+            ).padStart(2, "0");
 
-        timer.textContent =
-            `◉ ${hours}:${minutes}:${seconds}`;
+            timer.textContent =
+                `◉ ${hours}:${minutes}:${seconds}`;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        console.log("✅ Session timer avviato");
     }
 
-    updateTimer();
-    setInterval(updateTimer, 1000);
-
-    console.log("✅ Session timer avviato");
+    startTimer();
 }
 
 // ===============================
