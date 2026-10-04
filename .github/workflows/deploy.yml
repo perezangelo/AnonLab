@@ -1,4 +1,4 @@
-name: Deploy Frontend
+name: Deploy Frontend to Altervista
 
 on:
   push:
@@ -10,28 +10,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: FTP Deploy
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.ftp.angelonline.altervista.org }}
-          username: ${{ secrets.angelonline }}
-          password: ${{ secrets.angelo71 }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
 
           exclude: |
-  **/.git*
-  **/.github/**
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
 
-  **/*.php
-  **/*.sql
-  **/*.log
+            **/*.php
+            **/*.sql
+            **/*.log
 
-  backend/**
-  counter/**
-  data/**
-  newsletter/**
-  api/**
-  logs/**
-  tmp/**
+            backend/**
+            counter/**
+            data/**
+            newsletter/**
+            api/**
+            logs/**
+            tmp/**
