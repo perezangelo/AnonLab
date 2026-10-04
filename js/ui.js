@@ -259,10 +259,9 @@ function waitForSidebar() {
 document.addEventListener("DOMContentLoaded", () => {
 
     // Caricamento partials
-    loadPartial("header", "partials/header.html")
-    .then(() => {
-        initSessionTimer();
+    loadPartial("header", "partials/header.html");
     });
+
     loadPartial("ticker", "partials/ticker.html").then(() => {
         if (typeof loadTickerNews === "function") loadTickerNews();
     });
@@ -517,53 +516,5 @@ function updateCounterUI(data) {
 
     if (elTime)
         elTime.textContent = now.toLocaleTimeString("it-IT");
-}
-
-// ===============================
-// TIMER SESSIONE
-// ===============================
-
-function initSessionTimer() {
-
-    const timer = document.getElementById("session-timer");
-
-    if (!timer) {
-        console.warn("Session timer non trovato");
-        return;
-    }
-
-    let startTime = sessionStorage.getItem("anonlabStartTime");
-
-    if (!startTime) {
-        startTime = Date.now();
-        sessionStorage.setItem("anonlabStartTime", startTime);
-    }
-
-    function updateTimer() {
-
-        const elapsed = Math.floor(
-            (Date.now() - Number(startTime)) / 1000
-        );
-
-        const hours = String(
-            Math.floor(elapsed / 3600)
-        ).padStart(2, "0");
-
-        const minutes = String(
-            Math.floor((elapsed % 3600) / 60)
-        ).padStart(2, "0");
-
-        const seconds = String(
-            elapsed % 60
-        ).padStart(2, "0");
-
-        timer.textContent =
-            `${hours}:${minutes}:${seconds}`;
-    }
-
-    updateTimer();
-    setInterval(updateTimer, 1000);
-
-    console.log("✅ Session timer avviato");
 }
 
