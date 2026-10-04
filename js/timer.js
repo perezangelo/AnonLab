@@ -1,36 +1,28 @@
-/*
- * AnonLab - Footer Session Timer
- * Mostra il tempo trascorso dall'apertura della sessione.
- */
+(() => {
+    function initTimer() {
+        const timer = document.getElementById('session-timer');
 
-document.addEventListener("DOMContentLoaded", () => {
-    const timerElement = document.getElementById("session-timer");
+        if (!timer) return;
 
-    if (!timerElement) {
-        return;
+        const startTime = Date.now();
+
+        function update() {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+
+            const hours = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+            const seconds = String(elapsed % 60).padStart(2, '0');
+
+            timer.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        update();
+        setInterval(update, 1000);
     }
 
-    const startTime = Date.now();
-
-    function updateTimer() {
-        const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
-
-        const hours = String(
-            Math.floor(elapsedSeconds / 3600)
-        ).padStart(2, "0");
-
-        const minutes = String(
-            Math.floor((elapsedSeconds % 3600) / 60)
-        ).padStart(2, "0");
-
-        const seconds = String(
-            elapsedSeconds % 60
-        ).padStart(2, "0");
-
-        timerElement.textContent = `${hours}:${minutes}:${seconds}`;
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTimer);
+    } else {
+        initTimer();
     }
-
-    updateTimer();
-
-    setInterval(updateTimer, 1000);
-});
+})();
