@@ -259,7 +259,10 @@ function waitForSidebar() {
 document.addEventListener("DOMContentLoaded", () => {
 
     // Caricamento partials
-    loadPartial("header", "partials/header.html");
+    loadPartial("header", "partials/header.html")
+    .then(() => {
+        initSessionTimer();
+    });
     loadPartial("ticker", "partials/ticker.html").then(() => {
         if (typeof loadTickerNews === "function") loadTickerNews();
     });
