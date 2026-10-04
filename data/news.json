@@ -1,8 +1,18 @@
 [
   {
+    "title": "Citrix patches NetScaler SAML zero-day exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Citrix.jpg"
+  },
+  {
     "title": "Trump Names National Intelligence Director Jay Clayton to Lead a New Federal AI Task Force",
     "link": "https://www.securityweek.com/trump-names-national-intelligence-director-jay-clayton-to-lead-a-new-federal-ai-task-force/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/10/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "image": ""
   },
   {
     "title": "Anthropic asks Claude users to share voice data for AI model training",
@@ -138,15 +148,5 @@
     "title": "macOS Users Targeted by Fake Zoom Installer Carrying CloudSyncD Backdoor",
     "link": "https://www.securityweek.com/macos-users-targeted-by-fake-zoom-installer-carrying-cloudsyncd-backdoor/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-  },
-  {
-    "title": "Malicious Linux Implants Mimic Asian Mail Security Products",
-    "link": "https://www.darkreading.com/threat-intelligence/malicious-linux-implants-mimic-asian-mail-security",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6ae8adbdedb5109a/6abeaf448f0ddb6d837f64ef/Fake_mustache-Liudmila_Chernetska-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Dell asks admins to patch max severity CSM flaws as soon as possible",
-    "link": "https://www.bleepingcomputer.com/news/security/new-max-severity-dell-csm-flaws-give-hackers-admin-privileges/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/14/Dell.jpg"
   }
 ]
