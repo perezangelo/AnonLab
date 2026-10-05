@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-73802",
-    "summary": "gitea-runner: workflow container.options passes host namespaces and capability flags to job container when privileged mode is disabled",
+    "id": "CVE-2026-103921",
+    "summary": "GraphQL Tools: TLS Certificate Validation Disabled in Legacy GraphQL WebSocket Executor",
+    "severity": "HIGH",
+    "published": "2026-10-05T22:56:56Z",
+    "ghsa": "GHSA-6fw5-9hq8-w87g"
+  },
+  {
+    "id": "CVE-2026-104852",
+    "summary": "GraphQL Tools has prototype pollution in well-established utility function `mergeDeep`",
+    "severity": "HIGH",
+    "published": "2026-10-05T22:56:46Z",
+    "ghsa": "GHSA-7mx3-vvmw-hjmv"
+  },
+  {
+    "id": "CVE-2026-86597",
+    "summary": "Snowflake drivers writes sensitive information to logs",
+    "severity": "MODERATE",
+    "published": "2026-10-05T22:55:47Z",
+    "ghsa": "GHSA-qqj6-54q6-cxv6"
+  },
+  {
+    "id": "GHSA-6f2x-v7q7-m7m5",
+    "summary": "hickory-resolver follows irrelevant CNAME records",
+    "severity": "MODERATE",
+    "published": "2026-10-05T22:55:18Z",
+    "ghsa": "GHSA-6f2x-v7q7-m7m5"
+  },
+  {
+    "id": "GHSA-6w6g-hm98-mhgm",
+    "summary": "hickory-resolver: Unbounded TC-retry loop in `NameServerPool::try_send` (resource-exhaustion DoS)",
+    "severity": "HIGH",
+    "published": "2026-10-05T22:55:10Z",
+    "ghsa": "GHSA-6w6g-hm98-mhgm"
+  },
+  {
+    "id": "GHSA-5j98-2g5x-46v6",
+    "summary": "hickory-resolver: Resolver::lookup() and Resolver::lookup_ip() APIs obscure DNSSEC validation failures",
+    "severity": "HIGH",
+    "published": "2026-10-05T22:54:35Z",
+    "ghsa": "GHSA-5j98-2g5x-46v6"
+  },
+  {
+    "id": "CVE-2026-104844",
+    "summary": "PostCSS: Quadratic complexity in flat selector parsing allows CPU exhaustion",
+    "severity": "MODERATE",
+    "published": "2026-10-05T22:53:54Z",
+    "ghsa": "GHSA-rj75-hqrm-r3gf"
+  },
+  {
+    "id": "CVE-2026-104871",
+    "summary": "Angular SSR: Path Traversal to Sibling Directories in CommonEngine on Windows",
+    "severity": "MODERATE",
+    "published": "2026-10-05T22:53:45Z",
+    "ghsa": "GHSA-7g7c-h8rr-7p6q"
+  },
+  {
+    "id": "CVE-2026-104851",
+    "summary": "fsspec: Server-Side Template Injection in ReferenceFileSystem leads to Remote Code Execution",
+    "severity": "HIGH",
+    "published": "2026-10-05T22:53:22Z",
+    "ghsa": "GHSA-27vj-qcqg-25rc"
+  },
+  {
+    "id": "CVE-2026-103922",
+    "summary": "Capacitor Android and iOS: remote content can be loaded at the app origin via the internal HTTP proxy path",
     "severity": "CRITICAL",
-    "published": "2026-10-02T23:18:12Z",
-    "ghsa": "GHSA-x4q3-gcj3-m6cf"
-  },
-  {
-    "id": "CVE-2026-104861",
-    "summary": "probe-image-size: Quadratic-time Denial of Service in the SVG Parser",
-    "severity": "HIGH",
-    "published": "2026-10-02T23:18:02Z",
-    "ghsa": "GHSA-gjj5-9665-rwrc"
-  },
-  {
-    "id": "GHSA-x8gv-g2g3-65fj",
-    "summary": "SiYuan Agent Tools SSRF via DNS-Rebinding TOCTOU (Bypass of CheckHostSSRF)",
-    "severity": "HIGH",
-    "published": "2026-10-02T23:17:16Z",
-    "ghsa": "GHSA-x8gv-g2g3-65fj"
-  },
-  {
-    "id": "GHSA-p23f-cm6q-2qp8",
-    "summary": "SiYuan MCP asset.upload Reads Arbitrary Absolute File Paths (Workspace Boundary Bypass)",
-    "severity": "MODERATE",
-    "published": "2026-10-02T23:16:56Z",
-    "ghsa": "GHSA-p23f-cm6q-2qp8"
-  },
-  {
-    "id": "CVE-2026-19481",
-    "summary": "@fastify/busboy vulnerable to Denial of Service via prototype-named multipart part header",
-    "severity": "HIGH",
-    "published": "2026-10-02T23:16:36Z",
-    "ghsa": "GHSA-x8mw-p69m-v3mx"
-  },
-  {
-    "id": "CVE-2026-19484",
-    "summary": "@fastify/busboy vulnerable to Denial of Service via oversized multipart boundary",
-    "severity": "HIGH",
-    "published": "2026-10-02T23:16:17Z",
-    "ghsa": "GHSA-xjh9-v7x6-24jw"
-  },
-  {
-    "id": "GHSA-mwm8-39rw-8826",
-    "summary": "sqlite3-ruby: Use-After-Free in SQLite Aggregate Arguments in Heap-Allocated Argument Array",
-    "severity": "MODERATE",
-    "published": "2026-10-02T23:11:51Z",
-    "ghsa": "GHSA-mwm8-39rw-8826"
-  },
-  {
-    "id": "GHSA-cjcg-cxmh-9wcr",
-    "summary": "Praxis affected by HTTP/2 Bomb ",
-    "severity": "HIGH",
-    "published": "2026-10-02T23:09:37Z",
-    "ghsa": "GHSA-cjcg-cxmh-9wcr"
-  },
-  {
-    "id": "CVE-2026-71416",
-    "summary": "Headroom vulnerable to Cross-Site WebSocket Hijacking (CSWSH)",
-    "severity": "HIGH",
-    "published": "2026-10-02T23:09:15Z",
-    "ghsa": "GHSA-h46j-26q3-rggf"
-  },
-  {
-    "id": "CVE-2026-74904",
-    "summary": "SiYuan: 17 block metadata/content endpoints in kernel/api/block.go have zero publish-access filtering, reachable by anonymous publish-mode readers",
-    "severity": "HIGH",
-    "published": "2026-10-02T23:05:33Z",
-    "ghsa": "GHSA-4vpg-gwqq-w44c"
+    "published": "2026-10-05T22:53:10Z",
+    "ghsa": "GHSA-rvm3-566m-v7fv"
   }
 ]
