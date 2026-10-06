@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-103921",
-    "summary": "GraphQL Tools: TLS Certificate Validation Disabled in Legacy GraphQL WebSocket Executor",
-    "severity": "HIGH",
-    "published": "2026-10-05T22:56:56Z",
-    "ghsa": "GHSA-6fw5-9hq8-w87g"
-  },
-  {
-    "id": "CVE-2026-104852",
-    "summary": "GraphQL Tools has prototype pollution in well-established utility function `mergeDeep`",
-    "severity": "HIGH",
-    "published": "2026-10-05T22:56:46Z",
-    "ghsa": "GHSA-7mx3-vvmw-hjmv"
-  },
-  {
-    "id": "CVE-2026-86597",
-    "summary": "Snowflake drivers writes sensitive information to logs",
+    "id": "CVE-2026-105750",
+    "summary": "Docling: `enable_local_fetch` is not enforced in HTML browser-rendering mode",
     "severity": "MODERATE",
-    "published": "2026-10-05T22:55:47Z",
-    "ghsa": "GHSA-qqj6-54q6-cxv6"
+    "published": "2026-10-06T00:02:27Z",
+    "ghsa": "GHSA-q43m-vhcp-mhvm"
   },
   {
-    "id": "GHSA-6f2x-v7q7-m7m5",
-    "summary": "hickory-resolver follows irrelevant CNAME records",
+    "id": "CVE-2026-105753",
+    "summary": "vLLM: Mirrored multimodal IPC caches desync after a rejected request — a later request reusing the same media hash trips a receiver assertion in the engine core",
     "severity": "MODERATE",
-    "published": "2026-10-05T22:55:18Z",
-    "ghsa": "GHSA-6f2x-v7q7-m7m5"
+    "published": "2026-10-06T00:02:05Z",
+    "ghsa": "GHSA-ph3r-5jfg-f84f"
   },
   {
-    "id": "GHSA-6w6g-hm98-mhgm",
-    "summary": "hickory-resolver: Unbounded TC-retry loop in `NameServerPool::try_send` (resource-exhaustion DoS)",
-    "severity": "HIGH",
-    "published": "2026-10-05T22:55:10Z",
-    "ghsa": "GHSA-6w6g-hm98-mhgm"
+    "id": "CVE-2026-105752",
+    "summary": "vLLM: Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle",
+    "severity": "LOW",
+    "published": "2026-10-06T00:02:02Z",
+    "ghsa": "GHSA-935w-9g4m-p28p"
   },
   {
-    "id": "GHSA-5j98-2g5x-46v6",
-    "summary": "hickory-resolver: Resolver::lookup() and Resolver::lookup_ip() APIs obscure DNSSEC validation failures",
-    "severity": "HIGH",
-    "published": "2026-10-05T22:54:35Z",
-    "ghsa": "GHSA-5j98-2g5x-46v6"
-  },
-  {
-    "id": "CVE-2026-104844",
-    "summary": "PostCSS: Quadratic complexity in flat selector parsing allows CPU exhaustion",
+    "id": "CVE-2026-102598",
+    "summary": "Werkzeug safe_join() allows Windows special device names",
     "severity": "MODERATE",
-    "published": "2026-10-05T22:53:54Z",
-    "ghsa": "GHSA-rj75-hqrm-r3gf"
+    "published": "2026-10-05T23:48:39Z",
+    "ghsa": "GHSA-g6x2-hccm-hh4m"
   },
   {
-    "id": "CVE-2026-104871",
-    "summary": "Angular SSR: Path Traversal to Sibling Directories in CommonEngine on Windows",
-    "severity": "MODERATE",
-    "published": "2026-10-05T22:53:45Z",
-    "ghsa": "GHSA-7g7c-h8rr-7p6q"
-  },
-  {
-    "id": "CVE-2026-104851",
-    "summary": "fsspec: Server-Side Template Injection in ReferenceFileSystem leads to Remote Code Execution",
-    "severity": "HIGH",
-    "published": "2026-10-05T22:53:22Z",
-    "ghsa": "GHSA-27vj-qcqg-25rc"
-  },
-  {
-    "id": "CVE-2026-103922",
-    "summary": "Capacitor Android and iOS: remote content can be loaded at the app origin via the internal HTTP proxy path",
+    "id": "CVE-2026-102829",
+    "summary": "simple-git: `VISUAL` editor environment variable is omitted from unsafe editor detection",
     "severity": "CRITICAL",
-    "published": "2026-10-05T22:53:10Z",
-    "ghsa": "GHSA-rvm3-566m-v7fv"
+    "published": "2026-10-05T23:48:21Z",
+    "ghsa": "GHSA-v5rq-49vh-5v5c"
+  },
+  {
+    "id": "CVE-2026-102828",
+    "summary": "simple-git unsafe-operation guard does not block trailer command configuration",
+    "severity": "CRITICAL",
+    "published": "2026-10-05T23:48:14Z",
+    "ghsa": "GHSA-x6jw-m9v5-85vh"
+  },
+  {
+    "id": "CVE-2026-102826",
+    "summary": "simple-git allows command execution through unblocked Git configuration includes",
+    "severity": "HIGH",
+    "published": "2026-10-05T23:48:05Z",
+    "ghsa": "GHSA-g4wm-2vf7-vfgr"
+  },
+  {
+    "id": "CVE-2026-102827",
+    "summary": "simple-git: unsafe-operations plugin bypass via git long-option abbreviation (--receive-p/--exe) -> command execution (residual of CVE-2026-28291)",
+    "severity": "HIGH",
+    "published": "2026-10-05T23:47:58Z",
+    "ghsa": "GHSA-858h-whjf-mvg5"
+  },
+  {
+    "id": "CVE-2026-96749",
+    "summary": "PyMongo: PYTHON-5996 Heap out-of-bounds write via signed size overflow in BSON document encoding",
+    "severity": "HIGH",
+    "published": "2026-10-05T23:47:10Z",
+    "ghsa": "GHSA-v4x9-3549-crwv"
+  },
+  {
+    "id": "CVE-2026-96748",
+    "summary": "PyMongo: PYTHON-5986 Host injection in PyMongo connection string parsing via percent-encoded delimiters",
+    "severity": "HIGH",
+    "published": "2026-10-05T23:47:07Z",
+    "ghsa": "GHSA-vp6j-j7w5-5xjj"
   }
 ]
