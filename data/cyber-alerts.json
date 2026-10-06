@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-105750",
-    "summary": "Docling: `enable_local_fetch` is not enforced in HTML browser-rendering mode",
+    "id": "CVE-2026-105854",
+    "summary": "Payload: ReDoS in Multipart Content-Type Validation",
+    "severity": "HIGH",
+    "published": "2026-10-06T16:18:27Z",
+    "ghsa": "GHSA-2g7p-5934-q4w7"
+  },
+  {
+    "id": "CVE-2026-105849",
+    "summary": "Payload vulnerable to API key disclosure through ordinary document reads",
+    "severity": "HIGH",
+    "published": "2026-10-06T16:18:16Z",
+    "ghsa": "GHSA-238x-w2j9-gwwr"
+  },
+  {
+    "id": "CVE-2026-105850",
+    "summary": "Payload Ecommerce has an order confirmation validation issue",
+    "severity": "HIGH",
+    "published": "2026-10-06T16:17:54Z",
+    "ghsa": "GHSA-8r29-2mp2-pmrw"
+  },
+  {
+    "id": "CVE-2026-105852",
+    "summary": "Payload relationship-query authorization bypass",
     "severity": "MODERATE",
-    "published": "2026-10-06T00:02:27Z",
-    "ghsa": "GHSA-q43m-vhcp-mhvm"
+    "published": "2026-10-06T16:17:32Z",
+    "ghsa": "GHSA-7c34-32v3-j575"
   },
   {
-    "id": "CVE-2026-105753",
-    "summary": "vLLM: Mirrored multimodal IPC caches desync after a rejected request — a later request reusing the same media hash trips a receiver assertion in the engine core",
-    "severity": "MODERATE",
-    "published": "2026-10-06T00:02:05Z",
-    "ghsa": "GHSA-ph3r-5jfg-f84f"
+    "id": "CVE-2026-105853",
+    "summary": "Payload: Token refresh and password reset responses may expose restricted user fields",
+    "severity": "HIGH",
+    "published": "2026-10-06T16:17:28Z",
+    "ghsa": "GHSA-xgv3-crq2-6f69"
   },
   {
-    "id": "CVE-2026-105752",
-    "summary": "vLLM: Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle",
-    "severity": "LOW",
-    "published": "2026-10-06T00:02:02Z",
-    "ghsa": "GHSA-935w-9g4m-p28p"
-  },
-  {
-    "id": "CVE-2026-102598",
-    "summary": "Werkzeug safe_join() allows Windows special device names",
-    "severity": "MODERATE",
-    "published": "2026-10-05T23:48:39Z",
-    "ghsa": "GHSA-g6x2-hccm-hh4m"
-  },
-  {
-    "id": "CVE-2026-102829",
-    "summary": "simple-git: `VISUAL` editor environment variable is omitted from unsafe editor detection",
+    "id": "CVE-2026-105851",
+    "summary": "Payload: Field access control bypass on auth collections",
     "severity": "CRITICAL",
-    "published": "2026-10-05T23:48:21Z",
-    "ghsa": "GHSA-v5rq-49vh-5v5c"
+    "published": "2026-10-06T16:17:23Z",
+    "ghsa": "GHSA-vc4h-q48j-5hcx"
   },
   {
-    "id": "CVE-2026-102828",
-    "summary": "simple-git unsafe-operation guard does not block trailer command configuration",
+    "id": "CVE-2026-105848",
+    "summary": "Payload: Insufficient Access Control in Stripe REST Proxy",
+    "severity": "MODERATE",
+    "published": "2026-10-06T16:09:46Z",
+    "ghsa": "GHSA-r9v2-gg2j-22q5"
+  },
+  {
+    "id": "CVE-2026-105806",
+    "summary": "Payload: Improper access control for MCP API keys",
+    "severity": "HIGH",
+    "published": "2026-10-06T16:09:31Z",
+    "ghsa": "GHSA-2q76-m6w6-qgc6"
+  },
+  {
+    "id": "CVE-2026-105844",
+    "summary": "Payload: Prototype pollution in Payload Import Export plugin",
     "severity": "CRITICAL",
-    "published": "2026-10-05T23:48:14Z",
-    "ghsa": "GHSA-x6jw-m9v5-85vh"
+    "published": "2026-10-06T16:09:23Z",
+    "ghsa": "GHSA-qf28-8hc6-vwrp"
   },
   {
-    "id": "CVE-2026-102826",
-    "summary": "simple-git allows command execution through unblocked Git configuration includes",
-    "severity": "HIGH",
-    "published": "2026-10-05T23:48:05Z",
-    "ghsa": "GHSA-g4wm-2vf7-vfgr"
-  },
-  {
-    "id": "CVE-2026-102827",
-    "summary": "simple-git: unsafe-operations plugin bypass via git long-option abbreviation (--receive-p/--exe) -> command execution (residual of CVE-2026-28291)",
-    "severity": "HIGH",
-    "published": "2026-10-05T23:47:58Z",
-    "ghsa": "GHSA-858h-whjf-mvg5"
-  },
-  {
-    "id": "CVE-2026-96749",
-    "summary": "PyMongo: PYTHON-5996 Heap out-of-bounds write via signed size overflow in BSON document encoding",
-    "severity": "HIGH",
-    "published": "2026-10-05T23:47:10Z",
-    "ghsa": "GHSA-v4x9-3549-crwv"
-  },
-  {
-    "id": "CVE-2026-96748",
-    "summary": "PyMongo: PYTHON-5986 Host injection in PyMongo connection string parsing via percent-encoded delimiters",
-    "severity": "HIGH",
-    "published": "2026-10-05T23:47:07Z",
-    "ghsa": "GHSA-vp6j-j7w5-5xjj"
+    "id": "CVE-2026-105845",
+    "summary": "Payload: SQL Injection in SQLite and Postgres",
+    "severity": "CRITICAL",
+    "published": "2026-10-06T16:09:17Z",
+    "ghsa": "GHSA-v49j-62m6-pgrr"
   }
 ]
