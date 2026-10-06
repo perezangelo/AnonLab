@@ -283,6 +283,35 @@
        display:block;
      ">
 
+<script>
+const toggle = document.getElementById("newsToggle");
+const panel = document.getElementById("newsPanel");
+
+toggle.addEventListener("click", () => {
+  if (panel.style.display === "none") {
+    panel.style.display = "block";
+    requestAnimationFrame(() => {
+      panel.style.opacity = "1";
+      panel.style.transform = "translateY(0)";
+    });
+  } else {
+    panel.style.opacity = "0";
+    panel.style.transform = "translateY(-10px)";
+    setTimeout(() => panel.style.display = "none", 250);
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+    if (panel.style.display === "block") {
+      panel.style.opacity = "0";
+      panel.style.transform = "translateY(-10px)";
+      setTimeout(() => panel.style.display = "none", 250);
+    }
+  }
+});
+</script>
+
 		<!-- TRAINING NODE -->
 
 <div style="
@@ -321,35 +350,6 @@ Badge: Nessuno
     <a href="/training.html"
        style="
          color:#00eaffv>
-
-<script>
-const toggle = document.getElementById("newsToggle");
-const panel = document.getElementById("newsPanel");
-
-toggle.addEventListener("click", () => {
-  if (panel.style.display === "none") {
-    panel.style.display = "block";
-    requestAnimationFrame(() => {
-      panel.style.opacity = "1";
-      panel.style.transform = "translateY(0)";
-    });
-  } else {
-    panel.style.opacity = "0";
-    panel.style.transform = "translateY(-10px)";
-    setTimeout(() => panel.style.display = "none", 250);
-  }
-});
-
-document.addEventListener("click", (e) => {
-  if (!panel.contains(e.target) && !toggle.contains(e.target)) {
-    if (panel.style.display === "block") {
-      panel.style.opacity = "0";
-      panel.style.transform = "translateY(-10px)";
-      setTimeout(() => panel.style.display = "none", 250);
-    }
-  }
-});
-</script>
       
 <!-- WRAPPER ALLINEATO A DESTRA (GOOGLE SEARCH + NEWSLETTER) -->
 <div style="
