@@ -1,72 +1,72 @@
 [
   {
+    "id": "CVE-2026-62179",
+    "summary": "PraisonAI: Platform members can delete owner issue dependencies through member-owned related issues",
+    "severity": "MODERATE",
+    "published": "2026-10-07T14:28:56Z",
+    "ghsa": "GHSA-mxmx-rh57-jx58"
+  },
+  {
+    "id": "CVE-2026-61436",
+    "summary": "PraisonAI: AgentMail webhook mode accepts forged unsigned message.received events and invokes agents",
+    "severity": "HIGH",
+    "published": "2026-10-07T14:07:10Z",
+    "ghsa": "GHSA-7c92-x8vg-4258"
+  },
+  {
+    "id": "CVE-2026-61428",
+    "summary": "PraisonAI: AgentMail webhook lacks signature verification, allowing unauthenticated message injection and sender spoofing",
+    "severity": "HIGH",
+    "published": "2026-10-07T14:06:56Z",
+    "ghsa": "GHSA-qj9c-59p6-8cgx"
+  },
+  {
+    "id": "CVE-2026-57449",
+    "summary": "Actual Sync Server: CORS Proxy GitHub API Allowlist Prefix Bypass Leaks Private Repositories Through the Server GitHub Token",
+    "severity": "HIGH",
+    "published": "2026-10-07T14:00:45Z",
+    "ghsa": "GHSA-m62c-5q34-f3cf"
+  },
+  {
+    "id": "CVE-2026-46438",
+    "summary": "wger: Cross-User Data Corruption via Missing Ownership Check on WorkoutLog.slot_entry",
+    "severity": "MODERATE",
+    "published": "2026-10-07T13:59:17Z",
+    "ghsa": "GHSA-rjpf-7pf5-q54x"
+  },
+  {
+    "id": "CVE-2026-46434",
+    "summary": "wger: Trainer Privilege Escalation - Improper Privilege Management",
+    "severity": "HIGH",
+    "published": "2026-10-07T13:59:14Z",
+    "ghsa": "GHSA-x249-cx55-2h87"
+  },
+  {
+    "id": "CVE-2026-46437",
+    "summary": "wger: API credentials remain valid after logout/password change",
+    "severity": "MODERATE",
+    "published": "2026-10-07T13:59:10Z",
+    "ghsa": "GHSA-v3x9-6gg8-c2c9"
+  },
+  {
+    "id": "CVE-2026-45161",
+    "summary": "wger: trainer_login accepts GET - CSRF bypass enables forced session rebinding",
+    "severity": "MODERATE",
+    "published": "2026-10-07T13:45:33Z",
+    "ghsa": "GHSA-xf64-4pmc-h8qf"
+  },
+  {
+    "id": "CVE-2026-43976",
+    "summary": "wger: cross-tenant admin notes/contracts leak via gym=None bypass (5 views)",
+    "severity": "HIGH",
+    "published": "2026-10-07T13:33:14Z",
+    "ghsa": "GHSA-c72h-82w6-rqfp"
+  },
+  {
     "id": "CVE-2026-41510",
     "summary": "Coraza: Silent argument drop at ArgumentLimit allows bypass of ARGS-targeted rules via parameter flooding",
     "severity": "HIGH",
     "published": "2026-10-06T20:38:03Z",
     "ghsa": "GHSA-6r3q-mjv7-xr8m"
-  },
-  {
-    "id": "CVE-2026-41508",
-    "summary": "Coraza: Truncated multipart body bypasses MULTIPART_STRICT_ERROR (rule 200003) via silent io.ErrUnexpectedEOF handling",
-    "severity": "MODERATE",
-    "published": "2026-10-06T20:37:54Z",
-    "ghsa": "GHSA-r3rm-qphw-hh76"
-  },
-  {
-    "id": "CVE-2026-41504",
-    "summary": "Coraza: Native audit-log format allows CRLF injection and log forgery via request body and header fields",
-    "severity": "MODERATE",
-    "published": "2026-10-06T20:37:27Z",
-    "ghsa": "GHSA-prpw-wwv7-xjjr"
-  },
-  {
-    "id": "CVE-2026-86540",
-    "summary": "knowns OS Command Injection via Insecure LSP Binary Path Config in .knowns/config.json",
-    "severity": "HIGH",
-    "published": "2026-10-06T18:58:38Z",
-    "ghsa": "GHSA-mc52-mwq4-vfx3"
-  },
-  {
-    "id": "CVE-2026-105855",
-    "summary": "Payload didn't enforce field-level password update restrictions",
-    "severity": "HIGH",
-    "published": "2026-10-06T16:21:52Z",
-    "ghsa": "GHSA-fx49-4h83-wjv9"
-  },
-  {
-    "id": "CVE-2026-105854",
-    "summary": "Payload: ReDoS in Multipart Content-Type Validation",
-    "severity": "HIGH",
-    "published": "2026-10-06T16:18:27Z",
-    "ghsa": "GHSA-2g7p-5934-q4w7"
-  },
-  {
-    "id": "CVE-2026-105849",
-    "summary": "Payload vulnerable to API key disclosure through ordinary document reads",
-    "severity": "HIGH",
-    "published": "2026-10-06T16:18:16Z",
-    "ghsa": "GHSA-238x-w2j9-gwwr"
-  },
-  {
-    "id": "CVE-2026-105850",
-    "summary": "Payload Ecommerce has an order confirmation validation issue",
-    "severity": "HIGH",
-    "published": "2026-10-06T16:17:54Z",
-    "ghsa": "GHSA-8r29-2mp2-pmrw"
-  },
-  {
-    "id": "CVE-2026-105852",
-    "summary": "Payload relationship-query authorization bypass",
-    "severity": "MODERATE",
-    "published": "2026-10-06T16:17:32Z",
-    "ghsa": "GHSA-7c34-32v3-j575"
-  },
-  {
-    "id": "CVE-2026-105853",
-    "summary": "Payload: Token refresh and password reset responses may expose restricted user fields",
-    "severity": "HIGH",
-    "published": "2026-10-06T16:17:28Z",
-    "ghsa": "GHSA-xgv3-crq2-6f69"
   }
 ]
