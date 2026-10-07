@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-62179",
-    "summary": "PraisonAI: Platform members can delete owner issue dependencies through member-owned related issues",
+    "id": "CVE-2026-106443",
+    "summary": "WeasyPrint: EPS images reach the Ghostscript interpreter resulting in RCE",
+    "severity": "HIGH",
+    "published": "2026-10-07T18:05:49Z",
+    "ghsa": "GHSA-r543-q48m-4c9j"
+  },
+  {
+    "id": "CVE-2026-104890",
+    "summary": "Kunstmaan CMS: MediaBundle extension blacklist bypass allows authenticated administrators to upload executable PHP files leading to remote code execution",
+    "severity": "HIGH",
+    "published": "2026-10-07T18:05:38Z",
+    "ghsa": "GHSA-p279-5wcv-45vq"
+  },
+  {
+    "id": "CVE-2026-105680",
+    "summary": "Ghost: Authorization Issue Allowed Author Role to Delete any Post",
     "severity": "MODERATE",
-    "published": "2026-10-07T14:28:56Z",
-    "ghsa": "GHSA-mxmx-rh57-jx58"
+    "published": "2026-10-07T18:05:32Z",
+    "ghsa": "GHSA-x3mg-q38v-m562"
   },
   {
-    "id": "CVE-2026-61436",
-    "summary": "PraisonAI: AgentMail webhook mode accepts forged unsigned message.received events and invokes agents",
+    "id": "CVE-2026-93605",
+    "summary": "vm2 contains a sandbox escape vulnerability",
+    "severity": "CRITICAL",
+    "published": "2026-10-07T18:05:00Z",
+    "ghsa": "GHSA-pq68-rvw4-xp4r"
+  },
+  {
+    "id": "CVE-2026-106441",
+    "summary": "Hydra logging configuration permits unsafe callable resolution",
     "severity": "HIGH",
-    "published": "2026-10-07T14:07:10Z",
-    "ghsa": "GHSA-7c92-x8vg-4258"
+    "published": "2026-10-07T18:03:55Z",
+    "ghsa": "GHSA-c3wx-c55w-pxjq"
   },
   {
-    "id": "CVE-2026-61428",
-    "summary": "PraisonAI: AgentMail webhook lacks signature verification, allowing unauthenticated message injection and sender spoofing",
+    "id": "CVE-2026-106442",
+    "summary": "Hydra instantiate target blacklist bypasses permit code execution",
     "severity": "HIGH",
-    "published": "2026-10-07T14:06:56Z",
-    "ghsa": "GHSA-qj9c-59p6-8cgx"
+    "published": "2026-10-07T18:03:49Z",
+    "ghsa": "GHSA-rqx7-p7vv-w7hr"
   },
   {
-    "id": "CVE-2026-57449",
-    "summary": "Actual Sync Server: CORS Proxy GitHub API Allowlist Prefix Bypass Leaks Private Repositories Through the Server GitHub Token",
+    "id": "CVE-2026-104891",
+    "summary": "mppx-condition-gate: Free-access path grants on a self-declared wallet without proving control",
     "severity": "HIGH",
-    "published": "2026-10-07T14:00:45Z",
-    "ghsa": "GHSA-m62c-5q34-f3cf"
+    "published": "2026-10-07T18:03:42Z",
+    "ghsa": "GHSA-jg6q-3qfh-r9f8"
   },
   {
-    "id": "CVE-2026-46438",
-    "summary": "wger: Cross-User Data Corruption via Missing Ownership Check on WorkoutLog.slot_entry",
+    "id": "CVE-2026-106510",
+    "summary": "Backstage: Remote code execution via crafted markdown_extensions in TechDocs mkdocs.yml",
+    "severity": "HIGH",
+    "published": "2026-10-07T18:03:22Z",
+    "ghsa": "GHSA-4488-j8vj-vqqv"
+  },
+  {
+    "id": "CVE-2026-106558",
+    "summary": "Backstage: Improper validation of TechDocs MkDocs configuration",
+    "severity": "HIGH",
+    "published": "2026-10-07T18:03:12Z",
+    "ghsa": "GHSA-qmw3-745m-w99g"
+  },
+  {
+    "id": "CVE-2026-106559",
+    "summary": "Backstage: Improper input validation in Confluence to Markdown scaffolder module",
     "severity": "MODERATE",
-    "published": "2026-10-07T13:59:17Z",
-    "ghsa": "GHSA-rjpf-7pf5-q54x"
-  },
-  {
-    "id": "CVE-2026-46434",
-    "summary": "wger: Trainer Privilege Escalation - Improper Privilege Management",
-    "severity": "HIGH",
-    "published": "2026-10-07T13:59:14Z",
-    "ghsa": "GHSA-x249-cx55-2h87"
-  },
-  {
-    "id": "CVE-2026-46437",
-    "summary": "wger: API credentials remain valid after logout/password change",
-    "severity": "MODERATE",
-    "published": "2026-10-07T13:59:10Z",
-    "ghsa": "GHSA-v3x9-6gg8-c2c9"
-  },
-  {
-    "id": "CVE-2026-45161",
-    "summary": "wger: trainer_login accepts GET - CSRF bypass enables forced session rebinding",
-    "severity": "MODERATE",
-    "published": "2026-10-07T13:45:33Z",
-    "ghsa": "GHSA-xf64-4pmc-h8qf"
-  },
-  {
-    "id": "CVE-2026-43976",
-    "summary": "wger: cross-tenant admin notes/contracts leak via gym=None bypass (5 views)",
-    "severity": "HIGH",
-    "published": "2026-10-07T13:33:14Z",
-    "ghsa": "GHSA-c72h-82w6-rqfp"
-  },
-  {
-    "id": "CVE-2026-41510",
-    "summary": "Coraza: Silent argument drop at ArgumentLimit allows bypass of ARGS-targeted rules via parameter flooding",
-    "severity": "HIGH",
-    "published": "2026-10-06T20:38:03Z",
-    "ghsa": "GHSA-6r3q-mjv7-xr8m"
+    "published": "2026-10-07T18:03:06Z",
+    "ghsa": "GHSA-75qf-886x-5xf2"
   }
 ]
