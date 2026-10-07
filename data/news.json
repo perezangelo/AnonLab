@@ -1,5 +1,45 @@
 [
   {
+    "title": "Ransomware recovery CEO charged over secret ransom payments",
+    "link": "https://www.bleepingcomputer.com/news/security/ransomware-recovery-ceo-charged-over-secret-ransom-payments/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/10/09/cyber-key.jpg"
+  },
+  {
+    "title": "Australian Gov't Weighs Mandatory AI Incident Reporting",
+    "link": "https://www.darkreading.com/cybersecurity-operations/australian-govt-ai-incident-reporting",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd1644f040bd4e95e/6ac6a02424b6126216f8e422/Australia_NSW_parliament-Adrian_Wojcik-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "FBI: Ongoing FortiBleed attacks lock out FortiGate VPN admins",
+    "link": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Fortinet-headpic.jpg"
+  },
+  {
+    "title": "Citizen Lab Slams Trump Administration, 'Techno-Fascist' Executives",
+    "link": "https://www.darkreading.com/cyber-risk/citizen-lab-slams-trump-administration-techno-fascist-executives",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt1c15df6e8c5aa81c/6ac6ac875987721c1d044af4/masssurveillance-J_Studios-Getty-2259137560.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Anthropic Gives Vetted Defenders Fewer Claude Guardrails",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/anthropic-vetted-defenders-claude-guardrails",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc7808659e0089ed6/6ac69946a654a8a160addf33/robot_working-demaerre-GettyImages-1467878602.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Hackers hijack Google domains after breaching ccTLD registries",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-hijack-google-domains-after-breaching-cctld-registries/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/12/29/google-flare.jpg"
+  },
+  {
+    "title": "OpenAI Agent Escape Causes Wikimedia Service Outage",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/openai-agent-escape-causes-wikimedia-service-outage",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2541a007c47b0f0b/6ac62adf05f346dc373093cd/rogue_AO_bot_Chris_Light_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Attackers Hijack .gh, .sl, and .as Registries to Obtain Certificates for Google Domains",
+    "link": "https://thehackernews.com/2026/10/attackers-hijack-gh-sl-and-as.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlqu6e-ijwp1hAEuYyfUUL9hV5kwu0cIe1cMibzayov0GdV2FkSpwvF10YKcxLyw1AUNdKF54RV9o3bfeshwWIWdda1AvgNm4iu6t9F16pb1jOVDQRXBoRjw2uueD4Ov7oEzjPJV7pXgK1U-MzkkqRKgHqP207GG2pqtkRQ09IVZ94HvSlBVArvu7tkNE/s1600/google-tls.jpg"
+  },
+  {
     "title": "Eight Malicious npm Packages Downloaded 40,767 Times Deliver Overlord RAT and Stealer",
     "link": "https://thehackernews.com/2026/10/eight-malicious-npm-packages-downloaded.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgopANe3MXyNNOXog__x1pF53wYoQxinI47tN9gLrZSzJfumz-Dg05ZfyjiGsqF47Pugj71iZ1buX7OEiupWYa09xVQdu7DKOMX5NO-uGKCF0UjNila0x5fNiYw5NWEX1TUQTPidjT5NnGmPwM_6mGfKcOxqcjZuPAZLdzRX5u_TXJM76GQ6mQOkikw_kxo/s1600/npm-malware.jpg"
@@ -108,45 +148,5 @@
     "title": "ASOS Confirms Cyberattack, Data Breach",
     "link": "https://www.securityweek.com/asos-confirms-cyberattack-data-breach/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Asos.jpeg"
-  },
-  {
-    "title": "Anthropic Expands Claude Access for Vetted Cyber Teams as Glasswing Finds 129,000 Flaws",
-    "link": "https://thehackernews.com/2026/10/anthropic-expands-claude-access-for.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimg1tAvNh5aMWuNTZXjb4kKfxIQ0iWkuo2bCznozA8oz2Fm36WzbPnBI1bBDX5Mc3hpyOMIcjS_fcdYzzpQnrtUkex17u0_fn7r3bgcRYEN4o2hoGf4vlw5hQKEgcDd2VoVT2P9unKzsVOlly1QFlu6WfySqGPZ4Pf7xrZXaL4pEy1vrhWQBHR7SiqHHvf/s1600/claude-flaws.jpg"
-  },
-  {
-    "title": "Wikimedia Says Rogue OpenAI Agents Tried to Turn Its Tools Into Proxies",
-    "link": "https://www.securityweek.com/wikimedia-says-rogue-openai-agents-tried-to-turn-its-tools-into-proxies/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Wikimedia-Foundation.jpeg"
-  },
-  {
-    "title": "100+ Compromised Websites Use Fake Cloudflare Checks to Deliver LunexStealer",
-    "link": "https://thehackernews.com/2026/10/100-compromised-websites-use-fake.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4fqqLhgtSTncznc3k2vTS6LJlp8_v3RMx7LaYawiUYEMDuhQ1pOdqrYqlFeyAG5TPBmEnbkLI8vu43GMDxPvaZX6kABd1zQGpIAbVpD2pwtl5v4TohuwbBjlz4dMcjYUv11ogWwPoMoOFJn0aHmxX46xc5Y3ocuxOrg7ix9RrzPzfHtjlW2rAElAV-9-p/s1600/cf-malware.jpg"
-  },
-  {
-    "title": "Android\u2019s October 2026 Updates Patch 25 Vulnerabilities",
-    "link": "https://www.securityweek.com/androids-october-2026-updates-patch-25-vulnerabilities/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Android-update.jpeg"
-  },
-  {
-    "title": "Atlassian Patches Critical Vulnerability Affecting 8 Products",
-    "link": "https://www.securityweek.com/atlassian-patches-critical-vulnerability-affecting-8-products/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/Atlassian.jpg"
-  },
-  {
-    "title": "Ninja Forms plugin flaw exploited to hack WordPress sites",
-    "link": "https://www.bleepingcomputer.com/news/security/ninja-forms-plugin-flaw-exploited-to-hack-wordpress-sites/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/04/07/NinjaForms.jpg"
-  },
-  {
-    "title": "ClickFix Attacks Evolve to Better Hide Malicious Payloads",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/clickfix-attacks-evolve-better-hide-malicious-payloads",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2ab5c3db5bfeb9c5/6ac54ab0a727c6201593319b/Alligator_below_water-SushiSu-GettyImages-2215955885.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Critical Healthcare Systems Aren't Quantum-Ready",
-    "link": "https://www.darkreading.com/iot/exposed-healthcare-systems-quantum-ready",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt977a5014497395dd/6ac55a748f3ecad0e70f76ba/healthcare_greenbutterfly_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
