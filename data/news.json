@@ -1,5 +1,50 @@
 [
   {
+    "title": "'AgentCorruption' Puts AWS Environments At Risk With Single Prompt",
+    "link": "https://www.darkreading.com/cloud-security/agentcorruption-aws-environments-at-risk-single-prompt",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt7fb7357c5c7dbc54/6ac7f27aebe12bcaad81c134/aichatbot-_jittawit.21-Getty-1432457969.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Ransomware attack disrupts Japan's IDCF Cloud used by govt clients",
+    "link": "https://www.bleepingcomputer.com/news/security/ransomware-attack-disrupts-japans-idcf-cloud-used-by-govt-clients/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/10/cloud.jpg"
+  },
+  {
+    "title": "Low-cost Android phones ship with residential proxy malware",
+    "link": "https://www.bleepingcomputer.com/news/security/low-cost-android-phones-ship-with-residential-proxy-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/05/25/Android_malware.jpg"
+  },
+  {
+    "title": "Venezuelan Cartel's Malware Honcho Nabbed for ATM Jackpotting",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/venezuelan-cartel-malware-honcho-nabbed-atm-jackpotting",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltef4e90a751faf3e5/6ac64ed06770201d6d216b2a/atm-keypad-pressing-buttons-Makhh-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "FBI Says China-Linked Hackers Ran Portal Giving Third Parties Access to Stolen Emails",
+    "link": "https://thehackernews.com/2026/10/fbi-says-china-linked-hackers-ran.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyj_ek8VTEYw5CpVqkAK63I01D84oGBvRsHmwpjeAfat3TCDqzhXqRWXWCGkNZKwH3rF0uyeuowCSGcBT-mLkdw-174FA0gGh8ZIVKOXUbXt9w0eTZZTlMGE-ySkZIIkswfxe0-cEU9ww6E8iIpWI2eDQU_NrsezDxIoE2WNBt8mDtG6nYeke9Ut17_JY/s1600/china-email.jpg"
+  },
+  {
+    "title": "Russian Spies Give 'MatchBoil' Malware a Stealthy Facelift",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/russian-spies-matchboil-malware-facelift",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte9326a6a1bce6d31/6ac6bf347f984a40d88b6862/matchboil_Gorodenkoff_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "ThreatsDay: Ransomware Affiliate Betrayal, WhatsApp RAT, Exposed Hacker Tools and 12 More Stories",
+    "link": "https://thehackernews.com/2026/10/threatsday-ransomware-affiliate.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR_DE5ORKWCpLgZgXBuH-MFmuqfxFNnkGQxremc0ffY4dopMHnx-2HvgZTMh48BvVr8k22lGaM__jTS83DuXnLpF4NC9u4bsQF-8_K34gZU0kJS_-10pUSL7WNxecJG0pCiHyNFiqxXEqWP7NqUK2-uvwzo8-ETqwZkPWdNOjhNn5S1Y0uFQX2HGBE5_5J/s1600/t-day.jpg"
+  },
+  {
+    "title": "FakeGit malware campaign returns with 17,610 malicious GitHub repos",
+    "link": "https://www.bleepingcomputer.com/news/security/fakegit-malware-campaign-returns-with-17-610-malicious-github-repos/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/github.jpg"
+  },
+  {
+    "title": "Japan Sees Sharp Rise in Web Data Leaks Amid Mobile API Abuse and Metabase Attacks",
+    "link": "https://thehackernews.com/2026/10/japan-sees-sharp-rise-in-web-data-leaks.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKjRUY0kVdYD5knK69g1IBPPL21WViperTcXNtjnWiYjNuL6GsohD9A6Q_SpyDpAT6mNMjLTZGOJ_eB1FIMUllxUVEnkUXA1zTWGU1aw5LYJrVZu5gNxH1zSpxX5elSBB-f2OG4LjdhzWTX97lT16uAdvKClT_gP4ucRJjKAXKU4a-3KxbbNLU5RdwKc/s1600/japan.jpg"
+  },
+  {
     "title": "Cisco Patches a Dozen Critical Vulnerabilities",
     "link": "https://www.securityweek.com/cisco-patches-a-dozen-critical-vulnerabilities/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Cisco-company-logo.jpeg"
@@ -55,11 +100,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/18/Microsoft_Teams.jpg"
   },
   {
-    "title": "Red Lion Controls N-Tron 700 Series",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-01",
-    "image": ""
-  },
-  {
     "title": "Satel Netco Design",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-03",
     "image": ""
@@ -67,6 +107,16 @@
   {
     "title": "Grid Protection Alliance openPDC and openHistorian",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-02",
+    "image": ""
+  },
+  {
+    "title": "Red Lion Controls N-Tron 700 Series",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-01",
+    "image": ""
+  },
+  {
+    "title": "Chinese Government-linked Cyber Threat Actors Combine Automated and Hands-on Hacking Tools to Steal Sensitive Data",
+    "link": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-281a",
     "image": ""
   },
   {
@@ -98,55 +148,5 @@
     "title": "TP-Link Faces State Lawsuits and New Scrutiny Over ISP Router Flaws",
     "link": "https://www.securityweek.com/tp-link-faces-state-lawsuits-and-new-scrutiny-over-isp-router-flaws/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Tp-Link.jpeg"
-  },
-  {
-    "title": "16 Malicious Firefox Extensions Pose as Rabby and OKX Wallets to Steal Recovery Phrases",
-    "link": "https://thehackernews.com/2026/10/16-malicious-firefox-extensions-pose-as.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh25slDP7PhWH155CxM4JUNITLHKzjfSXpuF4WWZJmkycx5UQUIjLJd5Jg_mEDQi62FwRkfpLV14DBpVu2pybVwacKkHpc2MABge_OjMCn3ISyUTsh_JS0fM3wgzv4hbR1du-9fp7cmd0vvB33xeCv7RD7-o4A66gCoKtuCQxmmQL2jM2ljZOMyude3uhOb/s1600/firefox-plugins.jpg"
-  },
-  {
-    "title": "Fake Decryption Tools Masked $11M Markup in Ransomware Recovery Scheme",
-    "link": "https://www.securityweek.com/fake-decryption-tools-masked-11m-markup-in-ransomware-recovery-scheme/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/08/ransomware-attack.jpg"
-  },
-  {
-    "title": "Oracle Health Data Breach Tally Climbs to Nearly 20 Million",
-    "link": "https://www.securityweek.com/oracle-health-data-breach-tally-climbs-to-nearly-20-million/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
-  },
-  {
-    "title": "FortiBleed Attackers Locking Victims Out of Fortinet Devices",
-    "link": "https://www.securityweek.com/fortibleed-attackers-locking-victims-out-of-fortinet-devices/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Fortinet.jpeg"
-  },
-  {
-    "title": "U.S. Offers Up to $10 Million for Tips on Zhang Yu, Charged in HAFNIUM Hacks",
-    "link": "https://thehackernews.com/2026/10/us-offers-up-to-10-million-for-tips-on.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgFF6VpR3wVqISJUhvijTLl00h_uH1hImVFzJiqEyaGpgFqwRMQxT1VEbay1QbGWehkEmZXIa5rAvkjA5K326ZRtVY7OKq9luzZo1gRXX6jUPX3ajFp6gLfpFf6tQg6D5wBgsctILhw7Ma_dpUgswrwXUYTphyphenhyphenj2rT9nfz3zURxMwvma9EZvKYEzkqlIk/s1600/reward.jpg"
-  },
-  {
-    "title": "MonsterCloud Owner Accused of Billing Over $19M While Secretly Paying Ransoms to Decrypt Data",
-    "link": "https://thehackernews.com/2026/10/monstercloud-owner-accused-of-billing.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-Hxj4Ir77Q0O6Rp9Sl0KYLSls340zQ9WBZYebBilMmz0l_V2uLs76lrTrFnLxVfjx_FhV6wGm9rRxUTxCE-f3aZwo-DTYvYoSEd4AuW0qFFKOmrHFO44mToyUy7yzpvSnAmaUUUs4yEg_91GBxijxbPxhYcB22TX7c4WdmekZaddHxvs_V89WUdgM3dte/s1600/rasnomware-fees.jpg"
-  },
-  {
-    "title": "Samsung Galaxy S26 hacked three more times at Pwn2Own Ireland",
-    "link": "https://www.bleepingcomputer.com/news/security/samsung-galaxy-s26-hacked-three-more-times-at-pwn2own-ireland/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/07/Pwn2Own-Ireland.jpg"
-  },
-  {
-    "title": "Tensorlake npm Package Compromised to Deliver Shai-Hulud Credential-Stealing Worm",
-    "link": "https://thehackernews.com/2026/10/tensorlake-npm-package-compromised-to.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1ZJrw-vCazDC3YJlfmY9WewJ170my9lYex6Ccg7VTa8UQCrXWoCiy_F9w_LoP-GDEarC_RoYnx63fAa_i_RmR5564MS6tgcoqi77wlcqPzX7kambOt4Gga7rsMlWWBwyHKZtCb1lAowiE4bf5up8aIJuwoVsZSKTq15TTynJ-uNPirAGnY8uwMMGqBsgU/s1600/npm-hack.jpg"
-  },
-  {
-    "title": "Ransomware recovery CEO charged over secret ransom payments",
-    "link": "https://www.bleepingcomputer.com/news/security/ransomware-recovery-ceo-charged-over-secret-ransom-payments/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2022/10/09/cyber-key.jpg"
-  },
-  {
-    "title": "Australian Gov't Weighs Mandatory AI Incident Reporting",
-    "link": "https://www.darkreading.com/cybersecurity-operations/australian-govt-ai-incident-reporting",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd1644f040bd4e95e/6ac6a02424b6126216f8e422/Australia_NSW_parliament-Adrian_Wojcik-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
