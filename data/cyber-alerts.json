@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-106443",
-    "summary": "WeasyPrint: EPS images reach the Ghostscript interpreter resulting in RCE",
+    "id": "CVE-2026-61439",
+    "summary": "PraisonAI: Prompt Injection Defense Bypassed for HIGH-Level Threats",
     "severity": "HIGH",
-    "published": "2026-10-07T18:05:49Z",
-    "ghsa": "GHSA-r543-q48m-4c9j"
+    "published": "2026-10-07T20:43:58Z",
+    "ghsa": "GHSA-fj8f-m44g-c479"
   },
   {
-    "id": "CVE-2026-104890",
-    "summary": "Kunstmaan CMS: MediaBundle extension blacklist bypass allows authenticated administrators to upload executable PHP files leading to remote code execution",
+    "id": "CVE-2026-105642",
+    "summary": "Ghost: Remote Code Execution via Bookmark Card Images",
     "severity": "HIGH",
-    "published": "2026-10-07T18:05:38Z",
-    "ghsa": "GHSA-p279-5wcv-45vq"
+    "published": "2026-10-07T20:43:08Z",
+    "ghsa": "GHSA-788w-68h3-cvxp"
   },
   {
-    "id": "CVE-2026-105680",
-    "summary": "Ghost: Authorization Issue Allowed Author Role to Delete any Post",
+    "id": "CVE-2026-105643",
+    "summary": "Ghost: Stored XSS via Embed Card Previews",
+    "severity": "HIGH",
+    "published": "2026-10-07T20:43:05Z",
+    "ghsa": "GHSA-69qc-f5m6-889c"
+  },
+  {
+    "id": "CVE-2026-105644",
+    "summary": "Ghost : Stored XSS via SVG Files in Content Imports",
     "severity": "MODERATE",
-    "published": "2026-10-07T18:05:32Z",
-    "ghsa": "GHSA-x3mg-q38v-m562"
+    "published": "2026-10-07T20:43:03Z",
+    "ghsa": "GHSA-hqq2-xqr2-fmx2"
   },
   {
-    "id": "CVE-2026-93605",
-    "summary": "vm2 contains a sandbox escape vulnerability",
-    "severity": "CRITICAL",
-    "published": "2026-10-07T18:05:00Z",
-    "ghsa": "GHSA-pq68-rvw4-xp4r"
-  },
-  {
-    "id": "CVE-2026-106441",
-    "summary": "Hydra logging configuration permits unsafe callable resolution",
-    "severity": "HIGH",
-    "published": "2026-10-07T18:03:55Z",
-    "ghsa": "GHSA-c3wx-c55w-pxjq"
-  },
-  {
-    "id": "CVE-2026-106442",
-    "summary": "Hydra instantiate target blacklist bypasses permit code execution",
-    "severity": "HIGH",
-    "published": "2026-10-07T18:03:49Z",
-    "ghsa": "GHSA-rqx7-p7vv-w7hr"
-  },
-  {
-    "id": "CVE-2026-104891",
-    "summary": "mppx-condition-gate: Free-access path grants on a self-declared wallet without proving control",
-    "severity": "HIGH",
-    "published": "2026-10-07T18:03:42Z",
-    "ghsa": "GHSA-jg6q-3qfh-r9f8"
-  },
-  {
-    "id": "CVE-2026-106510",
-    "summary": "Backstage: Remote code execution via crafted markdown_extensions in TechDocs mkdocs.yml",
-    "severity": "HIGH",
-    "published": "2026-10-07T18:03:22Z",
-    "ghsa": "GHSA-4488-j8vj-vqqv"
-  },
-  {
-    "id": "CVE-2026-106558",
-    "summary": "Backstage: Improper validation of TechDocs MkDocs configuration",
-    "severity": "HIGH",
-    "published": "2026-10-07T18:03:12Z",
-    "ghsa": "GHSA-qmw3-745m-w99g"
-  },
-  {
-    "id": "CVE-2026-106559",
-    "summary": "Backstage: Improper input validation in Confluence to Markdown scaffolder module",
+    "id": "CVE-2026-105645",
+    "summary": "Ghost: Regular Expression Denial of Service in External Media Inliner",
     "severity": "MODERATE",
-    "published": "2026-10-07T18:03:06Z",
-    "ghsa": "GHSA-75qf-886x-5xf2"
+    "published": "2026-10-07T20:43:00Z",
+    "ghsa": "GHSA-9m4w-fmjw-fvjq"
+  },
+  {
+    "id": "CVE-2026-105646",
+    "summary": "Ghost: Regular Expression Denial of Service in Content Import",
+    "severity": "MODERATE",
+    "published": "2026-10-07T20:42:53Z",
+    "ghsa": "GHSA-fwh9-qg68-vxp4"
+  },
+  {
+    "id": "CVE-2026-106121",
+    "summary": "RabbitMQ: JSONReader in the default JSON-RPC mapper never terminates on truncated input, causing DoS",
+    "severity": "MODERATE",
+    "published": "2026-10-07T20:42:33Z",
+    "ghsa": "GHSA-cqgh-8p3p-mx4m"
+  },
+  {
+    "id": "CVE-2026-105742",
+    "summary": "Docling: Configured HTTP headers sent to every remote image host named by a document",
+    "severity": "LOW",
+    "published": "2026-10-07T20:42:24Z",
+    "ghsa": "GHSA-p3fw-7699-7926"
+  },
+  {
+    "id": "CVE-2026-105743",
+    "summary": "Docling has SSRF guard bypass in remote resource fetching (DNS rebinding / multi-record resolution; no IP validation in HTML render mode)",
+    "severity": "MODERATE",
+    "published": "2026-10-07T20:42:19Z",
+    "ghsa": "GHSA-pc36-qwjq-x68c"
+  },
+  {
+    "id": "CVE-2026-105744",
+    "summary": "Docling has arbitrary file read/write (and command execution when shell-escape is enabled) when rendering untrusted TikZ with the opt-in Tectonic engine",
+    "severity": "HIGH",
+    "published": "2026-10-07T20:42:05Z",
+    "ghsa": "GHSA-x3q2-h9hx-4r4j"
   }
 ]
