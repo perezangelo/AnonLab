@@ -548,7 +548,7 @@
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
     const toggleBtn =
         document.getElementById("open-chat");
@@ -556,69 +556,149 @@ document.addEventListener("DOMContentLoaded", function(){
     const chat =
         document.getElementById("anonbot-chat");
 
-    toggleBtn.addEventListener("click", function(){
+    const sendBtn =
+        document.getElementById("anonbot-send");
 
-        if(
+    const input =
+        document.getElementById("anonbot-input");
+
+    const responseDiv =
+        document.getElementById("anonbot-response");
+
+    /* APRI / CHIUDI */
+
+    toggleBtn.addEventListener("click", function () {
+
+        if (
             chat.style.display === "none" ||
             chat.style.display === ""
-        ){
+        ) {
 
             chat.style.display = "block";
+
             toggleBtn.innerHTML =
                 "❌ Chiudi Assistente";
 
         } else {
 
             chat.style.display = "none";
+
             toggleBtn.innerHTML =
                 "🚀 Avvia Cyber Assistant";
+
         }
+
     });
 
-document
-.getElementById("anonbot-send")
-.addEventListener("click", async function(){
+    /* INVIO */
 
-    const input =
-        document
-        .getElementById("anonbot-input")
-        .value
-        .trim();
+    sendBtn.addEventListener(
+        "click",
+        analyze
+    );
 
-    const responseDiv =
-        document
-        .getElementById("anonbot-response");
+    /* ENTER */
 
-    responseDiv.style.display = "block";
+    input.addEventListener(
+        "keydown",
+        function (e) {
 
-    try {
+            if (
+                e.key === "Enter" &&
+                !e.shiftKey
+            ) {
 
-        const res = await fetch(
-            "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type":
-                    "application/x-www-form-urlencoded"
-                },
-                body:
-                    "query=" +
-                    encodeURIComponent(input)
+                e.preventDefault();
+
+                analyze();
+
             }
-        );
 
-        const text =
-            await res.text();
+        }
+    );
+
+    async function analyze() {
+
+        const query =
+            input.value.trim();
+
+        if (!query) {
+
+            responseDiv.style.display =
+                "block";
+
+            responseDiv.innerHTML =
+                "⚠ Inserisci una richiesta.";
+
+            return;
+        }
+
+        responseDiv.style.display =
+            "block";
 
         responseDiv.innerHTML =
-            text;
+            "🛰 Analisi in corso...";
 
-    } catch(err) {
+        try {
 
-        responseDiv.innerHTML =
-            "ERRORE:<br>" + err;
+            const res = await fetch(
+                "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body:
+                        "query=" +
+                        encodeURIComponent(query)
+                }
+            );
+
+            if (!res.ok) {
+
+                throw new Error(
+                    "HTTP " + res.status
+                );
+
+            }
+
+            const data =
+                await res.json();
+
+            if (!data.success) {
+
+                responseDiv.innerHTML =
+                    data.result ||
+                    "Errore sconosciuto";
+
+                return;
+            }
+
+            responseDiv.innerHTML =
+                data.result
+                    .replace(/\n/g, "<br>");
+
+        }
+        catch (err) {
+
+            console.error(
+                "AnonBot Error:",
+                err
+            );
+
+            responseDiv.innerHTML =
+                "❌ Errore di connessione al backend.<br><br>" +
+                err.message;
+
+        }
+
     }
+
 });
+
 </script>
 		
 <script>
