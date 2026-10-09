@@ -548,7 +548,7 @@
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function(){
 
     const toggleBtn =
         document.getElementById("open-chat");
@@ -556,96 +556,69 @@ document.addEventListener("DOMContentLoaded", function () {
     const chat =
         document.getElementById("anonbot-chat");
 
-    const inputField =
-        document.getElementById("anonbot-input");
+    toggleBtn.addEventListener("click", function(){
 
-    const responseDiv =
-        document.getElementById("anonbot-response");
-
-    /* APERTURA / CHIUSURA */
-
-    toggleBtn.addEventListener("click", function () {
-
-        if (
+        if(
             chat.style.display === "none" ||
             chat.style.display === ""
-        ) {
+        ){
 
             chat.style.display = "block";
-
             toggleBtn.innerHTML =
                 "❌ Chiudi Assistente";
 
         } else {
 
             chat.style.display = "none";
-
             toggleBtn.innerHTML =
                 "🚀 Avvia Cyber Assistant";
         }
     });
 
-    /* ANALYZE */
+document
+.getElementById("anonbot-send")
+.addEventListener("click", async function(){
 
-    document
-    .getElementById("anonbot-send")
-    .addEventListener("click", async function () {
+    const input =
+        document
+        .getElementById("anonbot-input")
+        .value
+        .trim();
 
-        const input =
-            inputField.value.trim();
+    const responseDiv =
+        document
+        .getElementById("anonbot-response");
 
-        if (!input) {
+    responseDiv.style.display = "block";
 
-            responseDiv.style.display =
-                "block";
+    try {
 
-            responseDiv.innerHTML =
-                "⚠️ Inserisci una richiesta.";
+        const res = await fetch(
+            "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                    "application/x-www-form-urlencoded"
+                },
+                body:
+                    "query=" +
+                    encodeURIComponent(input)
+            }
+        );
 
-            return;
-        }
-
-        responseDiv.style.display =
-            "block";
+        const text =
+            await res.text();
 
         responseDiv.innerHTML =
-            "⏳ Analisi in corso...";
+            text;
 
-        try {
+    } catch(err) {
 
-            const res = await fetch(
-                "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type":
-                        "application/x-www-form-urlencoded"
-                    },
-                    body:
-                        "query=" +
-                        encodeURIComponent(input)
-                }
-            );
-
-            const data =
-                await res.json();
-
-            responseDiv.innerHTML =
-                data.result ||
-                "Nessuna risposta disponibile.";
-
-        } catch (err) {
-
-            console.error(err);
-
-            responseDiv.innerHTML =
-                "❌ Errore di connessione con AnonBot.";
-        }
-
-    });
-
+        responseDiv.innerHTML =
+            "ERRORE:<br>" + err;
+    }
 });
-
 </script>
 		
 <script>
