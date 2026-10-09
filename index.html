@@ -575,71 +575,50 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
-    document
-    .getElementById("anonbot-send")
-    .addEventListener("click", async function(){
+document
+.getElementById("anonbot-send")
+.addEventListener("click", async function(){
 
-        const input =
-            document
-            .getElementById("anonbot-input")
-            .value
-            .trim();
+    const input =
+        document
+        .getElementById("anonbot-input")
+        .value
+        .trim();
 
-        const response =
-            document
-            .getElementById("anonbot-response");
+    const responseDiv =
+        document
+        .getElementById("anonbot-response");
 
-        if(!input){
+    responseDiv.style.display = "block";
 
-            response.style.display =
-                "block";
+    try {
 
-            response.innerHTML =
-                "⚠️ Inserisci una richiesta.";
+        const res = await fetch(
+            "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                    "application/x-www-form-urlencoded"
+                },
+                body:
+                    "query=" +
+                    encodeURIComponent(input)
+            }
+        );
 
-            return;
-        }
+        const text =
+            await res.text();
 
-        response.style.display =
-            "block";
+        responseDiv.innerHTML =
+            text;
 
-        response.innerHTML =
-            "⏳ Analisi in corso...";
+    } catch(err) {
 
-        try {
-
-            const request =
-                await fetch(
-    "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type":
-                "application/x-www-form-urlencoded"
-        },
-        body:
-            "query=" +
-            encodeURIComponent(input)
+        responseDiv.innerHTML =
+            "ERRORE:<br>" + err;
     }
-)
-
-            const data =
-                await request.json();
-
-            response.innerHTML =
-                data.result ||
-                "Nessuna risposta disponibile.";
-
-        } catch(error){
-
-            response.innerHTML =
-                "❌ Errore di connessione con AnonBot.";
-        }
-
-    });
-
 });
-
 </script>
 		
 <script>
