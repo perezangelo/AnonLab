@@ -558,23 +558,26 @@ document.addEventListener("DOMContentLoaded", function(){
 
     toggleBtn.addEventListener("click", function(){
 
-        if(chat.style.display === "none" || chat.style.display === ""){
+        if(
+            chat.style.display === "none" ||
+            chat.style.display === ""
+        ){
 
             chat.style.display = "block";
-            toggleBtn.innerHTML = "❌ Chiudi Assistente";
+            toggleBtn.innerHTML =
+                "❌ Chiudi Assistente";
 
         } else {
 
             chat.style.display = "none";
-            toggleBtn.innerHTML = "🚀 Avvia Cyber Assistant";
-
+            toggleBtn.innerHTML =
+                "🚀 Avvia Cyber Assistant";
         }
-
     });
 
     document
     .getElementById("anonbot-send")
-    .addEventListener("click", function(){
+    .addEventListener("click", async function(){
 
         const input =
             document
@@ -583,23 +586,56 @@ document.addEventListener("DOMContentLoaded", function(){
             .trim();
 
         const response =
-            document.getElementById("anonbot-response");
+            document
+            .getElementById("anonbot-response");
 
         if(!input){
 
-            response.style.display = "block";
+            response.style.display =
+                "block";
+
             response.innerHTML =
-                "⚠ Inserisci una richiesta.";
+                "⚠️ Inserisci una richiesta.";
 
             return;
         }
 
-        response.style.display = "block";
+        response.style.display =
+            "block";
 
         response.innerHTML =
-            "🤖 AnonBot ha ricevuto:\n\n" +
-            input +
-            "\n\n(Prossimo step: collegamento al backend cyber-assistant.php)";
+            "⏳ Analisi in corso...";
+
+        try {
+
+            const request =
+                await fetch(
+                    "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":
+                            "application/x-www-form-urlencoded"
+                        },
+                        body:
+                            "query=" +
+                            encodeURIComponent(input)
+                    }
+                );
+
+            const data =
+                await request.json();
+
+            response.innerHTML =
+                data.result ||
+                "Nessuna risposta disponibile.";
+
+        } catch(error){
+
+            response.innerHTML =
+                "❌ Errore di connessione con AnonBot.";
+        }
+
     });
 
 });
