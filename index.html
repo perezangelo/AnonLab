@@ -2098,3 +2098,40 @@ document.addEventListener("DOMContentLoaded", () => {
 	<!-- ⭐ GOOGLE ADSENSE -->
   <meta name="google-adsense-account" content="ca-pub-1655066977213725">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
+
+			<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const button =
+        document.getElementById("open-chat");
+
+    const chat =
+        document.getElementById("anonbot-chat");
+
+    if (button && chat) {
+
+        button.addEventListener("click", function() {
+
+            if (
+                chat.style.display === "none" ||
+                chat.style.display === ""
+            ) {
+
+                chat.style.display = "block";
+
+                button.innerHTML =
+                    "❌ Chiudi Assistente";
+
+            } else {
+
+                chat.style.display = "none";
+
+                button.innerHTML =
+                    "🚀 Avvia Cyber Assistant";
+            }
+        });
+
+    }
+
+});
+</script>
