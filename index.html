@@ -398,7 +398,7 @@
 </div>
 </div>
 
-		<!-- ANONBOT WELCOME CARD -->
+<!-- ANONBOT WELCOME CARD -->
 
 <div style="
     width:100%;
@@ -418,7 +418,6 @@
         <div style="
             text-align:center;
             margin-bottom:12px;
-            animation:anonpulse 3s infinite;
         ">
             <div style="font-size:1.8rem;">🤖</div>
 
@@ -448,6 +447,7 @@
         </div>
 
         <button id="open-chat"
+                type="button"
                 style="
                     width:100%;
                     margin-top:12px;
@@ -485,11 +485,126 @@
 
             <div style="
                 font-size:0.9rem;
-                margin-bottom:10px;
+                margin-bottom:12px;
                 color:#cfefff;
             ">
                 💡 Esempi:
-                <br>CVE-2026
+                <br>CVE-2026-1234
+                <br>8.8.8.8
+                <br>Suspicious PowerShell Sigma Rule
+                <br>Converti Splunk in KQL
+            </div>
+
+            <textarea
+                id="anonbot-input"
+                placeholder="Inserisci CVE, IOC, Sigma Rule o una domanda..."
+                style="
+                    width:100%;
+                    min-height:100px;
+                    background:#101820;
+                    border:1px solid #00eaff44;
+                    color:#fff;
+                    border-radius:4px;
+                    padding:10px;
+                    box-sizing:border-box;
+                    resize:vertical;
+                "
+            ></textarea>
+
+            <button
+                id="anonbot-send"
+                type="button"
+                style="
+                    width:100%;
+                    margin-top:10px;
+                    padding:10px;
+                    background:#00eaff;
+                    border:none;
+                    border-radius:4px;
+                    color:#000;
+                    font-weight:bold;
+                    cursor:pointer;
+                ">
+                ANALYZE
+            </button>
+
+            <div id="anonbot-response"
+                 style="
+                    margin-top:15px;
+                    padding:10px;
+                    background:#111827;
+                    border-radius:4px;
+                    color:#e5e7eb;
+                    white-space:pre-wrap;
+                    display:none;
+                 ">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const toggleBtn =
+        document.getElementById("open-chat");
+
+    const chat =
+        document.getElementById("anonbot-chat");
+
+    toggleBtn.addEventListener("click", function(){
+
+        if(chat.style.display === "none" || chat.style.display === ""){
+
+            chat.style.display = "block";
+            toggleBtn.innerHTML = "❌ Chiudi Assistente";
+
+        } else {
+
+            chat.style.display = "none";
+            toggleBtn.innerHTML = "🚀 Avvia Cyber Assistant";
+
+        }
+
+    });
+
+    document
+    .getElementById("anonbot-send")
+    .addEventListener("click", function(){
+
+        const input =
+            document
+            .getElementById("anonbot-input")
+            .value
+            .trim();
+
+        const response =
+            document.getElementById("anonbot-response");
+
+        if(!input){
+
+            response.style.display = "block";
+            response.innerHTML =
+                "⚠ Inserisci una richiesta.";
+
+            return;
+        }
+
+        response.style.display = "block";
+
+        response.innerHTML =
+            "🤖 AnonBot ha ricevuto:\n\n" +
+            input +
+            "\n\n(Prossimo step: collegamento al backend cyber-assistant.php)";
+    });
+
+});
+
+</script>
 		
 <script>
 async function sendNewsletter(e) {
@@ -2098,40 +2213,3 @@ document.addEventListener("DOMContentLoaded", () => {
 	<!-- ⭐ GOOGLE ADSENSE -->
   <meta name="google-adsense-account" content="ca-pub-1655066977213725">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
-
-			<script>
-document.addEventListener("DOMContentLoaded", function() {
-
-    const button =
-        document.getElementById("open-chat");
-
-    const chat =
-        document.getElementById("anonbot-chat");
-
-    if (button && chat) {
-
-        button.addEventListener("click", function() {
-
-            if (
-                chat.style.display === "none" ||
-                chat.style.display === ""
-            ) {
-
-                chat.style.display = "block";
-
-                button.innerHTML =
-                    "❌ Chiudi Assistente";
-
-            } else {
-
-                chat.style.display = "none";
-
-                button.innerHTML =
-                    "🚀 Avvia Cyber Assistant";
-            }
-        });
-
-    }
-
-});
-</script>
