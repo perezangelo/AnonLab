@@ -1,5 +1,30 @@
 [
   {
+    "title": "OpenAI Fires 3 Safety Researchers in Dispute Over AI Risks",
+    "link": "https://www.securityweek.com/openai-fires-3-safety-researchers-in-dispute-over-ai-risks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/OpenAI.jpeg"
+  },
+  {
+    "title": "ASOS Breach Reveals the Risks in Customer-Facing SaaS",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/asos-breach-risks-customer-facing-saas",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt2b112712c8bb12fb/6ac941a985fe76474e2a9b2b/Clothes-triocean-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Hackers abuse Google Ads, Bing redirects to push Claude ClickFix attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-abuse-google-ads-bing-redirects-to-push-claude-clickfix-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/ClaudeChats.png"
+  },
+  {
+    "title": "AI Scramble Drives Cybersecurity M&amp;A Boom",
+    "link": "https://www.darkreading.com/cybersecurity-analytics/ai-scramble-cybersecurity-ma-boom",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt90b8b5144c2f800e/6ac8017e3277a45cef5b830f/Q3-MandA-deals-cybersecurity-Momentum_Cyber.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Credential-Stealing GitHub Actions Workflows Planted in Tens of Thousands of Repositories",
+    "link": "https://thehackernews.com/2026/10/credential-stealing-github-actions.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoJXBEAVVijhwsYs32WSejvp0sG3ej-Qoi7Z6qHDp8rY5IZENkKOpexrbbU1BNyiCbbB0ZXHjEDL-UYqu7CDpPpoYLiGXkuLCZJTItgP5XeLD_Sb1galPzOGtrFZigEM5CGUbwi9gcL_-XCYY6NKu9j5FiakIWn5s66DZE-OjrLZO3sMGka3YNFvGUecJT/s1600/gitworm.jpg"
+  },
+  {
     "title": "FBI Arrests Another ShinyHunters Suspect Reportedly Involved in Its Jobs Portal Hack",
     "link": "https://thehackernews.com/2026/10/fbi-arrests-another-shinyhunters.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTRCTw1H9kT8UEVJYmaRrhHvMQEYFuE2TZqB62Wnxz8y4RIYOMald4OYO45ujfgSp0ixhgWVKb3_nJzoKV6gNuu_cKaN2Evnr9u7FlnwsPTPm9TPpikkUR-83UL3VrknNBzITPeFC8f1PKpYMwvH_AbBAFWcbPl61vUXJK1m0xJ_C5QYDIAGi_Ya-A5Tc/s1600/kash.jpg"
@@ -123,30 +148,5 @@
     "title": "Citrix warns admins to patch new NetScaler RCE flaw immediately",
     "link": "https://www.bleepingcomputer.com/news/security/citrix-warns-admins-to-patch-new-netscaler-rce-flaw-immediately/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/Citrix.jpg"
-  },
-  {
-    "title": "Three Teams Demonstrate Remote Hacks of Fully Patched Google Pixel 10 at Pwn2Own",
-    "link": "https://thehackernews.com/2026/10/three-teams-demonstrate-remote-hacks-of.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqGob0G-EHmqSYe9ZFWu_Pqg2ZivxomC2c4TSsW_k2yx0eZClRf8rgYVhDJTUrrhyzKr8yQr00rjzvVCRc7EsZjELELmKTWVxzLLsvx0DV5Q0rLWGd1eczFcVKTIBweBiuxIpfnB9HnT-1_DPUpxqagt4sXvjLvPiY1bZOz36oJnXV84KoOHVW8ZYY8es/s1600/pwn2own.jpg"
-  },
-  {
-    "title": "Anthropic Fast-Tracks AI Bug Reports to OSS Maintainers, Taps 11 Firms for OT Security",
-    "link": "https://www.securityweek.com/anthropic-fast-tracks-ai-bug-reports-to-oss-maintainers-taps-11-firms-for-ot-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Claude-Mythos.jpeg"
-  },
-  {
-    "title": "Citrix Urges Immediate Patching of Critical NetScaler Vulnerability",
-    "link": "https://www.securityweek.com/citrix-urges-immediate-patching-of-critical-netscaler-vulnerability/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Citrix-vulnerability.jpeg"
-  },
-  {
-    "title": "Google Pixel 10 Exploits Earned Hackers $560,000 at Pwn2Own",
-    "link": "https://www.securityweek.com/google-pixel-10-exploits-earned-hackers-560000-at-pwn2own/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/08/Pwn2Own-hackers-hacking-competition.jpeg"
-  },
-  {
-    "title": "Hackers get $1,262,000 for 98 zero-days at Pwn2Own Ireland",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-earn-1262000-for-98-zero-days-at-pwn2own-ireland/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/07/Pwn2Own_Ireland.jpg"
   }
 ]
