@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-68w4-83fh-f2w8",
-    "summary": "pyload-ng: getUserData/get_userdata exposed at Perms.ANY allow any authenticated account to brute-force the administrator password",
+    "id": "GHSA-m687-p538-r5hp",
+    "summary": "Vikunja: Permissive Cross-domain Security Policy trusts every localhost origin which should not be trusted",
     "severity": "HIGH",
-    "published": "2026-10-09T17:09:15Z",
-    "ghsa": "GHSA-68w4-83fh-f2w8"
+    "published": "2026-10-09T20:57:50Z",
+    "ghsa": "GHSA-m687-p538-r5hp"
   },
   {
-    "id": "GHSA-9q47-3cm2-2rp8",
-    "summary": "pyLoad: Rate-Limit Bypass and Audit-Log Spoofing via Trusted Client-Controlled `X-Forwarded-For` Header",
+    "id": "GHSA-fmmf-xq98-g327",
+    "summary": "Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check",
     "severity": "MODERATE",
-    "published": "2026-10-09T17:09:12Z",
-    "ghsa": "GHSA-9q47-3cm2-2rp8"
+    "published": "2026-10-09T20:57:47Z",
+    "ghsa": "GHSA-fmmf-xq98-g327"
   },
   {
-    "id": "GHSA-jq7h-wrvp-3rgx",
-    "summary": "pyLoad: Privilege revocation and password change through the REST API do not invalidate the user's session",
-    "severity": "HIGH",
-    "published": "2026-10-09T17:09:09Z",
-    "ghsa": "GHSA-jq7h-wrvp-3rgx"
-  },
-  {
-    "id": "GHSA-889w-m37p-88m5",
-    "summary": "pyLoad: Api.set_user_permission never invalidates the target's session",
-    "severity": "HIGH",
-    "published": "2026-10-09T17:09:07Z",
-    "ghsa": "GHSA-889w-m37p-88m5"
-  },
-  {
-    "id": "GHSA-p3pr-8f3m-4qp8",
-    "summary": "pyLoad WindowsPhoneNotify addon: non-admin SETTINGS user triggers SSRF via unguarded http.client notification host",
+    "id": "GHSA-pjr3-86v4-5p7w",
+    "summary": "Vikunja: Explicit lower-permission share on a sub-project is silently overridden by an inherited parent permission (broken access control / privilege-management regression in v2.6.0)",
     "severity": "MODERATE",
-    "published": "2026-10-09T17:09:03Z",
-    "ghsa": "GHSA-p3pr-8f3m-4qp8"
+    "published": "2026-10-09T20:57:44Z",
+    "ghsa": "GHSA-pjr3-86v4-5p7w"
   },
   {
-    "id": "GHSA-fr26-jjhm-638c",
-    "summary": "pyLoad: Tar extraction creates device nodes and FIFOs (member types not filtered; tarfile extractall without filter=)",
-    "severity": "HIGH",
-    "published": "2026-10-09T17:08:58Z",
-    "ghsa": "GHSA-fr26-jjhm-638c"
+    "id": "GHSA-hjx8-qv73-f7cm",
+    "summary": "Vikunja: Webhooks and link shares survive every revocation path, so a removed collaborator keeps a live feed",
+    "severity": "MODERATE",
+    "published": "2026-10-09T20:57:41Z",
+    "ghsa": "GHSA-hjx8-qv73-f7cm"
   },
   {
-    "id": "CVE-2026-107812",
-    "summary": "Nginx UI: Self-upgrade runs an unsigned binary verified only by a same-origin digest → RCE via a compromised mirror or MITM",
-    "severity": "HIGH",
-    "published": "2026-10-09T17:08:21Z",
-    "ghsa": "GHSA-662p-52hx-cmh2"
+    "id": "GHSA-fprf-r6rv-xg99",
+    "summary": "Vikunja: Saved filter creation with an empty filter string recalculates task positions across all tenants",
+    "severity": "MODERATE",
+    "published": "2026-10-09T20:57:38Z",
+    "ghsa": "GHSA-fprf-r6rv-xg99"
   },
   {
-    "id": "CVE-2026-107808",
-    "summary": "Nginx UI: Authentication bypass: password login does not enforce a passkey-only second factor (2FA bypass)",
-    "severity": "HIGH",
-    "published": "2026-10-09T17:08:15Z",
-    "ghsa": "GHSA-45gv-9wjv-xh7p"
+    "id": "GHSA-4hv6-xc92-j86g",
+    "summary": "Vikunja: WebSocket authentication ignores server-side session state, so revoked sessions keep receiving live pushes",
+    "severity": "MODERATE",
+    "published": "2026-10-09T20:57:34Z",
+    "ghsa": "GHSA-4hv6-xc92-j86g"
   },
   {
-    "id": "CVE-2026-107809",
-    "summary": "Nginx-UI AuthRequired token cookie fallback enables CSRF against management APIs",
+    "id": "CVE-2026-107805",
+    "summary": "Nginx UI: Unauthenticated signed-request body staging can exhaust temporary storage",
     "severity": "HIGH",
-    "published": "2026-10-09T17:08:10Z",
-    "ghsa": "GHSA-33rr-wq23-g6gg"
+    "published": "2026-10-09T20:57:08Z",
+    "ghsa": "GHSA-j3hg-9rp3-5hw9"
   },
   {
-    "id": "CVE-2026-107813",
-    "summary": "Nginx UI: Incomplete fix of CVE-2026-84315 - the api/cluster router was not -  wrapped in RequireSecureSession, so those sensitive mutations run without OTP step-up",
+    "id": "CVE-2026-107804",
+    "summary": "Nginx UI: Bundled reverse proxy can bypass IP allowlists and enable shared login lockout",
+    "severity": "MODERATE",
+    "published": "2026-10-09T20:57:05Z",
+    "ghsa": "GHSA-9h23-53f4-q947"
+  },
+  {
+    "id": "CVE-2026-108259",
+    "summary": "Tina: Code injection via unescaped Git branch name in generated client source",
     "severity": "HIGH",
-    "published": "2026-10-09T17:08:06Z",
-    "ghsa": "GHSA-h246-wpgf-vmq5"
+    "published": "2026-10-09T20:56:52Z",
+    "ghsa": "GHSA-pwhx-cvv3-qj5c"
+  },
+  {
+    "id": "CVE-2026-108261",
+    "summary": "TinaCMS admin preview iframe loads an attacker-controlled origin from the URL fragment",
+    "severity": "CRITICAL",
+    "published": "2026-10-09T20:56:48Z",
+    "ghsa": "GHSA-x34j-47hf-4xg7"
   }
 ]
