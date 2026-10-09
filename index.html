@@ -610,18 +610,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
             const request =
                 await fetch(
-                    "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-Type":
-                            "application/x-www-form-urlencoded"
-                        },
-                        body:
-                            "query=" +
-                            encodeURIComponent(input)
-                    }
-                );
+    "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type":
+                "application/x-www-form-urlencoded"
+        },
+        body:
+            "query=" +
+            encodeURIComponent(input)
+    }
+)
 
             const data =
                 await request.json();
