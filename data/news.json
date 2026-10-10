@@ -1,5 +1,35 @@
 [
   {
+    "title": "Cyber exec arrested in case allegedly tied to ShinyHunters hackers",
+    "link": "https://www.bleepingcomputer.com/news/security/cyber-exec-arrested-in-case-allegedly-tied-to-shinyhunters-hackers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/12/16/FBI__headpic.jpg"
+  },
+  {
+    "title": "ARTEX AI, Claude agents used in cyberattacks on South Korean banks",
+    "link": "https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
+  },
+  {
+    "title": "Criminal IP Introduces AITEM as the Next Evolution of Attack Surface Management",
+    "link": "https://www.bleepingcomputer.com/news/security/criminal-ip-introduces-aitem-as-the-next-evolution-of-attack-surface-management/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/10/06/criminal-ip-aitem.jpg"
+  },
+  {
+    "title": "The Third-Party Agent Problem: Why Security Built for AI You Chose Misses the Agents You Didn't",
+    "link": "https://thehackernews.com/2026/10/the-third-party-agent-problem-why.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghemGbtxM2amUYAlxUPHPdMiyDMQJFWZeY-dDODRqCRD0phZXXQv0rrKHiOsLPW3t0Fq2XxvvFyCC-OmNs7TXhXXKSRVMPpC1GPKSUsyzN9t-W6L4jtiA2DUiTLgou4iyw0QXN-6Wfz0H2zWYGgC6-OxtlQrfb0PygOeBWwDnR11nl3Gl8W5pL07sExNc/s1600/reco.gif"
+  },
+  {
+    "title": "Insider Cyber Extortion Plot Against Industrial Firm Lands Engineer in Prison",
+    "link": "https://www.securityweek.com/insider-cyber-extortion-plot-against-industrial-firm-lands-engineer-in-prison/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-sentenced-prison.jpeg"
+  },
+  {
+    "title": "Anthropic Cuts Live Internet Access for Internal AI Tests After Claude Exploits Injection Flaws",
+    "link": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgk6Q5kUrLA2Pfuqcghyphenhyphen1q3pECWSE72HYp9BB9GM5i3b_6XxNHMtwlR7yrPj_xTpcwoIaMy0vJt8A1g_D9Riz6JhbU5WyVPV69DFvk1oIzv2jp-eG-qbfx8lIHF2zX_XEAxz5gC51xn2hPUwYVh9thUuQslxqfIp1Pg3bgmWQYaXXW4LuUxTdUZzUo2R22C/s1600/claude-internet.jpg"
+  },
+  {
     "title": "OpenAI Fires 3 Safety Researchers in Dispute Over AI Risks",
     "link": "https://www.securityweek.com/openai-fires-3-safety-researchers-in-dispute-over-ai-risks/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/11/OpenAI.jpeg"
@@ -110,11 +140,6 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Underminr-DNS-vulnerability.jpg"
   },
   {
-    "title": "The AI Velocity Paradox: Why Security Is Decades Behind AI Ambition",
-    "link": "https://thehackernews.com/2026/10/the-ai-velocity-paradox-why-security-is.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibn_fvM8uZUZWhBhgCeggTmULC4rEZ68qb-99aKdn9RNOXIg8egC2vTwn9_-cLcs3vTam1i_g61RbAjXfoVTA1HiGYGKZeeG5nnNu03GcOE6X5aqOB3O60MppHQvTvWFdaEWZl1HhIIGl5zc8_8_lhlqtrmRa5-DAqldfJ6EjmM8mq8rCAp_MHdUrPAt4/s1600/sailpoint.jpg"
-  },
-  {
     "title": "Man admits to running network of 15,000 money mules for cybercriminals",
     "link": "https://www.bleepingcomputer.com/news/security/ukrainian-russian-dual-citizen-admits-to-laundering-millions-for-cybercriminals/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/hacker_money_laundering_dollars.jpg"
@@ -123,30 +148,5 @@
     "title": "Unpatched AhsayCBS Vulnerabilities Exploited in the Wild",
     "link": "https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/04/coding-vulnerability-software-development.jpeg"
-  },
-  {
-    "title": "Microsoft: Outdated Windows devices will stop receiving security updates",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-outdated-windows-devices-will-lose-security-protection-next-year/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/08/22/Windows.jpg"
-  },
-  {
-    "title": "Pre-Baked Firmware Malware Hits Budget Android Devices in 150+ Countries",
-    "link": "https://www.securityweek.com/pre-baked-firmware-malware-hits-budget-android-devices-in-150-countries/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/11/android-banking-malware.png"
-  },
-  {
-    "title": "GoBalance Flaw Lets Attackers Hijack .onion Addresses by Recovering Tor-Format Keys",
-    "link": "https://thehackernews.com/2026/10/gobalance-flaw-lets-attackers-hijack.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUJ8xcgqF85kQru4JEuCv6OipwHlff6IEp3r1zhFOY9tYpbwEeWYSqzPTILX4uqM97Cc9ZfNfb3HB4lZbecN48fqKgKryAL60KqqZU4HmdfTMsRYaDcFjNL7aE8vk7G0D_-mqY_B2Jk_3kXMsx2ABpgbWixg1GHZ2l7V0MSzqtEWnYZ_ymkOTf0j8yq2c/s1600/onion.jpg"
-  },
-  {
-    "title": "US Disrupts Chinese State-Sponsored Hacking Tools",
-    "link": "https://www.securityweek.com/us-disrupts-chinese-state-sponsored-hacking-tools/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Flax-Typhoon-disrupted.jpg"
-  },
-  {
-    "title": "Citrix warns admins to patch new NetScaler RCE flaw immediately",
-    "link": "https://www.bleepingcomputer.com/news/security/citrix-warns-admins-to-patch-new-netscaler-rce-flaw-immediately/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/Citrix.jpg"
   }
 ]
