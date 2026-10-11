@@ -400,11 +400,7 @@
 
 <!-- ANONBOT WELCOME CARD -->
 
-<div style="
-    width:100%;
-    margin-top:15px;
-    margin-bottom:20px;
-">
+<div style="width:100%;margin-top:15px;margin-bottom:20px;">
 
     <div style="
         width:100%;
@@ -415,52 +411,83 @@
         box-sizing:border-box;
     ">
 
-        <div style="
-            text-align:center;
-            margin-bottom:12px;
-        ">
-            <div style="font-size:1.8rem;">🤖</div>
+        <!-- AVATAR -->
+
+        <div style="text-align:center;margin-bottom:15px;">
+
+            <img
+                src="ista.org/cyber-assistant/img/anonbot.png
 
             <strong style="
                 color:#00eaff;
                 display:block;
-                margin-top:5px;
+                font-size:1.1rem;
             ">
-                AnonBot
+                🤖 AnonBot
             </strong>
 
             <small style="color:#9defff;">
                 Cyber Intelligence Assistant
             </small>
+
         </div>
+
+        <!-- MESSAGGIO -->
 
         <div id="anonbot-tip"
              style="
-                line-height:1.6;
-                min-height:60px;
+                line-height:1.7;
+                color:#e5e7eb;
              ">
-            👋 Benvenuto su AnonLab.
-            Posso aiutarti con Cybersecurity,
-            Threat Intelligence, CVE, IOC,
-            OSINT, SOC, Malware Analysis,
-            Sigma Rules e Digital Forensics.
+
+            👋 <strong>Ciao, sono AnonBot.</strong>
+
+            <br><br>
+
+            Sono l'assistente AI ufficiale di AnonLab.
+
+            <br><br>
+
+            Posso rispondere alle tue domande su:
+
+            <br><br>
+
+            🔹 Cybersecurity<br>
+            🔹 Threat Intelligence<br>
+            🔹 OSINT<br>
+            🔹 Vulnerabilità e CVE<br>
+            🔹 Malware Analysis<br>
+            🔹 Digital Forensics<br>
+            🔹 SOC e SIEM<br>
+            🔹 Sigma Rules e MITRE ATT&CK<br>
+            🔹 Servizi e contenuti di AnonLab
+
+            <br><br>
+
+            Come posso aiutarti oggi?
+
         </div>
 
-        <button id="open-chat"
-                type="button"
-                style="
-                    width:100%;
-                    margin-top:12px;
-                    padding:10px;
-                    border:none;
-                    border-radius:6px;
-                    background:#00eaff;
-                    color:#000;
-                    font-weight:bold;
-                    cursor:pointer;
-                    box-shadow:0 0 10px #00eaff55;
-                ">
+        <!-- PULSANTE -->
+
+        <button
+            id="open-chat"
+            type="button"
+            style="
+                width:100%;
+                margin-top:15px;
+                padding:10px;
+                border:none;
+                border-radius:6px;
+                background:#00eaff;
+                color:#000;
+                font-weight:bold;
+                cursor:pointer;
+                box-shadow:0 0 10px #00eaff55;
+            ">
+
             🚀 Avvia Cyber Assistant
+
         </button>
 
         <!-- CHAT -->
@@ -489,15 +516,17 @@
                 color:#cfefff;
             ">
                 💡 Esempi:
-                <br>CVE-2026-1234
-                <br>8.8.8.8
-                <br>Suspicious PowerShell Sigma Rule
-                <br>Converti Splunk in KQL
+
+                <br>Cosa fa AnonLab?
+                <br>Cos'è una CVE?
+                <br>Analizza CVE-2026-1234
+                <br>Spiegami una Sigma Rule
+                <br>Converti una query Splunk in KQL
             </div>
 
             <textarea
                 id="anonbot-input"
-                placeholder="Inserisci CVE, IOC, Sigma Rule o una domanda..."
+                placeholder="Scrivi la tua domanda..."
                 style="
                     width:100%;
                     min-height:100px;
@@ -525,11 +554,12 @@
                     font-weight:bold;
                     cursor:pointer;
                 ">
-                ANALYZE
+                INVIA
             </button>
 
-            <div id="anonbot-response"
-                 style="
+            <div
+                id="anonbot-response"
+                style="
                     margin-top:15px;
                     padding:10px;
                     background:#111827;
@@ -537,7 +567,7 @@
                     color:#e5e7eb;
                     white-space:pre-wrap;
                     display:none;
-                 ">
+                ">
             </div>
 
         </div>
@@ -545,7 +575,7 @@
     </div>
 
 </div>
-
+		
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
