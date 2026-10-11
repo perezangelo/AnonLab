@@ -547,110 +547,86 @@
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("open-chat");
+    const chat = document.getElementById("anonbot-chat");
+    const sendBtn = document.getElementById("anonbot-send");
+    const input = document.getElementById("anonbot-input");
+    const responseDiv = document.getElementById("anonbot-response");
 
-    const toggleBtn =
-        document.getElementById("open-chat");
+    /* APRI / CHIUDI CHAT */
 
-    const chat =
-        document.getElementById("anonbot-chat");
+    toggleBtn.addEventListener("click", () => {
 
-    const sendBtn =
-        document.getElementById("anonbot-send");
+        const visible =
+            chat.style.display === "block";
 
-    const input =
-        document.getElementById("anonbot-input");
+        if (visible) {
 
-    const responseDiv =
-        document.getElementById("anonbot-response");
-
-    /* APRI / CHIUDI */
-
-    toggleBtn.addEventListener("click", function () {
-
-        if (
-            chat.style.display === "none" ||
-            chat.style.display === ""
-        ) {
-
-            chat.style.display = "block";
-
+            chat.style.display = "none";
             toggleBtn.innerHTML =
-                "❌ Chiudi Assistente";
+                "🚀 Avvia Cyber Assistant";
 
         } else {
 
-            chat.style.display = "none";
-
+            chat.style.display = "block";
             toggleBtn.innerHTML =
-                "🚀 Avvia Cyber Assistant";
+                "❌ Chiudi Assistente";
 
         }
 
     });
 
-    /* INVIO */
+    /* CLICK PULSANTE */
 
-    sendBtn.addEventListener(
-        "click",
-        analyze
-    );
+    sendBtn.addEventListener("click", analyze);
 
-    /* ENTER */
+    /* INVIO CON ENTER */
 
-    input.addEventListener(
-        "keydown",
-        function (e) {
+    input.addEventListener("keydown", (e) => {
 
-            if (
-                e.key === "Enter" &&
-                !e.shiftKey
-            ) {
+        if (e.key === "Enter" && !e.shiftKey) {
 
-                e.preventDefault();
-
-                analyze();
-
-            }
+            e.preventDefault();
+            analyze();
 
         }
-    );
+
+    });
 
     async function analyze() {
 
-        const query =
-            input.value.trim();
+        const query = input.value.trim();
 
         if (!query) {
 
-            responseDiv.style.display =
-                "block";
-
+            responseDiv.style.display = "block";
             responseDiv.innerHTML =
                 "⚠ Inserisci una richiesta.";
 
             return;
+
         }
 
-        responseDiv.style.display =
-            "block";
-
+        responseDiv.style.display = "block";
         responseDiv.innerHTML =
             "🛰 Analisi in corso...";
 
         try {
 
             const res = await fetch(
-    "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: "query=" + encodeURIComponent(query)
-    }
-);
+                "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body:
+                        "query=" +
+                        encodeURIComponent(query)
+                }
+            );
 
             if (!res.ok) {
 
@@ -660,28 +636,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
-            const data =
-                await res.json();
+            const data = await res.json();
 
-            if (!data.success) {
-
-                responseDiv.innerHTML =
-                    data.result ||
-                    "Errore sconosciuto";
-
-                return;
-            }
+            console.log("AnonBot Response:", data);
 
             const result =
-    data.result ||
-    data.message ||
-    "Nessuna risposta disponibile";
+                data.result ||
+                data.message ||
+                data.error ||
+                "Nessuna risposta disponibile.";
 
-responseDiv.innerHTML =
-    result.replace(/\n/g, "<br>");
+            responseDiv.innerHTML =
+                String(result).replace(
+                    /\n/g,
+                    "<br>"
+                );
 
-        }
-        catch (err) {
+        } catch (err) {
 
             console.error(
                 "AnonBot Error:",
@@ -697,7 +668,6 @@ responseDiv.innerHTML =
     }
 
 });
-
 </script>
 		
 <script>
