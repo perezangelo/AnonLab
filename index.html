@@ -672,9 +672,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            responseDiv.innerHTML =
-                data.result
-                    .replace(/\n/g, "<br>");
+            const result =
+    data.result ||
+    data.message ||
+    "Nessuna risposta disponibile";
+
+responseDiv.innerHTML =
+    result.replace(/\n/g, "<br>");
 
         }
         catch (err) {
