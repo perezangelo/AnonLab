@@ -622,6 +622,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+	
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
+function contactOptionsHTML() {
+    return `
+        <div class="anonbot-contact-options">
+            <p><strong>Hai bisogno di ulteriore assistenza?</strong></p>
+            <p>Puoi contattare direttamente il team AnonLab:</p>
+
+            <a class="anonbot-contact-link"
+               href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
+                ✉️ Scrivi a info@anonlab.it
+            </a>
+
+            <a class="anonbot-contact-link"
+               href="https://anonlab.it/contatti.html"
+               target="_blank" rel="noopener noreferrer">
+                📩 Richiedi Informazioni
+            </a>
+
+            <a class="anonbot-contact-link"
+               href="https://anonlab.it/about.html"
+               target="_blank" rel="noopener noreferrer">
+                ❓ FAQ &amp; Domande
+            </a>
+        </div>
+    `;
+}
+
+function needsHumanAssistance(answer) {
+    return /non dispongo di informazioni sufficienti|non ho informazioni sufficienti|non so rispondere|non sono in grado di rispondere|non posso confermare con certezza|non posso fornire una risposta affidabile/i.test(answer);
+}
+
     async function analyze() {
 
         const query = input.value.trim();
