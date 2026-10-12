@@ -591,12 +591,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* STILE CYBER ANONLAB PER I LINK DI ASSISTENZA */
 
-    function contactOptionsHTML() {
+function contactOptionsHTML() {
 
     const linkStyle = `
         color:#00eaff;
         text-decoration:none;
         font-weight:bold;
+        font-size:0.9rem;
+    `;
+
+    const itemStyle = `
+        display:flex;
+        align-items:center;
+        gap:9px;
+        margin:2px 0;
+        min-height:32px;
+    `;
+
+    const iconStyle = `
+        width:30px;
+        flex:0 0 30px;
+        text-align:center;
+        font-size:25px;
+        line-height:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
     `;
 
     return `
@@ -610,40 +630,52 @@ document.addEventListener("DOMContentLoaded", () => {
             line-height:1.4;
             box-sizing:border-box;
         ">
+
             <div style="
                 color:#9defff;
                 font-size:0.9rem;
-                margin-bottom:5px;
+                font-weight:bold;
+                margin-bottom:3px;
             ">
                 ◈ ASSISTENZA ANONLAB
-				Hai bisogno di ulteriore assistenza?
-                    Puoi contattare direttamente il team AnonLab:
             </div>
 
-            <div style="margin:3px 0;">
-                ✉️ <a style="${linkStyle}"
-                    href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
+            <div style="
+                font-size:0.84rem;
+                margin-bottom:5px;
+            ">
+                Hai bisogno di ulteriore assistenza?
+                Puoi contattare direttamente il team AnonLab:
+            </div>
+
+            <div style="${itemStyle}">
+                <span style="${iconStyle}">✉️</span>
+                <a style="${linkStyle}"
+                   href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
                     Email AnonLab
                 </a>
             </div>
 
-            <div style="margin:3px 0;">
-                📩 <a style="${linkStyle}"
-                    href="https://anonlab.it/contatti.html"
-                    target="_blank"
-                    rel="noopener noreferrer">
+            <div style="${itemStyle}">
+                <span style="${iconStyle}">📩</span>
+                <a style="${linkStyle}"
+                   href="https://anonlab.it/contatti.html"
+                   target="_blank"
+                   rel="noopener noreferrer">
                     Richiedi Informazioni
                 </a>
             </div>
 
-            <div style="margin:3px 0;">
-                ❓ <a style="${linkStyle}"
-                    href="https://anonlab.it/about.html"
-                    target="_blank"
-                    rel="noopener noreferrer">
+            <div style="${itemStyle}">
+                <span style="${iconStyle}">❓</span>
+                <a style="${linkStyle}"
+                   href="https://anonlab.it/about.html"
+                   target="_blank"
+                   rel="noopener noreferrer">
                     FAQ &amp; Domande
                 </a>
             </div>
+
         </div>
     `;
 }
