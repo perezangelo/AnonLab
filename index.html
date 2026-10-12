@@ -691,29 +691,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function needsHumanAssistance(answer) {
 
-        const patterns = [
-            /non dispongo di informazioni sufficienti/i,
-            /non ho informazioni sufficienti/i,
-            /non so rispondere/i,
-            /non sono in grado di rispondere/i,
-            /non posso confermare con certezza/i,
-            /non posso fornire una risposta affidabile/i,
-            /non ho abbastanza informazioni/i,
-            /non dispongo di un database aggiornato/i,
-            /non conosco (?:il prezzo|i prezzi|le tariffe|il costo)/i,
-            /non sono disponibili (?:informazioni|dati|prezzi|tariffe)/i,
-            /non posso fornire (?:un preventivo|un prezzo|una tariffa)/i,
-            /preventivo personalizzato/i,
-            /tariffe orarie specifiche/i,
-            /contattare direttamente il team/i,
-            /richiedere un preventivo/i,
-            /modulo di contatto/i,
-            /e-mail indicat[ao] sul sito/i
-        ];
+    const patterns = [
+        /non dispongo di informazioni sufficienti/i,
+        /non ho informazioni sufficienti/i,
+        /non so rispondere/i,
+        /non sono in grado di rispondere/i,
+        /non posso confermare con certezza/i,
+        /non posso fornire una risposta affidabile/i,
+        /non ho abbastanza informazioni/i,
 
-        return patterns.some(pattern => pattern.test(answer));
+        /non dispongo di un database aggiornato/i,
+        /non dispongo di dati aggiornati/i,
+        /non dispongo di dati aggiornati sui costi/i,
+        /non conosco (?:il prezzo|i prezzi|le tariffe|il costo)/i,
+        /non sono disponibili (?:informazioni|dati|prezzi|tariffe)/i,
 
-    }
+        /non posso fornire (?:un preventivo|un prezzo|una tariffa)/i,
+        /preventivo personalizzato/i,
+        /tariffe orarie specifiche/i,
+        /prezzo esatto/i,
+        /costi specifici/i,
+        /contattare direttamente (?:l'azienda|l'azienda|il team|anonlab)/i,
+        /contatta(?:re)? direttamente/i,
+        /richiedere un preventivo/i,
+        /modulo di contatto/i,
+        /canali di supporto indicati/i,
+        /e-mail indicat[ao] sul sito/i
+    ];
+
+    return patterns.some(pattern => pattern.test(answer));
+}
 
     /* VISUALIZZAZIONE RISPOSTA */
 
