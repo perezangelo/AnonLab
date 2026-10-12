@@ -1855,27 +1855,31 @@ setInterval(loadOpsDashboard, 60000);
 </script>
 
 </div>
-  <script>
-function loadThreatMap() {
-    fetch("https://angelonline.altervista.org/cyberops/timap.php")
-        .then(r => r.json())
-        .then(data => {
-            const box = document.getElementById("tiMapBox");
 
-            box.innerHTML = `
-                <img src="${data.img}" alt="Threat Map" class="map-img">
-                <p class="map-note">${data.note}</p>
-            `;
-        })
-        .catch(() => {
-            document.getElementById("tiMapBox").innerHTML =
-                "<p class='map-note'>Errore caricamento mappa</p>";
-        });
+<script>
+async function loadThreatMap() {
+    const box = document.getElementById("tiMapBox");
+    if (!box) return;
+
+    // Non sostituire il canvas della mappa dinamica.
+    if (!document.getElementById("AttackMapCanvas")) {
+        box.innerHTML = `
+            <img
+                src="/img/threat-map-5.jpg"
+                alt="Mappa globale delle minacce informatiche"
+                class="map-img"
+                style="display:block;width:100%;height:300px;object-fit:cover;"
+            >
+            <p class="map-note">
+                Mappa globale delle minacce informatiche
+            </p>
+        `;
+    }
 }
 
 loadThreatMap();
-setInterval(loadThreatMap, 30000);
 </script>
+
   <script>
 function loadTISummary() {
     fetch("https://angelonline.altervista.org/cyberops/tisummary.php")
