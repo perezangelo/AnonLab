@@ -671,19 +671,31 @@ document.addEventListener("DOMContentLoaded", () => {
     function needsHumanAssistance(answer) {
 
         const patterns = [
-            /non dispongo di informazioni sufficienti/i,
-            /non ho informazioni sufficienti/i,
-            /non so rispondere/i,
-            /non sono in grado di rispondere/i,
-            /non posso confermare con certezza/i,
-            /non posso fornire una risposta affidabile/i,
-            /non ho abbastanza informazioni/i,
-            /ti consiglio di contattare (?:direttamente )?(?:il team|anonlab)/i,
-            /contatta(?:re)? (?:direttamente )?info@anonlab\.it/i
-        ];
+           
+function needsHumanAssistance(answer) {
 
-        return patterns.some(pattern => pattern.test(answer));
-    }
+    const patterns = [
+        /non dispongo di informazioni sufficienti/i,
+        /non ho informazioni sufficienti/i,
+        /non so rispondere/i,
+        /non sono in grado di rispondere/i,
+        /non posso confermare con certezza/i,
+        /non posso fornire una risposta affidabile/i,
+        /non ho abbastanza informazioni/i,
+        /non dispongo di un database aggiornato/i,
+        /non conosco (?:il prezzo|i prezzi|le tariffe|il costo)/i,
+        /non sono disponibili (?:informazioni|dati|prezzi|tariffe)/i,
+        /non posso fornire (?:un preventivo|un prezzo|una tariffa)/i,
+        /preventivo personalizzato/i,
+        /tariffe orarie specifiche/i,
+        /contattare direttamente il team/i,
+        /richiedere un preventivo/i,
+        /modulo di contatto/i,
+        /e-mail indicat[ao] sul sito/i
+    ];
+
+    return patterns.some(pattern => pattern.test(answer));
+}
 
     /* VISUALIZZAZIONE RISPOSTA */
 
