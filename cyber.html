@@ -734,8 +734,29 @@ setInterval(loadSIEM, 10000);
   <div class="ti-section" style="margin-top:20px;">
     <h4 style="color:#ff7b00;">Mappa globale degli attacchi</h4>
 
-	<div id="tiMapBox" class="map-frame">
-     <canvas id="AttackMapCanvas" width="100%" height="100%" style="width:100%;height:300px;"></canvas>
+<div id="tiMapBox" class="map-frame"
+     style="position:relative;width:100%;overflow:hidden;">
+
+    <!-- Sfondo della mappa -->
+    <img
+        src="/img/threat-map-2.jpg"
+        alt="Mappa globale delle minacce informatiche"
+        class="map-img"
+        style="display:block;width:100%;height:300px;object-fit:cover;"
+    >
+
+    <!-- Punti dinamici degli attacchi -->
+    <canvas
+        id="AttackMapCanvas"
+        aria-label="Visualizzazione geografica degli attacchi informatici"
+        style="position:absolute;top:0;left:0;width:100%;height:300px;pointer-events:none;"
+    ></canvas>
+
+</div>
+
+<p class="map-note">
+    Mappa degli eventi geografici rilevati — aggiornamento automatico
+</p>
 
 <script>
 async function loadAttackMap() {
