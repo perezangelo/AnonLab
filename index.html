@@ -573,6 +573,7 @@
 
 </div>
 		
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -582,30 +583,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("anonbot-input");
     const responseDiv = document.getElementById("anonbot-response");
 
+    /* CONTROLLO ELEMENTI */
+
+    if (!toggleBtn || !chat || !sendBtn || !input || !responseDiv) {
+        console.error("AnonBot: uno o più elementi HTML non sono presenti.");
+        return;
+    }
+
     /* APRI / CHIUDI CHAT */
 
     toggleBtn.addEventListener("click", () => {
 
-        const visible =
-            chat.style.display === "block";
+        const visible = getComputedStyle(chat).display !== "none";
 
         if (visible) {
-
             chat.style.display = "none";
-            toggleBtn.innerHTML =
-                "🚀 Avvia Cyber Assistant";
-
+            toggleBtn.textContent = "🚀 Avvia Cyber Assistant";
         } else {
-
             chat.style.display = "block";
-            toggleBtn.innerHTML =
-                "❌ Chiudi Assistente";
-
+            toggleBtn.textContent = "❌ Chiudi Assistente";
         }
 
     });
 
-    /* CLICK PULSANTE */
+    /* INVIO CON PULSANTE */
 
     sendBtn.addEventListener("click", analyze);
 
@@ -614,112 +615,177 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("keydown", (e) => {
 
         if (e.key === "Enter" && !e.shiftKey) {
-
             e.preventDefault();
             analyze();
-
         }
 
     });
 
-	
-function escapeHTML(value) {
-    return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-    })[char]);
-}
+    /* PROTEZIONE HTML */
 
-function contactOptionsHTML() {
-    return `
-        <div class="anonbot-contact-options">
-            <p><strong>Hai bisogno di ulteriore assistenza?</strong></p>
-            <p>Puoi contattare direttamente il team AnonLab:</p>
+    function escapeHTML(value) {
+        return String(value).replace(/[&<>"']/g, (char) => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        })[char]);
+    }
 
-            <a class="anonbot-contact-link"
-               href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
-                ✉️ Scrivi a info@anonlab.it
-            </a>
+    /* COLLEGAMENTI DI CONTATTO */
 
-            <a class="anonbot-contact-link"
-               href="https://anonlab.it/contatti.html"
-               target="_blank" rel="noopener noreferrer">
-                📩 Richiedi Informazioni
-            </a>
+    function contactOptionsHTML() {
+        return `
+            <div>
+                <p><strong>Hai bisogno di ulteriore assistenza?</strong></p>
+                <p>Puoi contattare direttamente il team AnonLab:</p>
 
-            <a class="anonbot-contact-link"
-               href="https://anonlab.it/about.html"
-               target="_blank" rel="noopener noreferrer">
-                ❓ FAQ &amp; Domande
-            </a>
-        </div>
-    `;
-}
+                <p>
+                    ✉️ <a href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
+                        Scrivi a info@anonlab.it
+                    </a>
+                </p>
 
-function needsHumanAssistance(answer) {
-    return /non dispongo di informazioni sufficienti|non ho informazioni sufficienti|non so rispondere|non sono in grado di rispondere|non posso confermare con certezza|non posso fornire una risposta affidabile/i.test(answer);
-}
+                <p>
+                    📩 <a href="https://anonlab.it/contatti.html"
+                         target="_blank"
+                         rel="noopener noreferrer">
+                        Richiedi Informazioni
+                    </a>
+                </p>
+
+                <p>
+                    ❓ <a href="https://anonlab.it/about.html"
+                         target="_blank"
+                         rel="noopener noreferrer">
+                        FAQ &amp; Domande
+                    </a>
+                </p>
+            </div>
+        `;
+    }
+
+    /* RILEVAMENTO PRUDENTE DI RISPOSTE INSUFFICIENTI */
+
+    function needsHumanAssistance(answer) {
+
+        const patterns = [
+            /non dispongo di informazioni sufficienti/i,
+            /non ho informazioni sufficienti/i,
+            /non so rispondere/i,
+            /non sono in grado di rispondere/i,
+            /non posso confermare con certezza/i,
+            /non posso fornire una risposta affidabile/i,
+            /non ho abbastanza informazioni/i,
+            /ti consiglio di contattare (?:direttamente )?(?:il team|anonlab)/i,
+            /contatta(?:re)? (?:direttamente )?info@anonlab\.it/i
+        ];
+
+        return patterns.some(pattern => pattern.test(answer));
+    }
+
+    /* VISUALIZZAZIONE RISPOSTA */
+
+    function showAnswer(answer) {
+
+        const safeAnswer = escapeHTML(answer)
+            .replace(/\r\n/g, "\n")
+            .replace(/\n/g, "<br>");
+
+        responseDiv.innerHTML = safeAnswer;
+
+        if (needsHumanAssistance(answer)) {
+            responseDiv.insertAdjacentHTML(
+                "beforeend",
+                contactOptionsHTML()
+            );
+        }
+
+    }
+
+    /* ANALISI DELLA DOMANDA */
 
     async function analyze() {
 
         const query = input.value.trim();
 
         if (!query) {
-
             responseDiv.style.display = "block";
-            responseDiv.innerHTML =
-                "⚠ Inserisci una richiesta.";
-
+            responseDiv.textContent = "⚠ Inserisci una richiesta.";
             return;
-
         }
 
         responseDiv.style.display = "block";
-        responseDiv.innerHTML =
-            "🛰 Analisi in corso...";
+        responseDiv.textContent = "🛰 Analisi in corso...";
 
-try {
+        sendBtn.disabled = true;
 
-    const res = await fetch(
-        "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: "query=" + encodeURIComponent(query)
+        try {
+
+            const res = await fetch(
+                "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "query=" + encodeURIComponent(query)
+                }
+            );
+
+            const text = await res.text();
+
+            console.log("AnonBot HTTP:", res.status);
+            console.log("AnonBot RAW RESPONSE:", text);
+
+            let data;
+
+            try {
+                data = JSON.parse(text);
+            } catch {
+                throw new Error("Il server ha restituito una risposta non valida.");
+            }
+
+            console.log("AnonBot PARSED RESPONSE:", data);
+
+            if (!res.ok || data.success === false) {
+
+                responseDiv.innerHTML =
+                    "⚠️ AnonBot non è riuscito a completare la richiesta." +
+                    "<br>Puoi riprovare oppure contattare il team AnonLab." +
+                    contactOptionsHTML();
+
+                return;
+            }
+
+            const answer = data.result || data.message || "";
+
+            if (typeof answer !== "string" || !answer.trim()) {
+
+                responseDiv.innerHTML =
+                    "⚠️ Non è stato possibile ottenere una risposta." +
+                    contactOptionsHTML();
+
+                return;
+            }
+
+            showAnswer(answer);
+
+        } catch (err) {
+
+            console.error("AnonBot Error:", err);
+
+            responseDiv.innerHTML =
+                "❌ AnonBot non è riuscito a contattare il servizio AI." +
+                "<br>Controlla la connessione e riprova, oppure contatta AnonLab." +
+                contactOptionsHTML();
+
+        } finally {
+
+            sendBtn.disabled = false;
+
         }
-    );
-
-    if (!res.ok) {
-        throw new Error("HTTP " + res.status);
-    }
-
-    const text = await res.text();
-
-    console.log("RAW RESPONSE:");
-    console.log(text);
-
-    const data = JSON.parse(text);
-
-    console.log("PARSED RESPONSE:");
-    console.log(data);
-
-    responseDiv.innerHTML =
-        (data.result || data.message || "Nessuna risposta")
-            .replace(/\n/g, "<br>");
-
-} catch (err) {
-
-    console.error("AnonBot Error:", err);
-
-    responseDiv.innerHTML =
-        "❌ Errore di connessione al backend.<br><br>" +
-        err.message;
-}
 
     }
 
