@@ -290,12 +290,23 @@ fetch("/partials/ticker.html")
 
   <!-- LINK ESTERNO CLICCABILE -->
   <a href="https://www.shodan.io" target="_blank" style="display:block;position:relative;text-decoration:none;">
+	  
+<!-- WRAPPER ANIMATO -->
+<div class="heatmap-wrapper" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
 
-      <!-- WRAPPER ANIMATO -->
-      <div class="heatmap-wrapper" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
-          <img src="/img/world-map-dark.png" class="heatmap-img" style="width:100%;display:block;">
-          <canvas id="heatmap-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;"></canvas>
-      </div>
+    <img
+        src="/img/world-map-dark.png"
+        class="heatmap-img"
+        alt="Mappa del mondo utilizzata come base per la heatmap delle minacce informatiche di AnonLab"
+        style="width:100%;display:block;"
+    >
+
+    <canvas
+        id="heatmap-canvas"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    </canvas>
+
+</div>
 
   </a>
 
