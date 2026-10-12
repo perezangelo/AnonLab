@@ -1876,27 +1876,7 @@ setInterval(loadOpsDashboard, 60000);
 </script>
 
 </div>
-  <script>
-function loadThreatMap() {
-    fetch("https://angelonline.altervista.org/cyberops/timap.php")
-        .then(r => r.json())
-        .then(data => {
-            const box = document.getElementById("tiMapBox");
-
-            box.innerHTML = `
-                <img src="${data.img}" alt="Threat Map" class="map-img">
-                <p class="map-note">${data.note}</p>
-            `;
-        })
-        .catch(() => {
-            document.getElementById("tiMapBox").innerHTML =
-                "<p class='map-note'>Errore caricamento mappa</p>";
-        });
-}
-
-loadThreatMap();
-setInterval(loadThreatMap, 30000);
-</script>
+	
   <script>
 function loadTISummary() {
     fetch("https://angelonline.altervista.org/cyberops/tisummary.php")
