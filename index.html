@@ -640,57 +640,45 @@ document.addEventListener("DOMContentLoaded", () => {
         responseDiv.innerHTML =
             "🛰 Analisi in corso...";
 
-        try {
+try {
 
-            const res = await fetch(
-    "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body:
-            "query=" +
-            encodeURIComponent(query)
-    }
-);
-
-            if (!res.ok) {
-
-                throw new Error(
-                    "HTTP " + res.status
-                );
-
-            }
-
-            const data = await res.json();
-
-            console.log("AnonBot Response:", data);
-
-            const result =
-                data.result ||
-                data.message ||
-                data.error ||
-                "Nessuna risposta disponibile.";
-
-            responseDiv.innerHTML =
-                String(result).replace(
-                    /\n/g,
-                    "<br>"
-                );
-
-        } catch (err) {
-
-            console.error(
-                "AnonBot Error:",
-                err
-            );
-
-            responseDiv.innerHTML =
-                "❌ Errore di connessione al backend.<br><br>" +
-                err.message;
-
+    const res = await fetch(
+        "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "query=" + encodeURIComponent(query)
         }
+    );
+
+    if (!res.ok) {
+        throw new Error("HTTP " + res.status);
+    }
+
+    const text = await res.text();
+
+    console.log("RAW RESPONSE:");
+    console.log(text);
+
+    const data = JSON.parse(text);
+
+    console.log("PARSED RESPONSE:");
+    console.log(data);
+
+    responseDiv.innerHTML =
+        (data.result || data.message || "Nessuna risposta")
+            .replace(/\n/g, "<br>");
+
+} catch (err) {
+
+    console.error("AnonBot Error:", err);
+
+    responseDiv.innerHTML =
+        "❌ Errore di connessione al backend.<br><br>" +
+        err.message;
+}
 
     }
 
