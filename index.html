@@ -573,8 +573,7 @@
 
 </div>
 		
-
-<script>
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
 
     const toggleBtn = document.getElementById("open-chat");
@@ -588,6 +587,74 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!toggleBtn || !chat || !sendBtn || !input || !responseDiv) {
         console.error("AnonBot: uno o più elementi HTML non sono presenti.");
         return;
+    }
+
+    /* STILE CYBER ANONLAB PER I LINK DI ASSISTENZA */
+
+    function contactOptionsHTML() {
+
+        const linkStyle = [
+            "color:#00eaff",
+            "text-decoration:none",
+            "font-weight:bold",
+            "text-shadow:0 0 6px #00eaff55"
+        ].join(";");
+
+        return `
+            <div style="
+                margin-top:15px;
+                padding:12px;
+                background:#081017;
+                border:1px solid #00eaff33;
+                border-radius:6px;
+                color:#cfefff;
+                line-height:1.6;
+                box-sizing:border-box;
+            ">
+
+                <div style="
+                    color:#00eaff;
+                    font-weight:bold;
+                    margin-bottom:10px;
+                ">
+                    🤖 ASSISTENZA ANONLAB
+                </div>
+
+                <p style="color:#cfefff;">
+                    Hai bisogno di ulteriore assistenza?
+                    Puoi contattare direttamente il team AnonLab:
+                </p>
+
+                <p>
+                    ✉️ <a
+                        style="${linkStyle}"
+                        href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
+                        Scrivi a info@anonlab.it
+                    </a>
+                </p>
+
+                <p>
+                    📩 <a
+                        style="${linkStyle}"
+                        href="https://anonlab.it/contatti.html"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Richiedi Informazioni
+                    </a>
+                </p>
+
+                <p style="margin-bottom:0;">
+                    ❓ <a
+                        style="${linkStyle}"
+                        href="https://anonlab.it/about.html"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        FAQ &amp; Domande
+                    </a>
+                </p>
+
+            </div>
+        `;
     }
 
     /* APRI / CHIUDI CHAT */
@@ -606,24 +673,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /* INVIO CON PULSANTE */
-
-    sendBtn.addEventListener("click", analyze);
-
-    /* INVIO CON ENTER */
-
-    input.addEventListener("keydown", (e) => {
-
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            analyze();
-        }
-
-    });
-
-    /* PROTEZIONE HTML */
+    /* PROTEZIONE CONTRO HTML NON ATTENDIBILE */
 
     function escapeHTML(value) {
+
         return String(value).replace(/[&<>"']/g, (char) => ({
             "&": "&amp;",
             "<": "&lt;",
@@ -631,71 +684,36 @@ document.addEventListener("DOMContentLoaded", () => {
             '"': "&quot;",
             "'": "&#39;"
         })[char]);
+
     }
 
-    /* COLLEGAMENTI DI CONTATTO */
-
-    function contactOptionsHTML() {
-        return `
-            <div>
-                <p><strong>Hai bisogno di ulteriore assistenza?</strong></p>
-                <p>Puoi contattare direttamente il team AnonLab:</p>
-
-                <p>
-                    ✉️ <a href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
-                        Scrivi a info@anonlab.it
-                    </a>
-                </p>
-
-                <p>
-                    📩 <a href="https://anonlab.it/contatti.html"
-                         target="_blank"
-                         rel="noopener noreferrer">
-                        Richiedi Informazioni
-                    </a>
-                </p>
-
-                <p>
-                    ❓ <a href="https://anonlab.it/about.html"
-                         target="_blank"
-                         rel="noopener noreferrer">
-                        FAQ &amp; Domande
-                    </a>
-                </p>
-            </div>
-        `;
-    }
-
-    /* RILEVAMENTO PRUDENTE DI RISPOSTE INSUFFICIENTI */
+    /* RILEVAMENTO DI RISPOSTE INSUFFICIENTI */
 
     function needsHumanAssistance(answer) {
 
         const patterns = [
-           
-function needsHumanAssistance(answer) {
+            /non dispongo di informazioni sufficienti/i,
+            /non ho informazioni sufficienti/i,
+            /non so rispondere/i,
+            /non sono in grado di rispondere/i,
+            /non posso confermare con certezza/i,
+            /non posso fornire una risposta affidabile/i,
+            /non ho abbastanza informazioni/i,
+            /non dispongo di un database aggiornato/i,
+            /non conosco (?:il prezzo|i prezzi|le tariffe|il costo)/i,
+            /non sono disponibili (?:informazioni|dati|prezzi|tariffe)/i,
+            /non posso fornire (?:un preventivo|un prezzo|una tariffa)/i,
+            /preventivo personalizzato/i,
+            /tariffe orarie specifiche/i,
+            /contattare direttamente il team/i,
+            /richiedere un preventivo/i,
+            /modulo di contatto/i,
+            /e-mail indicat[ao] sul sito/i
+        ];
 
-    const patterns = [
-        /non dispongo di informazioni sufficienti/i,
-        /non ho informazioni sufficienti/i,
-        /non so rispondere/i,
-        /non sono in grado di rispondere/i,
-        /non posso confermare con certezza/i,
-        /non posso fornire una risposta affidabile/i,
-        /non ho abbastanza informazioni/i,
-        /non dispongo di un database aggiornato/i,
-        /non conosco (?:il prezzo|i prezzi|le tariffe|il costo)/i,
-        /non sono disponibili (?:informazioni|dati|prezzi|tariffe)/i,
-        /non posso fornire (?:un preventivo|un prezzo|una tariffa)/i,
-        /preventivo personalizzato/i,
-        /tariffe orarie specifiche/i,
-        /contattare direttamente il team/i,
-        /richiedere un preventivo/i,
-        /modulo di contatto/i,
-        /e-mail indicat[ao] sul sito/i
-    ];
+        return patterns.some(pattern => pattern.test(answer));
 
-    return patterns.some(pattern => pattern.test(answer));
-}
+    }
 
     /* VISUALIZZAZIONE RISPOSTA */
 
@@ -708,11 +726,29 @@ function needsHumanAssistance(answer) {
         responseDiv.innerHTML = safeAnswer;
 
         if (needsHumanAssistance(answer)) {
+
             responseDiv.insertAdjacentHTML(
                 "beforeend",
                 contactOptionsHTML()
             );
+
         }
+
+    }
+
+    /* MESSAGGI DI ERRORE CON CONTATTI */
+
+    function showError(message) {
+
+        responseDiv.innerHTML = `
+            <div style="
+                color:#cfefff;
+                line-height:1.6;
+            ">
+                ${escapeHTML(message)}
+            </div>
+            ${contactOptionsHTML()}
+        `;
 
     }
 
@@ -725,6 +761,10 @@ function needsHumanAssistance(answer) {
         if (!query) {
             responseDiv.style.display = "block";
             responseDiv.textContent = "⚠ Inserisci una richiesta.";
+            return;
+        }
+
+        if (sendBtn.disabled) {
             return;
         }
 
@@ -756,17 +796,18 @@ function needsHumanAssistance(answer) {
             try {
                 data = JSON.parse(text);
             } catch {
-                throw new Error("Il server ha restituito una risposta non valida.");
+                throw new Error(
+                    "Il server ha restituito una risposta non valida."
+                );
             }
 
             console.log("AnonBot PARSED RESPONSE:", data);
 
             if (!res.ok || data.success === false) {
 
-                responseDiv.innerHTML =
-                    "⚠️ AnonBot non è riuscito a completare la richiesta." +
-                    "<br>Puoi riprovare oppure contattare il team AnonLab." +
-                    contactOptionsHTML();
+                showError(
+                    "⚠️ AnonBot non è riuscito a completare la richiesta. Puoi riprovare oppure contattare il team AnonLab."
+                );
 
                 return;
             }
@@ -775,9 +816,9 @@ function needsHumanAssistance(answer) {
 
             if (typeof answer !== "string" || !answer.trim()) {
 
-                responseDiv.innerHTML =
-                    "⚠️ Non è stato possibile ottenere una risposta." +
-                    contactOptionsHTML();
+                showError(
+                    "⚠️ Non è stato possibile ottenere una risposta."
+                );
 
                 return;
             }
@@ -788,10 +829,9 @@ function needsHumanAssistance(answer) {
 
             console.error("AnonBot Error:", err);
 
-            responseDiv.innerHTML =
-                "❌ AnonBot non è riuscito a contattare il servizio AI." +
-                "<br>Controlla la connessione e riprova, oppure contatta AnonLab." +
-                contactOptionsHTML();
+            showError(
+                "❌ AnonBot non è riuscito a contattare il servizio AI. Controlla la connessione e riprova, oppure contatta AnonLab."
+            );
 
         } finally {
 
@@ -800,6 +840,23 @@ function needsHumanAssistance(answer) {
         }
 
     }
+
+    /* INVIO CON PULSANTE */
+
+    sendBtn.addEventListener("click", analyze);
+
+    /* INVIO CON ENTER; SHIFT + ENTER PER ANDARE A CAPO */
+
+    input.addEventListener("keydown", (e) => {
+
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            analyze();
+        }
+
+    });
+
+    console.log("AnonBot Cyber Assistant inizializzato.");
 
 });
 </script>
