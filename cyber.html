@@ -1278,21 +1278,40 @@ async function loadMitre() {
             "<li>Errore nel caricamento del feed MITRE</li>";
     }
 }
-
+	
 // =========================
 // 4) THREAT LEVEL
 // =========================
 async function loadThreatLevel() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/api/threat_level.php");
-        const data = await res.json();
+    const text = document.getElementById("thLevelText");
+    const fill = document.getElementById("thLevelFill");
 
-        document.getElementById("thLevelFill").style.width = "80%";
-        document.getElementById("thLevelText").innerText =
-            `${data.status} — ${data.description}`;
+    if (!text || !fill) {
+        console.error("Elementi Threat Level non trovati");
+        return;
+    }
+
+    try {
+        const res = await fetch(
+            "https://angelonline.altervista.org/api/threat_level.php"
+        );
+
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+
+        const data = await res.json();
+        const level = Math.max(
+            0,
+            Math.min(100, Number(data.level) || 0)
+        );
+
+        fill.style.width = `${level}%`;
+        text.innerText = `${data.status} — ${level}%`;
+
     } catch (e) {
-        document.getElementById("thLevelText").innerText =
-            "Errore nel caricamento del Threat Level";
+        console.error("Errore nel caricamento del Threat Level:", e);
+        text.innerText = "Errore nel caricamento del Threat Level";
     }
 }
 
