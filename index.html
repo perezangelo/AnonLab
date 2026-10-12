@@ -593,69 +593,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function contactOptionsHTML() {
 
-        const linkStyle = [
-            "color:#00eaff",
-            "text-decoration:none",
-            "font-weight:bold",
-            "text-shadow:0 0 6px #00eaff55"
-        ].join(";");
+    const linkStyle = `
+        color:#00eaff;
+        text-decoration:none;
+        font-weight:bold;
+    `;
 
-        return `
+    return `
+        <div style="
+            margin-top:8px;
+            padding:8px 10px;
+            background:#081017;
+            border:1px solid #00eaff33;
+            border-radius:5px;
+            color:#cfefff;
+            line-height:1.4;
+            box-sizing:border-box;
+        ">
             <div style="
-                margin-top:15px;
-                padding:12px;
-                background:#081017;
-                border:1px solid #00eaff33;
-                border-radius:6px;
-                color:#cfefff;
-                line-height:1.6;
-                box-sizing:border-box;
+                color:#9defff;
+                font-size:0.9rem;
+                margin-bottom:5px;
             ">
-
-                <div style="
-                    color:#00eaff;
-                    font-weight:bold;
-                    margin-bottom:10px;
-                ">
-                    🤖 ASSISTENZA ANONLAB
-                </div>
-
-                <p style="color:#cfefff;">
-                    Hai bisogno di ulteriore assistenza?
+                ◈ ASSISTENZA ANONLAB
+				Hai bisogno di ulteriore assistenza?
                     Puoi contattare direttamente il team AnonLab:
-                </p>
-
-                <p>
-                    ✉️ <a
-                        style="${linkStyle}"
-                        href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
-                        Scrivi a info@anonlab.it
-                    </a>
-                </p>
-
-                <p>
-                    📩 <a
-                        style="${linkStyle}"
-                        href="https://anonlab.it/contatti.html"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Richiedi Informazioni
-                    </a>
-                </p>
-
-                <p style="margin-bottom:0;">
-                    ❓ <a
-                        style="${linkStyle}"
-                        href="https://anonlab.it/about.html"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        FAQ &amp; Domande
-                    </a>
-                </p>
-
             </div>
-        `;
-    }
+
+            <div style="margin:3px 0;">
+                ✉️ <a style="${linkStyle}"
+                    href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
+                    Email AnonLab
+                </a>
+            </div>
+
+            <div style="margin:3px 0;">
+                📩 <a style="${linkStyle}"
+                    href="https://anonlab.it/contatti.html"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Richiedi Informazioni
+                </a>
+            </div>
+
+            <div style="margin:3px 0;">
+                ❓ <a style="${linkStyle}"
+                    href="https://anonlab.it/about.html"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    FAQ &amp; Domande
+                </a>
+            </div>
+        </div>
+    `;
+}
 
     /* APRI / CHIUDI CHAT */
 
