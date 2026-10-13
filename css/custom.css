@@ -1130,16 +1130,11 @@
   box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
 }
 
-#tiMapBox .map-background {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-}
-
-#tiMapBox .map-background .map-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+#tiMapBox {
+    background-image: url("/img/threat-map-5.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* ================================
