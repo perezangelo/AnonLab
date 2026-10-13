@@ -575,6 +575,12 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+    "use strict";
+
+    // =========================================
+    // ANONBOT CYBER ASSISTANT — ANONLAB
+    // Senza popup di autenticazione
+    // =========================================
 
     const toggleBtn = document.getElementById("open-chat");
     const chat = document.getElementById("anonbot-chat");
@@ -582,149 +588,84 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("anonbot-input");
     const responseDiv = document.getElementById("anonbot-response");
 
-    /* CONTROLLO ELEMENTI */
-
+    // Verifica degli elementi necessari
     if (!toggleBtn || !chat || !sendBtn || !input || !responseDiv) {
-        console.error("AnonBot: uno o più elementi HTML non sono presenti.");
+        console.error(
+            "AnonBot: elementi HTML mancanti.",
+            {
+                toggleBtn: !!toggleBtn,
+                chat: !!chat,
+                sendBtn: !!sendBtn,
+                input: !!input,
+                responseDiv: !!responseDiv
+            }
+        );
         return;
     }
 
-    /* POPUP ACCESSO / REGISTRAZIONE */
+    // =========================================
+    // PROTEZIONE TESTO HTML
+    // =========================================
 
-    function openAnonBotAuth() {
-        if (!authModal) {
-            console.error("AnonBot: popup non trovato.");
-            showError(
-                "Per utilizzare AnonBot devi accedere o registrarti dalla sidebar di AnonLab."
-            );
-            return;
-        }
-
-        if (typeof authModal.showModal !== "function") {
-            console.error(
-                "AnonBot: l'elemento #anonbot-auth-modal deve essere un <dialog>."
-            );
-            showError("Impossibile aprire il popup di autenticazione.");
-            return;
-        }
-
-        if (!authModal.open) {
-            authModal.showModal();
-        }
+    function escapeHTML(value) {
+        return String(value).replace(/[&<>"']/g, char => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        })[char]);
     }
 
-    function closeAnonBotAuth() {
-        if (authModal && authModal.open) {
-            authModal.close();
-        }
-    }
-
-    authClose?.addEventListener("click", closeAnonBotAuth);
-
-    // Chiusura cliccando sullo sfondo del dialog
-    authModal?.addEventListener("click", (event) => {
-        if (event.target === authModal) {
-            closeAnonBotAuth();
-        }
-    });
-
-    // Vai al modulo di registrazione nella sidebar
-    registerBtn?.addEventListener("click", () => {
-        closeAnonBotAuth();
-
-        const form = document.getElementById("register-form");
-
-        if (form) {
-            form.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-            form.querySelector('input[name="nome"]')?.focus({
-                preventScroll: true
-            });
-        } else {
-            alert(
-                "Il modulo di registrazione non è ancora disponibile. Attendi il caricamento della sidebar e riprova."
-            );
-        }
-    });
-
-    // Vai al modulo di login nella sidebar
-    loginBtn?.addEventListener("click", () => {
-        closeAnonBotAuth();
-
-        const form = document.getElementById("login-form");
-
-        if (form) {
-            form.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-            form.querySelector('input[name="username"]')?.focus({
-                preventScroll: true
-            });
-        } else {
-            alert(
-                "Il modulo di login non è ancora disponibile. Attendi il caricamento della sidebar e riprova."
-            );
-        }
-    });
-
-    /* STILE CYBER ANONLAB PER I LINK DI ASSISTENZA */
+    // =========================================
+    // LINK DI ASSISTENZA ANONLAB
+    // =========================================
 
     function contactOptionsHTML() {
+        const linkStyle = [
+            "color:#00eaff",
+            "text-decoration:none",
+            "font-weight:bold",
+            "font-size:0.9rem"
+        ].join(";");
 
-        const linkStyle = `
-            color:#00eaff;
-            text-decoration:none;
-            font-weight:bold;
-            font-size:0.9rem;
-        `;
+        const itemStyle = [
+            "display:flex",
+            "align-items:center",
+            "gap:9px",
+            "margin:5px 0",
+            "min-height:30px"
+        ].join(";");
 
-        const itemStyle = `
-            display:flex;
-            align-items:center;
-            gap:9px;
-            margin:2px 0;
-            min-height:32px;
-        `;
-
-        const iconStyle = `
-            width:30px;
-            flex:0 0 30px;
-            text-align:center;
-            font-size:25px;
-            line-height:1;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        `;
+        const iconStyle = [
+            "width:30px",
+            "flex:0 0 30px",
+            "text-align:center",
+            "font-size:22px"
+        ].join(";");
 
         return `
             <div style="
-                margin-top:8px;
-                padding:8px 10px;
+                margin-top:10px;
+                padding:10px;
                 background:#081017;
                 border:1px solid #00eaff33;
-                border-radius:5px;
+                border-radius:6px;
                 color:#cfefff;
-                line-height:1.4;
+                line-height:1.5;
                 box-sizing:border-box;
             ">
                 <div style="
                     color:#9defff;
-                    font-size:0.9rem;
                     font-weight:bold;
-                    margin-bottom:3px;
+                    margin-bottom:5px;
                 ">
                     ◈ ASSISTENZA ANONLAB
                 </div>
 
-                <div style="font-size:0.84rem; margin-bottom:5px;">
+                <div style="font-size:0.85rem;margin-bottom:8px;">
                     Hai bisogno di ulteriore assistenza?
-                    Puoi contattare direttamente il team AnonLab:
+                    Contatta direttamente il team AnonLab.
                 </div>
 
                 <div style="${itemStyle}">
@@ -741,7 +682,7 @@ document.addEventListener("DOMContentLoaded", () => {
                        href="https://anonlab.it/contatti.html"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Richiedi Informazioni
+                        Richiedi informazioni
                     </a>
                 </div>
 
@@ -758,38 +699,42 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    /* APRI / CHIUDI CHAT */
+    // =========================================
+    // MESSAGGI INLINE
+    // =========================================
 
-    toggleBtn.addEventListener("click", () => {
+    function showMessage(message, color = "#cfefff") {
+        responseDiv.style.display = "block";
 
-        const visible = getComputedStyle(chat).display !== "none";
-
-        if (visible) {
-            chat.style.display = "none";
-            toggleBtn.textContent = "🚀 Avvia Cyber Assistant";
-        } else {
-            chat.style.display = "block";
-            toggleBtn.textContent = "❌ Chiudi Assistente";
-        }
-
-    });
-
-    /* PROTEZIONE CONTRO HTML NON ATTENDIBILE */
-
-    function escapeHTML(value) {
-        return String(value).replace(/[&<>"']/g, (char) => ({
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-        })[char]);
+        responseDiv.innerHTML = `
+            <div style="
+                color:${color};
+                line-height:1.6;
+                overflow-wrap:anywhere;
+            ">${escapeHTML(message)}</div>
+        `;
     }
 
-    /* RILEVAMENTO DI RISPOSTE INSUFFICIENTI */
+    function showError(message, includeContacts = true) {
+        responseDiv.style.display = "block";
+
+        responseDiv.innerHTML = `
+            <div style="
+                color:#cfefff;
+                padding:8px 0;
+                line-height:1.6;
+                overflow-wrap:anywhere;
+            ">${escapeHTML(message)}</div>
+            ${includeContacts ? contactOptionsHTML() : ""}
+        `;
+    }
+
+    // =========================================
+    // RISPOSTE CHE POTREBBERO RICHIEDERE
+    // ASSISTENZA UMANA
+    // =========================================
 
     function needsHumanAssistance(answer) {
-
         const patterns = [
             /non dispongo di informazioni sufficienti/i,
             /non ho informazioni sufficienti/i,
@@ -800,7 +745,6 @@ document.addEventListener("DOMContentLoaded", () => {
             /non ho abbastanza informazioni/i,
             /non dispongo di un database aggiornato/i,
             /non dispongo di dati aggiornati/i,
-            /non dispongo di dati aggiornati sui costi/i,
             /non conosco (?:il prezzo|i prezzi|le tariffe|il costo)/i,
             /non sono disponibili (?:informazioni|dati|prezzi|tariffe)/i,
             /non posso fornire (?:un preventivo|un prezzo|una tariffa)/i,
@@ -809,7 +753,7 @@ document.addEventListener("DOMContentLoaded", () => {
             /prezzo esatto/i,
             /costi specifici/i,
             /contattare direttamente (?:l'azienda|il team|anonlab)/i,
-            /contatta(?:re)? direttamente/i,
+            /contattare direttamente/i,
             /richiedere un preventivo/i,
             /modulo di contatto/i,
             /canali di supporto indicati/i,
@@ -819,14 +763,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return patterns.some(pattern => pattern.test(answer));
     }
 
-    /* VISUALIZZAZIONE RISPOSTA */
-
     function showAnswer(answer) {
-
         const safeAnswer = escapeHTML(answer)
-            .replace(/\r\n/g, "\n")
-            .replace(/\n/g, "<br>");
+            .replace(/\r\n|\r|\n/g, "<br>");
 
+        responseDiv.style.display = "block";
         responseDiv.innerHTML = safeAnswer;
 
         if (needsHumanAssistance(answer)) {
@@ -837,27 +778,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /* MESSAGGI DI ERRORE CON CONTATTI */
+    // =========================================
+    // APERTURA E CHIUSURA CHAT
+    // =========================================
 
-    function showError(message) {
+    function setChatOpen(open) {
+        chat.style.display = open ? "block" : "none";
 
-        responseDiv.innerHTML = `
-            <div style="color:#cfefff; line-height:1.6;">
-                ${escapeHTML(message)}
-            </div>
-            ${contactOptionsHTML()}
-        `;
+        toggleBtn.textContent = open
+            ? "❌ Chiudi Assistente"
+            : "🚀 Avvia Cyber Assistant";
+
+        toggleBtn.setAttribute("aria-expanded", String(open));
+
+        if (open) {
+            input.focus({ preventScroll: true });
+        }
     }
 
-    /* ANALISI DELLA DOMANDA */
+    toggleBtn.addEventListener("click", () => {
+        const isVisible = getComputedStyle(chat).display !== "none";
+        setChatOpen(!isVisible);
+    });
+
+    // =========================================
+    // CHIAMATA API ANONBOT
+    // =========================================
 
     async function analyze() {
-
         const query = input.value.trim();
 
         if (!query) {
-            responseDiv.style.display = "block";
-            responseDiv.textContent = "⚠ Inserisci una richiesta.";
+            showMessage("⚠️ Inserisci una richiesta.", "#00eaff");
+            input.focus();
             return;
         }
 
@@ -865,93 +818,116 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        responseDiv.style.display = "block";
-        responseDiv.textContent = "🛰 Analisi in corso...";
         sendBtn.disabled = true;
+        responseDiv.style.display = "block";
+        showMessage("🛰 Analisi in corso...", "#00eaff");
 
         try {
-
             const res = await fetch(
                 "https://angelonline.altervista.org/cyber-assistant/api/assistant.php",
                 {
                     method: "POST",
                     credentials: "include",
                     headers: {
-                        "Content-Type": "application/x-www-form-urlencoded"
+                        "Content-Type":
+                            "application/x-www-form-urlencoded;charset=UTF-8"
                     },
-                    body: "query=" + encodeURIComponent(query)
+                    body: new URLSearchParams({ query }).toString()
                 }
             );
 
-            const text = await res.text();
+            const rawText = await res.text();
 
             console.log("AnonBot HTTP:", res.status);
-            console.log("AnonBot RAW RESPONSE:", text);
 
             let data;
 
             try {
-                data = JSON.parse(text);
-            } catch {
-                throw new Error(
-                    "Il server ha restituito una risposta non valida."
+                data = JSON.parse(rawText);
+            } catch (parseError) {
+                console.error(
+                    "AnonBot: risposta non JSON.",
+                    rawText
                 );
-            }
 
-            console.log("AnonBot PARSED RESPONSE:", data);
-			
-            // SESSIONE ASSENTE: MOSTRA IL MESSAGGIO SOTTO LA CHAT
-if (res.status === 401 || data.authenticated === false) {
-
-    responseDiv.style.display = "block";
-
-    responseDiv.innerHTML = `
-        <div style="
-            color:#00eaff;
-            padding:10px;
-            margin-top:8px;
-            border:1px solid #00eaff55;
-            border-radius:6px;
-            background:#081017;
-            line-height:1.6;
-        ">
-            🔐 <strong>Per utilizzare AnonBot devi accedere o registrarti.</strong>
-            <br>
-            <span style="font-size:0.9rem;color:#cfefff;">
-                Utilizza i moduli di login e registrazione nella sidebar di AnonLab.
-            </span>
-        </div>
-    `;
-
-    return;
-}
-
-            // ALTRI ERRORI API
-            if (!res.ok || data.success === false) {
                 showError(
-                    data.result ||
-                    "⚠️ AnonBot non è riuscito a completare la richiesta. Puoi riprovare oppure contattare il team AnonLab."
+                    res.status >= 500
+                        ? "⚠️ Il servizio AnonBot ha riscontrato un errore sul server. Riprova più tardi."
+                        : "⚠️ Il server ha restituito una risposta non valida."
                 );
                 return;
             }
+
+            console.log("AnonBot response:", data);
+
+            // -------------------------------------
+            // SESSIONE ASSENTE: MESSAGGIO INLINE
+            // Nessun popup e nessun redirect
+            // -------------------------------------
+
+            if (res.status === 401 || data.authenticated === false) {
+                responseDiv.style.display = "block";
+
+                responseDiv.innerHTML = `
+                    <div style="
+                        color:#00eaff;
+                        padding:10px;
+                        margin-top:8px;
+                        border:1px solid #00eaff55;
+                        border-radius:6px;
+                        background:#081017;
+                        line-height:1.6;
+                        overflow-wrap:anywhere;
+                    ">
+                        🔐 <strong>
+                            Per utilizzare AnonBot devi accedere o registrarti.
+                        </strong>
+                        <div style="
+                            font-size:0.9rem;
+                            color:#cfefff;
+                            margin-top:5px;
+                        ">
+                            Utilizza i moduli di login e registrazione
+                            nella sidebar di AnonLab.
+                        </div>
+                    </div>
+                `;
+
+                return;
+            }
+
+            // -------------------------------------
+            // ALTRI ERRORI HTTP O API
+            // -------------------------------------
+
+            if (!res.ok || data.success === false) {
+                showError(
+                    data.result ||
+                    "⚠️ AnonBot non è riuscito a completare la richiesta. Riprova tra poco."
+                );
+                return;
+            }
+
+            // -------------------------------------
+            // RISPOSTA AI
+            // -------------------------------------
 
             const answer = data.result || data.message || "";
 
             if (typeof answer !== "string" || !answer.trim()) {
                 showError(
-                    "⚠️ Non è stato possibile ottenere una risposta."
+                    "⚠️ AnonBot non ha restituito una risposta valida."
                 );
                 return;
             }
 
             showAnswer(answer);
 
-        } catch (err) {
-
-            console.error("AnonBot Error:", err);
+        } catch (error) {
+            console.error("AnonBot Error:", error);
 
             showError(
-                "❌ AnonBot non è riuscito a contattare il servizio AI. Controlla la connessione e riprova, oppure contatta AnonLab."
+                "❌ Impossibile contattare il servizio AnonBot. Controlla la connessione e riprova."
             );
 
         } finally {
@@ -959,21 +935,20 @@ if (res.status === 401 || data.authenticated === false) {
         }
     }
 
-    /* INVIO CON PULSANTE */
+    // =========================================
+    // INVIO DOMANDA
+    // =========================================
 
     sendBtn.addEventListener("click", analyze);
 
-    /* INVIO CON ENTER; SHIFT + ENTER PER ANDARE A CAPO */
-
-    input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
+    input.addEventListener("keydown", event => {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
             analyze();
         }
     });
 
     console.log("AnonBot Cyber Assistant inizializzato.");
-
 });
 </script>
 		
