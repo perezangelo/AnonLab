@@ -907,13 +907,31 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("AnonBot PARSED RESPONSE:", data);
 
             // SESSIONE ASSENTE: MOSTRA IL POPUP
-            if (res.status === 401 || data.authenticated === false) {
-                responseDiv.textContent =
-                    "🔐 Per utilizzare AnonBot devi accedere o registrarti.";
+            // SESSIONE ASSENTE: MOSTRA IL MESSAGGIO SOTTO LA CHAT
+if (res.status === 401 || data.authenticated === false) {
 
-                openAnonBotAuth();
-                return;
-            }
+    responseDiv.style.display = "block";
+
+    responseDiv.innerHTML = `
+        <div style="
+            color:#00eaff;
+            padding:10px;
+            margin-top:8px;
+            border:1px solid #00eaff55;
+            border-radius:6px;
+            background:#081017;
+            line-height:1.6;
+        ">
+            🔐 <strong>Per utilizzare AnonBot devi accedere o registrarti.</strong>
+            <br>
+            <span style="font-size:0.9rem;color:#cfefff;">
+                Utilizza i moduli di login e registrazione nella sidebar di AnonLab.
+            </span>
+        </div>
+    `;
+
+    return;
+}
 
             // ALTRI ERRORI API
             if (!res.ok || data.success === false) {
