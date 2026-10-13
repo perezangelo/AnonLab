@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-m687-p538-r5hp",
-    "summary": "Vikunja: Permissive Cross-domain Security Policy trusts every localhost origin which should not be trusted",
+    "id": "CVE-2026-70035",
+    "summary": "Microsoft Security Advisory CVE-2026-70035 - .NET and Visual Studio Remote Code Execution Vulnerability",
     "severity": "HIGH",
-    "published": "2026-10-09T20:57:50Z",
-    "ghsa": "GHSA-m687-p538-r5hp"
+    "published": "2026-10-13T20:53:46Z",
+    "ghsa": "GHSA-4j9v-h7pp-725h"
   },
   {
-    "id": "GHSA-fmmf-xq98-g327",
-    "summary": "Vikunja: Write-level project members can delete admin-tier link shares through an unloaded permission check",
-    "severity": "MODERATE",
-    "published": "2026-10-09T20:57:47Z",
-    "ghsa": "GHSA-fmmf-xq98-g327"
-  },
-  {
-    "id": "GHSA-pjr3-86v4-5p7w",
-    "summary": "Vikunja: Explicit lower-permission share on a sub-project is silently overridden by an inherited parent permission (broken access control / privilege-management regression in v2.6.0)",
-    "severity": "MODERATE",
-    "published": "2026-10-09T20:57:44Z",
-    "ghsa": "GHSA-pjr3-86v4-5p7w"
-  },
-  {
-    "id": "GHSA-hjx8-qv73-f7cm",
-    "summary": "Vikunja: Webhooks and link shares survive every revocation path, so a removed collaborator keeps a live feed",
-    "severity": "MODERATE",
-    "published": "2026-10-09T20:57:41Z",
-    "ghsa": "GHSA-hjx8-qv73-f7cm"
-  },
-  {
-    "id": "GHSA-fprf-r6rv-xg99",
-    "summary": "Vikunja: Saved filter creation with an empty filter string recalculates task positions across all tenants",
-    "severity": "MODERATE",
-    "published": "2026-10-09T20:57:38Z",
-    "ghsa": "GHSA-fprf-r6rv-xg99"
-  },
-  {
-    "id": "GHSA-4hv6-xc92-j86g",
-    "summary": "Vikunja: WebSocket authentication ignores server-side session state, so revoked sessions keep receiving live pushes",
-    "severity": "MODERATE",
-    "published": "2026-10-09T20:57:34Z",
-    "ghsa": "GHSA-4hv6-xc92-j86g"
-  },
-  {
-    "id": "CVE-2026-107805",
-    "summary": "Nginx UI: Unauthenticated signed-request body staging can exhaust temporary storage",
+    "id": "CVE-2026-70186",
+    "summary": "Microsoft Security Advisory CVE-2026-70186 - ASP.NET Core Denial of Service Vulnerability",
     "severity": "HIGH",
-    "published": "2026-10-09T20:57:08Z",
-    "ghsa": "GHSA-j3hg-9rp3-5hw9"
+    "published": "2026-10-13T20:53:19Z",
+    "ghsa": "GHSA-mf4x-w4gh-4656"
   },
   {
-    "id": "CVE-2026-107804",
-    "summary": "Nginx UI: Bundled reverse proxy can bypass IP allowlists and enable shared login lockout",
-    "severity": "MODERATE",
-    "published": "2026-10-09T20:57:05Z",
-    "ghsa": "GHSA-9h23-53f4-q947"
-  },
-  {
-    "id": "CVE-2026-108259",
-    "summary": "Tina: Code injection via unescaped Git branch name in generated client source",
+    "id": "CVE-2026-70007",
+    "summary": "Microsoft Security Advisory CVE-2026-70007 - .NET and Visual Studio Remote Code Execution Vulnerability",
     "severity": "HIGH",
-    "published": "2026-10-09T20:56:52Z",
-    "ghsa": "GHSA-pwhx-cvv3-qj5c"
+    "published": "2026-10-13T20:52:52Z",
+    "ghsa": "GHSA-pfwj-2f93-rf42"
   },
   {
-    "id": "CVE-2026-108261",
-    "summary": "TinaCMS admin preview iframe loads an attacker-controlled origin from the URL fragment",
-    "severity": "CRITICAL",
-    "published": "2026-10-09T20:56:48Z",
-    "ghsa": "GHSA-x34j-47hf-4xg7"
+    "id": "CVE-2026-87697",
+    "summary": "Microsoft Security Advisory CVE-2026-87697 - .NET and Visual Studio Remote Code Execution Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-10-13T20:52:24Z",
+    "ghsa": "GHSA-c27m-942f-rcfh"
+  },
+  {
+    "id": "CVE-2026-96225",
+    "summary": "Microsoft Security Advisory CVE-2026-96225 - .NET and Visual Studio Elevation of Privilege Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-10-13T20:51:51Z",
+    "ghsa": "GHSA-w6wh-p4g7-mpj2"
+  },
+  {
+    "id": "CVE-2026-96230",
+    "summary": "Microsoft Security Advisory CVE-2026-96230 - ASP.NET Core Remote Code Execution Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-10-13T20:51:12Z",
+    "ghsa": "GHSA-qjpx-jqm5-h2c4"
+  },
+  {
+    "id": "CVE-2026-70179",
+    "summary": "Microsoft Security Advisory CVE-2026-70179 - ASP.NET Core Elevation of Privilege Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-10-13T20:50:45Z",
+    "ghsa": "GHSA-vrrp-6v32-2p8g"
+  },
+  {
+    "id": "CVE-2026-96224",
+    "summary": "Microsoft Security Advisory CVE-2026-96224 - .NET and Visual Studio Remote Code Execution Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-10-13T20:50:11Z",
+    "ghsa": "GHSA-xq57-crx4-g373"
+  },
+  {
+    "id": "CVE-2026-85363",
+    "summary": "Microsoft Security Advisory CVE-2026-85363 - .NET and Visual Studio Remote Code Execution Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-10-13T20:49:39Z",
+    "ghsa": "GHSA-f63g-mx39-3r38"
+  },
+  {
+    "id": "CVE-2026-96959",
+    "summary": "Microsoft Security Advisory CVE-2026-96959 - .NET and Visual Studio Denial of Service Vulnerability",
+    "severity": "HIGH",
+    "published": "2026-10-13T20:49:06Z",
+    "ghsa": "GHSA-c399-9853-6jmj"
   }
 ]
