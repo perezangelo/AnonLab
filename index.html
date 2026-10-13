@@ -582,12 +582,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("anonbot-input");
     const responseDiv = document.getElementById("anonbot-response");
 
-    // POPUP AUTENTICAZIONE: deve essere un elemento <dialog>
-    const authModal = document.getElementById("anonbot-auth-modal");
-    const authClose = document.getElementById("anonbot-auth-close");
-    const registerBtn = document.getElementById("anonbot-go-register");
-    const loginBtn = document.getElementById("anonbot-go-login");
-
     /* CONTROLLO ELEMENTI */
 
     if (!toggleBtn || !chat || !sendBtn || !input || !responseDiv) {
@@ -905,8 +899,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             console.log("AnonBot PARSED RESPONSE:", data);
-
-            // SESSIONE ASSENTE: MOSTRA IL POPUP
+			
             // SESSIONE ASSENTE: MOSTRA IL MESSAGGIO SOTTO LA CHAT
 if (res.status === 401 || data.authenticated === false) {
 
