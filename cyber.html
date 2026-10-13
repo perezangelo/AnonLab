@@ -1804,24 +1804,51 @@ setInterval(loadThreatLandscape, 60000);
     </p>
 </div>
 
+
 <script>
 async function loadHeatIndex() {
+    const el = document.getElementById("heatIndexValue");
+    if (!el) return;
+
     try {
-        const res = await fetch("https://angelonline.altervista.org/soc/heat-index.php");
+        const res = await fetch(
+            "https://angelonline.altervista.org/soc/heat-index.php",
+            { cache: "no-store" }
+        );
+
+        if (!res.ok) {
+            throw new Error("HTTP " + res.status);
+        }
+
         const d = await res.json();
 
-        document.getElementById("heatIndexValue").innerText =
-            `Picco registrato: ${d.peak}% — ${d.note}`;
-    } catch {
-        document.getElementById("heatIndexValue").innerText =
-            "Errore caricamento Heat Index";
+        if (d.status === "unavailable" || d.peak == null) {
+            throw new Error("Dati non disponibili");
+        }
+
+        const stato = d.status === "stale"
+            ? " — dati precedenti in cache"
+            : "";
+
+        el.textContent =
+            `Indice: ${d.peak}/100 — ${d.note}${stato} | ` +
+            `CVE ultime 24h: ${d.cve_24h} ` +
+            `(considerate: ${d.cve_considered}) | ` +
+            `KEV ultimi 7 giorni: ${d.kev_7d} ` +
+            `(considerate: ${d.kev_considered}) | ` +
+            `Aggiornato: ${d.updated_at}`;
+
+    } catch (error) {
+        el.textContent =
+            "Indice temporaneamente non disponibile";
+        console.error("Errore Heat Index:", error);
     }
 }
 
 loadHeatIndex();
 setInterval(loadHeatIndex, 30000);
 </script>
-
+		
       <!-- Cyber Operations Dashboard -->
 <div class="cyber-box" style="
     background:#000814;
