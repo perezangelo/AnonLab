@@ -572,7 +572,7 @@
     </div>
 
 </div>
-		
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -582,7 +582,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("anonbot-input");
     const responseDiv = document.getElementById("anonbot-response");
 
-    // POPUP AUTENTICAZIONE
+    // POPUP AUTENTICAZIONE: deve essere un elemento <dialog>
     const authModal = document.getElementById("anonbot-auth-modal");
     const authClose = document.getElementById("anonbot-auth-close");
     const registerBtn = document.getElementById("anonbot-go-register");
@@ -599,32 +599,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function openAnonBotAuth() {
         if (!authModal) {
-            console.error("AnonBot: HTML del popup di autenticazione non trovato.");
-            showError("Per utilizzare AnonBot devi accedere o registrarti dalla sidebar di AnonLab.");
+            console.error("AnonBot: popup non trovato.");
+            showError(
+                "Per utilizzare AnonBot devi accedere o registrarti dalla sidebar di AnonLab."
+            );
             return;
         }
 
-        authModal.hidden = false;
-        authClose?.focus();
+        if (typeof authModal.showModal !== "function") {
+            console.error(
+                "AnonBot: l'elemento #anonbot-auth-modal deve essere un <dialog>."
+            );
+            showError("Impossibile aprire il popup di autenticazione.");
+            return;
+        }
+
+        if (!authModal.open) {
+            authModal.showModal();
+        }
     }
 
     function closeAnonBotAuth() {
-        if (authModal) {
-            authModal.hidden = true;
+        if (authModal && authModal.open) {
+            authModal.close();
         }
     }
 
     authClose?.addEventListener("click", closeAnonBotAuth);
 
+    // Chiusura cliccando sullo sfondo del dialog
     authModal?.addEventListener("click", (event) => {
         if (event.target === authModal) {
-            closeAnonBotAuth();
-        }
-    });
-
-    // Chiudi il popup con ESC
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && authModal && !authModal.hidden) {
             closeAnonBotAuth();
         }
     });
@@ -645,7 +650,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 preventScroll: true
             });
         } else {
-            alert("Il modulo di registrazione non è ancora disponibile. Attendi il caricamento della sidebar e riprova.");
+            alert(
+                "Il modulo di registrazione non è ancora disponibile. Attendi il caricamento della sidebar e riprova."
+            );
         }
     });
 
@@ -665,7 +672,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 preventScroll: true
             });
         } else {
-            alert("Il modulo di login non è ancora disponibile. Attendi il caricamento della sidebar e riprova.");
+            alert(
+                "Il modulo di login non è ancora disponibile. Attendi il caricamento della sidebar e riprova."
+            );
         }
     });
 
@@ -2555,39 +2564,32 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <!-- POPUP ACCESSO ANONBOT -->
-<div id="anonbot-auth-modal" hidden
-     role="dialog"
-     aria-modal="true"
-     aria-labelledby="anonbot-auth-title">
+<dialog id="anonbot-auth-modal">
+    <h2>🔐 ACCESSO RICHIESTO</h2>
 
-    <div>
-        <button type="button" id="anonbot-auth-close"
-                aria-label="Chiudi popup">✕</button>
+    <p>
+        Per utilizzare AnonBot devi accedere al tuo account
+        AnonLab oppure registrarti gratuitamente.
+    </p>
 
-        <h2 id="anonbot-auth-title">🔐 ACCESSO RICHIESTO</h2>
+    <p>
+        <button type="button" id="anonbot-go-register">
+            ✨ Registrati
+        </button>
+    </p>
 
-        <p>
-            Per utilizzare <strong>AnonBot</strong> devi accedere
-            al tuo account AnonLab oppure registrarti gratuitamente.
-        </p>
+    <p>
+        <button type="button" id="anonbot-go-login">
+            ⚡ Accedi
+        </button>
+    </p>
 
-        <p>
-            <button type="button" id="anonbot-go-register">
-                ✨ Registrati
-            </button>
-        </p>
+    <p>
+        Dopo la registrazione, effettua il login per utilizzare la chat.
+    </p>
 
-        <p>
-            <button type="button" id="anonbot-go-login">
-                ⚡ Accedi
-            </button>
-        </p>
-
-        <p>
-            Dopo la registrazione, effettua il login per utilizzare la chat.
-        </p>
-    </div>
-</div>
+    <button type="button" id="anonbot-auth-close">✕ Chiudi</button>
+</dialog>
 
 	<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
