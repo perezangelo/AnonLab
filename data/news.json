@@ -1,48 +1,118 @@
 [
   {
+    "title": "UK Housing Ombudsman Service investigates 'security incident'",
+    "link": "https://www.bleepingcomputer.com/news/security/uk-housing-ombudsman-service-investigates-security-incident/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/UK_Housing_Ombudsman_Service.jpg"
+  },
+  {
+    "title": "Windows 11 KB5127648 & KB5126653 cumulative updates released",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5127648-and-kb5126653-cumulative-updates-released/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2024/07/18/Windows11.jpg"
+  },
+  {
+    "title": "Food safety fears grow as Copeland is named as second fridge supplier hit in supermarket hacking spree",
+    "link": "https://cybernews.com/security/copeland-dixell-cyberattack-french-supermarket-refrigeration/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/cheese-aisle-JordanPrins-Unsplash-resized-to-1200x660.jpeg"
+  },
+  {
+    "title": "We should be able to turn off the AI, Microsoft\u2019s Brad Smith says",
+    "link": "https://cybernews.com/ai-news/we-should-be-able-to-turn-off-the-ai-microsofts-brad-smith-says/",
+    "image": "https://media.cybernews.com/images/featured-big/2025/06/Brad_smith.jpg"
+  },
+  {
+    "title": "TFG London cyberattack disrupts systems at Hobbs and Whistles retailers",
+    "link": "https://www.bleepingcomputer.com/news/security/tfg-london-cyberattack-disrupts-systems-at-hobbs-and-whistles-retailers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/HOBBS.jpg"
+  },
+  {
+    "title": "GitHub Tightens npm Publishing After Flaw Left 1,500+ Packages Vulnerable to Hijacking",
+    "link": "https://thehackernews.com/2026/10/github-tightens-npm-publishing-after.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3aDWaWT6PmRDL9d6tHPDisxclb_Ak7YZIxuS02EUFvNaWrc4_UKwUqW0RI1KT3r8zsneOguD6b85yg8mf3gAzZZOGuLi-mXckG_yzwmXXb3IchTBSVeRvPlUo7QU4Kp4yiM6QqPshmo4p0GQ55XZPTEDc0DZn9N84S_ZibZ4rkXuhZ3OvoHNCYH-wk0k-/s1600/git-npm.jpg"
+  },
+  {
+    "title": "Ivanti warns of Connect Secure zero-day exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/Ivanti.jpg"
+  },
+  {
+    "title": "AT&T, Amazon, and PayPal credentials found exposed by AI company",
+    "link": "https://cybernews.com/security/at-t-amazon-paypal-walmart-fbi-data-leak-ai/",
+    "image": "https://media.cybernews.com/images/featured-big/2022/12/AIstartupcode.jpg"
+  },
+  {
+    "title": "Docker Hub flaw let attackers impersonate users, tamper with images",
+    "link": "https://www.bleepingcomputer.com/news/security/docker-hub-flaw-let-attackers-impersonate-users-tamper-with-images/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/docker.jpg"
+  },
+  {
+    "title": "SerpApi Expands Beyond Search Results with New Extract API",
+    "link": "https://cybernews.com/press-releases/serpapi-expands-beyond-search-results-with-new-extract-api/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/serpapi-featured-image.jpg"
+  },
+  {
+    "title": "The MFA Gaps Attackers are Still Exploiting",
+    "link": "https://www.bleepingcomputer.com/news/security/the-mfa-gaps-attackers-are-still-exploiting/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/10/06/specops-mfa-gaps.jpg"
+  },
+  {
+    "title": "SAP warns of maximum severity OAuth2 SSRF security flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/sap-warns-of-maximum-severity-oauth2-ssrf-security-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/14/SAP.jpg"
+  },
+  {
+    "title": "Xandr Fined a Record \u20ac8.6 Million for Relaying Grindr Data Revealing Sexual Orientation",
+    "link": "https://thehackernews.com/2026/10/xandr-fined-record-86-million-for.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGjfJJaKUMdLoNBTH2AYUmelL_XonLcf93p8hSgMXRbLGJwReAYV-BUZ2jpBPuvUQktW0PTKi1-21oFnBJF8PfECgT7t5r-S-iMUxjrdoWPf3EDxa2IVrQYjT98HG6s-LfPlJqm8mArrfEOEZS_scT7EYG8eXxMrUaII0UaQ3kAmWDJ3mRTR4JyIJhj-5S/s1600/grindr-data.jpg"
+  },
+  {
+    "title": "LG smart TVs vulnerable: attackers can bypass webOS security and gain root",
+    "link": "https://cybernews.com/security/lg-smart-tv-webos-complete-takeover-exploit/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/lgs-smart-tv-platform-webos-has-bugs-that-enable-full-remote-takeove-.jpg"
+  },
+  {
+    "title": "Linux creator Linus Torvalds says AI is like a \u201cgateway drug\u201d",
+    "link": "https://cybernews.com/ai-news/linus-torvalds-ai/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/linus-torvalds-ai.jpg"
+  },
+  {
+    "title": "Swann Communications SWIFI-SE2KIC",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-286-02",
+    "image": ""
+  },
+  {
+    "title": "[Webinar] How to Stop AI-Driven Privilege Escalation With Runtime Identity Controls",
+    "link": "https://thehackernews.com/2026/10/webinar-how-to-stop-ai-driven-privilege.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIhyphenhyphenHu3P6G99-W2G5NryBVw_aHrwdzZeMvGjoMkyUiKFOtwD_fqUvdytUAQuhg9gPZzpsWSFatNS2LcMylaW4jsMmRR-tmAXkZxokH4WcEqnXTlFnBFgg8-20j4LsTCQMaKRJY-ysNuH8uXg_D3Zb626eqIdGeTkkmvyh95PERJ_mnaPNnnv2maV0q4F2-/s1600/silverfort.jpg"
+  },
+  {
+    "title": "Patch Tuesdays aren\u2019t for everyone: 20% of cyber pros take time off to avoid them",
+    "link": "https://cybernews.com/security/patch-tuesday-cyber-pros-stress-time-off/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/patch-tuesday-stress.jpg"
+  },
+  {
+    "title": "Meta sees nothing wrong with Muse sexting users",
+    "link": "https://cybernews.com/ai-news/meta-muse-sexting-users/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/meta-muse-privacy.jpg"
+  },
+  {
+    "title": "LG Smart TVs Vulnerable to Pre-Auth Root Takeover From Local Network",
+    "link": "https://thehackernews.com/2026/10/lg-smart-tvs-vulnerable-to-pre-auth.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgs2Z0M9u8vYqE8SBNBzfOGoc4Crog-_PBWeZNY8IprfYaa08ZyZ_PTfMhosBFrQNS_f1JecVbl_HEq7sutExV_92yaZWVIA51YD59JOFa_fKZQyEvpZNUxai8pgDrQX_Kp_wQqJoEFFQIFEwa2c3vhyphenhyphenQtU0U9w5XDwjSAij3BPz_qRs7-t0eu8ZssOZuE/s1600/lg-tv.jpg"
+  },
+  {
     "title": "Self-replicating AI models could soon usurp your fridge, Anthropic warns",
     "link": "https://cybernews.com/news/self-replicating-ai-anthropic/",
     "image": "https://media.cybernews.com/images/featured-big/2026/03/anthropic-drone-swarm.jpg"
   },
   {
-    "title": "AI Turns Familiar Cyberattacks Into a Race Against Time",
-    "link": "https://www.securityweek.com/ai-turns-familiar-cyberattacks-into-a-race-against-time/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Threat-Intelligence-Insights-2025.jpg"
-  },
-  {
-    "title": "$86 Million Crypto Heist Linked to Ledger Signer Hardware Implant",
-    "link": "https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
+    "title": "Product Walkthrough: Bitdefender AI Visibility and Control",
+    "link": "https://thehackernews.com/2026/10/product-walkthrough-bitdefender-ai.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkLz0n_kNY4YMLYNTi1KElj3dkaig5LqA6Koy92X4ndKfwBO8ctC5bNVyII81TUHljc7MGrpMZBsUX5j4126sBd3Sk5fX_DGjIo-yz5qGrRsHgi2qiLNUUbfCSvOHcE-KoYqGzNLBvTVzwEKDt2hZ4dvGK8YYOTeA-f6FHX49GA0myiau9Mqgc_LT7D1k/s1600/bit.jpg"
   },
   {
     "title": "Lawsuit claims Meta tricked customers into \u201clast chance\u201d deal on smart glasses",
     "link": "https://cybernews.com/news/meta-lawsuit-smart-glass-promotional-deal/",
     "image": "https://media.cybernews.com/images/featured-big/2024/11/meta_ray_ban_1118.jpg"
-  },
-  {
-    "title": "Cyberattack Prompts Ahold Delhaize to Disconnect Systems",
-    "link": "https://www.securityweek.com/cyberattack-prompts-ahold-delhaize-to-disconnect-systems/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Ahold-Delhaize-cyberattack.jpeg"
-  },
-  {
-    "title": "PS5 jailbreak app gives gamers Battlefield 6, Silent Hill f, and more for free",
-    "link": "https://cybernews.com/tech/ps5-jailbreak-overdrive-app/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/04/playstation-5-console-close-upt3.jpg"
-  },
-  {
-    "title": "AI software allows police to geolocate you using a single interior image",
-    "link": "https://cybernews.com/ai-news/raven-geolocate-interior/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/raven-geolocate-interior.jpg"
-  },
-  {
-    "title": "Bernie Sanders wants to ban artificial superintelligence, but that\u2019s tricky",
-    "link": "https://cybernews.com/ai-news/bernie-sanders-sam-altman-agi-ban/",
-    "image": "https://media.cybernews.com/images/featured-big/2025/06/bernie_sanders_0626.jpg"
-  },
-  {
-    "title": "Norway\u2019s military rents Chinese cars with dashcams, and, surprise, they record military exercises",
-    "link": "https://cybernews.com/security/norway-military-chinese-cars-excercise-footage/",
-    "image": "https://media.cybernews.com/images/featured-big/2022/06/shutterstock_624905408.png"
   },
   {
     "title": "Attackers Heat French Supermarket Fridges Up to 50\u00b0C by Hijacking Danfoss Controllers",
@@ -58,26 +128,6 @@
     "title": "GitLab Patches CVSS 10.0 Flaw That Could Let Unauthenticated Users Run Server Code",
     "link": "https://thehackernews.com/2026/10/gitlab-patches-cvss-100-flaw-that-could.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOWNiMkzMghhERT5BPyrVI9JdCWExRLtDNHIHPjmT_WnGhLHyWhahW3xPurPPQJUn7Yz0_g9Nk0zWinEKh4J71g9viLtNVx2fM2anNzhA514PAgZBxobRfeP1jSsovLI6iVi9HIUXxv_dLvK8DrKy5vZktoxrxyd0riB83XCR2dlne7lEgTqdXW1Rwhekz/s1600/gitlab-exploit.jpg"
-  },
-  {
-    "title": "Refrigeration Controller Hack Spoils Food Across European Supermarkets",
-    "link": "https://www.securityweek.com/refrigeration-controller-hack-spoils-food-across-european-supermarkets/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
-  },
-  {
-    "title": "H&M investigates data breach after ShinyHunters claims",
-    "link": "https://cybernews.com/security/h-m-investigates-data-breach-shinyhunters/",
-    "image": "https://media.cybernews.com/images/featured-big/2025/01/hm-retail-store.jpg"
-  },
-  {
-    "title": "Empire Market operator sentenced to 40 years for $430M in illicit trade",
-    "link": "https://cybernews.com/news/empire-market-operator-decades-prison/",
-    "image": "https://media.cybernews.com/images/featured-big/2025/01/hacker-arrests-handcuffs.jpg"
-  },
-  {
-    "title": "Microsoft\u2019s adtech firm Xandr faces record fine over sensitive Grindr user data",
-    "link": "https://cybernews.com/news/microsoft-xandr-record-fine-grindr-user-data/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/09/grindr-uk-settlement.jpg"
   },
   {
     "title": "Low-Cost Android Phones Ship With Preinstalled Malware That Turns Them Into Residential Proxies",
@@ -98,55 +148,5 @@
     "title": "Prominent Ransomware Negotiator Faces Extortion Charges",
     "link": "https://www.darkreading.com/insider-threats/prominent-ransomware-negotiator-extortion-charges",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt86362c732a1ea960/6acd300ce9fd233382c61151/business_negotiation-rudall30-GettyImages-2291181534.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Yandex confirms service outage as users lose access to cloud files",
-    "link": "https://www.bleepingcomputer.com/news/security/yandex-confirms-service-outage-as-users-lose-access-to-cloud-files/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Yandex.jpg"
-  },
-  {
-    "title": "Anthropic takes risky AI tests offline after models breach govt sites",
-    "link": "https://www.bleepingcomputer.com/news/security/anthropic-takes-risky-ai-tests-offline-after-models-breach-govt-sites/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/anthropic.jpg"
-  },
-  {
-    "title": "No Identity, No Recovery: Cyber Resilience Starts With IAM",
-    "link": "https://www.darkreading.com/cybersecurity-operations/cyber-resilience-starts-with-iam",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc4e8be3c10aa2950/6acd23ee26d33c046ebc6ef9/resilience-hogehoge511-Getty-2296989476.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Ledger confirms spy chip implant behind wallet crypto thefts",
-    "link": "https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ledger.jpg"
-  },
-  {
-    "title": "Cyberattack shuts down refrigerators at French supermarkets",
-    "link": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/supermarket-empty-fridges.jpg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: Helpdesk 0-Days, Rogue Certs, ShinyHunters Arrest, AI-Fooling Malware and More",
-    "link": "https://thehackernews.com/2026/10/weekly-recap-helpdesk-0-days-rogue.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiv97S5d5aYZZRto-_3AfPjT2TmAcI0KYQm4zY7cXyf1hz-GHIcmuL9wF5IIzmg3D7_F-yh6Z9qtamVwEikSKd3tuy5eGo_mN2Qw-O602x4Abiwuf5Q9G72nX4ZOeFRly8woPJ8EBn2USmFIdDUVg6P-3f8nUPDTbcqrAF5JWsu_NRWTvz6EF5YVVqPrbvY/s1600/cy-cap.jpg"
-  },
-  {
-    "title": "Hackers turn up supermarket fridges to 50\u00b0C, threatening millions in food losses",
-    "link": "https://cybernews.com/security/danfoss-refrigeration-hack-france-supermarkets/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/Danfoss-fridge.jpg"
-  },
-  {
-    "title": "IonQ to Acquire Zero Trust Firm Elisity for Up to $1.3 Billion",
-    "link": "https://www.securityweek.com/ionq-to-acquire-zero-trust-firm-elisity-for-up-to-1-3-billion/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/MA-merger-acquisition.webp"
-  },
-  {
-    "title": "Inside AvisLoader: A Windows Malware Loader Built to Resist Disruption",
-    "link": "https://www.bleepingcomputer.com/news/security/inside-avisloader-a-windows-malware-loader-built-to-resist-disruption/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/10/08/avisloader.jpg"
-  },
-  {
-    "title": "Retail giant Ahold Delhaize takes systems offline after cyberattack",
-    "link": "https://www.bleepingcomputer.com/news/security/retail-giant-ahold-delhaize-takes-systems-offline-after-cyberattack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ahold_Delhaize.jpg"
   }
 ]
