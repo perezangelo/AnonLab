@@ -737,6 +737,7 @@ setInterval(loadSIEM, 10000);
 <div id="tiMapBox" class="map-frame">
      <canvas id="AttackMapCanvas" width="100%" height="100%" style="width:100%;height:300px;"></canvas>
 
+
 <script>
 (() => {
     const canvas = document.getElementById("AttackMapCanvas");
@@ -751,6 +752,8 @@ setInterval(loadSIEM, 10000);
 
     let points = [];
     let loading = false;
+    let animationFrame = null;
+    let lastFetch = 0;
 
     function resizeCanvas() {
         const rect = canvas.getBoundingClientRect();
@@ -773,6 +776,12 @@ setInterval(loadSIEM, 10000);
 
         ctx.clearRect(0, 0, width, height);
 
+        // Oscillazione continua della luminosità
+        const time = performance.now() / 650;
+        const pulse = (Math.sin(time) + 1) / 2;
+        const radius = 17 + pulse * 12;
+        const opacity = 0.35 + pulse * 0.55;
+
         points.forEach(p => {
             const lat = Number(p.lat);
             const lon = Number(p.lon);
@@ -782,26 +791,35 @@ setInterval(loadSIEM, 10000);
 
             const x = ((lon + 180) / 360) * width;
             const y = ((90 - lat) / 180) * height;
-            const radius = 22;
 
             const gradient = ctx.createRadialGradient(
                 x, y, 0, x, y, radius
             );
 
-            gradient.addColorStop(0, "rgba(255,40,40,0.95)");
-            gradient.addColorStop(0.25, "rgba(255,0,0,0.55)");
-            gradient.addColorStop(1, "rgba(255,0,0,0)");
+            gradient.addColorStop(
+                0, `rgba(255, 35, 35, ${opacity})`
+            );
+            gradient.addColorStop(
+                0.3, `rgba(255, 0, 0, ${opacity * 0.65})`
+            );
+            gradient.addColorStop(1, "rgba(255, 0, 0, 0)");
 
             ctx.fillStyle = gradient;
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
             ctx.fill();
 
-            ctx.fillStyle = "#ff4545";
+            // Nucleo luminoso pulsante
+            ctx.fillStyle = `rgba(255, 75, 75, ${0.65 + pulse * 0.35})`;
             ctx.beginPath();
-            ctx.arc(x, y, 3, 0, Math.PI * 2);
+            ctx.arc(x, y, 2.5 + pulse * 1.5, 0, Math.PI * 2);
             ctx.fill();
         });
+    }
+
+    function animate() {
+        drawPoints();
+        animationFrame = requestAnimationFrame(animate);
     }
 
     async function loadAttackMap() {
@@ -825,8 +843,6 @@ setInterval(loadSIEM, 10000);
             }
 
             points = data;
-            drawPoints();
-
             console.info("Attack Map aggiornata:", points.length, "punti");
         } catch (error) {
             console.error("Errore Attack Map:", error);
@@ -840,6 +856,10 @@ setInterval(loadSIEM, 10000);
     resizeCanvas();
     loadAttackMap();
     setInterval(loadAttackMap, 15000);
+
+    if (animationFrame === null) {
+        animate();
+    }
 })();
 </script>
     </div>
