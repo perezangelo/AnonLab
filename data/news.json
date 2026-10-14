@@ -1,5 +1,35 @@
 [
   {
+    "title": "SAP Patches Critical NetWeaver, S/4HANA Vulnerabilities",
+    "link": "https://www.securityweek.com/sap-patches-critical-netweaver-s-4hana-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/SAP_vulnerability-patches.jpg"
+  },
+  {
+    "title": "FBI arrests Saudi OpenAI engineer over covert recording device",
+    "link": "https://cybernews.com/ai-news/openai-recording-device-found-fbi-arrest/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/openai-recording-device.jpg"
+  },
+  {
+    "title": "Four-Byte Write and Timing Bug Let Researchers Run Code in Windows SmartScreen Enclave",
+    "link": "https://thehackernews.com/2026/10/four-byte-write-and-timing-bug-let.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizNi7OCo6m5vsFkEP85LndyXnfiDgk2h5R0WwW_yHZ7mdK6Uh9xuLaI5ddFQJ45fW7jG8eC4VtIHJT1IQaUJCoAEMClMEiv9dA9kASwDQJj4l61ZSIlqW2bw605LQLL5kNUszoxI8Wkr54oguKY7guQGE9rwUmvzCVUjt19-0pWJpxir366NU5eqopHmk/s1600/enclave.jpg"
+  },
+  {
+    "title": "Ransomware Gangs Embrace Physical Threats, Family Stalking?",
+    "link": "https://www.darkreading.com/cybersecurity-analytics/ransomware-gangs-physical-threats-family-stalking",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt87997eb0e0a8cb06/6acda095a3dd4913d099a48b/Wrench_money-KenanOlgun-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Microsoft Patches Record 1,413 Flaws, Including Exploited Windows Shell Bug",
+    "link": "https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_wUoSEpf7bMmgL7Aa7NRI6qvluN83g3TcKAONrL5REtzYQIVR4TqrNs0awkDsRCXvaSEaOn83V0t1jpwkrh5FULBjyQJnxe-m4gkgjMHRC0SZHpkBDNjOSuZUrOXU5R6JGt4dwZXXn4JHYSoc4n22nIXcFIYtC51Vv89hGimRebEKzQ9-PX1U7M4Lk4ST/s1600/windows-patch.jpg"
+  },
+  {
+    "title": "OpenAI Employee Arrested for Allegedly Planting Hidden Recorder in Executive Conference Room",
+    "link": "https://thehackernews.com/2026/10/openai-employee-arrested-for-allegedly.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE6tXAfDSv5HwaNsBdrtgbjvOoTMYJuMGQPGpLM5auUfz9dUSuExG-IY_42zMx-VP8GbM-oXAVGbKjHIqNOHy08-lKsCPrJMbhPrDw-9UlJpapcAMZohyphenhypheng7IZh192IoEGs66NRp6TNCWIFYsO5oh9gKkIeILKD_8zdzCHBmoJCeCi65kZjDvQyZwzicV2I/s1600/opens.jpg"
+  },
+  {
     "title": "Employee Arrested After Listening Device Found in OpenAI Conference Room, FBI and the Company Say",
     "link": "https://www.securityweek.com/employee-arrested-after-listening-device-found-in-openai-conference-room-fbi-and-the-company-say/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
@@ -90,12 +120,12 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKBZR5elkBVKRcFO6lyde7XYDVO73IBxDvnx9-UkLst3GhVFuK8Yz3QBVIIEJABDjZuJMn8tyf7RLLPIRV8J8qe-OUULjnQRaQNyWricSsOjlKJoyYu8WOvs5PxBWQpzuiq8hlDlOY7zY-qIYDgQ6NFuifS5GbHbnLBET0OTfmsMC8797Mo5un9_ECyg8/s1600/sap-hacker.jpg"
   },
   {
-    "title": "Adobe Patches 140 Vulnerabilities Across 10 Products",
+    "title": "Adobe Patches 176 Vulnerabilities Across 11 Products",
     "link": "https://www.securityweek.com/adobe-patches-140-vulnerabilities-across-10-products/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/07/Adobe.jpg"
   },
   {
-    "title": "Food safety fears grow as Copeland is named as second fridge supplier hit in supermarket hacking spree",
+    "title": "Food safety fears grow as Copeland named second fridge supplier hit in supermarket hacking spree",
     "link": "https://cybernews.com/security/copeland-dixell-cyberattack-french-supermarket-refrigeration/",
     "image": "https://media.cybernews.com/images/featured-big/2026/10/cheese-aisle-JordanPrins-Unsplash-resized-to-1200x660.jpeg"
   },
@@ -118,35 +148,5 @@
     "title": "GitHub Tightens npm Publishing After Flaw Left 1,500+ Packages Vulnerable to Hijacking",
     "link": "https://thehackernews.com/2026/10/github-tightens-npm-publishing-after.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3aDWaWT6PmRDL9d6tHPDisxclb_Ak7YZIxuS02EUFvNaWrc4_UKwUqW0RI1KT3r8zsneOguD6b85yg8mf3gAzZZOGuLi-mXckG_yzwmXXb3IchTBSVeRvPlUo7QU4Kp4yiM6QqPshmo4p0GQ55XZPTEDc0DZn9N84S_ZibZ4rkXuhZ3OvoHNCYH-wk0k-/s1600/git-npm.jpg"
-  },
-  {
-    "title": "Meta Says Hackers Took Code, Personal Data of 1,500 in GitHub Breach",
-    "link": "https://www.securityweek.com/meta-says-hackers-took-code-personal-data-of-1500-in-github-breach/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/03/Meta-Facebook-e1739539212391.jpg"
-  },
-  {
-    "title": "Ivanti warns of Connect Secure zero-day exploited in attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/Ivanti.jpg"
-  },
-  {
-    "title": "AT&T, Amazon, and PayPal credentials found exposed by AI company",
-    "link": "https://cybernews.com/security/at-t-amazon-paypal-walmart-fbi-data-leak-ai/",
-    "image": "https://media.cybernews.com/images/featured-big/2022/12/AIstartupcode.jpg"
-  },
-  {
-    "title": "SerpApi Expands Beyond Search Results with New Extract API",
-    "link": "https://cybernews.com/press-releases/serpapi-expands-beyond-search-results-with-new-extract-api/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/serpapi-featured-image.jpg"
-  },
-  {
-    "title": "Xandr Fined a Record \u20ac8.6 Million for Relaying Grindr Data Revealing Sexual Orientation",
-    "link": "https://thehackernews.com/2026/10/xandr-fined-record-86-million-for.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGjfJJaKUMdLoNBTH2AYUmelL_XonLcf93p8hSgMXRbLGJwReAYV-BUZ2jpBPuvUQktW0PTKi1-21oFnBJF8PfECgT7t5r-S-iMUxjrdoWPf3EDxa2IVrQYjT98HG6s-LfPlJqm8mArrfEOEZS_scT7EYG8eXxMrUaII0UaQ3kAmWDJ3mRTR4JyIJhj-5S/s1600/grindr-data.jpg"
-  },
-  {
-    "title": "LG smart TVs vulnerable: attackers can bypass webOS security and gain root",
-    "link": "https://cybernews.com/security/lg-smart-tv-webos-complete-takeover-exploit/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/lgs-smart-tv-platform-webos-has-bugs-that-enable-full-remote-takeove-.jpg"
   }
 ]
