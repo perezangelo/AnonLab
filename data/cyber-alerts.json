@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-72923",
+    "summary": "Microsoft.OpenApi.YamlReader vulnerable to denial of service via YAML alias expansion",
+    "severity": "HIGH",
+    "published": "2026-10-14T20:11:29Z",
+    "ghsa": "GHSA-7pxr-59rr-hqj2"
+  },
+  {
     "id": "CVE-2026-14966",
     "summary": "BBOT's Symlink guard bypass in unarchive module allows planting symlinks during extraction",
     "severity": "LOW",
@@ -61,12 +68,5 @@
     "severity": "HIGH",
     "published": "2026-10-13T20:51:12Z",
     "ghsa": "GHSA-qjpx-jqm5-h2c4"
-  },
-  {
-    "id": "CVE-2026-70179",
-    "summary": "Microsoft Security Advisory CVE-2026-70179 - ASP.NET Core Elevation of Privilege Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-10-13T20:50:45Z",
-    "ghsa": "GHSA-vrrp-6v32-2p8g"
   }
 ]
