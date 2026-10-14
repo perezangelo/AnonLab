@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-14966",
+    "summary": "BBOT's Symlink guard bypass in unarchive module allows planting symlinks during extraction",
+    "severity": "LOW",
+    "published": "2026-10-14T19:34:31Z",
+    "ghsa": "GHSA-xpf3-p7gm-7756"
+  },
+  {
+    "id": "CVE-2026-62847",
+    "summary": "Metalama allows local code execution through DLL planting in shared temporary directories",
+    "severity": "MODERATE",
+    "published": "2026-10-14T19:24:53Z",
+    "ghsa": "GHSA-m6wq-39m7-9xpp"
+  },
+  {
+    "id": "CVE-2026-59180",
+    "summary": "Apprise forwards configured auth headers across cross-origin HTTP redirects",
+    "severity": "LOW",
+    "published": "2026-10-14T18:38:05Z",
+    "ghsa": "GHSA-856c-92hv-3vxx"
+  },
+  {
     "id": "CVE-2026-70035",
     "summary": "Microsoft Security Advisory CVE-2026-70035 - .NET and Visual Studio Remote Code Execution Vulnerability",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "HIGH",
     "published": "2026-10-13T20:50:45Z",
     "ghsa": "GHSA-vrrp-6v32-2p8g"
-  },
-  {
-    "id": "CVE-2026-96224",
-    "summary": "Microsoft Security Advisory CVE-2026-96224 - .NET and Visual Studio Remote Code Execution Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-10-13T20:50:11Z",
-    "ghsa": "GHSA-xq57-crx4-g373"
-  },
-  {
-    "id": "CVE-2026-85363",
-    "summary": "Microsoft Security Advisory CVE-2026-85363 - .NET and Visual Studio Remote Code Execution Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-10-13T20:49:39Z",
-    "ghsa": "GHSA-f63g-mx39-3r38"
-  },
-  {
-    "id": "CVE-2026-96959",
-    "summary": "Microsoft Security Advisory CVE-2026-96959 - .NET and Visual Studio Denial of Service Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-10-13T20:49:06Z",
-    "ghsa": "GHSA-c399-9853-6jmj"
   }
 ]
