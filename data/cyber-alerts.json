@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-72923",
-    "summary": "Microsoft.OpenApi.YamlReader vulnerable to denial of service via YAML alias expansion",
-    "severity": "HIGH",
-    "published": "2026-10-14T20:11:29Z",
-    "ghsa": "GHSA-7pxr-59rr-hqj2"
+    "id": "CVE-2026-102989",
+    "summary": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
+    "severity": "CRITICAL",
+    "published": "2026-10-15T20:22:20Z",
+    "ghsa": "GHSA-qx66-fv34-fjm8"
   },
   {
-    "id": "CVE-2026-14966",
-    "summary": "BBOT's Symlink guard bypass in unarchive module allows planting symlinks during extraction",
-    "severity": "LOW",
-    "published": "2026-10-14T19:34:31Z",
-    "ghsa": "GHSA-xpf3-p7gm-7756"
-  },
-  {
-    "id": "CVE-2026-62847",
-    "summary": "Metalama allows local code execution through DLL planting in shared temporary directories",
+    "id": "CVE-2026-102682",
+    "summary": "Pipecat: Public exposure of Pipecat’s development runner can allow unauthenticated bot session creation",
     "severity": "MODERATE",
-    "published": "2026-10-14T19:24:53Z",
-    "ghsa": "GHSA-m6wq-39m7-9xpp"
+    "published": "2026-10-15T20:22:18Z",
+    "ghsa": "GHSA-hqm2-cfx2-2vgh"
   },
   {
-    "id": "CVE-2026-59180",
-    "summary": "Apprise forwards configured auth headers across cross-origin HTTP redirects",
-    "severity": "LOW",
-    "published": "2026-10-14T18:38:05Z",
-    "ghsa": "GHSA-856c-92hv-3vxx"
+    "id": "CVE-2026-94603",
+    "summary": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation",
+    "severity": "CRITICAL",
+    "published": "2026-10-15T20:22:16Z",
+    "ghsa": "GHSA-2cvf-wqm6-wr9g"
   },
   {
-    "id": "CVE-2026-70035",
-    "summary": "Microsoft Security Advisory CVE-2026-70035 - .NET and Visual Studio Remote Code Execution Vulnerability",
+    "id": "CVE-2026-102832",
+    "summary": "JupyterLab: Command link trust prompt in JupyterLab can trust a document other than the one clicked",
+    "severity": "MODERATE",
+    "published": "2026-10-15T20:22:13Z",
+    "ghsa": "GHSA-jwrc-gm9j-263p"
+  },
+  {
+    "id": "CVE-2026-103028",
+    "summary": "SFTPGo source-side file-pattern filter bypass during copy operations",
+    "severity": "MODERATE",
+    "published": "2026-10-15T20:22:10Z",
+    "ghsa": "GHSA-wwv9-g5x4-966q"
+  },
+  {
+    "id": "CVE-2026-86063",
+    "summary": "Claude Code: Plugin Hash Pin Bypass Allows Bypass of Hash Pinning",
     "severity": "HIGH",
-    "published": "2026-10-13T20:53:46Z",
-    "ghsa": "GHSA-4j9v-h7pp-725h"
+    "published": "2026-10-15T20:22:07Z",
+    "ghsa": "GHSA-pq7j-f95f-qfcv"
   },
   {
-    "id": "CVE-2026-70186",
-    "summary": "Microsoft Security Advisory CVE-2026-70186 - ASP.NET Core Denial of Service Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-10-13T20:53:19Z",
-    "ghsa": "GHSA-mf4x-w4gh-4656"
+    "id": "CVE-2026-95838",
+    "summary": "containerd: Unpack DoS via repeated opaque whiteouts",
+    "severity": "MODERATE",
+    "published": "2026-10-15T20:22:05Z",
+    "ghsa": "GHSA-rp3h-jf77-q9p4"
   },
   {
-    "id": "CVE-2026-70007",
-    "summary": "Microsoft Security Advisory CVE-2026-70007 - .NET and Visual Studio Remote Code Execution Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-10-13T20:52:52Z",
-    "ghsa": "GHSA-pfwj-2f93-rf42"
+    "id": "CVE-2026-85747",
+    "summary": "Distribution: Client `manifests.Get()` does not verify returned content against requested digest",
+    "severity": "MODERATE",
+    "published": "2026-10-15T20:22:02Z",
+    "ghsa": "GHSA-685w-q87j-wqw3"
   },
   {
-    "id": "CVE-2026-87697",
-    "summary": "Microsoft Security Advisory CVE-2026-87697 - .NET and Visual Studio Remote Code Execution Vulnerability",
+    "id": "CVE-2026-84994",
+    "summary": "Qwik: Crashing any Qwik Server via Resource thenable",
     "severity": "HIGH",
-    "published": "2026-10-13T20:52:24Z",
-    "ghsa": "GHSA-c27m-942f-rcfh"
+    "published": "2026-10-15T20:22:00Z",
+    "ghsa": "GHSA-x586-xvc8-g7q6"
   },
   {
-    "id": "CVE-2026-96225",
-    "summary": "Microsoft Security Advisory CVE-2026-96225 - .NET and Visual Studio Elevation of Privilege Vulnerability",
+    "id": "CVE-2026-95837",
+    "summary": "containerd CRI plugin: Checkpoint restore bypasses destination security context",
     "severity": "HIGH",
-    "published": "2026-10-13T20:51:51Z",
-    "ghsa": "GHSA-w6wh-p4g7-mpj2"
-  },
-  {
-    "id": "CVE-2026-96230",
-    "summary": "Microsoft Security Advisory CVE-2026-96230 - ASP.NET Core Remote Code Execution Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-10-13T20:51:12Z",
-    "ghsa": "GHSA-qjpx-jqm5-h2c4"
+    "published": "2026-10-15T20:21:57Z",
+    "ghsa": "GHSA-p7v4-vr35-mj6f"
   }
 ]
