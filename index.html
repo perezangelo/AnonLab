@@ -2365,115 +2365,159 @@ aria-label="Stato dei sistemi e dei servizi">
 <script>
 initSystemStatus();
 </script>
-
+		
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/threat-1.png" class="box-title-icon" alt="Radar Cyber">
+    <img src="/img/threat-1.png"
+         class="box-title-icon"
+         alt="Radar Cyber">
     <h2>Cyber Threat Monitor</h2>
   </div>
 
-	<div class="widget-description" style="margin-bottom:20px;color:#aaa;font-size:.95rem;line-height:1.5;">
+  <div class="widget-description"
+       style="margin-bottom:20px;color:#d0dce5;font-size:.95rem;line-height:1.6;">
 
-  <p>
-    Il <strong>Cyber Threat Monitor di AnonLab</strong> analizza in tempo reale dati relativi a vulnerabilità CVE, punteggi CVSS e indicatori di rischio utilizzati per valutare il livello di esposizione alle minacce informatiche.
-  </p>
+    <p>
+      Il <strong>Cyber Threat Monitor di AnonLab</strong>
+      analizza in tempo reale dati relativi a vulnerabilità CVE,
+      punteggi CVSS e indicatori di rischio utilizzati per valutare
+      il livello di esposizione alle minacce informatiche.
+    </p>
 
-  <p>
-    Le metriche mostrate consentono di individuare rapidamente variazioni nel panorama delle vulnerabilità, identificare eventi ad alta criticità e supportare attività di Threat Intelligence, Vulnerability Management e Cyber Risk Assessment.
-  </p>
+    <p>
+      Le metriche mostrate consentono di individuare rapidamente
+      variazioni nel panorama delle vulnerabilità, identificare
+      eventi ad alta criticità e supportare attività di Threat
+      Intelligence, Vulnerability Management e Cyber Risk Assessment.
+    </p>
 
-</div>
+  </div>
 
-  <div id="threat-last-update" class="threat-update">Last Update: --:--:--</div>
+  <div id="threat-last-update" class="threat-update">
+    Last Update: --:--:--
+  </div>
 
   <div class="threat-bars">
 
-      <!-- GLOBAL -->
-      <div class="threat-row">
-          <span id="label-global" data-title="Global Threat Level" class="threat-label" style="color:#00eaff;">
-              Global Threat Level
-          </span>
-          <div style="
-width:100%;
-height:18px;
-background:rgba(0,255,255,.10);
-border-radius:6px;
-overflow:hidden;
-">
-			  <div id="bar-global"
-style="
-height:100%;
-width:0%;
-background:#00eaff;
-border-radius:6px;
-transition:width .6s ease;
-display:flex;
-align-items:center;
-">
-                  <span class="bar-value" style="font-size:11px;color:#000;font-weight:bold;padding-left:4px;">0%</span>
-              </div>
-          </div>
-      </div>
+    <!-- GLOBAL -->
+    <div class="threat-row">
+      <span id="label-global"
+            data-title="Global Threat Level"
+            class="threat-label"
+            style="color:#00eaff;">
+        Global Threat Level
+      </span>
 
-<!-- CVSS AVG -->
-<div class="threat-row">
-<span id="label-baseScoreAvg" data-title="Average CVSS Score" class="threat-label" style="color:#a6ff00;">
-Average CVSS Score
-</span>
-<div style="width:100%;height:18px;background:rgba(166,255,0,0.10);border-radius:6px;overflow:hidden;">
-<div id="bar-baseScoreAvg" style="height:100%;width:0%;background:#a6ff00;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
-<span class="bar-value" style="font-size:11px;color:#000;font-weight:bold;padding-left:4px;">0%</span>
-</div>
-</div>
-</div>
- 
-<!-- HIGH SEVERITY -->
-<div class="threat-row">
-<span id="label-highCount" data-title="High Severity CVE" class="threat-label" style="color:#ff9f00;">
-High Severity CVE
-</span>
-<div style="width:100%;height:18px;background:rgba(255,159,0,0.10);border-radius:6px;overflow:hidden;">
-<div id="bar-highCount" style="height:100%;width:0%;background:#ff9f00;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
-<span class="bar-value" style="font-size:11px;color:#000;font-weight:bold;padding-left:4px;">0%</span>
-</div>
-</div>
-</div>
- 
-<!-- NETWORK EXPOSURE -->
-<div class="threat-row">
-<span id="label-networkCount" data-title="Network Exposure (AV:N)" class="threat-label" style="color:#c400ff;">
-Network Exposure (AV:N)
-</span>
-<div style="width:100%;height:18px;background:rgba(196,0,255,0.10);border-radius:6px;overflow:hidden;">
-<div id="bar-networkCount" style="height:100%;width:0%;background:#c400ff;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
-<span class="bar-value" style="font-size:11px;color:#000;font-weight:bold;padding-left:4px;">0%</span>
-</div>
-</div>
-</div>
- 
-<!-- CONF IMPACT -->
-<div class="threat-row">
-<span id="label-confImpact" data-title="Confidentiality Impact" class="threat-label" style="color:#ff00c8;">
-Confidentiality Impact
-</span>
-<div style="width:100%;height:18px;background:rgba(255,0,200,0.10);border-radius:6px;overflow:hidden;">
-<div id="bar-confImpact" style="height:100%;width:0%;background:#ff00c8;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
-<span class="bar-value" style="font-size:11px;color:#000;font-weight:bold;padding-left:4px;">0%</span>
-</div>
-</div>
-</div>
- 
-<!-- AVAIL IMPACT -->
-<div class="threat-row">
-<span id="label-availImpact" data-title="Availability Impact" class="threat-label" style="color:#ffe600;">
-Availability Impact
-</span>
-<div style="width:100%;height:18px;background:rgba(255,230,0,0.10);border-radius:6px;overflow:hidden;">
-<div id="bar-availImpact" style="height:100%;width:0%;background:#ffe600;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
-<span class="bar-value" style="font-size:11px;color:#000;font-weight:bold;padding-left:4px;">0%</span>
-</div>
-</div>
-</div>
+      <div style="width:100%;height:18px;background:rgba(0,255,255,.10);border-radius:6px;overflow:hidden;">
+        <div id="bar-global"
+             style="height:100%;width:0%;background:#00eaff;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
+          <span class="bar-value"
+                style="font-size:12px;color:#001014;font-weight:800;padding-left:4px;text-shadow:none;">
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CVSS AVG -->
+    <div class="threat-row">
+      <span id="label-baseScoreAvg"
+            data-title="Average CVSS Score"
+            class="threat-label"
+            style="color:#a6ff00;">
+        Average CVSS Score
+      </span>
+
+      <div style="width:100%;height:18px;background:rgba(166,255,0,.10);border-radius:6px;overflow:hidden;">
+        <div id="bar-baseScoreAvg"
+             style="height:100%;width:0%;background:#a6ff00;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
+          <span class="bar-value"
+                style="font-size:12px;color:#101600;font-weight:800;padding-left:4px;text-shadow:none;">
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HIGH SEVERITY -->
+    <div class="threat-row">
+      <span id="label-highCount"
+            data-title="High Severity CVE"
+            class="threat-label"
+            style="color:#ff9f00;">
+        High Severity CVE
+      </span>
+
+      <div style="width:100%;height:18px;background:rgba(255,159,0,.10);border-radius:6px;overflow:hidden;">
+        <div id="bar-highCount"
+             style="height:100%;width:0%;background:#ff9f00;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
+          <span class="bar-value"
+                style="font-size:12px;color:#1b1000;font-weight:800;padding-left:4px;text-shadow:none;">
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NETWORK EXPOSURE -->
+    <div class="threat-row">
+      <span id="label-networkCount"
+            data-title="Network Exposure (AV:N)"
+            class="threat-label"
+            style="color:#c400ff;">
+        Network Exposure (AV:N)
+      </span>
+
+      <div style="width:100%;height:18px;background:rgba(196,0,255,.10);border-radius:6px;overflow:hidden;">
+        <div id="bar-networkCount"
+             style="height:100%;width:0%;background:#c400ff;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
+          <span class="bar-value"
+                style="font-size:12px;color:#16001d;font-weight:800;padding-left:4px;text-shadow:none;">
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONF IMPACT -->
+    <div class="threat-row">
+      <span id="label-confImpact"
+            data-title="Confidentiality Impact"
+            class="threat-label"
+            style="color:#ff00c8;">
+        Confidentiality Impact
+      </span>
+
+      <div style="width:100%;height:18px;background:rgba(255,0,200,.10);border-radius:6px;overflow:hidden;">
+        <div id="bar-confImpact"
+             style="height:100%;width:0%;background:#ff00c8;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
+          <span class="bar-value"
+                style="font-size:12px;color:#1c0013;font-weight:800;padding-left:4px;text-shadow:none;">
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AVAIL IMPACT -->
+    <div class="threat-row">
+      <span id="label-availImpact"
+            data-title="Availability Impact"
+            class="threat-label"
+            style="color:#ffe600;">
+        Availability Impact
+      </span>
+
+      <div style="width:100%;height:18px;background:rgba(255,230,0,.10);border-radius:6px;overflow:hidden;">
+        <div id="bar-availImpact"
+             style="height:100%;width:0%;background:#ffe600;border-radius:6px;transition:width .6s ease;display:flex;align-items:center;">
+          <span class="bar-value"
+                style="font-size:12px;color:#191600;font-weight:800;padding-left:4px;text-shadow:none;">
+            0%
+          </span>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
