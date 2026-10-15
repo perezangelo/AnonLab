@@ -24,9 +24,8 @@ function initCalculator() {
     const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
     if (!calcDisplay || calcButtons.length === 0) {
-        console.warn("Calcolatrice non trovata nella pagina.");
-        return;
-    }
+    return;
+}
 
     // Evita di collegare più volte gli stessi pulsanti
     if (calcDisplay.dataset.ready === "true") return;
