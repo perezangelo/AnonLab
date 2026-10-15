@@ -195,48 +195,61 @@ function initSessionTimer() {
 }
 
  // ===============================
-// DOM READY — INIZIALIZZAZIONI
-// ===============================
+ // DOM READY — INIZIALIZZAZIONI
+ // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Inizializza navbar mobile
-    setTimeout(() => {
-        initMobileMenu();
-    }, 300);
-
-    // Inizializza la calcolatrice quando la sidebar è pronta
-const waitForCalculator = new MutationObserver(() => {
-    const display = document.getElementById("calc-display");
-    const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
-
-    if (display && buttons.length > 0) {
-        initCalculator();
-        waitForCalculator.disconnect();
+    // NAVBAR MOBILE
+    if (typeof initMobileMenu === "function") {
+        setTimeout(() => {
+            initMobileMenu();
+        }, 300);
     }
-});
 
-// Prova subito; osserva il DOM solo se il widget non è ancora pronto
-if (
-    document.getElementById("calc-display") &&
-    document.querySelectorAll("#calc-buttons .calc-btn").length > 0
-) {
-    initCalculator();
-} else {
-    waitForCalculator.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-}
+    // CALCOLATRICE — ATTENDE CHE LA SIDEBAR SIA PRONTA
+    const initializeCalculator = () => {
+        const display = document.getElementById("calc-display");
+        const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
 
-    // Inizializza radio
-    initRadio();
+        if (!display || buttons.length === 0) {
+            return false;
+        }
 
-    // Inizializza YouTube player
-    initYouTubePlayer();
+        if (typeof initCalculator === "function") {
+            initCalculator();
+        }
+
+        return true;
+    };
+
+    if (!initializeCalculator()) {
+        const observer = new MutationObserver(() => {
+            if (initializeCalculator()) {
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    // RADIO
+    if (typeof initRadio === "function") {
+        initRadio();
+    }
+
+    // YOUTUBE PLAYER
+    if (typeof initYouTubePlayer === "function") {
+        initYouTubePlayer();
+    }
 
     // TIMER SESSIONE
-    initSessionTimer();
+    if (typeof initSessionTimer === "function") {
+        initSessionTimer();
+    }
 
-    // ⭐ Il contatore visite è ora gestito dal nuovo script in index.html
+    // Il contatore visite è gestito dallo script dedicato in index.html.
 });
