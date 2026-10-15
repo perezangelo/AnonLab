@@ -15,30 +15,26 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
     );
 }
 
-// ===============================
-// CALCOLATRICE
-// ===============================
+ // ===============================
+ // CALCOLATRICE
+ // ===============================
 
 function initCalculator() {
     const calcDisplay = document.getElementById('calc-display');
     const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
     if (!calcDisplay || calcButtons.length === 0) {
-    console.warn("Calcolatrice non ancora pronta", {
-        displayPresente: !!calcDisplay,
-        numeroPulsanti: calcButtons.length,
-        pagina: window.location.pathname,
-        chiamata: new Error().stack
-    });
-    return;
-}
+        console.warn("Calcolatrice non trovata nella pagina.");
+        return;
+    }
 
+    // Evita di collegare più volte gli stessi pulsanti
     if (calcDisplay.dataset.ready === "true") return;
     calcDisplay.dataset.ready = "true";
 
     calcButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const value = btn.textContent;
+            const value = btn.textContent.trim();
 
             if (value === 'C') {
                 calcDisplay.textContent = '0';
@@ -47,21 +43,22 @@ function initCalculator() {
 
             if (value === '=') {
                 try {
-                    calcDisplay.textContent = eval(calcDisplay.textContent);
+                    calcDisplay.textContent = String(
+                        Function('"use strict"; return (' + calcDisplay.textContent + ')')()
+                    );
                 } catch {
                     calcDisplay.textContent = 'Errore';
                 }
                 return;
             }
 
-            if (calcDisplay.textContent === '0') {
+            if (calcDisplay.textContent === '0' || calcDisplay.textContent === 'Errore') {
                 calcDisplay.textContent = value;
             } else {
                 calcDisplay.textContent += value;
             }
         });
     });
-
 }
 
 // ===============================
