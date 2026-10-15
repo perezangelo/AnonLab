@@ -2570,18 +2570,42 @@ document.addEventListener("DOMContentLoaded", () => {
 <div id="sidebar" class="sidebar"></div>
 
     <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
- <script>
-    fetch("/partials/sidebar.html")
-    .then(response => response.text())
+<script>
+fetch("/partials/sidebar.html")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Errore caricamento sidebar: " + response.status);
+        }
+        return response.text();
+    })
     .then(data => {
-        document.getElementById("sidebar").innerHTML = data;
+        const sidebar = document.getElementById("sidebar");
+        if (!sidebar) return;
 
-        initCalculator();
-        initRadio();
-        initYouTubePlayer();
-        initOroscopo();
+        sidebar.innerHTML = data;
 
-        console.log("Sidebar caricata — Widget inizializzati");
+        requestAnimationFrame(() => {
+            if (typeof initCalculator === "function") {
+                initCalculator();
+            }
+
+            if (typeof initRadio === "function") {
+                initRadio();
+            }
+
+            if (typeof initYouTubePlayer === "function") {
+                initYouTubePlayer();
+            }
+
+            if (typeof initOroscopo === "function") {
+                initOroscopo();
+            }
+
+            console.log("Sidebar caricata — Widget inizializzati");
+        });
+    })
+    .catch(error => {
+        console.error("Errore caricamento sidebar:", error);
     });
 </script>
 
