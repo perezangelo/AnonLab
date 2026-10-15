@@ -203,8 +203,29 @@ document.addEventListener("DOMContentLoaded", () => {
         initMobileMenu();
     }, 300);
 
-    // Inizializza calcolatrice
+    // Inizializza la calcolatrice quando la sidebar è pronta
+const waitForCalculator = new MutationObserver(() => {
+    const display = document.getElementById("calc-display");
+    const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
+
+    if (display && buttons.length > 0) {
+        initCalculator();
+        waitForCalculator.disconnect();
+    }
+});
+
+// Prova subito; osserva il DOM solo se il widget non è ancora pronto
+if (
+    document.getElementById("calc-display") &&
+    document.querySelectorAll("#calc-buttons .calc-btn").length > 0
+) {
     initCalculator();
+} else {
+    waitForCalculator.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}
 
     // Inizializza radio
     initRadio();
