@@ -365,47 +365,19 @@ document.addEventListener("click", function (e) {
 });
 
 /* ============================================================
-   M) CALCOLATRICE
-============================================================ */
-
-(function ensureCalculatorLoaded() {
-
-    if (!document.getElementById("sidebar")) {
-        return setTimeout(ensureCalculatorLoaded, 150);
-    }
-
-    if (!document.getElementById("calc-display")) {
-        return setTimeout(ensureCalculatorLoaded, 150);
-    }
-
-    const mainLoaded = [...document.querySelectorAll("script")]
-        .some(s => s.src.includes("/js/main.js"));
-
-    if (!mainLoaded) {
-        const script = document.createElement("script");
-        script.src = "/js/main.js";
-        script.onload = () => {
-            console.log("main.js caricato automaticamente");
-            if (typeof initCalculator === "function") initCalculator();
-        };
-        document.body.appendChild(script);
-        return;
-    }
-
-    if (typeof initCalculator === "function") {
-        initCalculator();
-    }
-
-})();
-
-/* ============================================================
    CONTATORE VISITE — VERSIONE DEFINITIVA
 ============================================================ */
 
+
 function initVisitCounter() {
+
+    if (window.__anonlabVisitCounterStarted) return;
+    window.__anonlabVisitCounterStarted = true;
 
     const currentPage = window.location.pathname.replace("/", "") || "index.html";
 
+    // Il resto del codice del contatore rimane invariato.
+}
     /* ============================================================
        1) AGGIORNA IL FILE visits.json UNA SOLA VOLTA
     ============================================================ */
