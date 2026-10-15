@@ -368,21 +368,21 @@ document.addEventListener("click", function (e) {
    CONTATORE VISITE — VERSIONE DEFINITIVA
 ============================================================ */
 
-
 function initVisitCounter() {
 
     if (window.__anonlabVisitCounterStarted) return;
     window.__anonlabVisitCounterStarted = true;
 
-    const currentPage = window.location.pathname.replace("/", "") || "index.html";
+    const currentPage =
+        window.location.pathname.replace("/", "") || "index.html";
 
-    // Il resto del codice del contatore rimane invariato.
-}
     /* ============================================================
-       1) AGGIORNA IL FILE visits.json UNA SOLA VOLTA
+       1) AGGIORNA visits.json UNA SOLA VOLTA
     ============================================================ */
-    fetch("https://angelonline.altervista.org/counter/update.php?page=" + currentPage)
-        .catch(err => console.error("Errore update.php:", err));
+    fetch(
+        "https://angelonline.altervista.org/counter/update.php?page=" +
+        encodeURIComponent(currentPage)
+    ).catch(err => console.error("Errore update.php:", err));
 
     /* ============================================================
        2) PRIMA LETTURA
