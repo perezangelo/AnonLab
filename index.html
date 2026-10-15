@@ -2571,43 +2571,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
 <script>
-fetch("/partials/sidebar.html")
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Errore caricamento sidebar: " + response.status);
-        }
-        return response.text();
-    })
+    fetch("/partials/sidebar.html")
+    .then(response => response.text())
     .then(data => {
-        const sidebar = document.getElementById("sidebar");
-        if (!sidebar) return;
+        document.getElementById("sidebar").innerHTML = data;
 
-        sidebar.innerHTML = data;
+        initCalculator();
+        initRadio();
+        initYouTubePlayer();
+        initOroscopo();
 
-        requestAnimationFrame(() => {
-            if (typeof initCalculator === "function") {
-                initCalculator();
-            }
-
-            if (typeof initRadio === "function") {
-                initRadio();
-            }
-
-            if (typeof initYouTubePlayer === "function") {
-                initYouTubePlayer();
-            }
-
-            if (typeof initOroscopo === "function") {
-                initOroscopo();
-            }
-
-            console.log("Sidebar caricata — Widget inizializzati");
-        });
-    })
-    .catch(error => {
-        console.error("Errore caricamento sidebar:", error);
+        console.log("Sidebar caricata — Widget inizializzati");
     });
 </script>
+
+</main>
 
 </main>
 
