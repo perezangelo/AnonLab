@@ -198,70 +198,48 @@ function initSessionTimer() {
 }
 
  // ===============================
- // DOM READY — INIZIALIZZAZIONI
- // ===============================
+// DOM READY — INIZIALIZZAZIONI
+// ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // NAVBAR MOBILE
-    if (typeof initMobileMenu === "function") {
-        setTimeout(() => {
-            initMobileMenu();
-        }, 300);
+    // Inizializza navbar mobile
+    setTimeout(() => {
+        initMobileMenu();
+    }, 300);
+
+    // Inizializza la calcolatrice quando la sidebar è pronta
+const waitForCalculator = new MutationObserver(() => {
+    const display = document.getElementById("calc-display");
+    const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
+
+    if (display && buttons.length > 0) {
+        initCalculator();
+        waitForCalculator.disconnect();
     }
-
-    // CALCOLATRICE — ATTENDE LA SIDEBAR
-    const calculatorReady = () => {
-        const display = document.getElementById("calc-display");
-        const buttons = document.querySelectorAll(
-            "#calc-buttons .calc-btn"
-        );
-
-        return display && buttons.length > 0;
-    };
-
-    const initializeCalculator = () => {
-        if (!calculatorReady()) return false;
-
-        if (typeof initCalculator === "function") {
-            initCalculator();
-            return true;
-        }
-
-        return false;
-    };
-
-    // Prova subito; se la sidebar non è pronta, osserva il DOM.
-    if (!initializeCalculator()) {
-        const waitForCalculator = new MutationObserver(() => {
-            if (initializeCalculator()) {
-                waitForCalculator.disconnect();
-            }
-        });
-
-        if (document.body) {
-            waitForCalculator.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-        }
-    }
-
-    // RADIO
-    if (typeof initRadio === "function") {
-        initRadio();
-    }
-
-    // YOUTUBE PLAYER
-    if (typeof initYouTubePlayer === "function") {
-        initYouTubePlayer();
-    }
-
-    // TIMER SESSIONE
-    if (typeof initSessionTimer === "function") {
-        initSessionTimer();
-    }
-
-    // Il contatore visite è gestito dallo script dedicato in index.html.
 });
 
+// Prova subito; osserva il DOM solo se il widget non è ancora pronto
+if (
+    document.getElementById("calc-display") &&
+    document.querySelectorAll("#calc-buttons .calc-btn").length > 0
+) {
+    initCalculator();
+} else {
+    waitForCalculator.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}
+
+    // Inizializza radio
+    initRadio();
+
+    // Inizializza YouTube player
+    initYouTubePlayer();
+
+    // TIMER SESSIONE
+    initSessionTimer();
+
+    // ⭐ Il contatore visite è ora gestito dal nuovo script in index.html
+});
