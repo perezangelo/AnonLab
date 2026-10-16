@@ -249,11 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!button || !panel) return;
 
-  button.type = "button";
-  button.setAttribute("aria-expanded", "false");
-
   button.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.stopPropagation();
 
     const isOpen = panel.style.display === "block";
 
@@ -265,6 +262,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.setAttribute("aria-expanded", String(!isOpen));
   });
+
+  panel.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener("click", () => {
+    panel.style.display = "none";
+    panel.style.opacity = "0";
+    panel.style.transform = "translateY(-10px)";
+    button.setAttribute("aria-expanded", "false");
+  });
+});
+
+	document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    panel.style.display = "none";
+    panel.style.opacity = "0";
+    panel.style.transform = "translateY(-10px)";
+  }
 });
 </script>
      
