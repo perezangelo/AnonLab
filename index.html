@@ -615,6 +615,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.1/dist/purify.min.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
@@ -805,12 +808,60 @@ document.addEventListener("DOMContentLoaded", () => {
         return patterns.some(pattern => pattern.test(answer));
     }
 
+    // =========================================
+    // RISPOSTA MARKDOWN — CORREZIONE
+    // =========================================
+
     function showAnswer(answer) {
         responseDiv.style.display = "block";
-        responseDiv.innerHTML = escapeHTML(answer)
-            .replace(/\r\n|\r|\n/g, "<br>");
 
-        if (needsHumanAssistance(answer)) {
+        const markdown = String(answer ?? "");
+
+        // Corregge alcuni marcatori Markdown escapati.
+        // Non rimuove indiscriminatamente tutti i backslash.
+        const normalized = markdown
+            .replace(/\\\*\\\*/g, "**")
+            .replace(/\\`/g, "`")
+            .replace(/\\+(\r?\n)/g, "$1");
+
+        // Verifica che le librerie siano state caricate.
+        if (
+            typeof marked === "undefined" ||
+            typeof DOMPurify === "undefined"
+        ) {
+            console.error(
+                "AnonBot: librerie Marked o DOMPurify non caricate."
+            );
+
+            // Ripiego sicuro: mostra il testo senza interpretare HTML.
+            responseDiv.innerHTML = `
+                <div style="
+                    color:#cfefff;
+                    line-height:1.7;
+                    overflow-wrap:anywhere;
+                    white-space:pre-wrap;
+                ">${escapeHTML(normalized)}</div>
+            `;
+        } else {
+            // Converte Markdown in HTML e sanifica il risultato.
+            const html = DOMPurify.sanitize(
+                marked.parse(normalized, {
+                    breaks: true,
+                    gfm: true
+                })
+            );
+
+            responseDiv.innerHTML = `
+                <div class="anonbot-markdown" style="
+                    color:#cfefff;
+                    line-height:1.7;
+                    overflow-wrap:anywhere;
+                ">${html}</div>
+            `;
+        }
+
+        // Mantiene la funzionalità di assistenza umana.
+        if (needsHumanAssistance(markdown)) {
             responseDiv.insertAdjacentHTML(
                 "beforeend",
                 contactOptionsHTML()
