@@ -860,6 +860,27 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
         }
 
+        // Applica lo stile cyber AnonLab ai link della risposta Markdown,
+        // senza aggiungere o modificare alcun foglio CSS.
+        responseDiv.querySelectorAll(".anonbot-markdown a").forEach(link => {
+            link.style.color = "#00eaff";
+            link.style.textDecoration = "none";
+            link.style.fontWeight = "600";
+            link.style.transition = "color 0.2s ease, text-shadow 0.2s ease";
+
+            link.addEventListener("mouseenter", () => {
+                link.style.color = "#ffffff";
+                link.style.textDecoration = "underline";
+                link.style.textShadow = "0 0 5px #00eaff, 0 0 12px rgba(0, 234, 255, 0.75)";
+            });
+
+            link.addEventListener("mouseleave", () => {
+                link.style.color = "#00eaff";
+                link.style.textDecoration = "none";
+                link.style.textShadow = "0 0 5px rgba(0, 234, 255, 0.35)";
+            });
+        });
+
         // Mantiene la funzionalità di assistenza umana.
         if (needsHumanAssistance(markdown)) {
             responseDiv.insertAdjacentHTML(
