@@ -87,12 +87,18 @@ function initYouTubePlayer() {
     const selector = document.getElementById("ytSelector");
     const iframe = document.getElementById("ytPlayer");
 
-    if (!selector || !iframe) return;
+    if (!selector || !iframe || selector.dataset.ready === "true") {
+        return;
+    }
+
+    selector.dataset.ready = "true";
 
     selector.addEventListener("change", () => {
         const id = selector.value;
+
         if (id) {
-            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+            iframe.src =
+                `https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1`;
         }
     });
 
