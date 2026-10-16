@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-102941",
-    "summary": "gomarkdown/markdown IsSafeURL panics on short URLs",
+    "id": "CVE-2026-96627",
+    "summary": "Arcane: Delegated users:update permission allows admin account takeover via password reset (no privilege-hierarchy check)",
     "severity": "HIGH",
-    "published": "2026-10-16T15:41:39Z",
-    "ghsa": "GHSA-cv23-7vc5-jfh7"
+    "published": "2026-10-16T21:15:03Z",
+    "ghsa": "GHSA-pw5q-rjx4-7f7p"
   },
   {
-    "id": "CVE-2026-102989",
-    "summary": "TanStack Router: Unauthenticated reflected XSS in TanStack Start server-function responses",
+    "id": "CVE-2026-96628",
+    "summary": "Arcane: Environment access token bypasses the admin-required authorization gate on `/api/debug/pprof`",
+    "severity": "MODERATE",
+    "published": "2026-10-16T21:12:03Z",
+    "ghsa": "GHSA-mp22-58ff-6fhr"
+  },
+  {
+    "id": "CVE-2026-105192",
+    "summary": "LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport",
     "severity": "CRITICAL",
-    "published": "2026-10-15T20:22:20Z",
-    "ghsa": "GHSA-qx66-fv34-fjm8"
+    "published": "2026-10-16T20:08:44Z",
+    "ghsa": "GHSA-w5f2-9q9c-ff4h"
   },
   {
-    "id": "CVE-2026-102682",
-    "summary": "Pipecat: Public exposure of Pipecat’s development runner can allow unauthenticated bot session creation",
+    "id": "CVE-2026-100349",
+    "summary": "kin-openapi openapi3filter: nil-pointer panic in ValidateResponse on a response header declared with content",
+    "severity": "HIGH",
+    "published": "2026-10-16T19:58:46Z",
+    "ghsa": "GHSA-74vm-87hj-r66f"
+  },
+  {
+    "id": "CVE-2026-58494",
+    "summary": "Wasmtime: WASI hard links bypass wasmtime-wasi's FilePerms for destination",
     "severity": "MODERATE",
-    "published": "2026-10-15T20:22:18Z",
-    "ghsa": "GHSA-hqm2-cfx2-2vgh"
+    "published": "2026-10-16T19:57:26Z",
+    "ghsa": "GHSA-4ch3-9j33-3pmj"
   },
   {
-    "id": "CVE-2026-94603",
-    "summary": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation",
+    "id": "GHSA-6fj4-rcr3-r7rr",
+    "summary": "lopdf has a stack overflow via deeply nested PDF objects",
+    "severity": "HIGH",
+    "published": "2026-10-16T19:55:39Z",
+    "ghsa": "GHSA-6fj4-rcr3-r7rr"
+  },
+  {
+    "id": "CVE-2026-102834",
+    "summary": "JavaCV: Integer Overflow in IPCameraFrameGrabber Causes Infinite-Loop DoS",
+    "severity": "HIGH",
+    "published": "2026-10-16T19:53:06Z",
+    "ghsa": "GHSA-rxjv-24xq-76wc"
+  },
+  {
+    "id": "CVE-2026-96620",
+    "summary": "Claude Agent SDK: Argument Injection via resume Option Allows Arbitrary Command Execution",
     "severity": "CRITICAL",
-    "published": "2026-10-15T20:22:16Z",
-    "ghsa": "GHSA-2cvf-wqm6-wr9g"
+    "published": "2026-10-16T19:44:37Z",
+    "ghsa": "GHSA-h4mw-j7qp-8mwm"
   },
   {
-    "id": "CVE-2026-102832",
-    "summary": "JupyterLab: Command link trust prompt in JupyterLab can trust a document other than the one clicked",
-    "severity": "MODERATE",
-    "published": "2026-10-15T20:22:13Z",
-    "ghsa": "GHSA-jwrc-gm9j-263p"
+    "id": "CVE-2026-62994",
+    "summary": "CoreDNS `k8s_external` headless AXFR can emit an empty transfer batch that panics the `transfer` plugin",
+    "severity": "LOW",
+    "published": "2026-10-16T19:26:42Z",
+    "ghsa": "GHSA-74w3-63xv-x9mv"
   },
   {
-    "id": "CVE-2026-103028",
-    "summary": "SFTPGo source-side file-pattern filter bypass during copy operations",
-    "severity": "MODERATE",
-    "published": "2026-10-15T20:22:10Z",
-    "ghsa": "GHSA-wwv9-g5x4-966q"
-  },
-  {
-    "id": "CVE-2026-86063",
-    "summary": "Claude Code: Plugin Hash Pin Bypass Allows Bypass of Hash Pinning",
-    "severity": "HIGH",
-    "published": "2026-10-15T20:22:07Z",
-    "ghsa": "GHSA-pq7j-f95f-qfcv"
-  },
-  {
-    "id": "CVE-2026-95838",
-    "summary": "containerd: Unpack DoS via repeated opaque whiteouts",
-    "severity": "MODERATE",
-    "published": "2026-10-15T20:22:05Z",
-    "ghsa": "GHSA-rp3h-jf77-q9p4"
-  },
-  {
-    "id": "CVE-2026-85747",
-    "summary": "Distribution: Client `manifests.Get()` does not verify returned content against requested digest",
-    "severity": "MODERATE",
-    "published": "2026-10-15T20:22:02Z",
-    "ghsa": "GHSA-685w-q87j-wqw3"
-  },
-  {
-    "id": "CVE-2026-84994",
-    "summary": "Qwik: Crashing any Qwik Server via Resource thenable",
-    "severity": "HIGH",
-    "published": "2026-10-15T20:22:00Z",
-    "ghsa": "GHSA-x586-xvc8-g7q6"
+    "id": "CVE-2026-76894",
+    "summary": "ckan-mcp-server: DataStore Table UI resource does not validate postMessage origin (in) and posts to targetOrigin \"*\" (out)",
+    "severity": "LOW",
+    "published": "2026-10-16T19:23:48Z",
+    "ghsa": "GHSA-vqff-r82h-9crc"
   }
 ]
