@@ -1,21 +1,26 @@
-<svg width="120" height="120" viewBox="0 0 100 100" fill="none"
-     xmlns="http://www.w3.org/2000/svg"
-     stroke="#00eaff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
 
-  <defs>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
+<!-- saved from url=(0028)https://anonlab.it/test.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title-libra desc-libra">
+  <title id="title-libra">Bilancia</title>
+  <desc id="desc-libra">Icona della bilancia bianca su barra turchese arrotondata, stile set di icone del sito.</desc>
 
-  <g filter="url(#glow)">
-    <!-- Onde Acquario -->
-    <path d="M20 40 C30 30, 40 50, 50 40 C60 30, 70 50, 80 40" />
-    <path d="M20 60 C30 50, 40 70, 50 60 C60 50, 70 70, 80 60" />
+  <!-- barra turchese arrotondata (stile simile all'immagine di riferimento) -->
+  <rect x="8" y="26" width="48" height="12" rx="4" fill="#00E5FF"></rect>
+
+  <!-- simbolo della bilancia in bianco, centrato sopra la barra -->
+  <g fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- asta centrale -->
+    <path d="M32 18 V26"></path>
+    <!-- base verticale breve sotto la barra -->
+    <path d="M28 44 H36"></path>
+    <!-- trave orizzontale (sopra la barra) -->
+    <path d="M20 26 H44"></path>
+    <!-- catene verso i piatti -->
+    <path d="M24 26 V30"></path>
+    <path d="M40 26 V30"></path>
+    <!-- piatti (semicerchi) -->
+    <path d="M19 34a5 5 0 0 0 10 0"></path>
+    <path d="M35 34a5 5 0 0 0 10 0"></path>
   </g>
-
 </svg>
+</body></html>
