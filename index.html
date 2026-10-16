@@ -241,6 +241,27 @@
 
   </div>
 </div>
+
+		<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("newsToggle");
+  const panel = document.getElementById("newsPanel");
+
+  if (!button || !panel) return;
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const isOpen = panel.style.display === "block";
+
+    panel.style.display = isOpen ? "none" : "block";
+    panel.style.opacity = isOpen ? "0" : "1";
+    panel.style.transform = isOpen
+      ? "translateY(-10px)"
+      : "translateY(0)";
+  });
+});
+</script>
       
 		<!-- DASH ADMIN IMAGE BUTTON + ANIMAL -->
 <div style="
