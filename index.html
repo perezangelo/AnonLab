@@ -241,13 +241,16 @@
 
   </div>
 </div>
-
-		<script>
+	
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("newsToggle");
   const panel = document.getElementById("newsPanel");
 
   if (!button || !panel) return;
+
+  button.type = "button";
+  button.setAttribute("aria-expanded", "false");
 
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -259,10 +262,12 @@ document.addEventListener("DOMContentLoaded", () => {
     panel.style.transform = isOpen
       ? "translateY(-10px)"
       : "translateY(0)";
+
+    button.setAttribute("aria-expanded", String(!isOpen));
   });
 });
 </script>
-      
+     
 		<!-- DASH ADMIN IMAGE BUTTON + ANIMAL -->
 <div style="
     display:flex;
