@@ -2,171 +2,267 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Utente già registrato — AnonLab</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO -->
 <meta name="robots" content="noindex, follow">
+<title>Utente già registrato — AnonLab</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: #000814;
+    color: #00eaff;
+    font-family: "Courier New", monospace;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 16px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Area centrale: mantiene il riquadro centrato */
+.error-main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+}
+
+/* Riquadro del messaggio */
+.error-container {
+    width: 100%;
+    max-width: 480px;
+    background: #00111f;
+    border: 1px solid #00eaff55;
+    border-radius: 10px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 0 22px #00eaff55;
+    overflow-wrap: anywhere;
+}
+
+.error-container h1 {
+    color: #00eaff;
+    font-size: 2rem;
+    text-shadow: 0 0 12px #00eaff;
+    margin: 0 0 20px;
+}
+
+.error-container p {
+    color: #c8f7ff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.error-links {
+    margin-top: 30px;
+}
+
+.error-links a {
+    display: block;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #00eaff55;
+    border-radius: 8px;
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.error-links a:hover {
+    background: #00eaff22;
+    box-shadow: 0 0 12px #00eaff;
+}
+
+/* Footer originale AnonLab */
+.site-footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 8px;
+    text-align: center;
+    color: #00eaff;
+    border-top: 1px solid #00eaff33;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px 20px;
+}
+
+.footer-links a {
+    color: #00eaff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    text-shadow: 0 0 8px #00eaff;
+    text-decoration: underline;
+}
+
+.footer-copy {
+    color: #00eaff;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 16px 0 0;
+}
+
+/* Adattamento per smartphone */
+@media (max-width: 520px) {
     body {
-        background:#000814;
-        color:#00eaff;
-        font-family:"Courier New", monospace;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        height:100vh;
-        margin:0;
-        padding:0;
+        padding: 12px 12px 0;
+    }
+
+    .error-main {
+        padding: 20px 0;
     }
 
     .error-container {
-        max-width:480px;
-        background:#00111f;
-        border:1px solid #00eaff55;
-        border-radius:10px;
-        padding:40px;
-        text-align:center;
-        box-shadow:0 0 22px #00eaff55;
+        padding: 24px 18px;
     }
 
     .error-container h1 {
-        color:#00eaff;
-        font-size:2rem;
-        text-shadow:0 0 12px #00eaff;
-        margin-bottom:20px;
+        font-size: 1.5rem;
     }
 
     .error-container p {
-        color:#c8f7ff;
-        font-size:1.1rem;
-        line-height:1.6;
+        font-size: 1rem;
     }
 
-    .error-links {
-        margin-top:30px;
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
     }
-
-    .error-links a {
-        display:block;
-        margin:10px 0;
-        padding:12px;
-        border:1px solid #00eaff55;
-        border-radius:8px;
-        color:#00eaff;
-        text-decoration:none;
-        font-weight:bold;
-        transition:0.2s;
-    }
-
-    .error-links a:hover {
-        background:#00eaff22;
-        box-shadow:0 0 12px #00eaff;
-    }
+}
 </style>
 
-    <footer class="site-footer">
-    <div class="footer-links">
+<link rel="preload" as="script"
+      href="https://cdn.iubenda.com/cs/iubenda_cs.js">
+<link rel="preload" as="script"
+      href="https://cdn.iubenda.com/cs/tcf/stub-v2.js">
 
-        <!-- Link ufficiali Iubenda -->
-        <a href="https://www.iubenda.com/privacy-policy/12413505"
-           rel="noreferrer nofollow"
-           target="_blank">
-           Privacy Policy
-        </a>
-
-        <a href="#"
-           role="button"
-           class="iubenda-advertising-preferences-link">
-           Personalizza tracciamento pubblicitario
-        </a>
-
-        <!-- I tuoi link che vanno mantenuti -->
-        <a href="/termini.html">Termini di Servizio</a>
-        <a href="/contatti.html">Contatti</a>
-    </div>
-
-    <p class="footer-copy">
-        © 2026 AnonLab — All rights reserved — Cybersecurity & Cultura Digitale
-    </p>
-</footer>
-
-<!-- CARICAMENTO JAVASCRIPT DEL SITO -->
-<script src="/js/main.js"></script>
-
-    <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
 <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
 <script>
-(_iub=self._iub||[]).csConfiguration={
-	cookiePolicyId: 12413505,
-	siteId: 4661380,
-	localConsentDomain: 'anonlab.it',
-	timeoutLoadConfiguration: 30000,
-	lang: 'it',
-	enableTcf: true,
-	tcfVersion: 2,
-	tcfPurposes: {
-		 "2": "consent_only",
-		 "3": "consent_only",
-		 "4": "consent_only",
-		 "5": "consent_only",
-		 "6": "consent_only",
-		 "7": "consent_only",
-		 "8": "consent_only",
-		 "9": "consent_only",
-		"10": "consent_only"
-	},
-	invalidateConsentWithoutLog: true,
-	googleAdditionalConsentMode: true,
-	consentOnContinuedBrowsing: false,
-	banner: {
-		position: "bottom",
-		acceptButtonDisplay: true,
-		customizeButtonDisplay: true,
-		closeButtonDisplay: true,
-		closeButtonRejects: true,
-		fontSizeBody: "14px",
-	},
-}
+window._iub = window._iub || [];
+window._iub.csConfiguration = {
+    cookiePolicyId: 12413505,
+    siteId: 4661380,
+    localConsentDomain: "anonlab.it",
+    timeoutLoadConfiguration: 30000,
+    lang: "it",
+    enableTcf: true,
+    tcfVersion: 2,
+    tcfPurposes: {
+        "2": "consent_only",
+        "3": "consent_only",
+        "4": "consent_only",
+        "5": "consent_only",
+        "6": "consent_only",
+        "7": "consent_only",
+        "8": "consent_only",
+        "9": "consent_only",
+        "10": "consent_only"
+    },
+    invalidateConsentWithoutLog: true,
+    googleAdditionalConsentMode: true,
+    consentOnContinuedBrowsing: false,
+    banner: {
+        position: "bottom",
+        acceptButtonDisplay: true,
+        customizeButtonDisplay: true,
+        closeButtonDisplay: true,
+        closeButtonRejects: true,
+        fontSizeBody: "14px"
+    }
+};
 </script>
 <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 </head>
 
 <body>
 
-<div class="error-container">
-    <h1>⚠ Utente già registrato</h1>
-    <p>
-        L'indirizzo email risulta già presente nel sistema.<br>
-        Se hai dimenticato la password, puoi recuperarla dalla pagina dedicata.<br><br>
-        Verrai reindirizzato automaticamente tra pochi secondi.
-    </p>
+<main class="error-main">
+    <div class="error-container">
+        <h1>⚠ Utente già registrato</h1>
 
-    <div class="error-links">
-        <a href="/recupera.html">Recupera Password</a>
-        <a href="/login.html">Vai al Login</a>
-        <a href="/index.html">Torna alla Home</a>
+        <p>
+            L'indirizzo email risulta già presente nel sistema.<br>
+            Se hai dimenticato la password, puoi recuperarla dalla pagina dedicata.<br><br>
+            Verrai reindirizzato automaticamente tra pochi secondi.
+        </p>
+
+        <div class="error-links">
+            <a href="/recupera.html">Recupera Password</a>
+            <a href="/login.html">Vai al Login</a>
+            <a href="/index.html">Torna alla Home</a>
+        </div>
     </div>
-</div>
+</main>
 
+<footer class="site-footer">
+    <div class="footer-links">
+
+        <a href="https://www.iubenda.com/privacy-policy/12413505"
+           rel="noreferrer nofollow"
+           target="_blank">
+            Privacy Policy
+        </a>
+
+        <a href="#"
+           role="button"
+           class="iubenda-advertising-preferences-link">
+            Personalizza tracciamento pubblicitario
+        </a>
+
+        <a href="/termini.html">Termini di Servizio</a>
+        <a href="/contatti.html">Contatti</a>
+    </div>
+
+    <p class="footer-copy">
+        © 2026 AnonLab — All rights reserved — Cybersecurity &amp; Cultura Digitale
+    </p>
+</footer>
+
+<!-- JavaScript del sito -->
+<script src="/js/main.js"></script>
+
+<!-- Reindirizzamento automatico al login -->
 <script>
     setTimeout(() => {
         window.location.href = "/login.html";
     }, 3500);
 </script>
 
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y46cg93s3m");
-</script>              
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>
+<!-- Microsoft Clarity -->
+<script>
+(function(c, l, a, r, i, t, y) {
+    c[a] = c[a] || function() {
+        (c[a].q = c[a].q || []).push(arguments);
+    };
+    t = l.createElement(r);
+    t.async = 1;
+    t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0];
+    y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "y46cg93s3m");
+</script>
+
+<!-- Google AdSense -->
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
+    crossorigin="anonymous"></script>
 
 </body>
 </html>
-
