@@ -16,19 +16,20 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
 }
 
 // ===============================
-// CALCOLATRICE
+// INIZIALIZZAZIONE CALCOLATRICE ASINCRONA
 // ===============================
 
-function initCalculator() {
+function setupCalculatorSilent() {
     const calcDisplay = document.getElementById('calc-display');
     const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
-    // Se non ci trova gli elementi, esce in silenzio totale senza scrivere nulla in console
+    // Se gli elementi non ci sono ancora, esce in silenzio (ritorna false)
     if (!calcDisplay || calcButtons.length === 0) {
-        return; 
+        return false;
     }
 
-    if (calcDisplay.dataset.ready === "true") return;
+    // Evita di registrare gli eventi più di una volta
+    if (calcDisplay.dataset.ready === "true") return true;
     calcDisplay.dataset.ready = "true";
 
     calcButtons.forEach(btn => {
@@ -58,7 +59,29 @@ function initCalculator() {
             }
         });
     });
+
+    return true; // Calcolatrice trovata e inizializzata con successo
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // 1. Primo tentativo immediato al DOM ready
+    if (!setupCalculatorSilent()) {
+        
+        // 2. Se non c'è ancora, osserva le modifiche del DOM fino a quando non appare la sidebar
+        const calcObserver = new MutationObserver((mutations, observer) => {
+            if (setupCalculatorSilent()) {
+                observer.disconnect(); // Si disattiva subito appena trova la calcolatrice
+            }
+        });
+
+        calcObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+});
 
 // ===============================
 // RADIO — APERTURA PAGINA ON AIR
