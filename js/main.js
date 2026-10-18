@@ -16,16 +16,16 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
 }
 
  // ===============================
- // CALCOLATRICE
- // ===============================
+// CALCOLATRICE
+// ===============================
 
 function initCalculator() {
     const calcDisplay = document.getElementById('calc-display');
     const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
     if (!calcDisplay || calcButtons.length === 0) {
-    return;
-}
+        return; // Esce in silenzio totale senza stampare nulla in console
+    }
 
     // Evita di collegare più volte gli stessi pulsanti
     if (calcDisplay.dataset.ready === "true") return;
@@ -40,7 +40,7 @@ function initCalculator() {
                 return;
             }
 
-            if (value === '=') {
+            if (value === '==') {
                 try {
                     calcDisplay.textContent = String(
                         Function('"use strict"; return (' + calcDisplay.textContent + ')')()
