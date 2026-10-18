@@ -2714,24 +2714,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	<!-- PULSANTE BACK TO TOP -->
 <button id="backToTop">↑</button>
 
-<!-- SCRIPT ORDINATI CORRETTAMENTE -->
-<script src="https://angelonline.altervista.org/js/news.js"></script>
-<script src="https://angelonline.altervista.org/js/home-news.js"></script>
-
-<!-- UI GENERALE -->
-<script src="https://angelonline.altervista.org/js/ui.js"></script>
-	
-<!-- CONTATORE VISITE -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof initVisitCounter === "function") {
-    initVisitCounter();
-  } else {
-    console.warn("initVisitCounter non disponibile");
-  }
-});
-</script>
-
 	<!-- SCRIPT BACK TO TOP -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -2768,6 +2750,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Il CMP appare dopo → serve un controllo ripetuto
   setInterval(adjustBackToTopPosition, 800);
+});
+</script>
+
+<!-- SCRIPT ORDINATI CORRETTAMENTE -->
+<script src="https://angelonline.altervista.org/js/news.js"></script>
+<script src="https://angelonline.altervista.org/js/home-news.js"></script>
+
+<!-- UI GENERALE -->
+<script src="https://angelonline.altervista.org/js/ui.js"></script>
+	
+<!-- CONTATORE VISITE -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof initVisitCounter === "function") {
+    initVisitCounter();
+  } else {
+    console.warn("initVisitCounter non disponibile");
+  }
 });
 </script>
 
