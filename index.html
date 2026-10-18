@@ -2686,17 +2686,18 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
 <script>
     fetch("/partials/sidebar.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("sidebar").innerHTML = data;
+.then(response => response.text())
+.then(data => {
+    document.getElementById("sidebar").innerHTML = data;
 
-        initCalculator();
-        initRadio();
-        initYouTubePlayer();
-        initOroscopo();
+    if (typeof initCalculator === "function") initCalculator();
+    if (typeof initRadio === "function") initRadio();
+    if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+    if (typeof initOroscopo === "function") initOroscopo(); // 👈 Non andrà più in errore se manca la funzione
 
-        console.log("Sidebar caricata — Widget inizializzati");
-    });
+    console.log("Sidebar caricata — Widget inizializzati");
+})
+.catch(err => console.error("Errore nel caricamento della sidebar:", err));
 </script>
 
 </main>
