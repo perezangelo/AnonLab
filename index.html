@@ -2711,45 +2711,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div id="footer"></div>
 
-	<!-- PULSANTE BACK TO TOP -->
-<button id="backToTop">↑</button>
+<!-- PULSANTE BACK TO TOP (Con stile Inline di fallback per la massima visibilità) -->
+<button id="backToTop" title="Torna in alto" style="
+    display: none;
+    position: fixed;
+    right: 25px;
+    bottom: 80px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #00eaff;
+    color: #000;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 14px rgba(0, 234, 255, 0.8);
+    z-index: 99999;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+">↑</button>
 
-	<!-- SCRIPT BACK TO TOP -->
+<!-- SCRIPT BACK TO TOP OTTIMIZZATO -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const backToTop = document.getElementById("backToTop");
-  if (!backToTop) return;
+    const backToTop = document.getElementById("backToTop");
+    if (!backToTop) return;
 
-  // Mostra / nasconde il pulsante
-  window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    backToTop.style.display = scrollTop > 50 ? "block" : "none";
-  });
+    // 1. Gestione Visibilità e Scroll Effettivo
+    const handleScroll = () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop > 150) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
+        }
+    };
 
-  // Scrolla davvero la pagina
-  backToTop.addEventListener("click", () => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-    document.body.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-  // ⭐ Posiziona il pulsante sopra il badge Iubenda
-  function adjustBackToTopPosition() {
-    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+    // 2. Azione di Click (Scroll fluido in cima)
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-    if (iubendaLogo) {
-      const rect = iubendaLogo.getBoundingClientRect();
-      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
-      backToTop.style.bottom = offset + "px";
-    } else {
-      backToTop.style.bottom = "80px"; // fallback sicuro
+    // 3. Calcolo Posizione sopra il Badge Iubenda (Senza loop continui)
+    function adjustBackToTopPosition() {
+        const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+
+        if (iubendaLogo) {
+            const rect = iubendaLogo.getBoundingClientRect();
+            if (rect.top > 0) {
+                const offset = window.innerHeight - rect.top + 12; // 12px sopra Iubenda
+                backToTop.style.bottom = offset + "px";
+            }
+        } else {
+            backToTop.style.bottom = "80px"; // Fallback standard
+        }
     }
-  }
 
-  // Controllo iniziale
-  adjustBackToTopPosition();
-
-  // Il CMP appare dopo → serve un controllo ripetuto
-  setInterval(adjustBackToTopPosition, 800);
+    // Esegue il riposizionamento solo quando la pagina o il CMP Iubenda finiscono di caricare
+    window.addEventListener("load", adjustBackToTopPosition);
+    setTimeout(adjustBackToTopPosition, 2500); // Controllo singolo di sicurezza dopo 2.5s
 });
 </script>
 
@@ -2895,4 +2917,3 @@ document.addEventListener("DOMContentLoaded", () => {
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
 </script> 
-	
