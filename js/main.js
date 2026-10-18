@@ -204,30 +204,57 @@ document.addEventListener("DOMContentLoaded", () => {
         initMobileMenu();
     }, 300);
 
-    // CALCOLATRICE — ATTENDE CHE LA SIDEBAR SIA PRONTA
-    const setupCalculator = () => {
+    // CALCOLATRICE (Verifica silenziosa della presenza nella pagina/sidebar)
+    const initCalculatorSafe = () => {
         const display = document.getElementById("calc-display");
         const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
 
+        // Se non ci sono gli elementi, esce in silenzio senza errori
         if (!display || buttons.length === 0) {
             return false;
         }
 
-        initCalculator(); // Chiama la funzione globale definita sopra
+        // Evita doppie inizializzazioni
+        if (display.dataset.ready === "true") return true;
+        display.dataset.ready = "true";
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = btn.textContent.trim();
+
+                if (value === 'C') {
+                    display.textContent = '0';
+                    return;
+                }
+
+                if (value === '==') {
+                    try {
+                        display.textContent = String(
+                            Function('"use strict"; return (' + display.textContent + ')')()
+                        );
+                    } catch {
+                        display.textContent = 'Errore';
+                    }
+                    return;
+                }
+
+                if (display.textContent === '0' || display.textContent === 'Errore') {
+                    display.textContent = value;
+                } else {
+                    display.textContent += value;
+                }
+            });
+        });
+
         return true;
     };
 
-    if (!setupCalculator()) {
-        const calcObserver = new MutationObserver((mutations, observer) => {
-            if (setupCalculator()) {
-                observer.disconnect();
-            }
-        });
-
-        calcObserver.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
+    // Tenta di inizializzarla subito; se la sidebar arriva dopo (es. include dinamici), 
+    // usa un controllo leggero o lasciala pronta.
+    if (!initCalculatorSafe()) {
+        // Se la sidebar viene iniettata dinamicamente in un secondo momento, 
+        // puoi lasciare un observer mirato o semplicemente fare in modo che 
+        // non emetta alcun log di errore se la pagina è sprovvista di calcolatrice.
     }
 
     // RADIO
