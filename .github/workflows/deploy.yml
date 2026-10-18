@@ -1,0 +1,43 @@
+name: Deploy static content to Pages
+
+on:
+  # Esegue il workflow automaticamente ad ogni push sul branch principale (es. main o master)
+  push:
+    branches: ["main"] # Cambia "main" in "master" se il tuo branch principale si chiama così
+
+  # Permette anche di lanciare il deploy manualmente dalla scheda "Actions" di GitHub
+  workflow_dispatch:
+
+# Imposta i permessi corretti per GITHUB_TOKEN per consentire il deployment su GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permette un solo deployment simultaneo, evitando conflitti se fai più push ravvicinati
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: Configura GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Carica gli artefatti del sito
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Specifica la cartella radice del tuo sito (se i file sono direttamente nella root, usa '.')
+          path: '.'
+
+      - name: Esegui il Deploy su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
