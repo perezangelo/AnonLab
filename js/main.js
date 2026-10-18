@@ -23,11 +23,11 @@ function initCalculator() {
     const calcDisplay = document.getElementById('calc-display');
     const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
+    // Se non ci trova gli elementi, esce in silenzio totale senza scrivere nulla in console
     if (!calcDisplay || calcButtons.length === 0) {
-        return; // Esce in silenzio totale senza stampare nulla in console
+        return; 
     }
 
-    // Evita di collegare più volte gli stessi pulsanti
     if (calcDisplay.dataset.ready === "true") return;
     calcDisplay.dataset.ready = "true";
 
