@@ -193,21 +193,19 @@ function initSessionTimer() {
     });
 }
 
- // ===============================
- // DOM READY — INIZIALIZZAZIONI
- // ===============================
+// ===============================
+// DOM READY — INIZIALIZZAZIONI
+// ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // NAVBAR MOBILE
-    if (typeof initMobileMenu === "function") {
-        setTimeout(() => {
-            initMobileMenu();
-        }, 300);
-    }
+    setTimeout(() => {
+        initMobileMenu();
+    }, 300);
 
     // CALCOLATRICE — ATTENDE CHE LA SIDEBAR SIA PRONTA
-    const initializeCalculator = () => {
+    const setupCalculator = () => {
         const display = document.getElementById("calc-display");
         const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
 
@@ -215,40 +213,29 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         }
 
-        if (typeof initCalculator === "function") {
-            initCalculator();
-        }
-
+        initCalculator(); // Chiama la funzione globale definita sopra
         return true;
     };
 
-    if (!initializeCalculator()) {
-        const observer = new MutationObserver(() => {
-            if (initializeCalculator()) {
+    if (!setupCalculator()) {
+        const calcObserver = new MutationObserver((mutations, observer) => {
+            if (setupCalculator()) {
                 observer.disconnect();
             }
         });
 
-        observer.observe(document.body, {
+        calcObserver.observe(document.body, {
             childList: true,
             subtree: true
         });
     }
 
     // RADIO
-    if (typeof initRadio === "function") {
-        initRadio();
-    }
+    initRadio();
 
     // YOUTUBE PLAYER
-    if (typeof initYouTubePlayer === "function") {
-        initYouTubePlayer();
-    }
+    initYouTubePlayer();
 
     // TIMER SESSIONE
-    if (typeof initSessionTimer === "function") {
-        initSessionTimer();
-    }
-
-    // Il contatore visite è gestito dallo script dedicato in index.html.
+    initSessionTimer();
 });
