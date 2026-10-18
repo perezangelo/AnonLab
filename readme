@@ -3,8 +3,8 @@
 
 AnonLab è un progetto indipendente dedicato alla sperimentazione digitale, alla cultura cyber e alla creazione di pagine web leggere, chiare e completamente statiche.
 
-Il sito è costruito senza framework pesanti, senza database, senza cookie di profilazione e senza alcun tipo di tracciamento.  
-Solo HTML, CSS e un tocco di JavaScript essenziale.
+Il sito è costruito senza framework pesanti, senza cookie di profilazione invasivi e puntando al massimo delle prestazioni.
+Architettura ibrida: Frontend statico (HTML/CSS/JS) affiancato da servizi e API dinamiche dedicate.
 
 🔗 **Sito ufficiale:** https://anonlab.it  
 🔗 **Risorse tecniche:** https://anonlab.it/lab-resources.html  
@@ -14,9 +14,9 @@ Solo HTML, CSS e un tocco di JavaScript essenziale.
 
 ## 🧩 Filosofia del progetto
 
-- **Privacy-first** — Nessun tracciamento, nessuna profilazione, nessun analytics.  
-- **Minimalismo funzionale** — Codice pulito, leggibile, essenziale.  
-- **Indipendenza totale** — Nessuna piattaforma esterna, nessuna pubblicità.  
+- **Privacy-first** — Nessun tracciamento di profilazione, architettura orientata alla riservatezza.  
+- **Minimalismo funzionale** — Codice pulito, leggibile ed essenziale.  
+- **Indipendenza totale** — Piattaforma autonoma orientata alla cultura digitale.  
 - **Accessibilità e leggerezza** — Pagine veloci, responsive e prive di rumore visivo.
 
 ---
@@ -24,17 +24,23 @@ Solo HTML, CSS e un tocco di JavaScript essenziale.
 ## 📁 Struttura del repository
 
 ### Pagine principali
-- `/index.html` — Home minimal  
-- `/news.html` — Feed notizie cyber  
-- `/cyber.html` — Sezione cybersecurity  
-- `/tech.html` — Risorse tech e software  
+- `/index.html` — Home minimal & hub principale
+- `/news.html` — Feed notizie e aggiornamenti cyber  
+- `/cyber.html` — Sezione cybersecurity e threat analysis  
+- `/tech.html` — Risorse tech, software e guide  
 - `/dashboard.html` — Dashboard principale  
 - `/anonlab-soc-dashboard.html` — SOC Dashboard avanzata  
 - `/lab-resources.html` — Raccolta strumenti, software, guide  
 - `/tools.html` — Utility e strumenti digitali  
 - `/about.html` — Informazioni sul progetto  
 - `/contatti.html` — Contatti  
-- `/privacy.html` — Informativa privacy
+- `/privacy.html` — Informativa privacy  
+
+### Moduli dinamici e servizi integrati
+- `/blog/` — Blog e approfondimenti editoriali
+- `/forum/` — Community e discussioni di settore
+- `AnonBot AI` — Assistente virtuale interattivo per il supporto agli utenti
+- `Backend PHP / API` — Gestione autenticazione sicura, invio mail e feed dati SOC
 
 ### Pagine editoriali (SEO)
 - `/cybersecurity-basics.html` — Fondamenti di cybersecurity  
@@ -91,8 +97,8 @@ Strumenti, guide e analisi:
 
 - Browser Tools  
 - VPN Tools  
-- AI Tools  
-- Script  
+- AI Tools & Assistant  
+- Script & Converter  
 - PDF tecnici  
 
 🔗 https://anonlab.it/tools.html
@@ -106,7 +112,7 @@ Costruire un ambiente digitale:
 - leggero  
 - sicuro  
 - indipendente  
-- privo di tracciamento  
+- attento alla privacy  
 - orientato alla cultura cyber  
 
 ---
@@ -114,5 +120,3 @@ Costruire un ambiente digitale:
 ## 📬 Contatti
 
 📧 https://anonlab.it/contatti.html
-
-
