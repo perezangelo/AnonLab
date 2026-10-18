@@ -685,6 +685,7 @@ img, video {
   /* Maschera occhi — fade più ampio */
 mask-image: radial-gradient(circle, black 50%, transparent 100%);
 -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%);
+}
 
 /* ============================
    MEDIA QUERY
