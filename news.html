@@ -289,32 +289,52 @@ fetch("/partials/ticker.html")
     </p>
 </div>
       
-      <div class="news-box" style="
+      <div class="cyber-box" style="
     background:#000814;
-    border:1px solid #ff0044aa;
-    padding:20px;
+    border:1px solid #00eaffaa;
+    padding:25px;
     margin-top:30px;
     border-radius:8px;
-    box-shadow:0 0 12px #ff0044aa;
+    box-shadow:0 0 15px #00eaff33;
 ">
-    <h3 style="color:#ff0044;">Global Attack Heat Index</h3>
-    <p style="color:#ccc; margin-bottom:15px;">
-        Intensità degli attacchi informatici nelle ultime 24 ore.
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h3 style="color:#00eaff; margin:0; font-size:18px;">Global Threat Pulse</h3>
+        <span id="threatStatusBadge" style="font-size:11px; padding:3px 8px; border-radius:4px; font-weight:bold; background:#111; border:1px solid #333; color:#aaa;">Sincronizzazione...</span>
+    </div>
+
+    <p style="color:#ccc; font-size:13px; margin-bottom:20px;">
+        Monitoraggio ponderato in tempo reale basato su flussi OSINT globali (CISA KEV, NIST NVD, SecurityWeek).
     </p>
 
-    <div id="attackBar" style="
+    <!-- Display Grafico Pulsante -->
+    <div id="threatDisplayBox" style="
         width:100%;
-        height:180px;
+        height:120px;
         border-radius:6px;
-        box-shadow:0 0 20px #ff004488 inset;
-        transition:0.5s;
-    "></div>
+        background: linear-gradient(180deg, #00eaff11 0%, #000814 100%);
+        border: 1px solid #00eaff44;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.6s ease;
+        position: relative;
+        overflow: hidden;
+    ">
+        <div id="threatPercent" style="font-size:36px; font-weight:bold; color:#00eaff; text-shadow: 0 0 10px currentColor;">--%</div>
+        <div id="threatStateLabel" style="font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#aaa; margin-top:4px;">Analisi in corso</div>
+    </div>
 
-    <p id="attackText" style="color:#ff0044; margin-top:10px; font-weight:bold;">
-        Caricamento...
-    </p>
+    <div id="threatDetails" style="margin-top:15px; font-size:13px; color:#ddd; border-left: 3px solid #00eaff; padding-left: 10px;">
+        Caricamento metriche di minaccia...
+    </div>
+
+    <div style="margin-top:15px; font-size:11px; color:#666; display: flex; justify-content: space-between;">
+        <span id="threatSources">Fonti: --</span>
+        <span id="threatTimestamp">Ultimo aggiornamento: --</span>
+    </div>
 </div>
-
+		
 <div class="news-box" style="
     background:#000814;
     border:1px solid #00ff99aa;
@@ -1231,46 +1251,58 @@ startWeeklyTrends();
 </script>
 
 <script>
-function startAttackHeatIndex() {
-    const bar  = document.getElementById("attackBar");
-    const text = document.getElementById("attackText");
+function startThreatPulse() {
+    const displayBox = document.getElementById("threatDisplayBox");
+    const percentEl  = document.getElementById("threatPercent");
+    const stateEl    = document.getElementById("threatStateLabel");
+    const detailsEl  = document.getElementById("threatDetails");
+    const badgeEl    = document.getElementById("threatStatusBadge");
+    const sourcesEl  = document.getElementById("threatSources");
+    const timeEl     = document.getElementById("threatTimestamp");
 
-    if (!bar || !text) {
-        setTimeout(startAttackHeatIndex, 200);
+    if (!displayBox || !percentEl) {
+        setTimeout(startThreatPulse, 250);
         return;
     }
 
-    async function loadAttackIndex() {
+    async function fetchThreatData() {
         try {
-            const res  = await fetch("https://angelonline.altervista.org/newsops/attackindex.php");
+            const res  = await fetch("https://angelonline.altervista.org/newsops/global_threat_pulse.php");
             const data = await res.json();
 
-            // Barra neon con gradiente dinamico
-            bar.style.background = data.gradient;
+            // Aggiorna colori e gradienti in base alla gravità restituita dal PHP
+            displayBox.style.background = data.gradient;
+            displayBox.style.borderColor = data.color;
+            percentEl.style.color = data.color;
+            percentEl.style.textShadow = `0 0 15px ${data.color}`;
 
-            // Testo esplicativo
-            text.innerHTML = `
-                <span style="font-weight:bold;">${data.label}</span><br>
-                <span style="font-size:14px;">
-                    Heat Level: <strong>${data.value}%</strong> (${data.state})
-                </span><br>
-                <span style="color:${data.color}; font-weight:bold; font-size:13px;">
-                    ${data.note}
-                </span>
-            `;
+            percentEl.textContent = data.value + "%";
+            stateEl.textContent = `Livello: ${data.state}`;
+            
+            badgeEl.textContent = data.state;
+            badgeEl.style.color = data.color;
+            badgeEl.style.borderColor = data.color;
+
+            detailsEl.style.borderColor = data.color;
+            detailsEl.innerHTML = `<strong>Nota Operativa:</strong> ${data.note}`;
+
+            sourcesEl.textContent = data.sources;
+            timeEl.textContent = `Aggiornamento: ${data.timestamp}`;
+
         } catch (e) {
-            console.error("Errore Attack Heat Index:", e);
-            text.innerHTML = "Errore caricamento Heat Index";
+            console.error("Errore Global Threat Pulse:", e);
+            detailsEl.innerHTML = "<span style='color:#ff0044;'>Impossibile connettersi al motore OSINT di Altervista.</span>";
         }
     }
 
-    loadAttackIndex();
-    setInterval(loadAttackIndex, 30000);
+    fetchThreatData();
+    // Aggiornamento ogni 60 secondi (sfruttando la cache PHP per non sovraccaricare)
+    setInterval(fetchThreatData, 60000);
 }
 
-startAttackHeatIndex();
+startThreatPulse();
 </script>
-
+	
 	<script>
 window.addEventListener("DOMContentLoaded", function() {
 
