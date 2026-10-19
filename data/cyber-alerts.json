@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-96627",
-    "summary": "Arcane: Delegated users:update permission allows admin account takeover via password reset (no privilege-hierarchy check)",
+    "id": "CVE-2026-111064",
+    "summary": "aiohttp server lacks an initial request/header timeout",
     "severity": "HIGH",
-    "published": "2026-10-16T21:15:03Z",
-    "ghsa": "GHSA-pw5q-rjx4-7f7p"
+    "published": "2026-10-19T17:08:04Z",
+    "ghsa": "GHSA-5wr8-gcqf-gqf3"
   },
   {
-    "id": "CVE-2026-96628",
-    "summary": "Arcane: Environment access token bypasses the admin-required authorization gate on `/api/debug/pprof`",
-    "severity": "MODERATE",
-    "published": "2026-10-16T21:12:03Z",
-    "ghsa": "GHSA-mp22-58ff-6fhr"
-  },
-  {
-    "id": "CVE-2026-105192",
-    "summary": "LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport",
-    "severity": "CRITICAL",
-    "published": "2026-10-16T20:08:44Z",
-    "ghsa": "GHSA-w5f2-9q9c-ff4h"
-  },
-  {
-    "id": "CVE-2026-100349",
-    "summary": "kin-openapi openapi3filter: nil-pointer panic in ValidateResponse on a response header declared with content",
-    "severity": "HIGH",
-    "published": "2026-10-16T19:58:46Z",
-    "ghsa": "GHSA-74vm-87hj-r66f"
-  },
-  {
-    "id": "CVE-2026-58494",
-    "summary": "Wasmtime: WASI hard links bypass wasmtime-wasi's FilePerms for destination",
-    "severity": "MODERATE",
-    "published": "2026-10-16T19:57:26Z",
-    "ghsa": "GHSA-4ch3-9j33-3pmj"
-  },
-  {
-    "id": "GHSA-6fj4-rcr3-r7rr",
-    "summary": "lopdf has a stack overflow via deeply nested PDF objects",
-    "severity": "HIGH",
-    "published": "2026-10-16T19:55:39Z",
-    "ghsa": "GHSA-6fj4-rcr3-r7rr"
-  },
-  {
-    "id": "CVE-2026-102834",
-    "summary": "JavaCV: Integer Overflow in IPCameraFrameGrabber Causes Infinite-Loop DoS",
-    "severity": "HIGH",
-    "published": "2026-10-16T19:53:06Z",
-    "ghsa": "GHSA-rxjv-24xq-76wc"
-  },
-  {
-    "id": "CVE-2026-96620",
-    "summary": "Claude Agent SDK: Argument Injection via resume Option Allows Arbitrary Command Execution",
-    "severity": "CRITICAL",
-    "published": "2026-10-16T19:44:37Z",
-    "ghsa": "GHSA-h4mw-j7qp-8mwm"
-  },
-  {
-    "id": "CVE-2026-62994",
-    "summary": "CoreDNS `k8s_external` headless AXFR can emit an empty transfer batch that panics the `transfer` plugin",
+    "id": "CVE-2026-111063",
+    "summary": "AIOHTTP: Secure attribute not enforced for shared cookie",
     "severity": "LOW",
-    "published": "2026-10-16T19:26:42Z",
-    "ghsa": "GHSA-74w3-63xv-x9mv"
+    "published": "2026-10-19T17:07:47Z",
+    "ghsa": "GHSA-494j-54xm-rwp3"
   },
   {
-    "id": "CVE-2026-76894",
-    "summary": "ckan-mcp-server: DataStore Table UI resource does not validate postMessage origin (in) and posts to targetOrigin \"*\" (out)",
+    "id": "GHSA-2g87-pp6c-29x5",
+    "summary": "aiohttp: Multiple instances of excessive or unbounded memory/CPU use",
+    "severity": "HIGH",
+    "published": "2026-10-19T17:07:23Z",
+    "ghsa": "GHSA-2g87-pp6c-29x5"
+  },
+  {
+    "id": "CVE-2026-111061",
+    "summary": "russh: Unbounded memory allocation in agent protocol server via crafted constraint records",
+    "severity": "MODERATE",
+    "published": "2026-10-19T17:06:46Z",
+    "ghsa": "GHSA-4wc5-f2rc-q74m"
+  },
+  {
+    "id": "CVE-2026-111062",
+    "summary": "A russh SSH server accepts a publickey authentication whose signature uses a different algorithm than the one named in the request",
     "severity": "LOW",
-    "published": "2026-10-16T19:23:48Z",
-    "ghsa": "GHSA-vqff-r82h-9crc"
+    "published": "2026-10-19T17:06:29Z",
+    "ghsa": "GHSA-j7h2-66j4-ghjf"
+  },
+  {
+    "id": "CVE-2026-111059",
+    "summary": "Mercury: Stored / DOM Cross-Site Scripting (XSS): mr.Markdown renders untrusted content as raw, unsanitized HTML",
+    "severity": "MODERATE",
+    "published": "2026-10-19T17:01:20Z",
+    "ghsa": "GHSA-2658-85cv-9wwq"
+  },
+  {
+    "id": "CVE-2026-111057",
+    "summary": "Mercury: Unauthenticated Remote Code Execution in /api/terminals - access control bypass",
+    "severity": "CRITICAL",
+    "published": "2026-10-19T17:00:54Z",
+    "ghsa": "GHSA-f8c7-rwf9-fmgm"
+  },
+  {
+    "id": "GHSA-953h-535j-jg2v",
+    "summary": "agent-router: MCP session resume does not verify the embedded anti-hijacking subject; default Helm seed makes session IDs forgeable",
+    "severity": "MODERATE",
+    "published": "2026-10-19T16:53:26Z",
+    "ghsa": "GHSA-953h-535j-jg2v"
+  },
+  {
+    "id": "GHSA-pcc4-rvhr-2pr8",
+    "summary": "Graphify Fortran extractor: incomplete cpp #include hardening allows arbitrary host-file read/exfiltration when indexing an untrusted repo",
+    "severity": "MODERATE",
+    "published": "2026-10-19T16:51:36Z",
+    "ghsa": "GHSA-pcc4-rvhr-2pr8"
+  },
+  {
+    "id": "CVE-2026-111058",
+    "summary": "Mercury: Unauthenticated Remote Code Execution via /api/kernels",
+    "severity": "CRITICAL",
+    "published": "2026-10-19T16:49:08Z",
+    "ghsa": "GHSA-rv4m-xm3f-3ccq"
   }
 ]
