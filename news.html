@@ -1266,48 +1266,66 @@ startWeeklyTrends();
 (function () {
     "use strict";
 
-    // -----------------------------------------------------------------
-    // CONFIGURAZIONE ENDPOINT
-    // -----------------------------------------------------------------
-    // Sostituisci con il percorso corretto se diverso da /newsops/
+    // =================================================================
+    // CONFIGURAZIONE — MODIFICA QUI SE NECESSARIO
+    // =================================================================
+    // Percorso base degli endpoint PHP (i 3 file caricati su AlterVista)
+    // Se i PHP sono in un'altra cartella, cambia BASE_URL di conseguenza.
     const BASE_URL = "https://angelonline.altervista.org/newsops";
+
     const ENDPOINTS = {
         pulse:   BASE_URL + "/pulse.php",
         history: BASE_URL + "/pulse_history.php?hours=24",
         threats: BASE_URL + "/pulse_threats.php?limit=20"
     };
 
-    // Intervalli di aggiornamento (allineati alla cache backend)
-    const REFRESH_PULSE   = 5 * 60 * 1000; // 5 minuti (cache pulse.php)
-    const REFRESH_HISTORY = 5 * 60 * 1000; // 5 minuti
-    const REFRESH_THREATS = 2 * 60 * 1000; // 2 minuti (cache pulse_threats.php)
+    // Intervalli di refresh (ms) — allineati alle cache dei PHP
+    const REFRESH_PULSE   = 5 * 60 * 1000; // 5 min
+    const REFRESH_HISTORY = 5 * 60 * 1000; // 5 min
+    const REFRESH_THREATS = 2 * 60 * 1000; // 2 min
 
-    // -----------------------------------------------------------------
+    // =================================================================
     // RIFERIMENTI DOM
-    // -----------------------------------------------------------------
+    // =================================================================
     const el = {
-        displayBox:   document.getElementById("tpDisplayBox"),
-        percent:      document.getElementById("tpPercent"),
-        stateLabel:   document.getElementById("tpStateLabel"),
-        badge:        document.getElementById("tpBadge"),
-        details:      document.getElementById("tpDetails"),
-        guidance:     document.getElementById("tpGuidance"),
-        sources:      document.getElementById("tpSources"),
-        timestamp:    document.getElementById("tpTimestamp"),
-        metricExp:    document.getElementById("metricExploits"),
-        metricMal:    document.getElementById("metricMalware"),
-        metricAdv:    document.getElementById("metricAdvisories"),
-        threatList:   document.getElementById("threatList"),
-        chartCanvas:  document.getElementById("trendChart")
+        displayBox:  document.getElementById("tpDisplayBox"),
+        percent:     document.getElementById("tpPercent"),
+        stateLabel:  document.getElementById("tpStateLabel"),
+        badge:       document.getElementById("tpBadge"),
+        details:     document.getElementById("tpDetails"),
+        guidance:    document.getElementById("tpGuidance"),
+        sources:     document.getElementById("tpSources"),
+        timestamp:   document.getElementById("tpTimestamp"),
+        metricExp:   document.getElementById("metricExploits"),
+        metricMal:   document.getElementById("metricMalware"),
+        metricAdv:   document.getElementById("metricAdvisories"),
+        threatList:  document.getElementById("threatList"),
+        chartCanvas: document.getElementById("trendChart")
     };
 
-    // -----------------------------------------------------------------
-    // STATO GRAFICO
-    // -----------------------------------------------------------------
+    // =================================================================
+    // VERIFICA CARICAMENTO CHART.JS
+    // =================================================================
+    function isChartAvailable() {
+        return typeof window.Chart !== "undefined";
+    }
+
+    // =================================================================
+    // GRAFICO
+    // =================================================================
     let trendChart = null;
 
     function initChart() {
-        if (!el.chartCanvas || trendChart) return;
+        if (!el.chartCanvas) return;
+        if (!isChartAvailable()) {
+            console.error("Chart.js non caricato: verifica il percorso /js/chart.umd.js");
+            el.chartCanvas.parentElement.innerHTML =
+                '<div style="color:#ff7b00; font-size:12px; padding:12px;">' +
+                '⚠️ Chart.js non disponibile. Verifica che <code>/js/chart.umd.js</code> sia raggiungibile.' +
+                '</div>';
+            return;
+        }
+        if (trendChart) return;
 
         const ctx = el.chartCanvas.getContext("2d");
 
@@ -1349,21 +1367,13 @@ startWeeklyTrends();
                 },
                 scales: {
                     x: {
-                        ticks: {
-                            color: "#556",
-                            maxTicksLimit: 8,
-                            font: { size: 10 }
-                        },
+                        ticks: { color: "#556", maxTicksLimit: 8, font: { size: 10 } },
                         grid: { color: "#0a1a2a", drawBorder: false }
                     },
                     y: {
                         min: 0,
                         max: 100,
-                        ticks: {
-                            color: "#556",
-                            stepSize: 25,
-                            font: { size: 10 }
-                        },
+                        ticks: { color: "#556", stepSize: 25, font: { size: 10 } },
                         grid: { color: "#0a1a2a", drawBorder: false }
                     }
                 }
@@ -1371,23 +1381,21 @@ startWeeklyTrends();
         });
     }
 
-    // -----------------------------------------------------------------
-    // FETCH DATI
-    // -----------------------------------------------------------------
+    // =================================================================
+    // FETCH: PULSE (punteggio corrente)
+    // =================================================================
     async function fetchPulse() {
         try {
             const res = await fetch(ENDPOINTS.pulse, { cache: "no-store" });
             if (!res.ok) throw new Error("HTTP " + res.status);
             const data = await res.json();
 
-            // Aggiorna display principale
             el.displayBox.style.background = data.gradient || "linear-gradient(180deg, #00eaff11 0%, #000814 100%)";
             el.displayBox.style.borderColor = data.color || "#00eaff44";
 
             el.percent.style.color = data.color || "#00eaff";
             el.percent.style.textShadow = "0 0 18px " + (data.color || "#00eaff");
 
-            // Gestione dati insufficienti
             if (data.data_quality === "insufficient") {
                 el.percent.textContent = "N/D";
                 el.stateLabel.textContent = "Dati insufficienti";
@@ -1396,28 +1404,21 @@ startWeeklyTrends();
                 el.stateLabel.textContent = "Livello: " + data.state;
             }
 
-            // Badge
             el.badge.textContent = data.state || "N/A";
             el.badge.style.color = data.color || "#00eaff";
             el.badge.style.borderColor = data.color || "#00eaff";
 
-            // Dettagli
             el.details.style.borderColor = data.color || "#00eaff";
             el.details.innerHTML = "<strong>Nota Operativa:</strong> " + (data.note || "—");
 
-            // Metriche
             if (data.metrics) {
                 el.metricExp.textContent = (data.metrics.exploits ?? "--") + "%";
                 el.metricMal.textContent = (data.metrics.malware ?? "--") + "%";
                 el.metricAdv.textContent = (data.metrics.advisories ?? "--") + "%";
             }
 
-            // Guida
-            if (data.guidance) {
-                el.guidance.textContent = data.guidance;
-            }
+            if (data.guidance) el.guidance.textContent = data.guidance;
 
-            // Footer
             el.sources.textContent = data.sources || "Fonti: --";
             el.timestamp.textContent = "Aggiornamento: " + (data.timestamp || "--");
 
@@ -1430,6 +1431,9 @@ startWeeklyTrends();
         }
     }
 
+    // =================================================================
+    // FETCH: HISTORY (trend)
+    // =================================================================
     async function fetchHistory() {
         if (!trendChart) return;
 
@@ -1440,7 +1444,6 @@ startWeeklyTrends();
 
             if (!data.points || !Array.isArray(data.points)) return;
 
-            // Formatta etichette orarie (HH:MM)
             const labels = data.points.map(function (p) {
                 const d = new Date(p.t * 1000);
                 return d.getHours().toString().padStart(2, "0") + ":" +
@@ -1458,6 +1461,9 @@ startWeeklyTrends();
         }
     }
 
+    // =================================================================
+    // FETCH: THREATS (lista live)
+    // =================================================================
     async function fetchThreats() {
         try {
             const res = await fetch(ENDPOINTS.threats, { cache: "no-store" });
@@ -1469,7 +1475,6 @@ startWeeklyTrends();
                 return;
             }
 
-            // Costruisci HTML in modo sicuro
             const frag = document.createDocumentFragment();
 
             items.forEach(function (t) {
@@ -1514,9 +1519,9 @@ startWeeklyTrends();
         }
     }
 
-    // -----------------------------------------------------------------
+    // =================================================================
     // CICLO DI AGGIORNAMENTO
-    // -----------------------------------------------------------------
+    // =================================================================
     function refreshAll() {
         if (document.hidden) return;
         fetchPulse();
@@ -1524,24 +1529,21 @@ startWeeklyTrends();
         fetchThreats();
     }
 
-    // Avvio
-    initChart();
-    refreshAll();
+    // Avvio (attende che Chart.js sia pronto)
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+            initChart();
+            refreshAll();
+        });
+    } else {
+        initChart();
+        refreshAll();
+    }
 
-    // Polling separato per rispettare le diverse TTL
-    setInterval(function () {
-        if (!document.hidden) fetchPulse();
-    }, REFRESH_PULSE);
+    setInterval(function () { if (!document.hidden) fetchPulse();   }, REFRESH_PULSE);
+    setInterval(function () { if (!document.hidden) fetchHistory(); }, REFRESH_HISTORY);
+    setInterval(function () { if (!document.hidden) fetchThreats(); }, REFRESH_THREATS);
 
-    setInterval(function () {
-        if (!document.hidden) fetchHistory();
-    }, REFRESH_HISTORY);
-
-    setInterval(function () {
-        if (!document.hidden) fetchThreats();
-    }, REFRESH_THREATS);
-
-    // Riprendi aggiornamenti quando la scheda torna visibile
     document.addEventListener("visibilitychange", function () {
         if (!document.hidden) refreshAll();
     });
