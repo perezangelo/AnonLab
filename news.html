@@ -297,19 +297,27 @@ fetch("/partials/ticker.html")
     border-radius:8px;
     box-shadow:0 0 15px #00eaff33;
 ">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h3 style="color:#00eaff; margin:0; font-size:18px;">Global Threat Pulse</h3>
-        <span id="threatStatusBadge" style="font-size:11px; padding:3px 8px; border-radius:4px; font-weight:bold; background:#111; border:1px solid #333; color:#aaa;">Sincronizzazione...</span>
+    <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 15px #00eaff33;
+">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 style="color:#00eaff; margin:0; font-size:18px;">Global Threat Pulse & OSINT Matrix</h3>
+        <span id="tpBadge" style="font-size:11px; padding:3px 8px; border-radius:4px; font-weight:bold; background:#111; border:1px solid #333; color:#aaa;">Sincronizzazione...</span>
     </div>
 
-    <p style="color:#ccc; font-size:13px; margin-bottom:20px;">
-        Monitoraggio ponderato in tempo reale basato su flussi OSINT globali (CISA KEV, NIST NVD, SecurityWeek).
+    <p style="color:#ccc; font-size:13px; margin-bottom:15px;">
+        Analisi ponderata e normalizzazione in tempo reale basata su flussi globali multi-fonte (CISA, ThreatFox, Advisory).
     </p>
 
-    <!-- Display Grafico Pulsante -->
-    <div id="threatDisplayBox" style="
+    <!-- Display Principale -->
+    <div id="tpDisplayBox" style="
         width:100%;
-        height:120px;
+        height:110px;
         border-radius:6px;
         background: linear-gradient(180deg, #00eaff11 0%, #000814 100%);
         border: 1px solid #00eaff44;
@@ -318,20 +326,32 @@ fetch("/partials/ticker.html")
         justify-content: center;
         align-items: center;
         transition: 0.6s ease;
-        position: relative;
-        overflow: hidden;
+        margin-bottom: 15px;
     ">
-        <div id="threatPercent" style="font-size:36px; font-weight:bold; color:#00eaff; text-shadow: 0 0 10px currentColor;">--%</div>
-        <div id="threatStateLabel" style="font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#aaa; margin-top:4px;">Analisi in corso</div>
+        <div id="tpPercent" style="font-size:34px; font-weight:bold; color:#00eaff; text-shadow: 0 0 10px currentColor;">--%</div>
+        <div id="tpStateLabel" style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#aaa; margin-top:2px;">Analisi in corso</div>
     </div>
 
-    <div id="threatDetails" style="margin-top:15px; font-size:13px; color:#ddd; border-left: 3px solid #00eaff; padding-left: 10px;">
-        Caricamento metriche di minaccia...
+    <!-- Sottocategorie Normalizzate -->
+    <div style="background:#050b14; padding:12px; border-radius:6px; border:1px solid #112233; margin-bottom:15px; font-size:12px; color:#aaa;">
+        <div style="font-weight:bold; color:#fff; margin-bottom:8px;">Vettori Normalizzati (0-100):</div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Exploits attivi (CISA KEV):</span> <strong id="metricExploits" style="color:#00eaff;">--%</strong></div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Malware & IOC recenti:</span> <strong id="metricMalware" style="color:#00eaff;">--%</strong></div>
+        <div style="display:flex; justify-content:space-between;"><span>Advisory & Notizie critiche:</span> <strong id="metricAdvisories" style="color:#00eaff;">--%</strong></div>
+    </div>
+
+    <div id="tpDetails" style="margin-top:10px; font-size:13px; color:#ddd; border-left: 3px solid #00eaff; padding-left: 10px; margin-bottom: 15px;">
+        Caricamento dettagli operativi...
+    </div>
+
+    <!-- Box Guida all'Interpretazione per l'Utente -->
+    <div style="background:#0a0f1d; padding:12px; border-radius:6px; border:1px dashed #334466; font-size:11px; color:#88aaff; line-height:1.4;">
+        <strong style="color:#ccdfff;">💡 Guida Analista:</strong> <span id="tpGuidance">Caricamento linee guida interpretative...</span>
     </div>
 
     <div style="margin-top:15px; font-size:11px; color:#666; display: flex; justify-content: space-between;">
-        <span id="threatSources">Fonti: --</span>
-        <span id="threatTimestamp">Ultimo aggiornamento: --</span>
+        <span id="tpSources">Fonti: --</span>
+        <span id="tpTimestamp">Ultimo aggiornamento: --</span>
     </div>
 </div>
 		
@@ -1251,17 +1271,22 @@ startWeeklyTrends();
 </script>
 
 <script>
-function startThreatPulse() {
-    const displayBox = document.getElementById("threatDisplayBox");
-    const percentEl  = document.getElementById("threatPercent");
-    const stateEl    = document.getElementById("threatStateLabel");
-    const detailsEl  = document.getElementById("threatDetails");
-    const badgeEl    = document.getElementById("threatStatusBadge");
-    const sourcesEl  = document.getElementById("threatSources");
-    const timeEl     = document.getElementById("threatTimestamp");
+function startThreatPulseAdvanced() {
+    const displayBox = document.getElementById("tpDisplayBox");
+    const percentEl  = document.getElementById("tpPercent");
+    const stateEl    = document.getElementById("tpStateLabel");
+    const detailsEl  = document.getElementById("tpDetails");
+    const badgeEl    = document.getElementById("tpBadge");
+    const sourcesEl  = document.getElementById("tpSources");
+    const timeEl     = document.getElementById("tpTimestamp");
+    const guidanceEl = document.getElementById("tpGuidance");
+    
+    const metExp     = document.getElementById("metricExploits");
+    const metMal     = document.getElementById("metricMalware");
+    const metAdv     = document.getElementById("metricAdvisories");
 
     if (!displayBox || !percentEl) {
-        setTimeout(startThreatPulse, 250);
+        setTimeout(startThreatPulseAdvanced, 250);
         return;
     }
 
@@ -1270,7 +1295,6 @@ function startThreatPulse() {
             const res  = await fetch("https://angelonline.altervista.org/newsops/global_threat_pulse.php");
             const data = await res.json();
 
-            // Aggiorna colori e gradienti in base alla gravità restituita dal PHP
             displayBox.style.background = data.gradient;
             displayBox.style.borderColor = data.color;
             percentEl.style.color = data.color;
@@ -1286,21 +1310,30 @@ function startThreatPulse() {
             detailsEl.style.borderColor = data.color;
             detailsEl.innerHTML = `<strong>Nota Operativa:</strong> ${data.note}`;
 
+            if(data.metrics) {
+                metExp.textContent = data.metrics.exploits + "%";
+                metMal.textContent = data.metrics.malware + "%";
+                metAdv.textContent = data.metrics.advisories + "%";
+            }
+
+            if(data.guidance) {
+                guidanceEl.textContent = data.guidance;
+            }
+
             sourcesEl.textContent = data.sources;
             timeEl.textContent = `Aggiornamento: ${data.timestamp}`;
 
         } catch (e) {
             console.error("Errore Global Threat Pulse:", e);
-            detailsEl.innerHTML = "<span style='color:#ff0044;'>Impossibile connettersi al motore OSINT di Altervista.</span>";
+            detailsEl.innerHTML = "<span style='color:#ff0044;'>Errore di comunicazione con il backend di Threat Intelligence.</span>";
         }
     }
 
     fetchThreatData();
-    // Aggiornamento ogni 60 secondi (sfruttando la cache PHP per non sovraccaricare)
     setInterval(fetchThreatData, 60000);
 }
 
-startThreatPulse();
+startThreatPulseAdvanced();
 </script>
 	
 	<script>
