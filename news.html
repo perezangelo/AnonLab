@@ -1320,11 +1320,11 @@ startWeeklyTrends();
     function initChart() {
         if (!el.chartCanvas) return;
         if (!isChartAvailable()) {
-            console.error("Chart.js non caricato: verifica il percorso /js/chart.umd.js");
-            el.chartCanvas.parentElement.innerHTML =
-                '<div style="color:#ff7b00; font-size:12px; padding:12px;">' +
-                '⚠️ Chart.js non disponibile. Verifica che <code>/js/chart.umd.js</code> sia raggiungibile.' +
-                '</div>';
+            console.error("Chart.js non caricato: verifica il percorso /js/chart.umd.min.js");
+el.chartCanvas.parentElement.innerHTML =
+    '<div style="color:#ff7b00; font-size:12px; padding:12px;">' +
+    '⚠️ Chart.js non disponibile. Verifica che <code>/js/chart.umd.min.js</code> sia raggiungibile.' +
+    '</div>';
             return;
         }
         if (trendChart) return;
