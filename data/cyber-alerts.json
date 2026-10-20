@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-113668",
-    "summary": "ApostropheCMS: :_id/locales REST route omits the public-API authorization gate its sibling read routes enforce (unauthenticated doc-existence + locale metadata disclosure)",
+    "id": "CVE-2026-113712",
+    "summary": "Cachet has Stored XSS in Incident Component",
     "severity": "MODERATE",
-    "published": "2026-10-20T18:14:32Z",
-    "ghsa": "GHSA-gqh3-7856-rjjg"
+    "published": "2026-10-20T21:09:40Z",
+    "ghsa": "GHSA-x397-5hrv-j9m9"
   },
   {
-    "id": "CVE-2026-113670",
-    "summary": "ApostropheCMS: Page REST API authorization bypass",
+    "id": "CVE-2026-111762",
+    "summary": "A2A Java SDK: Push notification credentials logged in cleartext on protobuf parse failure",
     "severity": "MODERATE",
-    "published": "2026-10-20T18:13:08Z",
-    "ghsa": "GHSA-2j32-q6rx-h844"
+    "published": "2026-10-20T21:08:33Z",
+    "ghsa": "GHSA-x32g-jvvm-4725"
   },
   {
-    "id": "CVE-2026-113671",
-    "summary": "ApostropheCMS: Host header controls server-side image fetch origin in @apostrophecms/ai-helper, enabling authenticated SSRF",
-    "severity": "MODERATE",
-    "published": "2026-10-20T18:11:01Z",
-    "ghsa": "GHSA-527g-ff96-x6wj"
-  },
-  {
-    "id": "CVE-2026-113658",
-    "summary": "ApostropheCMS: Unauthenticated CSV import requests leave rejected uploads in the system temporary directory",
+    "id": "CVE-2026-111765",
+    "summary": "A2A Java SDK: Android synchronous POST forwards credentials across authorities after incomplete redirect fix",
     "severity": "HIGH",
-    "published": "2026-10-20T18:10:32Z",
-    "ghsa": "GHSA-qhcq-9pm2-c9w9"
+    "published": "2026-10-20T21:08:06Z",
+    "ghsa": "GHSA-4fpj-g9jf-9rgg"
   },
   {
-    "id": "CVE-2026-113669",
-    "summary": "ApostropheCMS: Cross-domain session token in URL confers session takeover",
+    "id": "CVE-2026-111761",
+    "summary": "A2A Java SDK has Server-Side Request Forgery (SSRF) in push-notification delivery",
     "severity": "MODERATE",
-    "published": "2026-10-20T18:09:01Z",
-    "ghsa": "GHSA-hhvr-8m24-qqr3"
+    "published": "2026-10-20T21:06:22Z",
+    "ghsa": "GHSA-q78c-5jjq-57g8"
   },
   {
-    "id": "CVE-2026-113656",
-    "summary": "ApostropheCMS: Unauthenticated unbounded multipart upload → disk-exhaustion DoS",
-    "severity": "MODERATE",
-    "published": "2026-10-20T18:08:31Z",
-    "ghsa": "GHSA-89mh-mm8c-mv7f"
-  },
-  {
-    "id": "CVE-2026-113667",
-    "summary": "ApostropheCMS: CAPTCHA response token not URL-encoded",
-    "severity": "MODERATE",
-    "published": "2026-10-20T18:05:35Z",
-    "ghsa": "GHSA-44qr-rrjg-2cqq"
-  },
-  {
-    "id": "CVE-2026-113655",
-    "summary": "ApostropheCMS: Same-parent page reorder in @apostrophecms/page move() re-ranks a restricted parent's children without create authorization",
-    "severity": "MODERATE",
-    "published": "2026-10-20T18:04:11Z",
-    "ghsa": "GHSA-2jrp-qc93-h2j8"
-  },
-  {
-    "id": "CVE-2026-113666",
-    "summary": "ApostropheCMS: Authenticated projection-exclusion prototype-member deletion in @apostrophecms/db-connect causes process-wide denial of service",
+    "id": "CVE-2026-111764",
+    "summary": "A2A Java SDK has a fail-open default task authorization",
     "severity": "HIGH",
-    "published": "2026-10-20T18:03:50Z",
-    "ghsa": "GHSA-j5rq-xfvr-p969"
+    "published": "2026-10-20T21:05:09Z",
+    "ghsa": "GHSA-qw47-mcm5-934w"
   },
   {
-    "id": "CVE-2026-113654",
-    "summary": "ApostropheCMS sanitize-html: nonTextTags discard region ends early on an implied close, letting <noscript> content render",
+    "id": "CVE-2026-111763",
+    "summary": "A2A Java SDK send client credentials under server-controlled HTTP header name, enabling leakage via redirect",
     "severity": "MODERATE",
-    "published": "2026-10-20T18:03:22Z",
-    "ghsa": "GHSA-x3q4-9hxx-gx8m"
+    "published": "2026-10-20T21:04:16Z",
+    "ghsa": "GHSA-9rhm-2h4x-jwmx"
+  },
+  {
+    "id": "CVE-2026-112397",
+    "summary": "Pillow: Out-of-bounds access in _imagingmorph on a zero-width image",
+    "severity": "HIGH",
+    "published": "2026-10-20T20:56:22Z",
+    "ghsa": "GHSA-58r4-6rv3-gfh8"
+  },
+  {
+    "id": "CVE-2026-112400",
+    "summary": "Pillow: GIF seek keeps rejected size after DecompressionBombError, allowing DoS",
+    "severity": "HIGH",
+    "published": "2026-10-20T20:53:36Z",
+    "ghsa": "GHSA-65qm-jvmh-6pqg"
+  },
+  {
+    "id": "CVE-2026-112899",
+    "summary": "Pillow: EPS load(scale) lets Ghostscript render past the decompression bomb limit",
+    "severity": "MODERATE",
+    "published": "2026-10-20T20:53:21Z",
+    "ghsa": "GHSA-vx6w-vv9f-6gvg"
+  },
+  {
+    "id": "CVE-2026-112897",
+    "summary": "Pillow: TiffDecode returns uninitialized memory as pixels for short JPEG strips",
+    "severity": "HIGH",
+    "published": "2026-10-20T20:52:43Z",
+    "ghsa": "GHSA-q45j-58j2-45rg"
   }
 ]
