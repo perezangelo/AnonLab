@@ -289,67 +289,59 @@ fetch("/partials/ticker.html")
     </p>
 </div>
       
-      <div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #00eaffaa;
-    padding:25px;
-    margin-top:30px;
-    border-radius:8px;
-    box-shadow:0 0 15px #00eaff33;
-">
-    <div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #00eaffaa;
-    padding:25px;
-    margin-top:30px;
-    border-radius:8px;
-    box-shadow:0 0 15px #00eaff33;
-">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        <h3 style="color:#00eaff; margin:0; font-size:18px;">Global Threat Pulse & OSINT Matrix</h3>
-        <span id="tpBadge" style="font-size:11px; padding:3px 8px; border-radius:4px; font-weight:bold; background:#111; border:1px solid #333; color:#aaa;">Sincronizzazione...</span>
+      <div class="cyber-box">
+    <!-- Header -->
+    <div class="header-row">
+        <h2>Global Threat Pulse &amp; OSINT Matrix</h2>
+        <span id="tpBadge" class="badge">Sincronizzazione...</span>
     </div>
 
-    <p style="color:#ccc; font-size:13px; margin-bottom:15px;">
+    <p class="desc">
         Analisi ponderata e normalizzazione in tempo reale basata su flussi globali multi-fonte (CISA, ThreatFox, Advisory).
     </p>
 
-    <!-- Display Principale -->
-    <div id="tpDisplayBox" style="
-        width:100%;
-        height:110px;
-        border-radius:6px;
-        background: linear-gradient(180deg, #00eaff11 0%, #000814 100%);
-        border: 1px solid #00eaff44;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.6s ease;
-        margin-bottom: 15px;
-    ">
-        <div id="tpPercent" style="font-size:34px; font-weight:bold; color:#00eaff; text-shadow: 0 0 10px currentColor;">--%</div>
-        <div id="tpStateLabel" style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#aaa; margin-top:2px;">Analisi in corso</div>
+    <!-- Display Punteggio -->
+    <div id="tpDisplayBox" class="display-box">
+        <div id="tpPercent" class="percent">--%</div>
+        <div id="tpStateLabel" class="state-label">Analisi in corso</div>
     </div>
 
-    <!-- Sottocategorie Normalizzate -->
-    <div style="background:#050b14; padding:12px; border-radius:6px; border:1px solid #112233; margin-bottom:15px; font-size:12px; color:#aaa;">
-        <div style="font-weight:bold; color:#fff; margin-bottom:8px;">Vettori Normalizzati (0-100):</div>
-        <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Exploits attivi (CISA KEV):</span> <strong id="metricExploits" style="color:#00eaff;">--%</strong></div>
-        <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Malware & IOC recenti:</span> <strong id="metricMalware" style="color:#00eaff;">--%</strong></div>
-        <div style="display:flex; justify-content:space-between;"><span>Advisory & Notizie critiche:</span> <strong id="metricAdvisories" style="color:#00eaff;">--%</strong></div>
+    <!-- Metriche -->
+    <div class="metrics-box">
+        <div class="metrics-title">Vettori Normalizzati (0–100):</div>
+        <div class="metric-row"><span>Exploits attivi (CISA KEV):</span> <strong id="metricExploits">--</strong></div>
+        <div class="metric-row"><span>Malware &amp; IOC recenti:</span> <strong id="metricMalware">--</strong></div>
+        <div class="metric-row"><span>Advisory &amp; Notizie critiche:</span> <strong id="metricAdvisories">--</strong></div>
     </div>
 
-    <div id="tpDetails" style="margin-top:10px; font-size:13px; color:#ddd; border-left: 3px solid #00eaff; padding-left: 10px; margin-bottom: 15px;">
+    <!-- Grafico Storico -->
+    <div class="chart-section">
+        <div class="chart-title">📈 Trend Ultime 24 Ore</div>
+        <div class="chart-container">
+            <canvas id="trendChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Lista Live Minacce -->
+    <div class="threats-section">
+        <div class="threats-title">⚠️ Minacce Recenti</div>
+        <div id="threatList" class="threats-list">
+            <div style="color:#556; font-size:12px; padding:8px 0;">Caricamento feed...</div>
+        </div>
+    </div>
+
+    <!-- Nota Operativa -->
+    <div id="tpDetails" class="details-box">
         Caricamento dettagli operativi...
     </div>
 
-    <!-- Box Guida all'Interpretazione per l'Utente -->
-    <div style="background:#0a0f1d; padding:12px; border-radius:6px; border:1px dashed #334466; font-size:11px; color:#88aaff; line-height:1.4;">
-        <strong style="color:#ccdfff;">💡 Guida Analista:</strong> <span id="tpGuidance">Caricamento linee guida interpretative...</span>
+    <!-- Guida -->
+    <div class="guidance-box">
+        <strong>💡 Guida Analista:</strong> <span id="tpGuidance">Caricamento linee guida interpretative...</span>
     </div>
 
-    <div style="margin-top:15px; font-size:11px; color:#666; display: flex; justify-content: space-between;">
+    <!-- Footer -->
+    <div class="footer-row">
         <span id="tpSources">Fonti: --</span>
         <span id="tpTimestamp">Ultimo aggiornamento: --</span>
     </div>
@@ -1271,69 +1263,290 @@ startWeeklyTrends();
 </script>
 
 <script>
-function startThreatPulseAdvanced() {
-    const displayBox = document.getElementById("tpDisplayBox");
-    const percentEl  = document.getElementById("tpPercent");
-    const stateEl    = document.getElementById("tpStateLabel");
-    const detailsEl  = document.getElementById("tpDetails");
-    const badgeEl    = document.getElementById("tpBadge");
-    const sourcesEl  = document.getElementById("tpSources");
-    const timeEl     = document.getElementById("tpTimestamp");
-    const guidanceEl = document.getElementById("tpGuidance");
-    
-    const metExp     = document.getElementById("metricExploits");
-    const metMal     = document.getElementById("metricMalware");
-    const metAdv     = document.getElementById("metricAdvisories");
+(function () {
+    "use strict";
 
-    if (!displayBox || !percentEl) {
-        setTimeout(startThreatPulseAdvanced, 250);
-        return;
+    // -----------------------------------------------------------------
+    // CONFIGURAZIONE ENDPOINT
+    // -----------------------------------------------------------------
+    // Sostituisci con il percorso corretto se diverso da /newsops/
+    const BASE_URL = "https://angelonline.altervista.org/newsops";
+    const ENDPOINTS = {
+        pulse:   BASE_URL + "/pulse.php",
+        history: BASE_URL + "/pulse_history.php?hours=24",
+        threats: BASE_URL + "/pulse_threats.php?limit=20"
+    };
+
+    // Intervalli di aggiornamento (allineati alla cache backend)
+    const REFRESH_PULSE   = 5 * 60 * 1000; // 5 minuti (cache pulse.php)
+    const REFRESH_HISTORY = 5 * 60 * 1000; // 5 minuti
+    const REFRESH_THREATS = 2 * 60 * 1000; // 2 minuti (cache pulse_threats.php)
+
+    // -----------------------------------------------------------------
+    // RIFERIMENTI DOM
+    // -----------------------------------------------------------------
+    const el = {
+        displayBox:   document.getElementById("tpDisplayBox"),
+        percent:      document.getElementById("tpPercent"),
+        stateLabel:   document.getElementById("tpStateLabel"),
+        badge:        document.getElementById("tpBadge"),
+        details:      document.getElementById("tpDetails"),
+        guidance:     document.getElementById("tpGuidance"),
+        sources:      document.getElementById("tpSources"),
+        timestamp:    document.getElementById("tpTimestamp"),
+        metricExp:    document.getElementById("metricExploits"),
+        metricMal:    document.getElementById("metricMalware"),
+        metricAdv:    document.getElementById("metricAdvisories"),
+        threatList:   document.getElementById("threatList"),
+        chartCanvas:  document.getElementById("trendChart")
+    };
+
+    // -----------------------------------------------------------------
+    // STATO GRAFICO
+    // -----------------------------------------------------------------
+    let trendChart = null;
+
+    function initChart() {
+        if (!el.chartCanvas || trendChart) return;
+
+        const ctx = el.chartCanvas.getContext("2d");
+
+        trendChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: [],
+                datasets: [{
+                    label: "Threat Pulse",
+                    data: [],
+                    borderColor: "#00eaff",
+                    backgroundColor: "rgba(0, 234, 255, 0.08)",
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                    pointHoverBackgroundColor: "#00eaff",
+                    fill: true,
+                    tension: 0.35
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: { duration: 400 },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: "#0a0f1d",
+                        borderColor: "#00eaff",
+                        borderWidth: 1,
+                        titleColor: "#00eaff",
+                        bodyColor: "#dde",
+                        callbacks: {
+                            label: function (ctx) {
+                                return "Punteggio: " + ctx.parsed.y + "%";
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: "#556",
+                            maxTicksLimit: 8,
+                            font: { size: 10 }
+                        },
+                        grid: { color: "#0a1a2a", drawBorder: false }
+                    },
+                    y: {
+                        min: 0,
+                        max: 100,
+                        ticks: {
+                            color: "#556",
+                            stepSize: 25,
+                            font: { size: 10 }
+                        },
+                        grid: { color: "#0a1a2a", drawBorder: false }
+                    }
+                }
+            }
+        });
     }
 
-    async function fetchThreatData() {
+    // -----------------------------------------------------------------
+    // FETCH DATI
+    // -----------------------------------------------------------------
+    async function fetchPulse() {
         try {
-            const res  = await fetch("https://angelonline.altervista.org/newsops/global_threat_pulse.php");
+            const res = await fetch(ENDPOINTS.pulse, { cache: "no-store" });
+            if (!res.ok) throw new Error("HTTP " + res.status);
             const data = await res.json();
 
-            displayBox.style.background = data.gradient;
-            displayBox.style.borderColor = data.color;
-            percentEl.style.color = data.color;
-            percentEl.style.textShadow = `0 0 15px ${data.color}`;
+            // Aggiorna display principale
+            el.displayBox.style.background = data.gradient || "linear-gradient(180deg, #00eaff11 0%, #000814 100%)";
+            el.displayBox.style.borderColor = data.color || "#00eaff44";
 
-            percentEl.textContent = data.value + "%";
-            stateEl.textContent = `Livello: ${data.state}`;
-            
-            badgeEl.textContent = data.state;
-            badgeEl.style.color = data.color;
-            badgeEl.style.borderColor = data.color;
+            el.percent.style.color = data.color || "#00eaff";
+            el.percent.style.textShadow = "0 0 18px " + (data.color || "#00eaff");
 
-            detailsEl.style.borderColor = data.color;
-            detailsEl.innerHTML = `<strong>Nota Operativa:</strong> ${data.note}`;
-
-            if(data.metrics) {
-                metExp.textContent = data.metrics.exploits + "%";
-                metMal.textContent = data.metrics.malware + "%";
-                metAdv.textContent = data.metrics.advisories + "%";
+            // Gestione dati insufficienti
+            if (data.data_quality === "insufficient") {
+                el.percent.textContent = "N/D";
+                el.stateLabel.textContent = "Dati insufficienti";
+            } else {
+                el.percent.textContent = data.value + "%";
+                el.stateLabel.textContent = "Livello: " + data.state;
             }
 
-            if(data.guidance) {
-                guidanceEl.textContent = data.guidance;
+            // Badge
+            el.badge.textContent = data.state || "N/A";
+            el.badge.style.color = data.color || "#00eaff";
+            el.badge.style.borderColor = data.color || "#00eaff";
+
+            // Dettagli
+            el.details.style.borderColor = data.color || "#00eaff";
+            el.details.innerHTML = "<strong>Nota Operativa:</strong> " + (data.note || "—");
+
+            // Metriche
+            if (data.metrics) {
+                el.metricExp.textContent = (data.metrics.exploits ?? "--") + "%";
+                el.metricMal.textContent = (data.metrics.malware ?? "--") + "%";
+                el.metricAdv.textContent = (data.metrics.advisories ?? "--") + "%";
             }
 
-            sourcesEl.textContent = data.sources;
-            timeEl.textContent = `Aggiornamento: ${data.timestamp}`;
+            // Guida
+            if (data.guidance) {
+                el.guidance.textContent = data.guidance;
+            }
+
+            // Footer
+            el.sources.textContent = data.sources || "Fonti: --";
+            el.timestamp.textContent = "Aggiornamento: " + (data.timestamp || "--");
 
         } catch (e) {
-            console.error("Errore Global Threat Pulse:", e);
-            detailsEl.innerHTML = "<span style='color:#ff0044;'>Errore di comunicazione con il backend di Threat Intelligence.</span>";
+            console.error("Errore Pulse:", e);
+            el.details.innerHTML = "<span style='color:#ff0044;'>Errore di comunicazione con il backend Threat Intelligence.</span>";
+            el.badge.textContent = "OFFLINE";
+            el.badge.style.color = "#ff0044";
+            el.badge.style.borderColor = "#ff0044";
         }
     }
 
-    fetchThreatData();
-    setInterval(fetchThreatData, 60000);
-}
+    async function fetchHistory() {
+        if (!trendChart) return;
 
-startThreatPulseAdvanced();
+        try {
+            const res = await fetch(ENDPOINTS.history, { cache: "no-store" });
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            const data = await res.json();
+
+            if (!data.points || !Array.isArray(data.points)) return;
+
+            // Formatta etichette orarie (HH:MM)
+            const labels = data.points.map(function (p) {
+                const d = new Date(p.t * 1000);
+                return d.getHours().toString().padStart(2, "0") + ":" +
+                       d.getMinutes().toString().padStart(2, "0");
+            });
+
+            const values = data.points.map(function (p) { return p.v; });
+
+            trendChart.data.labels = labels;
+            trendChart.data.datasets[0].data = values;
+            trendChart.update("none");
+
+        } catch (e) {
+            console.error("Errore History:", e);
+        }
+    }
+
+    async function fetchThreats() {
+        try {
+            const res = await fetch(ENDPOINTS.threats, { cache: "no-store" });
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            const items = await res.json();
+
+            if (!Array.isArray(items) || items.length === 0) {
+                el.threatList.innerHTML = '<div style="color:#556; font-size:12px; padding:8px 0;">Nessuna minaccia recente disponibile.</div>';
+                return;
+            }
+
+            // Costruisci HTML in modo sicuro
+            const frag = document.createDocumentFragment();
+
+            items.forEach(function (t) {
+                const row = document.createElement("div");
+                row.className = "threat-item";
+
+                const source = document.createElement("span");
+                source.className = "threat-source";
+                source.textContent = "[" + t.source + "]";
+
+                const link = document.createElement("a");
+                link.className = "threat-link";
+                link.href = t.link;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = t.title || "(senza titolo)";
+                link.title = t.title;
+
+                const date = document.createElement("span");
+                date.className = "threat-date";
+                try {
+                    const d = new Date(t.date);
+                    date.textContent = d.toLocaleDateString("it-IT", {
+                        day: "2-digit", month: "2-digit"
+                    });
+                } catch (_) {
+                    date.textContent = "";
+                }
+
+                row.appendChild(source);
+                row.appendChild(link);
+                row.appendChild(date);
+                frag.appendChild(row);
+            });
+
+            el.threatList.innerHTML = "";
+            el.threatList.appendChild(frag);
+
+        } catch (e) {
+            console.error("Errore Threats:", e);
+            el.threatList.innerHTML = '<div style="color:#ff0044; font-size:12px; padding:8px 0;">Errore caricamento feed minacce.</div>';
+        }
+    }
+
+    // -----------------------------------------------------------------
+    // CICLO DI AGGIORNAMENTO
+    // -----------------------------------------------------------------
+    function refreshAll() {
+        if (document.hidden) return;
+        fetchPulse();
+        fetchHistory();
+        fetchThreats();
+    }
+
+    // Avvio
+    initChart();
+    refreshAll();
+
+    // Polling separato per rispettare le diverse TTL
+    setInterval(function () {
+        if (!document.hidden) fetchPulse();
+    }, REFRESH_PULSE);
+
+    setInterval(function () {
+        if (!document.hidden) fetchHistory();
+    }, REFRESH_HISTORY);
+
+    setInterval(function () {
+        if (!document.hidden) fetchThreats();
+    }, REFRESH_THREATS);
+
+    // Riprendi aggiornamenti quando la scheda torna visibile
+    document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) refreshAll();
+    });
+
+})();
 </script>
 	
 	<script>
