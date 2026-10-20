@@ -271,27 +271,8 @@ fetch("/partials/ticker.html")
 </ul>
       </div>
       
-      <!-- Weekly Cyber Trends -->
-     <div class="news-box" style="
-    background:#000814;
-    border:1px solid #00eaffaa;
-    padding:20px;
-    margin-top:30px;
-    border-radius:8px;
-    box-shadow:0 0 12px #00eaffaa;
-">
-    <h3 style="color:#00eaff;">Weekly Cyber Trends</h3>
-
-    <div id="weekly-trends" style="display:flex; gap:10px; margin-top:15px;">
-        <div style="color:#ccc;">Caricamento...</div>
-    </div>
-
-    <p style="color:#ccc; margin-top:10px;">
-        Volume di attacchi rilevati negli ultimi 5 giorni.
-    </p>
-</div>
-      
-      <div class="cyber-box">
+ <!-- Global Threat Pulse & OSINT Matrix -->
+<div class="cyber-box">
     <!-- Header -->
     <div class="header-row">
         <h2>Global Threat Pulse &amp; OSINT Matrix</h2>
@@ -308,19 +289,22 @@ fetch("/partials/ticker.html")
         <div id="tpStateLabel" class="state-label">Analisi in corso</div>
     </div>
 
-    <!-- Metriche -->
-    <div class="metrics-box">
-        <div class="metrics-title">Vettori Normalizzati (0–100):</div>
-        <div class="metric-row"><span>Exploits attivi (CISA KEV):</span> <strong id="metricExploits">--</strong></div>
-        <div class="metric-row"><span>Malware &amp; IOC recenti:</span> <strong id="metricMalware">--</strong></div>
-        <div class="metric-row"><span>Advisory &amp; Notizie critiche:</span> <strong id="metricAdvisories">--</strong></div>
-    </div>
+    <!-- Griglia Intermedia (Metriche + Grafico) -->
+    <div class="matrix-grid">
+        <!-- Metriche -->
+        <div class="metrics-box">
+            <div class="metrics-title">Vettori Normalizzati (0–100):</div>
+            <div class="metric-row"><span>Exploits attivi (CISA KEV):</span> <strong id="metricExploits">--</strong></div>
+            <div class="metric-row"><span>Malware &amp; IOC recenti:</span> <strong id="metricMalware">--</strong></div>
+            <div class="metric-row"><span>Advisory &amp; Notizie critiche:</span> <strong id="metricAdvisories">--</strong></div>
+        </div>
 
-    <!-- Grafico Storico -->
-    <div class="chart-section">
-        <div class="chart-title">📈 Trend Ultime 24 Ore</div>
-        <div class="chart-container">
-            <canvas id="trendChart"></canvas>
+        <!-- Grafico Storico -->
+        <div class="chart-section">
+            <div class="chart-title">📈 Trend Ultime 24 Ore</div>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
         </div>
     </div>
 
@@ -350,16 +334,18 @@ fetch("/partials/ticker.html")
 </div>
 
 <style>
-/* --- Stili Cyber-SOC Moderni --- */
+/* --- Stile Uniformato con .news-box --- */
 .cyber-box {
-    background: #070b19;
-    border: 1px solid #10203a;
-    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #000814;
+    border: 1px solid #00eaffaa;
     padding: 20px;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: #c9d1d9;
-    max-width: 460px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px #00eaffaa;
+    font-family: inherit;
+    color: #ccc;
 }
 
 .header-row {
@@ -370,11 +356,10 @@ fetch("/partials/ticker.html")
 }
 
 .cyber-box h2 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
-    color: #e6edf3;
+    color: #00eaff;
     margin: 0;
-    letter-spacing: 0.5px;
 }
 
 .badge {
@@ -382,7 +367,7 @@ fetch("/partials/ticker.html")
     font-weight: 700;
     padding: 3px 8px;
     border-radius: 4px;
-    border: 1px solid #00eaff44;
+    border: 1px solid #00eaffaa;
     color: #00eaff;
     background: rgba(0, 234, 255, 0.05);
     text-transform: uppercase;
@@ -390,53 +375,60 @@ fetch("/partials/ticker.html")
 }
 
 .desc {
-    font-size: 12px;
-    color: #8b949e;
+    font-size: 13px;
+    color: #ccc;
     margin-bottom: 16px;
     line-height: 1.4;
 }
 
 .display-box {
-    background: linear-gradient(180deg, rgba(0,234,255,0.07) 0%, #040812 100%);
-    border: 1px solid #00eaff33;
-    border-radius: 8px;
-    padding: 18px;
+    background: linear-gradient(180deg, rgba(0,234,255,0.08) 0%, #00040a 100%);
+    border: 1px solid #00eaff44;
+    border-radius: 6px;
+    padding: 16px;
     text-align: center;
     margin-bottom: 16px;
     transition: all 0.3s ease;
 }
 
 .percent {
-    font-size: 38px;
+    font-size: 42px;
     font-weight: 800;
     color: #00eaff;
-    text-shadow: 0 0 12px rgba(0, 234, 255, 0.4);
-    line-height: 1.1;
+    text-shadow: 0 0 14px rgba(0, 234, 255, 0.5);
+    line-height: 1;
 }
 
 .state-label {
     font-size: 12px;
     font-weight: 600;
     color: #8b949e;
-    margin-top: 4px;
+    margin-top: 6px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.metrics-box {
-    background: #0a0f1d;
-    border: 1px solid #161b22;
-    border-radius: 6px;
-    padding: 12px;
+/* Griglia per affiancare Metriche e Grafico se c'è spazio */
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
     margin-bottom: 16px;
 }
 
-.metrics-title {
+.metrics-box, .chart-section, .threats-section {
+    background: #020b18;
+    border: 1px solid #00eaff33;
+    border-radius: 6px;
+    padding: 12px 14px;
+}
+
+.metrics-title, .chart-title, .threats-title {
     font-size: 11px;
     font-weight: 700;
-    color: #8b949e;
+    color: #00eaff;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
 
@@ -444,73 +436,47 @@ fetch("/partials/ticker.html")
     display: flex;
     justify-content: space-between;
     font-size: 12px;
-    padding: 3px 0;
-    color: #c9d1d9;
+    padding: 4px 0;
+    color: #ccc;
+    border-bottom: 1px dashed rgba(0, 234, 255, 0.1);
+}
+
+.metric-row:last-child {
+    border-bottom: none;
 }
 
 .metric-row strong {
     color: #00eaff;
 }
 
-.chart-section {
-    background: #0a0f1d;
-    border: 1px solid #161b22;
-    border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 16px;
-}
-
-.chart-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: #8b949e;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-}
-
 .chart-container {
     position: relative;
-    height: 130px;
+    height: 120px;
     width: 100%;
 }
 
 .threats-section {
-    background: #0a0f1d;
-    border: 1px solid #161b22;
-    border-radius: 6px;
-    padding: 12px;
     margin-bottom: 16px;
 }
 
-.threats-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: #8b949e;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-}
-
 .threats-list {
-    max-height: 150px;
+    max-height: 160px;
     overflow-y: auto;
-    padding-right: 4px;
+    padding-right: 6px;
 }
 
-/* Stile scrollbar feed minacce */
 .threats-list::-webkit-scrollbar {
     width: 4px;
 }
 .threats-list::-webkit-scrollbar-thumb {
-    background: #1f2937;
+    background: #00eaff44;
     border-radius: 2px;
 }
 
 .threat-item {
-    font-size: 11px;
-    padding: 5px 0;
-    border-bottom: 1px solid #161b22;
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0, 234, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -524,6 +490,7 @@ fetch("/partials/ticker.html")
 .threat-source {
     color: #8b949e;
     font-weight: 600;
+    font-size: 11px;
     flex-shrink: 0;
 }
 
@@ -537,6 +504,7 @@ fetch("/partials/ticker.html")
 }
 
 .threat-link:hover {
+    color: #00eaff;
     text-decoration: underline;
 }
 
@@ -547,39 +515,40 @@ fetch("/partials/ticker.html")
 }
 
 .details-box {
-    font-size: 11px;
-    background: rgba(0, 234, 255, 0.03);
+    font-size: 12px;
+    background: rgba(0, 234, 255, 0.04);
     border-left: 3px solid #00eaff;
-    padding: 10px;
+    padding: 10px 12px;
     border-radius: 0 6px 6px 0;
     margin-bottom: 12px;
     line-height: 1.4;
+    color: #ccc;
 }
 
 .guidance-box {
-    font-size: 11px;
-    color: #8b949e;
-    background: #0a0f1d;
-    padding: 10px;
+    font-size: 12px;
+    color: #ccc;
+    background: #020b18;
+    padding: 10px 12px;
     border-radius: 6px;
-    border: 1px solid #161b22;
-    margin-bottom: 12px;
+    border: 1px solid #00eaff33;
+    margin-bottom: 16px;
     line-height: 1.4;
 }
 
 .footer-row {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: 11px;
     color: #6e7681;
-    border-top: 1px solid #161b22;
-    padding-top: 8px;
+    border-top: 1px solid rgba(0, 234, 255, 0.15);
+    padding-top: 10px;
 }
 
 .loading-feed {
     color: #6e7681;
-    font-size: 11px;
-    padding: 6px 0;
+    font-size: 12px;
+    padding: 8px 0;
     text-align: center;
 }
 </style>
