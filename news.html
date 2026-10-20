@@ -1632,7 +1632,7 @@ function startLawTimeline() {
 startLawTimeline();
 </script>
 	
-  <script>
+<script>
 function startThreatBarometer() {
     const bar   = document.getElementById("threat-bar");
     const label = document.getElementById("threat-label");
@@ -1645,7 +1645,8 @@ function startThreatBarometer() {
 
     async function loadBarometer() {
         try {
-            const res  = await fetch("https://angelonline.altervista.org/newsops/threatbarometer.php");
+            const res  = await fetch("https://angelonline.altervista.org/newsops/threatbarometer.php", { cache: "no-store" });
+            if (!res.ok) throw new Error("HTTP " + res.status);
             const data = await res.json();
 
             // Barra dinamica
@@ -1656,8 +1657,8 @@ function startThreatBarometer() {
             label.textContent = `${data.icon} ${data.level}% (${data.category})`;
 
             // Info premium
-            meta.textContent =
-                `Trend 7 giorni: ${data.trend} · Nuove CVE: ${data.new_cve} · Totale CVE sfruttate: ${data.meta.total_cve}`;
+            const totalCve = (data.meta && data.meta.total_cve) ? data.meta.total_cve : (data.total_cve || "N/D");
+            meta.textContent = `Trend 7 giorni: ${data.trend} · Nuove CVE: ${data.new_cve} · Totale CVE sfruttate: ${totalCve}`;
 
             // Esporta dati globali per il Threat Monitor
             window._barometer = {
@@ -1665,7 +1666,7 @@ function startThreatBarometer() {
                 category: data.category,
                 trend: data.trend,
                 new_cve: data.new_cve,
-                total_cve: data.meta.total_cve
+                total_cve: totalCve
             };
 
         } catch (e) {
@@ -1681,7 +1682,7 @@ function startThreatBarometer() {
 
 startThreatBarometer();
 
-// ⭐ Collegamento premium al Threat Monitor
+// ⭐ Collegamento al Threat Monitor (Fix parametri GET e fallback)
 document.addEventListener("DOMContentLoaded", function () {
     const btn = document.getElementById("open-threat-monitor");
     if (!btn) return;
@@ -1690,16 +1691,21 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         const b = window._barometer;
-        if (!b) return;
+        
+        // Se i dati del barometro sono già pronti, li passa in query string
+        if (b) {
+            const url = "https://angelonline.altervista.org/newsops/threat-monitor.php"
+                + "?level="     + encodeURIComponent(b.level)
+                + "&category="  + encodeURIComponent(b.category)
+                + "&trend="     + encodeURIComponent(b.trend)  // 🔹 Corretto: aggiunto '='
+                + "&new_cve="   + encodeURIComponent(b.new_cve)
+                + "&total_cve=" + encodeURIComponent(b.total_cve);
 
-        const url = "https://angelonline.altervista.org/newsops/threat-monitor.php"
-    + "?level="     + encodeURIComponent(b.level)
-    + "&category="  + encodeURIComponent(b.category)
-    + "&trend"      + encodeURIComponent(b.trend)
-    + "&new_cve="   + encodeURIComponent(b.new_cve)
-    + "&total_cve=" + encodeURIComponent(b.total_cve);
-
-window.location.href = url;
+            window.location.href = url;
+        } else {
+            // Fallback se l'utente clicca prima del caricamento completato del fetch
+            window.location.href = "https://angelonline.altervista.org/newsops/threat-monitor.php";
+        }
     });
 });
 </script>
