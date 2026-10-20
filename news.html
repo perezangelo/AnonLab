@@ -1269,10 +1269,8 @@ startWeeklyTrends();
     "use strict";
 
     // =================================================================
-    // CONFIGURAZIONE — MODIFICA QUI SE NECESSARIO
+    // CONFIGURAZIONE
     // =================================================================
-    // Percorso base degli endpoint PHP (i 3 file caricati su AlterVista)
-    // Se i PHP sono in un'altra cartella, cambia BASE_URL di conseguenza.
     const BASE_URL = "https://angelonline.altervista.org/newsops";
 
     const ENDPOINTS = {
@@ -1281,10 +1279,12 @@ startWeeklyTrends();
         threats: BASE_URL + "/pulse_threats.php?limit=20"
     };
 
-    // Intervalli di refresh (ms) — allineati alle cache dei PHP
     const REFRESH_PULSE   = 5 * 60 * 1000; // 5 min
     const REFRESH_HISTORY = 5 * 60 * 1000; // 5 min
     const REFRESH_THREATS = 2 * 60 * 1000; // 2 min
+
+    // Nome del file Chart.js locale (solo per messaggi di errore)
+    const CHART_PATH = "/js/chart.umd.min.js";
 
     // =================================================================
     // RIFERIMENTI DOM
@@ -1306,7 +1306,7 @@ startWeeklyTrends();
     };
 
     // =================================================================
-    // VERIFICA CARICAMENTO CHART.JS
+    // VERIFICA CHART.JS
     // =================================================================
     function isChartAvailable() {
         return typeof window.Chart !== "undefined";
@@ -1319,14 +1319,16 @@ startWeeklyTrends();
 
     function initChart() {
         if (!el.chartCanvas) return;
+
         if (!isChartAvailable()) {
-            console.error("Chart.js non caricato: verifica il percorso /js/chart.umd.min.js");
-el.chartCanvas.parentElement.innerHTML =
-    '<div style="color:#ff7b00; font-size:12px; padding:12px;">' +
-    '⚠️ Chart.js non disponibile. Verifica che <code>/js/chart.umd.min.js</code> sia raggiungibile.' +
-    '</div>';
+            console.error("Chart.js non caricato: verifica il percorso " + CHART_PATH);
+            el.chartCanvas.parentElement.innerHTML =
+                '<div style="color:#ff7b00; font-size:12px; padding:12px;">' +
+                '⚠️ Chart.js non disponibile. Verifica che <code>' + CHART_PATH + '</code> sia raggiungibile.' +
+                '</div>';
             return;
         }
+
         if (trendChart) return;
 
         const ctx = el.chartCanvas.getContext("2d");
@@ -1384,9 +1386,11 @@ el.chartCanvas.parentElement.innerHTML =
     }
 
     // =================================================================
-    // FETCH: PULSE (punteggio corrente)
+    // FETCH: PULSE
     // =================================================================
     async function fetchPulse() {
+        if (!el.displayBox || !el.percent) return;
+
         try {
             const res = await fetch(ENDPOINTS.pulse, { cache: "no-store" });
             if (!res.ok) throw new Error("HTTP " + res.status);
@@ -1426,15 +1430,19 @@ el.chartCanvas.parentElement.innerHTML =
 
         } catch (e) {
             console.error("Errore Pulse:", e);
-            el.details.innerHTML = "<span style='color:#ff0044;'>Errore di comunicazione con il backend Threat Intelligence.</span>";
-            el.badge.textContent = "OFFLINE";
-            el.badge.style.color = "#ff0044";
-            el.badge.style.borderColor = "#ff0044";
+            if (el.details) {
+                el.details.innerHTML = "<span style='color:#ff0044;'>Errore di comunicazione con il backend Threat Intelligence.</span>";
+            }
+            if (el.badge) {
+                el.badge.textContent = "OFFLINE";
+                el.badge.style.color = "#ff0044";
+                el.badge.style.borderColor = "#ff0044";
+            }
         }
     }
 
     // =================================================================
-    // FETCH: HISTORY (trend)
+    // FETCH: HISTORY
     // =================================================================
     async function fetchHistory() {
         if (!trendChart) return;
@@ -1464,9 +1472,11 @@ el.chartCanvas.parentElement.innerHTML =
     }
 
     // =================================================================
-    // FETCH: THREATS (lista live)
+    // FETCH: THREATS
     // =================================================================
     async function fetchThreats() {
+        if (!el.threatList) return;
+
         try {
             const res = await fetch(ENDPOINTS.threats, { cache: "no-store" });
             if (!res.ok) throw new Error("HTTP " + res.status);
@@ -1531,7 +1541,6 @@ el.chartCanvas.parentElement.innerHTML =
         fetchThreats();
     }
 
-    // Avvio (attende che Chart.js sia pronto)
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", function () {
             initChart();
