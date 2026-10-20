@@ -1806,7 +1806,7 @@ function startWeeklyTrends() {
 startWeeklyTrends();
 </script>
 	
-	<script>
+<script>
 (function () {
     "use strict";
 
@@ -1825,6 +1825,9 @@ startWeeklyTrends();
             if (!res.ok) throw new Error("HTTP " + res.status);
             const data = await res.json();
 
+            // Estrae l'array delle categorie gestendo eventuali proprietà extra (es. timestamp)
+            const categories = Array.isArray(data) ? data : Object.values(data).filter(item => typeof item === 'object' && item !== null && item.label);
+
             const map = {
                 "Malware": "mal",
                 "Phishing": "phi",
@@ -1833,7 +1836,7 @@ startWeeklyTrends();
                 "APT": "apt"
             };
 
-            data.forEach(item => {
+            categories.forEach(item => {
                 const prefix = map[item.label];
                 if (!prefix) return;
 
@@ -1850,9 +1853,12 @@ startWeeklyTrends();
                 }
             });
 
-            const timestampEl = document.getElementById("tcTimestamp");
-            if (timestampEl) {
-                timestampEl.textContent = "Aggiornato: " + (data.timestamp || new Date().toLocaleTimeString());
+            // Se il backend invia un timestamp, aggiornalo
+            if (data.timestamp) {
+                const timestampEl = document.getElementById("tcTimestamp");
+                if (timestampEl) {
+                    timestampEl.textContent = "Aggiornato: " + data.timestamp;
+                }
             }
 
         } catch (e) {
