@@ -809,84 +809,166 @@ fetch("/partials/ticker.html")
 })();
 </script>
 		
+<!-- Cyber Threat Categories Widget -->
 <div class="news-box" style="
     background:#000814;
     border:1px solid #00ff99aa;
     padding:20px;
     margin-top:30px;
     border-radius:8px;
-    box-shadow:0 0 12px #00ff99aa;
+    box-shadow:0 0 14px rgba(0, 255, 153, 0.25);
 ">
+    <div class="tc-header">
+        <h3 style="color:#00ff99; margin:0; font-size:16px;">Cyber Threat Categories Matrix</h3>
+        <span id="tcBadge" class="tc-badge">Live Feed</span>
+    </div>
 
-    <h3 style="color:#00ff99;">Cyber Threat Categories</h3>
-
-    <p style="color:#ccc; font-size:13px; margin-top:6px;">
-        Attività delle principali categorie di minacce rilevate dalle fonti OSINT
-        nelle ultime 24 ore (valori normalizzati 0–100).
+    <p style="color:#8b949e; font-size:12px; margin: 8px 0 16px 0; line-height: 1.4;">
+        Distribuzione ponderata dei vettori d'attacco globali rilevati nelle ultime 24 ore da flussi OSINT multi-fonte.
     </p>
 
-    <p style="color:#888; font-size:11px; margin-top:4px;">
-        Fonti: ThreatFox (Malware), OpenPhish (Phishing), CISA KEV + NVD (Exploits),
-        Spamhaus (Botnet), SecurityWeek (APT)
-    </p>
-
-    <div style="display:flex; gap:12px; margin-top:20px; align-items:flex-end; height:180px;">
-
-        <div style="width:20%; text-align:center;">
-            <div id="malCol" class="thBar" data-tip="Malware rilevati nelle ultime 24 ore"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">🧬 Malware</div>
-            <div id="malVal" style="color:#00eaff; font-size:11px;"></div>
+    <!-- Griglia delle Categorie -->
+    <div class="tc-container">
+        
+        <!-- Malware -->
+        <div class="tc-row">
+            <div class="tc-info">
+                <span>🧬 Malware &amp; IOC</span>
+                <strong id="malVal" class="tc-val">--%</strong>
+            </div>
+            <div class="tc-track">
+                <div id="malBar" class="tc-fill" style="width: 0%;"></div>
+            </div>
         </div>
 
-        <div style="width:20%; text-align:center;">
-            <div id="phiCol" class="thBar" data-tip="URL di phishing attivi rilevati"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">🎣 Phishing</div>
-            <div id="phiVal" style="color:#00eaff; font-size:11px;"></div>
+        <!-- Phishing -->
+        <div class="tc-row">
+            <div class="tc-info">
+                <span>🎣 Phishing &amp; Campagne Social</span>
+                <strong id="phiVal" class="tc-val">--%</strong>
+            </div>
+            <div class="tc-track">
+                <div id="phiBar" class="tc-fill" style="width: 0%;"></div>
+            </div>
         </div>
 
-        <div style="width:20%; text-align:center;">
-            <div id="expCol" class="thBar" data-tip="Vulnerabilità sfruttate attivamente"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">🛡 Exploits</div>
-            <div id="expVal" style="color:#00eaff; font-size:11px;"></div>
+        <!-- Exploits -->
+        <div class="tc-row">
+            <div class="tc-info">
+                <span>🛡 Exploits &amp; Vulnerabilità (KEV)</span>
+                <strong id="expVal" class="tc-val">--%</strong>
+            </div>
+            <div class="tc-track">
+                <div id="expBar" class="tc-fill" style="width: 0%;"></div>
+            </div>
         </div>
 
-        <div style="width:20%; text-align:center;">
-            <div id="botCol" class="thBar" data-tip="Server C&C botnet attivi"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">🤖 Botnet</div>
-            <div id="botVal" style="color:#00eaff; font-size:11px;"></div>
+        <!-- Botnet -->
+        <div class="tc-row">
+            <div class="tc-info">
+                <span>🤖 Botnet &amp; Infrastrutture C&amp;C</span>
+                <strong id="botVal" class="tc-val">--%</strong>
+            </div>
+            <div class="tc-track">
+                <div id="botBar" class="tc-fill" style="width: 0%;"></div>
+            </div>
         </div>
 
-        <div style="width:20%; text-align:center;">
-            <div id="aptCol" class="thBar" data-tip="Attività APT osservata"></div>
-            <div style="color:#ccc; margin-top:6px; font-size:12px;">⚡ APT</div>
-            <div id="aptVal" style="color:#00eaff; font-size:11px;"></div>
+        <!-- APT -->
+        <div class="tc-row">
+            <div class="tc-info">
+                <span>⚡ APT &amp; Minacce Avanzate</span>
+                <strong id="aptVal" class="tc-val">--%</strong>
+            </div>
+            <div class="tc-track">
+                <div id="aptBar" class="tc-fill" style="width: 0%;"></div>
+            </div>
         </div>
 
     </div>
 
+    <div class="tc-footer">
+        <span id="tcSources">Fonti: ThreatFox, OpenPhish, CISA KEV, Spamhaus</span>
+        <span id="tcTimestamp">Aggiornato: --</span>
+    </div>
 </div>
 
 <style>
-.thBar {
-    width:100%;
-    height:0;
-    transition:0.4s;
-    border-radius:4px;
-    position:relative;
+.tc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.thBar:hover::after {
-    content: attr(data-tip);
-    position:absolute;
-    bottom:100%;
-    left:50%;
-    transform:translateX(-50%);
-    background:#000;
-    color:#00eaff;
-    padding:6px 10px;
-    border:1px solid #00eaff;
-    border-radius:6px;
-    font-size:11px;
-    white-space:nowrap;
+
+.tc-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #00ff9966;
+    color: #00ff99;
+    background: rgba(0, 255, 153, 0.05);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.tc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tc-row {
+    background: #020b18;
+    border: 1px solid rgba(0, 255, 153, 0.15);
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.tc-row:hover {
+    border-color: rgba(0, 255, 153, 0.4);
+    background: #030f22;
+}
+
+.tc-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #c9d1d9;
+    margin-bottom: 6px;
+}
+
+.tc-val {
+    color: #00ff99;
+    font-weight: 700;
+}
+
+.tc-track {
+    width: 100%;
+    height: 6px;
+    background: #071326;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.tc-fill {
+    height: 100%;
+    width: 0%;
+    background: #00ff99;
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 255, 153, 0.5);
+}
+
+.tc-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #6e7681;
+    border-top: 1px solid rgba(0, 255, 153, 0.15);
+    margin-top: 16px;
+    padding-top: 10px;
 }
 </style>
       
@@ -1725,63 +1807,64 @@ startWeeklyTrends();
 </script>
 	
 	<script>
-window.addEventListener("DOMContentLoaded", function() {
+(function () {
+    "use strict";
 
-    // Colori dinamici basati sul rischio
-    function riskColor(value) {
-        if (value >= 75) return "#ff0044";   // alto rischio
-        if (value >= 50) return "#ff7b00";   // medio-alto
-        if (value >= 25) return "#ffaa00";   // medio
-        return "#00eaff";                    // basso
+    const ENDPOINT = "https://angelonline.altervista.org/newsops/threatcategories.php";
+
+    function riskColor(val) {
+        if (val >= 75) return "#ff0044"; // Critico
+        if (val >= 50) return "#ff7b00"; // Alto
+        if (val >= 25) return "#ffaa00"; // Moderato
+        return "#00ff99";               // Normale
     }
 
-    function startThreatCategories() {
+    async function loadThreatCategories() {
+        try {
+            const res = await fetch(ENDPOINT, { cache: "no-store" });
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            const data = await res.json();
 
-        async function loadThreats() {
-            try {
-                const res = await fetch("https://angelonline.altervista.org/newsops/threatcategories.php");
-                const data = await res.json();
+            const map = {
+                "Malware": "mal",
+                "Phishing": "phi",
+                "Exploits": "exp",
+                "Botnet": "bot",
+                "APT": "apt"
+            };
 
-                // Mappa categorie → ID barre
-                const map = {
-                    "Malware": "mal",
-                    "Phishing": "phi",
-                    "Exploits": "exp",
-                    "Botnet": "bot",
-                    "APT": "apt"
-                };
+            data.forEach(item => {
+                const prefix = map[item.label];
+                if (!prefix) return;
 
-                data.forEach(item => {
-                    const id = map[item.label];
-                    const col = document.getElementById(id + "Col");
-                    const val = document.getElementById(id + "Val");
+                const fillBar = document.getElementById(prefix + "Bar");
+                const valLabel = document.getElementById(prefix + "Val");
 
-                    if (!col || !val) return;
+                if (fillBar && valLabel) {
+                    const val = Math.max(0, Math.min(100, item.value));
+                    fillBar.style.width = val + "%";
+                    fillBar.style.backgroundColor = riskColor(val);
+                    fillBar.style.boxShadow = `0 0 8px ${riskColor(val)}66`;
+                    valLabel.textContent = val + "%";
+                    valLabel.style.color = riskColor(val);
+                }
+            });
 
-                    // Altezza proporzionale (0–100 px)
-                    col.style.height = item.value + "px";
-
-                    // Colore dinamico basato sul rischio
-                    col.style.background = riskColor(item.value);
-
-                    // Valore numerico
-                    val.textContent = item.value + "%";
-                });
-
-            } catch (e) {
-                console.log("Errore ThreatCategories:", e);
+            const timestampEl = document.getElementById("tcTimestamp");
+            if (timestampEl) {
+                timestampEl.textContent = "Aggiornato: " + (data.timestamp || new Date().toLocaleTimeString());
             }
-        }
 
-        loadThreats();
-        setInterval(loadThreats, 60000);
+        } catch (e) {
+            console.error("Errore ThreatCategories:", e);
+        }
     }
 
-    startThreatCategories();
-
-});
+    loadThreatCategories();
+    setInterval(loadThreatCategories, 3 * 60 * 1000); // Aggiorna ogni 3 minuti
+})();
 </script>
-
+	
   <script>
 function startIntelNotes() {
     const list = document.getElementById("intelNotesList");
