@@ -1825,8 +1825,8 @@ startWeeklyTrends();
             if (!res.ok) throw new Error("HTTP " + res.status);
             const data = await res.json();
 
-            // Estrae l'array delle categorie gestendo eventuali proprietà extra (es. timestamp)
-            const categories = Array.isArray(data) ? data : Object.values(data).filter(item => typeof item === 'object' && item !== null && item.label);
+            // Estrae correttamente l'array delle categorie dalla chiave "categories"
+            const categories = data.categories || (Array.isArray(data) ? data : []);
 
             const map = {
                 "Malware": "mal",
@@ -1853,7 +1853,7 @@ startWeeklyTrends();
                 }
             });
 
-            // Se il backend invia un timestamp, aggiornalo
+            // Aggiorna il timestamp se presente
             if (data.timestamp) {
                 const timestampEl = document.getElementById("tcTimestamp");
                 if (timestampEl) {
