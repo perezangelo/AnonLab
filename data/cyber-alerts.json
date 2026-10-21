@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-113711",
-    "summary": "ApostropheCMS: Unauthenticated resource exhaustion via pre-auth aposBigUpload processing in @apostrophecms/import-export",
-    "severity": "HIGH",
-    "published": "2026-10-21T13:51:21Z",
-    "ghsa": "GHSA-86wm-68pq-5jwq"
-  },
-  {
-    "id": "CVE-2026-113712",
-    "summary": "Cachet has Stored XSS in Incident Component",
+    "id": "CVE-2026-62197",
+    "summary": "OpenClaw: Browser CDP discovery could accept blocked WebSocket URLs",
     "severity": "MODERATE",
-    "published": "2026-10-20T21:09:40Z",
-    "ghsa": "GHSA-x397-5hrv-j9m9"
+    "published": "2026-10-21T19:37:42Z",
+    "ghsa": "GHSA-3x84-qq85-fj65"
   },
   {
-    "id": "CVE-2026-111762",
-    "summary": "A2A Java SDK: Push notification credentials logged in cleartext on protobuf parse failure",
+    "id": "CVE-2026-114125",
+    "summary": "Storybook: Missing origin validation in Storybook preview allows code injection from malicious websites",
+    "severity": "CRITICAL",
+    "published": "2026-10-21T17:23:29Z",
+    "ghsa": "GHSA-f2ph-cmg5-wxc8"
+  },
+  {
+    "id": "CVE-2026-113800",
+    "summary": "Electron: HID and USB permission checks can be attributed to the wrong origin",
     "severity": "MODERATE",
-    "published": "2026-10-20T21:08:33Z",
-    "ghsa": "GHSA-x32g-jvvm-4725"
+    "published": "2026-10-21T17:21:51Z",
+    "ghsa": "GHSA-fw47-9c62-h3vw"
   },
   {
-    "id": "CVE-2026-111765",
-    "summary": "A2A Java SDK: Android synchronous POST forwards credentials across authorities after incomplete redirect fix",
-    "severity": "HIGH",
-    "published": "2026-10-20T21:08:06Z",
-    "ghsa": "GHSA-4fpj-g9jf-9rgg"
+    "id": "CVE-2026-113731",
+    "summary": "djust: Arbitrary absolute-path file read in the find_handlers_for_template MCP tool",
+    "severity": "LOW",
+    "published": "2026-10-21T17:21:15Z",
+    "ghsa": "GHSA-r57g-mc79-8hj2"
   },
   {
-    "id": "CVE-2026-111761",
-    "summary": "A2A Java SDK has Server-Side Request Forgery (SSRF) in push-notification delivery",
+    "id": "CVE-2026-112952",
+    "summary": "ApostropheCMS: POST /api/v1/@apostrophecms/doc/slugTaken discloses existence of private/admin-only content to any authenticated user",
     "severity": "MODERATE",
-    "published": "2026-10-20T21:06:22Z",
-    "ghsa": "GHSA-q78c-5jjq-57g8"
+    "published": "2026-10-21T17:17:00Z",
+    "ghsa": "GHSA-f66c-mpj2-3r8h"
   },
   {
-    "id": "CVE-2026-111764",
-    "summary": "A2A Java SDK has a fail-open default task authorization",
-    "severity": "HIGH",
-    "published": "2026-10-20T21:05:09Z",
-    "ghsa": "GHSA-qw47-mcm5-934w"
-  },
-  {
-    "id": "CVE-2026-111763",
-    "summary": "A2A Java SDK send client credentials under server-controlled HTTP header name, enabling leakage via redirect",
+    "id": "CVE-2026-112957",
+    "summary": "ApostropheCMS: GET /api/v1/@apostrophecms/page/:id bypasses viewRole restriction and exposes viewPermission-gated fields to lower-privileged users",
     "severity": "MODERATE",
-    "published": "2026-10-20T21:04:16Z",
-    "ghsa": "GHSA-9rhm-2h4x-jwmx"
+    "published": "2026-10-21T17:15:21Z",
+    "ghsa": "GHSA-vh56-5m88-39rq"
   },
   {
-    "id": "CVE-2026-112397",
-    "summary": "Pillow: Out-of-bounds access in _imagingmorph on a zero-width image",
-    "severity": "HIGH",
-    "published": "2026-10-20T20:56:22Z",
-    "ghsa": "GHSA-58r4-6rv3-gfh8"
-  },
-  {
-    "id": "CVE-2026-112400",
-    "summary": "Pillow: GIF seek keeps rejected size after DecompressionBombError, allowing DoS",
-    "severity": "HIGH",
-    "published": "2026-10-20T20:53:36Z",
-    "ghsa": "GHSA-65qm-jvmh-6pqg"
-  },
-  {
-    "id": "CVE-2026-112899",
-    "summary": "Pillow: EPS load(scale) lets Ghostscript render past the decompression bomb limit",
+    "id": "CVE-2026-112958",
+    "summary": "ApostropheCMS: Stored XSS via Unescaped Widget Style Attribute Serialization",
     "severity": "MODERATE",
-    "published": "2026-10-20T20:53:21Z",
-    "ghsa": "GHSA-vx6w-vv9f-6gvg"
+    "published": "2026-10-21T17:15:07Z",
+    "ghsa": "GHSA-7jg5-frgc-c67w"
+  },
+  {
+    "id": "CVE-2026-113648",
+    "summary": "ApostropheCMS: Missing Authentication in `cleanExport` Route",
+    "severity": "LOW",
+    "published": "2026-10-21T17:13:28Z",
+    "ghsa": "GHSA-rw26-wwfc-9wvm"
+  },
+  {
+    "id": "CVE-2026-112954",
+    "summary": "ApostropheCMS: Unauthenticated publicApiProjection bypass via search and sort query builders in the public REST API",
+    "severity": "MODERATE",
+    "published": "2026-10-21T17:12:15Z",
+    "ghsa": "GHSA-rqgm-cfrp-4hx8"
+  },
+  {
+    "id": "CVE-2026-112951",
+    "summary": "ApostropheCMS: Color field validation bypass allows stored XSS via HTML appended after rgb()/hsl() prefix",
+    "severity": "MODERATE",
+    "published": "2026-10-21T17:05:44Z",
+    "ghsa": "GHSA-vmgj-9cwm-cf3h"
   }
 ]
