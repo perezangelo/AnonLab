@@ -1,8 +1,58 @@
 [
   {
-    "title": "Hijacked Developer Account Used to Plant Stealer in OVHcloud CLI",
-    "link": "https://www.securityweek.com/hijacked-developer-account-used-to-plant-stealer-in-ovhcloud-cli/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
+    "title": "Hackers claim they breached Disney: here\u2019s what we found",
+    "link": "https://cybernews.com/security/disney-data-breach-claim/",
+    "image": "https://media.cybernews.com/images/featured-big/2025/09/disney.jpg"
+  },
+  {
+    "title": "Browsers Block eMudhra Intermediate CAs Over Recoverable Private Keys",
+    "link": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/internet-routing-bgp.jpeg"
+  },
+  {
+    "title": "China Defends DeepSeek After US Ban of Its AI From Government Systems",
+    "link": "https://www.securityweek.com/china-defends-deepseek-after-us-ban-of-its-ai-from-government-systems/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/DeepSeek-AI.jpeg"
+  },
+  {
+    "title": "Musk and Trump point fingers as Starlink slowdown hurts Ukraine",
+    "link": "https://cybernews.com/news/musk-trump-starlink-ukraine/",
+    "image": "https://media.cybernews.com/images/featured-big/2025/02/MuskTrumpOct2024.jpg"
+  },
+  {
+    "title": "PHP2Shell: What Actually Protects You Before the 14:00 UTC PHP RCE Patch, and What Doesn't",
+    "link": "https://thehackernews.com/2026/10/php2shell-what-actually-protects-you.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipzsA5sBIvBsTGT1YIrSeK_4YH5ISqTd40ZG1tV8YN1VkjjZuiY6CfQojYR-TIoYKM0EgZM4fYrmdtD25XjeTtgBkTFCQGny4DLL0fTKT5SEFpOFBcxNjLgif_FrX-1d-IX9DE58tQX6ELzGk4cWNpUpU5Eaig8pqdLL2h6qqVCC95ZmHFN6m7tD6m7BY/s1600/php-rce-patch.jpg"
+  },
+  {
+    "title": "The Harness Is the Hard Part of Agentic Pentesting",
+    "link": "https://thehackernews.com/2026/10/the-harness-is-hard-part-of-agentic.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTdLja8gnPl92G1mhffmAZ3Dy5Q8gX9wpjY22n1J2xerzpx0Eab4VMj2fzt3XAe_TjT8hlDkjdzW8DdBwWCvAPa9o5SKnFN4MSo5H0MnXylWX36NwFiwcI19f3MR0QDPT2uKXtXH4RAj5_rU3aBnmAVxsczeL2sfBj7G1r878XbJ6rAyEFgIg0XeuBNKk/s1600/pentera-main.jpg"
+  },
+  {
+    "title": "Attackers Hijacked Over 300 Tor Exit Relays to Intercept SSH Connections",
+    "link": "https://thehackernews.com/2026/10/attackers-hijacked-over-300-tor-exit.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-PokIxnQKc5RkxwrgRCR7Aaw8sjbkT1F4TQWCIG2V_rhQVKp8CJgtivgF5Zns45rObi0Tf-e9FDBXdX0L7OUshol00GvpiQhAi3SUAa72DV-bjeDu2oNzET9uV_cIQV2U9jSXGC2qiWWOr00M1ZYPAtcaWJNSn2_IH_BwPWVaUEqqjpmUSgfhIvRUdbY/s1600/tor-ssh.jpg"
+  },
+  {
+    "title": "Microsoft says October updates didn\u2019t actually fix VPN issues",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-didnt-actually-fix-vpn-issues-caused-by-windows-updates/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/Windows_headpic.jpg"
+  },
+  {
+    "title": "Spotify pulls a Netflix, asks Family plan members to verify their address",
+    "link": "https://cybernews.com/news/spotify-family-plan-member-verification/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/06/spotify-emoji.jpg"
+  },
+  {
+    "title": "Chinese AI Model Writes More Hackable Code When Told It\u2019s for US Contractor",
+    "link": "https://www.securityweek.com/chinese-ai-model-writes-more-hackable-code-when-told-its-for-us-contractor/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/China-APT-AI-artificial-intelligence.jpeg"
+  },
+  {
+    "title": "WordPress websites at risk from severe PHP flaws: emergency patch due soon",
+    "link": "https://cybernews.com/security/wordpress-php-severe-rce-flaws-emergency-patches/",
+    "image": "https://media.cybernews.com/images/featured-big/2025/05/wordpress-sites_.jpg"
   },
   {
     "title": "PHP2Shell: Two Unpatched Critical PHP RCE Flaws (CVSS 9.2) Trigger Emergency Security Alert",
@@ -10,14 +60,79 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcxq1wmaSTaMiFJnrulXjwGrIIkIHBR3Q9Yv6Lky3rAie6XPOnFmXOVckMgVzGn9yvodrbkt6kV623Ofg8Iw-1MTDRoCVzXPiikivnZ5R7OynIF5-QC0DAiwXq8q2MRS3PZaz9NpjhJUqa-QWi1AQJ2XnJ-nvUNEvG3f1E0UpU5slUwzguAI-cESkZ5Xc/s1600/php2shell.jpg"
   },
   {
+    "title": "Attackers Abuse UpdraftCentral Keys to Plant Backdoors on WordPress Sites",
+    "link": "https://thehackernews.com/2026/10/attackers-abuse-updraftcentral-keys-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdsSYB_dpfRL3wD0MeCT_VyPyFJS8HjQAW0VuBHSTviFY4WBOQfa8MCP79qyJR3zYyMBesIXiCtL8XwwtjjLGm9Stxdv_qoIkf3_Rpc7YGFwZuzVS974TbuDfF5GkLRJX2DxFaDudlMlXSDyiZ8fvoVGaKaA-tpCr_eAvvEsfQr1uyfdBk-8KyK4aisYgC/s1600/wp-backdoor.jpg"
+  },
+  {
+    "title": "Microsoft will block some USB drives from Windows",
+    "link": "https://cybernews.com/tech/microsoft-windows-external-drives-refs/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/external_drives.jpg"
+  },
+  {
+    "title": "DHS lied about why it searched activist\u2019s GrapheneOS phone",
+    "link": "https://cybernews.com/news/dhs-grapheneos-phone-wipe-activist/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/a-smartphone-behind-prison-bars.jpg"
+  },
+  {
+    "title": "CISA: SafePay ransomware hit over 600 critical infrastructure orgs",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/11/Hacker.jpg"
+  },
+  {
+    "title": "Siemens software, used by Nvidia and Amazon, under active exploitation: Is your PC safe?",
+    "link": "https://cybernews.com/security/siemens-software-malware-campaign-vulnerability/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/08/Siemens.jpg"
+  },
+  {
+    "title": "U.S. Orders DeepSeek Removed From Federal Civilian Systems, Bans New Purchases",
+    "link": "https://thehackernews.com/2026/10/us-orders-deepseek-removed-from-federal.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjAZGBcWVyeZELPmEq7fujTJPeDgQoEZQpt7sD2rB1EO9fXByN2kmezefmvfihwR7fDE-77o-JVKB8bASzvKamkZB9kx9SstR2PA529wjrAWiSr1IBHEfrShRbiOd3PG2OP3iqygUb_ZeXYBSzrTN86MY5pjngL6WsqwoqJYYzUXSSVCJNKihe8F7FKsA/s1600/deepseek-dhs.jpg"
+  },
+  {
+    "title": "How AI Video Generators Are Reshaping Social Media Content Creation",
+    "link": "https://cybernews.com/partner-content/how-ai-video-generators-are-reshaping-social-media-content-creation/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/How-AI-Video-Generators-Are-Reshaping-Social-Media-Content-Creation.jpg"
+  },
+  {
+    "title": "State Bank of India Confirms Data Leak After 3,897 Customer Records Found on Dark Web",
+    "link": "https://thehackernews.com/2026/10/state-bank-of-india-confirms-data-leak.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlQofjstTN3Rpma_akZslqH5L5GLXJ6yhYDWwr5R-rK78jnhUq0L0jk3Ds7sYrlCMjyV8SPGb9PqOr1n46ssgdRRdSdFxPVHc-uxVaVm_l-atc0RXV2MTG6Y5AmIivnljGOMRIKNxeOlIfzIuDdZGl7CHP_Xplctaz8YkiWvriWkCgQ8GyKkR804LI0KQ/s1600/sbi-data-breach.jpg"
+  },
+  {
+    "title": "CISA Orders Federal Agencies to Patch Exploited Plex2Shell, Siemens, and SiteGuard Flaws",
+    "link": "https://thehackernews.com/2026/10/cisa-orders-federal-agencies-to-patch.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNWLuogjq0EVRQo6oTMUucF21anDW9Jpvs5w98qm-I6hOqH4fU1ZeHA1DqNilI_drxE548BnZD4vkXfB3KmWXAm4xfU3KU3j38LI-ZXhB03kZy4rWc9qiQqSED6vVjxihA1-uM_46qlXjjDchlvKmtgFG-ym3oosqXFEED6w2mG_Zb-yHjq4IIPcFDeX13/s1600/cisa-patch.jpg"
+  },
+  {
+    "title": "Makera Connects AI Design With Desktop CNC Making",
+    "link": "https://cybernews.com/press-releases/makera-connects-ai-design-with-desktop-cnc-making/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/makera-featured-image.jpg"
+  },
+  {
+    "title": "PHP2Shell: Mass Exploitation Looms for Leaked Critical PHP Flaws",
+    "link": "https://www.securityweek.com/php2shell-mass-exploitation-looms-for-leaked-critical-php-flaws/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PHP.jpeg"
+  },
+  {
+    "title": "OpenAI bugging suspect reportedly in contact with Saudi royal",
+    "link": "https://cybernews.com/tech/openai-bugging-suspect-saudi-royal-contact/",
+    "image": "https://media.cybernews.com/images/750w/2026/09/openai-pinky.png"
+  },
+  {
+    "title": "Hackers Hid Vasilek Backdoor in VMware Tools During 2-Year Russian Healthcare Intrusion",
+    "link": "https://thehackernews.com/2026/10/hackers-hid-vasilek-backdoor-in-vmware.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwNHgVe_6hmXG-V6Nx8pk56jDEW1WRCKtvvG9RHugoj65LqTTVGLvgl1Eh1E7ClmyMDn9k4RrF7Yp1kteZvZ_r7v9IxQPG_Eif3nk_13gz_MSddPcBtJdLKFwYAPa4BKMN5FdZLvvTIjahr4aTdiiLeQMuVzrj8Ff9wvgmUCW_6_OyfXPSGIEEIxZgdtQ-/s1600/vmware-healthcare.jpg"
+  },
+  {
+    "title": "Hijacked Developer Account Used to Plant Stealer in OVHcloud CLI",
+    "link": "https://www.securityweek.com/hijacked-developer-account-used-to-plant-stealer-in-ovhcloud-cli/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
+  },
+  {
     "title": "Accenture, Dragos, SANS Launch $10M Initiative to Defend Small US Utilities",
     "link": "https://www.securityweek.com/accenture-dragos-sans-launch-10m-initiative-to-defend-small-us-utilities/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/OT-industrial-ICS.jpeg"
-  },
-  {
-    "title": "Hackers take control of school cameras, locks, and HVAC, shutting down entire Idaho school district",
-    "link": "https://cybernews.com/news/school-district-ransomware-attack-idaho-cameras-locks-hvac/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/JeromeSchoolDistrict.jpg"
   },
   {
     "title": "Stolen UpdraftCentral keys used to backdoor WordPress sites",
@@ -30,123 +145,8 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/certificate.jpg"
   },
   {
-    "title": "France puts Meta, TikTok, other platforms on notice over riot content",
-    "link": "https://cybernews.com/news/france-meeting-meta-tiktok-riot-content-looted-goods/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/FranceStudentRiot.jpg"
-  },
-  {
     "title": "Tech Giants Block eMudhra Certificates Tied to 8 Compromised Keys",
     "link": "https://www.darkreading.com/cyber-risk/tech-giants-emudhra-certificates-compromised-keys",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9204db2f2ffca6fe/6ad7d457e5c2f8b0773c4a30/ca_Inkoly_shutterstock.jpf.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "PHP warns admins of two critical flaws, emergency patches coming tomorrow",
-    "link": "https://www.bleepingcomputer.com/news/security/php-warns-admins-of-two-critical-flaws-emergency-patches-coming-tomorrow/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2021/03/29/PHP-headpic.jpg"
-  },
-  {
-    "title": "Zeabur shutting down after second security breach in two months",
-    "link": "https://www.bleepingcomputer.com/news/security/zeabur-shutting-down-after-second-security-breach-in-two-months/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/zeabur.jpg"
-  },
-  {
-    "title": "Ex-OpenAI Engineer Detained After Planting Secret Recorder at HQ",
-    "link": "https://www.darkreading.com/insider-threats/ex-openai-engineer-secret-recorder-saudi-ties",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt4490aa31390e262f/6ad7b11151d60c256274529b/REC_recording-Tomasz_\u015amigla-GettyImages-1338436529.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI says GPT-6.1 Sol is dramatically better at migrating legacy code",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-gpt-61-sol-is-dramatically-better-at-migrating-legacy-code/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/openai-listening-device.jpg"
-  },
-  {
-    "title": "Eight eMudhra CA Keys Compromised, Triggering Emergency Fixes Across Browsers and Software",
-    "link": "https://thehackernews.com/2026/10/eight-emudhra-ca-keys-compromised.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJOWLzgriXXM626bAOaX_LEoNH97Ab_XV4oQ0GxBeY3-PqkdXdcae52-wrl8r0LipTFBsvl4R7Y5j6jFsiG_9V8ZAwHOkAlsZaRcOAswStHhAG1FYm9W6kjA4FmOz0bXgVXO6LyEs9Fv75UrRFphZEzhXodKdTlYzfPK8sqW3DpxKBnD7OFQfqJJ_ay2c/s1600/ecert.jpg"
-  },
-  {
-    "title": "US Agencies Detail Incident Response Practices for Rogue AI Agents",
-    "link": "https://www.securityweek.com/us-agencies-detail-incident-response-practices-for-rogue-ai-agents/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/AI-artificial-intelligence-model-frontier.webp"
-  },
-  {
-    "title": "Critical FortiSIEM Flaw Gets Public Exploit PoC for Unauthenticated Remote Code Execution",
-    "link": "https://thehackernews.com/2026/10/critical-fortisiem-flaw-gets-public.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3BuJLxcpzxzxwpUcwsPb7L-gNCeXeyuPtNysOMHtf06VmANCx2DR3O52Puw9AQwUu0C8ccQ77MF_l0bAf4zL-hrvYO8jSHs6Km0Xz6-Q4yYm1thRvJ-y59qLRX9Qni0zD161qJ53oCgzEIo3NjOLKtgOrIAbOMsAhITOhL9qoy2v9D6tRU26m0fBoMDhJ/s1600/fort-poc.jpg"
-  },
-  {
-    "title": "Close Identity Gaps in Software Development Before Unleashing AI",
-    "link": "https://www.darkreading.com/application-security/close-identity-gaps-sdlc-before-ai",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt44a0332eb39140fa/679be79d9bc2cd9f0b986638/TippaPatt-software-developer-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Qilin and INC Ransomware Groups Exploit Palo Alto Networks Flaw to Bypass MFA",
-    "link": "https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd71tvun8MRT5muo9ZiruSzkyqhGkeh-_5dP4QardwiC54o4wW3PtC7I1jtP_vVX1rPujN_YdrmILFSZw_Ikl6v8Gn2w75v-90aSHpnngi2WE-Ezv6OAO37YY4pJpNwe_DcGWRMgIOUxAEPyVisI3SxXnV30HejoGfGtlXDfAgGkdqrdFJjAI7x6jjFFj-/s1600/palo-ransomware.jpg"
-  },
-  {
-    "title": "Hackers Abuse AI Pen-Test Tool Cairn to Automate Massive Attack Spree",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/hackers-abuse-ai-pen-test-tool-cairn",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltcbe1b408854966e2/6ad73d5767600f57689ea49a/AI_agent_concept_Brain_light_Alamy.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "DHS bans DeepSeek products across US federal civilian agencies",
-    "link": "https://www.bleepingcomputer.com/news/security/dhs-bans-deepseek-products-across-us-federal-civilian-agencies/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/robot-china.jpg"
-  },
-  {
-    "title": "Hackers Use Autonomous AI Agents to Breach Company Websites, Target Over 1,200 Sites",
-    "link": "https://thehackernews.com/2026/10/hackers-use-autonomous-ai-agents-to.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYic0qXjDFjrKdw3Ed58Uv28Xt2G7GTuEZhXrAiV07Xnn_I9DPNeQuntZ-TNMi_4i0JdPOyLj4geWCj8K_Zv2OBO4qaujmlDFzBDljcRvvbDx-3r1hSDDaDN-mI3u61F2gJW6zhShFGLZBKrLM0k0Y9yl5-VOVXFHiJaEg3V65-yfT1yXWc5FSfaYLCKg/s1600/bot-attack.jpg"
-  },
-  {
-    "title": "AOMEI Backupper Compromised in Short-Burst Supply Chain Campaign",
-    "link": "https://www.securityweek.com/aomei-backupper-compromised-in-short-burst-supply-chain-campaign/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Supply-Chain-Software-Attack.jpg"
-  },
-  {
-    "title": "CJIS v6.1 Compliance: 5 Practical Priorities for Agencies",
-    "link": "https://www.bleepingcomputer.com/news/security/cjis-v61-compliance-5-practical-priorities-for-agencies/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/10/12/specops-legal-hammer.jpg"
-  },
-  {
-    "title": "The Key to AI Software Security Isn\u2019t Speed, It\u2019s Maturity",
-    "link": "https://www.securityweek.com/the-key-to-ai-software-security-isnt-speed-its-maturity/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/AI-artificial-intelligence-training.jpeg"
-  },
-  {
-    "title": "Hacker gets 8 years for stealing $3.3 million from taxpayers",
-    "link": "https://www.bleepingcomputer.com/news/security/hacker-gets-8-years-for-stealing-33-million-from-taxpayers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/Hacker_prison.jpg"
-  },
-  {
-    "title": "$500,000 worth of Nvidia RTX 5090 GPUs vanish from Brazilian airport",
-    "link": "https://cybernews.com/tech/nvidia-graphics-card-missing-shipment/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/Nvidia-RTX-5090.jpg"
-  },
-  {
-    "title": "There\u2019s something you should know about Pink Panther from the French riots",
-    "link": "https://cybernews.com/ai-news/pink-panther-france-riot/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/pink-p.jpg"
-  },
-  {
-    "title": "Ahold Delhaize Restoring Services Disrupted by Cyberattack",
-    "link": "https://www.securityweek.com/ahold-delhaize-restoring-services-disrupted-by-cyberattack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Ahold-Delhaize-cyberattack.jpeg"
-  },
-  {
-    "title": "Pegasus Spyware Infection Confirmed on Serbian University Rector's iPhone Days Before Election",
-    "link": "https://thehackernews.com/2026/10/pegasus-spyware-infection-confirmed-on.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_cQrX8zsqCvWd9Pl1mfmh8oQBwRAG_IcrKQB-EpiVEn2GXf5UJBh0UrLXCKzAmJo2Z-Di9G7-16n5hV-gmtfMi-JtB9sOd9neC-b1-6CpErVOYE7CUjBmZhunV45nzsFcDr03rK5RA8q7gFZXIuJZ4c6ND0VSQHYuppDkdTqq04MI7nVCz-10-K-xmc0/s1600/iphone-spyware.jpg"
-  },
-  {
-    "title": "Two per customer: Why is Apple limiting iPhone Duo purchases?",
-    "link": "https://cybernews.com/tech/apple-iphone-duo-purchase-limitations/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/09/iphone_duo.jpg"
-  },
-  {
-    "title": "Swiss army rejects collaboration with Palantir 5 times",
-    "link": "https://cybernews.com/tech/swiss-army-palantir/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/swiss-army-palantir.jpg"
   }
 ]
