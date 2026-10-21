@@ -1,5 +1,40 @@
 [
   {
+    "title": "Lazarus hackers use post-quantum cryptography for malware delivery",
+    "link": "https://www.bleepingcomputer.com/news/security/lazarus-hackers-use-post-quantum-cryptography-for-malware-delivery/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/DPRK.jpg"
+  },
+  {
+    "title": "Marvell, Microsoft &amp; Oracle Work to Standardize Data Center Hardware Security",
+    "link": "https://www.darkreading.com/cloud-security/marvell-microsoft-oracle-standardize-data-center-hardware-security",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Cloud Security Alliance Survey Finds Data Loss Prevention Often Detects Data Loss Only After It Happens",
+    "link": "https://www.darkreading.com/cloud-security/cloud-security-alliance-survey-data-loss-prevention-detects-data-loss",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "'PHP2Shell' Bugs Signal Red Alert for Security Industry",
+    "link": "https://www.darkreading.com/application-security/php2shell-bugs-red-alert-security-industry",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt67e9fa778860769f/6ad8fdb74b1e4143168658d7/warning_sign_with_siren-DSGpro-GettyImages-184878150.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Critical GitLab Flaw (CVSS 10.0) Could Allow Unauthenticated RCE Across 12 Years of Releases",
+    "link": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig4Pkd5r0GeWGSaCoHaEsZVVoh5Y6xBkFvMTGYKvD5oONYnczQGAUqpjD6eCiA6sxiiel6Zs0kPiBEWOZJ21URkE59iJm-LDUFPYwPEf8o8d8lnyiMOR53H7IeXGKn3tTG9pusA-HKwYo0n04WQ1m8kg8dxIWEtxFGMDiBzrV-zzqAH2R2OVT2E1ViX_U/s1600/git-rce.jpg"
+  },
+  {
+    "title": "CISA: Hackers chain Plex flaws in Plex2Shell attacks to breach servers",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/CISA.jpg"
+  },
+  {
+    "title": "LiteLLM Compromised in Supply Chain Attack Delivering Credential Stealer and Backdoor",
+    "link": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-f1TsJE93kcT5Cp1wvKlnR-bCWFP9ZUZofd0PXryxRBt0B1q0-t0BaHnEJcNhy3IhRZq2fBU9fmILshSvlY-qk28TOO-f1JoBcGSRtwiC3MIV4gDxdXYzTS_ZMirtPka7UaG9Shie7kgWKzauZOwKgPvk8hHXUTFly2YXpzBuxUD20MdxBfKeXrRsIG-W/s1600/litellm-hack.jpg"
+  },
+  {
     "title": "Google Hardens Chrome Against ClickFix Attacks, Insecure HTTP Connections",
     "link": "https://www.securityweek.com/google-hardens-chrome-against-clickfix-attacks-insecure-http-connections/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Chrome-Zero-Day-exploits.jpg"
@@ -113,40 +148,5 @@
     "title": "The US Army is building AI agents that can hack enemy networks on their own",
     "link": "https://cybernews.com/ai-news/us-army-ai-agents-offensive-cyber-operations/",
     "image": "https://media.cybernews.com/images/featured-big/2026/10/usa-ai-soldier.jpg"
-  },
-  {
-    "title": "Hackers claim they breached Disney: here\u2019s what we found",
-    "link": "https://cybernews.com/security/disney-data-breach-claim/",
-    "image": "https://media.cybernews.com/images/featured-big/2025/09/disney.jpg"
-  },
-  {
-    "title": "China-Aligned Bronze Sandcastle Abuses Sandboxie DLL Sideloading to Deploy Backdoors",
-    "link": "https://thehackernews.com/2026/10/china-aligned-bronze-sandcastle-abuses.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgq2iUs3zJHHrrskI-icX8x-nBeJxjr_O9uRE2lvcLQkaOhVUHFjTQYLItaZPVskt39VgI2ZYoMDuIhqkAAqEl1bYHLv5ctEfQvPe9UmLyzVEo46YS4xOEz7HcoYKSiNtT_g2bqfKLPFis98BVTTjSR9gafpKRceKKcj0rUf3pb89zBXVt_PequHoA-ta3t/s1600/sandboxie.png"
-  },
-  {
-    "title": "Critical Vulnerabilities in PHP Require Immediate Patching",
-    "link": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching",
-    "image": ""
-  },
-  {
-    "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior-Only Detection, Proofpoint Reports",
-    "link": "https://thehackernews.com/2026/10/generative-ai-is-erasing-behavioral.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH7zuBEyUN7xB2yVXHoNSB6jWMLhxTtu9LqItz3TNMkY5P59w2MW5dRYcLBp1hakchf5442zpMwNG3nzombXfaoo7O5IzgNw61nsbKWAjaKGP8D9ITLy11wkHBUUAwksYEqTiH27t7FTgpa5fpJQ42t6lVqO8qcbI57oWnxc7o8SWLupLpIiiZW6eBqj4/s1600/proofpoint.jpg"
-  },
-  {
-    "title": "Browsers Block eMudhra Intermediate CAs Over Recoverable Private Keys",
-    "link": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/09/internet-routing-bgp.jpeg"
-  },
-  {
-    "title": "China Defends DeepSeek After US Ban of Its AI From Government Systems",
-    "link": "https://www.securityweek.com/china-defends-deepseek-after-us-ban-of-its-ai-from-government-systems/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/DeepSeek-AI.jpeg"
-  },
-  {
-    "title": "Musk and Trump point fingers as Starlink slowdown hurts Ukraine",
-    "link": "https://cybernews.com/news/musk-trump-starlink-ukraine/",
-    "image": "https://media.cybernews.com/images/featured-big/2025/02/MuskTrumpOct2024.jpg"
   }
 ]
