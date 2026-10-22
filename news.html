@@ -1391,10 +1391,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('globeViz');
     if (!container) return;
 
-    // Funzione di inizializzazione sicura del Globo
     function initGlobe() {
         if (typeof Globe === 'undefined') {
-            setTimeout(initGlobe, 100); // Riprova finché lo script non è pronto
+            setTimeout(initGlobe, 100);
             return;
         }
 
@@ -1413,13 +1412,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
 
-async function loadGlobeData() {
+            async function loadGlobeData() {
                 try {
                     const res = await fetch(ENDPOINT, { cache: "no-store" });
                     const data = await res.json();
 
                     if (data && data.nodes && Array.isArray(data.nodes)) {
-                        // 🔹 Filtra e pulisce i nodi assicurandosi che lat e lng siano numeri validi
                         const nodes = data.nodes.filter(node => 
                             node.lat !== undefined && node.lng !== undefined && 
                             !isNaN(parseFloat(node.lat)) && !isNaN(parseFloat(node.lng))
@@ -1444,7 +1442,6 @@ async function loadGlobeData() {
                             };
                         });
 
-                        // Crea archi solo se ci sono almeno 2 nodi validi
                         const gArcs = [];
                         if (nodes.length > 1) {
                             for (let i = 1; i < nodes.length; i++) {
@@ -1498,7 +1495,15 @@ async function loadGlobeData() {
                     console.error("Errore caricamento dati Globo 3D:", e);
                 }
             }
-			
+
+            loadGlobeData();
+            setInterval(loadGlobeData, 5 * 60 * 1000);
+
+        } catch (err) {
+            console.error("Errore inizializzazione Globe.gl:", err);
+        }
+    }
+
     initGlobe();
 });
 </script>
