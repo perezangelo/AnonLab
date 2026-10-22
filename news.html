@@ -1398,7 +1398,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
+            // Ottiene le dimensioni reali del box
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
             const myGlobe = Globe()(container)
+                .width(width)
+                .height(height)
                 .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
                 .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
                 .backgroundColor('#010712')
@@ -1409,6 +1415,18 @@ document.addEventListener("DOMContentLoaded", function () {
             myGlobe.controls().autoRotate = true;
             myGlobe.controls().autoRotateSpeed = 0.8;
             myGlobe.controls().enableZoom = true;
+
+            // Forza il ridimensionamento corretto dopo il render
+            setTimeout(() => {
+                myGlobe.width(container.clientWidth);
+                myGlobe.height(container.clientHeight);
+            }, 200);
+
+            // Gestisce il resize della finestra
+            window.addEventListener('resize', () => {
+                myGlobe.width(container.clientWidth);
+                myGlobe.height(container.clientHeight);
+            });
 
             const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
 
@@ -1449,13 +1467,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                     startLat: parseFloat(nodes[0].lat),
                                     startLng: parseFloat(nodes[0].lng),
                                     endLat: parseFloat(nodes[i].lat),
-                                    endLng: parseFloat(nodes[i].lng],
+                                    endLng: parseFloat(nodes[i].lng),
                                     color: '#00eaff'
                                 });
                             }
                         }
 
-                        // Configurazione pulita e compatibile con tutte le versioni di globe.gl
                         myGlobe
                             .pointsData(gPoints)
                             .pointLat('lat')
