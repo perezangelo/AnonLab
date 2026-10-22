@@ -1,5 +1,125 @@
 [
   {
+    "title": "Tech and Security Companies Respond to PHP2Shell Vulnerabilities",
+    "link": "https://www.securityweek.com/tech-and-security-companies-respond-to-php2shell-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/05/firewall.jpeg"
+  },
+  {
+    "title": "GitLab warns of new max severity code execution vulnerability",
+    "link": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-new-max-severity-code-execution-vulnerability/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/GitLab-headpic.jpg"
+  },
+  {
+    "title": "Silicon Valley billionaires weigh exit strategies as California votes on new tax",
+    "link": "https://cybernews.com/news/california-billionaire-tax/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/03/zuckerberg-ai-ceo.jpg"
+  },
+  {
+    "title": "Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation",
+    "link": "https://thehackernews.com/2026/10/railway-says-intruder-may-have-accessed.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLi5yuPoipCkAL6joBpDL5htNkHWi_rU5i5dAyspyjSrdDORYgV_LRNO4pVG_c1P0S7bnZFWHft8recxLiFRSiLsPxx3ZL-v8fzlYRuzxxG_P_ocKdJbGWzXFtoEjPszyKNUOS86HCylk0LPV1YZS7U9qZcfonBVeLEuRKioCXVbbzUySEvWGI0IaBJ8U/s1600/rail.jpg"
+  },
+  {
+    "title": "SpaceX investor \u201cdisgusted\u201d with Elon Musk over Starlink limitations in Ukraine",
+    "link": "https://cybernews.com/tech/starlink-ross-gerber/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/ross-gerber-starlink.jpg"
+  },
+  {
+    "title": "Dozens of universities in the blast zone after hackers exploit QuickLaunch",
+    "link": "https://cybernews.com/security/hackers-universities-login-data-leak/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/hacker-server-files.jpg"
+  },
+  {
+    "title": "Splunk, SolarWinds Release Fresh Security Updates",
+    "link": "https://www.securityweek.com/splunk-solarwinds-release-fresh-security-updates/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/07/software-vulnerability-patch-update.jpg"
+  },
+  {
+    "title": "OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL",
+    "link": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUmn80CiQx35trhXNaAwJka_Z3T-PKQrz__dlAW1GDDVwfrk2WHit1W6GZBaaAT-a9SrmqqauUhw0raYLEOS3Vv-LNxdu0a2bmJebJWVj5mBadfgxN1N1yVREXflCcV7cPmShswRE8PC0qspFY82MDEKe8MJImYVqJCBYLwTLpCHM1IzjDX7KsOAYs7tc/s1600/opencode-mcp.jpg"
+  },
+  {
+    "title": "Signal\u2019s sneaky bug: mic and camera eavesdropping you post-call",
+    "link": "https://cybernews.com/security/signal-bug-microphone-camera-eavesdropping/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/signal-bug-mic.jpg"
+  },
+  {
+    "title": "Cisco Patches 34 Vulnerabilities Across Multiple Products",
+    "link": "https://www.securityweek.com/cisco-patches-34-vulnerabilities-across-multiple-products/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Cisco-company-logo.jpeg"
+  },
+  {
+    "title": "PHP2Shell Exploitation Started Days Before Patches",
+    "link": "https://www.securityweek.com/php2shell-exploitation-started-days-before-patches/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
+  },
+  {
+    "title": "Airbnb bans checkout chores as furious guests threaten to stay elsewhere",
+    "link": "https://cybernews.com/news/airbnb-cleaning-fees-checkout-chores/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/airbnb-dishes.jpg"
+  },
+  {
+    "title": "Amazon and Cloudflare report PHP2Shell cyberattack attempts as millions of websites race to patch",
+    "link": "https://cybernews.com/security/php2shell-wordpress-amazon-cloudflare-ai-cyberattacks/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/php-elephant.jpg"
+  },
+  {
+    "title": "Free pass for US data requests? Seizure of far-left activist server sparks concerns in Europe",
+    "link": "https://cybernews.com/tech/dutch-server-seize/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/dutch-server-seize.jpg"
+  },
+  {
+    "title": "Users want the YouTube dislike button to be left in peace",
+    "link": "https://cybernews.com/tech/youtube-dislike-button-backlash/",
+    "image": "https://media.cybernews.com/images/featured-big/2022/09/youtube_logo.jpg"
+  },
+  {
+    "title": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
+    "link": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiEKKMESHBCMBHXA8Yf_clmAeFQXSdaKTEz0t_6RDzj1zXcwiPxA4gy2MPmftM6vyCkoG7OsCZJ2a8t7xJe1qbn3tEWRZfVgStzQVJy0ZfwEkjhg6-A34iT3XnQG7nYku04cWbIaHwkQmuDVghCeJBx5xJcbtozsyD3Genw4wyxFtgWIVD-rRGRLMBKoq2/s1600/litellm-breach.jpg"
+  },
+  {
+    "title": "Authorities disrupt nearly 11,000 cybercrime networks in Africa",
+    "link": "https://www.bleepingcomputer.com/news/security/authorities-disrupt-nearly-11-000-cybercrime-networks-in-africa/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/05/18/INTERPOL.jpg"
+  },
+  {
+    "title": "Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
+    "link": "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFwR_FE94PTthun36oXfrSIiYx7N-Hb3Ww1w2gFs6x6qs0mML2v_TmYZmgqYKxB6VlMBzmIQksNdHldgX-UxykDBNwnszmBuB7IZWyWJhxei65NJlOImUWde5tYzB7D94dmieFBGhFNVAt3bL4qlhXkl4o3uw362QKgJpk37xutyRmM5bB3sHR8XMC3bc/s1600/nodejs-rce.jpg"
+  },
+  {
+    "title": "Meta\u2019s broken privacy promises cost it a whopping $25 billion in New Mexico",
+    "link": "https://cybernews.com/news/meta-facebook-new-mexico-25-billions-penalty/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/meta-new-mexico.jpg"
+  },
+  {
+    "title": "Oracle Patches Over 1,200 Vulnerabilities With October 2026 CPU",
+    "link": "https://www.securityweek.com/oracle-patches-over-1200-vulnerabilities-with-october-2026-cpu/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Oracle.jpeg"
+  },
+  {
+    "title": "Meta Ordered to Pay New Mexico $25 Billion for Deceiving Users About Privacy on Facebook",
+    "link": "https://www.securityweek.com/meta-ordered-to-pay-new-mexico-25-billion-for-deceiving-users-about-privacy-on-facebook/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/01/instagram-facebook-meta-threads-social-media.jpeg"
+  },
+  {
+    "title": "This AI aggregator leaked nearly 18 million files, including sex doll makers\u2019 customer support chats",
+    "link": "https://cybernews.com/security/302-ai-data-leak-exposed-millions-files/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/ai-aggregator-leak.gif"
+  },
+  {
+    "title": "New QPACK Flaws Can Crash HTTP/3 Servers, Trigger Up to 4,000-Fold Memory Amplification",
+    "link": "https://thehackernews.com/2026/10/new-qpack-flaws-can-crash-http3-servers.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidksxeLP_h5vpqmr62J_72yOAmQIRsZDLE6bpclFaHY1yQX6Dv-omiTvu_j49FuvXUOwxQT8levg89_AGRMiPNidANkEn1PSGSaNFoCVnY_VQ2Ny9D7FhLwtd9VDboOjxPi6Ssg78CdLFUzShhEt8oK6x0obKcHCZbbIMWBylnQCVCbQGUqjfbBJAKCew/s1600/http3.jpg"
+  },
+  {
+    "title": "Someone Tried to Exploit PHP2Shell 4 Days Before the Vulnerabilities Were Publicly Disclosed",
+    "link": "https://thehackernews.com/2026/10/someone-tried-to-exploit-php2shell-4.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZXm1gLzaKPP-QW888zIx_tXRCirkgZBsOOn0icTEOrFBf7w28955jH1zY8jxw2Cf-g2Qp9mPHgrBe7E5dux_L2XUzdaVZfvRgj_utCT-nTiU7haAkAr_F6eEeW5YJmtwbtJoIuumhnv5F9tFG_2BcLwnaqwkFGWEvFnWsUDHHuobMhZ_letCSD6I56Lw_/s1600/php-hacks.jpg"
+  },
+  {
     "title": "UAE Transitions 50% of Gov't Services to Agentic AI",
     "link": "https://www.darkreading.com/cybersecurity-operations/uae-transitions-50-government-services-agentic-ai",
     "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltc928e4fa76e21bf1/6ad7e1eca34f770597a25359/uae-on-map-with-pin-Zarko_Prusac-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
@@ -8,11 +128,6 @@
     "title": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
     "link": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBGpr0x4Dn4VV8YVCO_s3CzzGvwmVUceHbt0llcvrzvBmWFaJcu9E9v3WntJGdez3PZ-53GAVSRiYc5FdSOgmyeCSXvpL2t5nCjhzJC50kTLhQygW8cCeFHqtZtDYHsG7Vx2uf1vVdobBbKJ5fcCKSNZDKpV00GRQKVlD444srM9L4rcPnTe28nABZ3pon/s1600/chinese-ai.jpg"
-  },
-  {
-    "title": "Hackers knock Richmond schools offline, deface teachers laptops with ransom threats",
-    "link": "https://cybernews.com/news/richmond-schools-ransomware-attack-ransom-note/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/RichmondCityPublicSchoolsign2.jpg"
   },
   {
     "title": "Google Chrome adds Gemini-powered scam detection, warns users of ClickFix attacks",
@@ -33,120 +148,5 @@
     "title": "Lazarus hackers use post-quantum cryptography for malware delivery",
     "link": "https://www.bleepingcomputer.com/news/security/lazarus-hackers-use-post-quantum-cryptography-for-malware-delivery/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/DPRK.jpg"
-  },
-  {
-    "title": "Marvell, Microsoft &amp; Oracle Work to Standardize Data Center Hardware Security",
-    "link": "https://www.darkreading.com/cloud-security/marvell-microsoft-oracle-standardize-data-center-hardware-security",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Cloud Security Alliance Survey Finds Data Loss Prevention Often Detects Data Loss Only After It Happens",
-    "link": "https://www.darkreading.com/cloud-security/cloud-security-alliance-survey-data-loss-prevention-detects-data-loss",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "'PHP2Shell' Bugs Signal Red Alert for Security Industry",
-    "link": "https://www.darkreading.com/application-security/php2shell-bugs-red-alert-security-industry",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt67e9fa778860769f/6ad8fdb74b1e4143168658d7/warning_sign_with_siren-DSGpro-GettyImages-184878150.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Critical GitLab Flaw (CVSS 10.0) Could Allow Unauthenticated RCE Across 12 Years of Releases",
-    "link": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig4Pkd5r0GeWGSaCoHaEsZVVoh5Y6xBkFvMTGYKvD5oONYnczQGAUqpjD6eCiA6sxiiel6Zs0kPiBEWOZJ21URkE59iJm-LDUFPYwPEf8o8d8lnyiMOR53H7IeXGKn3tTG9pusA-HKwYo0n04WQ1m8kg8dxIWEtxFGMDiBzrV-zzqAH2R2OVT2E1ViX_U/s1600/git-rce.jpg"
-  },
-  {
-    "title": "CISA: Hackers chain Plex flaws in Plex2Shell attacks to breach servers",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/CISA.jpg"
-  },
-  {
-    "title": "LiteLLM Compromised in Supply Chain Attack Delivering Credential Stealer and Backdoor",
-    "link": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-f1TsJE93kcT5Cp1wvKlnR-bCWFP9ZUZofd0PXryxRBt0B1q0-t0BaHnEJcNhy3IhRZq2fBU9fmILshSvlY-qk28TOO-f1JoBcGSRtwiC3MIV4gDxdXYzTS_ZMirtPka7UaG9Shie7kgWKzauZOwKgPvk8hHXUTFly2YXpzBuxUD20MdxBfKeXrRsIG-W/s1600/litellm-hack.jpg"
-  },
-  {
-    "title": "Google Hardens Chrome Against ClickFix Attacks, Insecure HTTP Connections",
-    "link": "https://www.securityweek.com/google-hardens-chrome-against-clickfix-attacks-insecure-http-connections/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Chrome-Zero-Day-exploits.jpg"
-  },
-  {
-    "title": "PHP2Shell Patches Land as First Exploitation Attempts Hit Sensors",
-    "link": "https://www.securityweek.com/php2shell-patches-land-as-first-exploitation-attempts-hit-sensors/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/php-exploit-code.webp"
-  },
-  {
-    "title": "OVHcloud GitHub Compromise Tied to GlassWorm Threat Actors",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/ovhcloud-github-compromise-glassworm-threat-actors",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blte501832a54d78d89/6ad8ee8ba10b5733db901071/worms-Tatiana_Maksimova-Getty-2162542629.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "OpenAI's GPT-6 Agent Removed Safety Monitoring, Then Falsely Denied Doing So",
-    "link": "https://thehackernews.com/2026/10/openais-gpt-6-agent-removed-safety.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLjuo6QB0kLx2z3u5thyphenhyphenjrULwTFigmtHb1U1y6141FNvIITM2nytdxcKmShZMElSSZdMFbnGfiwjTIpqOYtNzK3gAeSGkEVr8XnsPB9RF1GOh-6qqkXPmX8SY2COyV0eyA6khfN3QYzF-Ydbsz8Mw8jBmFDouame4hTt0ulaNxq0pPTR4FKFuVyQ2Ln6WC/s1600/openai-bot.jpg"
-  },
-  {
-    "title": "OpenAI agents disabled safety monitoring, one lied about it",
-    "link": "https://www.bleepingcomputer.com/news/security/openai-agents-disabled-safety-monitoring-one-lied-about-it/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/robot.jpg"
-  },
-  {
-    "title": "Optiv Launches CyberBOT Cybersecurity Awareness Training Program",
-    "link": "https://www.darkreading.com/cybersecurity-operations/optiv-launches-cyberbot-cybersecurity-awareness-training-program",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Survey Finds High-Profile Executives Feel Untouchable as Digital Exposure Turns Into Physical Risk",
-    "link": "https://www.darkreading.com/cybersecurity-operations/360-privacy-survey-high-profile-executives-feel-untouchable",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt850556f866500627/654a5a8e05eb4d040a046894/325351_DR23_Graphics_General_Large_Text_v1.png?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "\u2018Context Bombs\u2019 Cut AI Attack Success by Misleading Agents With Fake Targets",
-    "link": "https://www.securityweek.com/context-bombs-cut-ai-attack-success-by-misleading-agents-with-fake-targets/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/06/APT-threat-actor.jpg"
-  },
-  {
-    "title": "10 hour Orange outage strikes riot-hit France days after social media blackout calls",
-    "link": "https://cybernews.com/security/orange-outage-france-social-media-blackout-riots/",
-    "image": "https://media.cybernews.com/images/featured-big/2025/03/orange-mobile-telecomm.jpg"
-  },
-  {
-    "title": "High-Severity Flaws Exploited in Three Days as Ransomware Dominates Q3: Rapid7",
-    "link": "https://www.securityweek.com/high-severity-flaws-exploited-in-three-days-as-ransomware-dominates-q3-rapid7/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/11/Threat-Intelligence-sharing.jpg"
-  },
-  {
-    "title": "PHP ships emergency patches for critical PHP2Shell flaws",
-    "link": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/PHP.jpg"
-  },
-  {
-    "title": "ClickFix has never been bigger, and AI tools are its most convincing lure yet",
-    "link": "https://www.bleepingcomputer.com/news/security/clickfix-has-never-been-bigger-and-ai-tools-are-its-most-convincing-lure-yet/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/10/20/push-clickfix-header.jpg"
-  },
-  {
-    "title": "PHP Issues Emergency Patches for Two Critical PHP2Shell RCE Flaws as Exploit Attempts Emerge",
-    "link": "https://thehackernews.com/2026/10/php-issues-emergency-patches-for-two.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz8MKP95jyzesxy1eZd6zQDCb3dr-9m-bRE9W0PYnomN3z8lodXmM_0Oo4AAiP_nt2QMNpLxsUNPKueH4TW6FnvXl7ijDGDwxnXcfiyAII6sUDd8cfKoB7Z3MgLOvcAWDeplnUdixy-zfpgVqCuAVZmqH-Orn4S-QhYREVcY1ew7_6kIG8LBsdLZC8Ofs/s1600/PHP2SHELL.gif"
-  },
-  {
-    "title": "Asymptote Labs Lands $5.5 Million Seed for AI Agent Runtime Security",
-    "link": "https://www.securityweek.com/asymptote-labs-lands-5-5-million-seed-for-ai-agent-runtime-security/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/funding-round.jpeg"
-  },
-  {
-    "title": "Google Chrome Adds ClickFix Warnings to Stop Users From Running Malicious Commands",
-    "link": "https://thehackernews.com/2026/10/google-chrome-adds-clickfix-warnings-to.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkkBWQk1mVx_ybLuq6r6miCGLiZJUyA_-tPpzi5cyWpcmN_WX43NqfOoH-Tc5VaAh1rVA78waqQ9hx4j-jNwq1GX9bbZjezpx1Q28YcxlBPqnxMbbHd15spg63hSVS0sidhyR9wTg6Aq7ijZJdNIfdY_jev1_K4KJR-6yIoCLlD6cbkGwVY3SUke5IuXS5/s1600/chrome-clickfix-warning.jpg"
-  },
-  {
-    "title": "Decades-Old Windows Utility Powers Modern ClickFix Attack",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltfaf93bd096fd735c/6a45559d327edd13ed6ac140/clickfix-tumsasedgars-Getty-2234293893.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Memory Bugs Account for Most of Chrome\u2019s 353 New Security Fixes",
-    "link": "https://www.securityweek.com/memory-bugs-account-for-most-of-chromes-353-new-security-fixes/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Chrome.jpeg"
   }
 ]
