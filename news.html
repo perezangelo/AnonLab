@@ -1398,31 +1398,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            // Ottiene le dimensioni reali del box
             const width = container.clientWidth;
             const height = container.clientHeight;
 
+            // 🔹 Usiamo una texture di sfondo più brillante e definizione altissima
             const myGlobe = Globe()(container)
                 .width(width)
                 .height(height)
-                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg') // Più chiara e visibile della night map
                 .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-                .backgroundColor('#010712')
+                .backgroundColor('#000814')
                 .showAtmosphere(true)
                 .atmosphereColor('#00eaff')
-                .atmosphereAltitude(0.15);
+                .atmosphereAltitude(0.2);
+
+            // 🔹 Impostiamo lo zoom iniziale più vicino per far apparire il globo più grande
+            myGlobe.pointOfView({ altitude: 1.8 }, 1000);
 
             myGlobe.controls().autoRotate = true;
             myGlobe.controls().autoRotateSpeed = 0.8;
             myGlobe.controls().enableZoom = true;
 
-            // Forza il ridimensionamento corretto dopo il render
             setTimeout(() => {
                 myGlobe.width(container.clientWidth);
                 myGlobe.height(container.clientHeight);
             }, 200);
 
-            // Gestisce il resize della finestra
             window.addEventListener('resize', () => {
                 myGlobe.width(container.clientWidth);
                 myGlobe.height(container.clientHeight);
@@ -1452,7 +1453,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             return {
                                 lat: parseFloat(node.lat),
                                 lng: parseFloat(node.lng),
-                                size: node.risk === 'Critical' ? 1.2 : 0.8,
+                                size: 1.8, // 🔹 Punti ingranditi per maggiore visibilità
                                 color: color,
                                 name: node.name || "Unknown Node",
                                 risk: node.risk || "Moderate",
@@ -1478,19 +1479,19 @@ document.addEventListener("DOMContentLoaded", function () {
                             .pointLat('lat')
                             .pointLng('lng')
                             .pointColor('color')
-                            .pointAltitude(0.05)
+                            .pointAltitude(0.08)
                             .pointRadius('size')
-                            .pointLabel(d => `
-                                <div style="background: #000; color: #fff; padding: 6px 10px; border: 1px solid #00eaff; border-radius: 4px; font-size: 11px;">
-                                    <strong>${d.name}</strong><br>
-                                    Rischio: <span style="color:${d.color};">${d.risk}</span><br>
-                                    Eventi: <b>${d.attacks}</b>
-                                </div>
-                            `)
+                            .pointLabel(function(d) {
+                                return '<div style="background: #000; color: #fff; padding: 6px 10px; border: 1px solid #00eaff; border-radius: 4px; font-size: 11px;">' +
+                                       '<strong>' + d.name + '</strong><br>' +
+                                       'Rischio: <span style="color:' + d.color + ';">' + d.risk + '</span><br>' +
+                                       'Eventi: <b>' + d.attacks + '</b>' +
+                                       '</div>';
+                            })
                             .arcsData(gArcs)
                             .arcColor('color')
-                            .arcAltitude(0.2)
-                            .arcStroke(1);
+                            .arcAltitude(0.3)
+                            .arcStroke(1.5);
 
                         const statusEl = document.getElementById("globe-status");
                         if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp || 'OK'}`;
