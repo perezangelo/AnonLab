@@ -1392,7 +1392,10 @@ document.addEventListener("DOMContentLoaded", function () {
         attributionControl: false
     }).setView([20, 0], 2);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    // 🔹 Inserita la tua API Key nell'URL del layer CartoDB
+    const apiKey = "cb1_4m4k_1_88c4b86e4322b97b0b6725df";
+    
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=' + apiKey, {
         maxZoom: 19
     }).addTo(map);
 
@@ -1400,7 +1403,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function loadWidgetMap() {
         try {
-            // Sostituisci con il tuo endpoint PHP reale (es. incident_map.php o visits.json)
             const res = await fetch("https://angelonline.altervista.org/newsops/incident_map.php", { cache: "no-store" });
             const data = await res.json();
 
@@ -1416,7 +1418,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (node.risk === 'Critical') { color = '#ff0044'; radius = 11; }
                     else if (node.risk === 'High') { color = '#ff7b00'; radius = 9; }
 
-                    // Crea il marker circolare con effetto luminoso coerente con AnonLab
                     const marker = L.circleMarker([node.lat, node.lng], {
                         radius: radius,
                         fillColor: color,
@@ -1448,7 +1449,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     loadWidgetMap();
-    setInterval(loadWidgetMap, 5 * 60 * 1000); // Aggiorna ogni 5 minuti
+    setInterval(loadWidgetMap, 5 * 60 * 1000);
 });
 </script>
 	
