@@ -1449,12 +1449,13 @@ document.addEventListener("DOMContentLoaded", function () {
                                     startLat: parseFloat(nodes[0].lat),
                                     startLng: parseFloat(nodes[0].lng),
                                     endLat: parseFloat(nodes[i].lat),
-                                    endLng: parseFloat(nodes[i].lng),
-                                    color: ['#00eaff', nodes[i].risk === 'Critical' ? '#ff0044' : '#ff7b00']
+                                    endLng: parseFloat(nodes[i].lng],
+                                    color: '#00eaff'
                                 });
                             }
                         }
 
+                        // Configurazione pulita e compatibile con tutte le versioni di globe.gl
                         myGlobe
                             .pointsData(gPoints)
                             .pointLat('lat')
@@ -1469,19 +1470,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                     Eventi: <b>${d.attacks}</b>
                                 </div>
                             `)
-                            .ringsData(gPoints)
-                            .ringLat('lat')
-                            .ringLng('lng')
-                            .ringColor(d => d.color)
-                            .ringMaxRadius(4)
-                            .ringPropagationSpeed(2)
-                            .ringRepeatPeriod(800)
                             .arcsData(gArcs)
                             .arcColor('color')
-                            .arcDashLength(0.4)
-                            .arcDashGap(0.2)
-                            .arcDashInitialGap(() => Math.random())
-                            .arcDashSpeed(0.5);
+                            .arcAltitude(0.2)
+                            .arcStroke(1);
 
                         const statusEl = document.getElementById("globe-status");
                         if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp || 'OK'}`;
