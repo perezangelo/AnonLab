@@ -244,22 +244,22 @@ fetch("/partials/ticker.html")
     box-shadow:0 0 12px #00eaffaa;
 ">
     <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h3 style="color:#00eaff; margin:0;">Cyber Incident Map // 3D Global Globe</h3>
-        <span id="globe-status" style="font-size:10px; padding:2px 6px; border:1px solid #00eaff; color:#00eaff; border-radius:4px; background:rgba(0,234,255,0.05);">LIVE FEED</span>
+        <h3 style="color:#00eaff; margin:0;">Cyber Incident Map // Telemetry HUD</h3>
+        <span id="map-status" style="font-size:10px; padding:2px 6px; border:1px solid #00eaff; color:#00eaff; border-radius:4px; background:rgba(0,234,255,0.05);">LIVE FEED</span>
     </div>
     
     <p style="color:#8b949e; font-size:12px; margin: 8px 0 15px 0;">
-        Visualizzazione tridimensionale in tempo reale dei flussi di minaccia e dei nodi di telemetria globali.
+        Tracciamento vettoriale globale dei flussi di minaccia e incidenti di perimetro rilevati in tempo reale. (Passa il mouse sui nodi per ispezionarli).
     </p>
 
-    <!-- Contenitore del Globo 3D con dimensioni e posizionamento bloccati -->
-    <div style="position:relative; width:100%; height:380px; background:#010712; border-radius:6px; overflow:hidden; border:1px solid rgba(0,234,255,0.2);">
-        <div id="globeViz" style="width:100%; height:100%; position:absolute; top:0; left:0;"></div>
+    <!-- Contenitore della mappa Canvas -->
+    <div style="position:relative; width:100%; height:340px; background:#010e1f; border-radius:6px; overflow:hidden; border:1px solid rgba(0,234,255,0.2);">
+        <canvas id="cyberMapCanvas" style="width:100%; height:100%; display:block; cursor:crosshair;"></canvas>
         
         <!-- Overlay HUD informativo in basso -->
-        <div style="position:absolute; bottom:10px; left:10px; right:10px; z-index:10; display:flex; justify-content:space-between; font-size:11px; color:#8b949e; background:rgba(0,8,20,0.85); padding:6px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.15);">
-            <span id="globe-active-target">Target: Inizializzazione globo...</span>
-            <span style="color:#00eaff;">3D GLOBE ENGINE // SECURE SOC</span>
+        <div style="position:absolute; bottom:10px; left:10px; right:10px; display:flex; justify-content:space-between; font-size:11px; color:#8b949e; background:rgba(0,8,20,0.85); padding:6px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.15);">
+            <span id="map-active-target">Target: --</span>
+            <span id="map-coords" style="color:#00eaff;">STATO: MONITORAGGIO ATTIVO</span>
         </div>
     </div>
 </div>
@@ -1387,135 +1387,207 @@ Scarica report previsionale 2026
 <button id="backToTop">↑</button>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById('globeViz');
-    if (!container) return;
+(function() {
+    const canvas = document.getElementById('cyberMapCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-    function initGlobe() {
-        if (typeof Globe === 'undefined') {
-            setTimeout(initGlobe, 100);
-            return;
-        }
+    const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
+    let nodes = [];
+    let activeNodeIndex = 0;
+    let pulseRadius = 0;
+    let packetProgress = 0; // Per animare i pacchetti di dati sulle linee
+    let mouseX = -100;
+    let mouseY = -100;
+    let hoveredNodeIndex = null;
 
+    function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * window.devicePixelRatio;
+        canvas.height = rect.height * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Gestione interattività mouse per ispezionare i nodi al volo
+    canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+        mouseX = -100;
+        mouseY = -100;
+        hoveredNodeIndex = null;
+    });
+
+    async function fetchMapData() {
         try {
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
-            // 🔹 Usiamo una texture di sfondo più brillante e definizione altissima
-            const myGlobe = Globe()(container)
-                .width(width)
-                .height(height)
-                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg') // Più chiara e visibile della night map
-                .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-                .backgroundColor('#000814')
-                .showAtmosphere(true)
-                .atmosphereColor('#00eaff')
-                .atmosphereAltitude(0.2);
-
-            // 🔹 Impostiamo lo zoom iniziale più vicino per far apparire il globo più grande
-            myGlobe.pointOfView({ altitude: 1.8 }, 1000);
-
-            myGlobe.controls().autoRotate = true;
-            myGlobe.controls().autoRotateSpeed = 0.8;
-            myGlobe.controls().enableZoom = true;
-
-            setTimeout(() => {
-                myGlobe.width(container.clientWidth);
-                myGlobe.height(container.clientHeight);
-            }, 200);
-
-            window.addEventListener('resize', () => {
-                myGlobe.width(container.clientWidth);
-                myGlobe.height(container.clientHeight);
-            });
-
-            const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
-
-            async function loadGlobeData() {
-                try {
-                    const res = await fetch(ENDPOINT, { cache: "no-store" });
-                    const data = await res.json();
-
-                    if (data && data.nodes && Array.isArray(data.nodes)) {
-                        const nodes = data.nodes.filter(node => 
-                            node.lat !== undefined && node.lng !== undefined && 
-                            !isNaN(parseFloat(node.lat)) && !isNaN(parseFloat(node.lng))
-                        );
-
-                        let totalEvents = 0;
-
-                        const gPoints = nodes.map(node => {
-                            totalEvents += (node.attacks || 0);
-                            let color = '#00eaff';
-                            if (node.risk === 'Critical') color = '#ff0044';
-                            else if (node.risk === 'High') color = '#ff7b00';
-
-                            return {
-                                lat: parseFloat(node.lat),
-                                lng: parseFloat(node.lng),
-                                size: 1.8, // 🔹 Punti ingranditi per maggiore visibilità
-                                color: color,
-                                name: node.name || "Unknown Node",
-                                risk: node.risk || "Moderate",
-                                attacks: node.attacks || 0
-                            };
-                        });
-
-                        const gArcs = [];
-                        if (nodes.length > 1) {
-                            for (let i = 1; i < nodes.length; i++) {
-                                gArcs.push({
-                                    startLat: parseFloat(nodes[0].lat),
-                                    startLng: parseFloat(nodes[0].lng),
-                                    endLat: parseFloat(nodes[i].lat),
-                                    endLng: parseFloat(nodes[i].lng),
-                                    color: '#00eaff'
-                                });
-                            }
-                        }
-
-                        myGlobe
-                            .pointsData(gPoints)
-                            .pointLat('lat')
-                            .pointLng('lng')
-                            .pointColor('color')
-                            .pointAltitude(0.08)
-                            .pointRadius('size')
-                            .pointLabel(function(d) {
-                                return '<div style="background: #000; color: #fff; padding: 6px 10px; border: 1px solid #00eaff; border-radius: 4px; font-size: 11px;">' +
-                                       '<strong>' + d.name + '</strong><br>' +
-                                       'Rischio: <span style="color:' + d.color + ';">' + d.risk + '</span><br>' +
-                                       'Eventi: <b>' + d.attacks + '</b>' +
-                                       '</div>';
-                            })
-                            .arcsData(gArcs)
-                            .arcColor('color')
-                            .arcAltitude(0.3)
-                            .arcStroke(1.5);
-
-                        const statusEl = document.getElementById("globe-status");
-                        if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp || 'OK'}`;
-
-                        const targetEl = document.getElementById("globe-active-target");
-                        if (targetEl) {
-                            targetEl.textContent = `Active Nodes: ${nodes.length} | Totale Eventi Telemetria: ${totalEvents}`;
-                        }
-                    }
-                } catch (e) {
-                    console.error("Errore caricamento dati Globo 3D:", e);
-                }
+            const res = await fetch(ENDPOINT, { cache: "no-store" });
+            const data = await res.json();
+            if (data && data.nodes) {
+                nodes = data.nodes;
+                const statusEl = document.getElementById("map-status");
+                if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp}`;
             }
-
-            loadGlobeData();
-            setInterval(loadGlobeData, 5 * 60 * 1000);
-
-        } catch (err) {
-            console.error("Errore inizializzazione Globe.gl:", err);
+        } catch (e) {
+            console.error("Errore fetch Incident Map:", e);
         }
     }
 
-    initGlobe();
-});
+    fetchMapData();
+    setInterval(fetchMapData, 5 * 60 * 1000);
+
+    // Wireframe continenti
+    const worldOutlines = [
+        [[0.15,0.3], [0.22,0.25], [0.3,0.32], [0.28,0.45], [0.18,0.4]],
+        [[0.45,0.25], [0.6,0.22], [0.75,0.28], [0.85,0.35], [0.7,0.45], [0.5,0.4]],
+        [[0.28,0.55], [0.35,0.6], [0.32,0.78], [0.25,0.7]],
+        [[0.48,0.48], [0.58,0.5], [0.55,0.7], [0.45,0.65]]
+    ];
+
+    function drawMap() {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+
+        // Sfondo radar profondo
+        ctx.fillStyle = '#010914';
+        ctx.fillRect(0, 0, width, height);
+
+        // 1. Disegna i continenti wireframe
+        ctx.strokeStyle = 'rgba(0, 234, 255, 0.08)';
+        ctx.fillStyle = 'rgba(0, 234, 255, 0.02)';
+        ctx.lineWidth = 1;
+        
+        worldOutlines.forEach(poly => {
+            ctx.beginPath();
+            poly.forEach((pt, i) => {
+                const px = pt[0] * width;
+                const py = pt[1] * height;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            });
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+        });
+
+        // 2. Griglia radar di sfondo
+        ctx.strokeStyle = 'rgba(0, 234, 255, 0.03)';
+        for (let x = 0; x < width; x += 50) {
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+        }
+        for (let y = 0; y < height; y += 50) {
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+        }
+
+        if (nodes.length > 0) {
+            hoveredNodeIndex = null;
+            
+            // Controlla se il mouse è vicino a un nodo
+            nodes.forEach((node, idx) => {
+                const nx = node.x * width;
+                const ny = node.y * height;
+                const dist = Math.hypot(nx - mouseX, ny - mouseY);
+                if (dist < 20) {
+                    hoveredNodeIndex = idx;
+                }
+            });
+
+            // 3. Linee di connessione cifrate
+            ctx.strokeStyle = 'rgba(0, 234, 255, 0.15)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 3]);
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    if ((i + j) % 2 === 0) {
+                        const x1 = nodes[i].x * width;
+                        const y1 = nodes[i].y * height;
+                        const x2 = nodes[j].x * width;
+                        const y2 = nodes[j].y * height;
+
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y1);
+                        ctx.lineTo(x2, y2);
+                        ctx.stroke();
+
+                        // ✨ Effetto pacchetto dati in movimento lungo la linea
+                        packetProgress = (packetProgress + 0.003) % 1;
+                        const px = x1 + (x2 - x1) * packetProgress;
+                        const py = y1 + (y2 - y1) * packetProgress;
+                        ctx.fillStyle = '#00ffcc';
+                        ctx.fillRect(px - 1.5, py - 1.5, 3, 3);
+                    }
+                }
+            }
+            ctx.setLineDash([]);
+
+            // Se il mouse non è sopra nessun nodo, cicla automaticamente l'indice attivo
+            if (hoveredNodeIndex === null) {
+                if (Math.random() < 0.015) {
+                    activeNodeIndex = Math.floor(Math.random() * nodes.length);
+                }
+            } else {
+                activeNodeIndex = hoveredNodeIndex;
+            }
+
+            // 4. Disegno nodi di telemetria
+            nodes.forEach((node, index) => {
+                const nx = node.x * width;
+                const ny = node.y * height;
+
+                let color = '#00eaff';
+                if (node.risk === 'Critical') color = '#ff0044';
+                if (node.risk === 'High') color = '#ff7b00';
+
+                // Effetto Radar pulsante sul nodo attivo/selezionato
+                if (index === activeNodeIndex) {
+                    pulseRadius = (pulseRadius + 0.5) % 32;
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.arc(nx, ny, 6 + pulseRadius, 0, Math.PI * 2);
+                    ctx.globalAlpha = 1 - (pulseRadius / 32);
+                    ctx.stroke();
+                    ctx.globalAlpha = 1.0;
+                }
+
+                // Cerchio del nodo
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(nx, ny, index === activeNodeIndex ? 5.5 : 4, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Alone neon glow
+                ctx.shadowColor = color;
+                ctx.shadowBlur = 12;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // Etichetta testuale fissa sul canvas
+                ctx.fillStyle = index === activeNodeIndex ? '#ffffff' : '#8b949e';
+                ctx.font = index === activeNodeIndex ? 'bold 11px Consolas, monospace' : '10px Consolas, monospace';
+                ctx.fillText(`${node.name.split(' ')[0]} [${node.attacks}]`, nx + 10, ny + 3);
+            });
+
+            // Aggiornamento HUD in basso
+            const current = nodes[activeNodeIndex];
+            const targetEl = document.getElementById("map-active-target");
+            const coordsEl = document.getElementById("map-coords");
+            if (current && targetEl) {
+                const modeText = hoveredNodeIndex !== null ? "⚡ [MANUAL INSPECT]" : "🟢 [AUTO-ROTATION]";
+                targetEl.textContent = `Node: ${current.name} | Rischio: ${current.risk} | Eventi: ${current.attacks}`;
+                if (coordsEl) coordsEl.textContent = modeText;
+            }
+        }
+
+        requestAnimationFrame(drawMap);
+    }
+
+    requestAnimationFrame(drawMap);
+})();
 </script>
 	
 	<script>
