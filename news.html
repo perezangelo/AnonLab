@@ -31,8 +31,6 @@
 
     <script src="https://angelonline.altervista.org/js/chart.umd.min.js?v=2"></script>
 	
-<script src="https://unpkg.com/globe.gl"></script>
-	
   <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
 <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
@@ -244,20 +242,20 @@ fetch("/partials/ticker.html")
     box-shadow:0 0 12px #00eaffaa;
 ">
     <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h3 style="color:#00eaff; margin:0;">Cyber Incident Map // 2D Flat Telemetry</h3>
+        <h3 style="color:#00eaff; margin:0;">Cyber Incident Map // Telemetry</h3>
         <span id="map-status" style="font-size:10px; padding:2px 6px; border:1px solid #00eaff; color:#00eaff; border-radius:4px; background:rgba(0,234,255,0.05);">LIVE FEED</span>
     </div>
     
     <p style="color:#8b949e; font-size:12px; margin: 8px 0 15px 0;">
-        Mappa vettoriale globale bidimensionale. Visualizzazione pulita dei flussi di minaccia geolocalizzati (passa il mouse per ispezionare).
+        Tracciamento vettoriale globale dei flussi di minaccia e incidenti di perimetro rilevati negli ultimi nodi operativi.
     </p>
 
-    <!-- Contenitore della mappa 2D Piatta -->
-    <div style="position:relative; width:100%; height:360px; background:#010914; border-radius:6px; overflow:hidden; border:1px solid rgba(0,234,255,0.2);">
-        <canvas id="cyberMapCanvas" style="width:100%; height:100%; display:block; cursor:crosshair;"></canvas>
+    <!-- Contenitore della mappa Canvas -->
+    <div style="position:relative; width:100%; height:320px; background:#010e1f; border-radius:6px; overflow:hidden; border:1px solid rgba(0,234,255,0.2);">
+        <canvas id="cyberMapCanvas" style="width:100%; height:100%; display:block;"></canvas>
         
         <!-- Overlay HUD informativo in basso -->
-        <div style="position:absolute; bottom:10px; left:10px; right:10px; display:flex; justify-content:space-between; font-size:11px; color:#8b949e; background:rgba(0,8,20,0.88); padding:6px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.15);">
+        <div style="position:absolute; bottom:10px; left:10px; right:10px; display:flex; justify-content:space-between; font-size:11px; color:#8b949e; background:rgba(0,8,20,0.8); padding:6px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.15);">
             <span id="map-active-target">Target: --</span>
             <span id="map-coords" style="color:#00eaff;">STATO: MONITORAGGIO ATTIVO</span>
         </div>
@@ -1385,223 +1383,6 @@ Scarica report previsionale 2026
   <script src="/js/main.js"></script>
 <!-- BACK TO TOP BUTTON -->
 <button id="backToTop">↑</button>
-
-<script>
-(function() {
-    const canvas = document.getElementById('cyberMapCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
-    let nodes = [];
-    let activeNodeIndex = 0;
-    let pulseRadius = 0;
-    let packetProgress = 0;
-    let mouseX = -100;
-    let mouseY = -100;
-    let hoveredNodeIndex = null;
-
-    function resizeCanvas() {
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width * window.devicePixelRatio;
-        canvas.height = rect.height * window.devicePixelRatio;
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    canvas.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-        mouseX = -100;
-        mouseY = -100;
-        hoveredNodeIndex = null;
-    });
-
-    // Funzione di proiezione da Coordinate Geografiche (Lat, Lng) a Coordinate Piane (X, Y)
-    function latLngToXY(lat, lng, width, height) {
-        // Mappa Equirettangolare pulita (Lng: -180 a 180 -> 0 a width, Lat: 90 a -90 -> 0 a height)
-        const x = (lng + 180) * (width / 360);
-        const y = (90 - lat) * (height / 180);
-        return { x, y };
-    }
-
-    async function fetchMapData() {
-        try {
-            const res = await fetch(ENDPOINT, { cache: "no-store" });
-            const data = await res.json();
-            if (data && data.nodes) {
-                nodes = data.nodes;
-                const statusEl = document.getElementById("map-status");
-                if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp}`;
-            }
-        } catch (e) {
-            console.error("Errore fetch Incident Map:", e);
-        }
-    }
-
-    fetchMapData();
-    setInterval(fetchMapData, 5 * 60 * 1000);
-
-    // Contorni continenti stilizzati per mappa 2D piatta (coordinate geografiche approssimate)
-    const worldPolygons = [
-        // Nord America
-        [[-165,70], [-50,70], [-50,15], [-120,15], [-165,30]],
-        // Sud America
-        [[-80,12], [-35,12], [-35,-55], [-75,-55]],
-        // Europa / Asia (Eurasia)
-        [[-10,71], [140,71], [140,20], [-10,20]],
-        // Africa
-        [[-20,37], [50,37], [40,-35], [10,-35]],
-        // Oceania / Australia
-        [[110,-10], [155,-10], [155,-45], [110,-45]]
-    ];
-
-    function drawMap() {
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
-
-        // Sfondo scuro pulito
-        ctx.fillStyle = '#010914';
-        ctx.fillRect(0, 0, width, height);
-
-        // 1. Griglia di navigazione orizzontale e verticale (stile radar/mappa tattica)
-        ctx.strokeStyle = 'rgba(0, 234, 255, 0.04)';
-        ctx.lineWidth = 1;
-        for (let x = 0; x < width; x += 60) {
-            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
-        }
-        for (let y = 0; y < height; y += 40) {
-            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
-        }
-
-        // 2. Disegno dei continenti vettoriali piatti
-        ctx.strokeStyle = 'rgba(0, 234, 255, 0.12)';
-        ctx.fillStyle = 'rgba(0, 234, 255, 0.025)';
-        ctx.lineWidth = 1;
-
-        worldPolygons.forEach(poly => {
-            ctx.beginPath();
-            poly.forEach((pt, i) => {
-                const xy = latLngToXY(pt[1], pt[0], width, height);
-                if (i === 0) ctx.moveTo(xy.x, xy.y);
-                else ctx.lineTo(xy.x, xy.y);
-            });
-            ctx.closePath();
-            ctx.fill();
-            ctx.stroke();
-        });
-
-        if (nodes.length > 0) {
-            hoveredNodeIndex = null;
-
-            // Calcolo posizione pixel per ogni nodo
-            const projectedNodes = nodes.map(node => {
-                const pos = latLngToXY(node.lat, node.lng, width, height);
-                return { ...node, px: pos.x, py: pos.y };
-            });
-
-            // Controllo interattività mouse sui nodi
-            projectedNodes.forEach((node, idx) => {
-                const dist = Math.hypot(node.px - mouseX, node.py - mouseY);
-                if (dist < 22) {
-                    hoveredNodeIndex = idx;
-                }
-            });
-
-            // 3. Linee di connessione e pacchetti di dati in transito
-            ctx.strokeStyle = 'rgba(0, 234, 255, 0.18)';
-            ctx.lineWidth = 1;
-            ctx.setLineDash([4, 4]);
-
-            for (let i = 0; i < projectedNodes.length; i++) {
-                for (let j = i + 1; j < projectedNodes.length; j++) {
-                    if ((i + j) % 2 === 0) {
-                        const n1 = projectedNodes[i];
-                        const n2 = projectedNodes[j];
-
-                        ctx.beginPath();
-                        ctx.moveTo(n1.px, n1.py);
-                        ctx.lineTo(n2.px, n2.py);
-                        ctx.stroke();
-
-                        // Pacchetto dati luminoso che scorre sulla linea
-                        packetProgress = (packetProgress + 0.0035) % 1;
-                        const pktX = n1.px + (n2.px - n1.px) * packetProgress;
-                        const pktY = n1.py + (n2.py - n1.py) * packetProgress;
-                        ctx.fillStyle = '#00ffcc';
-                        ctx.fillRect(pktX - 2, pktY - 2, 4, 4);
-                    }
-                }
-            }
-            ctx.setLineDash([]);
-
-            // Gestione rotazione automatica o blocco manuale al passaggio del mouse
-            if (hoveredNodeIndex === null) {
-                if (Math.random() < 0.015) {
-                    activeNodeIndex = Math.floor(Math.random() * projectedNodes.length);
-                }
-            } else {
-                activeNodeIndex = hoveredNodeIndex;
-            }
-
-            // 4. Disegno dei nodi e dei cerchi radar di attenzione
-            projectedNodes.forEach((node, index) => {
-                let color = '#00eaff';
-                if (node.risk === 'Critical') color = '#ff0044';
-                if (node.risk === 'High') color = '#ff7b00';
-
-                // Effetto cerchio radar pulsante sul nodo attivo
-                if (index === activeNodeIndex) {
-                    pulseRadius = (pulseRadius + 0.6) % 28;
-                    ctx.strokeStyle = color;
-                    ctx.lineWidth = 1.5;
-                    ctx.beginPath();
-                    ctx.arc(node.px, node.py, 8 + pulseRadius, 0, Math.PI * 2);
-                    ctx.globalAlpha = 1 - (pulseRadius / 28);
-                    ctx.stroke();
-                    ctx.globalAlpha = 1.0;
-                }
-
-                // Cerchio pieno del nodo
-                ctx.fillStyle = color;
-                ctx.beginPath();
-                ctx.arc(node.px, node.py, index === activeNodeIndex ? 6 : 4.5, 0, Math.PI * 2);
-                ctx.fill();
-
-                // Alone neon
-                ctx.shadowColor = color;
-                ctx.shadowBlur = 12;
-                ctx.fill();
-                ctx.shadowBlur = 0;
-
-                // Etichetta leggibile a fianco del nodo
-                ctx.fillStyle = index === activeNodeIndex ? '#ffffff' : '#c9d1d9';
-                ctx.font = index === activeNodeIndex ? 'bold 11px Consolas, monospace' : '10px Consolas, monospace';
-                ctx.fillText(`${node.name.split(' ')[0]} [${node.attacks}]`, node.px + 10, node.py + 3);
-            });
-
-            // Aggiornamento barra HUD inferiore
-            const current = projectedNodes[activeNodeIndex];
-            const targetEl = document.getElementById("map-active-target");
-            const coordsEl = document.getElementById("map-coords");
-            if (current && targetEl) {
-                const modeText = hoveredNodeIndex !== null ? "⚡ [MANUAL INSPECT]" : "🟢 [AUTO-ROTATION]";
-                targetEl.textContent = `Node: ${current.name} | Rischio: ${current.risk} | Eventi: ${current.attacks}`;
-                if (coordsEl) coordsEl.textContent = modeText;
-            }
-        }
-
-        requestAnimationFrame(drawMap);
-    }
-
-    requestAnimationFrame(drawMap);
-})();
-</script>
 	
 	<script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1628,6 +1409,164 @@ Scarica report previsionale 2026
 </script>
 
 </div>
+
+	<script>
+(function() {
+    const canvas = document.getElementById('cyberMapCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
+    let nodes = [];
+    let activeNodeIndex = 0;
+    let pulseRadius = 0;
+
+    function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * window.devicePixelRatio;
+        canvas.height = rect.height * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    async function fetchMapData() {
+        try {
+            const res = await fetch(ENDPOINT, { cache: "no-store" });
+            const data = await res.json();
+            if (data && data.nodes) {
+                nodes = data.nodes;
+                const statusEl = document.getElementById("map-status");
+                if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp}`;
+            }
+        } catch (e) {
+            console.error("Errore fetch Incident Map:", e);
+        }
+    }
+
+    fetchMapData();
+    setInterval(fetchMapData, 5 * 60 * 1000);
+
+    // Punti di riferimento stilizzati per abbozzare i continenti (stile wireframe digital world map)
+    const worldOutlines = [
+        // Nord America
+        [[0.15,0.3], [0.22,0.25], [0.3,0.32], [0.28,0.45], [0.18,0.4]],
+        // Europa / Asia
+        [[0.45,0.25], [0.6,0.22], [0.75,0.28], [0.85,0.35], [0.7,0.45], [0.5,0.4]],
+        // Sud America
+        [[0.28,0.55], [0.35,0.6], [0.32,0.78], [0.25,0.7]],
+        // Africa
+        [[0.48,0.48], [0.58,0.5], [0.55,0.7], [0.45,0.65]]
+    ];
+
+    function drawMap() {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+
+        // Sfondo radar scuro
+        ctx.fillStyle = '#010914';
+        ctx.fillRect(0, 0, width, height);
+
+        // 1. Disegna i continenti stilizzati (Wireframe scuro di sfondo)
+        ctx.strokeStyle = 'rgba(0, 234, 255, 0.08)';
+        ctx.fillStyle = 'rgba(0, 234, 255, 0.02)';
+        ctx.lineWidth = 1;
+        
+        worldOutlines.forEach(poly => {
+            ctx.beginPath();
+            poly.forEach((pt, i) => {
+                const px = pt[0] * width;
+                const py = pt[1] * height;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            });
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+        });
+
+        // Griglia radar sottile sopra la mappa
+        ctx.strokeStyle = 'rgba(0, 234, 255, 0.03)';
+        for (let x = 0; x < width; x += 50) {
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+        }
+        for (let y = 0; y < height; y += 50) {
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+        }
+
+        if (nodes.length > 0) {
+            // Linee di connessione cifrate tra i nodi
+            ctx.strokeStyle = 'rgba(0, 234, 255, 0.15)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 3]);
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    if ((i + j) % 2 === 0) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x * width, nodes[i].y * height);
+                        ctx.lineTo(nodes[j].x * width, nodes[j].y * height);
+                        ctx.stroke();
+                    }
+                }
+            }
+            ctx.setLineDash([]);
+
+            // Disegno nodi di telemetria reali
+            nodes.forEach((node, index) => {
+                const nx = node.x * width;
+                const ny = node.y * height;
+
+                let color = '#00eaff';
+                if (node.risk === 'Critical') color = '#ff0044';
+                if (node.risk === 'High') color = '#ff7b00';
+
+                // Effetto Radar pulsante sul nodo attivo
+                if (index === activeNodeIndex) {
+                    pulseRadius = (pulseRadius + 0.6) % 28;
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.arc(nx, ny, 8 + pulseRadius, 0, Math.PI * 2);
+                    ctx.globalAlpha = 1 - (pulseRadius / 28);
+                    ctx.stroke();
+                    ctx.globalAlpha = 1.0;
+                }
+
+                // Cerchio del nodo
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(nx, ny, 4.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Alone neon
+                ctx.shadowColor = color;
+                ctx.shadowBlur = 10;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // Etichetta testuale
+                ctx.fillStyle = '#c9d1d9';
+                ctx.font = '10px Consolas, monospace';
+                ctx.fillText(`${node.name.split(' ')[0]} [${node.attacks}]`, nx + 9, ny + 3);
+            });
+
+            const current = nodes[activeNodeIndex];
+            const targetEl = document.getElementById("map-active-target");
+            if (current && targetEl) {
+                targetEl.textContent = `Telemetry Node: ${current.name} | Rischio: ${current.risk} | Eventi: ${current.attacks}`;
+            }
+        }
+
+        if (Math.random() < 0.02 && nodes.length > 0) {
+            activeNodeIndex = Math.floor(Math.random() * nodes.length);
+        }
+
+        requestAnimationFrame(drawMap);
+    }
+
+    requestAnimationFrame(drawMap);
+})();
+</script>
   
 <script>
 function startVulnTimeline() {
