@@ -1,8 +1,28 @@
 [
   {
+    "title": "Railway warns devs to rotate secrets after potential breach",
+    "link": "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/railway.jpg"
+  },
+  {
+    "title": "Microsoft Links Storm-0940 to ConnectWise Supply Chain Attack",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/microsoft-storm-0940-connectwise-supply-chain-attack",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt481be0dcde6741d2/6ada753af919424ed83bcdaf/chinacyber_mageFlow_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "What We Missed: Feds Lasso Texas Laptop Farms",
+    "link": "https://www.darkreading.com/insider-threats/texas-laptop-farms-north-korean-it-workers",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta02f4349610bfb87/6ada6ff8b8f9c97bdf15ea45/rodeo-Scott_Olsen-GettyImages-2284428107.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Capcom confirms data breach affecting 11.7 million accounts",
     "link": "https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/capcom.jpg"
+  },
+  {
+    "title": "Les supermarch\u00e9s de l'UE paient d'un firmware de r\u00e9frig\u00e9rateur non mis \u00e0 jour",
+    "link": "https://www.darkreading.com/ics-ot-security/eu-grocers-unpatched-fridge-firmware-french",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdcfc831a57f67689/6acfbd4be9c311a2c0cf7674/Melted_ice_cream-cagkansayin-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
   },
   {
     "title": "LiteLLM release pipeline hacked to distribute info-stealer malware",
@@ -127,26 +147,6 @@
   {
     "title": "Siemens RUGGEDCOM APE1808 Devices",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-18",
-    "image": ""
-  },
-  {
-    "title": "Siemens Industrial Edge App Publisher",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-02",
-    "image": ""
-  },
-  {
-    "title": "Siemens SIMATIC S7-1500 CPU 1518(F)-4 PN/DP MFP",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-11",
-    "image": ""
-  },
-  {
-    "title": "Siemens WinCC",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-13",
-    "image": ""
-  },
-  {
-    "title": "Siemens Industrial Edge Device Kit",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-09",
     "image": ""
   }
 ]
