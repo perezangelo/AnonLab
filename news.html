@@ -30,12 +30,9 @@
   <link rel="stylesheet" href="/css/custom.css">
 
     <script src="https://angelonline.altervista.org/js/chart.umd.min.js?v=2"></script>
-
-	<!-- Three.js (richiesto da globe.gl) -->
-<script src="https://unpkg.com/three@0.152.0/build/three.js"></script>
-<!-- Globe.gl -->
+	
 <script src="https://unpkg.com/globe.gl"></script>
-  
+	
   <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
 <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
@@ -1394,106 +1391,115 @@ document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('globeViz');
     if (!container) return;
 
-    // Inizializza il Globo 3D
-    const myGlobe = Globe()
-        (container)
-        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg') // Texture notturna realistica della Terra
-        .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-        .backgroundColor('#010712')
-        .showAtmosphere(true)
-        .atmosphereColor('#00eaff')
-        .atmosphereAltitude(0.15);
+    // Funzione di inizializzazione sicura del Globo
+    function initGlobe() {
+        if (typeof Globe === 'undefined') {
+            setTimeout(initGlobe, 100); // Riprova finché lo script non è pronto
+            return;
+        }
 
-    // Abilita la rotazione automatica lenta
-    myGlobe.controls().autoRotate = true;
-    myGlobe.controls().autoRotateSpeed = 0.8;
-    myGlobe.controls().enableZoom = true;
-
-    const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
-
-    async function loadGlobeData() {
         try {
-            const res = await fetch(ENDPOINT, { cache: "no-store" });
-            const data = await res.json();
+            const myGlobe = Globe()(container)
+                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+                .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+                .backgroundColor('#010712')
+                .showAtmosphere(true)
+                .atmosphereColor('#00eaff')
+                .atmosphereAltitude(0.15);
 
-            if (data && data.nodes) {
-                const nodes = data.nodes;
-                let totalEvents = 0;
+            myGlobe.controls().autoRotate = true;
+            myGlobe.controls().autoRotateSpeed = 0.8;
+            myGlobe.controls().enableZoom = true;
 
-                // Prepara i punti (markers) sul globo
-                const gPoints = nodes.map(node => {
-                    totalEvents += node.attacks;
-                    let color = '#00eaff';
-                    if (node.risk === 'Critical') color = '#ff0044';
-                    else if (node.risk === 'High') color = '#ff7b00';
+            const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
 
-                    return {
-                        lat: node.lat,
-                        lng: node.lng,
-                        size: node.risk === 'Critical' ? 1.2 : 0.8,
-                        color: color,
-                        name: node.name,
-                        risk: node.risk,
-                        attacks: node.attacks
-                    };
-                });
+            async function loadGlobeData() {
+                try {
+                    const res = await fetch(ENDPOINT, { cache: "no-store" });
+                    const data = await res.json();
 
-                // Crea archi di connessione dinamici tra il primo nodo e gli altri (per simulare traffico di rete)
-                const gArcs = [];
-                for (let i = 1; i < nodes.length; i++) {
-                    gArcs.push({
-                        startLat: nodes[0].lat,
-                        startLng: nodes[0].lng,
-                        endLat: nodes[i].lat,
-                        endLng: nodes[i].lng,
-                        color: ['#00eaff', nodes[i].risk === 'Critical' ? '#ff0044' : '#ff7b00']
-                    });
-                }
+                    if (data && data.nodes) {
+                        const nodes = data.nodes;
+                        let totalEvents = 0;
 
-                // Configura il globo con punti, anelli radar e archi
-                myGlobe
-                    .pointsData(gPoints)
-                    .pointLat('lat')
-                    .pointLng('lng')
-                    .pointColor('color')
-                    .pointAltitude(0.05)
-                    .pointRadius('size')
-                    .pointLabel(d => `
-                        <div style="background: #000; color: #fff; padding: 6px 10px; border: 1px solid #00eaff; border-radius: 4px; font-size: 11px;">
-                            <strong>${d.name}</strong><br>
-                            Rischio: <span style="color:${d.color};">${d.risk}</span><br>
-                            Eventi: <b>${d.attacks}</b>
-                        </div>
-                    `)
-                    .ringsData(gPoints)
-                    .ringLat('lat')
-                    .ringLng('lng')
-                    .ringColor(d => d.color)
-                    .ringMaxRadius(4)
-                    .ringPropagationSpeed(2)
-                    .ringRepeatPeriod(800)
-                    .arcsData(gArcs)
-                    .arcColor('color')
-                    .arcDashLength(0.4)
-                    .arcDashGap(0.2)
-                    .arcDashInitialGap(() => Math.random())
-                    .arcDashSpeed(0.5);
+                        const gPoints = nodes.map(node => {
+                            totalEvents += node.attacks;
+                            let color = '#00eaff';
+                            if (node.risk === 'Critical') color = '#ff0044';
+                            else if (node.risk === 'High') color = '#ff7b00';
 
-                const statusEl = document.getElementById("globe-status");
-                if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp}`;
+                            return {
+                                lat: node.lat,
+                                lng: node.lng,
+                                size: node.risk === 'Critical' ? 1.2 : 0.8,
+                                color: color,
+                                name: node.name,
+                                risk: node.risk,
+                                attacks: node.attacks
+                            };
+                        });
 
-                const targetEl = document.getElementById("globe-active-target");
-                if (targetEl) {
-                    targetEl.textContent = `Active Nodes: ${nodes.length} | Totale Eventi Telemetria: ${totalEvents}`;
+                        const gArcs = [];
+                        for (let i = 1; i < nodes.length; i++) {
+                            gArcs.push({
+                                startLat: nodes[0].lat,
+                                startLng: nodes[0].lng,
+                                endLat: nodes[i].lat,
+                                endLng: nodes[i].lng,
+                                color: ['#00eaff', nodes[i].risk === 'Critical' ? '#ff0044' : '#ff7b00']
+                            });
+                        }
+
+                        myGlobe
+                            .pointsData(gPoints)
+                            .pointLat('lat')
+                            .pointLng('lng')
+                            .pointColor('color')
+                            .pointAltitude(0.05)
+                            .pointRadius('size')
+                            .pointLabel(d => `
+                                <div style="background: #000; color: #fff; padding: 6px 10px; border: 1px solid #00eaff; border-radius: 4px; font-size: 11px;">
+                                    <strong>${d.name}</strong><br>
+                                    Rischio: <span style="color:${d.color};">${d.risk}</span><br>
+                                    Eventi: <b>${d.attacks}</b>
+                                </div>
+                            `)
+                            .ringsData(gPoints)
+                            .ringLat('lat')
+                            .ringLng('lng')
+                            .ringColor(d => d.color)
+                            .ringMaxRadius(4)
+                            .ringPropagationSpeed(2)
+                            .ringRepeatPeriod(800)
+                            .arcsData(gArcs)
+                            .arcColor('color')
+                            .arcDashLength(0.4)
+                            .arcDashGap(0.2)
+                            .arcDashInitialGap(() => Math.random())
+                            .arcDashSpeed(0.5);
+
+                        const statusEl = document.getElementById("globe-status");
+                        if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp}`;
+
+                        const targetEl = document.getElementById("globe-active-target");
+                        if (targetEl) {
+                            targetEl.textContent = `Active Nodes: ${nodes.length} | Totale Eventi Telemetria: ${totalEvents}`;
+                        }
+                    }
+                } catch (e) {
+                    console.error("Errore caricamento dati Globo 3D:", e);
                 }
             }
-        } catch (e) {
-            console.error("Errore caricamento Globo 3D:", e);
+
+            loadGlobeData();
+            setInterval(loadGlobeData, 5 * 60 * 1000);
+
+        } catch (err) {
+            console.error("Errore inizializzazione Globe.gl:", err);
         }
     }
 
-    loadGlobeData();
-    setInterval(loadGlobeData, 5 * 60 * 1000); // Aggiorna ogni 5 minuti
+    initGlobe();
 });
 </script>
 	
