@@ -1413,41 +1413,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const ENDPOINT = "https://angelonline.altervista.org/newsops/incident_map.php";
 
-            async function loadGlobeData() {
+async function loadGlobeData() {
                 try {
                     const res = await fetch(ENDPOINT, { cache: "no-store" });
                     const data = await res.json();
 
-                    if (data && data.nodes) {
-                        const nodes = data.nodes;
+                    if (data && data.nodes && Array.isArray(data.nodes)) {
+                        // 🔹 Filtra e pulisce i nodi assicurandosi che lat e lng siano numeri validi
+                        const nodes = data.nodes.filter(node => 
+                            node.lat !== undefined && node.lng !== undefined && 
+                            !isNaN(parseFloat(node.lat)) && !isNaN(parseFloat(node.lng))
+                        );
+
                         let totalEvents = 0;
 
                         const gPoints = nodes.map(node => {
-                            totalEvents += node.attacks;
+                            totalEvents += (node.attacks || 0);
                             let color = '#00eaff';
                             if (node.risk === 'Critical') color = '#ff0044';
                             else if (node.risk === 'High') color = '#ff7b00';
 
                             return {
-                                lat: node.lat,
-                                lng: node.lng,
+                                lat: parseFloat(node.lat),
+                                lng: parseFloat(node.lng),
                                 size: node.risk === 'Critical' ? 1.2 : 0.8,
                                 color: color,
-                                name: node.name,
-                                risk: node.risk,
-                                attacks: node.attacks
+                                name: node.name || "Unknown Node",
+                                risk: node.risk || "Moderate",
+                                attacks: node.attacks || 0
                             };
                         });
 
+                        // Crea archi solo se ci sono almeno 2 nodi validi
                         const gArcs = [];
-                        for (let i = 1; i < nodes.length; i++) {
-                            gArcs.push({
-                                startLat: nodes[0].lat,
-                                startLng: nodes[0].lng,
-                                endLat: nodes[i].lat,
-                                endLng: nodes[i].lng,
-                                color: ['#00eaff', nodes[i].risk === 'Critical' ? '#ff0044' : '#ff7b00']
-                            });
+                        if (nodes.length > 1) {
+                            for (let i = 1; i < nodes.length; i++) {
+                                gArcs.push({
+                                    startLat: parseFloat(nodes[0].lat),
+                                    startLng: parseFloat(nodes[0].lng),
+                                    endLat: parseFloat(nodes[i].lat),
+                                    endLng: parseFloat(nodes[i].lng),
+                                    color: ['#00eaff', nodes[i].risk === 'Critical' ? '#ff0044' : '#ff7b00']
+                                });
+                            }
                         }
 
                         myGlobe
@@ -1479,7 +1487,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             .arcDashSpeed(0.5);
 
                         const statusEl = document.getElementById("globe-status");
-                        if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp}`;
+                        if (statusEl) statusEl.textContent = `LIVE // ${data.timestamp || 'OK'}`;
 
                         const targetEl = document.getElementById("globe-active-target");
                         if (targetEl) {
@@ -1490,15 +1498,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error("Errore caricamento dati Globo 3D:", e);
                 }
             }
-
-            loadGlobeData();
-            setInterval(loadGlobeData, 5 * 60 * 1000);
-
-        } catch (err) {
-            console.error("Errore inizializzazione Globe.gl:", err);
-        }
-    }
-
+			
     initGlobe();
 });
 </script>
