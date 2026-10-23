@@ -364,6 +364,177 @@ document.addEventListener("click", function (e) {
     dropdown.classList.toggle("open", dropdown.contains(e.target));
 });
 
+/* ============================================================
+   ANONLAB — CONTATORE VISITE · interfaccia (v2)
+   Nessun CSS da aggiungere: lo stile e' nel riquadro.
+   ============================================================ */
 
-Action: create_file({"file_text":"/* ============================================================\n   ANONLAB — CONTATORE VISITE (frontend, versione migliorata)\n   - Data/ora/saluto dal SERVER (Europe/Rome), coerenti per tutti\n   - Conteggio \"Questa pagina\" corretto\n   - Lista pagine ordinata per visite e pulita\n   - Utenti online affidabili\n   - Aggiornamento periodico\n============================================================ */\n\n(function () {\n\n    \"use strict\";\n\n    var UPDATE_URL = \"https://angelonline.altervista.org/counter/update.php\";\n    var PROXY_URL  = \"https://angelonline.altervista.org/counter/proxy.php\";\n    var REFRESH_MS = 10000;\n\n    /* ------------------------------------------------------------\n       NORMALIZZA NOME PAGINA (coerente con update.php)\n    ------------------------------------------------------------ */\n    function currentPageName() {\n        var p = window.location.pathname || \"\";\n        p = p.split(\"?\")[0].split(\"#\")[0];\n        p = p.replace(/\\/+$/, \"\");          // rimuove slash finali\n        var parts = p.split(\"/\");\n        var last = parts[parts.length - 1]; // basename\n        if (!last || last.trim() === \"\") last = \"index.html\";\n        return last;\n    }\n\n    /* ------------------------------------------------------------\n       AVVIO\n    ------------------------------------------------------------ */\n    function initVisitCounter() {\n        if (window.__anonlabVisitCounterStarted) return;\n        window.__anonlabVisitCounterStarted = true;\n\n        var page = currentPageName();\n\n        /* 1) Incrementa una sola volta per caricamento */\n        fetch(UPDATE_URL + \"?page=\" + encodeURIComponent(page))\n            .then(function (r) { return r.json(); })\n            .then(function (data) { updateCounterUI(data); })\n            .catch(function (err) { console.error(\"Errore update.php:\", err); });\n\n        /* 2) Letture periodiche dal proxy (no incremento) */\n        setInterval(loadCounterData, REFRESH_MS);\n    }\n\n    /* ------------------------------------------------------------\n       LETTURA DAL PROXY\n    ------------------------------------------------------------ */\n    function loadCounterData() {\n        fetch(PROXY_URL + \"?cache=\" + Date.now())\n            .then(function (r) { return r.json(); })\n            .then(function (data) { updateCounterUI(data); })\n            .catch(function (err) { console.error(\"Errore counter frontend:\", err); });\n    }\n\n    /* ------------------------------------------------------------\n       HELPER\n    ------------------------------------------------------------ */\n    function setText(id, value) {\n        var el = document.getElementById(id);\n        if (el) el.textContent = value;\n    }\n\n    function formatNumber(n) {\n        n = Number(n) || 0;\n        return n.toLocaleString(\"it-IT\");\n    }\n\n    /* ------------------------------------------------------------\n       AGGIORNAMENTO UI\n    ------------------------------------------------------------ */\n    function updateCounterUI(data) {\n        if (!data || typeof data !== \"object\") return;\n\n        var pages  = data.pages  || {};\n        var today  = data.today  || {};\n        var online = data.online || {};\n        var server = data.server || {};\n\n        /* KPI principali */\n        setText(\"visit-counter\", formatNumber(data.total));\n        setText(\"page-counter\",  formatNumber(Object.keys(pages).length));\n\n        /* Dispositivi */\n        setText(\"dev-mobile\",  formatNumber(today.mobile));\n        setText(\"dev-desktop\", formatNumber(today.desktop));\n        setText(\"dev-tablet\",  formatNumber(today.tablet));\n\n        /* Utenti online */\n        setText(\"online-users\", formatNumber(Object.keys(online).length));\n\n        /* Pagina corrente */\n        var page = currentPageName();\n        setText(\"current-page-count\", formatNumber(pages[page]));\n\n        /* Lista pagine — ordinata per visite (desc) e pulita */\n        var listEl = document.getElementById(\"pages-list\");\n        if (listEl) {\n            listEl.innerHTML = \"\";\n            Object.keys(pages)\n                .filter(function (p) { return p && p.trim() !== \"\"; })\n                .sort(function (a, b) { return (pages[b] || 0) - (pages[a] || 0); })\n                .forEach(function (p) {\n                    var li = document.createElement(\"li\");\n                    if (p === page) li.setAttribute(\"aria-current\", \"page\");\n\n                    var name = document.createElement(\"span\");\n                    name.textContent = p;\n\n                    var count = document.createElement(\"strong\");\n                    count.style.marginLeft = \"6px\";\n                    count.textContent = formatNumber(pages[p]);\n\n                    li.appendChild(name);\n                    li.appendChild(document.createTextNode(\" — \"));\n                    li.appendChild(count);\n                    listEl.appendChild(li);\n                });\n        }\n\n        /* Saluto / Data / Ora dal SERVER (coerenti per tutti) */\n        setText(\"visit-greeting\", server.greeting || \"Ciao!\");\n        setText(\"visit-date\",     server.date     || \"--/--/----\");\n        setText(\"visit-time\",     server.time     || \"--:--:--\");\n    }\n\n    /* ------------------------------------------------------------\n       BOOT\n    ------------------------------------------------------------ */\n    if (document.readyState === \"loading\") {\n        document.addEventListener(\"DOMContentLoaded\", initVisitCounter);\n    } else {\n        initVisitCounter();\n    }\n\n    /* Esponi per uso manuale se serve */\n    window.initVisitCounter = initVisitCounter;\n    window.loadCounterData  = loadCounterData;\n\n})();\n","lint_rule_config":{"directive":"Fix these {blocking} blocking lint error(s) before continuing.","enabled":true,"rules":[{"id":"EB001","mode":"on"},{"id":"EB002","mode":"on"},{"id":"EB004","mode":"on"}]},"path":"/app/counter/counter.js","run_lint":true})
-Observation: Create successful: /app/counter/counter.js
+var ANONLAB = ANONLAB || {};
+ANONLAB.api    = "https://angelonline.altervista.org/counter/";
+ANONLAB.pollMs = 15000;   /* ogni quanto aggiornare i numeri   */
+ANONLAB.pingMs = 60000;   /* battito per restare "online"      */
+
+function anonlabVisitId() {
+    try {
+        var id = localStorage.getItem("anonlab_vid");
+        if (!id) {
+            id = Math.random().toString(36).slice(2) + Date.now().toString(36);
+            localStorage.setItem("anonlab_vid", id);
+        }
+        return id;
+    } catch (e) {
+        return "";
+    }
+}
+
+function anonlabPage() {
+    var parts = (window.location.pathname || "").toLowerCase().split("/").filter(function (s) { return s !== ""; });
+    var last = parts.length ? parts[parts.length - 1] : "";
+    last = last.replace(/[^a-z0-9._-]/g, "").slice(0, 60);
+    return last || "index.html";
+}
+
+function anonlabDevice() {
+    var touch = (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) || navigator.maxTouchPoints > 1;
+    var w = (window.screen && window.screen.width) ? Math.min(window.innerWidth, window.screen.width) : window.innerWidth;
+    if (touch) {
+        if (w < 768) return "mobile";
+        if (w < 1200) return "tablet";
+    }
+    return "desktop";
+}
+
+function anonlabGet(url) {
+    return fetch(url, { cache: "no-store" }).then(function (r) { return r.json(); });
+}
+
+function anonlabNum(value) {
+    return new Intl.NumberFormat("it-IT").format(Number(value) || 0);
+}
+
+function anonlabSet(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = value;
+}
+
+/* ============================================================
+   AVVIO
+   ============================================================ */
+function initVisitCounter() {
+    if (window.__anonlabVisitCounterStarted) return;
+    window.__anonlabVisitCounterStarted = true;
+
+    ANONLAB.vid = anonlabVisitId();
+
+    /* 1) registra la visita: una sola volta per pagina caricata,
+          e solo se il server non riconosce un bot */
+
+    anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
+               "&vid=" + encodeURIComponent(ANONLAB.vid) +
+               "&device=" + anonlabDevice() + "&t=" + Date.now())
+        .then(updateCounterUI)
+        .catch(function (err) { console.error("Errore update.php:", err); });
+
+    /* 2) battito: tiene questo visitatore nella lista "online" */
+    setInterval(function () {
+        anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
+            .catch(function () {});
+    }, ANONLAB.pingMs);
+
+    /* 3) aggiornamento dei numeri */
+    loadCounterData();
+    setInterval(loadCounterData, ANONLAB.pollMs);
+
+    anonlabPulse();
+}
+
+/* ============================================================
+   LETTURA DEI DATI
+   ============================================================ */
+function loadCounterData() {
+    anonlabGet(ANONLAB.api + "proxy.php?t=" + Date.now())
+        .then(updateCounterUI)
+        .catch(function (err) { console.error("Errore counter frontend:", err); });
+}
+
+/* ============================================================
+   AGGIORNAMENTO INTERFACCIA
+   ============================================================ */
+function updateCounterUI(data) {
+    if (!data || data.error) return;
+
+    /* numeri principali */
+    anonlabSet("visit-unique",  anonlabNum(data.unique));
+    anonlabSet("visit-counter", anonlabNum(data.total));
+    anonlabSet("visit-today",   anonlabNum(data.today ? data.today.visits : 0));
+    anonlabSet("online-users",  anonlabNum(data.online_count));
+    anonlabSet("page-counter",  anonlabNum(data.pages_tot));
+    anonlabSet("current-page-count", anonlabNum((data.pages || {})[anonlabPage()]));
+
+    /* dispositivi di oggi + barra proporzionale */
+    var today   = data.today || {};
+    var mobile  = Number(today.mobile) || 0;
+    var desktop = Number(today.desktop) || 0;
+    var tablet  = Number(today.tablet) || 0;
+    var totale  = mobile + desktop + tablet;
+
+    anonlabSet("dev-mobile",  anonlabNum(mobile));
+    anonlabSet("dev-desktop", anonlabNum(desktop));
+    anonlabSet("dev-tablet",  anonlabNum(tablet));
+
+    [["bar-mobile", mobile], ["bar-desktop", desktop], ["bar-tablet", tablet]].forEach(function (coppia) {
+        var bar = document.getElementById(coppia[0]);
+        if (bar) bar.style.width = (totale ? Math.round(coppia[1] * 100 / totale) : 0) + "%";
+    });
+
+    /* elenco delle pagine, dalla piu' vista */
+    var list = document.getElementById("pages-list");
+    if (list) {
+        var pages = data.pages || {};
+        var nomi = Object.keys(pages).sort(function (a, b) { return pages[b] - pages[a]; });
+        list.innerHTML = "";
+        nomi.forEach(function (nome) {
+            var li = document.createElement("li");
+            li.style.cssText = "display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed rgba(255,255,255,.06);";
+
+            var etichetta = document.createElement("span");
+            etichetta.textContent = nome;
+            etichetta.style.cssText = "overflow:hidden;text-overflow:ellipsis;white-space:nowrap;";
+
+            var conteggio = document.createElement("span");
+            conteggio.textContent = anonlabNum(pages[nome]);
+            conteggio.style.cssText = "color:#00ffcc;font-weight:700;font-variant-numeric:tabular-nums;";
+
+            li.appendChild(etichetta);
+            li.appendChild(conteggio);
+            list.appendChild(li);
+        });
+    }
+
+    /* saluto, data e ora */
+    var ora = new Date().getHours();
+    var saluto = "Ciao!";
+    if (ora < 12) saluto = "Buongiorno!";
+    else if (ora < 18) saluto = "Buon pomeriggio!";
+    else saluto = "Buona serata!";
+    anonlabSet("visit-greeting", saluto);
+
+    var adesso = new Date();
+    anonlabSet("visit-date", adesso.toLocaleDateString("it-IT"));
+    anonlabSet("visit-time", adesso.toLocaleTimeString("it-IT"));
+}
+
+/* ============================================================
+   PALLINO "ONLINE" — rispetta chi ha ridotto le animazioni
+   ============================================================ */
+function anonlabPulse() {
+    var dot = document.getElementById("online-dot");
+    if (!dot) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var acceso = true;
+    setInterval(function () {
+        acceso = !acceso;
+        dot.style.opacity = acceso ? "1" : ".35";
+    }, 900);
+}
