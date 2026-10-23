@@ -468,7 +468,7 @@ function updateCounterUI(data) {
     anonlabSet("visit-counter", anonlabNum(data.total));
     anonlabSet("visit-today",   anonlabNum(data.today ? data.today.visits : 0));
     anonlabSet("online-users",  anonlabNum(data.online_count));
-    anonlabSet("page-counter",  anonlabNum(data.pages_tot));
+    anonlabSet("page-counter",  anonlabNum(data.total_pages));
     anonlabSet("current-page-count", anonlabNum((data.pages || {})[anonlabPage()]));
 
     /* dispositivi di oggi + barra proporzionale */
