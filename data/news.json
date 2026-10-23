@@ -1,5 +1,75 @@
 [
   {
+    "title": "Microsoft: Windows Server 2016 reaches end of support in January",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2016-reaches-end-of-support-in-january/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/15/Windows_Server_headpic.jpg"
+  },
+  {
+    "title": "Quest Diagnostics confirms data breach exposed patient records",
+    "link": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/23/quest.jpg"
+  },
+  {
+    "title": "PHP shares mitigation for new RCE vulnerability with no patch",
+    "link": "https://www.bleepingcomputer.com/news/security/php-shares-mitigation-for-new-and-unpatched-rce-vulnerability/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/PHP_headpic.jpg"
+  },
+  {
+    "title": "Microsoft partner PwC is facing data breach claim",
+    "link": "https://cybernews.com/security/microsoft-partner-pwc-data-breach-claim/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/pwc.jpg"
+  },
+  {
+    "title": "In Other News: Tor Exit Relays Hijacked, Banks Spot Rogue AI Agents, Self-Rebuilding macOS Ransomware",
+    "link": "https://www.securityweek.com/in-other-news-tor-exit-relays-hijacked-banks-spot-rogue-ai-agents-self-rebuilding-macos-ransomware/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "PHP\u2019s nightmare is far from over: new unpatched vulnerability found",
+    "link": "https://cybernews.com/security/php2shell-attacks-php-new-vulnerabilities-found/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/wordpress-php.jpg"
+  },
+  {
+    "title": "Resident Evil Maker says no game disruptions after breach, but users should stay vigilant",
+    "link": "https://cybernews.com/security/resident-evil-capcom-data-breach/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/Capcom.jpg"
+  },
+  {
+    "title": "You gave your AI agent access, but who is giving it orders?",
+    "link": "https://www.bleepingcomputer.com/news/security/you-gave-your-ai-agent-access-but-who-is-giving-it-orders/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/10/21/ai-email.jpg"
+  },
+  {
+    "title": "Why Caribbean Threats Cascade Into Global Cyber-Risk",
+    "link": "https://www.darkreading.com/cyber-risk/why-caribbean-threats-cascade-global-cyber-risk",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt9c2c56022ab6d6c2/6ada53fbcca51d530a712e5f/Caribbean-FrankRamspott-Getty-1627410191.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Hackers Breach Enterprise Firewalls and VPNs, Exposing Over 70,000 Credentials",
+    "link": "https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSk-Q06Dd5YyYmXWMt9b860DzGRKbTae_QwvoZDKNICaEznAj2AUurJmv6vPnpcH7qqDjauFZWWx7GX1RN93BLaU9Rqgiqe9j1iQRg2Vqcz3HpSqgesA6oS-GrMTyx4CTzwOD7C_z205k57ZpT70Gv4RXi-65X-nyI04wpA3raJ5nh46pN5ox42cyLnHjv/s1600/1000117358.jpg"
+  },
+  {
+    "title": "Cyber Insurance's New Reality: Underwriting Isn't Enough",
+    "link": "https://www.darkreading.com/cyber-risk/cyber-insurances-underwriting-isnt-enough",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt532ec4c95e5c91b7/6ada58e98f65b93d8e99c4a2/Insurance_policy-Mohamad_Faizal_Bin_Ramli-GettyImages-1295819436.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Giving away your old TV? You should wipe it just like you would your phone",
+    "link": "https://cybernews.com/security-hub/old-tv-wipe/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/old-abandoned-tvs.png"
+  },
+  {
+    "title": "HPE patches eight max severity RCE and auth bypass AOS flaws",
+    "link": "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/23/0_Hewlett_Packard_Enterprise_HPE.jpg"
+  },
+  {
+    "title": "Mirai Botnet Operators Join PHP2Shell Attacks as ASLR Bypass Exploits Emerge",
+    "link": "https://www.securityweek.com/mirai-botnet-operators-join-php2shell-attacks-as-aslr-bypass-exploits-emerge/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PHP.jpeg"
+  },
+  {
     "title": "eMudhra quits issuing trust certificates after blunder triggers Java and Python updates",
     "link": "https://cybernews.com/security/emudhra-quits-certificate-business-java-python-flaw/",
     "image": "https://media.cybernews.com/images/featured-big/2026/10/Black-October.jpg"
@@ -15,7 +85,7 @@
     "image": "https://media.cybernews.com/images/featured-big/2026/10/elon-musk-reportedly-invests-billion-in-skydance-new-owner-of-cnn.jpg"
   },
   {
-    "title": "URGENT - PHP Warns of Another Unpatched RCE Two Days After Emergency PHP2Shell Patches",
+    "title": "PHP Warns of Another Unpatched RCE Risk Two Days After Emergency PHP2Shell Patches",
     "link": "https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSXE1XecomGt7TSLi_DCDVL8oQjsLEtppNNGjkuW1cbVl-cXZkMG-rqTr-oSVz_6XfoU8aoScw3rjGxsnTpV3JaV5eWfj431lg09Rnrrk1UjwNq1ZEofkwR4FaM2qatC_FD9ZNBZk-T9_9ddu8n-BtUkhwVgWzc2ZvaWAHP8eMxlLU19qxIjlXeHOJYHs/s1600/php2.jpg"
   },
@@ -40,7 +110,7 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2023/02/China-Surveillence-Threat.jpg"
   },
   {
-    "title": "Attackers Exploit Third VeloCloud Orchestrator Zero-Day in Four Months",
+    "title": "Attackers Exploit Third Arista VCO Zero-Day in Four Months",
     "link": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/09/arista.jpeg"
   },
@@ -65,11 +135,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDudJHAM27KiE-F4E5vX1WOgITTdawUaZrFoXUIrf7lscEHIl7fgGQY5Qo60bRxr-o7UKloYK1sp23i5cvWPpc6XXttZa8GFvYxqSV7pp0B6vdBTp0sIBCX8r8oC5CAXO1mdJfshaIpLFyrFDCm9HPiYyBZMECEcSHKzbVzOk_VpGL2kEQDjB1rNk21Y8/s1600/node2shell.gif"
   },
   {
-    "title": "Morgan Stanley, Bank of America, Citi have started blocking AI agents",
-    "link": "https://cybernews.com/ai-news/banks-blocking-ai-agents/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/Morgan-Stanley.jpg"
-  },
-  {
     "title": "Critical x402 SDK Flaw Could Let Malicious APIs Drain AI Agents\u2019 Token Balances",
     "link": "https://thehackernews.com/2026/10/critical-x402-sdk-flaw-could-let.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1nl6HARmLzzb4BlklarhKxB1F2U6dwKebASj9-Ow-WI6otLzFoATEY-icF7OCAgwHqRzwNhs9jHY2S7e4ZGRHykrIzedvLxQlAyen6jQsOoY_L80gd0Lrjy3-3xzlHavaxahxsI1o13_r2MRRDwbQrtslkXfbITBGcp_736F1sPVq7dR8Rnq_JSVQP3A/s1600/ai-wallet.jpg"
@@ -80,73 +145,8 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Capcom.jpeg"
   },
   {
-    "title": "French lawmakers propose tagging rioters with invisible markers to track them down later",
-    "link": "https://cybernews.com/news/invisible-markers-france/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/FranceStudentRiot.jpg"
-  },
-  {
-    "title": "Quest Diagnostics Reports Cyber Breach Affecting \u2018Certain Patient Records\u2019",
+    "title": "Quest Diagnostics Data Breach Exposed \u2018Certain Patient Records\u2019",
     "link": "https://www.securityweek.com/quest-diagnostics-reports-cyber-breach-affecting-certain-patient-records/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
-  },
-  {
-    "title": "LiteLLM Compromised in Fresh Supply Chain Attack",
-    "link": "https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
-  },
-  {
-    "title": "GRU hacked Kushner\u2019s iPhone, but the Dutch flipped a Russian spy and took a look themselves",
-    "link": "https://cybernews.com/security/jared-kushner-hacked-iphone-gru-russia/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/jared-kushner-hacked.jpg"
-  },
-  {
-    "title": "Atlassian Patches 75 Flaws in Data Center and Server Products",
-    "link": "https://www.securityweek.com/atlassian-patches-75-third-party-flaws-in-data-center-and-server-products/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/12/Atlassian.jpg"
-  },
-  {
-    "title": "Europol investigators identify 51 potential human trafficking victims online",
-    "link": "https://cybernews.com/news/europol-investigators-identify-51-potential-human-trafficking-victims-online/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/human-trafficing.png"
-  },
-  {
-    "title": "PHP2Shell Exploit Attempts Hit Millions as Attackers Try to Deploy Mirai Malware",
-    "link": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3SkRCDhjMsUS2FZ9ES40x39o7u2jdwMQDcq4NC75CsC2Xjji94ZZt_0Jgzdxmbf92n3razC07QvKJ-VT65axzIbXWoYrHytaQhNRBdYEMgmb1Fki-gR2NKY1TXuhpb9lcCemaPSqu8E0Q6KVczRNa97_7tj5Vyt0wngICj6GnWEHphW8fpaSybzKAa-pV/s1600/phpshell.jpg"
-  },
-  {
-    "title": "Iran\u2019s Prince of Persia APT Hosts C&C in US for First Time Since 2016",
-    "link": "https://www.securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/03/Irianian-cyberattacks-hacks.jpg"
-  },
-  {
-    "title": "State Bank of India Suffers a Customer PII Data Leak",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/state-bank-india-customer-pii-data-leak",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt979cd25773f1b3d4/6ada6acba10b57ec999014b8/SBI-Yawar_Nazir-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Railway warns devs to rotate secrets after potential breach",
-    "link": "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/railway.jpg"
-  },
-  {
-    "title": "Microsoft Links Storm-0940 to ConnectWise Supply Chain Attack",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/microsoft-storm-0940-connectwise-supply-chain-attack",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt481be0dcde6741d2/6ada753af919424ed83bcdaf/chinacyber_mageFlow_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "What We Missed: Feds Lasso Texas Laptop Farms",
-    "link": "https://www.darkreading.com/insider-threats/texas-laptop-farms-north-korean-it-workers",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta02f4349610bfb87/6ada6ff8b8f9c97bdf15ea45/rodeo-Scott_Olsen-GettyImages-2284428107.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Capcom confirms data breach affecting 11.7 million accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/capcom.jpg"
-  },
-  {
-    "title": "Les supermarch\u00e9s de l'UE paient d'un firmware de r\u00e9frig\u00e9rateur non mis \u00e0 jour",
-    "link": "https://www.darkreading.com/ics-ot-security/eu-grocers-unpatched-fridge-firmware-french",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdcfc831a57f67689/6acfbd4be9c311a2c0cf7674/Melted_ice_cream-cagkansayin-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
   }
 ]
