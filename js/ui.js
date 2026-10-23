@@ -235,17 +235,20 @@ function iscriviOroscopo() {
 }
 
 /* ============================================================
-   WAIT FOR SIDEBAR
+   WAIT FOR SIDEBAR — VERIFICA ID INTERNI
 ============================================================ */
 
 function waitForSidebar() {
     return new Promise(resolve => {
         const check = () => {
             const sidebar = document.getElementById("sidebar");
-            if (sidebar && sidebar.innerHTML.trim() !== "") {
+            // Verifica che la sidebar contenga gli ID reali del contatore
+            const uniqueEl = document.getElementById("visit-unique");
+            
+            if (sidebar && sidebar.innerHTML.trim() !== "" && uniqueEl) {
                 resolve();
             } else {
-                setTimeout(check, 100);
+                setTimeout(check, 50);
             }
         };
         check();
@@ -253,7 +256,7 @@ function waitForSidebar() {
 }
 
 /* ============================================================
-   D) DOM READY — VERSIONE OTTIMIZZATA
+   D) DOM READY
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -264,16 +267,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof loadTickerNews === "function") loadTickerNews();
     });
 
-    loadPartial("sidebar", "partials/sidebar.html");   // ⭐ Sidebar obbligatoria
+    loadPartial("sidebar", "partials/sidebar.html");   // Sidebar
     loadPartial("footer", "partials/footer.html");
 
-    // Attende che la sidebar sia caricata prima di toccare qualsiasi ID del contatore
+    // Attende che gli ID del contatore siano EFFETTIVAMENTE inseriti nel DOM
     waitForSidebar().then(() => {
 
-        // Meteo (fallback)
         loadMeteo();
 
-        // ⭐ Inizializza il contatore SOLO quando la sidebar esiste nel DOM
         if (typeof initVisitCounter === "function") {
             initVisitCounter();
         }
@@ -365,7 +366,7 @@ document.addEventListener("click", function (e) {
 });
 
 /* ============================================================
-   ANONLAB — CONTATORE VISITE · interfaccia (v2.2 Definitiva)
+   ANONLAB — CONTATORE VISITE · interfaccia (v2.3)
    ============================================================ */
 
 var ANONLAB = ANONLAB || {};
@@ -460,6 +461,7 @@ function loadCounterData() {
 function updateCounterUI(data) {
     if (!data || data.error) return;
 
+    /* 1. Numeri principali */
     anonlabSet("visit-unique",  anonlabNum(data.unique));
     anonlabSet("visit-counter", anonlabNum(data.total));
     anonlabSet("visit-today",   anonlabNum(data.today ? data.today.visits : 0));
@@ -470,6 +472,7 @@ function updateCounterUI(data) {
     var pageViews = (data.pages || {})[currentPageKey] ?? 0;
     anonlabSet("current-page-count", anonlabNum(pageViews));
 
+    /* 2. Dispositivi di oggi + calcolo barra proporzionale */
     var today   = data.today || {};
     var mobile  = Number(today.mobile) || 0;
     var desktop = Number(today.desktop) || 0;
@@ -480,11 +483,20 @@ function updateCounterUI(data) {
     anonlabSet("dev-desktop", anonlabNum(desktop));
     anonlabSet("dev-tablet",  anonlabNum(tablet));
 
-    [["bar-mobile", mobile], ["bar-desktop", desktop], ["bar-tablet", tablet]].forEach(function (coppia) {
-        var bar = document.getElementById(coppia[0]);
-        if (bar) bar.style.width = (totale ? Math.round(coppia[1] * 100 / totale) : 0) + "%";
-    });
+    // Compilazione e colorazione barra dispositivi
+    var percMobile  = totale ? Math.round(mobile * 100 / totale) : 0;
+    var percDesktop = totale ? Math.round(desktop * 100 / totale) : 0;
+    var percTablet  = totale ? Math.round(tablet * 100 / totale) : 0;
 
+    var barMobile  = document.getElementById("bar-mobile");
+    var barDesktop = document.getElementById("bar-desktop");
+    var barTablet  = document.getElementById("bar-tablet");
+
+    if (barMobile)  barMobile.style.width  = percMobile + "%";
+    if (barDesktop) barDesktop.style.width = percDesktop + "%";
+    if (barTablet)  barTablet.style.width  = percTablet + "%";
+
+    /* 3. Elenco delle pagine viste */
     var list = document.getElementById("pages-list");
     if (list) {
         var pages = data.pages || {};
@@ -508,6 +520,7 @@ function updateCounterUI(data) {
         });
     }
 
+    /* 4. Saluto, data e ora */
     var ora = new Date().getHours();
     var saluto = "Ciao!";
     if (ora < 12) saluto = "Buongiorno!";
