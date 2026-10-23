@@ -365,13 +365,13 @@ document.addEventListener("click", function (e) {
 });
 
 /* ============================================================
-   ANONLAB — CONTATORE VISITE · interfaccia (v2)
-   Nessun CSS da aggiungere: lo stile e' nel riquadro.
+   ANONLAB — CONTATORE VISITE · interfaccia (v2.2 Definitiva)
+   Nessun CSS da aggiungere: lo stile è nel riquadro.
    ============================================================ */
 
 var ANONLAB = ANONLAB || {};
 ANONLAB.api    = "https://angelonline.altervista.org/counter/";
-ANONLAB.pollMs = 15000;   /* ogni quanto aggiornare i numeri   */
+ANONLAB.pollMs = 15000;   /* ogni quanto aggiornare i numeri    */
 ANONLAB.pingMs = 60000;   /* battito per restare "online"      */
 
 function anonlabVisitId() {
@@ -389,14 +389,13 @@ function anonlabVisitId() {
 
 function anonlabPage() {
     var path = (window.location.pathname || "").toLowerCase();
-    // Se siamo nella root, senza percorso o con la sola barra finale, è la home
-    if (path === "" || path === "/" || path === "/index.html") {
+    // Intercetta in modo sicuro qualsiasi variante della Home page
+    if (path === "" || path === "/" || path === "/index.html" || path.endsWith("/")) {
         return "index.html";
     }
     var parts = path.split("/").filter(function (s) { return s !== ""; });
     var last = parts.length ? parts[parts.length - 1] : "index.html";
     last = last.replace(/[^a-z0-9._-]/g, "").slice(0, 60);
-    // Se l'ultima parte è vuota o punta alla cartella principale, forza index.html
     return (last === "" || last === "anonlab.it") ? "index.html" : last;
 }
 
@@ -432,23 +431,20 @@ function initVisitCounter() {
 
     ANONLAB.vid = anonlabVisitId();
 
-    /* 1) registra la visita: una sola volta per pagina caricata,
-          e solo se il server non riconosce un bot */
-
+    /* 1) Registra la visita e aggiorna l'UI non appena risponde */
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore update.php:", err); });
 
-    /* 2) battito: tiene questo visitatore nella lista "online" */
+    /* 2) Battito online periodico */
     setInterval(function () {
         anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
             .catch(function () {});
     }, ANONLAB.pingMs);
 
-    /* 3) aggiornamento dei numeri */
-    loadCounterData();
+    /* 3) Aggiornamento periodico dei dati tramite proxy */
     setInterval(loadCounterData, ANONLAB.pollMs);
 
     anonlabPulse();
@@ -475,7 +471,10 @@ function updateCounterUI(data) {
     anonlabSet("visit-today",   anonlabNum(data.today ? data.today.visits : 0));
     anonlabSet("online-users",  anonlabNum(data.online_count));
     anonlabSet("page-counter",  anonlabNum(data.total_pages));
-    anonlabSet("current-page-count", anonlabNum((data.pages || {})[anonlabPage()]));
+    
+    var currentPageKey = anonlabPage();
+    var pageViews = (data.pages || {})[currentPageKey] ?? 0;
+    anonlabSet("current-page-count", anonlabNum(pageViews));
 
     /* dispositivi di oggi + barra proporzionale */
     var today   = data.today || {};
@@ -493,7 +492,7 @@ function updateCounterUI(data) {
         if (bar) bar.style.width = (totale ? Math.round(coppia[1] * 100 / totale) : 0) + "%";
     });
 
-    /* elenco delle pagine, dalla piu' vista */
+    /* elenco delle pagine, dalla più vista */
     var list = document.getElementById("pages-list");
     if (list) {
         var pages = data.pages || {};
@@ -531,7 +530,7 @@ function updateCounterUI(data) {
 }
 
 /* ============================================================
-   PALLINO "ONLINE" — rispetta chi ha ridotto le animazioni
+   PALLINO "ONLINE"
    ============================================================ */
 function anonlabPulse() {
     var dot = document.getElementById("online-dot");
@@ -543,4 +542,11 @@ function anonlabPulse() {
         acceso = !acceso;
         dot.style.opacity = acceso ? "1" : ".35";
     }, 900);
+}
+
+/* Avvio automatico al caricamento della pagina */
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initVisitCounter);
+} else {
+    initVisitCounter();
 }
