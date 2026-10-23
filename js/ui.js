@@ -267,15 +267,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPartial("sidebar", "partials/sidebar.html");   // ⭐ Sidebar obbligatoria
     loadPartial("footer", "partials/footer.html");
 
-    // Attende che la sidebar sia caricata
+    // Attende che la sidebar sia caricata prima di toccare qualsiasi ID del contatore
     waitForSidebar().then(() => {
 
         // Meteo (fallback)
         loadMeteo();
 
-        // ⭐ Inizializza il contatore SOLO quando la sidebar esiste
+        // ⭐ Inizializza il contatore SOLO quando la sidebar esiste nel DOM
         if (typeof initVisitCounter === "function") {
-            initVisitCounter();   // <-- questa è la funzione corretta
+            initVisitCounter();
         }
 
     });
@@ -366,13 +366,12 @@ document.addEventListener("click", function (e) {
 
 /* ============================================================
    ANONLAB — CONTATORE VISITE · interfaccia (v2.2 Definitiva)
-   Nessun CSS da aggiungere: lo stile è nel riquadro.
    ============================================================ */
 
 var ANONLAB = ANONLAB || {};
 ANONLAB.api    = "https://angelonline.altervista.org/counter/";
-ANONLAB.pollMs = 15000;   /* ogni quanto aggiornare i numeri    */
-ANONLAB.pingMs = 60000;   /* battito per restare "online"      */
+ANONLAB.pollMs = 15000;   
+ANONLAB.pingMs = 60000;   
 
 function anonlabVisitId() {
     try {
@@ -389,7 +388,6 @@ function anonlabVisitId() {
 
 function anonlabPage() {
     var path = (window.location.pathname || "").toLowerCase();
-    // Intercetta in modo sicuro qualsiasi variante della Home page
     if (path === "" || path === "/" || path === "/index.html" || path.endsWith("/")) {
         return "index.html";
     }
@@ -423,7 +421,7 @@ function anonlabSet(id, value) {
 }
 
 /* ============================================================
-   AVVIO
+   AVVIO CONTATORE
    ============================================================ */
 function initVisitCounter() {
     if (window.__anonlabVisitCounterStarted) return;
@@ -431,20 +429,17 @@ function initVisitCounter() {
 
     ANONLAB.vid = anonlabVisitId();
 
-    /* 1) Registra la visita e aggiorna l'UI non appena risponde */
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore update.php:", err); });
 
-    /* 2) Battito online periodico */
     setInterval(function () {
         anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
             .catch(function () {});
     }, ANONLAB.pingMs);
 
-    /* 3) Aggiornamento periodico dei dati tramite proxy */
     setInterval(loadCounterData, ANONLAB.pollMs);
 
     anonlabPulse();
@@ -465,7 +460,6 @@ function loadCounterData() {
 function updateCounterUI(data) {
     if (!data || data.error) return;
 
-    /* numeri principali */
     anonlabSet("visit-unique",  anonlabNum(data.unique));
     anonlabSet("visit-counter", anonlabNum(data.total));
     anonlabSet("visit-today",   anonlabNum(data.today ? data.today.visits : 0));
@@ -476,7 +470,6 @@ function updateCounterUI(data) {
     var pageViews = (data.pages || {})[currentPageKey] ?? 0;
     anonlabSet("current-page-count", anonlabNum(pageViews));
 
-    /* dispositivi di oggi + barra proporzionale */
     var today   = data.today || {};
     var mobile  = Number(today.mobile) || 0;
     var desktop = Number(today.desktop) || 0;
@@ -492,7 +485,6 @@ function updateCounterUI(data) {
         if (bar) bar.style.width = (totale ? Math.round(coppia[1] * 100 / totale) : 0) + "%";
     });
 
-    /* elenco delle pagine, dalla più vista */
     var list = document.getElementById("pages-list");
     if (list) {
         var pages = data.pages || {};
@@ -516,7 +508,6 @@ function updateCounterUI(data) {
         });
     }
 
-    /* saluto, data e ora */
     var ora = new Date().getHours();
     var saluto = "Ciao!";
     if (ora < 12) saluto = "Buongiorno!";
@@ -542,11 +533,4 @@ function anonlabPulse() {
         acceso = !acceso;
         dot.style.opacity = acceso ? "1" : ".35";
     }, 900);
-}
-
-/* Avvio automatico al caricamento della pagina */
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initVisitCounter);
-} else {
-    initVisitCounter();
 }
