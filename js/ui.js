@@ -457,8 +457,12 @@ function initVisitCounter() {
    ============================================================ */
 function loadCounterData() {
     anonlabGet(ANONLAB.api + "proxy.php?t=" + Date.now())
-        .then(updateCounterUI)
-        .catch(function (err) { console.error("Errore counter frontend:", err); });
+        .then(function(data) {
+            if (data) updateCounterUI(data);
+        })
+        .catch(function (err) { 
+            console.warn("Proxy momentaneamente non disponibile:", err); 
+        });
 }
 
 /* ============================================================
