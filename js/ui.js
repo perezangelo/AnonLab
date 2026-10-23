@@ -433,7 +433,7 @@ function initVisitCounter() {
 
     ANONLAB.vid = anonlabVisitId();
 
-    // 1) Registra la visita
+    // 1) Registra la visita e aggiorna l'UI non appena risponde
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
