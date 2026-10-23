@@ -388,10 +388,16 @@ function anonlabVisitId() {
 }
 
 function anonlabPage() {
-    var parts = (window.location.pathname || "").toLowerCase().split("/").filter(function (s) { return s !== ""; });
-    var last = parts.length ? parts[parts.length - 1] : "";
+    var path = (window.location.pathname || "").toLowerCase();
+    // Se siamo nella root, senza percorso o con la sola barra finale, è la home
+    if (path === "" || path === "/" || path === "/index.html") {
+        return "index.html";
+    }
+    var parts = path.split("/").filter(function (s) { return s !== ""; });
+    var last = parts.length ? parts[parts.length - 1] : "index.html";
     last = last.replace(/[^a-z0-9._-]/g, "").slice(0, 60);
-    return last || "index.html";
+    // Se l'ultima parte è vuota o punta alla cartella principale, forza index.html
+    return (last === "" || last === "anonlab.it") ? "index.html" : last;
 }
 
 function anonlabDevice() {
