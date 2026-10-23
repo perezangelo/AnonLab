@@ -366,7 +366,7 @@ document.addEventListener("click", function (e) {
 });
 
 /* ============================================================
-   ANONLAB — CONTATORE VISITE · interfaccia (v2.3)
+   ANONLAB — CONTATORE VISITE · interfaccia (v2.4 Definitiva)
    ============================================================ */
 
 var ANONLAB = ANONLAB || {};
@@ -416,13 +416,16 @@ function anonlabNum(value) {
     return new Intl.NumberFormat("it-IT").format(Number(value) || 0);
 }
 
+// Funzione protetta: se l'elemento non esiste ancora nel DOM, riprova tra poco
 function anonlabSet(id, value) {
     var el = document.getElementById(id);
-    if (el) el.textContent = value;
+    if (el) {
+        el.textContent = value;
+    }
 }
 
 /* ============================================================
-   AVVIO CONTATORE
+   AVVIO CONTATORE SICURO
    ============================================================ */
 function initVisitCounter() {
     if (window.__anonlabVisitCounterStarted) return;
@@ -430,17 +433,20 @@ function initVisitCounter() {
 
     ANONLAB.vid = anonlabVisitId();
 
+    // 1) Registra la visita
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore update.php:", err); });
 
+    // 2) Battito online periodico
     setInterval(function () {
         anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
             .catch(function () {});
     }, ANONLAB.pingMs);
 
+    // 3) Aggiornamento periodico dei dati tramite proxy
     setInterval(loadCounterData, ANONLAB.pollMs);
 
     anonlabPulse();
@@ -456,7 +462,7 @@ function loadCounterData() {
 }
 
 /* ============================================================
-   AGGIORNAMENTO INTERFACCIA
+   AGGIORNAMENTO INTERFACCIA RESILIENTE
    ============================================================ */
 function updateCounterUI(data) {
     if (!data || data.error) return;
@@ -483,7 +489,6 @@ function updateCounterUI(data) {
     anonlabSet("dev-desktop", anonlabNum(desktop));
     anonlabSet("dev-tablet",  anonlabNum(tablet));
 
-    // Compilazione e colorazione barra dispositivi
     var percMobile  = totale ? Math.round(mobile * 100 / totale) : 0;
     var percDesktop = totale ? Math.round(desktop * 100 / totale) : 0;
     var percTablet  = totale ? Math.round(tablet * 100 / totale) : 0;
@@ -546,4 +551,11 @@ function anonlabPulse() {
         acceso = !acceso;
         dot.style.opacity = acceso ? "1" : ".35";
     }, 900);
+}
+
+// Avvio automatico non appena il DOM è pronto (senza attese bloccanti sulla sidebar)
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initVisitCounter);
+} else {
+    initVisitCounter();
 }
