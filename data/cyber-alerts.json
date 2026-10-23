@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-115477",
+    "summary": "obsidian-tc: Declined human-in-the-loop confirmations can permit destructive calls over HTTP",
+    "severity": "HIGH",
+    "published": "2026-10-23T17:30:10Z",
+    "ghsa": "GHSA-737x-cwfr-5vvc"
+  },
+  {
+    "id": "CVE-2026-77366",
+    "summary": "obsidian-tc tokens can access arbitrary configured vaults",
+    "severity": "CRITICAL",
+    "published": "2026-10-23T17:29:17Z",
+    "ghsa": "GHSA-84c9-qqpq-2pq5"
+  },
+  {
+    "id": "CVE-2026-77364",
+    "summary": "obsidian-tc: Default folder ACL is fail-open; .obsidian plugin secrets are readable by default",
+    "severity": "MODERATE",
+    "published": "2026-10-23T17:28:40Z",
+    "ghsa": "GHSA-cvp8-vvgf-69q4"
+  },
+  {
+    "id": "CVE-2026-77361",
+    "summary": "obsidian-tc : Symlink read-ACL scope bypass via lexical path checks",
+    "severity": "MODERATE",
+    "published": "2026-10-23T17:28:19Z",
+    "ghsa": "GHSA-c5xx-h28h-f682"
+  },
+  {
     "id": "CVE-2026-113721",
     "summary": "virtualenv: Generated files can follow existing destination links",
     "severity": "MODERATE",
@@ -40,33 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-10-22T16:50:53Z",
     "ghsa": "GHSA-6gq8-jgmh-3ffp"
-  },
-  {
-    "id": "CVE-2026-113789",
-    "summary": "pypdf: Possible long runtimes/large memory usage when retrieving form fields",
-    "severity": "MODERATE",
-    "published": "2026-10-22T16:49:56Z",
-    "ghsa": "GHSA-6vvc-x485-93v7"
-  },
-  {
-    "id": "CVE-2026-113790",
-    "summary": "pypdf: Possible large memory usage when parsing arrays and dictionaries",
-    "severity": "MODERATE",
-    "published": "2026-10-22T16:49:40Z",
-    "ghsa": "GHSA-f54x-cmq8-qg57"
-  },
-  {
-    "id": "CVE-2026-113791",
-    "summary": "pypdf: Possible large memory usage when parsing content streams",
-    "severity": "MODERATE",
-    "published": "2026-10-22T16:49:22Z",
-    "ghsa": "GHSA-cgf9-327m-v77c"
-  },
-  {
-    "id": "CVE-2026-113796",
-    "summary": "Electron: SameSite cookie restrictions are not applied to windows opened from links",
-    "severity": "MODERATE",
-    "published": "2026-10-22T16:47:54Z",
-    "ghsa": "GHSA-2p8c-gr87-2676"
   }
 ]
