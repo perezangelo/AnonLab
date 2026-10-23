@@ -428,45 +428,33 @@ function anonlabSet(id, value) {
    AVVIO CONTATORE SICURO
    ============================================================ */
 function initVisitCounter() {
-    if (window.__anonlabVisitCounterStarted) return;
-    window.__anonlabVisitCounterStarted = true;
-
     ANONLAB.vid = anonlabVisitId();
 
-    // 1) Registra la visita e aggiorna l'UI non appena risponde
+    // 1) Registra la visita
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore update.php:", err); });
 
-    // 2) Battito online periodico
-    setInterval(function () {
-        anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
-            .catch(function () {});
-    }, ANONLAB.pingMs);
+    // 2) Carica subito i dati
+    loadCounterData();
 
-    // 3) Aggiornamento periodico dei dati tramite proxy
-    setInterval(loadCounterData, ANONLAB.pollMs);
+    // 3) Timers periodici (evita duplicati)
+    if (!window.__anonlabTimersStarted) {
+        window.__anonlabTimersStarted = true;
+        setInterval(function () {
+            anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
+                .catch(function () {});
+        }, ANONLAB.pingMs);
 
-    anonlabPulse();
+        setInterval(loadCounterData, ANONLAB.pollMs);
+        anonlabPulse();
+    }
 }
 
 /* ============================================================
-   LETTURA DEI DATI
-   ============================================================ */
-function loadCounterData() {
-    anonlabGet(ANONLAB.api + "proxy.php?t=" + Date.now())
-        .then(function(data) {
-            if (data) updateCounterUI(data);
-        })
-        .catch(function (err) { 
-            console.warn("Proxy momentaneamente non disponibile:", err); 
-        });
-}
-
-/* ============================================================
-   AGGIORNAMENTO INTERFACCIA (Definitivo)
+   AGGIORNAMENTO INTERFACCIA
    ============================================================ */
 function updateCounterUI(data) {
     if (!data || data.error) return;
@@ -479,10 +467,11 @@ function updateCounterUI(data) {
     anonlabSet("page-counter",  anonlabNum(data.total_pages));
     
     var currentPageKey = anonlabPage();
-    var pageViews = (data.pages || {})[currentPageKey] ?? 0;
+    var pagesObj = data.pages || {};
+    var pageViews = (pagesObj[currentPageKey] !== undefined) ? pagesObj[currentPageKey] : 0;
     anonlabSet("current-page-count", anonlabNum(pageViews));
 
-    /* 2. Dispositivi di oggi + calcolo barra proporzionale */
+    /* 2. Dispositivi di oggi + barre proporzionali */
     var today   = data.today || {};
     var mobile  = Number(today.mobile) || 0;
     var desktop = Number(today.desktop) || 0;
