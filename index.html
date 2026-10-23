@@ -2697,31 +2697,24 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- 2. POI INIETTIAMO LA SIDEBAR ED ESEGUIAMO LE INIZIALIZZAZIONI -->
 <script>
     fetch("/partials/sidebar.html")
-    .then(response => response.text())
-    .then(data => {
-        // 1. Inserisci l'HTML della sidebar nel DOM
-        document.getElementById("sidebar").innerHTML = data;
+.then(response => response.text())
+.then(data => {
+    document.getElementById("sidebar").innerHTML = data;
 
-        // 2. Inizializza gli altri widget
-        if (typeof initCalculator === "function") initCalculator();
-        if (typeof initRadio === "function") initRadio();
-        if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-        if (typeof initOroscopo === "function") initOroscopo();
+    // Inizializza i widget
+    if (typeof initCalculator === "function") initCalculator();
+    if (typeof initRadio === "function") initRadio();
+    if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+    if (typeof initOroscopo === "function") initOroscopo();
+    
+    // Inizializza sempre il contatore dopo aver caricato la sidebar
+    if (typeof initVisitCounter === "function") {
+        initVisitCounter();
+    }
 
-        // 3. FORZATURA CONTATORE: Sblocca il flag e carica i dati
-        window.__anonlabVisitCounterStarted = false; // Reset di sicurezza
-
-        if (typeof loadCounterData === "function") {
-            loadCounterData(); // Carica subito i dati nei box
-        }
-        
-        if (typeof initVisitCounter === "function") {
-            initVisitCounter(); // Avvia i ping e i timer
-        }
-
-        console.log("Sidebar iniettata — Contatore caricato con successo!");
-    })
-    .catch(err => console.error("Errore nel caricamento della sidebar:", err));
+    console.log("Sidebar e Contatore pronti!");
+})
+.catch(err => console.error("Errore sidebar:", err));
 </script>
 
 </main>
