@@ -462,7 +462,7 @@ function loadCounterData() {
 }
 
 /* ============================================================
-   AGGIORNAMENTO INTERFACCIA RESILIENTE
+   AGGIORNAMENTO INTERFACCIA (Definitivo)
    ============================================================ */
 function updateCounterUI(data) {
     if (!data || data.error) return;
