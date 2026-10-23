@@ -1,6 +1,96 @@
+<!-- ANONLAB · contatore visite (v2) — solo stili in linea, nessun CSS da aggiungere -->
+<div class="sidebar-box visit-box" id="anonlab-counter"
+     style="font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.5;color:#e8e8ec;">
 
-Action: create_file({"file_text":"<!-- ============================================================\n     ANONLAB — WIDGET CONTATORE VISITE (sidebar)\n     Estetica rifinita SENZA nuove regole CSS esterne:\n     usa le classi esistenti (.sidebar-box .visit-box ecc.)\n     + solo CSS inline minimo e SVG/emoji.\n     ============================================================ -->\n<div class=\"sidebar-box visit-box\">\n  <h3 style=\"display:flex;align-items:center;gap:8px;\">\n    <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\"\n         style=\"filter:drop-shadow(0 0 5px #00ff88);\" fill=\"#00ff88\">\n      <path d=\"M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z\"/>\n    </svg>\n    Benvenuto su AnonLab\n  </h3>\n\n  <div class=\"visit-greeting\" id=\"visit-greeting\"\n       style=\"font-weight:700;letter-spacing:.3px;\">Ciao!</div>\n\n  <!-- KPI PRINCIPALI -->\n  <div class=\"visit-info\">\n    <strong>👁️ Visite totali:</strong>\n    <span id=\"visit-counter\"\n          style=\"font-weight:700;text-shadow:0 0 6px rgba(0,255,136,.6);\">0</span>\n  </div>\n\n  <div class=\"visit-info\">\n    <strong>📄 Pagine viste:</strong>\n    <span id=\"page-counter\">0</span>\n  </div>\n\n  <div class=\"visit-info\">\n    <strong>📍 Questa pagina:</strong>\n    <span id=\"current-page-count\"\n          style=\"font-weight:700;text-shadow:0 0 6px rgba(255,123,0,.6);\">0</span>\n  </div>\n\n  <hr style=\"border:0;border-top:1px solid rgba(255,255,255,.12);margin:10px 0;\">\n\n  <div class=\"visit-info\">\n    <strong>🗂️ Pagine viste singolarmente:</strong>\n    <ul id=\"pages-list\" style=\"margin:6px 0 0;padding-left:18px;line-height:1.7;\"></ul>\n  </div>\n\n  <hr style=\"border:0;border-top:1px solid rgba(255,255,255,.12);margin:10px 0;\">\n\n  <!-- UTENTI ONLINE (verde cyber) -->\n  <div class=\"visit-info\">\n    <strong>\n      <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\"\n           style=\"vertical-align:middle;margin-right:6px;filter:drop-shadow(0 0 4px #00ff88);\"\n           fill=\"#00ff88\">\n        <path d=\"M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66\n        0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0\n        2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8\n        13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97\n        3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z\"/>\n      </svg>\n      Utenti online:\n    </strong>\n    <span id=\"online-users\"\n          style=\"font-weight:700;text-shadow:0 0 6px rgba(0,255,136,.6);\">0</span>\n  </div>\n\n  <!-- DISPOSITIVI (icone tech arancione laser) -->\n  <div class=\"visit-info\">\n    <strong>🖥️ Dispositivi:</strong>\n    <ul style=\"list-style:none;margin:6px 0 0;padding-left:0;line-height:1.9;\">\n      <!-- MOBILE -->\n      <li>\n        <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\"\n             style=\"vertical-align:middle;margin-right:4px;filter:drop-shadow(0 0 4px #ff7b00);\"\n             fill=\"#ff7b00\">\n          <path d=\"M7 2h10c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2\n          2H7c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm5\n          18c.7 0 1.25-.55 1.25-1.25S12.7 17.5 12\n          17.5s-1.25.55-1.25 1.25S11.3 20 12 20z\"/>\n        </svg>\n        Mobile: <span id=\"dev-mobile\">0</span>\n      </li>\n      <!-- DESKTOP -->\n      <li>\n        <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\"\n             style=\"vertical-align:middle;margin-right:4px;filter:drop-shadow(0 0 4px #ff7b00);\"\n             fill=\"#ff7b00\">\n          <path d=\"M3 4c0-1.1.9-2 2-2h14c1.1 0 2 .9 2\n          2v12c0 1.1-.9 2-2 2h-6l1 3h-6l1-3H5c-1.1\n          0-2-.9-2-2V4zm2 0v12h14V4H5z\"/>\n        </svg>\n        Desktop: <span id=\"dev-desktop\">0</span>\n      </li>\n      <!-- TABLET -->\n      <li>\n        <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\"\n             style=\"vertical-align:middle;margin-right:4px;filter:drop-shadow(0 0 4px #ff7b00);\"\n             fill=\"#ff7b00\">\n          <path d=\"M6 3h12c1.1 0 2 .9 2 2v14c0 1.1-.9\n          2-2 2H6c-1.1 0-2-.9-2-2V5c0-1.1.9-2\n          2-2zm6 16c.7 0 1.25-.55 1.25-1.25S12.7\n          16.5 12 16.5s-1.25.55-1.25 1.25S11.3 19 12 19z\"/>\n        </svg>\n        Tablet: <span id=\"dev-tablet\">0</span>\n      </li>\n    </ul>\n  </div>\n\n  <hr style=\"border:0;border-top:1px solid rgba(255,255,255,.12);margin:10px 0;\">\n\n  <div class=\"visit-info\">\n    <strong>📅 Data:</strong>\n    <span id=\"visit-date\">--/--/----</span>\n  </div>\n  <div class=\"visit-info\">\n    <strong>⏰ Ora:</strong>\n    <span id=\"visit-time\">--:--:--</span>\n  </div>\n</div>\n\n<!-- Carica lo script del contatore -->\n<script src=\"https://angelonline.altervista.org/counter/counter.js\" defer></script>\n","lint_rule_config":{"directive":"Fix these {blocking} blocking lint error(s) before continuing.","enabled":true,"rules":[{"id":"EB001","mode":"on"},{"id":"EB002","mode":"on"},{"id":"EB004","mode":"on"}]},"path":"/app/counter/widget.html","run_lint":true})
-Observation: Create successful: /app/counter/widget.html
+  <!-- intestazione -->
+  <div style="padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid rgba(0,255,204,.28);">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;">
+      <h3 style="margin:0;font-size:14px;font-weight:700;letter-spacing:.02em;color:#e8e8ec;">AnonLab</h3>
+      <span style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#00ffcc;">live</span>
+    </div>
+    <div id="visit-greeting" style="margin-top:4px;font-size:12px;letter-spacing:.06em;color:#00ffcc;">Ciao!</div>
+  </div>
+
+  <!-- numeri principali -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;">
+    <div style="padding:10px 12px;background:rgba(10,10,11,.55);">
+      <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8b8b95;">Visitatori</div>
+      <div id="visit-unique" style="margin-top:2px;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;">0</div>
+    </div>
+    <div style="padding:10px 12px;background:rgba(10,10,11,.55);">
+      <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8b8b95;">Visite</div>
+      <div id="visit-counter" style="margin-top:2px;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;">0</div>
+    </div>
+    <div style="padding:10px 12px;background:rgba(10,10,11,.55);">
+      <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8b8b95;">Oggi</div>
+      <div id="visit-today" style="margin-top:2px;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;">0</div>
+    </div>
+    <div style="padding:10px 12px;background:rgba(10,10,11,.55);">
+      <div style="display:flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8b8b95;">
+        <span id="online-dot" style="width:7px;height:7px;border-radius:50%;background:#00ff88;box-shadow:0 0 6px #00ff88;"></span>
+        Online
+      </div>
+      <div id="online-users" style="margin-top:2px;font-size:20px;font-weight:700;color:#00ff88;font-variant-numeric:tabular-nums;">0</div>
+    </div>
+  </div>
+
+  <!-- dettagli -->
+  <div style="margin-top:12px;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);">
+      <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b95;">Questa pagina</span>
+      <span id="current-page-count" style="font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;">0</span>
+    </div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);">
+      <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b95;">Pagine diverse</span>
+      <span id="page-counter" style="font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;">0</span>
+    </div>
+  </div>
+
+  <!-- elenco pagine -->
+  <div style="margin-top:10px;">
+    <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b95;">Pagine viste singolarmente</div>
+    <ul id="pages-list" style="list-style:none;margin:6px 0 0;padding:0;max-height:140px;overflow:auto;font-size:11px;color:#c9c9d1;"></ul>
+  </div>
+
+  <!-- dispositivi di oggi -->
+  <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);">
+    <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b95;">Dispositivi oggi</div>
+    <div style="display:flex;height:6px;margin-top:8px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.08);">
+      <span id="bar-desktop" style="width:0;background:#ff7b00;"></span>
+      <span id="bar-mobile" style="width:0;background:#00ffcc;"></span>
+      <span id="bar-tablet" style="width:0;background:#8b8b95;"></span>
+    </div>
+    <ul style="list-style:none;display:flex;justify-content:space-between;gap:8px;margin:8px 0 0;padding:0;font-size:11px;color:#c9c9d1;">
+      <li style="display:flex;align-items:center;gap:4px;">
+        <svg width="15" height="15" viewBox="0 0 24 24"
+             style="vertical-align:middle;filter:drop-shadow(0 0 4px #ff7b00);" fill="#ff7b00">
+          <path d="M3 4c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2h-6l1 3h-6l1-3H5c-1.1 0-2-.9-2-2V4zm2 0v12h14V4H5z"/>
+        </svg>
+        Desktop <span id="dev-desktop" style="font-weight:700;">0</span>
+      </li>
+      <li style="display:flex;align-items:center;gap:4px;">
+        <svg width="15" height="15" viewBox="0 0 24 24"
+             style="vertical-align:middle;filter:drop-shadow(0 0 4px #ff7b00);" fill="#ff7b00">
+          <path d="M7 2h10c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm5 18c.7 0 1.25-.55 1.25-1.25S12.7 17.5 12 17.5s-1.25.55-1.25 1.25S11.3 20 12 20z"/>
+        </svg>
+        Mobile <span id="dev-mobile" style="font-weight:700;">0</span>
+      </li>
+      <li style="display:flex;align-items:center;gap:4px;">
+        <svg width="15" height="15" viewBox="0 0 24 24"
+             style="vertical-align:middle;filter:drop-shadow(0 0 4px #ff7b00);" fill="#ff7b00">
+          <path d="M6 3h12c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2zm6 16c.7 0 1.25-.55 1.25-1.25S12.7 16.5 12 16.5s-1.25.55-1.25 1.25S11.3 19 12 19z"/>
+        </svg>
+        Tablet <span id="dev-tablet" style="font-weight:700;">0</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- data e ora -->
+  <div style="display:flex;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);font-size:11px;color:#8b8b95;">
+    <span>DATA <span id="visit-date" style="color:#c9c9d1;">--/--/----</span></span>
+    <span>ORA <span id="visit-time" style="color:#c9c9d1;">--:--:--</span></span>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <div class="sidebar-box" aria-label="Informazioni su AnonLab">
