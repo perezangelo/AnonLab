@@ -2693,18 +2693,21 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- ⭐ SCRIPT SIDEBAR (DEVE STARE DOPO IL TICKER) -->
 <script>
     fetch("/partials/sidebar.html")
-.then(response => response.text())
-.then(data => {
-    document.getElementById("sidebar").innerHTML = data;
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("sidebar").innerHTML = data;
 
-    if (typeof initCalculator === "function") initCalculator();
-    if (typeof initRadio === "function") initRadio();
-    if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-    if (typeof initOroscopo === "function") initOroscopo(); // 👈 Non andrà più in errore se manca la funzione
+        if (typeof initCalculator === "function") initCalculator();
+        if (typeof initRadio === "function") initRadio();
+        if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+        if (typeof initOroscopo === "function") initOroscopo();
+        
+        // 👈 QUESTA È LA RIGA FONDAMENTALE DA AGGIUNGERE:
+        if (typeof initVisitCounter === "function") initVisitCounter();
 
-    console.log("Sidebar caricata — Widget inizializzati");
-})
-.catch(err => console.error("Errore nel caricamento della sidebar:", err));
+        console.log("Sidebar caricata — Widget inizializzati");
+    })
+    .catch(err => console.error("Errore nel caricamento della sidebar:", err));
 </script>
 
 </main>
@@ -2778,6 +2781,9 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- SCRIPT ORDINATI CORRETTAMENTE -->
 <script src="https://angelonline.altervista.org/js/news.js"></script>
 <script src="https://angelonline.altervista.org/js/home-news.js"></script>
+
+	<!-- ⭐ SCRIPT CONTATORE VISITE -->
+<script src="https://angelonline.altervista.org/js/counter.js"></script>
 
 <!-- UI GENERALE -->
 <script src="https://angelonline.altervista.org/js/ui.js"></script>
