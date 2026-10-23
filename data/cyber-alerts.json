@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-115477",
-    "summary": "obsidian-tc: Declined human-in-the-loop confirmations can permit destructive calls over HTTP",
+    "id": "CVE-2026-114055",
+    "summary": "vLLM : DoS via unvalidated mm_processor_kwargs in multimodal image processors (Isaac, InternVL, H2OVL, etc.)",
     "severity": "HIGH",
-    "published": "2026-10-23T17:30:10Z",
-    "ghsa": "GHSA-737x-cwfr-5vvc"
+    "published": "2026-10-23T20:58:36Z",
+    "ghsa": "GHSA-gx7p-2j49-hfq4"
   },
   {
-    "id": "CVE-2026-77366",
-    "summary": "obsidian-tc tokens can access arbitrary configured vaults",
-    "severity": "CRITICAL",
-    "published": "2026-10-23T17:29:17Z",
-    "ghsa": "GHSA-84c9-qqpq-2pq5"
-  },
-  {
-    "id": "CVE-2026-77364",
-    "summary": "obsidian-tc: Default folder ACL is fail-open; .obsidian plugin secrets are readable by default",
-    "severity": "MODERATE",
-    "published": "2026-10-23T17:28:40Z",
-    "ghsa": "GHSA-cvp8-vvgf-69q4"
-  },
-  {
-    "id": "CVE-2026-77361",
-    "summary": "obsidian-tc : Symlink read-ACL scope bypass via lexical path checks",
-    "severity": "MODERATE",
-    "published": "2026-10-23T17:28:19Z",
-    "ghsa": "GHSA-c5xx-h28h-f682"
-  },
-  {
-    "id": "CVE-2026-113721",
-    "summary": "virtualenv: Generated files can follow existing destination links",
-    "severity": "MODERATE",
-    "published": "2026-10-22T17:03:12Z",
-    "ghsa": "GHSA-558c-9hv2-4prj"
-  },
-  {
-    "id": "GHSA-78g4-xqwv-q3g8",
-    "summary": "Pillow: Bundled libopenjp2 2.5.4 in all wheels since 11.1.0 carries OSV-2025-219 heap-buffer-overflow write reachable from Image.open().load()",
-    "severity": "HIGH",
-    "published": "2026-10-22T17:01:08Z",
-    "ghsa": "GHSA-78g4-xqwv-q3g8"
-  },
-  {
-    "id": "CVE-2026-114132",
-    "summary": "Nuxt: Server-side route rules (`redirect`, `headers`, `proxy`, `ssr`) are skipped for case-variant paths when routing is case-insensitive",
-    "severity": "MODERATE",
-    "published": "2026-10-22T16:59:55Z",
-    "ghsa": "GHSA-vjh5-4x84-xrqp"
-  },
-  {
-    "id": "CVE-2026-114133",
-    "summary": "Nuxt server islands render `useHeadSafe` input without sanitisation",
-    "severity": "MODERATE",
-    "published": "2026-10-22T16:58:00Z",
-    "ghsa": "GHSA-xfq5-w38q-pc2x"
-  },
-  {
-    "id": "CVE-2026-114130",
-    "summary": "Nuxt: Incomplete fix for GHSA-934w-87qh-qr26: a `javascript:` URL prefixed with an ASCII control character executes from `<NuxtLink>` when `pages` is disabled",
+    "id": "CVE-2026-114060",
+    "summary": "SvelteKit: URL redirection to untrusted site via enhanced form submission",
     "severity": "LOW",
-    "published": "2026-10-22T16:51:37Z",
-    "ghsa": "GHSA-jjm6-p2m9-9w4x"
+    "published": "2026-10-23T20:58:24Z",
+    "ghsa": "GHSA-pfhg-q3qv-9q6r"
   },
   {
-    "id": "CVE-2026-114131",
-    "summary": "Nuxt: Route rules are matched against the raw request path, so a percent-encoded segment can bypass `appMiddleware` on dynamic and catch-all routes",
+    "id": "CVE-2026-114437",
+    "summary": "chi: Client IP spoofing in ClientIPFromXFF via X-Forwarded-For",
     "severity": "MODERATE",
-    "published": "2026-10-22T16:50:53Z",
-    "ghsa": "GHSA-6gq8-jgmh-3ffp"
+    "published": "2026-10-23T20:56:46Z",
+    "ghsa": "GHSA-j6qf-3m9c-vwj3"
+  },
+  {
+    "id": "GHSA-2rqm-h6hv-g79v",
+    "summary": "odf-kit has HTML injection leading to XSS in odsToHtml() via unescaped style attribute values",
+    "severity": "MODERATE",
+    "published": "2026-10-23T20:55:31Z",
+    "ghsa": "GHSA-2rqm-h6hv-g79v"
+  },
+  {
+    "id": "CVE-2026-115572",
+    "summary": "pypdf: Possible long runtimes for repeated references to the same missing object",
+    "severity": "HIGH",
+    "published": "2026-10-23T20:55:15Z",
+    "ghsa": "GHSA-6c7f-9265-g8fw"
+  },
+  {
+    "id": "CVE-2026-115585",
+    "summary": "pypdf: Possible long runtimes for repeated malformed cross-reference entries (Follow-up)",
+    "severity": "HIGH",
+    "published": "2026-10-23T20:54:27Z",
+    "ghsa": "GHSA-jr96-gvgh-j3r4"
+  },
+  {
+    "id": "CVE-2026-115580",
+    "summary": "pypdf: Possible long runtimes for large xref table header limits",
+    "severity": "HIGH",
+    "published": "2026-10-23T20:54:12Z",
+    "ghsa": "GHSA-gmh7-3g9r-mjh5"
+  },
+  {
+    "id": "CVE-2026-115567",
+    "summary": "Tokio: Race condition in `tokio::time::Interval`",
+    "severity": "MODERATE",
+    "published": "2026-10-23T20:54:00Z",
+    "ghsa": "GHSA-5wjr-9356-4wc8"
+  },
+  {
+    "id": "CVE-2026-115570",
+    "summary": "Electron: Mitigation for compromised eMudhra intermediate certificates",
+    "severity": "HIGH",
+    "published": "2026-10-23T20:53:41Z",
+    "ghsa": "GHSA-jr5w-w6x2-84p9"
+  },
+  {
+    "id": "CVE-2026-111181",
+    "summary": "body-parser vulnerable to Denial of Service via trailing bytes after a compressed request body",
+    "severity": "HIGH",
+    "published": "2026-10-23T20:53:11Z",
+    "ghsa": "GHSA-27r3-jxmh-p828"
   }
 ]
