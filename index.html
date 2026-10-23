@@ -2699,21 +2699,27 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("/partials/sidebar.html")
     .then(response => response.text())
     .then(data => {
+        // 1. Inserisci l'HTML della sidebar nel DOM
         document.getElementById("sidebar").innerHTML = data;
 
+        // 2. Inizializza gli altri widget
         if (typeof initCalculator === "function") initCalculator();
         if (typeof initRadio === "function") initRadio();
         if (typeof initYouTubePlayer === "function") initYouTubePlayer();
         if (typeof initOroscopo === "function") initOroscopo();
+
+        // 3. FORZATURA CONTATORE: Sblocca il flag e carica i dati
+        window.__anonlabVisitCounterStarted = false; // Reset di sicurezza
+
+        if (typeof loadCounterData === "function") {
+            loadCounterData(); // Carica subito i dati nei box
+        }
         
-        // Avvia il contatore ora che il JS è sicuramente caricato e il DOM della sidebar è pronto
         if (typeof initVisitCounter === "function") {
-            initVisitCounter();
-        } else if (typeof loadCounterData === "function") {
-            loadCounterData();
+            initVisitCounter(); // Avvia i ping e i timer
         }
 
-        console.log("Sidebar caricata — Widget e Contatore inizializzati");
+        console.log("Sidebar iniettata — Contatore caricato con successo!");
     })
     .catch(err => console.error("Errore nel caricamento della sidebar:", err));
 </script>
