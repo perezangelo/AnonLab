@@ -206,26 +206,23 @@ Benvenuto in Lab Resources di <strong>AnonLab</strong>.
 <!-- ========================= -->
 
 <section class="widget-large" id="advanced-tools">
-
-<!--
-  CATEGORIA WINDOWS
-  Raccolta di strumenti, utility, script e risorse dedicate ai sistemi Windows.
-  Include tool per sicurezza, diagnostica, sviluppo e analisi tecnica.
--->
-
 <div style="margin:50px 0; padding:35px; border-radius:16px;
             background:linear-gradient(135deg,#001018,#003b4a);
             border:1px solid #00eaff; box-shadow:0 0 25px #00eaff55;">
 
     <h2 id="windows" style="color:#00eaff; margin-bottom:25px; font-size:28px;
-               text-shadow:0 0 14px #00eaff;">
-        🧩 Windows Tools
+                text-shadow:0 0 14px #00eaff;">
+        🧩 Windows Tools & Sysinternals
     </h2>
+    
+    <p style="color:#ccc; margin-bottom:25px;">
+        Raccolta essenziale di utility di sistema, diagnostica avanzata e strumenti ufficiali Microsoft per l'hardening e il monitoraggio di Windows.
+    </p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
                 gap:25px;">
 
-        <!-- CARD -->
+        <!-- 7-Zip -->
         <div style="padding:25px; background:#0a0a0a; border-radius:12px;
                     border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33;">
             <h3 style="color:#00eaff;">7‑Zip</h3>
@@ -238,6 +235,7 @@ Benvenuto in Lab Resources di <strong>AnonLab</strong>.
             </a>
         </div>
 
+        <!-- Notepad++ -->
         <div style="padding:25px; background:#0a0a0a; border-radius:12px;
                     border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33;">
             <h3 style="color:#00eaff;">Notepad++</h3>
@@ -250,48 +248,68 @@ Benvenuto in Lab Resources di <strong>AnonLab</strong>.
             </a>
         </div>
 
+        <!-- PowerToys -->
         <div style="padding:25px; background:#0a0a0a; border-radius:12px;
-            border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33;">
+                    border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33;">
+            <h3 style="color:#00eaff;">PowerToys</h3>
+            <p style="color:#ccc;">Utility avanzate Microsoft.</p>
+            <a href="https://github.com/microsoft/PowerToys/releases/latest/download/PowerToysSetup-x64.exe" target="_blank"
+               style="padding:12px 22px; display:inline-block; background:#000;
+                      border:1px solid #00eaff; color:#00eaff; border-radius:8px;
+                      text-shadow:0 0 10px #00eaff; margin-bottom:10px;">
+                Scarica EXE (x64) →
+            </a>
+        </div>
 
-    <h3 style="color:#00eaff;">PowerToys</h3>
-    <p style="color:#ccc;">Utility avanzate Microsoft.</p>
+        <!-- Process Explorer (Sysinternals) -->
+        <div style="padding:25px; background:#0a0a0a; border-radius:12px;
+                    border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33;">
+            <h3 style="color:#00eaff;">Process Explorer</h3>
+            <p style="color:#ccc;">Monitoraggio avanzato processi e VirusTotal (Mark Russinovich).</p>
+            <a href="https://live.sysinternals.com/procexp64.exe" target="_blank"
+               style="padding:12px 22px; display:inline-block; background:#000;
+                      border:1px solid #00eaff; color:#00eaff; border-radius:8px;
+                      text-shadow:0 0 10px #00eaff;">
+                Scarica procexp64.exe →
+            </a>
+        </div>
 
-    <!-- INSTALLER x64 -->
-    <a href="https://github.com/microsoft/PowerToys/releases/latest/download/PowerToysSetup-x64.exe" target="_blank"
-       style="padding:12px 22px; display:inline-block; background:#000;
-              border:1px solid #00eaff; color:#00eaff; border-radius:8px;
-              text-shadow:0 0 10px #00eaff; margin-bottom:10px;">
-        Scarica EXE (x64) →
-    </a>
+        <!-- Autoruns (Sysinternals) -->
+        <div style="padding:25px; background:#0a0a0a; border-radius:12px;
+                    border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33;">
+            <h3 style="color:#00eaff;">Autoruns</h3>
+            <p style="color:#ccc;">Controllo completo elementi in avvio e servizi di sistema.</p>
+            <a href="https://live.sysinternals.com/autoruns64.exe" target="_blank"
+               style="padding:12px 22px; display:inline-block; background:#000;
+                      border:1px solid #00eaff; color:#00eaff; border-radius:8px;
+                      text-shadow:0 0 10px #00eaff;">
+                Scarica autoruns64.exe →
+            </a>
+        </div>
 
-    <!-- INSTALLER ARM64 -->
-    <a href="https://github.com/microsoft/PowerToys/releases/latest/download/PowerToysSetup-arm64.exe" target="_blank"
-       style="padding:12px 22px; display:inline-block; background:#000;
-              border:1px solid #00eaff; color:#00eaff; border-radius:8px;
-              text-shadow:0 0 10px #00eaff; margin-bottom:10px;">
-        Scarica EXE (ARM64) →
-    </a>
-
-    <!-- USER INSTALLER x64 -->
-    <a href="https://github.com/microsoft/PowerToys/releases/latest/download/PowerToysUserSetup-x64.exe" target="_blank"
-       style="padding:12px 22px; display:inline-block; background:#000;
-              border:1px solid #00eaff; color:#00eaff; border-radius:8px;
-              text-shadow:0 0 10px #00eaff; margin-bottom:10px;">
-        User Setup (x64) →
-    </a>
-
-    <!-- USER INSTALLER ARM64 -->
-    <a href="https://github.com/microsoft/PowerToys/releases/latest/download/PowerToysUserSetup-arm64.exe" target="_blank"
-       style="padding:12px 22px; display:inline-block; background:#000;
-              border:1px solid #00eaff; color:#00eaff; border-radius:8px;
-              text-shadow:0 0 10px #00eaff;">
-        User Setup (ARM64) →
-    </a>
-
-</div>
+        <!-- Sysinternals Suite & Live Share -->
+        <div style="padding:25px; background:#0a0a0a; border-radius:12px;
+                    border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33;">
+            <h3 style="color:#00eaff;">Sysinternals Suite</h3>
+            <p style="color:#ccc;">Pacchetto completo ZIP o accesso live via WebDAV.</p>
+            <a href="https://live.sysinternals.com/SysinternalsSuite.zip" target="_blank"
+               style="padding:10px 18px; display:inline-block; background:#000;
+                      border:1px solid #00eaff; color:#00eaff; border-radius:8px;
+                      text-shadow:0 0 10px #00eaff; margin-bottom:8px; font-size:14px;">
+                Scarica Suite ZIP →
+            </a>
+            <br>
+            <a href="https://live.sysinternals.com/" target="_blank"
+               style="padding:10px 18px; display:inline-block; background:#000;
+                      border:1px solid #00eaff; color:#00eaff; border-radius:8px;
+                      text-shadow:0 0 10px #00eaff; font-size:14px;">
+                Esplora Cartella Live →
+            </a>
+        </div>
 
     </div>
 </div>
+</section>
 
 <!--
   CATEGORIA MAC
