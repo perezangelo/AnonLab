@@ -337,10 +337,17 @@ function anonlabSet(id, value) {
 /* ============================================================
    AVVIO CONTATORE SICURO
 ============================================================ */
+
+function loadCounterData() {
+    anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) + "&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
+        .then(updateCounterUI)
+        .catch(function (err) { console.error("Errore loadCounterData:", err); });
+}
+
 function initVisitCounter() {
     ANONLAB.vid = anonlabVisitId();
 
-    // 1) Registra la visita
+    // 1) Registra la visita e aggiorna l'interfaccia
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
@@ -348,21 +355,18 @@ function initVisitCounter() {
         .catch(function (err) { console.error("Errore update.php:", err); });
 
     // 2) Carica subito i dati
-    // Nota: loadCounterData() gestisce il recupero periodico se definito altrove, o viene richiamato dal poll.
+    loadCounterData();
 
     // 3) Timers periodici (evita duplicati)
     if (!window.__anonlabTimersStarted) {
         window.__anonlabTimersStarted = true;
+        
         setInterval(function () {
             anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
                 .catch(function () {});
         }, ANONLAB.pingMs);
 
-        setInterval(() => {
-            anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) + "&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
-                .then(updateCounterUI)
-                .catch(function () {});
-        }, ANONLAB.pollMs);
+        setInterval(loadCounterData, ANONLAB.pollMs);
 
         anonlabPulse();
     }
