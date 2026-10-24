@@ -21,13 +21,12 @@ async function loadPartial(id, file) {
         el.innerHTML = html;
 
         /* ============================================================
-           SIDEBAR — INIZIALIZZAZIONE WIDGET
+            SIDEBAR — INIZIALIZZAZIONE WIDGET
         ============================================================ */
         if (id === "sidebar") {
             requestAnimationFrame(() => {
                 loadMeteo();
                 initOroscopo();
-                // ⭐ Il contatore visite verrà gestito nella PARTE 2
             });
         }
 
@@ -129,72 +128,40 @@ async function loadMeteo() {
 /* ============================================================
 OROSCOPO — VERSIONE DEFINITIVA SKY TG24
 ============================================================ */
- 
+ 
 async function initOroscopo() {
- 
-const select = document.getElementById("oroscopo-select");
-const img = document.getElementById("oroscopo-img");
-const text = document.getElementById("oroscopo-text");
-const link = document.getElementById("oroscopo-link");
- 
-if (!select || !img || !text || !link) return;
- 
-try {
- 
-const res = await fetch(
-"https://anonlab.it/data/oroscopo.json"
-);
- 
-const data = await res.json();
- 
-const baseImg =
-"https://anonlab.it/img/oroscopo/";
- 
-function updateOroscopo() {
- 
-const sign = select.value;
-const signLabel =
-select.options[select.selectedIndex].text;
- 
-img.src =
-`${baseImg}${sign}.svg`;
- 
-text.textContent =
-data[sign] || "Oroscopo non disponibile";
- 
-link.href =
-`https://tg24.sky.it/lifestyle/oroscopo/${sign}/oggi`;
- 
-link.target = "_blank";
-link.rel = "noopener noreferrer";
- 
-link.textContent =
-`Leggi l'oroscopo di ${signLabel} →`;
+    const select = document.getElementById("oroscopo-select");
+    const img = document.getElementById("oroscopo-img");
+    const text = document.getElementById("oroscopo-text");
+    const link = document.getElementById("oroscopo-link");
+     
+    if (!select || !img || !text || !link) return;
+     
+    try {
+        const res = await fetch("https://anonlab.it/data/oroscopo.json");
+        const data = await res.json();
+        const baseImg = "https://anonlab.it/img/oroscopo/";
+         
+        function updateOroscopo() {
+            const sign = select.value;
+            const signLabel = select.options[select.selectedIndex].text;
+             
+            img.src = `${baseImg}${sign}.svg`;
+            text.textContent = data[sign] || "Oroscopo non disponibile";
+            link.href = `https://tg24.sky.it/lifestyle/oroscopo/${sign}/oggi`;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = `Leggi l'oroscopo di ${signLabel} →`;
+        }
+         
+        updateOroscopo();
+        select.addEventListener("change", updateOroscopo);
+         
+    } catch (error) {
+        console.error("Errore oroscopo:", error);
+        text.textContent = "Oroscopo non disponibile";
+    }
 }
- 
-updateOroscopo();
- 
-select.addEventListener(
-"change",
-updateOroscopo
-);
- 
-} catch (error) {
- 
-console.error(
-"Errore oroscopo:",
-error
-);
- 
-text.textContent =
-"Oroscopo non disponibile";
-}
-}
- 
-document.addEventListener(
-"DOMContentLoaded",
-initOroscopo
-);
 
 /* ============================================================
    OROSCOPO — ISCRIZIONE NEWSLETTER
@@ -233,22 +200,19 @@ function iscriviOroscopo() {
         alert("Si è verificato un errore. Riprova più tardi.");
     });
 }
-
+ 
 /* ============================================================
-   WAIT FOR SIDEBAR — VERIFICA ID INTERNI
+   WAIT FOR SIDEBAR
 ============================================================ */
 
 function waitForSidebar() {
     return new Promise(resolve => {
         const check = () => {
             const sidebar = document.getElementById("sidebar");
-            // Verifica che la sidebar contenga gli ID reali del contatore
-            const uniqueEl = document.getElementById("visit-unique");
-            
-            if (sidebar && sidebar.innerHTML.trim() !== "" && uniqueEl) {
+            if (sidebar && sidebar.innerHTML.trim() !== "") {
                 resolve();
             } else {
-                setTimeout(check, 50);
+                setTimeout(check, 100);
             }
         };
         check();
@@ -256,82 +220,29 @@ function waitForSidebar() {
 }
 
 /* ============================================================
-   D) DOM READY
+   D) DOM READY — VERSIONE OTTIMIZZATA
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-
     // Caricamento partials
     loadPartial("header", "partials/header.html");
     loadPartial("ticker", "partials/ticker.html").then(() => {
         if (typeof loadTickerNews === "function") loadTickerNews();
     });
 
-    loadPartial("sidebar", "partials/sidebar.html");   // Sidebar
+    loadPartial("sidebar", "partials/sidebar.html");   // ⭐ Sidebar obbligatoria
     loadPartial("footer", "partials/footer.html");
 
-    // Attende che gli ID del contatore siano EFFETTIVAMENTE inseriti nel DOM
+    // Attende che la sidebar sia caricata
     waitForSidebar().then(() => {
-
         loadMeteo();
 
+        // ⭐ Inizializza il contatore SOLO quando la sidebar esiste
         if (typeof initVisitCounter === "function") {
             initVisitCounter();
         }
-
     });
-
 });
-
-/* ============================================================
-   G) WIDGET CYBER ALERT LIVE
-============================================================ */
-
-async function loadCyberAlerts() {
-    const list = document.getElementById("alert-live");
-    if (!list) return;
-
-    const alerts = [
-        { text: "Attacco DDoS in corso su infrastrutture EU" },
-        { text: "Nuova campagna phishing su larga scala" },
-        { text: "Exploit attivo su Apache ActiveMQ" },
-        { text: "Malware bancario in rapida diffusione" }
-    ];
-
-    list.innerHTML = alerts
-        .map(a => `
-            <li class="alert-item">
-                ${alertIcon}
-                <span>${a.text}</span>
-            </li>
-        `)
-        .join("");
-}
-
-/* ============================================================
-   H) WIDGET FEED DAL MONDO
-============================================================ */
-
-async function loadWorldFeed() {
-    const feed = document.getElementById("world-feed");
-    if (!feed) return;
-
-    const items = [
-        { text: "Aumentano gli attacchi supply-chain" },
-        { text: "Cresce l’adozione Zero Trust" },
-        { text: "Nuove normative EU sulla cybersicurezza" },
-        { text: "AI nei SOC di nuova generazione" }
-    ];
-
-    feed.innerHTML = items
-        .map(i => `
-            <div class="feed-item">
-                ${feedIcon}
-                <span>${i.text}</span>
-            </div>
-        `)
-        .join("");
-}
 
 /* ============================================================
    I) HEADER SCROLL EFFECT
@@ -367,12 +278,12 @@ document.addEventListener("click", function (e) {
 
 /* ============================================================
    ANONLAB — CONTATORE VISITE · interfaccia (v2.4 Definitiva)
-   ============================================================ */
+============================================================ */
 
 var ANONLAB = ANONLAB || {};
 ANONLAB.api    = "https://angelonline.altervista.org/counter/";
-ANONLAB.pollMs = 15000;   
-ANONLAB.pingMs = 60000;   
+ANONLAB.pollMs = 15000;    
+ANONLAB.pingMs = 60000;    
 
 function anonlabVisitId() {
     try {
@@ -416,7 +327,6 @@ function anonlabNum(value) {
     return new Intl.NumberFormat("it-IT").format(Number(value) || 0);
 }
 
-// Funzione protetta: se l'elemento non esiste ancora nel DOM, riprova tra poco
 function anonlabSet(id, value) {
     var el = document.getElementById(id);
     if (el) {
@@ -426,7 +336,7 @@ function anonlabSet(id, value) {
 
 /* ============================================================
    AVVIO CONTATORE SICURO
-   ============================================================ */
+============================================================ */
 function initVisitCounter() {
     ANONLAB.vid = anonlabVisitId();
 
@@ -438,7 +348,7 @@ function initVisitCounter() {
         .catch(function (err) { console.error("Errore update.php:", err); });
 
     // 2) Carica subito i dati
-    loadCounterData();
+    // Nota: loadCounterData() gestisce il recupero periodico se definito altrove, o viene richiamato dal poll.
 
     // 3) Timers periodici (evita duplicati)
     if (!window.__anonlabTimersStarted) {
@@ -448,19 +358,24 @@ function initVisitCounter() {
                 .catch(function () {});
         }, ANONLAB.pingMs);
 
-        setInterval(loadCounterData, ANONLAB.pollMs);
+        setInterval(() => {
+            anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) + "&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
+                .then(updateCounterUI)
+                .catch(function () {});
+        }, ANONLAB.pollMs);
+
         anonlabPulse();
     }
 }
 
 /* ============================================================
    AGGIORNAMENTO INTERFACCIA
-   ============================================================ */
+============================================================ */
 function updateCounterUI(data) {
     if (!data || data.error) return;
 
     /* 1. Numeri principali */
-    anonlabSet("visit-unique",  anonlabNum(data.unique));
+    anonlabSet("visit-unique",   anonlabNum(data.unique));
     anonlabSet("visit-counter", anonlabNum(data.total));
     anonlabSet("visit-today",   anonlabNum(data.today ? data.today.visits : 0));
     anonlabSet("online-users",  anonlabNum(data.online_count));
@@ -533,7 +448,7 @@ function updateCounterUI(data) {
 
 /* ============================================================
    PALLINO "ONLINE"
-   ============================================================ */
+============================================================ */
 function anonlabPulse() {
     var dot = document.getElementById("online-dot");
     if (!dot) return;
@@ -544,11 +459,4 @@ function anonlabPulse() {
         acceso = !acceso;
         dot.style.opacity = acceso ? "1" : ".35";
     }, 900);
-}
-
-// Avvio automatico non appena il DOM è pronto (senza attese bloccanti sulla sidebar)
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initVisitCounter);
-} else {
-    initVisitCounter();
-}
+} // ⭐ Chiusura corretta aggiunta per eliminare l'Unexpected end of input!
