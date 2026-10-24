@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-114055",
-    "summary": "vLLM : DoS via unvalidated mm_processor_kwargs in multimodal image processors (Isaac, InternVL, H2OVL, etc.)",
-    "severity": "HIGH",
-    "published": "2026-10-23T20:58:36Z",
-    "ghsa": "GHSA-gx7p-2j49-hfq4"
+    "id": "CVE-2026-112937",
+    "summary": "filelock: ReadWriteLock on the hard-link route deletes any directory another user renames onto its .filelock-* link directory name",
+    "severity": "MODERATE",
+    "published": "2026-10-23T22:28:41Z",
+    "ghsa": "GHSA-jqc4-5cvw-7w85"
   },
   {
-    "id": "CVE-2026-114060",
-    "summary": "SvelteKit: URL redirection to untrusted site via enhanced form submission",
+    "id": "CVE-2026-112913",
+    "summary": "filelock: ReadWriteLock on Windows acts on SQLite side files another local user places beside its database",
     "severity": "LOW",
-    "published": "2026-10-23T20:58:24Z",
-    "ghsa": "GHSA-pfhg-q3qv-9q6r"
+    "published": "2026-10-23T22:28:19Z",
+    "ghsa": "GHSA-9vhv-jxww-xfm5"
   },
   {
-    "id": "CVE-2026-114437",
-    "summary": "chi: Client IP spoofing in ClientIPFromXFF via X-Forwarded-For",
+    "id": "CVE-2026-112907",
+    "summary": "filelock: On Windows an oplock on a soft lock's marker holds SoftFileLock.acquire() past its timeout and blocks the stale break",
+    "severity": "LOW",
+    "published": "2026-10-23T22:27:32Z",
+    "ghsa": "GHSA-567q-5qvw-pf92"
+  },
+  {
+    "id": "CVE-2026-113713",
+    "summary": "virtualenv: Temporary app-data can leave dangling seed package links",
     "severity": "MODERATE",
-    "published": "2026-10-23T20:56:46Z",
-    "ghsa": "GHSA-j6qf-3m9c-vwj3"
+    "published": "2026-10-23T22:26:57Z",
+    "ghsa": "GHSA-4f8h-vr72-p32c"
   },
   {
-    "id": "GHSA-2rqm-h6hv-g79v",
-    "summary": "odf-kit has HTML injection leading to XSS in odsToHtml() via unescaped style attribute values",
+    "id": "CVE-2026-113717",
+    "summary": "virtualenv: Pip seeding with download omits wheel digest verification",
+    "severity": "LOW",
+    "published": "2026-10-23T22:26:04Z",
+    "ghsa": "GHSA-cx28-75q4-x26q"
+  },
+  {
+    "id": "CVE-2026-113714",
+    "summary": "virtualenv: Downloaded wheel selection and caching precede verification",
+    "severity": "LOW",
+    "published": "2026-10-23T22:25:22Z",
+    "ghsa": "GHSA-494p-63j8-28p3"
+  },
+  {
+    "id": "CVE-2026-113718",
+    "summary": "virtualenv: Xonsh activation literals depend on the script decoding codec",
+    "severity": "HIGH",
+    "published": "2026-10-23T22:24:43Z",
+    "ghsa": "GHSA-394h-qwmc-48pf"
+  },
+  {
+    "id": "CVE-2026-113720",
+    "summary": "virtualenv: Seeded files retain permissions from an older cache",
     "severity": "MODERATE",
-    "published": "2026-10-23T20:55:31Z",
-    "ghsa": "GHSA-2rqm-h6hv-g79v"
+    "published": "2026-10-23T22:23:11Z",
+    "ghsa": "GHSA-fc2g-4w5p-6whm"
   },
   {
-    "id": "CVE-2026-115572",
-    "summary": "pypdf: Possible long runtimes for repeated references to the same missing object",
+    "id": "CVE-2026-113723",
+    "summary": "virtualenv: Bash prompt values can change meaning under older compatibility modes",
     "severity": "HIGH",
-    "published": "2026-10-23T20:55:15Z",
-    "ghsa": "GHSA-6c7f-9265-g8fw"
+    "published": "2026-10-23T22:21:57Z",
+    "ghsa": "GHSA-6w3r-xr62-4xcp"
   },
   {
-    "id": "CVE-2026-115585",
-    "summary": "pypdf: Possible long runtimes for repeated malformed cross-reference entries (Follow-up)",
-    "severity": "HIGH",
-    "published": "2026-10-23T20:54:27Z",
-    "ghsa": "GHSA-jr96-gvgh-j3r4"
-  },
-  {
-    "id": "CVE-2026-115580",
-    "summary": "pypdf: Possible long runtimes for large xref table header limits",
-    "severity": "HIGH",
-    "published": "2026-10-23T20:54:12Z",
-    "ghsa": "GHSA-gmh7-3g9r-mjh5"
-  },
-  {
-    "id": "CVE-2026-115567",
-    "summary": "Tokio: Race condition in `tokio::time::Interval`",
-    "severity": "MODERATE",
-    "published": "2026-10-23T20:54:00Z",
-    "ghsa": "GHSA-5wjr-9356-4wc8"
-  },
-  {
-    "id": "CVE-2026-115570",
-    "summary": "Electron: Mitigation for compromised eMudhra intermediate certificates",
-    "severity": "HIGH",
-    "published": "2026-10-23T20:53:41Z",
-    "ghsa": "GHSA-jr5w-w6x2-84p9"
-  },
-  {
-    "id": "CVE-2026-111181",
-    "summary": "body-parser vulnerable to Denial of Service via trailing bytes after a compressed request body",
-    "severity": "HIGH",
-    "published": "2026-10-23T20:53:11Z",
-    "ghsa": "GHSA-27r3-jxmh-p828"
+    "id": "CVE-2026-113715",
+    "summary": "virtualenv: Venv configuration readback can reinterpret path boundaries",
+    "severity": "LOW",
+    "published": "2026-10-23T22:20:43Z",
+    "ghsa": "GHSA-qmx5-4p3x-wvqf"
   }
 ]
