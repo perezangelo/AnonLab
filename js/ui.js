@@ -335,7 +335,7 @@ function anonlabSet(id, value) {
 }
 
 /* ============================================================
-   AVVIO CONTATORE SICURO
+   AVVIO CONTATORE SICURO (DEFINIZIONI COMPLETE)
 ============================================================ */
 
 function loadCounterData() {
