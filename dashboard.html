@@ -1555,6 +1555,176 @@ statusBox.style.color = color;
 
 startThreatLevel();
 </script>
+
+		<!-- START: Automated Live Security Advisories Feed -->
+<div class="dashboard-widget auto-advisories-widget" style="background: #11141a; border: 1px solid #1f2833; border-top: 3px solid #45f3ff; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
+    
+    <!-- Intestazione Widget -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2833; padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+        <div>
+            <h4 style="margin: 0; color: #45f3ff; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
+                🛡️ Global Security Advisories &amp; Patch Stream
+            </h4>
+            <span id="advisories-sync-time" style="font-size: 0.72rem; color: #666;">SINCRONIZZAZIONE AUTOMATICA DA API...</span>
+        </div>
+        <span style="background: rgba(69, 243, 255, 0.15); color: #45f3ff; border: 1px solid #45f3ff; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
+            LIVE FEED
+        </span>
+    </div>
+
+    <!-- Container Dinamico -->
+    <div id="auto-advisories-container" style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="text-align: center; padding: 20px; color: #45f3ff; font-size: 0.85rem;">
+            ⚡ Caricamento advisories in tempo reale...
+        </div>
+    </div>
+</div>
+
+<!-- Script di Fetch Automatico -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Sostituisci con il tuo endpoint PHP su Altervista (es. api/advisories.php)
+    const advisoriesApiUrl = "https://TUOACCOUNT.altervista.org/api/advisories.php";
+
+    fetch(advisoriesApiUrl)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success" && data.items) {
+                renderAutoAdvisories(data.items);
+                document.getElementById("advisories-sync-time").textContent = `ULTIMO SYNC: ${data.timestamp}`;
+            } else {
+                throw new Error("Formato dati non valido");
+            }
+        })
+        .catch(err => {
+            console.error("Errore caricamento advisories:", err);
+            document.getElementById("auto-advisories-container").innerHTML = `
+                <div style="padding: 12px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center; font-size: 0.8rem;">
+                    ⚠️ Impossibile raggiungere l'endpoint API degli advisories su Altervista.
+                </div>`;
+        });
+});
+
+function renderAutoAdvisories(items) {
+    const container = document.getElementById("auto-advisories-container");
+    container.innerHTML = "";
+
+    items.forEach(item => {
+        const title = item.title || "Security Advisory Update";
+        const source = item.source || "NIST / MITRE";
+        const date = item.date || "";
+        const link = item.url || "#";
+
+        const card = document.createElement("div");
+        card.style.cssText = "background: #0b0c10; border: 1px solid #222; border-left: 3px solid #66fcf1; padding: 12px; border-radius: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; transition: border-color 0.2s;";
+        
+        card.onmouseover = function() { this.style.borderColor = '#45f3ff'; };
+        card.onmouseout = function() { this.style.borderColor = '#222'; };
+
+        card.innerHTML = `
+            <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                    <span style="background: #1f2833; color: #66fcf1; padding: 1px 6px; font-size: 0.68rem; border-radius: 2px;">${source}</span>
+                    ${date ? `<span style="color: #666; font-size: 0.68rem;">[${date}]</span>` : ''}
+                </div>
+                <div style="color: #ffffff; font-size: 0.82rem; font-weight: bold; max-width: 500px;">${title}</div>
+            </div>
+            <div>
+                <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: #45f3ff; text-decoration: none; font-size: 0.75rem; font-weight: bold; border-bottom: 1px dashed #45f3ff;">
+                    ADVISORY →
+                </a>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+</script>
+<!-- END: Automated Live Security Advisories Feed -->
+
+		<!-- START: Automated Live Cyber News Stream -->
+<div class="dashboard-widget auto-news-widget" style="background: #11141a; border: 1px solid #1f2833; border-top: 3px solid #ff4a4a; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
+    
+    <!-- Intestazione Widget -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2833; padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+        <div>
+            <h4 style="margin: 0; color: #ff4a4a; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
+                📰 Autonomous Global Cyber News Wire
+            </h4>
+            <span style="font-size: 0.72rem; color: #666;">AGGIORNAMENTI IN TEMPO REALE DA FONTI ESTERNE</span>
+        </div>
+        <span style="background: rgba(255, 74, 74, 0.15); color: #ff4a4a; border: 1px solid #ff4a4a; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
+            RSS LIVE
+        </span>
+    </div>
+
+    <!-- Container Dinamico Notizie -->
+    <div id="auto-news-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #ff4a4a; font-size: 0.85rem;">
+            ⚡ Connessione al feed notizie in corso...
+        </div>
+    </div>
+</div>
+
+<!-- Script di Fetch Notizie -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Sostituisci con il tuo endpoint PHP su Altervista che processa il feed RSS (es. api/news-feed.php)
+    const newsApiUrl = "https://TUOACCOUNT.altervista.org/api/news-feed.php";
+
+    fetch(newsApiUrl)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success" && data.articles) {
+                renderAutoNews(data.articles);
+            } else {
+                throw new Error("Errore formato notizie");
+            }
+        })
+        .catch(err => {
+            console.error("Errore fetch news:", err);
+            document.getElementById("auto-news-container").innerHTML = `
+                <div style="grid-column: 1 / -1; padding: 12px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center; font-size: 0.8rem;">
+                    ⚠️ Impossibile caricare il flusso notizie autonomo da Altervista.
+                </div>`;
+        });
+});
+
+function renderAutoNews(articles) {
+    const container = document.getElementById("auto-news-container");
+    container.innerHTML = "";
+
+    articles.forEach(art => {
+        const title = art.title || "Notizia di Sicurezza";
+        const source = art.source || "Cyber Feed";
+        const snippet = art.description || "";
+        const link = art.url || "#";
+
+        const card = document.createElement("div");
+        card.style.cssText = "background: #0b0c10; border: 1px solid #222; padding: 12px; border-radius: 3px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; transition: border-color 0.2s;";
+        
+        card.onmouseover = function() { this.style.borderColor = '#ff4a4a'; };
+        card.onmouseout = function() { this.style.borderColor = '#222'; };
+
+        card.innerHTML = `
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="color: #ff4a4a; font-size: 0.68rem; font-weight: bold; text-transform: uppercase;">${source}</span>
+                </div>
+                <div style="color: #ffffff; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px;">${title}</div>
+                <p style="margin: 0; color: #85929E; font-size: 0.75rem; line-height: 1.3;">${snippet}</p>
+            </div>
+            <div style="text-align: right; margin-top: 5px;">
+                <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: #66fcf1; text-decoration: none; font-size: 0.72rem; font-weight: bold;">
+                    LEGGI ARTICOLO →
+                </a>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+</script>
+<!-- END: Automated Live Cyber News Stream -->
+		
     </section>  
 		  
     <!-- SIDEBAR -->
