@@ -2136,6 +2136,127 @@ function renderAuditLogs(logs) {
 }
 </script>
 <!-- END: Comprehensive Security Telemetry & Audit Log Ledger -->
+
+		<!-- START: Real-Time Global Threat Map & Multi-Vector Telemetry Matrix -->
+<div class="dashboard-widget global-matrix-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #ff8c00; padding: 22px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
+    
+    <!-- Intestazione Principale -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🌐</span>
+            <div>
+                <h4 style="margin: 0; color: #ff8c00; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px;">
+                    AnonLab // Global Threat Map &amp; Multi-Vector Telemetry Matrix
+                </h4>
+                <span id="matrix-sync-time" style="font-size: 0.68rem; color: #666;">SINCRONIZZAZIONE MATRICE GLOBALE...</span>
+            </div>
+        </div>
+        <span style="background: rgba(255, 140, 0, 0.1); color: #ff8c00; border: 1px solid #ff8c00; padding: 3px 10px; font-size: 0.72rem; border-radius: 3px; font-weight: bold;">
+            GLOBAL GRID ACTIVE
+        </span>
+    </div>
+
+    <!-- Pannello Statistiche Globali (4 Box in alto) -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 12px; border-radius: 3px; border-left: 3px solid #66fcf1;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">THREATS MITIGATED (24H)</div>
+            <div id="stat-mitigated" style="color: #66fcf1; font-size: 1.1rem; font-weight: bold;">--</div>
+        </div>
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 12px; border-radius: 3px; border-left: 3px solid #ff8c00;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">ACTIVE FIREWALL RULES</div>
+            <div id="stat-rules" style="color: #ff8c00; font-size: 1.1rem; font-weight: bold;">--</div>
+        </div>
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 12px; border-radius: 3px; border-left: 3px solid #45f3ff;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">AVG EDGE LATENCY</div>
+            <div id="stat-latency" style="color: #45f3ff; font-size: 1.1rem; font-weight: bold;">--</div>
+        </div>
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 12px; border-radius: 3px; border-left: 3px solid #2ecc71;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">SYSTEM INTEGRITY</div>
+            <div id="stat-integrity" style="color: #2ecc71; font-size: 1.1rem; font-weight: bold;">--</div>
+        </div>
+    </div>
+
+    <!-- Griglia dei Nodi Geografici -->
+    <div style="font-size: 0.8rem; color: #fff; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+        <span>📍 Edge Node Telemetry &amp; Regional Traffic Distribution:</span>
+    </div>
+
+    <div id="global-nodes-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 15px;">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 25px; color: #ff8c00;">
+            ⏳ Caricamento telemetria nodi globali da anonlab.altervista.org...
+        </div>
+    </div>
+
+    <!-- Footer di Chiusura Finestra -->
+    <div style="margin-top: 20px; padding-top: 12px; border-top: 1px dashed #1f2833; display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 0.68rem; flex-wrap: wrap; gap: 5px;">
+        <span>BACKEND ENDPOINT: /api/global-grid.php</span>
+        <span style="color: #ff8c00;">GLOBAL PERIMETER STATUS: SECURE &amp; SYNCHRONIZED</span>
+    </div>
+</div>
+
+<!-- Script di Fetch e Rendering della Matrice Globale -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const matrixApiUrl = "https://angelonline.altervista.org/api/global-grid.php";
+
+    fetch(matrixApiUrl)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                renderGlobalStats(data.stats);
+                renderGlobalNodes(data.nodes);
+                document.getElementById("matrix-sync-time").textContent = `SYNC OK [${data.timestamp}]`;
+            } else {
+                throw new Error("Errore dati matrice globale");
+            }
+        })
+        .catch(err => {
+            console.error("Errore fetch global grid:", err);
+            document.getElementById("global-nodes-grid").innerHTML = `
+                <div style="grid-column: 1 / -1; padding: 15px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center; font-size: 0.8rem;">
+                    ⚠️ Impossibile caricare la matrice globale da Altervista.
+                </div>`;
+        });
+});
+
+function renderGlobalStats(stats) {
+    document.getElementById("stat-mitigated").textContent = stats.total_mitigated_today;
+    document.getElementById("stat-rules").textContent = stats.active_firewall_rules;
+    document.getElementById("stat-latency").textContent = stats.edge_latency_avg;
+    document.getElementById("stat-integrity").textContent = stats.system_integrity;
+}
+
+function renderGlobalNodes(nodes) {
+    const container = document.getElementById("global-nodes-grid");
+    container.innerHTML = "";
+
+    nodes.forEach(node => {
+        let badgeColor = "#66fcf1";
+        if (node.threat_level === "MEDIUM") badgeColor = "#ff8c00";
+        if (node.threat_level === "ELEVATED") badgeColor = "#ff4a4a";
+
+        const card = document.createElement("div");
+        card.style.cssText = "background: #11141a; border: 1px solid #1f2833; padding: 14px; border-radius: 3px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.2s;";
+        
+        card.onmouseover = function() { this.style.borderColor = '#ff8c00'; };
+        card.onmouseout = function() { this.style.borderColor = '#1f2833'; };
+
+        card.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #ffffff; font-size: 0.85rem; font-weight: bold;">🌍 ${node.region}</span>
+                <span style="background: rgba(255, 255, 255, 0.05); color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 1px 6px; font-size: 0.68rem; border-radius: 2px; font-weight: bold;">${node.threat_level}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; color: #85929E; border-top: 1px dashed #1a222d; padding-top: 6px;">
+                <span>Status: <b style="color: #66fcf1;">${node.status}</b></span>
+                <span>Load: <b style="color: #fff;">${node.load}</b></span>
+                <span>Rate: <b style="color: #ff8c00;">${node.packets}</b></span>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+</script>
+<!-- END: Real-Time Global Threat Map & Multi-Vector Telemetry Matrix -->
 		
     </section>  
 		  
