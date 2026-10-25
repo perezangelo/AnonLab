@@ -2490,6 +2490,21 @@ function renderGlobalNodes(nodes) {
 }
 </script>
 <!-- END: Real-Time Global Threat Map & Multi-Vector Telemetry Matrix -->
+
+		import SocWidgets from '../components/SocWidgets';
+
+export default function Dashboard() {
+  return (
+    <div style={{ padding: "30px", background: "#030712", minHeight: "100vh" }}>
+      <h1 style={{ color: "#00eaff", fontSize: "1.8rem", marginBottom: "20px", fontWeight: "bold" }}>
+        AnonLab · SOC Control Room
+      </h1>
+      
+      {/* Inserisci qui i widget autonomi sincronizzati con Altervista */}
+      <SocWidgets />
+    </div>
+  );
+}
 		
     </section>  
 		  
