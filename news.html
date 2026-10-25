@@ -1730,20 +1730,21 @@ Scarica report previsionale 2026
     <!-- Griglia responsive a 3 colonne -->
     <div class="podcast-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
         
-        <!-- Colonna 1: Media Player YouTube (Aggiornamento automatico via Playlist) -->
+        <!-- Colonna 1: Player Apple Podcasts (0-Day) -->
         <div class="media-player-wrapper" style="background: #1f2833; padding: 10px; border: 1px solid #333; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-                <!-- Sostituisci UUUUUU_DELLA_PLAYLIST con l'ID della playlist degli upload o di una playlist tematica -->
+            <div style="width: 100%;">
                 <iframe 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                    src="https://www.youtube.com/embed/videoseries?list=UUUUUU_DELLA_PLAYLIST" 
-                    title="Cybersecurity Live Feed" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+                    frameborder="0" 
+                    height="175" 
+                    style="width: 100%; max-width: 100%; overflow: hidden; border-radius: 10px;" 
+                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" 
+                    src="https://embed.podcasts.apple.com/it/podcast/0-day-storie-attacchi-e-verit%C3%A0-dal-fronte-della-cybersecurity/id1736173295?theme=dark"
+                    title="0-Day Cybersecurity Podcast">
                 </iframe>
             </div>
             <p style="margin: 10px 0 0 0; font-size: 0.85rem; color: #45f3ff;">
-                <strong>Riproduzione corrente:</strong> Ultimi Briefing &amp; Malware Analysis
+                <strong>Riproduzione corrente:</strong> 0-Day Podcast (Feed Ufficiale)
             </p>
         </div>
 
@@ -1781,6 +1782,22 @@ Scarica report previsionale 2026
         </div>
 
     </div>
+</section>
+
+<!-- CSS per animazione e griglia -->
+<style>
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+@media (min-width: 1200px) {
+    .cyber-podcast-section .podcast-grid {
+        grid-template-columns: 2fr 1fr 1fr !important;
+    }
+}
+</style>
+<!-- END: Cyber Podcast & Video Intelligence Embed -->
 </section>
 
 <!-- CSS per animazione e griglia -->
