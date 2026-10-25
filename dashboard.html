@@ -1833,7 +1833,7 @@ function renderThreatRadar(items) {
 </script>
 <!-- END: Global Threat Intelligence Radar Widget -->
 
-		<!-- START: SOC Interactive PHP-Backed Diagnostics Terminal -->
+		<!-- START: SOC Interactive PHP-Backed Diagnostics Terminal & User Guide -->
 <div class="dashboard-widget soc-terminal-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #66fcf1; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
     <!-- Intestazione Terminale -->
@@ -1842,9 +1842,9 @@ function renderThreatRadar(items) {
             <span style="font-size: 1.2rem;">💻</span>
             <div>
                 <h4 style="margin: 0; color: #66fcf1; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;">
-                    AnonLab // PHP-Backend Secure Shell &amp; Diagnostics
+                    AnonLab // Secure Shell &amp; Server Diagnostics
                 </h4>
-                <span style="font-size: 0.68rem; color: #666;">SESSION: ROOT@ANGELONLINE.ALTERVISTA.ORG ~ ACTIVE</span>
+                <span style="font-size: 0.68rem; color: #666;">SESSION: ROOT@ANONLAB.ALTERVISTA.ORG ~ ACTIVE</span>
             </div>
         </div>
         <div style="display: flex; gap: 6px;">
@@ -1854,16 +1854,22 @@ function renderThreatRadar(items) {
         </div>
     </div>
 
+    <!-- Legenda Utente / Guida Rapida Integrata -->
+    <div style="background: rgba(102, 252, 241, 0.03); border: 1px solid rgba(102, 252, 241, 0.15); padding: 10px 12px; border-radius: 3px; margin-bottom: 12px; font-size: 0.73rem; color: #a5b1c2; line-height: 1.4;">
+        <span style="color: #66fcf1; font-weight: bold; text-transform: uppercase;">ℹ️ User Guide &amp; Legend:</span> 
+        Questo terminale interattivo comunica direttamente con il backend PHP di <b>AnonLab</b>. Permette di verificare in tempo reale lo stato dei daemon di sicurezza e la sincronizzazione della cache dei feed. Digita <code style="color: #66fcf1; background: #07080a; padding: 1px 4px;">guide</code> o un comando nel prompt sottostante per iniziare.
+    </div>
+
     <!-- Output Area stile Console -->
-    <div id="terminal-output" style="background: #07080a; border: 1px solid #1a222d; padding: 12px; border-radius: 3px; height: 120px; overflow-y: auto; font-size: 0.75rem; color: #85929E; margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px;">
-        <span style="color: #66fcf1;">[OK] Connected to PHP server backend at angelonline.altervista.org</span>
-        <span style="color: #ff8c00;">[INFO] Type 'status', 'scan', 'version', 'date' or 'help' to query server daemon.</span>
+    <div id="terminal-output" style="background: #07080a; border: 1px solid #1a222d; padding: 12px; border-radius: 3px; height: 110px; overflow-y: auto; font-size: 0.75rem; color: #85929E; margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px;">
+        <span style="color: #66fcf1;">[OK] Connected to AnonLab PHP backend at anonlab.altervista.org</span>
+        <span style="color: #ff8c00;">[INFO] Type 'guide' for user instructions or 'status' to check server daemons.</span>
     </div>
 
     <!-- Input Line -->
     <div style="display: flex; align-items: center; gap: 8px; background: #11141a; border: 1px solid #1f2833; padding: 8px 12px; border-radius: 3px;">
-        <span style="color: #66fcf1; font-weight: bold;">root@angelonline:~$</span>
-        <input type="text" id="terminal-input" placeholder="Type command (es. status, scan)..." style="background: transparent; border: none; outline: none; color: #ffffff; font-family: monospace; font-size: 0.78rem; width: 100%;">
+        <span style="color: #66fcf1; font-weight: bold;">root@anonlab:~$</span>
+        <input type="text" id="terminal-input" placeholder="Type command (es. guide, status, scan)..." style="background: transparent; border: none; outline: none; color: #ffffff; font-family: monospace; font-size: 0.78rem; width: 100%;">
         <button id="terminal-submit" style="background: #66fcf1; color: #0b0c10; border: none; padding: 4px 10px; font-weight: bold; font-size: 0.72rem; border-radius: 2px; cursor: pointer; text-transform: uppercase;">Exec</button>
     </div>
 </div>
@@ -1874,7 +1880,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const input = document.getElementById("terminal-input");
     const submit = document.getElementById("terminal-submit");
     const output = document.getElementById("terminal-output");
-    const phpTerminalUrl = "https://angelonline.altervista.org/api/terminal.php";
+    const phpTerminalUrl = "https://anonlab.altervista.org/api/terminal.php";
 
     function executeCommand() {
         const cmd = input.value.trim().toLowerCase();
@@ -1889,13 +1895,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Aggiungi comando utente alla console
         const userLine = document.createElement("div");
-        userLine.innerHTML = `<span style="color: #ffffff;">root@angelonline:~$ ${input.value}</span>`;
+        userLine.innerHTML = `<span style="color: #ffffff;">root@anonlab:~$ ${input.value}</span>`;
         output.appendChild(userLine);
 
         const currentCmd = input.value;
         input.value = "";
 
-        // Chiamata AJAX in tempo reale al backend PHP su Altervista
+        // Chiamata AJAX in tempo reale al backend PHP su AnonLab
         fetch(`${phpTerminalUrl}?cmd=${encodeURIComponent(currentCmd)}`)
             .then(res => res.json())
             .then(data => {
@@ -1908,7 +1914,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(err => {
                 const errLine = document.createElement("div");
                 errLine.style.color = "#ff4a4a";
-                errLine.innerHTML = `[ERROR] Failed to reach PHP server backend.`;
+                errLine.innerHTML = `[ERROR] Failed to reach AnonLab PHP server backend.`;
                 output.appendChild(errLine);
                 output.scrollTop = output.scrollHeight;
             });
@@ -1922,7 +1928,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-<!-- END: SOC Interactive PHP-Backed Diagnostics Terminal -->
+<!-- END: SOC Interactive PHP-Backed Diagnostics Terminal & User Guide -->
 		
     </section>  
 		  
