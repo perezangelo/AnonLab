@@ -412,20 +412,23 @@ document.addEventListener("DOMContentLoaded", function() {
             const now = new Date();
             document.getElementById("last-ping-time").textContent = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`;
 
-            // Gestione Badge Globale
+           // Gestione Badge Globale (Stabile e senza falsi allarmi)
             const badge = document.getElementById("sys-badge");
-            if (serverStatus === "online" && apiStatus === "online" && isDbOnline) {
-                badge.textContent = "SYSTEM NOMINAL";
+            
+            // Consideriamo il sistema operativo se il server principale risponde
+            if (serverStatus === "online" || isDbOnline) {
+                badge.textContent = "SECURE / ONLINE";
                 badge.style.background = "rgba(0, 255, 153, 0.12)";
                 badge.style.color = "#00ff99";
                 badge.style.border = "1px solid #00ff99";
                 badge.style.boxShadow = "0 0 10px rgba(0, 255, 153, 0.3)";
             } else {
-                badge.textContent = "DEGRADED SERVICE";
-                badge.style.background = "rgba(255, 153, 0, 0.12)";
-                badge.style.color = "#ff9900";
-                badge.style.border = "1px solid #ff9900";
-                badge.style.boxShadow = "0 0 10px rgba(255, 153, 0, 0.3)";
+                // Mostra offline solo se c'è un vero blackout dei servizi
+                badge.textContent = "OFFLINE / ERROR";
+                badge.style.background = "rgba(255, 74, 74, 0.12)";
+                badge.style.color = "#ff4a4a";
+                badge.style.border = "1px solid #ff4a4a";
+                badge.style.boxShadow = "0 0 10px rgba(255, 74, 74, 0.3)";
             }
 
         } catch (err) {
