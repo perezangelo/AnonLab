@@ -1,168 +1,510 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="it">
   <head>
-    <script>self["MonacoEnvironment"] = (function (paths) {
-          return {
-            globalAPI: false,
-            getWorkerUrl : function (moduleId, label) {
-              var result =  paths[label];
-              if (/^((http:)|(https:)|(file:)|(\/\/))/.test(result)) {
-                var currentUrl = String(window.location);
-                var currentOrigin = currentUrl.substr(0, currentUrl.length - window.location.hash.length - window.location.search.length - window.location.pathname.length);
-                if (result.substring(0, currentOrigin.length) !== currentOrigin) {
-                  var js = '/*' + label + '*/importScripts("' + result + '");';
-                  var blob = new Blob([js], { type: 'application/javascript' });
-                  return URL.createObjectURL(blob);
-                }
-              }
-              return result;
-            }
-          };
-        })({
-  "editorWorkerService": "/monacoeditorwork/editor.worker.bundle.js",
-  "typescript": "/monacoeditorwork/ts.worker.bundle.js",
-  "json": "/monacoeditorwork/json.worker.bundle.js",
-  "css": "/monacoeditorwork/css.worker.bundle.js",
-  "html": "/monacoeditorwork/html.worker.bundle.js",
-  "javascript": "/monacoeditorwork/ts.worker.bundle.js",
-  "less": "/monacoeditorwork/css.worker.bundle.js",
-  "scss": "/monacoeditorwork/css.worker.bundle.js",
-  "handlebars": "/monacoeditorwork/html.worker.bundle.js",
-  "razor": "/monacoeditorwork/html.worker.bundle.js"
-});</script>
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
 
-    <!-- Runtime config — must execute before the Vite module scripts read
-         window.__APP_CONFIG__. `defer` keeps that order (deferred classic
-         scripts and module scripts run in document order after parsing) while
-         unblocking the HTML parser, so asset preloads start immediately
-         instead of stalling ~160ms (p75) on this API round trip.
-         Back on the .js path: Render's extension-keyed edge cache rule twice
-         pinned a wrong body under this URL despite `no-store` (2026-08-20 and
-         2026-08-24); Render has since removed that cache rule for us, so the
-         suffix is safe again. If poisoning recurs: bump the `?v=` cache key,
-         or switch the src to the extension-less /api/frontend-config route
-         (kept serving as an escape hatch). -->
-    <script src="/api/frontend-config.js?v=3" defer></script>
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <meta charset="utf-8" />
-    <!-- Platform favicon: a real multi-size ICO (16/32/48) of the current sun
-         mark, served from public/. This is the ONLY rel="icon" link, and it
-         must stay that way — App.js rewrites the first match for backoffice.
-         Crawlers and link scrapers read this tag (and probe /favicon.ico
-         directly) with no JS, so the brand has to be correct statically. -->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <script>
-      // Pre-paint theme stamp for the Appearance (appearance-themes) cohort: on
-      // a hard load the theme is applied by React (AppearanceThemeApplier) only after
-      // auth resolves, so the document boots light — a white flash,
-      // then light route skeletons (the FOUC this removes). AppearanceThemeApplier
-      // persists 'appearance-theme-applied' only while the feature is active,
-      // so every other cohort (flag-off, native, backoffice, runtime apps)
-      // never sets it and this stays a no-op. React stays the source of truth
-      // after mount: AppearanceThemeApplier
-      // re-applies or clears these exact attributes. Keys must stay byte-identical
-      // with components/settings/useAppearanceTheme.ts — BOOT_STAMP_CONTRACT there is
-      // asserted against this file by useAppearanceTheme.spec.ts, so update both.
-      //
-      // Kill-switch caveat: the marker is written while the feature is active and
-      // only cleared once /me resolves. On the FIRST load after a user loses the
-      // flag — or after the kill switch is flipped mid-incident — this still
-      // stamps dark, then React settles to light: one dark→light flash, which
-      // self-heals from the next load on. Flipping the switch does not repaint
-      // already-open tabs pre-paint; it collapses them on their next load.
-      try {
-        if ((localStorage.getItem('appearance-theme-applied') || localStorage.getItem('demo-display-theme-applied')) === '1') {
-          var appearanceTheme = localStorage.getItem('appearance-theme') || localStorage.getItem('demo-display-theme');
-          var appearanceDark = appearanceTheme === 'dark' ||
-            (appearanceTheme !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          if (appearanceDark) {
-            var appearanceRoot = document.documentElement;
-            appearanceRoot.setAttribute('data-ds', 'base44');
-            appearanceRoot.setAttribute('data-theme', 'dark');
-            appearanceRoot.classList.add('dark');
-            // Kill the pre-CSS white document flash; the app paints over it.
-            appearanceRoot.style.backgroundColor = '#09090b';
-          }
-        }
-      } catch (e) {}
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script type="module" src="/@vite/client"></script>
 
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Build useful apps, fast with Base44."
-    />
-
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Base44">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json" />
-    <title>Base44</title>
+    <title>AnonLab · SOC Control Room</title>
+    <meta name="description" content="Sala di controllo SOC: vulnerabilità e minacce pubblicate nelle ultime 24 ore dai feed ufficiali, con stato reale dei nodi AnonLab." />
+      <!-- Tailwind CSS CDN for visual editing -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/node_modules/@base44/vite-plugin/dist/injections/unhandled-errors-handlers.js" type="module"></script>
+    <script src="/node_modules/@base44/vite-plugin/dist/injections/sandbox-hmr-notifier.js" type="module"></script>
+    <script src="/node_modules/@base44/vite-plugin/dist/injections/navigation-notifier.js" type="module"></script>
+  <script>if (window.self !== window.top) window.parent.postMessage({ type: 'SANDBOX_DOCUMENT_START' }, '*');</script><script>
+    (function() {
+        var buffer = window.__base44_preview_native_failures;
+        if (!buffer || buffer.version !== 1 || !Array.isArray(buffer.entries)) {
+            buffer = { version: 1, entries: [], listenersInstalled: false };
+            window.__base44_preview_native_failures = buffer;
+        }
+        if (buffer.listenersInstalled) return;
+        function value(object, key) {
+            return object && typeof object[key] === 'string' ? object[key] : '';
+        }
+        function append(message) {
+            if (!message) return;
+            var normalizedMessage = String(message).slice(0, 5000);
+            for (var index = buffer.entries.length - 1; index >= 0; index--) {
+                var existing = buffer.entries[index];
+                if (existing && existing.level === 'error' && existing.message === normalizedMessage) {
+                    buffer.entries.splice(index, 1);
+                }
+            }
+            buffer.entries.push({
+                level: 'error',
+                message: normalizedMessage,
+                timestamp: Date.now()
+            });
+            if (buffer.entries.length > 100) {
+                buffer.entries.splice(0, buffer.entries.length - 100);
+            }
+        }
+        buffer.append = append;
+        function handleError(event) {
+            var target = event && event.target;
+            var tagName = value(target, 'tagName').toLowerCase() || 'window';
+            var isModule = tagName === 'script' && value(target, 'type').toLowerCase() === 'module';
+            var resourceType = isModule ? 'module' : tagName;
+            var url = value(target, 'src') || value(target, 'href') || value(event, 'filename');
+            var detail = value(event, 'message') || value(event && event.error, 'message');
+            var prefix = tagName === 'window' ? 'Native browser error' : 'Failed to load ' + resourceType;
+            append(prefix + (url ? ' ' + url : '') + (detail ? ': ' + detail : ''));
+        }
+        function rejectionReason(reason) {
+            if (typeof reason === 'string') return reason;
+            var message = value(reason, 'message');
+            if (message) return message;
+            try { return JSON.stringify(reason) || String(reason); }
+            catch (e) { return String(reason); }
+        }
+        function handleRejection(event) {
+            append('Unhandled promise rejection: ' + rejectionReason(event && event.reason));
+        }
+        function handleCspViolation(event) {
+            var blockedUri = value(event, 'blockedURI') || 'resource';
+            var directive = value(event, 'violatedDirective');
+            append('Content Security Policy blocked ' + blockedUri + (directive ? ' (' + directive + ')' : ''));
+        }
+        function overlayText(root, selector) {
+            var element = root && root.querySelector(selector);
+            return value(element, 'textContent').trim();
+        }
+        function captureViteOverlay(overlay) {
+            var root = overlay && overlay.shadowRoot;
+            var message = overlayText(root, '.message-body');
+            if (!message) return;
+            var plugin = overlayText(root, '.plugin');
+            var details = ['Vite build error: ' + (plugin ? plugin + ' ' : '') + message];
+            var file = overlayText(root, '.file');
+            var frame = overlayText(root, '.frame');
+            var stack = overlayText(root, '.stack');
+            if (file) details.push('File: ' + file);
+            if (frame) details.push(frame);
+            if (stack) details.push(stack);
+            append(details.join(String.fromCharCode(10)));
+        }
+        function captureViteOverlays(node) {
+            if (!node || node.nodeType !== 1) return;
+            if (node.matches && node.matches('vite-error-overlay')) captureViteOverlay(node);
+            if (!node.querySelectorAll) return;
+            var overlays = node.querySelectorAll('vite-error-overlay');
+            for (var index = 0; index < overlays.length; index++) captureViteOverlay(overlays[index]);
+        }
+        window.addEventListener('error', handleError, true);
+        window.addEventListener('unhandledrejection', handleRejection);
+        window.addEventListener('securitypolicyviolation', handleCspViolation);
+        if (typeof MutationObserver !== 'undefined' && document.documentElement) {
+            captureViteOverlays(document.documentElement);
+            new MutationObserver(function(records) {
+                for (var recordIndex = 0; recordIndex < records.length; recordIndex++) {
+                    var nodes = records[recordIndex].addedNodes;
+                    for (var nodeIndex = 0; nodeIndex < nodes.length; nodeIndex++) {
+                        captureViteOverlays(nodes[nodeIndex]);
+                    }
+                }
+            }).observe(document.documentElement, { childList: true, subtree: true });
+        }
+        buffer.listenersInstalled = true;
+    })();
+    </script><script data-preview-data-env-pin="true">
+    (function() {
+        var KEY = 'base44_data_env';
+        var APP_API_PATH = "/api/apps/6ade23447595977fce6c0888/";
+        var STORAGE_KEY = KEY + ':' + APP_API_PATH;
+        var API_ORIGINS = ["https://app.base44.com", "https://base44.app"].map(function(u) { return new URL(u).origin; });
+        var REQUEST_INIT_KEYS = [
+            'method', 'headers', 'credentials', 'mode', 'cache', 'redirect',
+            'referrer', 'referrerPolicy', 'integrity', 'keepalive', 'signal', 'priority',
+        ];
+        var env = new URLSearchParams(window.location.search).get(KEY);
+        try {
+            if (env === 'dev' || env === 'prod') sessionStorage.setItem(STORAGE_KEY, env);
+            else env = sessionStorage.getItem(STORAGE_KEY);
+        } catch (e) {}
+        if (env !== 'dev' && env !== 'prod') return;
+        function pin(url) {
+            try {
+                var u = new URL(url, window.location.href);
+                var sameOrigin = u.origin === window.location.origin;
+                if (!sameOrigin && API_ORIGINS.indexOf(u.origin) === -1) return url;
+                // The app's own server routes and TanStack server functions build
+                // their SDK client from this request, so they need the selection too.
+                var appServerPath = sameOrigin && (
+                    u.pathname.startsWith('/api/') || u.pathname.startsWith('/_serverFn/')
+                );
+                if (!appServerPath && !u.pathname.startsWith(APP_API_PATH)) return url;
+                // Privileged function/agent routes trust this app's Preview host,
+                // not a dev parameter sent to the generic SDK API origin.
+                if (u.origin !== window.location.origin && (
+                    u.pathname.startsWith(APP_API_PATH + 'functions/') ||
+                    u.pathname.startsWith(APP_API_PATH + 'agents/')
+                )) {
+                    u = new URL(u.pathname + u.search + u.hash, window.location.origin);
+                }
+                u.searchParams.set(KEY, env);
+                return u.toString();
+            } catch (e) { return url; }
+        }
+        var origFetch = window.fetch;
+        window.fetch = function(input, init) {
+            if (typeof input === 'string' || input instanceof URL) {
+                return origFetch.call(this, pin(String(input)), init);
+            }
+            if (!input || !input.url) return origFetch.call(this, input, init);
+            var pinned = pin(input.url);
+            if (pinned === input.url) return origFetch.call(this, input, init);
+            try {
+                input = new Request(input, init);
+                if (!input.keepalive || !input.body) {
+                    return origFetch.call(this, new Request(pinned, input));
+                }
+                // RequestInit exposes an existing body as a stream, which Fetch
+                // forbids with keepalive. Buffer only that case, after init overrides.
+                var self = this;
+                return input.blob().then(function(body) {
+                    var rebuilt = { body: body };
+                    REQUEST_INIT_KEYS.forEach(function(key) {
+                        if (input[key] !== undefined) rebuilt[key] = input[key];
+                    });
+                    return origFetch.call(self, new Request(pinned, rebuilt));
+                });
+            } catch (error) { return Promise.reject(error); }
+        };
+        var origOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function(method, url) {
+            arguments[1] = pin(String(url));
+            return origOpen.apply(this, arguments);
+        };
+    })();
+    </script><script defer data-preview-inject="true" data-app-id="6ade23447595977fce6c0888" data-preview-type="sandbox" data-rum-app-id="db50c921-10c3-4f12-bccb-950fa174b708" data-rum-client-token="pubfe8a4f2972b412b4556fd67e77f82cb4" data-dd-site="datadoghq.com" src="https://app.base44.com/builder-bridge.js?t=1792944069"></script><script>
+    (function() {
+        var IGNORE = { SCRIPT: 1, STYLE: 1, LINK: 1, META: 1, NOSCRIPT: 1, TEMPLATE: 1 };
+        const fire = () => window.parent.postMessage({ type: 'IFRAME_CONTENT_READY' }, '*');
+        function check() {
+            var body = document.body;
+            if (!body) return false;
+            for (var idx = 0; idx < body.children.length; idx++) {
+                if (!IGNORE[body.children[idx].tagName]) return true;
+            }
+            return false;
+        }
+        function start() {
+            if (check()) { fire(); return; }
+            var observer = new MutationObserver(function() {
+                if (check()) { fire(); observer.disconnect(); }
+            });
+            observer.observe(document.documentElement, { childList: true, subtree: true });
+        }
+        if (document.body) { start(); }
+        else { document.addEventListener('DOMContentLoaded', start, { once: true }); }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        var APP_ID = "6ade23447595977fce6c0888";
+        var PREVIEW_TYPE = "sandbox";
+        var on404 = false;
+        var booted = false;
+        function detect() { return !!document.querySelector('[data-source-location^="PageNotFound:"]'); }
+        function payload() { return { app_id: APP_ID, preview_type: PREVIEW_TYPE, url_path: window.location.pathname }; }
+        function tick() {
+            var now = detect();
+            if (now && !on404) {
+                on404 = true;
+                window.parent.postMessage({ type: 'PREVIEW_PAGE_NOT_FOUND', payload: payload() }, '*');
+            } else if (!now && (on404 || !booted)) {
+                // On first tick of a fresh document, emit a cleared signal even when
+                // not currently on a 404 — the parent may have latched is404=true from
+                // a previous document at the same URL (e.g. after an iframe reload).
+                on404 = false;
+                window.parent.postMessage({ type: 'PREVIEW_PAGE_NOT_FOUND_CLEARED', payload: payload() }, '*');
+            }
+            booted = true;
+        }
+        function start() {
+            tick();
+            new MutationObserver(tick).observe(document.body, { childList: true, subtree: true });
+        }
+        if (document.body) { start(); }
+        else { document.addEventListener('DOMContentLoaded', start, { once: true }); }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        function fire() { window.parent.postMessage({ type: 'REACT_ROOT_HAS_CHILDREN' }, '*'); }
+        function findRoot() {
+            return document.getElementById('root')
+                || document.getElementById('app')
+                || document.querySelector('[data-react-root]');
+        }
+        // One-shot: wait for DOMContentLoaded (static HTML parsed by then, so the
+        // Base44 convention <div id="root"> is either present or not coming),
+        // observe the root's childList until the first element child appears,
+        // then fire and disconnect. No tree-wide subtree observer.
+        function start() {
+            var root = findRoot();
+            if (!root) return;
+            if (root.childElementCount > 0) { fire(); return; }
+            var obs = new MutationObserver(function() {
+                if (root.childElementCount > 0) { fire(); obs.disconnect(); }
+            });
+            obs.observe(root, { childList: true });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', start, { once: true });
+        } else { start(); }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        function postUnsupported(reason) {
+            window.parent.postMessage({
+                type: 'IFRAME_FIRST_CONTENTFUL_PAINT_UNSUPPORTED',
+                payload: { reason: reason, userAgent: navigator.userAgent }
+            }, '*');
+        }
+        if (typeof PerformanceObserver === 'undefined') {
+            postUnsupported('no_performance_observer');
+            return;
+        }
+        try {
+            var obs = new PerformanceObserver(function(list) {
+                var entries = list.getEntries();
+                for (var i = 0; i < entries.length; i++) {
+                    if (entries[i].name === 'first-contentful-paint') {
+                        obs.disconnect();
+                        window.parent.postMessage({ type: 'IFRAME_FIRST_CONTENTFUL_PAINT' }, '*');
+                        return;
+                    }
+                }
+            });
+            obs.observe({ type: 'paint', buffered: true });
+        } catch (e) {
+            postUnsupported('observe_threw:' + (e && e.name ? e.name : 'Error'));
+        }
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        var APP_ID = "6ade23447595977fce6c0888";
+        var PREVIEW_TYPE = "sandbox";
+        var DEPS_PATH = '/node_modules/.vite/deps/';
+        var fired = false;
+        function isViteDep(url) {
+            return typeof url === 'string' && url.indexOf(DEPS_PATH) !== -1;
+        }
+        function looksFailed(entry) {
+            // HTTP failure status (Chrome 109+).
+            if (entry.responseStatus && entry.responseStatus >= 400) return true;
+            // Aborted / blocked / network-error: request ran, nothing decoded.
+            // decodedBodySize === 0 distinguishes from cache hits (Safari has no
+            // deliveryType, so we can't rely on it to exclude cached responses).
+            return entry.transferSize === 0
+                && entry.decodedBodySize === 0
+                && entry.duration > 0
+                && entry.responseEnd > 0;
+        }
+        function report(entry) {
+            if (fired) return;
+            fired = true;
+            var nativeBuffer = window.__base44_preview_native_failures;
+            if (nativeBuffer && typeof nativeBuffer.append === 'function') {
+                nativeBuffer.append('Failed to load module ' + entry.name);
+            }
+            window.parent.postMessage({
+                type: 'SANDBOX_VITE_DEPS_404',
+                payload: {
+                    app_id: APP_ID,
+                    preview_type: PREVIEW_TYPE,
+                    url: entry.name,
+                    initiator_type: entry.initiatorType,
+                    response_status: entry.responseStatus
+                }
+            }, '*');
+        }
+        new PerformanceObserver(function(list) {
+            var entries = list.getEntries();
+            for (var i = 0; i < entries.length; i++) {
+                if (isViteDep(entries[i].name) && looksFailed(entries[i])) {
+                    report(entries[i]);
+                    return;
+                }
+            }
+        }).observe({ type: 'resource', buffered: true });
+    })();
+    </script><script>
+    (function() {
+        if (typeof PerformanceObserver === 'undefined') return;
+        var reported = {};
+        // Only the app's own module trees may put an error over the preview. A page
+        // can load an optional classic script (analytics, a widget) that fails while
+        // the app renders perfectly well; that must not read as broken app code.
+        // Recording is deliberately wider than reporting — the console buffer keeps
+        // every failed module for diagnostics.
+        function isAppModule(path) {
+            return path.indexOf('/src/') === 0 || path.indexOf('/base44/') === 0;
+        }
+        function modulePath(url) {
+            try {
+                var path = new URL(url, window.location.href).pathname;
+                // The bridge probes this standard SDK path opportunistically;
+                // legacy/custom apps are allowed not to provide it.
+                if (path === '/src/api/base44Client.js') return '';
+                if (path.indexOf('/node_modules/.vite/deps/') !== -1) return '';
+                return /[.](?:[cm]?[jt]sx?)$/i.test(path) ? path : '';
+            } catch (e) {
+                return '';
+            }
+        }
+        new PerformanceObserver(function(list) {
+            var entries = list.getEntries();
+            for (var index = 0; index < entries.length; index++) {
+                var entry = entries[index];
+                if (entry.initiatorType !== 'script') continue;
+                var status = entry.responseStatus;
+                if (!status) continue;
+                var path = modulePath(entry.name);
+                if (!path) continue;
+                if (status < 400) {
+                    // Recovered (an HMR fix re-requests it). Forget it, or breaking the
+                    // same path again later this document would be silently suppressed.
+                    delete reported[path];
+                    continue;
+                }
+                var message = status === 404
+                    ? 'Module not found: ' + path
+                    : 'Module failed to load (' + status + '): ' + path;
+                var buffer = window.__base44_preview_native_failures;
+                if (buffer && typeof buffer.append === 'function') buffer.append(message);
+                if (!isAppModule(path) || reported[path] || window.self === window.top) continue;
+                reported[path] = true;
+                window.parent.postMessage({
+                    type: 'SANDBOX_MODULE_LOAD_FAILED',
+                    payload: { path: path, status: status, message: message }
+                }, '*');
+            }
+        }).observe({ type: 'resource', buffered: true });
+    })();
+    </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        if (typeof performance === 'undefined' || typeof performance.getEntriesByType !== 'function') return;
+        var DEPS_PATH = '/node_modules/.vite/deps/';
+        var QUIESCENCE_MS = 1500;
+        var POLL_MS = 500;
+        var fired = false;
+        var intervalId = setInterval(function() {
+            if (fired) return;
+            var entries = performance.getEntriesByType('resource');
+            var lastDepEnd = 0;
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].name.indexOf(DEPS_PATH) === -1) continue;
+                if (entries[i].responseEnd > lastDepEnd) lastDepEnd = entries[i].responseEnd;
+            }
+            if (lastDepEnd === 0) return;
+            if (performance.now() - lastDepEnd >= QUIESCENCE_MS) {
+                fired = true;
+                clearInterval(intervalId);
+                window.parent.postMessage({ type: 'IFRAME_VITE_DEPS_SETTLED' }, '*');
+            }
+        }, POLL_MS);
+    })();
+    </script><script type="module">
+        try {
+            const { base44 } = await import("/src/api/base44Client.js");
+            if (base44) {
+                Object.defineProperty(window, "base44_sdk", {
+                    value: base44,
+                    writable: false,
+                    configurable: true
+                });
+            }
+        } catch (e) {
+            // Some legacy/custom apps may not have the standard client module.
+            // Leave window.base44_sdk undefined; PreviewLens can fall back to UI/network checks.
+            window.parent.postMessage({ type: "PREVIEW_LENS_SDK_ATTACH_FAILED", error: String(e) }, "*");
+        }
+        </script><script type="module">
+        try {
+            const { createHotContext } = await import("/@vite/client");
+            const hot = createHotContext("/__builder-bridge-hmr");
+            const previewFEVersion = Number(new URLSearchParams(window.location.search).get("previewFE_version")) || 0;
+            hot.on("vite:ws:connect", () => window.parent.postMessage({ type: "SANDBOX_WS_CONNECT" }, "*"));
+            hot.on("vite:ws:disconnect", () => window.parent.postMessage({ type: "SANDBOX_WS_DISCONNECT" }, "*"));
+        
+            hot.on("vite:error", (payload) => {
+                const err = payload && payload.err && typeof payload.err === "object" ? payload.err : {};
+                const message = typeof err.message === "string" ? err.message : "Unknown build error";
+                const plugin = typeof err.plugin === "string" ? `[plugin:${err.plugin}] ` : "";
+                const details = [`Vite build error: ${plugin}${message}`];
+                const loc = err.loc && typeof err.loc === "object" ? err.loc : null;
+                let file = loc && typeof loc.file === "string"
+                    ? loc.file
+                    : (typeof err.id === "string" ? err.id : "");
+                if (file) {
+                    file = file.split("?")[0];
+                    if (loc && Number.isFinite(loc.line) && Number.isFinite(loc.column)) {
+                        file += `:${loc.line}:${loc.column}`;
+                    }
+                    details.push(`File: ${file}`);
+                }
+                if (typeof err.frame === "string" && err.frame.trim()) details.push(err.frame.trim());
+                if (typeof err.stack === "string" && err.stack.trim()) details.push(err.stack.trim());
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://app.base44.com" />
-    <meta property="og:title" content="Base44" />
-    <meta property="og:site_name" content="Base44" />
-    <meta property="og:description" content="Build useful apps, fast with Base44." />
-    <meta property="og:image" content="https://app.base44.com/link_preview_v3.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Base44 link preview" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://app.base44.com" />
-    <meta name="twitter:title" content="Base44" />
-    <meta name="twitter:description" content="Build useful apps, fast with Base44." />
-    <meta name="twitter:image" content="https://app.base44.com/link_preview_v3.png" />
-    <meta name="twitter:image:alt" content="Base44 link preview" />
-    <script type="module" crossorigin src="/static/index-CQ_64hkX.js"></script>
-    <link rel="modulepreload" crossorigin href="/static/rolldown-runtime-C0FnF6B9.js">
-    <link rel="modulepreload" crossorigin href="/static/runtime-QtgwY_nV.js">
-    <link rel="modulepreload" crossorigin href="/static/backend-4ZrxM0vc.js">
-    <link rel="modulepreload" crossorigin href="/static/vendor-react-BOOIA4XI.js">
-    <link rel="modulepreload" crossorigin href="/static/preload-helper-BZ1Pz5am.js">
-    <link rel="modulepreload" crossorigin href="/static/vendor-data-I8anOvOp.js">
-    <link rel="modulepreload" crossorigin href="/static/errorReporting-DoGrKPJu.js">
-    <link rel="modulepreload" crossorigin href="/static/i18n-DI58tFXy.js">
-    <link rel="modulepreload" crossorigin href="/static/vendor-utils-Bk5YXKIq.js">
-    <link rel="modulepreload" crossorigin href="/static/mixpanelUtils-DTcfXSjv.js">
-    <link rel="modulepreload" crossorigin href="/static/use-toast-hWsBACKm.js">
-    <link rel="modulepreload" crossorigin href="/static/bridge-Cq_Szqk4.js">
-    <link rel="modulepreload" crossorigin href="/static/axiosClient-B67Z2jGr.js">
-    <link rel="modulepreload" crossorigin href="/static/domainValidation-FMKryCR2.js">
-    <link rel="modulepreload" crossorigin href="/static/I18nProvider-Bl062hLL.js">
-    <link rel="modulepreload" crossorigin href="/static/dist-DEyOCB6o.js">
-    <link rel="modulepreload" crossorigin href="/static/vendor-ui-CiiLS_3D.js">
-    <link rel="modulepreload" crossorigin href="/static/base-DCQM8NBl.js">
-    <link rel="modulepreload" crossorigin href="/static/AuthAPI-DZPGpsSm.js">
-    <link rel="modulepreload" crossorigin href="/static/useDesignSystem-CVilD4PW.js">
-    <link rel="modulepreload" crossorigin href="/static/logoutReturnPath-HjtsxsFd.js">
-    <link rel="modulepreload" crossorigin href="/static/AuthContext-DbPBqRAW.js">
-    <link rel="modulepreload" crossorigin href="/static/dist-DXiUvyIt.js">
-    <link rel="modulepreload" crossorigin href="/static/useHideNativeBottomTabs-Dp2B4zpg.js">
-    <link rel="modulepreload" crossorigin href="/static/native-mobile-app-5lZBItr7.js">
-    <link rel="modulepreload" crossorigin href="/static/prop-types-D9WxI36-.js">
-    <link rel="modulepreload" crossorigin href="/static/esm-DmulnS_m.js">
-    <link rel="modulepreload" crossorigin href="/static/use-mobile-BkCzYCbw.js">
-    <link rel="modulepreload" crossorigin href="/static/create-zustand-store-DL3dpDdo.js">
-    <link rel="modulepreload" crossorigin href="/static/persist-to-storage-Bt_g7P7N.js">
-    <link rel="modulepreload" crossorigin href="/static/actions.middleware-D_eRWZoy.js">
-    <link rel="modulepreload" crossorigin href="/static/WorkspaceAPI-CH-9KGrR.js">
-    <link rel="modulepreload" crossorigin href="/static/useWorkspaceUnlockState-Cg67Ec9B.js">
-    <link rel="modulepreload" crossorigin href="/static/WorkspaceContext-BQKaDjKK.js">
-    <link rel="modulepreload" crossorigin href="/static/react-kH6mxSOK.js">
-    <link rel="modulepreload" crossorigin href="/static/useFeatureFlags-Co0b3qtx.js">
-    <link rel="modulepreload" crossorigin href="/static/utils-DtrZdKNM.js">
-    <link rel="modulepreload" crossorigin href="/static/toast-DOXlgrFd.js">
-    <link rel="modulepreload" crossorigin href="/static/moment-CbrR2L3o.js">
-    <link rel="stylesheet" crossorigin href="/static/index-CrV5b32v.css">
-  </head>
+                const nativeBuffer = window.__base44_preview_native_failures;
+                if (!nativeBuffer || typeof nativeBuffer.append !== "function") return;
+                nativeBuffer.append(details.join(String.fromCharCode(10)));
+            });
+    
+            // The pending promise holds Vite's pageReload (it awaits listeners) so the parent swaps a fresh iframe; an editor that doesn't announce previewFE_version falls back to today's in-place reload.
+            hot.on("vite:beforeFullReload", () => {
+                window.parent.postMessage({ type: "sandbox:beforeFullReload" }, "*");
+                if (previewFEVersion > 0) return new Promise(() => {});
+            });
+        } catch (e) {
+            window.parent.postMessage({ type: "SANDBOX_WS_ATTACH_FAILED", error: String(e) }, "*");
+        }
+        </script><script>
+    (function() {
+        if (window.self === window.top) return;
+        var lastUrl = window.location.href;
+        function notify() {
+            var url = window.location.href;
+            if (url === lastUrl) return;
+            lastUrl = url;
+            window.parent.postMessage({ type: 'APP_CHANGED_URL', url: url }, '*');
+        }
+        var origPush = history.pushState.bind(history);
+        history.pushState = function() { origPush.apply(history, arguments); notify(); };
+        var origReplace = history.replaceState.bind(history);
+        history.replaceState = function() { origReplace.apply(history, arguments); notify(); };
+        window.addEventListener('popstate', notify);
+        window.parent.postMessage({ type: 'APP_CHANGED_URL', url: window.location.href }, '*');
+    })();
+    </script></head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="module" src="/src/main.jsx?t=1792943524927"></script>
+    <script src="/node_modules/@base44/vite-plugin/dist/injections/sandbox-mount-observer.js" type="module"></script>
+    <script type="module">if (window.self !== window.top) {
+  const mode = new URLSearchParams(location.search).get("sandbox-bridge");
+  const url = mode === "local"
+    ? "https://localhost:3201/index.mjs"
+    : "/node_modules/@base44/vite-plugin/dist/statics/index.mjs";
+  import(url)
+    .then(mod => {
+      if (typeof mod.setupVisualEditAgent === "function") mod.setupVisualEditAgent();
+    })
+    .catch(e => console.error("[visual-edit-agent] Failed to load:", e));
+}</script>
   </body>
 </html>
