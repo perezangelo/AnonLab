@@ -1,97 +1,2032 @@
-  <pre style="color:#00eaff; text-shadow:0 0 6px #00eaff; font-weight:bold; margin:30px 0;">
-────────────────────────────────────────
-┌──────────────────────────────────────┐
-│  MODULE: KNOWLEDGE BASE              │
-└──────────────────────────────────────┘
-────────────────────────────────────────
-</pre>
+Ho analizzato il CSS che hai /* ANONLAB — CSS custom ottimizzato
+   Base originale mantenuta per compatibilità con le classi HTML esistenti.
+   Prima di sostituire il file online, testare le pagine principali.
+*/
+:root {
+    color-scheme: dark;
+    --bg: #05070d;
+    --surface: #0b111b;
+    --surface-raised: #101a27;
+    --text: #e8f7ff;
+    --text-muted: #baf7ff;
+    --text-subtle: #a8bac8;
+    --accent: #00eaff;
+    --accent-bright: #00faff;
+    --accent-soft: rgba(0, 234, 255, 0.28);
+    --accent-border: rgba(0, 234, 255, 0.25);
+    --accent-glow: rgba(0, 234, 255, 0.18);
+    --danger: #ff4b6e;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --content-width: 1200px;
+    --focus-ring: 0 0 0 3px rgba(0, 234, 255, 0.45);
+}
 
-<!-- TERMINAL KNOWLEDGE BASE -->
-<aside class="sidebar">
+/* ============================
+   HERO — STILE NEON DOMINANTE
+============================ */
 
-    <div>
+.hero-big {
+    background: url('/img/cyber-bg.png') center/cover no-repeat !important;
+    padding: 50px 20px !important;
+    border-radius: 12px !important;
+    box-shadow: inset 0 0 40px rgba(0, 200, 255, 0.15) !important;
+    text-align: center !important;
+    overflow: visible !important; /* necessario per dropdown */
+}
 
-        <!-- INTRO TERMINAL -->
-        <pre style="color:#00eaff; font-weight:bold; text-shadow:0 0 6px #00eaff;">
-[AnonLab :: Knowledge Base]
-        </pre>
+.hero-big h1 {
+    color: #00f6ff !important;
+    font-weight: 900 !important;
+    font-size: 3.2rem !important;
+    text-shadow: 0 0 14px rgba(0, 255, 255, 0.7) !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+    padding: 6px 14px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
 
-        <p style="color:#e0e0e0; line-height:1.5;">
-            Raccolta di contenuti tecnici e divulgativi dedicati alla 
-            <span style="color:#00eaff; text-shadow:0 0 6px #00eaff;">cybersecurity</span>, 
-            all’<span style="color:#00eaff; text-shadow:0 0 6px #00eaff;">OSINT</span> 
-            e alla <span style="color:#00eaff; text-shadow:0 0 6px #00eaff;">threat intelligence</span>.
-        </p>
+.hero-big .hero-sub {
+    color: #b0eaff !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+    margin-top: 14px !important;
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.5) !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
 
-        <hr>
+/* Pulsante */
+.hero-big .hero-button {
+    font-weight: 700 !important;
+    color: #fff !important;
+    background: linear-gradient(90deg, #007bff, var(--accent)) !important;
+    border-radius: 6px !important;
+    padding: 12px 22px !important;
+    margin-top: 20px !important;
+    display: inline-block !important;
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.4) !important;
+    transition: 0.25s ease !important;
+}
 
-        <!-- CATEGORIA CYBER -->
-        <pre style="color:#00ff99; font-weight:bold; text-shadow:0 0 6px #00ff99;">
-> CATEGORY: CYBER SECURITY
-        </pre>
+.hero-big .hero-button:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 18px rgba(0, 200, 255, 0.7) !important;
+}
+/* ============================
+   DROPDOWN NEWS — MENU A TENDINA
+============================ */
 
-        <p>
-            <a href="/cybersecurity-basics.html"
-               style="color:#00ff99; font-weight:bold; text-shadow:0 0 6px #00ff99;">
-               Cybersecurity Basics
-            </a><br>
-            <span style="color:#b0b0b0;">Concetti fondamentali della sicurezza informatica.</span>
-        </p>
+.dropdown-news {
+  position: relative !important;
+  display: inline-block !important;
+  z-index: 9999 !important;
+}
 
-        <p>
-            <a href="/soc-dashboard.html"
-               style="color:#00ff99; font-weight:bold; text-shadow:0 0 6px #00ff99;">
-               AnonLab SOC Dashboard
-            </a><br>
-            <span style="color:#b0b0b0;">Widget, API e struttura della dashboard SOC.</span>
-        </p>
+.dropdown-toggle {
+  cursor: pointer !important;
+}
 
-        <hr>
+.dropdown-menu {
+  display: none !important;
+  position: absolute !important;
+  top: 48px !important;
+  left: 0 !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  border: 1px solid var(--accent-soft) !important;
+  border-radius: 8px !important;
+  padding: 10px 0 !important;
+  min-width: 220px !important;
+  box-shadow: 0 0 14px rgba(0, 234, 255, 0.35) !important;
+  z-index: 99999 !important;
+}
 
-        <!-- CATEGORIA OSINT -->
-        <pre style="color:#00eaff; font-weight:bold; text-shadow:0 0 6px #00eaff;">
-> CATEGORY: OSINT
-        </pre>
+.dropdown-menu a {
+  display: block !important;
+  padding: 10px 16px !important;
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
 
-        <p>
-            <a href="/osint-tools-explained.html"
-               style="color:#00eaff; font-weight:bold; text-shadow:0 0 6px #00eaff;">
-               OSINT Tools Explained
-            </a><br>
-            <span style="color:#b0b0b0;">Strumenti OSINT e tecniche di raccolta dati.</span>
-        </p>
+.dropdown-menu a:hover {
+  background: rgba(0, 234, 255, 0.12) !important;
+  color: var(--accent-bright) !important;
+}
 
-        <p>
-            <a href="/osint-investigation-case-study.html"
-               style="color:#00eaff; font-weight:bold; text-shadow:0 0 6px #00eaff;">
-               OSINT Case Study
-            </a><br>
-            <span style="color:#b0b0b0;">Indagine OSINT reale con correlazione dati.</span>
-        </p>
+.dropdown-news.open .dropdown-menu {
+  display: block !important;
+}
 
-        <hr>
+/* ============================
+   HEADER — LOGO FIX
+============================ */
 
-        <!-- CATEGORIA THREAT -->
-        <pre style="color:#ff99c8; font-weight:bold; text-shadow:0 0 6px #ff99c8;">
-> CATEGORY: THREAT INTELLIGENCE
-</pre>
+.site-header .logo a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.6) !important;
+}
 
-        <p>
-           <a href="/vulnerabilities-cve-analysis.html"
-   style="color:#ff99c8; font-weight:bold; text-shadow:0 0 6px #ff99c8;">
-               Vulnerabilità & CVE Analysis
-            </a><br>
-            <span style="color:#b0b0b0;">Analisi delle vulnerabilità più critiche.</span>
-        </p>
+.site-header .logo .logo-icon {
+    width: 26px !important;
+    height: 26px !important;
+    opacity: 1 !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important;
+}
 
-        <p>
-            <a href="/threat-intelligence-report.html"
-   style="color:#ff99c8; font-weight:bold; text-shadow:0 0 6px #ff99c8;">
-               Threat Intelligence Report
-            </a><br>
-            <span style="color:#b0b0b0;">Trend globali, APT, ransomware e minacce emergenti.</span>
-        </p>
+/* ============================
+   HEADER — VISIBILITÀ TESTO
+============================ */
 
-    </div>
+.site-header .logo,
+.site-header h1,
+.site-header .site-title {
+    color: var(--accent-bright) !important;
+    text-shadow: 0 0 6px var(--accent-bright), 0 0 12px rgba(0,240,255,0.6) !important;
+}
 
-</aside>
+.hero-button,
+.hero-big a {
+    color: var(--accent) !important;
+    text-shadow: 0 0 6px var(--accent), 0 0 12px rgba(0,234,255,0.5) !important;
+    font-weight: 600 !important;
+}
+/* ============================
+   FIX VISIBILITÀ TESTO ABOUT
+============================ */
+
+.about-section p,
+#about p {
+    color: #e8faff !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.45) !important;
+    font-weight: 500 !important;
+}
+
+.about-section a,
+#about a {
+    color: var(--accent);
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+}
+
+/* NON applicare il blu ai widget della sidebar */
+.sidebar-box a {
+    color: inherit !important;
+}
+.about-section a:hover,
+#about a:hover {
+    color: var(--accent-bright) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.9) !important;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #000;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 0 12px var(--accent);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+#backToTop:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 18px var(--accent);
+}
+
+/* ============================
+   CLEANUP FINALE — PRIORITÀ
+============================ */
+
+/* Rimuove interferenze del main.css */
+.hero-big::before,
+.hero-big::after,
+.hero-big .scanlines {
+    display: none !important;
+}
+
+.hero-big {
+    overflow: visible !important;
+}
+
+/* Assicura che il dropdown sia sempre sopra */
+.dropdown-menu {
+    z-index: 99999 !important;
+}
+
+/* Assicura che il logo non venga sovrascritto */
+.site-header .logo a,
+.site-header .logo .logo-icon {
+    position: relative !important;
+    z-index: 999 !important;
+}
+/* ============================================================
+   TICKER — VERSIONE COMPATIBILE CON ticker.js
+============================================================ */
+
+.ticker {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    background: rgba(0, 0, 0, 0.55);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.ticker-title {
+    flex-shrink: 0 !important;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--accent);
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(0, 255, 255, 0.12);
+    text-shadow: 0 0 6px rgba(0,255,255,0.6);
+    margin-left: 12px;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    flex-grow: 1 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    min-width: 0 !important;
+    margin-left: 8px;
+}
+
+#ticker-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0,255,255,0.6);
+    text-decoration: none;
+    transition: opacity 0.4s ease;
+}
+
+/* Effetto neon al passaggio */
+#ticker-text:hover {
+    color: var(--accent-bright);
+    text-shadow: 0 0 10px rgba(0,255,255,0.9);
+}
+
+/* ============================
+   RESPONSIVE — VERSIONE CORRETTA PER MOBILE
+============================ */
+
+@media (max-width: 480px) {
+
+    .ticker {
+        padding: 6px 0;
+        gap: 8px;
+    }
+
+    .ticker-title {
+        font-size: 0.75rem;
+        padding: 2px 6px;
+        margin-left: 8px;
+    }
+
+    .ticker-content {
+        overflow: hidden; /* ⭐ fondamentale per il treno continuo */
+        position: relative;
+    }
+
+    #ticker-text {
+        font-size: 0.80rem;
+        white-space: nowrap;
+        display: inline-block;
+        will-change: transform; /* ⭐ accelera lo scroll su mobile */
+        transform: translateX(0); /* ⭐ reset sicuro */
+    }
+
+    #ticker-text img {
+        height: 16px;
+        width: 16px;
+        margin-right: 4px;
+        border-radius: 3px;
+    }
+}
+
+/* ============================
+   SOC DASHBOARD — NEON STYLE
+============================ */
+
+.soc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.soc-card {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.soc-card h2 {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+    margin-bottom: 12px;
+}
+
+.dash-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-bright);
+    text-shadow: 0 0 10px rgba(0,255,255,0.9);
+}
+.percent-symbol {
+    font-weight: 700;
+    font-size: inherit;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0,255,255,0.9);
+}
+
+.event-log {
+    height: 220px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.event-log::-webkit-scrollbar {
+    width: 6px;
+}
+
+.event-log::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+/* ============================
+   CHART.JS — NEON STYLE
+============================ */
+
+/* Neon SOLO per i canvas dei widget */
+.soc-card canvas {
+    filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));
+}
+
+/* Altezza fissa della card per impedire espansione */
+.attacks-card {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+}
+
+/* Altezza fissa del canvas */
+#attacksChart {
+    width: 100% !important;
+    height: 260px !important;
+    display: block;
+}
+
+.page-title {
+    color: var(--accent) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+/* ============================
+   PAGINA CYBER — NEON STYLE
+============================ */
+
+.page-title,
+.main-column h1 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.8) !important;
+    font-size: 2.2rem !important;
+    margin-bottom: 18px !important;
+}
+
+.cyber-intro {
+    color: #baf7ff !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+    margin-bottom: 25px !important;
+}
+
+.cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.cyber-card {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.cyber-card h3 {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+    margin-bottom: 10px;
+}
+
+.cyber-card p {
+    color: #baf7ff;
+    line-height: 1.5;
+}
+/* ============================
+   PAGINA TECH — NEON STYLE
+============================ */
+
+.page-title,
+.main-column h1 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.8) !important;
+    font-size: 2.2rem !important;
+    margin-bottom: 18px !important;
+}
+
+.tech-intro {
+    color: #baf7ff !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+    margin-bottom: 25px !important;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.tech-card {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.tech-card h3 {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+    margin-bottom: 10px;
+}
+
+.tech-card p {
+    color: #baf7ff;
+    line-height: 1.5;
+}
+/* ============================
+   PAGINA ABOUT — NEON STYLE
+============================ */
+
+.main-column h1 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+
+.main-column h2 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    margin-bottom: 12px !important;
+}
+
+.widget-large {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.widget-large p {
+    color: #baf7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.tools-list li {
+    color: #baf7ff !important;
+    margin-bottom: 6px;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+/* TIMELINE ABOUT */
+.cyber-feed-list {
+    display: grid;
+    gap: 18px;
+    margin-top: 12px;
+}
+
+.cyber-feed-list div {
+    background: rgba(0, 0, 0, 0.45);
+    border-left: 3px solid var(--accent);
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: #baf7ff;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35);
+}
+
+.cyber-feed-list strong {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+}
+/* ============================
+   PAGINA CONTATTI — NEON STYLE
+============================ */
+
+.main-column h1 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+
+.main-column h2 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    margin-top: 25px !important;
+    margin-bottom: 12px !important;
+}
+
+.contact-box {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.contact-box p,
+.contact-box li {
+    color: #baf7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.contact-box strong {
+    color: var(--accent) !important;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+}
+/* ============================
+   PAGINA PRIVACY — NEON STYLE
+============================ */
+
+.main-column h1 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+
+.main-column h2 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    margin-top: 25px !important;
+    margin-bottom: 12px !important;
+}
+
+.privacy-box {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.privacy-box p,
+.privacy-box li {
+    color: #baf7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.privacy-box ul {
+    margin-left: 18px !important;
+    margin-bottom: 12px !important;
+}
+
+.privacy-box a {
+    color: var(--accent) !important;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+}
+/* ============================
+   PAGINA COOKIE POLICY — NEON STYLE
+============================ */
+
+.main-column h1 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+
+.main-column h2 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    margin-top: 25px !important;
+    margin-bottom: 12px !important;
+}
+
+.cookie-box {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.cookie-box p,
+.cookie-box li {
+    color: #baf7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.cookie-box ul {
+    margin-left: 18px !important;
+    margin-bottom: 12px !important;
+}
+
+.cookie-box a {
+    color: var(--accent) !important;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+}
+/* ============================
+   PAGINA TERMINI — NEON STYLE
+============================ */
+
+.main-column h1 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
+    font-size: 2.4rem !important;
+    margin-bottom: 20px !important;
+}
+
+.main-column h2 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    margin-top: 25px !important;
+    margin-bottom: 12px !important;
+}
+
+.terms-box {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.terms-box p,
+.terms-box li {
+    color: #baf7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.terms-box ul {
+    margin-left: 18px !important;
+    margin-bottom: 12px !important;
+}
+
+.terms-box a {
+    color: var(--accent) !important;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+}
+/* ============================
+   LOGO ANONLAB — NEON
+============================ */
+.logo {
+    color: var(--accent) !important;
+    font-weight: 900 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: 1px !important;
+    text-shadow: 0 0 12px rgba(0,255,255,0.9) !important;
+}
+
+/* ============================
+   MENU HEADER — NEON
+============================ */
+/* ============================
+   NAVBAR ORIZZONTALE
+============================ */
+@media (min-width: 821px) {
+    .main-nav {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+    }
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* Effetto neon hover */
+.main-nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 6px rgba(0, 234, 255, 0.6);
+}
+
+/* Underline animato */
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* ============================
+   HAMBURGER (mobile)
+============================ */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 820px) {
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        gap: 14px;
+        background: rgba(0,0,0,0.85);
+        padding: 20px;
+        border-radius: 8px;
+
+        /* POSIZIONE CORRETTA DEL MENU */
+        position: absolute;
+        top: 100%;   /* sotto l’hamburger */
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        z-index: 999;
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+}
+
+/* ============================
+   ABOUT (HOME) — NEON
+============================ */
+.home-about h2 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+}
+
+.home-about p {
+    color: #baf7ff !important;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+
+.about-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+}
+
+.about-link:hover {
+    color: var(--accent-bright) !important;
+    text-shadow: 0 0 14px rgba(0,255,255,1) !important;
+}
+
+/* ============================
+   FOOTER — NEON
+============================ */
+.site-footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: var(--accent) !important;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+}
+
+.footer-links a:hover {
+    color: var(--accent-bright) !important;
+    text-shadow: 0 0 12px rgba(0,255,255,1) !important;
+}
+
+.footer-copy {
+    margin-top: 10px;
+    color: #baf7ff !important;
+    font-size: 0.9rem;
+    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+}
+/* GOOGLE SEARCH — INPUT */
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,255,255,0.3);
+    background: rgba(0,0,0,0.4);
+    color: #baf7ff;
+    margin-bottom: 10px;
+    box-shadow: 0 0 8px rgba(0,255,255,0.25);
+}
+
+/* GOOGLE SEARCH — BUTTON NEON */
+.search-btn {
+    width: 100%;
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-shadow: 0 0 6px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(0,255,255,0.7);
+    transition: 0.2s ease-in-out;
+}
+
+.search-btn:hover {
+    background: var(--accent-bright);
+    box-shadow: 0 0 18px rgba(0,255,255,1);
+    transform: translateY(-1px);
+}
+/* HERO — override sfondo */
+.hero-big {
+    background-image: url('/img/hero-bg.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 420px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Titolo */
+.hero-big h1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+    font-size: 3.2rem;
+    z-index: 3;
+}
+
+/* Sottotitolo */
+.hero-big .hero-sub {
+    margin-top: 300px !important; /* prima 260px */
+    text-align: center;
+    display: block;
+}
+
+.hero-big .dropdown-news {
+    margin-top: 40px !important; /* prima 20px */
+    text-align: center;
+    display: block;
+}
+/* Google Search wrapper */
+.google-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Icona Google */
+.google-icon {
+    width: 48px;
+    height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
+}
+
+/* Logo header */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo ANONLAB nella navbar */
+.site-header .logo img.logo-icon {
+    width: 48px !important;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .site-header .logo img.logo-icon {
+        width: 36px !important;
+    }
+}
+/* RADIO */
+.radio-logo {
+  width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.radio-select {
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.visit-box {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 0 15px var(--accent);
+  padding: 10px;
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
+.visit-info {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.visit-greeting {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+/* ============================================================
+   PAGINA CYBER — ANALISI AVANZATA
+   ============================================================ */
+
+.cyber-intro {
+  margin-bottom: 25px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.cyber-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.cyber-card {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.12);
+}
+
+.cyber-card h3 {
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.cyber-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* Sezione analisi avanzata */
+
+.cyber-analytics {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.cyber-section-title {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.cyber-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.cyber-panel {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+.cyber-panel h3 {
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.panel-desc {
+  color: #bfbfbf;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.map-frame {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 170, 255, 0.3);
+  background: radial-gradient(circle at top, #021018, #000);
+  margin-bottom: 8px;
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+  background: transparent;
+}
+
+.map-note {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.trend-list,
+.heatmap-list,
+.timeline-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.trend-list li,
+.heatmap-list li,
+.timeline-list li {
+  color: #ccc;
+  font-size: 0.93rem;
+  margin-bottom: 6px;
+}
+
+.time-tag {
+  display: inline-block;
+  min-width: 80px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid rgba(0, 170, 255, 0.5);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-right: 6px;
+}
+.map-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 170, 255, 0.35);
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+#tiMapBox {
+    background-image: url("/img/threat-map-5.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* ================================
+   PAGINA TECH — SEZIONI AVANZATE
+   ================================ */
+
+.tech-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.tech-section-title {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.tech-panel {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+.panel-desc {
+  color: #bfbfbf;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.radar-list,
+.zero-list,
+.quantum-list,
+.devsecops-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.radar-list li,
+.zero-list li,
+.quantum-list li,
+.devsecops-list li {
+  color: #ccc;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.tech-grid-mini {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.tech-mini-card {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.12);
+}
+
+.tech-mini-card h3 {
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.tech-mini-card p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+/* ================================
+   PAGINA NEWS — SEZIONI AVANZATE
+   ================================ */
+
+.news-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.news-title {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.news-panel {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+.news-list,
+.timeline-list,
+.vuln-list,
+.ransom-list,
+.law-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.news-list li,
+.timeline-list li,
+.vuln-list li,
+.ransom-list li,
+.law-list li {
+  color: #ccc;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.time-tag {
+  display: inline-block;
+  min-width: 80px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid rgba(0, 170, 255, 0.5);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-right: 6px;
+}
+.soc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.soc-card {
+  background: #050505;
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+.dash-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.event-log {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.log-item {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.map-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.suspicious-list li {
+  margin-bottom: 6px;
+  color: #ff4b6e;
+}
+/* BOX COUNTER */
+.counter-box {
+    padding: 14px;
+    border: 1px solid rgba(0,255,255,0.25);
+    border-radius: 8px;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 12px rgba(0,255,255,0.15);
+}
+
+/* Icona animata */
+.counter-icon {
+    font-size: 22px;
+    color: var(--accent-bright);
+    text-shadow: 0 0 8px rgba(0,255,255,0.8);
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.spin-once {
+    animation: spinOnce 0.6s linear;
+}
+
+@keyframes spinOnce {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Righe */
+.counter-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+}
+
+.counter-label {
+    color: #baf7ff;
+    font-size: 14px;
+}
+
+.counter-value {
+    color: var(--accent-bright);
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0,255,255,0.8);
+}
+
+/* Saluto */
+.counter-greeting {
+    margin-top: 10px;
+    color: #baf7ff;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Pulse neon */
+.neon-pulse {
+    animation: neonPulse 0.6s ease-out;
+}
+
+@keyframes neonPulse {
+    0%   { text-shadow: 0 0 0px rgba(0,255,255,0.0); }
+    50%  { text-shadow: 0 0 12px rgba(0,255,255,1); }
+    100% { text-shadow: 0 0 4px rgba(0,255,255,0.4); }
+}
+/* HERO ORIZZONTALE COMPLETA */
+.tools-hero {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 25px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+    border: 1px solid #0f1a2b;
+}
+
+.tools-hero-img {
+    width: 180px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 12px var(--accent));
+}
+
+.tools-hero-text h1 {
+    font-size: 32px;
+    margin: 0 0 10px 0;
+    color: #e8f7ff;
+    text-shadow: 0 0 8px var(--accent);
+}
+
+.tools-hero-text p {
+    font-size: 16px;
+    opacity: 0.85;
+    color: #c9d6e2;
+}
+
+@media (max-width: 768px) {
+    .tools-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tools-hero-img {
+        width: 60%;
+    }
+}
+/* ...ultimo blocco del tuo custom.css... */
+
+/* BOX TOOLS MODERNI */
+details {
+    background: #0d0f14;
+    border: 1px solid #1a2333;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    transition: 0.25s ease;
+}
+
+details:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px #00eaff33;
+}
+
+summary {
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e8f7ff;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] {
+    background: #0f141d;
+    border-color: var(--accent);
+    box-shadow: 0 0 18px #00eaff44;
+}
+
+details pre,
+details textarea,
+details input {
+    margin-top: 15px;
+}
+
+/* ACCESSIBILITÀ — TOUCH TARGET MINIMO 44x44px */
+
+/* Pulsanti dei form: Registrati, Accedi, Invia, ecc. */
+.sidebar-box form button {
+    min-height: 44px;
+    padding: 12px 16px;
+    line-height: 1.2;
+}
+
+/* Link di recupero account */
+.recover-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.recover-links p {
+    margin: 0;
+}
+
+.recover-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    line-height: 1.3;
+}
+
+/* Link del feed Euronews */
+.feed-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feed-links li {
+    margin: 0;
+}
+
+.feed-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    line-height: 1.3;
+}
+
+/* Spaziatura tra i link principali della sidebar */
+.sidebar-box > a,
+.sidebar-box li > a {
+    min-height: 44px;
+}
+
+/* Evita che i link di testo siano troppo ravvicinati */
+.sidebar-box ul li {
+    margin-bottom: 4px;
+}
+
+.news-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* ==========================================================
+   OVERRIDE DI CONSOLIDAMENTO — RESPONSIVE, A11Y, CASCADE
+   ========================================================== */
+
+/* Evita overflow causato da padding e bordi aggiunti alle larghezze. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    line-height: 1.6;
+}
+
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+}
+
+img,
+video {
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+pre,
+code,
+textarea,
+input,
+select,
+button {
+    font: inherit;
+}
+
+pre,
+code {
+    overflow-wrap: anywhere;
+}
+
+pre {
+    max-width: 100%;
+    overflow: auto;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+a {
+    text-underline-offset: 0.2em;
+    transition: color 180ms ease, background-color 180ms ease,
+        border-color 180ms ease, box-shadow 180ms ease;
+}
+
+button,
+.button,
+.hero-button,
+.search-btn {
+    transition: color 180ms ease, background-color 180ms ease,
+        border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    box-shadow: var(--focus-ring);
+}
+
+:where(button, input[type="button"], input[type="submit"], .hero-button, .search-btn) {
+    min-height: 44px;
+}
+
+.main-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.dropdown-menu {
+    max-width: min(92vw, 320px);
+}
+
+.dropdown-menu a {
+    min-height: 44px;
+}
+
+.hero-big {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-big h1 {
+    position: static !important;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: clamp(2rem, 6vw, 3.2rem) !important;
+    overflow-wrap: anywhere;
+}
+
+.hero-big .hero-sub {
+    display: block;
+    margin: 14px auto 0 !important;
+    max-width: 68ch;
+    font-size: clamp(1rem, 2.5vw, 1.2rem) !important;
+}
+
+.hero-big .dropdown-news {
+    margin-top: 20px !important;
+}
+
+.soc-grid,
+.cyber-grid,
+.tech-grid,
+.cyber-row,
+.tech-grid-mini {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.soc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.tech-grid-mini {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+}
+
+.google-search-wrapper,
+.tools-hero,
+.counter-row {
+    min-width: 0;
+}
+
+.google-search-wrapper > *,
+.tools-hero > *,
+.counter-row > * {
+    min-width: 0;
+}
+
+#backToTop {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+}
+
+.map-frame iframe {
+    display: block;
+}
+
+@media (max-width: 820px) {
+    .main-nav {
+        width: auto;
+        max-width: 100%;
+        max-height: calc(100dvh - 5rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .hero-big {
+        padding-inline: clamp(14px, 4vw, 24px) !important;
+    }
+
+    .tools-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tools-hero-img {
+        width: min(60%, 180px);
+    }
+}
+
+@media (max-width: 480px) {
+    .soc-grid,
+    .cyber-grid,
+    .tech-grid,
+    .cyber-row,
+    .tech-grid-mini {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-big {
+        padding-block: 28px !important;
+    }
+
+    .hero-big h1 {
+        font-size: clamp(1.8rem, 9vw, 2.5rem) !important;
+    }
+
+    .ticker-title {
+        max-width: 40%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #backToTop {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    details {
+        padding: 14px;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hero-big .hero-button:hover,
+    .search-btn:hover,
+    #backToTop:hover {
+        transform: translateY(-1px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================
+   ANONLAB — FIXES FINALI DI RESPONSIVE, A11Y E CASCATA
+   Queste regole prevalgono sugli override storici precedenti.
+========================================================= */
+
+:root {
+    --bg: #05070d;
+    --surface: #0b111b;
+    --surface-raised: #101a27;
+    --text: #e8f7ff;
+    --text-muted: #baf7ff;
+    --text-subtle: #a8bac8;
+    --accent: #00eaff;
+    --accent-bright: #00faff;
+    --accent-soft: rgba(0, 234, 255, 0.28);
+    --accent-border: rgba(0, 234, 255, 0.25);
+    --accent-glow: rgba(0, 234, 255, 0.18);
+    --danger: #ff4b6e;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --content-width: 1200px;
+    --focus-ring: 0 0 0 3px rgba(0, 234, 255, 0.55);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    max-width: 100%;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    max-width: 100%;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+img,
+video,
+iframe,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+pre,
+code,
+table {
+    max-width: 100%;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+[tabindex]:not([tabindex="-1"]) {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:where(a, button, input, select, textarea, summary, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid var(--accent-bright);
+    outline-offset: 3px;
+    box-shadow: var(--focus-ring);
+}
+
+a {
+    text-underline-offset: 0.2em;
+    transition: color 180ms ease, background-color 180ms ease,
+                border-color 180ms ease, text-decoration-color 180ms ease;
+}
+
+button,
+.button,
+.hero-button,
+.search-btn {
+    min-height: 44px;
+    transition: color 180ms ease, background-color 180ms ease,
+                border-color 180ms ease, box-shadow 180ms ease,
+                transform 180ms ease;
+}
+
+button:active,
+.button:active,
+.hero-button:active,
+.search-btn:active {
+    transform: translateY(1px);
+}
+
+/* Hero: layout fluido; evita titolo assoluto e spaziatura artificiale */
+.hero-big {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    min-height: 0;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 3vw, 2rem) !important;
+    background-position: center;
+    background-size: cover;
+    overflow: visible;
+}
+
+.hero-big h1 {
+    position: static !important;
+    inset: auto !important;
+    max-width: 100%;
+    margin: 0 auto 1rem !important;
+    font-size: clamp(2rem, 6vw, 3.2rem) !important;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+}
+
+.hero-big .hero-sub {
+    display: block;
+    max-width: 65ch;
+    margin: 0.75rem auto 0 !important;
+    line-height: 1.6;
+}
+
+.hero-big .dropdown-news {
+    margin: 1.25rem auto 0 !important;
+}
+
+.dropdown-menu {
+    max-width: min(90vw, 22rem);
+}
+
+.dropdown-menu a {
+    overflow-wrap: anywhere;
+}
+
+/* Griglie e pannelli: restringibili senza generare overflow */
+.soc-grid,
+.cyber-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.soc-card,
+.cyber-card,
+.panel,
+.main-column,
+.main-content,
+.content,
+.card,
+.tools-hero {
+    min-width: 0;
+}
+
+.site-header,
+.main-nav,
+.main-column,
+.panel-desc {
+    overflow-wrap: anywhere;
+}
+
+.map-img,
+.tools-hero-img,
+.site-header .logo img.logo-icon {
+    height: auto;
+    max-width: 100%;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+    width: 100%;
+}
+
+@media (max-width: 820px) {
+    .hero-big {
+        padding: 2rem 1rem !important;
+    }
+
+    .hero-big h1 {
+        font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
+    }
+
+    .main-nav {
+        max-width: 100%;
+    }
+
+    .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-big {
+        border-radius: var(--radius-md) !important;
+    }
+
+    .hero-big .hero-button,
+    .search-btn {
+        max-width: 100%;
+        white-space: normal;
+    }
+
+    .soc-grid,
+    .cyber-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a:hover,
+    button:hover,
+    .button:hover,
+    .hero-button:hover,
+    .search-btn:hover {
+        transform: translateY(-1px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
