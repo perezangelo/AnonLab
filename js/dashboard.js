@@ -6,7 +6,7 @@ let attacksChartInstance = null;
 
 async function loadAttacksChart() {
     const ctx = document.getElementById("attacksChart");
-    if (!ctx) return;
+    if (!ctx) return; // Sicurezza: se il canvas non c'è, esce senza errori
 
     try {
         const res = await fetch("https://angelonline.altervista.org/soc/attacks_chart.php");
@@ -35,7 +35,8 @@ async function loadAttacksChart() {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,   // 🔥 evita espansione infinita
+                maintainAspectRatio: false,
+                animation: false, // 🔥 Previene race condition nel polling
                 plugins: { legend: { display: false } },
                 scales: {
                     x: { ticks: { color: "#ccc" } },
@@ -44,7 +45,6 @@ async function loadAttacksChart() {
             }
         });
 
-        // 🔥 Fix AlterVista: forza il resize quando la card è renderizzata
         setTimeout(() => attacksChartInstance.resize(), 150);
 
     } catch (error) {
@@ -52,10 +52,7 @@ async function loadAttacksChart() {
     }
 }
 
-// Primo caricamento
 loadAttacksChart();
-
-// Aggiornamento automatico ogni 30 secondi
 setInterval(loadAttacksChart, 30000);
 
 /* ============================================================
@@ -71,11 +68,8 @@ async function loadEventLog() {
         const data = await res.json();
 
         box.innerHTML = "";
-
         data.forEach(ev => {
-            box.innerHTML += `
-                <div>[${ev.time}] — ${ev.event}</div>
-            `;
+            box.innerHTML += `<div>[${ev.time}] — ${ev.event}</div>`;
         });
 
     } catch (error) {
@@ -84,45 +78,32 @@ async function loadEventLog() {
     }
 }
 
-// Primo caricamento
 loadEventLog();
-
-// Aggiornamento automatico ogni 10 secondi
 setInterval(loadEventLog, 10000);
 
 /* ============================================================
-   SYSTEM STATUS ULTIMATE — Versione Definitiva
-   (Speedtest reale, Latenza, Firewall, Mini-grafico, Badge)
+   SYSTEM STATUS ULTIMATE — Versione Definitiva (Blindata)
 ============================================================ */
 
-let sysStartTime = performance.now();
-
-/* === SPEEDTEST REALE (versione affidabile) === */
 async function measureRealSpeed() {
     const start = performance.now();
-
     try {
         const response = await fetch(
             "https://anonlab.it/ping.txt?cache=" + Math.random(),
             { cache: "no-store" }
         );
-
         const text = await response.text();
-        const sizeKB = text.length; // dimensione reale del file
-
+        const sizeKB = text.length;
         const ms = performance.now() - start;
         const seconds = ms / 1000;
-
         const kbps = sizeKB / seconds;
         const mbps = kbps / 1024;
-
         return mbps.toFixed(1);
     } catch {
         return "N/D";
     }
 }
 
-/* === AVVIO PRINCIPALE === */
 function startSystemStatusUltimate() {
     const netSpeedEl = document.getElementById("net-speed");
     const netFill = document.getElementById("net-fill");
@@ -130,18 +111,23 @@ function startSystemStatusUltimate() {
     const fwEl = document.getElementById("fw-status");
     const badge = document.getElementById("sys-badge");
 
-    /* === MINI GRAFICO LATENCY === */
+    /* === MINI GRAFICO LATENCY (Protetto) === */
     const latCanvas = document.getElementById("lat-chart");
-    const latCtx = latCanvas.getContext("2d");
+    let latCtx = null;
     let latencyData = [];
 
+    if (latCanvas) {
+        latCtx = latCanvas.getContext("2d");
+    }
+
     function drawLatencyChart() {
+        if (!latCtx || !latCanvas) return;
         latCtx.clearRect(0, 0, latCanvas.width, latCanvas.height);
         latCtx.strokeStyle = "#00eaff";
         latCtx.lineWidth = 2;
         latCtx.beginPath();
 
-        const maxLat = Math.max(...latencyData, 200); // minimo 200 ms
+        const maxLat = Math.max(...latencyData, 200);
 
         latencyData.forEach((v, i) => {
             const x = (i / latencyData.length) * latCanvas.width;
@@ -155,17 +141,18 @@ function startSystemStatusUltimate() {
 
     /* === NETWORK SPEED REALE === */
     async function updateNetwork() {
+        if (!netSpeedEl) return;
         try {
             const speed = await measureRealSpeed();
             netSpeedEl.textContent = speed + " Mb/s";
 
-            const pct = Math.min(100, speed * 10); // scala realistica
-            netFill.style.width = pct + "%";
-
-            netFill.style.background =
-                speed >= 5 ? "#00ff99" :      // ottimo
-                speed >= 2 ? "#ffaa00" :      // accettabile
-                             "#ff0044";       // lento
+            if (netFill) {
+                const pct = Math.min(100, speed * 10);
+                netFill.style.width = pct + "%";
+                netFill.style.background =
+                    speed >= 5 ? "#00ff99" :
+                    speed >= 2 ? "#ffaa00" : "#ff0044";
+            }
         } catch {
             netSpeedEl.textContent = "N/D";
         }
@@ -173,6 +160,7 @@ function startSystemStatusUltimate() {
 
     /* === LATENCY === */
     async function updateLatency() {
+        if (!latEl) return;
         const start = performance.now();
         try {
             await fetch("https://anonlab.it/ping.txt", { cache: "no-store" });
@@ -189,6 +177,7 @@ function startSystemStatusUltimate() {
 
     /* === FIREWALL === */
     async function updateFirewall() {
+        if (!fwEl) return;
         try {
             await fetch("https://anonlab.it/ping.txt", { cache: "no-store" });
             fwEl.textContent = "OK";
@@ -201,6 +190,7 @@ function startSystemStatusUltimate() {
 
     /* === BADGE === */
     function updateBadge() {
+        if (!badge || !netSpeedEl || !latEl) return;
         const speed = parseFloat(netSpeedEl.textContent) || 0;
         const latency = parseFloat(latEl.textContent) || 999;
 
@@ -248,7 +238,6 @@ async function loadSuspiciousList() {
         const data = await res.json();
 
         box.innerHTML = "";
-
         data.forEach(ev => {
             box.innerHTML += `<div class="alert-item">⚠️ ${ev}</div>`;
         });
@@ -259,10 +248,7 @@ async function loadSuspiciousList() {
     }
 }
 
-// Primo caricamento
 loadSuspiciousList();
-
-// Aggiornamento automatico ogni 10 secondi
 setInterval(loadSuspiciousList, 10000);
 
 /* ============================================================
@@ -274,6 +260,8 @@ function startSocMetrics() {
     const critBox = document.getElementById("soc-critical");
     const alertBox = document.getElementById("soc-alerts");
     const zeroBox = document.getElementById("soc-zeroday");
+
+    if (!incBox || !critBox || !alertBox || !zeroBox) return;
 
     async function loadSocMetrics() {
         try {
@@ -304,6 +292,8 @@ function startSecurityScore() {
     const scoreBox = document.getElementById("security-score");
     const statusBox = document.getElementById("security-status");
     const circle = document.getElementById("security-circle");
+
+    if (!scoreBox || !statusBox || !circle) return;
 
     async function loadSecurityScore() {
         try {
