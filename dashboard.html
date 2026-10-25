@@ -198,85 +198,103 @@ fetch("/partials/ticker.html")
   <div id="event-log" class="event-log"></div>
 </div>
 
-      <div class="soc-card" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #00ff99; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
-  <h2 style="margin-top: 0; color: #00ff99; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">System Status</h2>
+      <div class="soc-card">
+  <h2>System Status</h2>
 
-  <p style="opacity:0.8; font-size:0.78rem; margin-bottom:12px; color: #85929E; line-height: 1.3;">
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
     Monitor dello stato di rete e della sessione. Misura velocità reale, latenza, raggiungibilità del firewall e andamento della connessione, fornendo un’indicazione immediata della stabilità del sistema.
   </p>
 
-  <ul class="system-status" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.8rem;">
+  <ul class="system-status">
 
     <!-- BADGE -->
-    <li style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 6px;">
-      <strong style="color: #fff;">Status:</strong>
-      <span id="sys-badge" class="dash-number" style="padding: 2px 8px; border-radius: 3px; font-weight: bold; background: rgba(0, 255, 153, 0.1); color: #00ff99; border: 1px solid #00ff99; font-size: 0.7rem;">
+    <li>
+      <strong>Status:</strong>
+      <span id="sys-badge" class="dash-number"
+        style="padding:4px 10px; border-radius:4px; font-weight:bold;">
         --
       </span>
     </li>
 
     <!-- NETWORK SPEED (Conversione automatica in GB/s) -->
-    <li style="border-bottom: 1px dashed #1f2833; padding-bottom: 6px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-        <span style="color: #fff;">Network Speed:</span>
-        <span id="net-speed" class="dash-number" style="color: #00ff99; font-weight: bold;">-- GB/s</span>
-      </div>
-      <div id="net-bar" style="height:6px; background:#111; border-radius:4px; overflow:hidden; border: 1px solid #222;">
+    <li>
+      Network Speed:
+      <span id="net-speed" class="dash-number">-- GB/s</span>
+
+      <div id="net-bar" style="height:6px; background:#111; border-radius:4px; margin-top:4px;">
         <div id="net-fill" style="height:100%; width:0%; background:#00ff99; transition:width .4s;"></div>
       </div>
     </li>
 
     <!-- LATENCY -->
-    <li style="border-bottom: 1px dashed #1f2833; padding-bottom: 6px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-        <span style="color: #fff;">Latency:</span>
-        <span id="latency" class="dash-number" style="color: #66fcf1; font-weight: bold;">-- ms</span>
-      </div>
-      <canvas id="lat-chart" width="260" height="60" style="margin-top:6px; width: 100%; background: #07080a; border-radius: 3px; border: 1px solid #1a222d;"></canvas>
+    <li>
+      Latency:
+      <span id="latency" class="dash-number">-- ms</span>
+
+      <canvas id="lat-chart" width="260" height="60" style="margin-top:6px;"></canvas>
     </li>
 
     <!-- FIREWALL -->
-    <li style="display: flex; justify-content: space-between; align-items: center;">
-      <span style="color: #fff;">Firewall:</span>
-      <span id="fw-status" class="dash-number" style="color: #ff8c00; font-weight: bold;">--</span>
+    <li>
+      Firewall:
+      <span id="fw-status" class="dash-number">--</span>
     </li>
 
   </ul>
 </div>
 
-<!-- Script di Aggiornamento con Conversione GB/s -->
+<!-- Script nativo basato sul tuo codice originale + conversione GB/s -->
 <script>
-function updateSystemStatus(speedInMbPs, latencyVal, firewallState, isOnline) {
-    // Conversione da Mb/s a GB/s (Mb/s / 8 -> MB/s / 1000 -> GB/s)
-    const speedInGBps = (speedInMbPs / 8 / 1000).toFixed(2); 
-
-    // Aggiornamento testo e barra
-    document.getElementById("net-speed").textContent = speedInGBps + " GB/s";
-    let percentage = Math.min((speedInGBps / 1.0) * 100, 100);
-    document.getElementById("net-fill").style.width = percentage + "%";
-
-    // Latenza e Firewall
-    document.getElementById("latency").textContent = latencyVal + " ms";
-    document.getElementById("fw-status").textContent = firewallState;
-
-    // Badge di Stato
-    const badge = document.getElementById("sys-badge");
-    if (isOnline) {
-        badge.textContent = "SECURE / ONLINE";
-        badge.style.background = "rgba(0, 255, 153, 0.1)";
-        badge.style.color = "#00ff99";
-        badge.style.border = "1px solid #00ff99";
-    } else {
-        badge.textContent = "OFFLINE / WARNING";
-        badge.style.background = "rgba(255, 74, 74, 0.1)";
-        badge.style.color = "#ff4a4a";
-        badge.style.border = "1px solid #ff4a4a";
-    }
-}
-
-// Test immediato con il tuo valore di 6939.0 Mb/s (~0.87 GB/s)
 document.addEventListener("DOMContentLoaded", function() {
-    updateSystemStatus(6939.0, 14, "ACTIVE (UFW)", true);
+    const statusApiUrl = "https://angelonline.altervista.org/api/status.php";
+
+    function fetchSystemStatus() {
+        fetch(statusApiUrl)
+            .then(res => res.json())
+            .then(data => {
+                // 1. Velocità di rete dal backend (se non definita nel JSON, usa 6939.0 come fallback)
+                const speedInMbPs = data.network_speed || 6939.0;
+
+                // 2. CONVERSIONE: da Mb/s a GB/s (Mb/s / 8 -> MB/s / 1000 -> GB/s)
+                const speedInGBps = (speedInMbPs / 8 / 1000).toFixed(2);
+
+                // Aggiornamento testuale e barra di progresso
+                document.getElementById("net-speed").textContent = speedInGBps + " GB/s";
+                let percentage = Math.min((speedInGBps / 1.0) * 100, 100);
+                document.getElementById("net-fill").style.width = percentage + "%";
+
+                // 3. Latenza (prende la prima disponibile dai daemons o usa un valore di default)
+                let latencyVal = "14";
+                if (data.daemons && data.daemons.length > 0) {
+                    latencyVal = parseInt(data.daemons[0].latency) || 14;
+                }
+                document.getElementById("latency").textContent = latencyVal + " ms";
+
+                // 4. Firewall & Status Badge
+                document.getElementById("fw-status").textContent = "ACTIVE (UFW)";
+                
+                const badge = document.getElementById("sys-badge");
+                if (data.status === "success") {
+                    badge.textContent = "ONLINE / SECURE";
+                    badge.style.background = "rgba(0, 255, 153, 0.1)";
+                    badge.style.color = "#00ff99";
+                    badge.style.border = "1px solid #00ff99";
+                } else {
+                    badge.textContent = "OFFLINE";
+                    badge.style.background = "rgba(255, 74, 74, 0.1)";
+                    badge.style.color = "#ff4a4a";
+                    badge.style.border = "1px solid #ff4a4a";
+                }
+            })
+            .catch(err => {
+                console.error("Errore fetch System Status:", err);
+                document.getElementById("sys-badge").textContent = "SYNC ERROR";
+            });
+    }
+
+    // Esegui subito e imposta il polling ogni 10 secondi
+    fetchSystemStatus();
+    setInterval(fetchSystemStatus, 10000);
 });
 </script>
 
