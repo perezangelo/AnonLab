@@ -1,4 +1,3 @@
-
 /* ============================================================
    ATTIVITÀ DI SICUREZZA — ultime 24h
    Dati letti dal registro eventi SOC
