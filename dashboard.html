@@ -226,11 +226,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 const ctx = document.getElementById("attacksChart");
                 if (!ctx || typeof Chart === "undefined") return;
 
+                // Se il grafico esiste già, aggiorniamo solo i dati senza ricrearlo (evita il conflitto sul canvas)
                 if (chartInstance) {
                     chartInstance.data.labels = labels;
                     chartInstance.data.datasets[0].data = values;
                     chartInstance.update();
                 } else {
+                    // Creazione iniziale dell'istanza Chart.js
                     chartInstance = new Chart(ctx, {
                         type: "line",
                         data: {
