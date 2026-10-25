@@ -176,6 +176,7 @@ fetch("/partials/ticker.html")
 
 </div>
 
+<!-- ================= 1. WIDGET ATTACCHI (ULTIME 24H) ================= -->
 <div class="soc-card" style="
     background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
     border: 1px solid #1a2638;
@@ -203,77 +204,9 @@ fetch("/partials/ticker.html")
   </div>
 </div>
 
-<!-- Assicurati che Chart.js sia incluso nella tua pagina principale -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const endpoint = "https://angelonline.altervista.org/api/soc-collector.php";
-    let chartInstance = null;
-
-    async function updateAttacksWidget() {
-        try {
-            const res = await fetch(endpoint, { cache: "no-store" });
-            const data = await res.json();
-
-            if (data.status === "success" && data.attacks) {
-                const { labels, values } = data.attacks;
-                const ctx = document.getElementById("attacksChart");
-                if (!ctx || typeof Chart === "undefined") return;
-
-                // Prevenzione conflitti canvas Chart.js
-                const existingChart = Chart.getChart(ctx);
-                if (existingChart) {
-                    existingChart.destroy();
-                    chartInstance = null;
-                }
-
-                if (chartInstance) {
-                    chartInstance.data.labels = labels;
-                    chartInstance.data.datasets[0].data = values;
-                    chartInstance.update();
-                } else {
-                    chartInstance = new Chart(ctx, {
-                        type: "line",
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: "Attacchi Bloccati",
-                                data: values,
-                                borderColor: "#ff4a4a",
-                                backgroundColor: "rgba(255, 74, 74, 0.15)",
-                                borderWidth: 2,
-                                fill: true,
-                                tension: 0.35,
-                                pointRadius: 2,
-                                pointBackgroundColor: "#ff4a4a"
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                x: { ticks: { color: "#64748b", font: { size: 10 }, maxTicksLimit: 8 }, grid: { color: "rgba(30, 41, 59, 0.4)" } },
-                                y: { ticks: { color: "#64748b", font: { size: 10 } }, grid: { color: "rgba(30, 41, 59, 0.4)" } }
-                            }
-                        }
-                    });
-                }
-                document.getElementById("attacks-status-tag").textContent = "SYNCED";
-            }
-        } catch (e) {
-            console.error("Errore fetch attacks widget:", e);
-            document.getElementById("attacks-status-tag").textContent = "SYNC ERROR";
-        }
-    }
-
-    updateAttacksWidget();
-    setInterval(updateAttacksWidget, 12000);
-});
-</script>
-		  
-     <div class="soc-card" style="
+<!-- ================= 2. WIDGET EVENT LOG ================= -->
+<div class="soc-card" style="
     background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
     border: 1px solid #1a2638;
     border-top: 3px solid #00eaff;
@@ -311,56 +244,9 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const endpoint = "https://angelonline.altervista.org/api/soc-collector.php";
 
-    async function updateEventLogWidget() {
-        try {
-            const res = await fetch(endpoint, { cache: "no-store" });
-            const data = await res.json();
-
-            if (data.status === "success" && data.events) {
-                const logContainer = document.getElementById("event-log-container");
-                if (!logContainer) return;
-
-                logContainer.innerHTML = "";
-                data.events.forEach(ev => {
-                    let badgeColor = "#00eaff";
-                    let badgeBg = "rgba(0, 234, 255, 0.1)";
-                    if (ev.severity === "high") {
-                        badgeColor = "#ff4a4a";
-                        badgeBg = "rgba(255, 74, 74, 0.15)";
-                    } else if (ev.severity === "medium") {
-                        badgeColor = "#f59e0b";
-                        badgeBg = "rgba(245, 158, 11, 0.15)";
-                    }
-
-                    const item = document.createElement("div");
-                    item.style.cssText = "display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;";
-                    item.innerHTML = `
-                        <div>
-                            <span style="color: #64748b; font-size: 0.7rem;">[${ev.time}]</span>
-                            <span style="color: #e2e8f0; margin-left: 6px;">${ev.message}</span>
-                        </div>
-                        <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 2px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold; white-space: nowrap;">
-                            ${ev.type}
-                        </span>
-                    `;
-                    logContainer.appendChild(item);
-                });
-            }
-        } catch (e) {
-            console.error("Errore fetch event log:", e);
-        }
-    }
-
-    updateEventLogWidget();
-    setInterval(updateEventLogWidget, 10000);
-});
-</script>
-
-        <div class="soc-card" style="
+<!-- ================= 3. WIDGET SYSTEM STATUS ================= -->
+<div class="soc-card" style="
     background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
     border: 1px solid #1a2638;
     border-top: 3px solid #00eaff;
@@ -398,37 +284,142 @@ document.addEventListener("DOMContentLoaded", function() {
   </ul>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const endpoint = "https://angelonline.altervista.org/api/soc-collector.php";
 
-    async function updateSystemStatus() {
+<!-- Caricamento libreria Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ================= LOGICA JAVASCRIPT UNIFICATA E PROTETTA ================= -->
+<script>
+(function() {
+    const endpoint = "https://angelonline.altervista.org/api/soc-collector.php";
+    let chartInstance = null;
+
+    // Funzione unificata di aggiornamento generale dal backend PHP
+    async function updateAllSocWidgets() {
         try {
             const res = await fetch(endpoint, { cache: "no-store" });
             const data = await res.json();
 
             if (data.status === "success") {
+                
+                // 1. Aggiornamento Grafico Attacchi
+                if (data.attacks) {
+                    const { labels, values } = data.attacks;
+                    const ctx = document.getElementById("attacksChart");
+                    
+                    if (ctx && typeof Chart !== "undefined") {
+                        const existingChart = Chart.getChart(ctx);
+                        if (existingChart) {
+                            existingChart.destroy();
+                            chartInstance = null;
+                        }
+
+                        if (chartInstance) {
+                            chartInstance.data.labels = labels;
+                            chartInstance.data.datasets[0].data = values;
+                            chartInstance.update();
+                        } else {
+                            chartInstance = new Chart(ctx, {
+                                type: "line",
+                                data: {
+                                    labels: labels,
+                                    datasets: [{
+                                        label: "Attacchi Bloccati",
+                                        data: values,
+                                        borderColor: "#ff4a4a",
+                                        backgroundColor: "rgba(255, 74, 74, 0.15)",
+                                        borderWidth: 2,
+                                        fill: true,
+                                        tension: 0.35,
+                                        pointRadius: 2,
+                                        pointBackgroundColor: "#ff4a4a"
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    animation: false, // Previene conflitti di animazione sul polling
+                                    plugins: { legend: { display: false } },
+                                    scales: {
+                                        x: { ticks: { color: "#64748b", font: { size: 10 }, maxTicksLimit: 8 }, grid: { color: "rgba(30, 41, 59, 0.4)" } },
+                                        y: { ticks: { color: "#64748b", font: { size: 10 } }, grid: { color: "rgba(30, 41, 59, 0.4)" } }
+                                    }
+                                }
+                            });
+                        }
+                        const tag = document.getElementById("attacks-status-tag");
+                        if (tag) tag.textContent = "SYNCED";
+                    }
+                }
+
+                // 2. Aggiornamento Event Log
+                if (data.events) {
+                    const logContainer = document.getElementById("event-log-container");
+                    if (logContainer) {
+                        logContainer.innerHTML = "";
+                        data.events.forEach(ev => {
+                            let badgeColor = "#00eaff";
+                            let badgeBg = "rgba(0, 234, 255, 0.1)";
+                            if (ev.severity === "high") {
+                                badgeColor = "#ff4a4a";
+                                badgeBg = "rgba(255, 74, 74, 0.15)";
+                            } else if (ev.severity === "medium") {
+                                badgeColor = "#f59e0b";
+                                badgeBg = "rgba(245, 158, 11, 0.15)";
+                            }
+
+                            const item = document.createElement("div");
+                            item.style.cssText = "display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;";
+                            item.innerHTML = `
+                                <div>
+                                    <span style="color: #64748b; font-size: 0.7rem;">[${ev.time}]</span>
+                                    <span style="color: #e2e8f0; margin-left: 6px;">${ev.message}</span>
+                                </div>
+                                <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 2px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold; white-space: nowrap;">
+                                    ${ev.type}
+                                </span>
+                            `;
+                            logContainer.appendChild(item);
+                        });
+                    }
+                }
+
+                // 3. Aggiornamento System Status
                 const latency = data.server && data.server.latency ? data.server.latency : "14ms";
                 const dbStatus = data.database && data.database.status === "online" ? "ONLINE" : "ERROR";
 
-                document.getElementById("sys-latency").textContent = latency;
-                document.getElementById("sys-db").textContent = `DB ${dbStatus}`;
-                
+                const latElem = document.getElementById("sys-latency");
+                const dbElem = document.getElementById("sys-db");
                 const badge = document.getElementById("sys-badge");
-                badge.textContent = "SECURE / ONLINE";
-                badge.style.background = "rgba(0, 255, 153, 0.12)";
-                badge.style.color = "#00ff99";
-                badge.style.border = "1px solid #00ff99";
+
+                if (latElem) latElem.textContent = latency;
+                if (dbElem) dbElem.textContent = `DB ${dbStatus}`;
+                
+                if (badge) {
+                    badge.textContent = "SECURE / ONLINE";
+                    badge.style.background = "rgba(0, 255, 153, 0.12)";
+                    badge.style.color = "#00ff99";
+                    badge.style.border = "1px solid #00ff99";
+                }
             }
         } catch (e) {
-            console.error("Errore fetch System Status:", e);
-            document.getElementById("sys-badge").textContent = "OFFLINE";
+            console.error("Errore di sincronizzazione SOC:", e);
+            const badge = document.getElementById("sys-badge");
+            if (badge) badge.textContent = "OFFLINE";
+            const tag = document.getElementById("attacks-status-tag");
+            if (tag) tag.textContent = "SYNC ERROR";
         }
     }
 
-    updateSystemStatus();
-    setInterval(updateSystemStatus, 15000);
-});
+    // Esecuzione immediata al caricamento del DOM + polling ogni 12 secondi
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", updateAllSocWidgets);
+    } else {
+        updateAllSocWidgets();
+    }
+    
+    setInterval(updateAllSocWidgets, 12000);
+})();
 </script>
 		  
         <!-- MINI THREAT MAP -->
