@@ -1730,19 +1730,21 @@ Scarica report previsionale 2026
     <!-- Contenitore principale verticale -->
     <div style="display: flex; flex-direction: column; gap: 20px;">
         
-        <!-- 1. Player Video a Larghezza Piena (Grande quanto il box) -->
-        <div class="media-player-wrapper" style="background: #1f2833; padding: 10px; border: 1px solid #333; width: 100%; box-sizing: border-box;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%;">
+        <!-- Colonna 1: Player Apple Podcasts (0-Day) -->
+        <div class="media-player-wrapper" style="background: #1f2833; padding: 10px; border: 1px solid #333; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="width: 100%;">
                 <iframe 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                    src="https://www.youtube.com/embed/IL_TUO_VIDEO_ID" 
-                    title="Cybersecurity Video Feed" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+                    frameborder="0" 
+                    height="175" 
+                    style="width: 100%; max-width: 100%; overflow: hidden; border-radius: 10px;" 
+                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" 
+                    src="https://embed.podcasts.apple.com/it/podcast/0-day-storie-attacchi-e-verit%C3%A0-dal-fronte-della-cybersecurity/id1815935437?theme=dark"
+                    title="0-Day Cybersecurity Podcast">
                 </iframe>
             </div>
-            <p style="margin: 12px 0 0 0; font-size: 0.9rem; color: #45f3ff;">
-                <strong>Riproduzione corrente:</strong> 💀 PHISHING: Il click da 25 milioni di dollari — Anatomia di un incubo digitale
+            <p style="margin: 10px 0 0 0; font-size: 0.85rem; color: #45f3ff;">
+                <strong>Riproduzione corrente:</strong> 0-Day Podcast (Feed Ufficiale)
             </p>
         </div>
 
