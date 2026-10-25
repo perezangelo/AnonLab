@@ -1,82 +1,168 @@
-<!-- START: Cyber Podcast & Video Intelligence Embed -->
-<section class="cyber-podcast-section" style="margin-top: 40px; padding: 20px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace;">
-    
-    <!-- Intestazione in stile AnonLab -->
-    <div class="podcast-header" style="border-bottom: 2px solid #45f3ff; padding-bottom: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <h3 style="margin: 0; color: #45f3ff; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px;">
-            📡 Live Cyber Multimedia Feed & Osint Analysis
-        </h3>
-        <span style="font-size: 0.8rem; color: #666; animation: blink 1.5s infinite;">● STREAMING ON-AIR</span>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>self["MonacoEnvironment"] = (function (paths) {
+          return {
+            globalAPI: false,
+            getWorkerUrl : function (moduleId, label) {
+              var result =  paths[label];
+              if (/^((http:)|(https:)|(file:)|(\/\/))/.test(result)) {
+                var currentUrl = String(window.location);
+                var currentOrigin = currentUrl.substr(0, currentUrl.length - window.location.hash.length - window.location.search.length - window.location.pathname.length);
+                if (result.substring(0, currentOrigin.length) !== currentOrigin) {
+                  var js = '/*' + label + '*/importScripts("' + result + '");';
+                  var blob = new Blob([js], { type: 'application/javascript' });
+                  return URL.createObjectURL(blob);
+                }
+              }
+              return result;
+            }
+          };
+        })({
+  "editorWorkerService": "/monacoeditorwork/editor.worker.bundle.js",
+  "typescript": "/monacoeditorwork/ts.worker.bundle.js",
+  "json": "/monacoeditorwork/json.worker.bundle.js",
+  "css": "/monacoeditorwork/css.worker.bundle.js",
+  "html": "/monacoeditorwork/html.worker.bundle.js",
+  "javascript": "/monacoeditorwork/ts.worker.bundle.js",
+  "less": "/monacoeditorwork/css.worker.bundle.js",
+  "scss": "/monacoeditorwork/css.worker.bundle.js",
+  "handlebars": "/monacoeditorwork/html.worker.bundle.js",
+  "razor": "/monacoeditorwork/html.worker.bundle.js"
+});</script>
 
-    <!-- Griglia responsive a 3 colonne per occupare spazio verticale -->
-    <div class="podcast-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1-fraction)); gap: 20px;">
-        
-        <!-- Colonna 1: Il Media Player (Occupa 2 colonne di spazio se lo schermo è grande per dare risalto al video) -->
-        <div class="media-player-wrapper" style="grid-column: span 1; background: #1f2833; padding: 10px; border: 1px solid #333;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-                <!-- Placeholder iframe configurato per YouTube o Spotify. Sostituisci l'URL src con il feed desiderato -->
-                <iframe 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                    src="https://youtube.com" 
-                    title="Introduction to Cybersecurity" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p style="margin: 10px 0 0 0; font-size: 0.85rem; color: #45f3ff;">
-                <strong>Riproduzione corrente:</strong> Threat Intelligence &amp; Malware Analysis Overview
-            </p>
-        </div>
+    <!-- Runtime config — must execute before the Vite module scripts read
+         window.__APP_CONFIG__. `defer` keeps that order (deferred classic
+         scripts and module scripts run in document order after parsing) while
+         unblocking the HTML parser, so asset preloads start immediately
+         instead of stalling ~160ms (p75) on this API round trip.
+         Back on the .js path: Render's extension-keyed edge cache rule twice
+         pinned a wrong body under this URL despite `no-store` (2026-08-20 and
+         2026-08-24); Render has since removed that cache rule for us, so the
+         suffix is safe again. If poisoning recurs: bump the `?v=` cache key,
+         or switch the src to the extension-less /api/frontend-config route
+         (kept serving as an escape hatch). -->
+    <script src="/api/frontend-config.js?v=3" defer></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <meta charset="utf-8" />
+    <!-- Platform favicon: a real multi-size ICO (16/32/48) of the current sun
+         mark, served from public/. This is the ONLY rel="icon" link, and it
+         must stay that way — App.js rewrites the first match for backoffice.
+         Crawlers and link scrapers read this tag (and probe /favicon.ico
+         directly) with no JS, so the brand has to be correct statically. -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <script>
+      // Pre-paint theme stamp for the Appearance (appearance-themes) cohort: on
+      // a hard load the theme is applied by React (AppearanceThemeApplier) only after
+      // auth resolves, so the document boots light — a white flash,
+      // then light route skeletons (the FOUC this removes). AppearanceThemeApplier
+      // persists 'appearance-theme-applied' only while the feature is active,
+      // so every other cohort (flag-off, native, backoffice, runtime apps)
+      // never sets it and this stays a no-op. React stays the source of truth
+      // after mount: AppearanceThemeApplier
+      // re-applies or clears these exact attributes. Keys must stay byte-identical
+      // with components/settings/useAppearanceTheme.ts — BOOT_STAMP_CONTRACT there is
+      // asserted against this file by useAppearanceTheme.spec.ts, so update both.
+      //
+      // Kill-switch caveat: the marker is written while the feature is active and
+      // only cleared once /me resolves. On the FIRST load after a user loses the
+      // flag — or after the kill switch is flipped mid-incident — this still
+      // stamps dark, then React settles to light: one dark→light flash, which
+      // self-heals from the next load on. Flipping the switch does not repaint
+      // already-open tabs pre-paint; it collapses them on their next load.
+      try {
+        if ((localStorage.getItem('appearance-theme-applied') || localStorage.getItem('demo-display-theme-applied')) === '1') {
+          var appearanceTheme = localStorage.getItem('appearance-theme') || localStorage.getItem('demo-display-theme');
+          var appearanceDark = appearanceTheme === 'dark' ||
+            (appearanceTheme !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (appearanceDark) {
+            var appearanceRoot = document.documentElement;
+            appearanceRoot.setAttribute('data-ds', 'base44');
+            appearanceRoot.setAttribute('data-theme', 'dark');
+            appearanceRoot.classList.add('dark');
+            // Kill the pre-CSS white document flash; the app paints over it.
+            appearanceRoot.style.backgroundColor = '#09090b';
+          }
+        }
+      } catch (e) {}
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-        <!-- Colonna 2: Note dell'Episodio e Timeline Intel -->
-        <div class="episode-notes" style="background: #11141a; padding: 15px; border: 1px solid #222; font-size: 0.85rem;">
-            <h4 style="margin-top: 0; color: #66fcf1; border-bottom: 1px dashed #333; padding-bottom: 5px; text-transform: uppercase;">
-                📋 Debriefing Note
-            </h4>
-            <p style="color: #85929E; line-height: 1.4;">
-                In questa sessione multimediale vengono analizzate le ultime campagne dei gruppi APT, l'evoluzione delle infrastrutture di Comando e Controllo (C&amp;C) e le contromisure operative per i SOC team.
-            </p>
-            <ul style="list-style-type: '▪ '; padding-left: 15px; margin: 10px 0; color: #a6b1e1; line-height: 1.5;">
-                <li><strong>01:15</strong> — Analisi IOC malware emergenti</li>
-                <li><strong>12:40</strong> — Tecniche di evasione EDR</li>
-                <li><strong>25:10</strong> — Deep dive sulle CVE sfruttate in-the-wild</li>
-            </ul>
-        </div>
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Build useful apps, fast with Base44."
+    />
 
-        <!-- Colonna 3: Indicatori di Compromissione (IoC) estratti dal video -->
-        <div class="extracted-indicators" style="background: #11141a; padding: 15px; border: 1px solid #222; font-size: 0.85rem;">
-            <h4 style="margin-top: 0; color: #66fcf1; border-bottom: 1px dashed #333; padding-bottom: 5px; text-transform: uppercase;">
-                🔗 Citati nell'Episodio
-            </h4>
-            <div style="margin-bottom: 10px;">
-                <span style="display: block; font-size: 0.75rem; color: #666;">FONTI AGGIUNTIVE:</span>
-                <a href="https://cisa.gov" target="_blank" style="color: #45f3ff; text-decoration: none; font-size: 0.8rem;">→ Advisory CISA KEV Feed</a><br>
-                <a href="https://github.com" target="_blank" style="color: #45f3ff; text-decoration: none; font-size: 0.8rem;">→ Regole di Detection Sigma</a>
-            </div>
-            <div style="border-top: 1px solid #222; padding-top: 10px;">
-                <span style="display: block; font-size: 0.75rem; color: #ff4a4a; font-weight: bold;">⚡ FOCUS ATTENZIONE:</span>
-                <p style="margin: 5px 0 0 0; font-size: 0.8rem; line-height: 1.3; color: #9aa0a6;">
-                    L'analisi evidenzia l'urgenza di verificare le configurazioni dei perimetri esposti e il patching delle librerie critiche analizzate nel minutaggio.
-                </p>
-            </div>
-        </div>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Base44">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+    <title>Base44</title>
 
-    </div>
-</section>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://app.base44.com" />
+    <meta property="og:title" content="Base44" />
+    <meta property="og:site_name" content="Base44" />
+    <meta property="og:description" content="Build useful apps, fast with Base44." />
+    <meta property="og:image" content="https://app.base44.com/link_preview_v3.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Base44 link preview" />
 
-<!-- Semplice regola CSS inline per l'animazione di lampeggiamento del testo -->
-<style>
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
-}
-/* Forzatura layout per schermi molto ampi per allungare il blocco */
-@media (min-width: 1200px) {
-    .podcast-grid {
-        grid-template-columns: 2fr 1fr 1fr !important;
-    }
-}
-</style>
-<!-- END: Cyber Podcast & Video Intelligence Embed -->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://app.base44.com" />
+    <meta name="twitter:title" content="Base44" />
+    <meta name="twitter:description" content="Build useful apps, fast with Base44." />
+    <meta name="twitter:image" content="https://app.base44.com/link_preview_v3.png" />
+    <meta name="twitter:image:alt" content="Base44 link preview" />
+    <script type="module" crossorigin src="/static/index-CQ_64hkX.js"></script>
+    <link rel="modulepreload" crossorigin href="/static/rolldown-runtime-C0FnF6B9.js">
+    <link rel="modulepreload" crossorigin href="/static/runtime-QtgwY_nV.js">
+    <link rel="modulepreload" crossorigin href="/static/backend-4ZrxM0vc.js">
+    <link rel="modulepreload" crossorigin href="/static/vendor-react-BOOIA4XI.js">
+    <link rel="modulepreload" crossorigin href="/static/preload-helper-BZ1Pz5am.js">
+    <link rel="modulepreload" crossorigin href="/static/vendor-data-I8anOvOp.js">
+    <link rel="modulepreload" crossorigin href="/static/errorReporting-DoGrKPJu.js">
+    <link rel="modulepreload" crossorigin href="/static/i18n-DI58tFXy.js">
+    <link rel="modulepreload" crossorigin href="/static/vendor-utils-Bk5YXKIq.js">
+    <link rel="modulepreload" crossorigin href="/static/mixpanelUtils-DTcfXSjv.js">
+    <link rel="modulepreload" crossorigin href="/static/use-toast-hWsBACKm.js">
+    <link rel="modulepreload" crossorigin href="/static/bridge-Cq_Szqk4.js">
+    <link rel="modulepreload" crossorigin href="/static/axiosClient-B67Z2jGr.js">
+    <link rel="modulepreload" crossorigin href="/static/domainValidation-FMKryCR2.js">
+    <link rel="modulepreload" crossorigin href="/static/I18nProvider-Bl062hLL.js">
+    <link rel="modulepreload" crossorigin href="/static/dist-DEyOCB6o.js">
+    <link rel="modulepreload" crossorigin href="/static/vendor-ui-CiiLS_3D.js">
+    <link rel="modulepreload" crossorigin href="/static/base-DCQM8NBl.js">
+    <link rel="modulepreload" crossorigin href="/static/AuthAPI-DZPGpsSm.js">
+    <link rel="modulepreload" crossorigin href="/static/useDesignSystem-CVilD4PW.js">
+    <link rel="modulepreload" crossorigin href="/static/logoutReturnPath-HjtsxsFd.js">
+    <link rel="modulepreload" crossorigin href="/static/AuthContext-DbPBqRAW.js">
+    <link rel="modulepreload" crossorigin href="/static/dist-DXiUvyIt.js">
+    <link rel="modulepreload" crossorigin href="/static/useHideNativeBottomTabs-Dp2B4zpg.js">
+    <link rel="modulepreload" crossorigin href="/static/native-mobile-app-5lZBItr7.js">
+    <link rel="modulepreload" crossorigin href="/static/prop-types-D9WxI36-.js">
+    <link rel="modulepreload" crossorigin href="/static/esm-DmulnS_m.js">
+    <link rel="modulepreload" crossorigin href="/static/use-mobile-BkCzYCbw.js">
+    <link rel="modulepreload" crossorigin href="/static/create-zustand-store-DL3dpDdo.js">
+    <link rel="modulepreload" crossorigin href="/static/persist-to-storage-Bt_g7P7N.js">
+    <link rel="modulepreload" crossorigin href="/static/actions.middleware-D_eRWZoy.js">
+    <link rel="modulepreload" crossorigin href="/static/WorkspaceAPI-CH-9KGrR.js">
+    <link rel="modulepreload" crossorigin href="/static/useWorkspaceUnlockState-Cg67Ec9B.js">
+    <link rel="modulepreload" crossorigin href="/static/WorkspaceContext-BQKaDjKK.js">
+    <link rel="modulepreload" crossorigin href="/static/react-kH6mxSOK.js">
+    <link rel="modulepreload" crossorigin href="/static/useFeatureFlags-Co0b3qtx.js">
+    <link rel="modulepreload" crossorigin href="/static/utils-DtrZdKNM.js">
+    <link rel="modulepreload" crossorigin href="/static/toast-DOXlgrFd.js">
+    <link rel="modulepreload" crossorigin href="/static/moment-CbrR2L3o.js">
+    <link rel="stylesheet" crossorigin href="/static/index-CrV5b32v.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
