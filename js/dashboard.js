@@ -1,111 +1,61 @@
 /* ============================================================
-   ATTIVITÀ DI SICUREZZA — ultime 24h
-   Dati letti dal registro eventi SOC
+   ATTACCHI RILEVATI (ultime 24h) — Versione Stabilizzata
 ============================================================ */
 
 let attacksChartInstance = null;
 
 async function loadAttacksChart() {
-    const canvas = document.getElementById("attacksChart");
-    const status = document.getElementById("attacksChartStatus");
-
-    if (!canvas) return;
+    const ctx = document.getElementById("attacksChart");
+    if (!ctx) return;
 
     try {
-        // Verifica che Chart.js sia disponibile
-        if (typeof Chart === "undefined") {
-            throw new Error("Chart.js non è stato caricato");
-        }
-
-        const res = await fetch(
-            "https://angelonline.altervista.org/soc/attacks_chart.php",
-            { cache: "no-store" }
-        );
-
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status}`);
-        }
-
+        const res = await fetch("https://angelonline.altervista.org/soc/attacks_chart.php");
         const data = await res.json();
 
-        if (
-            !data ||
-            !Array.isArray(data.labels) ||
-            !Array.isArray(data.values) ||
-            data.labels.length !== 24 ||
-            data.values.length !== 24 ||
-            !data.labels.every(label => typeof label === "string") ||
-            !data.values.every(
-                value => typeof value === "number" &&
-                         Number.isFinite(value) &&
-                         value >= 0
-            )
-        ) {
-            throw new Error("Formato dati non valido: attese 24 ore");
-        }
-
-        if (!attacksChartInstance) {
-            attacksChartInstance = new Chart(canvas, {
-                type: "line",
-                data: {
-                    labels: data.labels,
-                    datasets: [{
-                        label: "Eventi di sicurezza registrati",
-                        data: data.values,
-                        borderColor: "#00eaff",
-                        backgroundColor: "rgba(0, 234, 255, 0.15)",
-                        fill: true,
-                        tension: 0.3,
-                        pointRadius: 2,
-                        pointHoverRadius: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    animation: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        x: {
-                            ticks: { color: "#ccc" }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                color: "#ccc",
-                                precision: 0
-                            }
-                        }
-                    }
-                }
-            });
-        } else {
+        // Se il grafico esiste già → aggiorna solo i dati
+        if (attacksChartInstance) {
             attacksChartInstance.data.labels = data.labels;
             attacksChartInstance.data.datasets[0].data = data.values;
-            attacksChartInstance.update("none");
+            attacksChartInstance.update();
+            return;
         }
 
-        if (status) {
-            status.textContent =
-                "Registro SOC collegato · aggiornamento ogni 30 secondi";
-            status.style.color = "#00eaff";
-        }
+        // Creazione iniziale del grafico
+        attacksChartInstance = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: "Attacchi",
+                    data: data.values,
+                    borderColor: "#00eaff",
+                    backgroundColor: "rgba(0, 234, 255, 0.15)",
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,   // 🔥 evita espansione infinita
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { ticks: { color: "#ccc" } },
+                    y: { ticks: { color: "#ccc" } }
+                }
+            }
+        });
+
+        // 🔥 Fix AlterVista: forza il resize quando la card è renderizzata
+        setTimeout(() => attacksChartInstance.resize(), 150);
 
     } catch (error) {
-        console.error("Errore grafico attività SOC:", error);
-
-        if (status) {
-            status.textContent =
-                "Errore nel caricamento dei dati SOC";
-            status.style.color = "#ff6b6b";
-        }
+        console.error("Errore Attacchi 24h:", error);
     }
 }
 
-// Primo caricamento e aggiornamento periodico
+// Primo caricamento
 loadAttacksChart();
+
+// Aggiornamento automatico ogni 30 secondi
 setInterval(loadAttacksChart, 30000);
 
 /* ============================================================
