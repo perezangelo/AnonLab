@@ -198,7 +198,7 @@ fetch("/partials/ticker.html")
   <div id="event-log" class="event-log"></div>
 </div>
 
-       <div class="soc-card">
+      <div class="soc-card">
   <h2>System Status</h2>
 
   <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
@@ -216,10 +216,10 @@ fetch("/partials/ticker.html")
       </span>
     </li>
 
-    <!-- NETWORK SPEED -->
+    <!-- NETWORK SPEED (Aggiornato in GB/s) -->
     <li>
       Network Speed:
-      <span id="net-speed" class="dash-number">-- Mb/s</span>
+      <span id="net-speed" class="dash-number">-- GB/s</span>
 
       <div id="net-bar" style="height:6px; background:#111; border-radius:4px; margin-top:4px;">
         <div id="net-fill" style="height:100%; width:0%; background:#00ff99; transition:width .4s;"></div>
@@ -242,6 +242,25 @@ fetch("/partials/ticker.html")
 
   </ul>
 </div>
+
+<!-- Esempio di script di aggiornamento (da integrare nella tua logica di fetch/update) -->
+<script>
+function updateNetworkSpeed(speedInMbPs) {
+    // 1. Converti da Mb/s a Megabyte/s dividendo per 8
+    // 2. Converti da MB/s a Gigabyte/s dividendo per 1000 (o 1024)
+    const speedInGBps = (speedInMbPs / 8 / 1000).toFixed(2); // Es. 6939.0 Mb/s diventa ~0.87 GB/s
+
+    // Aggiorna il testo a schermo
+    document.getElementById("net-speed").textContent = speedInGBps + " GB/s";
+
+    // Calcola la percentuale per la barra (ipotizzando un massimo di 1.0 GB/s per il 100% della barra)
+    let percentage = Math.min((speedInGBps / 1.0) * 100, 100);
+    document.getElementById("net-fill").style.width = percentage + "%";
+}
+
+// Esempio di test con il tuo valore di 6939.0 Mb/s
+// updateNetworkSpeed(6939.0);
+</script>
 
         <!-- MINI THREAT MAP -->
         <div class="soc-card">
