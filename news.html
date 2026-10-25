@@ -1809,14 +1809,14 @@ Scarica report previsionale 2026
 </style>
 <!-- END: Cyber Video Feed & Threat Intelligence -->
 
-	<!-- START: Vertical Threat Feed Widget (API Powered) -->
+<!-- START: Vertical Threat Feed Widget (Top 6 Recent CVEs) -->
 <section class="cve-feed-vertical" style="margin-top: 30px; margin-bottom: 40px; padding: 20px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace; border-radius: 4px;">
     
     <!-- Intestazione Widget con Search Bar Integrata -->
     <div style="border-bottom: 2px solid #ff4a4a; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
         <div>
             <h3 style="margin: 0; color: #ff4a4a; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
-                🚨 Real-Time Critical Threat Feed
+                🚨 Real-Time Critical Threat Feed (Top 6)
             </h3>
             <span id="cve-sync-time" style="font-size: 0.75rem; color: #666;">Connessione all'API in corso...</span>
         </div>
@@ -1848,7 +1848,7 @@ let localCveList = [];
 
 document.addEventListener("DOMContentLoaded", function() {
     // URL dell'API PHP nella cartella api/ di Altervista
-    const phpApiUrl = "https://angelonline.altervista.org/api/cve.php";
+    const phpApiUrl = "https://TUOACCOUNT.altervista.org/api/cve.php";
 
     fetch(phpApiUrl)
         .then(res => res.json())
@@ -1885,6 +1885,7 @@ function renderCveCards(items) {
         const product = item.product || "General Product";
         const title = item.vulnerabilityName || item.shortDescription || "Descrizione non disponibile";
         const desc = item.shortDescription || "";
+        const dateAdded = item.dateAdded || "";
         const isRansomware = item.knownRansomwareCampaignUse === "Known";
 
         const card = document.createElement("div");
@@ -1899,10 +1900,11 @@ function renderCveCards(items) {
                 <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                     <span style="color: #45f3ff; font-weight: bold; font-size: 0.95rem;">${cveId}</span>
                     <span style="background: #1f2833; color: #ffffff; padding: 2px 8px; font-size: 0.75rem; border-radius: 3px;">${vendor} — ${product}</span>
+                    ${dateAdded ? `<span style="color: #666; font-size: 0.75rem;">[Aggiunto: ${dateAdded}]</span>` : ''}
                 </div>
                 <div style="display: flex; gap: 8px;">
                     <span style="background: rgba(255, 74, 74, 0.15); color: #ff4a4a; border: 1px solid #ff4a4a; padding: 2px 6px; font-size: 0.7rem; font-weight: bold; border-radius: 3px;">
-                        CRITICAL 9.8
+                        CRITICAL
                     </span>
                     ${isRansomware ? '<span style="background: rgba(255, 140, 0, 0.15); color: #ff8c00; border: 1px solid #ff8c00; padding: 2px 6px; font-size: 0.7rem; font-weight: bold; border-radius: 3px;">🔥 RANSOMWARE</span>' : ''}
                 </div>
