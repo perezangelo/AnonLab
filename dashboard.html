@@ -176,252 +176,73 @@ fetch("/partials/ticker.html")
 
 </div>
 
-<!-- ================= 1. WIDGET ATTACCHI (ULTIME 24H) ================= -->
-<div class="soc-card" style="
-    background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
-    border: 1px solid #1a2638;
-    border-top: 3px solid #ff4a4a;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-    font-family: 'JetBrains Mono', monospace;
-    color: #e2e8f0;
-    margin-bottom: 20px;
-">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <h2 style="margin: 0; color: #ff4a4a; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 2px;">
-      Attacchi rilevati (ultime 24h)
-    </h2>
-    <span id="attacks-status-tag" style="font-size: 0.7rem; color: #64748b;">SYNCING...</span>
-  </div>
+<!-- GRAFICO ATTACCHI -->
+<div class="soc-card">
+  <h2>Attacchi rilevati (ultime 24h)</h2>
 
-  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 16px; color: #94a3b8;">
-    Attività ostili rilevate nelle ultime 24 ore. Volume orario degli attacchi bloccati dal WAF.
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Attività ostili rilevate nelle ultime 24 ore. Il grafico mostra il numero di attacchi per ogni ora, evidenziando picchi anomali e pattern ricorrenti.
   </p>
 
-  <div style="background: #030712; border-radius: 4px; padding: 10px; border: 1px solid #1e293b; position: relative; height: 260px;">
-    <canvas id="attacksChart"></canvas>
-  </div>
+  <canvas id="attacksChart" height="260"></canvas>
 </div>
 
+        <!-- EVENT LOG -->
+<div class="soc-card">
+  <h2>Event Log</h2>
 
-<!-- ================= 2. WIDGET EVENT LOG ================= -->
-<div class="soc-card" style="
-    background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
-    border: 1px solid #1a2638;
-    border-top: 3px solid #00eaff;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-    font-family: 'JetBrains Mono', monospace;
-    color: #e2e8f0;
-    margin-bottom: 20px;
-">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <h2 style="margin: 0; color: #00eaff; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 2px;">
-      Event Log
-    </h2>
-    <span style="font-size: 0.7rem; color: #00ff99;">● REAL-TIME SYNC</span>
-  </div>
-
-  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 16px; color: #94a3b8;">
-    Registro degli eventi di sicurezza in tempo reale con timestamp e classificazione.
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Registro degli eventi di sicurezza rilevati in tempo reale, con timestamp e descrizione delle attività sospette o non autorizzate.
   </p>
 
-  <div id="event-log-container" style="
-      background: #030712; 
-      border: 1px solid #1e293b; 
-      border-radius: 4px; 
-      padding: 12px; 
-      max-height: 220px; 
-      overflow-y: auto; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 10px; 
-      font-size: 0.75rem;
-  ">
-    <div style="color: #00eaff; text-align: center; padding: 10px;">⏳ Connessione al flusso eventi...</div>
-  </div>
+  <div id="event-log" class="event-log"></div>
 </div>
 
+       <div class="soc-card">
+  <h2>System Status</h2>
 
-<!-- ================= 3. WIDGET SYSTEM STATUS ================= -->
-<div class="soc-card" style="
-    background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
-    border: 1px solid #1a2638;
-    border-top: 3px solid #00eaff;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-    font-family: 'JetBrains Mono', monospace;
-    color: #e2e8f0;
-    margin-bottom: 20px;
-">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <h2 style="margin: 0; color: #00eaff; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 2px;">
-      System Status
-    </h2>
-    <span id="sys-time" style="font-size: 0.7rem; color: #64748b;">LIVE</span>
-  </div>
-
-  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 16px; color: #94a3b8;">
-    Monitoraggio in tempo reale dello stato dei nodi e dell'infrastruttura.
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Monitor dello stato di rete e della sessione. Misura velocità reale, latenza, raggiungibilità del firewall e andamento della connessione, fornendo un’indicazione immediata della stabilità del sistema.
   </p>
 
-  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.82rem;">
-    <li style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;">
-      <span style="color: #cbd5e1;">System Health:</span>
-      <span id="sys-badge" style="padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 0.72rem; background: rgba(0,234,255,0.1); color: #00eaff; border: 1px solid #00eaff;">CONNECTING...</span>
+  <ul class="system-status">
+
+    <!-- BADGE -->
+    <li>
+      <strong>Status:</strong>
+      <span id="sys-badge" class="dash-number"
+        style="padding:4px 10px; border-radius:4px; font-weight:bold;">
+        --
+      </span>
     </li>
-    <li style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;">
-      <span style="color: #cbd5e1;">Server Latency:</span>
-      <span id="sys-latency" style="color: #00eaff; font-weight: bold;">-- ms</span>
+
+    <!-- NETWORK SPEED -->
+    <li>
+      Network Speed:
+      <span id="net-speed" class="dash-number">-- Mb/s</span>
+
+      <div id="net-bar" style="height:6px; background:#111; border-radius:4px; margin-top:4px;">
+        <div id="net-fill" style="height:100%; width:0%; background:#00ff99; transition:width .4s;"></div>
+      </div>
     </li>
-    <li style="display: flex; justify-content: space-between; align-items: center;">
-      <span style="color: #cbd5e1;">Database / SSL:</span>
-      <span id="sys-db" style="color: #f59e0b; font-weight: bold;">--</span>
+
+    <!-- LATENCY -->
+    <li>
+      Latency:
+      <span id="latency" class="dash-number">-- ms</span>
+
+      <canvas id="lat-chart" width="260" height="60" style="margin-top:6px;"></canvas>
     </li>
+
+    <!-- FIREWALL -->
+    <li>
+      Firewall:
+      <span id="fw-status" class="dash-number">--</span>
+    </li>
+
   </ul>
 </div>
 
-
-<!-- Caricamento libreria Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<!-- ================= LOGICA JAVASCRIPT UNIFICATA E PROTETTA ================= -->
-<script>
-(function() {
-    const endpoint = "https://angelonline.altervista.org/api/soc-collector.php";
-    let chartInstance = null;
-
-    // Funzione unificata di aggiornamento generale dal backend PHP
-    async function updateAllSocWidgets() {
-        try {
-            const res = await fetch(endpoint, { cache: "no-store" });
-            const data = await res.json();
-
-            if (data.status === "success") {
-                
-                // 1. Aggiornamento Grafico Attacchi
-                if (data.attacks) {
-                    const { labels, values } = data.attacks;
-                    const ctx = document.getElementById("attacksChart");
-                    
-                    if (ctx && typeof Chart !== "undefined") {
-                        const existingChart = Chart.getChart(ctx);
-                        if (existingChart) {
-                            existingChart.destroy();
-                            chartInstance = null;
-                        }
-
-                        if (chartInstance) {
-                            chartInstance.data.labels = labels;
-                            chartInstance.data.datasets[0].data = values;
-                            chartInstance.update();
-                        } else {
-                            chartInstance = new Chart(ctx, {
-                                type: "line",
-                                data: {
-                                    labels: labels,
-                                    datasets: [{
-                                        label: "Attacchi Bloccati",
-                                        data: values,
-                                        borderColor: "#ff4a4a",
-                                        backgroundColor: "rgba(255, 74, 74, 0.15)",
-                                        borderWidth: 2,
-                                        fill: true,
-                                        tension: 0.35,
-                                        pointRadius: 2,
-                                        pointBackgroundColor: "#ff4a4a"
-                                    }]
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    animation: false, // Previene conflitti di animazione sul polling
-                                    plugins: { legend: { display: false } },
-                                    scales: {
-                                        x: { ticks: { color: "#64748b", font: { size: 10 }, maxTicksLimit: 8 }, grid: { color: "rgba(30, 41, 59, 0.4)" } },
-                                        y: { ticks: { color: "#64748b", font: { size: 10 } }, grid: { color: "rgba(30, 41, 59, 0.4)" } }
-                                    }
-                                }
-                            });
-                        }
-                        const tag = document.getElementById("attacks-status-tag");
-                        if (tag) tag.textContent = "SYNCED";
-                    }
-                }
-
-                // 2. Aggiornamento Event Log
-                if (data.events) {
-                    const logContainer = document.getElementById("event-log-container");
-                    if (logContainer) {
-                        logContainer.innerHTML = "";
-                        data.events.forEach(ev => {
-                            let badgeColor = "#00eaff";
-                            let badgeBg = "rgba(0, 234, 255, 0.1)";
-                            if (ev.severity === "high") {
-                                badgeColor = "#ff4a4a";
-                                badgeBg = "rgba(255, 74, 74, 0.15)";
-                            } else if (ev.severity === "medium") {
-                                badgeColor = "#f59e0b";
-                                badgeBg = "rgba(245, 158, 11, 0.15)";
-                            }
-
-                            const item = document.createElement("div");
-                            item.style.cssText = "display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;";
-                            item.innerHTML = `
-                                <div>
-                                    <span style="color: #64748b; font-size: 0.7rem;">[${ev.time}]</span>
-                                    <span style="color: #e2e8f0; margin-left: 6px;">${ev.message}</span>
-                                </div>
-                                <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 2px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold; white-space: nowrap;">
-                                    ${ev.type}
-                                </span>
-                            `;
-                            logContainer.appendChild(item);
-                        });
-                    }
-                }
-
-                // 3. Aggiornamento System Status
-                const latency = data.server && data.server.latency ? data.server.latency : "14ms";
-                const dbStatus = data.database && data.database.status === "online" ? "ONLINE" : "ERROR";
-
-                const latElem = document.getElementById("sys-latency");
-                const dbElem = document.getElementById("sys-db");
-                const badge = document.getElementById("sys-badge");
-
-                if (latElem) latElem.textContent = latency;
-                if (dbElem) dbElem.textContent = `DB ${dbStatus}`;
-                
-                if (badge) {
-                    badge.textContent = "SECURE / ONLINE";
-                    badge.style.background = "rgba(0, 255, 153, 0.12)";
-                    badge.style.color = "#00ff99";
-                    badge.style.border = "1px solid #00ff99";
-                }
-            }
-        } catch (e) {
-            console.error("Errore di sincronizzazione SOC:", e);
-            const badge = document.getElementById("sys-badge");
-            if (badge) badge.textContent = "OFFLINE";
-            const tag = document.getElementById("attacks-status-tag");
-            if (tag) tag.textContent = "SYNC ERROR";
-        }
-    }
-
-    // Esecuzione immediata al caricamento del DOM + polling ogni 12 secondi
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", updateAllSocWidgets);
-    } else {
-        updateAllSocWidgets();
-    }
-    
-    setInterval(updateAllSocWidgets, 12000);
-})();
-</script>
-		  
         <!-- MINI THREAT MAP -->
         <div class="soc-card">
           <h2>Threat Map</h2>
@@ -1735,11 +1556,11 @@ statusBox.style.color = color;
 startThreatLevel();
 </script>
 
-		<!-- START: GitHub Repo Pulse & Telemetry Widget (Vertical Stack with User Legend) -->
+		<!-- START: GitHub Repo Pulse & Telemetry Widget (Vertical Stack) -->
 <div class="dashboard-widget github-pulse-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #66fcf1; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
     <!-- Intestazione -->
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
         <div style="display: flex; align-items: center; gap: 10px;">
             <span style="font-size: 1.3rem;">🐙</span>
             <div>
@@ -1752,14 +1573,6 @@ startThreatLevel();
         <span style="background: rgba(102, 252, 241, 0.1); color: #66fcf1; border: 1px solid #66fcf1; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
             LIVE METRICS
         </span>
-    </div>
-
-    <!-- Legenda e Nota Informativa per gli utenti -->
-    <div style="background: rgba(102, 252, 241, 0.03); border: 1px solid rgba(102, 252, 241, 0.15); padding: 10px 12px; border-radius: 3px; margin-bottom: 15px; font-size: 0.73rem; color: #a5b1c2; line-height: 1.4;">
-        <span style="color: #66fcf1; font-weight: bold; text-transform: uppercase;">ℹ️ Guida alla Lettura (Legend):</span> 
-        Questo modulo monitora in tempo reale lo stato dei repository open-source strategici per la cybersecurity. 
-        <br>• <b>⭐ (Stars) / 🍴 (Forks):</b> Indicano la popolarità e l'adozione del tool nella community.
-        <br>• <b>Health Index (%):</b> Rappresenta l'indice di attività recente, frequenza di commit e manutenzione attiva (valori in ciano sopra il 90%, in arancione se inferiore).
     </div>
 
     <!-- Container Verticale a Piena Larghezza -->
@@ -1845,8 +1658,8 @@ function renderGithubPulse(items) {
 }
 </script>
 <!-- END: GitHub Repo Pulse & Telemetry Widget -->
-		
-		<!-- START: Automated Live Cyber News Stream (with User Legend) -->
+
+		<!-- START: Automated Live Cyber News Stream -->
 <div class="dashboard-widget auto-news-widget" style="background: #11141a; border: 1px solid #1f2833; border-top: 3px solid #ff4a4a; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
     <!-- Intestazione Widget -->
@@ -1862,13 +1675,6 @@ function renderGithubPulse(items) {
         </span>
     </div>
 
-    <!-- Legenda e Nota Informativa per gli utenti -->
-    <div style="background: rgba(255, 74, 74, 0.03); border: 1px solid rgba(255, 74, 74, 0.15); padding: 10px 12px; border-radius: 3px; margin-bottom: 15px; font-size: 0.73rem; color: #a5b1c2; line-height: 1.4;">
-        <span style="color: #ff4a4a; font-weight: bold; text-transform: uppercase;">ℹ️ Guida alla Lettura (Legend):</span> 
-        Questo feed recupera autonomamente le ultime notizie di cybersecurity e bollettini globali tramite script PHP sul backend. 
-        <br>• Cliccando su <b>"LEGGI ARTICOLO →"</b> è possibile accedere alla fonte ufficiale esterna per approfondire l'analisi della minaccia.
-    </div>
-
     <!-- Container Dinamico Notizie -->
     <div id="auto-news-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
         <div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #ff4a4a; font-size: 0.85rem;">
@@ -1880,6 +1686,7 @@ function renderGithubPulse(items) {
 <!-- Script di Fetch Notizie -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+    // Sostituisci con il tuo endpoint PHP su Altervista che processa il feed RSS (es. api/news-feed.php)
     const newsApiUrl = "https://angelonline.altervista.org/api/news-feed.php";
 
     fetch(newsApiUrl)
@@ -1935,12 +1742,12 @@ function renderAutoNews(articles) {
 }
 </script>
 <!-- END: Automated Live Cyber News Stream -->
-		
-		<!-- START: Global Threat Intelligence Radar Widget (with User Legend) -->
+
+		<!-- START: Global Threat Intelligence Radar Widget -->
 <div class="dashboard-widget threat-radar-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #ff4a4a; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
     <!-- Intestazione Radar -->
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
         <div style="display: flex; align-items: center; gap: 10px;">
             <span style="font-size: 1.3rem;">📡</span>
             <div>
@@ -1954,13 +1761,6 @@ function renderAutoNews(articles) {
             <span style="width: 8px; height: 8px; background: #ff4a4a; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #ff4a4a;"></span>
             <span style="color: #ff4a4a; font-size: 0.7rem; font-weight: bold;">LIVE FEED ACTIVE</span>
         </div>
-    </div>
-
-    <!-- Legenda e Nota Informativa per gli utenti -->
-    <div style="background: rgba(255, 74, 74, 0.03); border: 1px solid rgba(255, 74, 74, 0.15); padding: 10px 12px; border-radius: 3px; margin-bottom: 15px; font-size: 0.73rem; color: #a5b1c2; line-height: 1.4;">
-        <span style="color: #ff4a4a; font-weight: bold; text-transform: uppercase;">ℹ️ Guida alla Lettura (Legend):</span> 
-        Questo modulo monitora in tempo reale le vulnerabilità attivamente sfruttate a livello globale estratte dal feed ufficiale <b>CISA KEV</b>. 
-        <br>• Mostra l'identificativo CVE, la tipologia di exploit/vendor e lo stato di intervento raccomandato.
     </div>
 
     <!-- Container Dinamico -->
@@ -2032,7 +1832,7 @@ function renderThreatRadar(items) {
 }
 </script>
 <!-- END: Global Threat Intelligence Radar Widget -->
-		
+
 		<!-- START: SOC Interactive PHP-Backed Diagnostics Terminal & User Guide -->
 <div class="dashboard-widget soc-terminal-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #66fcf1; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
@@ -2044,7 +1844,7 @@ function renderThreatRadar(items) {
                 <h4 style="margin: 0; color: #66fcf1; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;">
                     AnonLab // Secure Shell &amp; Server Diagnostics
                 </h4>
-                <span style="font-size: 0.68rem; color: #666;">SESSION: ROOT@ANGELONLINE.ALTERVISTA.ORG ~ ACTIVE</span>
+                <span style="font-size: 0.68rem; color: #666;">SESSION: ROOT@ANONLAB.ALTERVISTA.ORG ~ ACTIVE</span>
             </div>
         </div>
         <div style="display: flex; gap: 6px;">
@@ -2062,7 +1862,7 @@ function renderThreatRadar(items) {
 
     <!-- Output Area stile Console -->
     <div id="terminal-output" style="background: #07080a; border: 1px solid #1a222d; padding: 12px; border-radius: 3px; height: 110px; overflow-y: auto; font-size: 0.75rem; color: #85929E; margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px;">
-        <span style="color: #66fcf1;">[OK] Connected to AnonLab PHP backend at angelonline.altervista.org</span>
+        <span style="color: #66fcf1;">[OK] Connected to AnonLab PHP backend at anonlab.altervista.org</span>
         <span style="color: #ff8c00;">[INFO] Type 'guide' for user instructions or 'status' to check server daemons.</span>
     </div>
 
@@ -2080,7 +1880,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const input = document.getElementById("terminal-input");
     const submit = document.getElementById("terminal-submit");
     const output = document.getElementById("terminal-output");
-    const phpTerminalUrl = "https://angelonline.altervista.org/api/terminal.php";
+    const phpTerminalUrl = "https://anonlab.altervista.org/api/terminal.php";
 
     function executeCommand() {
         const cmd = input.value.trim().toLowerCase();
@@ -2101,7 +1901,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const currentCmd = input.value;
         input.value = "";
 
-        // Chiamata AJAX in tempo reale al backend PHP su AngelOnline
+        // Chiamata AJAX in tempo reale al backend PHP su AnonLab
         fetch(`${phpTerminalUrl}?cmd=${encodeURIComponent(currentCmd)}`)
             .then(res => res.json())
             .then(data => {
@@ -2114,7 +1914,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(err => {
                 const errLine = document.createElement("div");
                 errLine.style.color = "#ff4a4a";
-                errLine.innerHTML = `[ERROR] Failed to reach AngelOnline PHP server backend.`;
+                errLine.innerHTML = `[ERROR] Failed to reach AnonLab PHP server backend.`;
                 output.appendChild(errLine);
                 output.scrollTop = output.scrollHeight;
             });
@@ -2129,8 +1929,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <!-- END: SOC Interactive PHP-Backed Diagnostics Terminal & User Guide -->
-		
-		<!-- START: Live Network Daemons & Port Status Monitor (with User Legend) -->
+
+		<!-- START: Live Network Daemons & Port Status Monitor -->
 <div class="dashboard-widget daemons-status-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #ff8c00; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
     <!-- Intestazione -->
@@ -2149,18 +1949,10 @@ document.addEventListener("DOMContentLoaded", function() {
         </span>
     </div>
 
-    <!-- Legenda e Nota Informativa per gli utenti -->
-    <div style="background: rgba(255, 140, 0, 0.03); border: 1px solid rgba(255, 140, 0, 0.15); padding: 10px 12px; border-radius: 3px; margin-bottom: 15px; font-size: 0.73rem; color: #a5b1c2; line-height: 1.4;">
-        <span style="color: #ff8c00; font-weight: bold; text-transform: uppercase;">ℹ️ Guida alla Lettura (Legend):</span> 
-        Questo pannello monitora lo stato operativo dei daemon di rete e dei servizi critici sul server. 
-        <br>• <b>Porta (es. :443, :22):</b> Specifica il punto di accesso del servizio.
-        <br>• <b>Status &amp; Latency:</b> Indicano se il daemon è operativo e la reattività della connessione in tempo reale.
-    </div>
-
     <!-- Container Dinamico -->
     <div id="daemons-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
         <div style="grid-column: 1 / -1; text-align: center; padding: 15px; color: #ff8c00; font-size: 0.8rem;">
-            ⏳ Interrogazione servizi di rete su angelonline.altervista.org in corso...
+            ⏳ Interrogazione servizi di rete su anonlab.altervista.org in corso...
         </div>
     </div>
 </div>
@@ -2216,7 +2008,7 @@ function renderDaemons(daemons) {
 </script>
 <!-- END: Live Network Daemons & Port Status Monitor -->
 
-		<!-- START: Comprehensive Security Telemetry & Audit Log Ledger (with User Legend) -->
+		<!-- START: Comprehensive Security Telemetry & Audit Log Ledger -->
 <div class="dashboard-widget audit-ledger-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #45f3ff; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
     <!-- Intestazione -->
@@ -2233,14 +2025,6 @@ function renderDaemons(daemons) {
         <span style="background: rgba(69, 243, 255, 0.1); color: #45f3ff; border: 1px solid #45f3ff; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
             FULL AUDIT STREAM
         </span>
-    </div>
-
-    <!-- Legenda e Nota Informativa per gli utenti -->
-    <div style="background: rgba(69, 243, 255, 0.03); border: 1px solid rgba(69, 243, 255, 0.15); padding: 10px 12px; border-radius: 3px; margin-bottom: 15px; font-size: 0.73rem; color: #a5b1c2; line-height: 1.4;">
-        <span style="color: #45f3ff; font-weight: bold; text-transform: uppercase;">ℹ️ Guida alla Lettura (Legend):</span> 
-        Questo registro traccia in tempo reale la telemetria di sistema e gli eventi di audit operativi sul server.
-        <br>• <b>Metriche in alto (CPU, RAM, Disk, Edge):</b> Mostrano il carico istantaneo delle risorse hardware e lo stato del perimetro.
-        <br>• <b>Tabella Audit Logs:</b> Registra gli attori (root/daemon), le azioni eseguite (es. sincronizzazioni o blocchi IP) e il relativo livello di severità/stato.
     </div>
 
     <!-- Sezione Metriche di Sistema in Alto -->
@@ -2353,7 +2137,7 @@ function renderAuditLogs(logs) {
 </script>
 <!-- END: Comprehensive Security Telemetry & Audit Log Ledger -->
 
-		<!-- START: Real-Time Global Threat Map & Multi-Vector Telemetry Matrix (with User Legend) -->
+		<!-- START: Real-Time Global Threat Map & Multi-Vector Telemetry Matrix -->
 <div class="dashboard-widget global-matrix-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #ff8c00; padding: 22px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
     <!-- Intestazione Principale -->
@@ -2370,14 +2154,6 @@ function renderAuditLogs(logs) {
         <span style="background: rgba(255, 140, 0, 0.1); color: #ff8c00; border: 1px solid #ff8c00; padding: 3px 10px; font-size: 0.72rem; border-radius: 3px; font-weight: bold;">
             GLOBAL GRID ACTIVE
         </span>
-    </div>
-
-    <!-- Legenda e Nota Informativa per gli utenti -->
-    <div style="background: rgba(255, 140, 0, 0.03); border: 1px solid rgba(255, 140, 0, 0.15); padding: 10px 12px; border-radius: 3px; margin-bottom: 15px; font-size: 0.73rem; color: #a5b1c2; line-height: 1.4;">
-        <span style="color: #ff8c00; font-weight: bold; text-transform: uppercase;">ℹ️ Guida alla Lettura (Legend):</span> 
-        Questo modulo fornisce una panoramica globale del traffico e delle minacce neutralizzate sui nodi edge distribuiti.
-        <br>• <b>Statistiche Globali (in alto):</b> Sintesi delle minacce bloccate nelle 24h, regole firewall attive, latenza media e integrità del sistema.
-        <br>• <b>Edge Node Telemetry:</b> Monitora lo stato operativo, il carico di lavoro (Load) e la velocità dei pacchetti (Rate) per ogni regione geografica.
     </div>
 
     <!-- Pannello Statistiche Globali (4 Box in alto) -->
@@ -2407,7 +2183,7 @@ function renderAuditLogs(logs) {
 
     <div id="global-nodes-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 15px;">
         <div style="grid-column: 1 / -1; text-align: center; padding: 25px; color: #ff8c00;">
-            ⏳ Caricamento telemetria nodi globali da angelonline.altervista.org...
+            ⏳ Caricamento telemetria nodi globali da anonlab.altervista.org...
         </div>
     </div>
 
@@ -2481,21 +2257,6 @@ function renderGlobalNodes(nodes) {
 }
 </script>
 <!-- END: Real-Time Global Threat Map & Multi-Vector Telemetry Matrix -->
-
-		import SocWidgets from '../components/SocWidgets';
-
-export default function Dashboard() {
-  return (
-    <div style={{ padding: "30px", background: "#030712", minHeight: "100vh" }}>
-      <h1 style={{ color: "#00eaff", fontSize: "1.8rem", marginBottom: "20px", fontWeight: "bold" }}>
-        AnonLab · SOC Control Room
-      </h1>
-      
-      {/* Inserisci qui i widget autonomi sincronizzati con Altervista */}
-      <SocWidgets />
-    </div>
-  );
-}
 		
     </section>  
 		  
