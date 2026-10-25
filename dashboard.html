@@ -176,27 +176,195 @@ fetch("/partials/ticker.html")
 
 </div>
 
-<!-- GRAFICO ATTACCHI -->
-<div class="soc-card">
-  <h2>Attacchi rilevati (ultime 24h)</h2>
+<!-- GRAFICO ATTACCHI (ULTIME 24H) -->
+<div class="soc-card" style="
+    background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
+    border: 1px solid #1a2638;
+    border-top: 3px solid #ff4a4a;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: #e2e8f0;
+    margin-top: 25px;
+">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <h2 style="
+        margin: 0;
+        color: #ff4a4a;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(255, 74, 74, 0.4);
+    ">
+      Attacchi rilevati (ultime 24h)
+    </h2>
+    <span id="attacks-status-tag" style="font-size: 0.7rem; color: #64748b;">LIVE STREAM</span>
+  </div>
 
-  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
-    Attività ostili rilevate nelle ultime 24 ore. Il grafico mostra il numero di attacchi per ogni ora, evidenziando picchi anomali e pattern ricorrenti.
+  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 16px; line-height: 1.4; color: #94a3b8;">
+    Attività ostili rilevate nelle ultime 24 ore. Il volume orario degli attacchi bloccati dal WAF.
   </p>
 
-  <canvas id="attacksChart" height="260"></canvas>
+  <div style="background: #030712; border-radius: 4px; padding: 10px; border: 1px solid #1e293b; position: relative; height: 260px;">
+    <canvas id="attacksChart"></canvas>
+  </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const endpoint = "https://angelonline.altervista.org/api/soc-stream.php";
+    let chartInstance = null;
+
+    async function updateAttacksWidget() {
+        try {
+            const res = await fetch(endpoint, { cache: "no-store" });
+            const data = await res.json();
+
+            if (data.status === "success" && data.attacks) {
+                const { labels, values } = data.attacks;
+                const ctx = document.getElementById("attacksChart");
+                if (!ctx || typeof Chart === "undefined") return;
+
+                if (chartInstance) {
+                    chartInstance.data.labels = labels;
+                    chartInstance.data.datasets[0].data = values;
+                    chartInstance.update();
+                } else {
+                    chartInstance = new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: "Attacchi Bloccati",
+                                data: values,
+                                borderColor: "#ff4a4a",
+                                backgroundColor: "rgba(255, 74, 74, 0.15)",
+                                borderWidth: 2,
+                                fill: true,
+                                tension: 0.35,
+                                pointRadius: 2,
+                                pointBackgroundColor: "#ff4a4a"
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                x: { ticks: { color: "#64748b", font: { size: 10 }, maxTicksLimit: 8 }, grid: { color: "rgba(30, 41, 59, 0.4)" } },
+                                y: { ticks: { color: "#64748b", font: { size: 10 } }, grid: { color: "rgba(30, 41, 59, 0.4)" } }
+                            }
+                        }
+                    });
+                }
+                document.getElementById("attacks-status-tag").textContent = "SYNCED";
+            }
+        } catch (e) {
+            console.error("Errore fetch attacks widget:", e);
+            document.getElementById("attacks-status-tag").textContent = "SYNC ERROR";
+        }
+    }
+
+    updateAttacksWidget();
+    setInterval(updateAttacksWidget, 12000);
+});
+</script>
 
         <!-- EVENT LOG -->
-<div class="soc-card">
-  <h2>Event Log</h2>
+<div class="soc-card" style="
+    background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
+    border: 1px solid #1a2638;
+    border-top: 3px solid #00eaff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: #e2e8f0;
+    margin-top: 25px;
+">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <h2 style="
+        margin: 0;
+        color: #00eaff;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
+    ">
+      Event Log
+    </h2>
+    <span style="font-size: 0.7rem; color: #00ff99;">● REAL-TIME SYNC</span>
+  </div>
 
-  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
-    Registro degli eventi di sicurezza rilevati in tempo reale, con timestamp e descrizione delle attività sospette o non autorizzate.
+  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 16px; line-height: 1.4; color: #94a3b8;">
+    Registro degli eventi di sicurezza in tempo reale con timestamp e classificazione delle attività.
   </p>
 
-  <div id="event-log" class="event-log"></div>
+  <div id="event-log" style="
+      background: #030712; 
+      border: 1px solid #1e293b; 
+      border-radius: 4px; 
+      padding: 12px; 
+      max-height: 220px; 
+      overflow-y: auto; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 10px; 
+      font-size: 0.75rem;
+  ">
+    <div style="color: #00eaff; text-align: center; padding: 10px;">⏳ Connessione al flusso eventi...</div>
+  </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const endpoint = "https://angelonline.altervista.org/api/soc-stream.php";
+
+    async function updateEventLogWidget() {
+        try {
+            const res = await fetch(endpoint, { cache: "no-store" });
+            const data = await res.json();
+
+            if (data.status === "success" && data.events) {
+                const logContainer = document.getElementById("event-log");
+                if (!logContainer) return;
+
+                logContainer.innerHTML = "";
+                data.events.forEach(ev => {
+                    let badgeColor = "#00eaff";
+                    let badgeBg = "rgba(0, 234, 255, 0.1)";
+                    if (ev.severity === "high") {
+                        badgeColor = "#ff4a4a";
+                        badgeBg = "rgba(255, 74, 74, 0.15)";
+                    } else if (ev.severity === "medium") {
+                        badgeColor = "#f59e0b";
+                        badgeBg = "rgba(245, 158, 11, 0.15)";
+                    }
+
+                    const item = document.createElement("div");
+                    item.style.cssText = "display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;";
+                    item.innerHTML = `
+                        <div>
+                            <span style="color: #64748b; font-size: 0.7rem;">[${ev.time}]</span>
+                            <span style="color: #e2e8f0; margin-left: 6px;">${ev.message}</span>
+                        </div>
+                        <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 2px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold; white-space: nowrap;">
+                            ${ev.type}
+                        </span>
+                    `;
+                    logContainer.appendChild(item);
+                });
+            }
+        } catch (e) {
+            console.error("Errore fetch event log:", e);
+        }
+    }
+
+    updateEventLogWidget();
+    setInterval(updateEventLogWidget, 10000);
+});
+</script>
 
         <!-- WIDGET SYSTEM STATUS - ADVANCED SOC EDITION -->
 <div class="soc-card" style="
