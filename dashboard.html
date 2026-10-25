@@ -1556,82 +1556,84 @@ statusBox.style.color = color;
 startThreatLevel();
 </script>
 
-		<!-- START: Automated Live Security Advisories Feed -->
-<div class="dashboard-widget auto-advisories-widget" style="background: #11141a; border: 1px solid #1f2833; border-top: 3px solid #45f3ff; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
+		<!-- START: Cyber Ops & Open-Source Arsenal Spotlight -->
+<div class="dashboard-widget arsenal-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #66fcf1; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
     
-    <!-- Intestazione Widget -->
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2833; padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+    <!-- Intestazione Terminale -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
         <div>
-            <h4 style="margin: 0; color: #45f3ff; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
-                🛡️ Global Security Advisories &amp; Patch Stream
+            <h4 style="margin: 0; color: #66fcf1; font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px; display: flex; align-items: center; gap: 8px;">
+                ⚡ [ANONLAB_OPS] :: Featured Arsenal &amp; Tech Gems
             </h4>
-            <span id="advisories-sync-time" style="font-size: 0.72rem; color: #666;">SINCRONIZZAZIONE AUTOMATICA DA API...</span>
+            <span id="arsenal-sync" style="font-size: 0.72rem; color: #666;">INIZIALIZZAZIONE STREAM ARSENALE...</span>
         </div>
-        <span style="background: rgba(69, 243, 255, 0.15); color: #45f3ff; border: 1px solid #45f3ff; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
-            LIVE FEED
+        <span style="background: rgba(102, 252, 241, 0.1); color: #66fcf1; border: 1px solid #66fcf1; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
+            CURATED INTEL
         </span>
     </div>
 
-    <!-- Container Dinamico -->
-    <div id="auto-advisories-container" style="display: flex; flex-direction: column; gap: 10px;">
-        <div style="text-align: center; padding: 20px; color: #45f3ff; font-size: 0.85rem;">
-            ⚡ Caricamento advisories in tempo reale...
+    <!-- Griglia delle Chicche Tecniche -->
+    <div id="arsenal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px;">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 25px; color: #66fcf1; font-size: 0.85rem;">
+            ⏳ Connessione al backend dell'arsenale in corso...
         </div>
     </div>
 </div>
 
-<!-- Script di Fetch Automatico -->
+<!-- Script di Caricamento -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Sostituisci con il tuo endpoint PHP su Altervista (es. api/advisories.php)
-    const advisoriesApiUrl = "https://angelonline.altervista.org/api/advisories.php";
+    // Sostituisci con l'URL corretto del file PHP su Altervista
+    const arsenalApiUrl = "https://angelonline.altervista.org/api/arsenal.php";
 
-    fetch(advisoriesApiUrl)
+    fetch(arsenalApiUrl)
         .then(res => res.json())
         .then(data => {
             if (data.status === "success" && data.items) {
-                renderAutoAdvisories(data.items);
-                document.getElementById("advisories-sync-time").textContent = `ULTIMO SYNC: ${data.timestamp}`;
+                renderArsenalGrid(data.items);
+                document.getElementById("arsenal-sync").textContent = `STATUS: SYNC OK [${data.timestamp}]`;
             } else {
-                throw new Error("Formato dati non valido");
+                throw new Error("Errore dati arsenale");
             }
         })
         .catch(err => {
-            console.error("Errore caricamento advisories:", err);
-            document.getElementById("auto-advisories-container").innerHTML = `
-                <div style="padding: 12px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center; font-size: 0.8rem;">
-                    ⚠️ Impossibile raggiungere l'endpoint API degli advisories su Altervista.
+            console.error("Errore fetch arsenale:", err);
+            document.getElementById("arsenal-grid").innerHTML = `
+                <div style="grid-column: 1 / -1; padding: 15px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center; font-size: 0.8rem;">
+                    ⚠️ Impossibile caricare il modulo arsenale da Altervista.
                 </div>`;
         });
 });
 
-function renderAutoAdvisories(items) {
-    const container = document.getElementById("auto-advisories-container");
+function renderArsenalGrid(items) {
+    const container = document.getElementById("arsenal-grid");
     container.innerHTML = "";
 
     items.forEach(item => {
-        const title = item.title || "Security Advisory Update";
-        const source = item.source || "NIST / MITRE";
-        const date = item.date || "";
-        const link = item.url || "#";
-
         const card = document.createElement("div");
-        card.style.cssText = "background: #0b0c10; border: 1px solid #222; border-left: 3px solid #66fcf1; padding: 12px; border-radius: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; transition: border-color 0.2s;";
+        card.style.cssText = "background: #11141a; border: 1px solid #1f2833; padding: 15px; border-radius: 3px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; transition: all 0.2s ease;";
         
-        card.onmouseover = function() { this.style.borderColor = '#45f3ff'; };
-        card.onmouseout = function() { this.style.borderColor = '#222'; };
+        card.onmouseover = function() { 
+            this.style.borderColor = '#66fcf1'; 
+            this.style.transform = 'translateY(-2px)';
+        };
+        card.onmouseout = function() { 
+            this.style.borderColor = '#1f2833'; 
+            this.style.transform = 'translateY(0)';
+        };
 
         card.innerHTML = `
             <div>
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-                    <span style="background: #1f2833; color: #66fcf1; padding: 1px 6px; font-size: 0.68rem; border-radius: 2px;">${source}</span>
-                    ${date ? `<span style="color: #666; font-size: 0.68rem;">[${date}]</span>` : ''}
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="color: #ff8c00; font-size: 0.68rem; font-weight: bold; background: rgba(255, 140, 0, 0.1); padding: 2px 6px; border-radius: 2px;">${item.category}</span>
+                    <span style="color: #666; font-size: 0.68rem;">${item.tech}</span>
                 </div>
-                <div style="color: #ffffff; font-size: 0.82rem; font-weight: bold; max-width: 500px;">${title}</div>
+                <div style="color: #ffffff; font-size: 0.88rem; font-weight: bold; margin-bottom: 6px;">${item.title}</div>
+                <p style="margin: 0; color: #85929E; font-size: 0.78rem; line-height: 1.4;">${item.description}</p>
             </div>
-            <div>
-                <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: #45f3ff; text-decoration: none; font-size: 0.75rem; font-weight: bold; border-bottom: 1px dashed #45f3ff;">
-                    ADVISORY →
+            <div style="text-align: right; border-top: 1px dashed #1f2833; padding-top: 8px; margin-top: 5px;">
+                <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color: #66fcf1; text-decoration: none; font-size: 0.75rem; font-weight: bold;">
+                    REPOSITORY / TOOL →
                 </a>
             </div>
         `;
@@ -1639,7 +1641,7 @@ function renderAutoAdvisories(items) {
     });
 }
 </script>
-<!-- END: Automated Live Security Advisories Feed -->
+<!-- END: Cyber Ops & Open-Source Arsenal Spotlight -->
 
 		<!-- START: Automated Live Cyber News Stream -->
 <div class="dashboard-widget auto-news-widget" style="background: #11141a; border: 1px solid #1f2833; border-top: 3px solid #ff4a4a; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
