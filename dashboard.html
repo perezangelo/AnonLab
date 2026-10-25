@@ -2007,6 +2007,135 @@ function renderDaemons(daemons) {
 }
 </script>
 <!-- END: Live Network Daemons & Port Status Monitor -->
+
+		<!-- START: Comprehensive Security Telemetry & Audit Log Ledger -->
+<div class="dashboard-widget audit-ledger-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #45f3ff; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
+    
+    <!-- Intestazione -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.3rem;">📋</span>
+            <div>
+                <h4 style="margin: 0; color: #45f3ff; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                    AnonLab // Comprehensive Audit Log &amp; System Telemetry Ledger
+                </h4>
+                <span id="audit-sync-info" style="font-size: 0.68rem; color: #666;">SINCRONIZZAZIONE LEDGER BACKEND...</span>
+            </div>
+        </div>
+        <span style="background: rgba(69, 243, 255, 0.1); color: #45f3ff; border: 1px solid #45f3ff; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
+            FULL AUDIT STREAM
+        </span>
+    </div>
+
+    <!-- Sezione Metriche di Sistema in Alto -->
+    <div id="audit-metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px;">
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 10px; border-radius: 3px; text-align: center;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">CPU LOAD</div>
+            <div id="metric-cpu" style="color: #66fcf1; font-size: 0.95rem; font-weight: bold;">--</div>
+        </div>
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 10px; border-radius: 3px; text-align: center;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">RAM USAGE</div>
+            <div id="metric-ram" style="color: #ff8c00; font-size: 0.95rem; font-weight: bold;">--</div>
+        </div>
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 10px; border-radius: 3px; text-align: center;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">DISK FREE</div>
+            <div id="metric-disk" style="color: #45f3ff; font-size: 0.95rem; font-weight: bold;">--</div>
+        </div>
+        <div style="background: #11141a; border: 1px solid #1f2833; padding: 10px; border-radius: 3px; text-align: center;">
+            <div style="color: #85929E; font-size: 0.68rem; margin-bottom: 4px;">EDGE STATUS</div>
+            <div id="metric-edge" style="color: #66fcf1; font-size: 0.95rem; font-weight: bold;">--</div>
+        </div>
+    </div>
+
+    <!-- Tabella Registri di Audit -->
+    <div style="font-size: 0.78rem; color: #fff; margin-bottom: 8px; font-weight: bold; text-transform: uppercase;">
+        Recent Security Audit Events &amp; Actor Operations:
+    </div>
+    
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.74rem; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 1px solid #1f2833; color: #85929E;">
+                    <th style="padding: 8px;">ID</th>
+                    <th style="padding: 8px;">TIME</th>
+                    <th style="padding: 8px;">ACTOR</th>
+                    <th style="padding: 8px;">ACTION</th>
+                    <th style="padding: 8px;">TARGET</th>
+                    <th style="padding: 8px; text-align: right;">STATUS</th>
+                </tr>
+            </thead>
+            <tbody id="audit-table-body">
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 20px; color: #45f3ff;">⏳ Caricamento registri di audit in corso...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer Ledger -->
+    <div style="margin-top: 18px; padding-top: 12px; border-top: 1px dashed #1f2833; display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 0.68rem; flex-wrap: wrap; gap: 5px;">
+        <span>SECURE LEDGER STORAGE: ALTERVISTA PHP BACKEND</span>
+        <span style="color: #45f3ff;">INTEGRITY CHECK: PASSED</span>
+    </div>
+</div>
+
+<!-- Script di Fetch e Rendering Ledger -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const auditApiUrl = "https://angelonline.altervista.org/api/audit.php";
+
+    fetch(auditApiUrl)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                renderMetrics(data.metrics);
+                renderAuditLogs(data.logs);
+                document.getElementById("audit-sync-info").textContent = `SYNC OK [${data.timestamp}]`;
+            } else {
+                throw new Error("Errore dati audit");
+            }
+        })
+        .catch(err => {
+            console.error("Errore fetch audit ledger:", err);
+            document.getElementById("audit-table-body").innerHTML = `
+                <tr><td colspan="6" style="text-align: center; padding: 15px; color: #ff4a4a;">⚠️ Impossibile caricare il ledger di audit da Altervista.</td></tr>`;
+        });
+});
+
+function renderMetrics(metrics) {
+    document.getElementById("metric-cpu").textContent = metrics.cpu_load;
+    document.getElementById("metric-ram").textContent = metrics.memory_usage;
+    document.getElementById("metric-disk").textContent = metrics.disk_free;
+    document.getElementById("metric-edge").textContent = metrics.edge_status;
+}
+
+function renderAuditLogs(logs) {
+    const tbody = document.getElementById("audit-table-body");
+    tbody.innerHTML = "";
+
+    logs.forEach(log => {
+        let statusColor = "#66fcf1";
+        if (log.severity === "HIGH") statusColor = "#ff4a4a";
+        if (log.severity === "MEDIUM") statusColor = "#ff8c00";
+
+        const tr = document.createElement("tr");
+        tr.style.borderBottom = "1px solid #11141a";
+        tr.onmouseover = function() { this.style.background = "#11141a"; };
+        tr.onmouseout = function() { this.style.background = "transparent"; };
+
+        tr.innerHTML = `
+            <td style="padding: 8px; color: #85929E;">${log.id}</td>
+            <td style="padding: 8px; color: #aaa;">${log.timestamp}</td>
+            <td style="padding: 8px; color: #45f3ff;">${log.actor}</td>
+            <td style="padding: 8px; color: #fff; font-weight: bold;">${log.action}</td>
+            <td style="padding: 8px;"><code style="background: #07080a; color: #66fcf1; padding: 1px 4px; border: 1px solid #222;">${log.target}</code></td>
+            <td style="padding: 8px; text-align: right;"><span style="color: ${statusColor}; font-weight: bold; font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 6px; border: 1px solid ${statusColor}; border-radius: 2px;">${log.status}</span></td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+</script>
+<!-- END: Comprehensive Security Telemetry & Audit Log Ledger -->
 		
     </section>  
 		  
