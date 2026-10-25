@@ -1742,6 +1742,96 @@ function renderAutoNews(articles) {
 }
 </script>
 <!-- END: Automated Live Cyber News Stream -->
+
+		<!-- START: Global Threat Intelligence Radar Widget -->
+<div class="dashboard-widget threat-radar-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #ff4a4a; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
+    
+    <!-- Intestazione Radar -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.3rem;">📡</span>
+            <div>
+                <h4 style="margin: 0; color: #ff4a4a; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                    Global Threat Intelligence &amp; IoC Radar
+                </h4>
+                <span id="threat-radar-sync" style="font-size: 0.7rem; color: #666;">SINCRONIZZAZIONE FEED LIVE...</span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 8px; height: 8px; background: #ff4a4a; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #ff4a4a;"></span>
+            <span style="color: #ff4a4a; font-size: 0.7rem; font-weight: bold;">LIVE FEED ACTIVE</span>
+        </div>
+    </div>
+
+    <!-- Container Dinamico -->
+    <div id="threat-radar-container" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+        <div style="text-align: center; padding: 25px; color: #ff4a4a; font-size: 0.85rem;">
+            ⏳ Connessione al feed CISA KEV Threat Intelligence...
+        </div>
+    </div>
+
+    <!-- Footer Radar -->
+    <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #1f2833; display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 0.68rem; flex-wrap: wrap; gap: 5px;">
+        <span>SOURCE: CISA KNOWN EXPLOITED VULNERABILITIES FEED</span>
+        <span style="color: #ff4a4a;" id="threat-radar-status">STATUS: FETCHING</span>
+    </div>
+</div>
+
+<!-- Script di Fetch Dinamico Threat Radar -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const threatApiUrl = "https://angelonline.altervista.org/api/threats.php";
+
+    fetch(threatApiUrl)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success" && data.items) {
+                renderThreatRadar(data.items);
+                document.getElementById("threat-radar-sync").textContent = `SYNC OK [${data.timestamp}]`;
+                document.getElementById("threat-radar-status").textContent = "STATUS: SYNCHRONIZED";
+            } else {
+                throw new Error("Formato dati threat radar non valido");
+            }
+        })
+        .catch(err => {
+            console.error("Errore fetch threat radar:", err);
+            document.getElementById("threat-radar-container").innerHTML = `
+                <div style="padding: 15px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center; font-size: 0.8rem;">
+                    ⚠️ Impossibile caricare il feed di Threat Intelligence da Altervista.
+                </div>`;
+            document.getElementById("threat-radar-status").textContent = "STATUS: ERROR";
+        });
+});
+
+function renderThreatRadar(items) {
+    const container = document.getElementById("threat-radar-container");
+    container.innerHTML = "";
+
+    items.forEach(item => {
+        const card = document.createElement("div");
+        card.style.cssText = "background: #11141a; border: 1px solid #1f2833; border-left: 3px solid #ff4a4a; padding: 12px; border-radius: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; width: 100%; box-sizing: border-box; transition: border-color 0.2s;";
+        
+        card.onmouseover = function() { this.style.borderColor = '#ff4a4a'; };
+        card.onmouseout = function() { this.style.borderColor = '#1f2833'; };
+
+        card.innerHTML = `
+            <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                    <span style="color: #ff4a4a; font-weight: bold; font-size: 0.8rem;">${item.type}</span>
+                    <code style="background: #0b0c10; color: #66fcf1; padding: 2px 6px; font-size: 0.75rem; border: 1px solid #333;">${item.indicator}</code>
+                    <span style="color: #666; font-size: 0.68rem;">[Added: ${item.date}]</span>
+                </div>
+                <div style="color: #ffffff; font-size: 0.82rem; font-weight: bold;">${item.description}</div>
+            </div>
+            <div style="text-align: right;">
+                <span style="background: rgba(255, 74, 74, 0.15); color: #ff4a4a; border: 1px solid #ff4a4a; padding: 2px 6px; font-size: 0.68rem; border-radius: 2px; font-weight: bold;">${item.action}</span>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+</script>
+<!-- END: Global Threat Intelligence Radar Widget -->
 		
     </section>  
 		  
