@@ -178,28 +178,15 @@ fetch("/partials/ticker.html")
 
 <!-- GRAFICO ATTACCHI -->
 <div class="soc-card">
-  <h2>Attività di sicurezza — ultime 24h</h2>
+  <h2>Attacchi rilevati (ultime 24h)</h2>
 
-    <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
-    Andamento orario degli eventi di sicurezza registrati dal servizio SOC
-    nelle ultime 24 ore. I valori dipendono dagli eventi effettivamente
-    presenti nel registro.
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Attività ostili rilevate nelle ultime 24 ore. Il grafico mostra il numero di attacchi per ogni ora, evidenziando picchi anomali e pattern ricorrenti.
   </p>
 
-  <p
-    id="attacksChartStatus"
-    role="status"
-    aria-live="polite"
-    style="opacity:0.75; font-size:0.8rem; margin-bottom:10px;"
-  >
-    Caricamento dati...
-  </p>
-
-  <div style="position:relative; width:100%; height:260px;">
-    <canvas id="attacksChart" aria-label="Grafico orario dell'attività di sicurezza" role="img"></canvas>
-  </div>
+  <canvas id="attacksChart" height="260"></canvas>
 </div>
-
+		  
         <!-- EVENT LOG -->
 <div class="soc-card">
   <h2>Event Log</h2>
