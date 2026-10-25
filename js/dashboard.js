@@ -1,4 +1,3 @@
-
 /* ============================================================
    ATTIVITÀ DI SICUREZZA — ultime 24h
    Endpoint AlterVista; valori attualmente simulati
