@@ -3112,30 +3112,43 @@ function startTrendingTopics() {
 startTrendingTopics();
 </script>
 
-	<script>
+<script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Feed RSS pubblico di Darknet Diaries
-    const rssUrl = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.megaphone.fm%2Fdarknetdiaries";
+    // Feed RSS diretto di Darknet Diaries
+    const targetRssUrl = "https://feeds.megaphone.fm/darknetdiaries";
+    // Proxy CORS gratuito e affidabile
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetRssUrl)}`;
 
-    fetch(rssUrl)
-        .then(response => response.json())
+    fetch(proxyUrl)
+        .then(response => {
+            if (response.ok) return response.json();
+            throw new Error('Errore di rete durante il recupero del proxy');
+        })
         .then(data => {
-            if (data.status === 'ok') {
-                const latestEpisode = data.items[0];
+            // Parsing dell'XML del feed RSS
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+            
+            // Estrazione del primo episodio (<item>)
+            const latestItem = xmlDoc.querySelector("item");
+
+            if (latestItem) {
+                const title = latestItem.querySelector("title")?.textContent || "Episodio Darknet Diaries";
+                const descriptionRaw = latestItem.querySelector("description")?.textContent || "";
 
                 // 1. Aggiorna il titolo dell'episodio
                 const episodeTitleElement = document.querySelector('.media-player-wrapper p strong');
-                if (episodeTitleElement) {
-                    episodeTitleElement.nextSibling.textContent = " " + latestEpisode.title;
+                if (episodeTitleElement && episodeTitleElement.nextSibling) {
+                    episodeTitleElement.nextSibling.textContent = " " + title;
                 }
 
-                // 2. Aggiorna la descrizione (Debriefing Note)
+                // 2. Pulizia e aggiornamento della descrizione (Debriefing Note)
                 const debriefParagraph = document.querySelector('.episode-notes p');
                 if (debriefParagraph) {
-                    // Pulisce l'HTML dalla descrizione dell'RSS per mostrare solo testo pulito
-                    let cleanDescription = latestEpisode.description.replace(/<[^>]*>?/gm, '');
-                    if (cleanDescription.length > 200) {
-                        cleanDescription = cleanDescription.substring(0, 200) + '...';
+                    // Rimuove eventuali tag HTML dalla descrizione
+                    let cleanDescription = descriptionRaw.replace(/<[^>]*>?/gm, '');
+                    if (cleanDescription.length > 220) {
+                        cleanDescription = cleanDescription.substring(0, 220) + '...';
                     }
                     debriefParagraph.textContent = cleanDescription;
                 }
