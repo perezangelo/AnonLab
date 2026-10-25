@@ -3163,52 +3163,6 @@ function startTrendingTopics() {
 startTrendingTopics();
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Feed RSS diretto di Darknet Diaries
-    const targetRssUrl = "https://feeds.megaphone.fm/darknetdiaries";
-    // Proxy CORS gratuito e affidabile
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetRssUrl)}`;
-
-    fetch(proxyUrl)
-        .then(response => {
-            if (response.ok) return response.json();
-            throw new Error('Errore di rete durante il recupero del proxy');
-        })
-        .then(data => {
-            // Parsing dell'XML del feed RSS
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data.contents, "text/xml");
-            
-            // Estrazione del primo episodio (<item>)
-            const latestItem = xmlDoc.querySelector("item");
-
-            if (latestItem) {
-                const title = latestItem.querySelector("title")?.textContent || "Episodio Darknet Diaries";
-                const descriptionRaw = latestItem.querySelector("description")?.textContent || "";
-
-                // 1. Aggiorna il titolo dell'episodio
-                const episodeTitleElement = document.querySelector('.media-player-wrapper p strong');
-                if (episodeTitleElement && episodeTitleElement.nextSibling) {
-                    episodeTitleElement.nextSibling.textContent = " " + title;
-                }
-
-                // 2. Pulizia e aggiornamento della descrizione (Debriefing Note)
-                const debriefParagraph = document.querySelector('.episode-notes p');
-                if (debriefParagraph) {
-                    // Rimuove eventuali tag HTML dalla descrizione
-                    let cleanDescription = descriptionRaw.replace(/<[^>]*>?/gm, '');
-                    if (cleanDescription.length > 220) {
-                        cleanDescription = cleanDescription.substring(0, 220) + '...';
-                    }
-                    debriefParagraph.textContent = cleanDescription;
-                }
-            }
-        })
-        .catch(err => console.error("Errore nel recupero del feed di Darknet Diaries:", err));
-});
-</script>
-
 	<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
