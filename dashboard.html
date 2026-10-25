@@ -1929,6 +1929,84 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <!-- END: SOC Interactive PHP-Backed Diagnostics Terminal & User Guide -->
+
+		<!-- START: Live Network Daemons & Port Status Monitor -->
+<div class="dashboard-widget daemons-status-widget" style="background: #0b0c10; border: 1px solid #1f2833; border-top: 3px solid #ff8c00; padding: 20px; border-radius: 4px; margin-top: 25px; font-family: monospace;">
+    
+    <!-- Intestazione -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1f2833; padding-bottom: 12px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.2rem;">⚡</span>
+            <div>
+                <h4 style="margin: 0; color: #ff8c00; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;">
+                    AnonLab // Live Core Daemons &amp; Ports Monitor
+                </h4>
+                <span id="daemons-sync-time" style="font-size: 0.68rem; color: #666;">SINCRONIZZAZIONE BACKEND PHP...</span>
+            </div>
+        </div>
+        <span style="background: rgba(255, 140, 0, 0.1); color: #ff8c00; border: 1px solid #ff8c00; padding: 2px 8px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
+            DAEMONS ACTIVE
+        </span>
+    </div>
+
+    <!-- Container Dinamico -->
+    <div id="daemons-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 15px; color: #ff8c00; font-size: 0.8rem;">
+            ⏳ Interrogazione servizi di rete su anonlab.altervista.org in corso...
+        </div>
+    </div>
+</div>
+
+<!-- Script di Fetch Stato Daemons -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const statusApiUrl = "https://angelonline.altervista.org/api/status.php";
+
+    fetch(statusApiUrl)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success" && data.daemons) {
+                renderDaemons(data.daemons);
+                document.getElementById("daemons-sync-time").textContent = `SYNC OK [${data.timestamp}]`;
+            } else {
+                throw new Error("Formato dati non valido");
+            }
+        })
+        .catch(err => {
+            console.error("Errore fetch daemons:", err);
+            document.getElementById("daemons-container").innerHTML = `
+                <div style="grid-column: 1 / -1; padding: 12px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center; font-size: 0.78rem;">
+                    ⚠️ Impossibile raggiungere l'endpoint daemon su Altervista.
+                </div>`;
+        });
+});
+
+function renderDaemons(daemons) {
+    const container = document.getElementById("daemons-container");
+    container.innerHTML = "";
+
+    daemons.forEach(service => {
+        const card = document.createElement("div");
+        card.style.cssText = "background: #11141a; border: 1px solid #1f2833; padding: 12px; border-radius: 3px; display: flex; flex-direction: column; gap: 6px; transition: border-color 0.2s;";
+        
+        card.onmouseover = function() { this.style.borderColor = '#ff8c00'; };
+        card.onmouseout = function() { this.style.borderColor = '#1f2833'; };
+
+        card.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #ffffff; font-size: 0.8rem; font-weight: bold;">${service.name}</span>
+                <span style="background: rgba(102, 252, 241, 0.1); color: #66fcf1; padding: 1px 5px; font-size: 0.68rem; border-radius: 2px;">:${service.port}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; margin-top: 4px;">
+                <span style="color: #66fcf1; font-weight: bold;">● ${service.status}</span>
+                <span style="color: #85929E;">Latency: ${service.latency}</span>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+</script>
+<!-- END: Live Network Daemons & Port Status Monitor -->
 		
     </section>  
 		  
