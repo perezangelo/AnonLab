@@ -1716,137 +1716,259 @@ Scarica report previsionale 2026
 </button>
 </div>
 
-<!-- START: Vertical Threat Feed Widget (API Powered) -->
-<section class="cve-feed-vertical" style="margin-top: 30px; margin-bottom: 40px; padding: 20px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace; border-radius: 4px;">
+<!-- START: Cyber Video Feed & Threat Intelligence (Full URL Integration) -->
+<section class="cyber-podcast-section" style="margin-top: 40px; padding: 20px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace;">
     
-    <!-- Intestazione Widget con Search Bar Integrata -->
-    <div style="border-bottom: 2px solid #ff4a4a; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <div>
-            <h3 style="margin: 0; color: #ff4a4a; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
-                🚨 Real-Time Critical Threat Feed
-            </h3>
-            <span id="cve-sync-time" style="font-size: 0.75rem; color: #666;">Connessione all'API in corso...</span>
+    <!-- Intestazione AnonLab con Pulsante Iscriviti -->
+    <div class="podcast-header" style="border-bottom: 2px solid #45f3ff; padding-bottom: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <h3 style="margin: 0; color: #45f3ff; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px;">
+            📡 Live Cyber Video Feed &amp; Threat Intelligence
+        </h3>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 0.8rem; color: #666; animation: blink 1.5s infinite;">● STREAMING ON-AIR</span>
+            <a href="https://www.youtube.com/channel/UC4C251k_4vV4Y6WlV-qP_aA?sub_confirmation=1" target="_blank" rel="noopener noreferrer" style="background: transparent; color: #ff4a4a; border: 1px solid #ff4a4a; padding: 5px 12px; font-size: 0.75rem; font-family: monospace; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 5px;" onmouseover="this.style.background='#ff4a4a'; this.style.color='#0b0c10';" onmouseout="this.style.background='transparent'; this.style.color='#ff4a4a';">
+                ▶ SUBSCRIBE
+            </a>
         </div>
+    </div>
+
+    <!-- Contenitore principale verticale -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
         
-        <!-- Campo di Ricerca Rapida -->
-        <input type="text" id="cve-filter-input" placeholder="🔍 Filtra (es. Microsoft, Cisco, RCE)..." onkeyup="filterCveCards()" style="background: #11141a; border: 1px solid #333; color: #45f3ff; padding: 8px 12px; font-family: monospace; font-size: 0.8rem; border-radius: 4px; outline: none; min-width: 240px;" onfocus="this.style.borderColor='#45f3ff'" onblur="this.style.borderColor='#333'">
-    </div>
-
-    <!-- Contenitore Schede Verticali -->
-    <div id="cve-cards-container" style="display: flex; flex-direction: column; gap: 12px;">
-        <div style="text-align: center; padding: 30px; color: #45f3ff;">
-            ⚡ Caricamento ultime vulnerabilità critiche dall'API...
+        <!-- 1. Player Video a Larghezza Piena -->
+        <div class="media-player-wrapper" style="background: #1f2833; padding: 10px; border: 1px solid #333; width: 100%; box-sizing: border-box;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                    src="https://www.youtube.com/embed/Cx1QpqDrobw?list=PLhT6jSB4PiPFWrW3qdONSWtB0yhuZJnXK" 
+                    title="0-Day Cybersecurity Video Podcast Feed" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            <!-- Dettaglio Riproduzione con Link Diretto Completo -->
+            <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.85rem;">
+                <p style="margin: 0; color: #45f3ff;">
+                    <strong>Riproduzione corrente:</strong> 💀 PHISHING: Il click da 25 milioni di dollari — Anatomia di un incubo digitale
+                </p>
+                <a href="https://www.youtube.com/watch?v=Cx1QpqDrobw&list=PLhT6jSB4PiPFWrW3qdONSWtB0yhuZJnXK" target="_blank" rel="noopener noreferrer" style="color: #66fcf1; text-decoration: none; font-weight: bold; border-bottom: 1px dashed #66fcf1;">
+                    ↗ APRI SU YOUTUBE
+                </a>
+            </div>
         </div>
-    </div>
 
-    <!-- Footer Legenda -->
-    <div style="margin-top: 20px; border-top: 1px dashed #222; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.75rem; color: #85929E;">
-        <div>
-            <span style="color: #ff4a4a; font-weight: bold;">■ CRITICAL EXPLOIT</span>
-            <span style="margin-left: 10px; color: #ff8c00; font-weight: bold;">🔥 RANSOMWARE THREAT</span>
+        <!-- 2. Griglia inferiore per le informazioni (2 Colonne affiancate sotto il video) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            
+            <!-- Colonna Info 1: Debriefing Note -->
+            <div class="episode-notes" style="background: #11141a; padding: 15px; border: 1px solid #222; font-size: 0.85rem;">
+                <h4 style="margin-top: 0; color: #66fcf1; border-bottom: 1px dashed #333; padding-bottom: 5px; text-transform: uppercase;">
+                    📋 Debriefing Note
+                </h4>
+                <p style="color: #85929E; line-height: 1.4;">
+                    Analisi forense e intelligence multimediale: approfondimenti su vettori di attacco emergenti, campagne APT, Business Email Compromise (BEC) e tecniche di difesa per i SOC team.
+                </p>
+                <ul style="list-style-type: '▪ '; padding-left: 15px; margin: 10px 0; color: #a6b1e1; line-height: 1.5;">
+                    <li>Analisi vettori di attacco e Social Engineering</li>
+                    <li>Tecniche di evasione EDR e bypass MFA</li>
+                    <li>Protocolli di Incident Response &amp; Threat Hunting</li>
+                </ul>
+            </div>
+
+            <!-- Colonna Info 2: Fonti e Indicatori -->
+            <div class="extracted-indicators" style="background: #11141a; padding: 15px; border: 1px solid #222; font-size: 0.85rem;">
+                <h4 style="margin-top: 0; color: #66fcf1; border-bottom: 1px dashed #333; padding-bottom: 5px; text-transform: uppercase;">
+                    🔗 Risorse &amp; Intelligence
+                </h4>
+                <div style="margin-bottom: 10px;">
+                    <span style="display: block; font-size: 0.75rem; color: #666;">FONTI UFFICIALI:</span>
+                    <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" style="color: #45f3ff; text-decoration: none; font-size: 0.8rem;">→ Advisory CISA KEV Catalog</a><br>
+                    <a href="https://github.com/SigmaHQ/sigma" target="_blank" style="color: #45f3ff; text-decoration: none; font-size: 0.8rem;">→ Regole di Detection Sigma HQ</a>
+                </div>
+                <div style="border-top: 1px solid #222; padding-top: 10px;">
+                    <span style="display: block; font-size: 0.75rem; color: #ff4a4a; font-weight: bold;">⚡ FOCUS OPERATIVO:</span>
+                    <p style="margin: 5px 0 0 0; font-size: 0.8rem; line-height: 1.3; color: #9aa0a6;">
+                        Verifica continua dei perimetri esposti, auditing delle credenziali privilegiate e patch management prioritario sulle CVE note.
+                    </p>
+                </div>
+            </div>
+
         </div>
-        <span>Fonte: <strong>CISA KEV via AnonLab API</strong></span>
+
     </div>
 </section>
 
-<!-- Script JS Client-Side -->
+<!-- CSS unificato per l'animazione di blinking -->
+<style>
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+</style>
+<!-- END: Cyber Video Feed & Threat Intelligence -->
+
+	<!-- START: Global Threat Intelligence - CVE Critical Journal Table with Search Filter -->
+<section class="cve-journal-section" style="margin-top: 40px; margin-bottom: 40px; padding: 20px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace;">
+    
+    <!-- Intestazione Widget con Filtro di Ricerca Integrato -->
+    <div class="cve-header" style="border-bottom: 2px solid #ff4a4a; padding-bottom: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <h3 style="margin: 0; color: #ff4a4a; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 1.4rem;">⚠️</span> Real-Time Critical Vulnerability Journal (Top 10 CVE)
+        </h3>
+        
+        <!-- Barra di Ricerca Veloce -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="text" id="cve-search-input" placeholder="Filtra per vendor o CVE..." onkeyup="filterCveTable()" style="background: #11141a; border: 1px solid #333; color: #45f3ff; padding: 6px 12px; font-family: monospace; font-size: 0.8rem; border-radius: 4px; outline: none; width: 220px;" onfocus="this.style.borderColor='#45f3ff'" onblur="this.style.borderColor='#333'">
+            <div style="font-size: 0.75rem; color: #666; display: flex; align-items: center; gap: 5px;">
+                <span id="cve-last-sync">SYNCING...</span>
+                <span style="animation: blink 1.5s infinite; color: #ff4a4a;">●</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrapper Reattivo per Tabella Orizzontale -->
+    <div class="cve-table-container" style="width: 100%; overflow-x: auto; background: #11141a; border: 1px solid #1f2833; border-radius: 4px;">
+        <table id="cve-data-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.82rem; white-space: nowrap;">
+            <thead>
+                <tr style="background: #1f2833; color: #66fcf1; border-bottom: 1px solid #333; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;">
+                    <th style="padding: 12px 15px;">Codice CVE</th>
+                    <th style="padding: 12px 15px;">Vendor / Prodotto</th>
+                    <th style="padding: 12px 15px;">CVSS v3/v4</th>
+                    <th style="padding: 12px 15px;">Stato Exploit</th>
+                    <th style="padding: 12px 15px;">Descrizione Minaccia</th>
+                    <th style="padding: 12px 15px; text-align: right;">Azione</th>
+                </tr>
+            </thead>
+            <tbody id="cve-table-body" style="color: #c5c6c7;">
+                <!-- Riga di Loading Iniziale -->
+                <tr>
+                    <td colspan="6" style="padding: 25px; text-align: center; color: #45f3ff;">
+                        ⚡ Recupero degli ultimi vettori di vulnerabilità critica in corso...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer della tabella con legende -->
+    <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.75rem; color: #85929E;">
+        <div>
+            <span>LEGENDA: </span>
+            <span style="color: #ff4a4a; font-weight: bold; margin-right: 10px;">■ CRITICAL (9.0 - 10.0)</span>
+            <span style="color: #ff8c00; font-weight: bold;">■ ACTIVE EXPLOIT RISK</span>
+        </div>
+        <div>
+            <span>Fonte dati: <strong>CISA Known Exploited Vulnerabilities (KEV)</strong></span>
+        </div>
+    </div>
+</section>
+
 <script>
-let localCveList = [];
+let globalCveData = [];
 
 document.addEventListener("DOMContentLoaded", function() {
-    // URL dell'API PHP nella cartella api/ di Altervista
-    const phpApiUrl = "https://TUOACCOUNT.altervista.org/api/cve.php";
+    // URL CISA racchiuso nel proxy trasparente corsproxy.io per bypassare il blocco CORS
+    const targetUrl = encodeURIComponent("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json");
+    const cisaKevUrl = `https://corsproxy.io/?${targetUrl}`;
 
-    fetch(phpApiUrl)
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === "success" && data.items) {
-                localCveList = data.items;
-                renderCveCards(localCveList);
-                document.getElementById("cve-sync-time").textContent = `ULTIMO SYNC API: ${data.timestamp}`;
-            } else {
-                throw new Error("Risposta API non valida");
-            }
+    fetch(cisaKevUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Risposta di rete non valida");
+            return response.json();
         })
-        .catch(err => {
-            console.error("Errore fetch API:", err);
-            document.getElementById("cve-cards-container").innerHTML = `
-                <div style="padding: 15px; background: #1a0f0f; border: 1px solid #ff4a4a; color: #ff4a4a; text-align: center;">
-                    ⚠️ Impossibile comunicare con l'endpoint API su Altervista. Verifica l'URL.
-                </div>`;
+        .then(data => {
+            const vulnerabilities = data.vulnerabilities || [];
+            globalCveData = vulnerabilities.slice(-10).reverse(); // Prendi le ultime 10
+            renderCveTable(globalCveData);
+
+            const now = new Date();
+            document.getElementById("cve-last-sync").textContent = `SYNC: ${now.toLocaleTimeString()}`;
+        })
+        .catch(error => {
+            console.error("Errore recupero CVE:", error);
+            // Fallback con dati statici aggiornati se il feed non risponde
+            globalCveData = [
+                {
+                    cveID: "CVE-2024-30078",
+                    vendorProject: "Microsoft",
+                    product: "Windows Wi-Fi Driver",
+                    shortDescription: "Windows Wi-Fi Driver Remote Code Execution Vulnerability",
+                    knownRansomwareCampaignUse: "Known"
+                },
+                {
+                    cveID: "CVE-2024-21887",
+                    vendorProject: "Ivanti",
+                    product: "Connect Secure",
+                    shortDescription: "Ivanti Connect Secure Command Injection Vulnerability",
+                    knownRansomwareCampaignUse: "Known"
+                }
+            ];
+            renderCveTable(globalCveData);
+            document.getElementById("cve-last-sync").textContent = "MODE: OFFLINE CACHE";
         });
 });
 
-function renderCveCards(items) {
-    const container = document.getElementById("cve-cards-container");
-    container.innerHTML = "";
+function renderCveTable(dataArray) {
+    const tbody = document.getElementById("cve-table-body");
+    tbody.innerHTML = "";
 
-    if (items.length === 0) {
-        container.innerHTML = `<div style="padding: 20px; text-align: center; color: #ff4a4a;">Nessun risultato trovato per il filtro applicato.</div>`;
+    if (dataArray.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="padding: 20px; text-align: center; color: #ff4a4a;">Nessuna vulnerabilità corrisponde al filtro di ricerca.</td></tr>`;
         return;
     }
 
-    items.forEach(item => {
+    dataArray.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.style.borderBottom = "1px solid #1f2833";
+        tr.style.transition = "background 0.2s ease";
+        tr.onmouseover = function() { this.style.background = "#19222d"; };
+        tr.onmouseout = function() { this.style.background = "transparent"; };
+
         const cveId = item.cveID || "N/A";
-        const vendor = item.vendorProject || "Unknown Vendor";
-        const product = item.product || "General Product";
-        const title = item.vulnerabilityName || item.shortDescription || "Descrizione non disponibile";
-        const desc = item.shortDescription || "";
-        const isRansomware = item.knownRansomwareCampaignUse === "Known";
+        const vendor = `${item.vendorProject || 'Unknown'} (${item.product || 'General'})`;
+        const shortDesc = item.shortDescription ? (item.shortDescription.length > 60 ? item.shortDescription.substring(0, 60) + "..." : item.shortDescription) : "Analisi dettagliata disponibile sull'advisory.";
+        const isKnownExploit = item.knownRansomwareCampaignUse === "Known" ? "ACTIVE RANSOMWARE" : "ACTIVE EXPLOIT";
 
-        const card = document.createElement("div");
-        card.className = "cve-card-item";
-        card.style.cssText = "background: #11141a; border: 1px solid #1f2833; border-left: 4px solid #ff4a4a; padding: 15px; border-radius: 4px; transition: transform 0.2s ease, border-color 0.2s ease;";
-        
-        card.onmouseover = function() { this.style.borderColor = "#45f3ff"; this.style.transform = "translateX(4px)"; };
-        card.onmouseout = function() { this.style.borderColor = "#1f2833"; this.style.borderLeftColor = "#ff4a4a"; this.style.transform = "translateX(0)"; };
-
-        card.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
-                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                    <span style="color: #45f3ff; font-weight: bold; font-size: 0.95rem;">${cveId}</span>
-                    <span style="background: #1f2833; color: #ffffff; padding: 2px 8px; font-size: 0.75rem; border-radius: 3px;">${vendor} — ${product}</span>
-                </div>
-                <div style="display: flex; gap: 8px;">
-                    <span style="background: rgba(255, 74, 74, 0.15); color: #ff4a4a; border: 1px solid #ff4a4a; padding: 2px 6px; font-size: 0.7rem; font-weight: bold; border-radius: 3px;">
-                        CRITICAL 9.8
-                    </span>
-                    ${isRansomware ? '<span style="background: rgba(255, 140, 0, 0.15); color: #ff8c00; border: 1px solid #ff8c00; padding: 2px 6px; font-size: 0.7rem; font-weight: bold; border-radius: 3px;">🔥 RANSOMWARE</span>' : ''}
-                </div>
-            </div>
-            
-            <div style="color: #66fcf1; font-weight: bold; font-size: 0.85rem; margin-bottom: 6px;">
-                ${title}
-            </div>
-            
-            <p style="margin: 0 0 10px 0; color: #85929E; font-size: 0.8rem; line-height: 1.4;">
-                ${desc}
-            </p>
-            
-            <div style="text-align: right;">
-                <a href="https://nvd.nist.gov/vuln/detail/${cveId}" target="_blank" rel="noopener noreferrer" style="color: #45f3ff; text-decoration: none; font-size: 0.75rem; font-weight: bold; border-bottom: 1px dashed #45f3ff;">
-                    ANALISI COMPLETA NIST/NVD →
+        tr.innerHTML = `
+            <td style="padding: 10px 15px; font-weight: bold; color: #45f3ff;">${cveId}</td>
+            <td style="padding: 10px 15px; color: #ffffff;">${vendor}</td>
+            <td style="padding: 10px 15px;">
+                <span style="background: rgba(255, 74, 74, 0.15); color: #ff4a4a; border: 1px solid #ff4a4a; padding: 2px 6px; font-size: 0.7rem; border-radius: 3px; font-weight: bold;">
+                    9.8 CRITICAL
+                </span>
+            </td>
+            <td style="padding: 10px 15px;">
+                <span style="color: #ff8c00; font-size: 0.75rem; font-weight: bold;">
+                    🔥 ${isKnownExploit}
+                </span>
+            </td>
+            <td style="padding: 10px 15px; color: #85929E; max-width: 300px; overflow: hidden; text-overflow: ellipsis;" title="${item.shortDescription || ''}">
+                ${shortDesc}
+            </td>
+            <td style="padding: 10px 15px; text-align: right;">
+                <a href="https://nvd.nist.gov/vuln/detail/${cveId}" target="_blank" rel="noopener noreferrer" style="color: #66fcf1; text-decoration: none; border-bottom: 1px dashed #66fcf1; font-size: 0.75rem;">
+                    ANALISI →
                 </a>
-            </div>
+            </td>
         `;
-
-        container.appendChild(card);
+        tbody.appendChild(tr);
     });
 }
 
-function filterCveCards() {
-    const query = document.getElementById("cve-filter-input").value.toLowerCase();
-    const filtered = localCveList.filter(item => {
+function filterCveTable() {
+    const query = document.getElementById("cve-search-input").value.toLowerCase();
+    const filtered = globalCveData.filter(item => {
         const cve = (item.cveID || "").toLowerCase();
         const vendor = (item.vendorProject || "").toLowerCase();
         const product = (item.product || "").toLowerCase();
         const desc = (item.shortDescription || "").toLowerCase();
         return cve.includes(query) || vendor.includes(query) || product.includes(query) || desc.includes(query);
     });
-    renderCveCards(filtered);
+    renderCveTable(filtered);
 }
 </script>
-<!-- END: Vertical Threat Feed Widget -->
 	
     </section>
 
