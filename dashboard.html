@@ -226,13 +226,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 const ctx = document.getElementById("attacksChart");
                 if (!ctx || typeof Chart === "undefined") return;
 
-                // Se il grafico esiste già, aggiorniamo solo i dati senza ricrearlo (evita il conflitto sul canvas)
+                // Controllo di sicurezza preventivo: se esiste già un'istanza sul canvas, distruggila
+                const existingChart = Chart.getChart(ctx);
+                if (existingChart) {
+                    existingChart.destroy();
+                    chartInstance = null;
+                }
+
                 if (chartInstance) {
                     chartInstance.data.labels = labels;
                     chartInstance.data.datasets[0].data = values;
                     chartInstance.update();
                 } else {
-                    // Creazione iniziale dell'istanza Chart.js
                     chartInstance = new Chart(ctx, {
                         type: "line",
                         data: {
@@ -272,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(updateAttacksWidget, 12000);
 });
 </script>
-
+		  
         <!-- EVENT LOG -->
 <div class="soc-card" style="
     background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
