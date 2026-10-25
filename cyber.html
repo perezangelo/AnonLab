@@ -1911,6 +1911,182 @@ setInterval(loadZeroDay, 60000);
 setInterval(loadOpsDashboard, 60000);
 </script>
 
+		<!-- START: Cyber Dictionary & Knowledge Base Section -->
+<section class="cyber-dictionary-section" style="margin-top: 40px; margin-bottom: 40px; padding: 25px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace; border-radius: 4px;">
+    
+    <!-- Intestazione del Modulo -->
+    <div style="border-bottom: 2px solid #45f3ff; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div>
+            <h3 style="margin: 0; color: #45f3ff; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;">
+                📖 Cyber Dictionary &amp; Threat Knowledge Base
+            </h3>
+            <span style="font-size: 0.75rem; color: #666; font-family: monospace;">GLOSSARIO OPERATIVO &amp; PILLOLE TECNICHE</span>
+        </div>
+        
+        <!-- Controlli: Barra di Ricerca e Selezione Categoria -->
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+            <select id="dict-category-select" onchange="filterDictionary()" style="background: #11141a; border: 1px solid #333; color: #66fcf1; padding: 8px 12px; font-family: monospace; font-size: 0.8rem; border-radius: 4px; outline: none; cursor: pointer;">
+                <option value="ALL">Tutte le Categorie</option>
+                <option value="THREATS">Minacce &amp; Malware</option>
+                <option value="OPS">Operazioni SOC &amp; Intel</option>
+                <option value="DEFENSE">Difesa &amp; Mitigazione</option>
+            </select>
+            
+            <input type="text" id="dict-search-input" placeholder="🔍 Cerca termine (es. TTP, Zero-Day)..." onkeyup="filterDictionary()" style="background: #11141a; border: 1px solid #333; color: #45f3ff; padding: 8px 12px; font-family: monospace; font-size: 0.8rem; border-radius: 4px; outline: none; min-width: 220px;" onfocus="this.style.borderColor='#45f3ff'" onblur="this.style.borderColor='#333'">
+        </div>
+    </div>
+
+    <!-- Pillola "Termine del Giorno / Quick Highlight" -->
+    <div id="dict-spotlight" style="background: #11141a; border: 1px solid #1f2833; border-left: 4px solid #66fcf1; padding: 15px; margin-bottom: 25px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <div>
+            <span style="background: rgba(102, 252, 241, 0.15); color: #66fcf1; border: 1px solid #66fcf1; padding: 2px 8px; font-size: 0.7rem; font-weight: bold; border-radius: 3px; text-transform: uppercase;">⚡ TERMINE IN EVIDENZA</span>
+            <h4 id="spotlight-title" style="margin: 8px 0 4px 0; color: #ffffff; font-size: 1.1rem;">-</h4>
+            <p id="spotlight-desc" style="margin: 0; color: #85929E; font-size: 0.85rem; line-height: 1.4;">-</p>
+        </div>
+        <button onclick="rotateSpotlight()" style="background: transparent; color: #45f3ff; border: 1px solid #45f3ff; padding: 6px 12px; font-family: monospace; font-size: 0.75rem; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='#45f3ff'; this.style.color='#0b0c10';" onmouseout="this.style.background='transparent'; this.style.color='#45f3ff';">
+            🎲 ROTA TERMINE
+        </button>
+    </div>
+
+    <!-- Griglia Principale del Glossario -->
+    <div id="dict-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+        <!-- Card dinamiche generate da JS -->
+    </div>
+
+</section>
+
+<!-- Script JS per la Gestione del Glossario -->
+<script>
+const cyberTerms = [
+    {
+        term: "Zero-Day (0-Day)",
+        category: "THREATS",
+        tag: "Vulnerabilità",
+        desc: "Una vulnerabilità software non ancora nota al produttore o per la quale non esiste ancora una patch di sicurezza. Viene sfruttata dagli attaccanti in finestra di totale vulnerabilità."
+    },
+    {
+        term: "RaaS (Ransomware-as-a-Service)",
+        category: "THREATS",
+        tag: "Cybercrime Model",
+        desc: "Modello di business criminale in cui gli sviluppatori di ransomware affittano il loro malware e la relativa infrastruttura ad affiliati che eseguono gli attacchi effettivi."
+    },
+    {
+        term: "TTPs (Tactics, Techniques, & Procedures)",
+        category: "OPS",
+        tag: "Threat Intelligence",
+        desc: "Il modello comportamentale di un gruppo APT o criminale. Identifica 'come' opera un attaccante (Tattiche), 'cosa' usa (Tecniche) e 'i passi specifici' eseguiti (Procedure)."
+    },
+    {
+        term: "EDR / XDR",
+        category: "DEFENSE",
+        tag: "Endpoint Defense",
+        desc: "Endpoint / Extended Detection and Response. Soluzioni avanzate di sicurezza che monitorano continuamente gli endpoint per identificare, bloccare e rispondere a comportamenti anomali."
+    },
+    {
+        term: "C2 / C&C (Command & Control)",
+        category: "THREATS",
+        tag: "Infrastruttura",
+        desc: "Server gestito dagli attaccanti per inviare comandi da remoto a computer o server compromessi e per esfiltrare dati riservati dalla rete della vittima."
+    },
+    {
+        term: "MFA Bypass / Adversary-in-the-Middle",
+        category: "THREATS",
+        tag: "Social Engineering",
+        desc: "Tecniche avanzate di phishing (es. Evilginx) capaci di intercettare credenziali e cookie di sessione MFA in tempo reale, aggirando l'autenticazione a due fattori."
+    },
+    {
+        term: "Sigma Rules",
+        category: "DEFENSE",
+        tag: "Detection Engineering",
+        desc: "Formato aperto e standardizzato per scrivere regole di detection di eventi e log di sistema, convertibili per qualsiasi SIEM (Splunk, Elastic, Sentinel)."
+    },
+    {
+        term: "BEC (Business Email Compromise)",
+        category: "THREATS",
+        tag: "Cyber Fraud",
+        desc: "Truffa cibernetica mirata in cui un attaccante compromette o falsifica un account email aziendale legittimo per autorizzare bonifici contabili fraudolenti."
+    },
+    {
+        term: "Threat Hunting",
+        category: "OPS",
+        tag: "Proactive Security",
+        desc: "Pratica proattiva condotta da analisti SOC per cercare e individuare minacce o intrusioni già presenti nella rete che hanno eluso i sistemi di sicurezza automatici."
+    }
+];
+
+document.addEventListener("DOMContentLoaded", function() {
+    renderDictionary(cyberTerms);
+    rotateSpotlight();
+});
+
+function renderDictionary(data) {
+    const grid = document.getElementById("dict-grid");
+    grid.innerHTML = "";
+
+    if (data.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 20px; text-align: center; color: #ff4a4a;">Nessun termine trovato nel glossario per la ricerca effettuata.</div>`;
+        return;
+    }
+
+    data.forEach(item => {
+        const card = document.createElement("div");
+        card.style.cssText = "background: #11141a; border: 1px solid #1f2833; padding: 15px; border-radius: 4px; transition: all 0.2s ease;";
+        
+        card.onmouseover = function() { 
+            this.style.borderColor = "#45f3ff"; 
+            this.style.transform = "translateY(-3px)"; 
+            this.style.boxShadow = "0 4px 12px rgba(69, 243, 255, 0.08)";
+        };
+        card.onmouseout = function() { 
+            this.style.borderColor = "#1f2833"; 
+            this.style.transform = "translateY(0)"; 
+            this.style.boxShadow = "none";
+        };
+
+        let tagColor = "#45f3ff";
+        if (item.category === "THREATS") tagColor = "#ff4a4a";
+        if (item.category === "DEFENSE") tagColor = "#ff8c00";
+
+        card.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span style="font-weight: bold; color: #ffffff; font-size: 0.95rem;">${item.term}</span>
+                <span style="background: rgba(255, 255, 255, 0.05); color: ${tagColor}; border: 1px solid ${tagColor}; padding: 2px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold;">
+                    ${item.tag}
+                </span>
+            </div>
+            <p style="margin: 0; color: #85929E; font-size: 0.8rem; line-height: 1.4;">
+                ${item.desc}
+            </p>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+function filterDictionary() {
+    const query = document.getElementById("dict-search-input").value.toLowerCase();
+    const cat = document.getElementById("dict-category-select").value;
+
+    const filtered = cyberTerms.filter(item => {
+        const matchesQuery = item.term.toLowerCase().includes(query) || 
+                             item.desc.toLowerCase().includes(query) || 
+                             item.tag.toLowerCase().includes(query);
+        const matchesCat = (cat === "ALL") || (item.category === cat);
+        
+        return matchesQuery && matchesCat;
+    });
+
+    renderDictionary(filtered);
+}
+
+function rotateSpotlight() {
+    const randomTerm = cyberTerms[Math.floor(Math.random() * cyberTerms.length)];
+    document.getElementById("spotlight-title").textContent = randomTerm.term + " [" + randomTerm.tag + "]";
+    document.getElementById("spotlight-desc").textContent = randomTerm.desc;
+}
+</script>
+<!-- END: Cyber Dictionary & Knowledge Base Section -->
+
     </section>
 
     <!-- SIDEBAR -->
