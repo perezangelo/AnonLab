@@ -198,136 +198,253 @@ fetch("/partials/ticker.html")
   <div id="event-log" class="event-log"></div>
 </div>
 
-        <div class="soc-card">
-  <h2>System Status</h2>
+        <!-- WIDGET SYSTEM STATUS - ADVANCED SOC EDITION -->
+<div class="soc-card" style="
+    background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
+    border: 1px solid #1a2638;
+    border-top: 3px solid #00eaff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(0, 234, 255, 0.03);
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    color: #e2e8f0;
+">
+  <!-- HEADER WIDGET -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <h2 style="
+        margin: 0;
+        color: #00eaff;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    ">
+      <span style="display:inline-block; width:8px; height:8px; background:#00eaff; border-radius:50%; box-shadow:0 0 8px #00eaff;"></span>
+      System Status
+    </h2>
+    <span id="last-ping-time" style="font-size: 0.7rem; color: #64748b;">LIVE</span>
+  </div>
 
-  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
-    Monitor dello stato di rete e della sessione. Misura latenza globale, stato del database, certificato SSL e stabilità dei servizi.
+  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 16px; line-height: 1.4; color: #94a3b8;">
+    Monitoraggio in tempo reale: misura la latenza dei nodi, l'integrità del Database MySQL, la validità del certificato SSL e la stabilità complessiva.
   </p>
 
-  <ul class="system-status">
+  <ul class="system-status" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 0.82rem;">
 
-    <!-- BADGE -->
-    <li>
-      <strong>Status:</strong>
-      <span id="sys-badge" class="dash-number" style="padding:4px 10px; border-radius:4px; font-weight:bold;">
-        --
+    <!-- BADGE STATO GLOBALE -->
+    <li style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 10px;">
+      <span style="color: #cbd5e1; font-weight: 600;">System Health:</span>
+      <span id="sys-badge" class="dash-number" style="
+          padding: 4px 12px;
+          border-radius: 4px;
+          font-weight: 700;
+          font-size: 0.72rem;
+          letter-spacing: 1px;
+          background: rgba(0, 234, 255, 0.1);
+          color: #00eaff;
+          border: 1px solid #00eaff;
+          box-shadow: 0 0 10px rgba(0, 234, 255, 0.25);
+          transition: all 0.3s ease;
+      ">
+        CONNECTING...
       </span>
     </li>
 
-    <!-- SYSTEM SPEED / RESPONSE (Basato sulla latenza reale del server) -->
-    <li>
-      Response Speed:
-      <span id="net-speed" class="dash-number">-- ms</span>
-
-      <div id="net-bar" style="height:6px; background:#111; border-radius:4px; margin-top:4px;">
-        <div id="net-fill" style="height:100%; width:0%; background:#00ff99; transition:width .4s;"></div>
+    <!-- REATTIVITÀ DI RETE (BARRA NEON MULTI-GRADIENTE) -->
+    <li style="border-bottom: 1px dashed #1e293b; padding-bottom: 10px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <span style="color: #cbd5e1;">Node Response:</span>
+        <span id="net-speed" class="dash-number" style="color: #00ff99; font-weight: bold;">-- ms</span>
+      </div>
+      <div id="net-bar" style="height: 6px; background: #070c14; border-radius: 3px; overflow: hidden; border: 1px solid #1e293b;">
+        <div id="net-fill" style="
+            height: 100%; 
+            width: 0%; 
+            background: linear-gradient(90deg, #00ff99 0%, #00eaff 50%, #3b82f6 100%); 
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+            box-shadow: 0 0 8px #00eaff;
+        "></div>
       </div>
     </li>
 
-    <!-- LATENCY -->
-    <li>
-      Server Latency:
-      <span id="latency" class="dash-number">-- ms</span>
-
-      <canvas id="lat-chart" width="260" height="60" style="margin-top:6px;"></canvas>
+    <!-- LATENCY OSCILLOSCOPE (CANVAS 2D CON GLOW & AREA FILL) -->
+    <li style="border-bottom: 1px dashed #1e293b; padding-bottom: 10px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <span style="color: #cbd5e1;">Latency Oscilloscope:</span>
+        <span id="latency" class="dash-number" style="color: #00eaff; font-weight: bold;">-- ms</span>
+      </div>
+      <div style="
+          background: #030712; 
+          border-radius: 4px; 
+          padding: 6px; 
+          border: 1px solid #1e293b; 
+          box-shadow: inset 0 0 12px rgba(0,0,0,0.9);
+          position: relative;
+      ">
+        <canvas id="lat-chart" width="260" height="55" style="width: 100%; display: block;"></canvas>
+      </div>
     </li>
 
-    <!-- FIREWALL / DATABASE STATUS -->
-    <li>
-      Database / SSL:
-      <span id="fw-status" class="dash-number">--</span>
+    <!-- METRICHE INFRASTRUTTURA (DB & SSL) -->
+    <li style="display: flex; justify-content: space-between; align-items: center;">
+      <span style="color: #cbd5e1;">DB & SSL Health:</span>
+      <span id="fw-status" class="dash-number" style="color: #f59e0b; font-weight: bold; font-size: 0.78rem;">--</span>
     </li>
 
   </ul>
 </div>
 
-<!-- SCRIPT COLLEGATO AL TUO PHP REALE -->
+<!-- LOGICA TECNICA JS AVANZATA -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Sostituisci con il percorso esatto del tuo file PHP su Altervista (es. /api/status-check.php)
     const apiEndpoint = "https://angelonline.altervista.org/api/status.php"; 
 
-    // Configurazione Canvas Latenza
+    // Inizializzazione Canvas sicuro
     const canvas = document.getElementById("lat-chart");
     const ctx = canvas ? canvas.getContext("2d") : null;
-    let latencyHistory = [15, 18, 14, 20, 16, 14, 15];
+    let latencyHistory = [22, 28, 19, 25, 21, 18, 24, 20, 22];
 
-    function drawLatencyChart() {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Render del grafico in stile oscilloscopio
+    function renderAdvancedLatencyChart() {
+        if (!ctx || !canvas) return;
         
-        ctx.strokeStyle = "#00ff99";
-        ctx.lineWidth = 2;
-        ctx.beginPath();
+        const w = canvas.width;
+        const h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
 
-        const step = canvas.width / (latencyHistory.length - 1);
-        latencyHistory.forEach((val, i) => {
-            const x = i * step;
-            const y = canvas.height - (val / 100) * canvas.height;
-            if (i === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
+        // Disegna la griglia di sfondo (Grid Lines)
+        ctx.strokeStyle = "rgba(30, 41, 59, 0.5)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        for (let y = 10; y < h; y += 15) {
+            ctx.moveTo(0, y);
+            ctx.lineTo(w, y);
+        }
+        ctx.stroke();
+
+        if (latencyHistory.length < 2) return;
+
+        // Costruzione percorso della curva
+        const maxVal = Math.max(...latencyHistory, 80);
+        const minVal = Math.min(...latencyHistory, 5);
+        const range = (maxVal - minVal) || 1;
+        const step = w / (latencyHistory.length - 1);
+
+        const points = latencyHistory.map((val, i) => ({
+            x: i * step,
+            y: h - 6 - ((val - minVal) / range) * (h - 16)
+        }));
+
+        // 1. Sfumatura di riempimento sottostante (Area Fill)
+        const gradient = ctx.createLinearGradient(0, 0, 0, h);
+        gradient.addColorStop(0, "rgba(0, 234, 255, 0.25)");
+        gradient.addColorStop(1, "rgba(0, 234, 255, 0.0)");
+
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, h);
+        points.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.lineTo(points[points.length - 1].x, h);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // 2. Linea di tracciamento Neon
+        ctx.beginPath();
+        ctx.strokeStyle = "#00eaff";
+        ctx.lineWidth = 2;
+        ctx.shadowColor = "#00eaff";
+        ctx.shadowBlur = 6;
+
+        points.forEach((p, i) => {
+            if (i === 0) ctx.moveTo(p.x, p.y);
+            else ctx.lineTo(p.x, p.y);
         });
         ctx.stroke();
+        ctx.shadowBlur = 0; // Reset Shadow
+
+        // 3. Punti di snodo (Dot Markers)
+        points.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+        });
     }
 
-    function updateSystemStatus() {
-        fetch(apiEndpoint)
-            .then(res => res.json())
-            .then(data => {
-                // 1. Estraiamo i dati reali dal JSON del tuo PHP
-                const serverOnline = data.server && data.server.status === "online";
-                const serverLatencyStr = data.server && data.server.latency ? data.server.latency : "25ms";
-                const latVal = parseInt(serverLatencyStr) || 25;
-                
-                const dbOk = data.database && data.database.status === "online";
-                const sslValid = data.ssl && data.ssl.status === "valid";
+    // Algoritmo di aggiornamento dati da status.php
+    async function fetchSystemTelemetry() {
+        try {
+            const response = await fetch(apiEndpoint, { cache: "no-store" });
+            const data = await response.json();
 
-                // 2. Aggiornamento Testo Latenza e "Velocità" di risposta
-                document.getElementById("latency").textContent = serverLatencyStr;
-                document.getElementById("net-speed").textContent = serverLatencyStr + " (Ping)";
+            // Estrazione campi dal JSON reale di status.php
+            const serverStatus = data.server ? data.server.status : "offline";
+            const rawServerLatency = data.server && data.server.latency ? data.server.latency : "25ms";
+            const serverLatMs = parseInt(rawServerLatency) || 25;
 
-                // Riempimento barra basato sulla reattività (più ms ci metti, meno è piena la barra)
-                let barPercentage = Math.max(100 - latVal, 10);
-                document.getElementById("net-fill").style.width = barPercentage + "%";
+            const apiStatus = data.api ? data.api.status : "offline";
+            const dbStatus = data.database ? data.database.status : "error";
+            const sslDays = data.ssl && data.ssl.days_left !== null ? data.ssl.days_left + "d left" : "Active";
 
-                // 3. Stato Database / SSL nel campo firewall
-                document.getElementById("fw-status").textContent = dbOk ? "DB OK / SSL Active" : "DB Warning";
+            // Update UI: Latenza & Velocità di risposta
+            document.getElementById("latency").textContent = rawServerLatency;
+            document.getElementById("net-speed").textContent = `${rawServerLatency} (AnonLab Edge)`;
 
-                // Aggiorna grafico canvas
-                latencyHistory.push(latVal);
-                if (latencyHistory.length > 10) latencyHistory.shift();
-                drawLatencyChart();
+            // Calcolo percentuale reattività (100ms max scale)
+            const healthPercentage = Math.max(10, Math.min(100, 100 - (serverLatMs / 1.5)));
+            document.getElementById("net-fill").style.width = `${healthPercentage}%`;
 
-                // 4. Badge di Stato Globale
-                const badge = document.getElementById("sys-badge");
-                if (serverOnline && dbOk) {
-                    badge.textContent = "SECURE / ONLINE";
-                    badge.style.background = "rgba(0, 255, 153, 0.15)";
-                    badge.style.color = "#00ff99";
-                    badge.style.border = "1px solid #00ff99";
-                } else {
-                    badge.textContent = "SERVICE WARNING";
-                    badge.style.background = "rgba(255, 74, 74, 0.15)";
-                    badge.style.color = "#ff4a4a";
-                    badge.style.border = "1px solid #ff4a4a";
-                }
-            })
-            .catch(err => {
-                console.error("Errore di fetch dal PHP di controllo:", err);
-                const badge = document.getElementById("sys-badge");
-                badge.textContent = "OFFLINE / ERROR";
-                badge.style.background = "rgba(255, 74, 74, 0.15)";
-                badge.style.color = "#ff4a4a";
-            });
+            // Update UI: DB & SSL
+            const isDbOnline = dbStatus === "online";
+            const fwStatusElem = document.getElementById("fw-status");
+            fwStatusElem.textContent = isDbOnline ? `DB ONLINE (${sslDays})` : `DB ERROR (${sslDays})`;
+            fwStatusElem.style.color = isDbOnline ? "#00ff99" : "#ff4a4a";
+
+            // Aggiorna Storico Latenza per Canvas
+            latencyHistory.push(serverLatMs);
+            if (latencyHistory.length > 12) latencyHistory.shift();
+            renderAdvancedLatencyChart();
+
+            // Aggiorna Timestamp
+            const now = new Date();
+            document.getElementById("last-ping-time").textContent = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`;
+
+            // Gestione Badge Globale
+            const badge = document.getElementById("sys-badge");
+            if (serverStatus === "online" && apiStatus === "online" && isDbOnline) {
+                badge.textContent = "SYSTEM NOMINAL";
+                badge.style.background = "rgba(0, 255, 153, 0.12)";
+                badge.style.color = "#00ff99";
+                badge.style.border = "1px solid #00ff99";
+                badge.style.boxShadow = "0 0 10px rgba(0, 255, 153, 0.3)";
+            } else {
+                badge.textContent = "DEGRADED SERVICE";
+                badge.style.background = "rgba(255, 153, 0, 0.12)";
+                badge.style.color = "#ff9900";
+                badge.style.border = "1px solid #ff9900";
+                badge.style.boxShadow = "0 0 10px rgba(255, 153, 0, 0.3)";
+            }
+
+        } catch (err) {
+            console.error("[SOC Telemetry Error]:", err);
+            const badge = document.getElementById("sys-badge");
+            badge.textContent = "OFFLINE / SYNC ERROR";
+            badge.style.background = "rgba(255, 74, 74, 0.12)";
+            badge.style.color = "#ff4a4a";
+            badge.style.border = "1px solid #ff4a4a";
+            badge.style.boxShadow = "0 0 10px rgba(255, 74, 74, 0.3)";
+        }
     }
 
-    // Esecuzione immediata e polling ogni 15 secondi
-    updateSystemStatus();
-    setInterval(updateSystemStatus, 15000);
+    // Primo avvio + Polling ogni 12 secondi
+    fetchSystemTelemetry();
+    setInterval(fetchSystemTelemetry, 12000);
 });
 </script>
-
+		  
         <!-- MINI THREAT MAP -->
         <div class="soc-card">
           <h2>Threat Map</h2>
