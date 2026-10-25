@@ -1,61 +1,107 @@
+
 /* ============================================================
-   ATTACCHI RILEVATI (ultime 24h) — Versione Stabilizzata
+   ATTIVITÀ DI SICUREZZA — ultime 24h
+   Endpoint AlterVista; valori attualmente simulati
 ============================================================ */
 
 let attacksChartInstance = null;
 
 async function loadAttacksChart() {
-    const ctx = document.getElementById("attacksChart");
-    if (!ctx) return;
+    const canvas = document.getElementById("attacksChart");
+    const status = document.getElementById("attacksChartStatus");
+
+    if (!canvas) return;
 
     try {
-        const res = await fetch("https://angelonline.altervista.org/soc/attacks_chart.php");
-        const data = await res.json();
+        const res = await fetch(
+            "https://angelonline.altervista.org/soc/attacks_chart.php",
+            { cache: "no-store" }
+        );
 
-        // Se il grafico esiste già → aggiorna solo i dati
-        if (attacksChartInstance) {
-            attacksChartInstance.data.labels = data.labels;
-            attacksChartInstance.data.datasets[0].data = data.values;
-            attacksChartInstance.update();
-            return;
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
         }
 
-        // Creazione iniziale del grafico
-        attacksChartInstance = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: data.labels,
-                datasets: [{
-                    label: "Attacchi",
-                    data: data.values,
-                    borderColor: "#00eaff",
-                    backgroundColor: "rgba(0, 234, 255, 0.15)",
-                    tension: 0.3
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,   // 🔥 evita espansione infinita
-                plugins: { legend: { display: false } },
-                scales: {
-                    x: { ticks: { color: "#ccc" } },
-                    y: { ticks: { color: "#ccc" } }
-                }
-            }
-        });
+        const data = await res.json();
 
-        // 🔥 Fix AlterVista: forza il resize quando la card è renderizzata
-        setTimeout(() => attacksChartInstance.resize(), 150);
+        // Convalida la struttura della risposta
+        if (
+            !data ||
+            !Array.isArray(data.labels) ||
+            !Array.isArray(data.values) ||
+            data.labels.length !== 24 ||
+            data.values.length !== 24 ||
+            !data.labels.every(label => typeof label === "string") ||
+            !data.values.every(
+                value => typeof value === "number" &&
+                         Number.isFinite(value) &&
+                         value >= 0
+            )
+        ) {
+            throw new Error("Formato dati non valido: attese 24 ore");
+        }
+
+        // Crea il grafico una sola volta
+        if (!attacksChartInstance) {
+            attacksChartInstance = new Chart(canvas, {
+                type: "line",
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: "Attività di sicurezza (simulata)",
+                        data: data.values,
+                        borderColor: "#00eaff",
+                        backgroundColor: "rgba(0, 234, 255, 0.15)",
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 2,
+                        pointHoverRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: "#ccc" }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: "#ccc" }
+                        }
+                    }
+                }
+            });
+        } else {
+            // Aggiorna i dati senza creare un secondo grafico
+            attacksChartInstance.data.labels = data.labels;
+            attacksChartInstance.data.datasets[0].data = data.values;
+            attacksChartInstance.update("none");
+        }
+
+        if (status) {
+            status.textContent =
+                "Dati simulati · aggiornamento ogni 30 secondi";
+            status.style.color = "#ffaa00";
+        }
 
     } catch (error) {
-        console.error("Errore Attacchi 24h:", error);
+        console.error("Errore grafico attività SOC:", error);
+
+        if (status) {
+            status.textContent =
+                "Dati temporaneamente non disponibili";
+            status.style.color = "#ff6b6b";
+        }
     }
 }
 
-// Primo caricamento
+// Primo caricamento e aggiornamento periodico
 loadAttacksChart();
-
-// Aggiornamento automatico ogni 30 secondi
 setInterval(loadAttacksChart, 30000);
 
 /* ============================================================
