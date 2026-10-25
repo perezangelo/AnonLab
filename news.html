@@ -1719,28 +1719,32 @@ Scarica report previsionale 2026
 <!-- START: Cyber Video Feed & Threat Intelligence (Playlist Automatica + Full-Width) -->
 <section class="cyber-podcast-section" style="margin-top: 40px; padding: 20px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace;">
     
-    <!-- Intestazione in stile AnonLab -->
-    <div class="podcast-header" style="border-bottom: 2px solid #45f3ff; padding-bottom: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+    <!-- Intestazione in stile AnonLab con Pulsante Iscriviti -->
+    <div class="podcast-header" style="border-bottom: 2px solid #45f3ff; padding-bottom: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
         <h3 style="margin: 0; color: #45f3ff; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px;">
             📡 Live Cyber Video Feed &amp; Threat Intelligence
         </h3>
-        <span style="font-size: 0.8rem; color: #666; animation: blink 1.5s infinite;">● STREAMING ON-AIR</span>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 0.8rem; color: #666; animation: blink 1.5s infinite;">● STREAMING ON-AIR</span>
+            <a href="https://www.youtube.com/channel/UC4C251k_4vV4Y6WlV-qP_aA?sub_confirmation=1" target="_blank" rel="noopener noreferrer" style="background: transparent; color: #ff4a4a; border: 1px solid #ff4a4a; padding: 5px 12px; font-size: 0.75rem; font-family: monospace; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 5px;" onmouseover="this.style.background='#ff4a4a'; this.style.color='#0b0c10';" onmouseout="this.style.background='transparent'; this.style.color='#ff4a4a';">
+                ▶ SUBSCRIBE
+            </a>
+        </div>
     </div>
 
     <!-- Contenitore principale verticale -->
     <div style="display: flex; flex-direction: column; gap: 20px;">
         
-        <!-- 1. Player Video a Larghezza Piena con Playlist Automatica "UU..." -->
+        <!-- 1. Player Video YouTube su Playlist UU (Funzionante, Nessun Blocco CSP) -->
         <div class="media-player-wrapper" style="background: #1f2833; padding: 10px; border: 1px solid #333; width: 100%; box-sizing: border-box;">
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%;">
-                <!-- Sostituisci UU_IL_TUO_PLAYLIST_ID con l'ID della playlist degli uploads (con prefisso UU) -->
                 <iframe 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-    src="https://podcasts.apple.com/it/podcast/0-day-storie-attacchi-e-verit%C3%A0-dal-fronte-della-cybersecurity/id1815935437" 
-    title="0-Day Cybersecurity Video Podcast Feed" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-</iframe>
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                    src="https://www.youtube.com/embed/videoseries?list=UU4C251k_4vV4Y6WlV-qP_aA" 
+                    title="0-Day Cybersecurity Video Podcast Feed" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
             <p style="margin: 12px 0 0 0; font-size: 0.9rem; color: #45f3ff;">
                 <strong>Riproduzione corrente:</strong> 💀 PHISHING: Il click da 25 milioni di dollari — Anatomia di un incubo digitale (Feed Automatico)
