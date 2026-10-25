@@ -1865,21 +1865,22 @@ Scarica report previsionale 2026
     </div>
 </section>
 
-<!-- Script per Fetch e Filtro Real-Time -->
 <script>
 let globalCveData = [];
 
 document.addEventListener("DOMContentLoaded", function() {
-    const cisaKevUrl = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json";
+    // URL CISA racchiuso nel proxy trasparente corsproxy.io per bypassare il blocco CORS
+    const targetUrl = encodeURIComponent("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json");
+    const cisaKevUrl = `https://corsproxy.io/?${targetUrl}`;
 
     fetch(cisaKevUrl)
         .then(response => {
-            if (!response.ok) throw new Error("Network response was not ok");
+            if (!response.ok) throw new Error("Risposta di rete non valida");
             return response.json();
         })
         .then(data => {
             const vulnerabilities = data.vulnerabilities || [];
-            globalCveData = vulnerabilities.slice(-10).reverse(); // Ultime 10
+            globalCveData = vulnerabilities.slice(-10).reverse(); // Prendi le ultime 10
             renderCveTable(globalCveData);
 
             const now = new Date();
@@ -1887,16 +1888,25 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => {
             console.error("Errore recupero CVE:", error);
-            // Fallback offline
-            globalCveData = [{
-                cveID: "CVE-2024-30078",
-                vendorProject: "Microsoft",
-                product: "Windows Wi-Fi Driver",
-                shortDescription: "Windows Wi-Fi Driver Remote Code Execution Vulnerability",
-                knownRansomwareCampaignUse: "Known"
-            }];
+            // Fallback con dati statici aggiornati se il feed non risponde
+            globalCveData = [
+                {
+                    cveID: "CVE-2024-30078",
+                    vendorProject: "Microsoft",
+                    product: "Windows Wi-Fi Driver",
+                    shortDescription: "Windows Wi-Fi Driver Remote Code Execution Vulnerability",
+                    knownRansomwareCampaignUse: "Known"
+                },
+                {
+                    cveID: "CVE-2024-21887",
+                    vendorProject: "Ivanti",
+                    product: "Connect Secure",
+                    shortDescription: "Ivanti Connect Secure Command Injection Vulnerability",
+                    knownRansomwareCampaignUse: "Known"
+                }
+            ];
             renderCveTable(globalCveData);
-            document.getElementById("cve-last-sync").textContent = "MODE: OFFLINE";
+            document.getElementById("cve-last-sync").textContent = "MODE: OFFLINE CACHE";
         });
 });
 
@@ -1959,7 +1969,6 @@ function filterCveTable() {
     renderCveTable(filtered);
 }
 </script>
-<!-- END: Global Threat Intelligence - CVE Critical Journal Table -->
 	
     </section>
 
