@@ -1716,7 +1716,7 @@ Scarica report previsionale 2026
 </button>
 </div>
 
-<!-- START: Cyber Video Feed & Threat Intelligence (Playlist Automatica + Full-Width) -->
+<!-- START: Cyber Video Feed & Threat Intelligence (Auto-Updating RSS Feed) -->
 <section class="cyber-podcast-section" style="margin-top: 40px; padding: 20px; border: 1px solid #222; background: #0b0c10; color: #c5c6c7; font-family: monospace;">
     
     <!-- Intestazione in stile AnonLab con Pulsante Iscriviti -->
@@ -1735,19 +1735,20 @@ Scarica report previsionale 2026
     <!-- Contenitore principale verticale -->
     <div style="display: flex; flex-direction: column; gap: 20px;">
         
-        <!-- 1. Player Video YouTube su Playlist UU (Funzionante, Nessun Blocco CSP) -->
+        <!-- 1. Player Video a Larghezza Piena (Aggiornato dinamicamente via JS) -->
         <div class="media-player-wrapper" style="background: #1f2833; padding: 10px; border: 1px solid #333; width: 100%; box-sizing: border-box;">
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%;">
                 <iframe 
+                    id="dynamic-yt-iframe"
                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                    src="https://www.youtube.com/embed/videoseries?list=UU4C251k_4vV4Y6WlV-qP_aA" 
+                    src="https://www.youtube.com/embed/Cx1QpqDrobw" 
                     title="0-Day Cybersecurity Video Podcast Feed" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>
             <p style="margin: 12px 0 0 0; font-size: 0.9rem; color: #45f3ff;">
-                <strong>Riproduzione corrente:</strong> 💀 PHISHING: Il click da 25 milioni di dollari — Anatomia di un incubo digitale (Feed Automatico)
+                <strong>Riproduzione corrente:</strong> <span id="dynamic-yt-title">💀 Caricamento ultimo episodio in corso...</span>
             </p>
         </div>
 
@@ -1791,6 +1792,33 @@ Scarica report previsionale 2026
 
     </div>
 </section>
+
+<!-- Script automatico per recuperare l'ultimo video via RSS JSON converter gratuito -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const channelId = "UC4C251k_4vV4Y6WlV-qP_aA";
+    const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3D${channelId}`;
+    
+    fetch(rssUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.items && data.items.length > 0) {
+                const latestVideo = data.items[0];
+                // Estrae l'ID del video dal link di YouTube
+                const videoIdMatch = latestVideo.link.match(/(?:v=|\/embed\/|\/v\/|youtu\.be\/)([^&?\n]+)/);
+                if (videoIdMatch && videoIdMatch[1]) {
+                    const videoId = videoIdMatch[1];
+                    document.getElementById('dynamic-yt-iframe').src = `https://www.youtube.com/embed/${videoId}`;
+                    document.getElementById('dynamic-yt-title').textContent = latestVideo.title + " (Aggiornato automaticamente)";
+                }
+            }
+        })
+        .catch(error => {
+            console.error("Errore nel recupero del feed video:", error);
+            document.getElementById('dynamic-yt-title').textContent = "💀 PHISHING: Il click da 25 milioni di dollari — Anatomia di un incubo digitale";
+        });
+});
+</script>
 
 <!-- CSS unificato per l'animazione di blinking -->
 <style>
