@@ -1730,20 +1730,20 @@ Scarica report previsionale 2026
     <!-- Griglia responsive a 3 colonne -->
     <div class="podcast-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
         
-        <!-- Colonna 1: Player Spotify Darknet Diaries -->
+        <!-- Colonna 1: Media Player YouTube (Aggiornamento automatico via Playlist) -->
         <div class="media-player-wrapper" style="background: #1f2833; padding: 10px; border: 1px solid #333; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="width: 100%;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+                <!-- Sostituisci UUUUUU_DELLA_PLAYLIST con l'ID della playlist degli upload o di una playlist tematica -->
                 <iframe 
-                    style="border-radius: 12px; width: 100%; height: 152px; border: 0;" 
-                    src="https://open.spotify.com/embed/show/4Wh89LE2MywRylviKCayg8?utm_source=generator&theme=0" 
-                    allowfullscreen="" 
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                    loading="lazy"
-                    title="Darknet Diaries Podcast">
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                    src="https://www.youtube.com/embed/videoseries?list=UUUUUU_DELLA_PLAYLIST" 
+                    title="Cybersecurity Live Feed" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
                 </iframe>
             </div>
             <p style="margin: 10px 0 0 0; font-size: 0.85rem; color: #45f3ff;">
-                <strong>Riproduzione corrente:</strong> Darknet Diaries Feed Ufficiale
+                <strong>Riproduzione corrente:</strong> Ultimi Briefing &amp; Malware Analysis
             </p>
         </div>
 
@@ -1769,7 +1769,6 @@ Scarica report previsionale 2026
             </h4>
             <div style="margin-bottom: 10px;">
                 <span style="display: block; font-size: 0.75rem; color: #666;">FONTI AGGIUNTIVE:</span>
-                <!-- Se vuoi che si aprano nella stessa pagina, rimuovi target="_blank" -->
                 <a href="https://www.cisa.gov" style="color: #45f3ff; text-decoration: none; font-size: 0.8rem;">→ Advisory CISA KEV Feed</a><br>
                 <a href="https://github.com" style="color: #45f3ff; text-decoration: none; font-size: 0.8rem;">→ Regole di Detection Sigma</a>
             </div>
@@ -1782,6 +1781,22 @@ Scarica report previsionale 2026
         </div>
 
     </div>
+</section>
+
+<!-- CSS per animazione e griglia -->
+<style>
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+@media (min-width: 1200px) {
+    .cyber-podcast-section .podcast-grid {
+        grid-template-columns: 2fr 1fr 1fr !important;
+    }
+}
+</style>
+<!-- END: Cyber Podcast & Video Intelligence Embed -->
 </section>
 
 <!-- CSS per animazione e griglia -->
