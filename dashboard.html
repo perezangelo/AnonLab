@@ -198,7 +198,7 @@ fetch("/partials/ticker.html")
   <div id="event-log" class="event-log"></div>
 </div>
 
-      <div class="soc-card">
+          <div class="soc-card">
   <h2>System Status</h2>
 
   <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
@@ -216,7 +216,7 @@ fetch("/partials/ticker.html")
       </span>
     </li>
 
-    <!-- NETWORK SPEED (Conversione automatica in GB/s) -->
+    <!-- NETWORK SPEED (Aggiornato in GB/s) -->
     <li>
       Network Speed:
       <span id="net-speed" class="dash-number">-- GB/s</span>
@@ -243,59 +243,23 @@ fetch("/partials/ticker.html")
   </ul>
 </div>
 
-<!-- Script nativo basato sul tuo codice originale + conversione GB/s -->
+<!-- Esempio di script di aggiornamento (da integrare nella tua logica di fetch/update) -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const statusApiUrl = "https://angelonline.altervista.org/api/status.php";
+function updateNetworkSpeed(speedInMbPs) {
+    // 1. Converti da Mb/s a Megabyte/s dividendo per 8
+    // 2. Converti da MB/s a Gigabyte/s dividendo per 1000 (o 1024)
+    const speedInGBps = (speedInMbPs / 8 / 1000).toFixed(2); // Es. 6939.0 Mb/s diventa ~0.87 GB/s
 
-    function fetchSystemStatus() {
-        fetch(statusApiUrl)
-            .then(res => res.json())
-            .then(data => {
-                // 1. Velocità di rete dal backend (se non definita nel JSON, usa 6939.0 come fallback)
-                const speedInMbPs = data.network_speed || 6939.0;
+    // Aggiorna il testo a schermo
+    document.getElementById("net-speed").textContent = speedInGBps + " GB/s";
 
-                // 2. CONVERSIONE: da Mb/s a GB/s (Mb/s / 8 -> MB/s / 1000 -> GB/s)
-                const speedInGBps = (speedInMbPs / 8 / 1000).toFixed(2);
+    // Calcola la percentuale per la barra (ipotizzando un massimo di 1.0 GB/s per il 100% della barra)
+    let percentage = Math.min((speedInGBps / 1.0) * 100, 100);
+    document.getElementById("net-fill").style.width = percentage + "%";
+}
 
-                // Aggiornamento testuale e barra di progresso
-                document.getElementById("net-speed").textContent = speedInGBps + " GB/s";
-                let percentage = Math.min((speedInGBps / 1.0) * 100, 100);
-                document.getElementById("net-fill").style.width = percentage + "%";
-
-                // 3. Latenza (prende la prima disponibile dai daemons o usa un valore di default)
-                let latencyVal = "14";
-                if (data.daemons && data.daemons.length > 0) {
-                    latencyVal = parseInt(data.daemons[0].latency) || 14;
-                }
-                document.getElementById("latency").textContent = latencyVal + " ms";
-
-                // 4. Firewall & Status Badge
-                document.getElementById("fw-status").textContent = "ACTIVE (UFW)";
-                
-                const badge = document.getElementById("sys-badge");
-                if (data.status === "success") {
-                    badge.textContent = "ONLINE / SECURE";
-                    badge.style.background = "rgba(0, 255, 153, 0.1)";
-                    badge.style.color = "#00ff99";
-                    badge.style.border = "1px solid #00ff99";
-                } else {
-                    badge.textContent = "OFFLINE";
-                    badge.style.background = "rgba(255, 74, 74, 0.1)";
-                    badge.style.color = "#ff4a4a";
-                    badge.style.border = "1px solid #ff4a4a";
-                }
-            })
-            .catch(err => {
-                console.error("Errore fetch System Status:", err);
-                document.getElementById("sys-badge").textContent = "SYNC ERROR";
-            });
-    }
-
-    // Esegui subito e imposta il polling ogni 10 secondi
-    fetchSystemStatus();
-    setInterval(fetchSystemStatus, 10000);
-});
+// Esempio di test con il tuo valore di 6939.0 Mb/s
+// updateNetworkSpeed(6939.0);
 </script>
 
         <!-- MINI THREAT MAP -->
