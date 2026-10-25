@@ -1,6 +1,7 @@
+
 /* ============================================================
    ATTIVITÀ DI SICUREZZA — ultime 24h
-   Endpoint AlterVista; valori attualmente simulati
+   Dati letti dal registro eventi SOC
 ============================================================ */
 
 let attacksChartInstance = null;
@@ -12,6 +13,11 @@ async function loadAttacksChart() {
     if (!canvas) return;
 
     try {
+        // Verifica che Chart.js sia disponibile
+        if (typeof Chart === "undefined") {
+            throw new Error("Chart.js non è stato caricato");
+        }
+
         const res = await fetch(
             "https://angelonline.altervista.org/soc/attacks_chart.php",
             { cache: "no-store" }
@@ -23,7 +29,6 @@ async function loadAttacksChart() {
 
         const data = await res.json();
 
-        // Convalida la struttura della risposta
         if (
             !data ||
             !Array.isArray(data.labels) ||
@@ -40,14 +45,13 @@ async function loadAttacksChart() {
             throw new Error("Formato dati non valido: attese 24 ore");
         }
 
-        // Crea il grafico una sola volta
         if (!attacksChartInstance) {
             attacksChartInstance = new Chart(canvas, {
                 type: "line",
                 data: {
                     labels: data.labels,
                     datasets: [{
-                        label: "Attività di sicurezza (simulata)",
+                        label: "Eventi di sicurezza registrati",
                         data: data.values,
                         borderColor: "#00eaff",
                         backgroundColor: "rgba(0, 234, 255, 0.15)",
@@ -70,13 +74,15 @@ async function loadAttacksChart() {
                         },
                         y: {
                             beginAtZero: true,
-                            ticks: { color: "#ccc" }
+                            ticks: {
+                                color: "#ccc",
+                                precision: 0
+                            }
                         }
                     }
                 }
             });
         } else {
-            // Aggiorna i dati senza creare un secondo grafico
             attacksChartInstance.data.labels = data.labels;
             attacksChartInstance.data.datasets[0].data = data.values;
             attacksChartInstance.update("none");
@@ -84,8 +90,8 @@ async function loadAttacksChart() {
 
         if (status) {
             status.textContent =
-                "Dati simulati · aggiornamento ogni 30 secondi";
-            status.style.color = "#ffaa00";
+                "Registro SOC collegato · aggiornamento ogni 30 secondi";
+            status.style.color = "#00eaff";
         }
 
     } catch (error) {
@@ -93,7 +99,7 @@ async function loadAttacksChart() {
 
         if (status) {
             status.textContent =
-                "Dati temporaneamente non disponibili";
+                "Errore nel caricamento dei dati SOC";
             status.style.color = "#ff6b6b";
         }
     }
