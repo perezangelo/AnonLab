@@ -1,5 +1,35 @@
 [
   {
+    "title": "University of Copenhagen data breach exposes data of 525,000 people",
+    "link": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/copenhagen.jpg"
+  },
+  {
+    "title": "Risks &amp; Rewards: How AI Is Redefining the CISO's Role",
+    "link": "https://www.darkreading.com/cybersecurity-careers/risks-rewards-ai-redefining-ciso-role",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt739dd94533bc1a1c/6adfbdf0c68e80623ff507bb/ciso_Dave_Hoeek_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Former pentester used ARTEX AI to steal 8.2 million data records",
+    "link": "https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/15/Arrest.jpg"
+  },
+  {
+    "title": "In-the-Wild Attack Abuses AI Agents' Trust in Markdown",
+    "link": "https://www.darkreading.com/application-security/in-the-wild-attack-ai-agents-trust-markdown",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blta8e8c1bff2695425/6adfab77ad59c66918c6c335/laptop_and_folder-ipuwadol-GettyImages-1402436756.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "OpenAI launches GPT-6.1 Terra with 3x faster AI agents, 50% lower pricing",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/11/09/OpenAI.jpg"
+  },
+  {
+    "title": "Anthropic Files for Potentially the Biggest IPO Ever as CEO Warns of Risk to Humanity From AI",
+    "link": "https://www.securityweek.com/anthropic-files-for-potentially-the-biggest-ipo-ever-as-ceo-warns-of-risk-to-humanity-from-ai/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/02/Anthropic-AI_Military.jpg"
+  },
+  {
     "title": "DreamHost forces password resets in ongoing \"incident\"",
     "link": "https://www.bleepingcomputer.com/news/security/dreamhost-forces-email-ftp-sftp-password-resets-in-ongoing-incident/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/dreamhost.jpg"
@@ -105,6 +135,11 @@
     "image": "https://media.cybernews.com/images/featured-big/2026/10/Hisense.jpg"
   },
   {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/10/26/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
+  },
+  {
     "title": "Researcher hacks into \u201cSteal My Bitcoin\u201d server in PHP security test",
     "link": "https://cybernews.com/news/bitcoin-php-security/",
     "image": "https://media.cybernews.com/images/featured-big/2025/01/crypto_bitcoin_0127.jpg"
@@ -113,40 +148,5 @@
     "title": "Two Critical Wasmtime Flaws Could Let Malicious WebAssembly Modules Escape Sandboxes",
     "link": "https://thehackernews.com/2026/10/two-critical-wasmtime-flaws-could-let.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5xq9w5oCep_lu7UpdVExPO7yRQ1tMz0YkxljYR_LmwG3WKowZ2CtLPh4F6kASJ7Xu0xJKy4uVzlwj7fPEO3fgKUELS4BqUtDZvGh1P-iqRslXNCLdkcJMCBGSKvJeqrrkeZdfPO9Wmv_v2VqdYEZVavTHw-QHUhli9QYGVhASuSRt3DETy8JMBz1D-kE/s1600/wasm.jpg"
-  },
-  {
-    "title": "Dutch Police Arrest Two Over NFC Relay Attacks That Drained $400,000+ From Bank Accounts",
-    "link": "https://www.securityweek.com/dutch-police-arrest-two-over-nfc-relay-attacks-that-drained-400000/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/01/arrested-hacker-scaled-e1779788771312.jpeg"
-  },
-  {
-    "title": "\u201cI guess Linux is banned\u201d \u2013  Reddit's open source AI crackdown sparks fury",
-    "link": "https://cybernews.com/ai-news/reddit-open-source-ai-ban/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/ai-ban-open-source.jpg"
-  },
-  {
-    "title": "Tailscale zero-days spark a disclosure war before fixes land",
-    "link": "https://cybernews.com/security/tailscale-zero-days-spark-a-disclosure-war-before-fixes-land/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/tailscale-vulns.jpg"
-  },
-  {
-    "title": "Between alerts: What Attackers Do in the Spaces Ordinary Detection Misses",
-    "link": "https://thehackernews.com/2026/10/between-alerts-what-attackers-do-in.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH3sLtMeyrqaZo1e2DoGlQohJtAM96DKv9JxQVxynJVNyJ_76dwQQAvkcN2xeos8NtStnH6A3B4bOwtFvdsNSxdBkR6so5s66iBb0ApIhIJ2cs3hVCYdh6oOnO4K_kwKOJsDSqL4wsPrOJ48x3VmSXiQwpcxm_ULL7En-Xw_9Rc1sEFQvCdb9Sr0NwUH0/s1600/Misses.jpg"
-  },
-  {
-    "title": "Think twice before asking AI to check your mole: new test shows surprising results",
-    "link": "https://cybernews.com/ai-news/old-cnn-outperforms-frontier-ai-in-skin-cancer-detection/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/skin-cancer.jpg"
-  },
-  {
-    "title": "Kali Linux 2026.3 released with 6 new tools, desktop updates",
-    "link": "https://www.bleepingcomputer.com/news/linux/kali-linux-20263-released-with-6-new-tools-desktop-updates/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/Kali.jpg"
-  },
-  {
-    "title": "Node2Shell: Brotli Flaw Triggers Patching Across Microsoft, Node.js, Python Packages",
-    "link": "https://www.securityweek.com/node2shell-brotli-flaw-triggers-patching-across-microsoft-node-js-python-packages/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/application-security-vulnerabilities.jpeg"
   }
 ]
