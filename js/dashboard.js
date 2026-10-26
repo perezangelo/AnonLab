@@ -296,17 +296,22 @@ function startSocMetrics() {
 
 startSocMetrics();
 
-
 /* ============================================================
-   SECURITY SCORE — Versione Dinamica Avanzata
+   SECURITY SCORE CON MODALE DI BREAKDOWN
 ============================================================ */
 
 function startSecurityScore() {
     const scoreBox = document.getElementById("security-score");
     const statusBox = document.getElementById("security-status");
     const circle = document.getElementById("security-circle");
+    const modal = document.getElementById("security-modal");
+    const closeModalBtn = document.getElementById("close-modal");
+    const modalOkBtn = document.getElementById("modal-ok-btn");
+    const breakdownList = document.getElementById("breakdown-list");
 
-    if (!scoreBox || !statusBox || !circle) return;
+    if (!scoreBox || !statusBox || !circle || !modal) return;
+
+    let cachedBreakdown = [];
 
     async function loadSecurityScore() {
         try {
@@ -317,18 +322,17 @@ function startSecurityScore() {
 
             const score = data.score;
             const status = data.status;
+            cachedBreakdown = data.breakdown || [];
 
             scoreBox.textContent = score;
             statusBox.textContent = "Stato: " + status;
 
-            // Assegnazione colori in base allo status di sicurezza
             const color =
                 status === "CRITICO" ? "#ff0044" :
                 status === "BASSO"   ? "#ffaa00" :
                 status === "MEDIO"   ? "#00eaff" :
-                "#00ff99"; // OTTIMO
+                "#00ff99";
 
-            // Applicazione dinamica del gradiente circolare
             circle.style.background = `conic-gradient(${color} 0% ${score}%, #111827 ${score}% 100%)`;
             circle.style.boxShadow = `0 0 25px ${color}44`;
             statusBox.style.color = color;
@@ -340,11 +344,54 @@ function startSecurityScore() {
         }
     }
 
+    // Apertura modale al click sul cerchio
+    circle.addEventListener("click", () => {
+        modal.style.display = "flex";
+        
+        // Popola la lista dei dettagli nella modale
+        if (breakdownList) {
+            breakdownList.innerHTML = "";
+            if (cachedBreakdown.length === 0) {
+                breakdownList.innerHTML = `<div style="color: #94a3b8; text-align: center;">Nessun dettaglio disponibile.</div>`;
+                return;
+            }
+
+            cachedBreakdown.forEach(item => {
+                const isPassed = item.status === "PASSED" || item.status === "SECURE" || item.status === "VALID";
+                const badgeColor = isPassed ? "#00ff99" : "#ff4a4a";
+                const badgeBg = isPassed ? "rgba(0,255,153,0.1)" : "rgba(255,74,74,0.1)";
+
+                breakdownList.innerHTML += `
+                    <div style="background: #030712; border: 1px solid #1e293b; padding: 10px; border-radius: 4px; display: flex; flex-direction: column; gap: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <strong style="color: #e2e8f0;">${item.name}</strong>
+                            <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 1px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold;">
+                                ${item.status} (${item.impact})
+                            </span>
+                        </div>
+                        <span style="color: #94a3b8; font-size: 0.72rem;">${item.desc}</span>
+                    </div>
+                `;
+            });
+        }
+    });
+
+    // Chiusura modale
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
+    if (modalOkBtn) modalOkBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+
     loadSecurityScore();
-    setInterval(loadSecurityScore, 20000); // Aggiornamento autonomo ogni 20 secondi
+    setInterval(loadSecurityScore, 20000);
 }
 
-// Avvio automatico protetto
+// Avvio protetto
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startSecurityScore);
 } else {
