@@ -297,167 +297,44 @@ function startSocMetrics() {
 startSocMetrics();
 
 /* ============================================================
-   ANONLAB.IT — SOC Control Room Master Script
-   Percorso: /js/dashboard.js
+   SECURITY SCORE — Dinamico
 ============================================================ */
 
-(function() {
-    'use strict';
+function startSecurityScore() {
+    const scoreBox = document.getElementById("security-score");
+    const statusBox = document.getElementById("security-status");
+    const circle = document.getElementById("security-circle");
 
-    // 1. CONSOLE LOGGER GLOBALE
-    window.SOCConsole = {
-        log: function(message, type = "INFO") {
-            const logBox = document.getElementById("soc-console-log");
-            if (!logBox) return;
+    async function loadSecurityScore() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/security_score.php");
+            const data = await res.json();
 
-            const time = new Date().toLocaleTimeString();
-            let color = "#00eaff";
-            if (type === "WARN") color = "#f59e0b";
-            else if (type === "ERROR") color = "#ff4a4a";
-            else if (type === "SUCCESS") color = "#00ff99";
-            else if (type === "ACTION") color = "#c084fc";
+            const score = data.score;
+            const status = data.status;
 
-            const line = document.createElement("div");
-            line.style.color = color;
-            line.innerHTML = `<span style="color: #64748b;">[${time}]</span> <strong style="color: #e2e8f0;">[${type}]</strong> ${message}`;
-            logBox.appendChild(line);
-            logBox.scrollTop = logBox.scrollHeight;
+            scoreBox.textContent = score;
+            statusBox.textContent = "Stato: " + status;
+
+            const color =
+                status === "CRITICO" ? "#ff0044" :
+                status === "BASSO"   ? "#ffaa00" :
+                status === "MEDIO"   ? "#00eaff" :
+                "#00ff99";
+
+            const percent = score;
+
+            circle.style.background = `conic-gradient(${color} 0% ${percent}%, #222 ${percent}% 100%)`;
+            circle.style.boxShadow = `0 0 20px ${color}`;
+            statusBox.style.color = color;
+
+        } catch (error) {
+            console.error("Errore Security Score:", error);
         }
-    };
-
-    // 2. THREAT MAP & ATTIVITÀ SOSPETTE
-    function initThreatAndSuspiciousModule() {
-        const canvas = document.getElementById("realThreatCanvas");
-        const suspiciousBox = document.getElementById("suspicious-list");
-        const filterSelect = document.getElementById("severity-filter");
-        const exportBtn = document.getElementById("export-csv-btn");
-        if (!canvas || !suspiciousBox) return;
-
-        const ctx = canvas.getContext("2d");
-        let radarAngle = 0;
-        let cachedEvents = [];
-
-        function getFilteredEvents() {
-            const selectedFilter = filterSelect ? filterSelect.value : "ALL";
-            return cachedEvents.filter(item => {
-                if (selectedFilter === "ALL") return true;
-                return item.severity === selectedFilter;
-            });
-        }
-
-        function renderList() {
-            const filtered = getFilteredEvents();
-            suspiciousBox.innerHTML = "";
-
-            if (filtered.length === 0) {
-                suspiciousBox.innerHTML = `<div style="color: #64748b; text-align: center; padding: 15px; font-size: 0.75rem;">Nessun evento trovato.</div>`;
-                return;
-            }
-
-            filtered.forEach(item => {
-                const isCrit = item.severity === "CRITICAL";
-                const badgeColor = isCrit ? "#ff4a4a" : "#f59e0b";
-                const badgeBg = isCrit ? "rgba(255,74,74,0.1)" : "rgba(245,158,11,0.1)";
-
-                suspiciousBox.innerHTML += `
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 6px; font-size: 0.75rem;">
-                        <div>
-                            <span style="color: #64748b;">[${item.time}]</span>
-                            <span style="color: #e2e8f0; margin-left: 4px;">${item.event}</span>
-                        </div>
-                        <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 1px 5px; font-size: 0.6rem; border-radius: 3px; font-weight: bold;">
-                            ${item.severity}
-                        </span>
-                    </div>
-                `;
-            });
-        }
-
-        async function fetchData() {
-            try {
-                const res = await fetch("https://angelonline.altervista.org/soc/threat_stream.php", { cache: "no-store" });
-                const data = await res.json();
-
-                if (data.status === "success" && data.suspicious_list) {
-                    cachedEvents = data.suspicious_list;
-                    renderList();
-                }
-            } catch (e) {
-                // Silenzioso o log di fallback
-            }
-        }
-
-        if (filterSelect) {
-            filterSelect.addEventListener("change", renderList);
-        }
-
-        if (exportBtn) {
-            exportBtn.addEventListener("click", () => {
-                const filtered = getFilteredEvents();
-                if (filtered.length === 0) return;
-
-                let csvContent = "data:text/csv;charset=utf-8,Time,IP,Event,Severity\n";
-                filtered.forEach(row => {
-                    csvContent += `"${row.time}","${row.ip || 'N/A'}","${row.event}","${row.severity}"\n`;
-                });
-
-                const encodedUri = encodeURI(csvContent);
-                const link = document.createElement("a");
-                link.setAttribute("href", encodedUri);
-                link.setAttribute("download", `anonlab_soc_logs.csv`);
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
-        }
-
-        function drawRadarCanvas() {
-            if (!canvas.isConnected) return;
-            ctx.fillStyle = "#030712";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.strokeStyle = "rgba(0, 234, 255, 0.12)";
-            ctx.lineWidth = 1;
-            for (let r = 30; r < 120; r += 30) {
-                ctx.beginPath();
-                ctx.arc(canvas.width / 2, canvas.height / 2, r, 0, Math.PI * 2);
-                ctx.stroke();
-            }
-
-            ctx.beginPath();
-            ctx.moveTo(0, canvas.height / 2); ctx.lineTo(canvas.width, canvas.height / 2);
-            ctx.moveTo(canvas.width / 2, 0); ctx.lineTo(canvas.width / 2, canvas.height);
-            ctx.stroke();
-
-            ctx.save();
-            ctx.translate(canvas.width / 2, canvas.height / 2);
-            ctx.rotate(radarAngle);
-            const grad = ctx.createLinearGradient(0, 0, 90, 90);
-            grad.addColorStop(0, "rgba(255, 74, 74, 0.35)");
-            grad.addColorStop(1, "transparent");
-            ctx.fillStyle = grad;
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.arc(0, 0, 110, 0, Math.PI / 4);
-            ctx.lineTo(0, 0);
-            ctx.fill();
-            ctx.restore();
-
-            ctx.fillStyle = "#00ff99";
-            ctx.beginPath();
-            ctx.arc(canvas.width / 2, canvas.height / 2, 4, 0, Math.PI * 2);
-            ctx.fill();
-
-            radarAngle += 0.025;
-            requestAnimationFrame(drawRadarCanvas);
-        }
-
-        drawRadarCanvas();
-        fetchData();
-        setInterval(fetchData, 15000);
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        initThreatAndSuspiciousModule();
-    });
-})();
+    loadSecurityScore();
+    setInterval(loadSecurityScore, 15000);
+}
+
+startSecurityScore();
