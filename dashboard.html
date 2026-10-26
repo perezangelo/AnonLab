@@ -243,108 +243,7 @@ fetch("/partials/ticker.html")
   </ul>
 </div>
 
-     <!-- ============================================================
-     ANONLAB.IT — SOC WIDGET PACK (Integrazione Modulare)
-============================================================ -->
-
-<!-- 1. BANNER DI ALLERTA RAPIDA (Nascosto di default) -->
-<div id="soc-alert-banner" style="
-    display: none;
-    background: linear-gradient(90deg, rgba(255,74,74,0.15) 0%, rgba(3,7,18,0.95) 100%);
-    border-left: 4px solid #ff4a4a;
-    border-top: 1px solid rgba(255,74,74,0.3);
-    border-bottom: 1px solid rgba(255,74,74,0.3);
-    padding: 12px 20px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 0 20px rgba(255, 74, 74, 0.2);
-    animation: pulse-banner 2s infinite;
-">
-  <div style="display: flex; align-items: center; gap: 12px;">
-    <span style="font-size: 1.2rem;">🚨</span>
-    <div>
-      <div style="color: #ff4a4a; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-        Allerta di Sicurezza: <span id="banner-threat-title">CRITICAL INCIDENT</span>
-      </div>
-      <div id="banner-threat-desc" style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">
-        Rilevato traffico anomalo sui nodi perimetrali.
-      </div>
-    </div>
-  </div>
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <span id="banner-timestamp" style="font-size: 0.7rem; color: #64748b; background: #030712; padding: 3px 6px; border-radius: 3px; border: 1px solid #1e293b;">--:--:--</span>
-    <button id="close-banner-btn" style="background: transparent; border: 1px solid #ff4a4a; color: #ff4a4a; padding: 4px 10px; border-radius: 3px; font-family: inherit; font-size: 0.7rem; cursor: pointer; font-weight: bold;">DISMISS</button>
-  </div>
-</div>
-
-<!-- 2. HEADER & PANNELLO LOCKDOWN DI EMERGENZA -->
-<div class="soc-card" style="border-top: 3px solid #ff0044; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-  <div>
-    <h2 style="margin: 0; color: #ff0044; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px;">🚨 Emergency Lockdown Protocols</h2>
-    <p style="margin: 4px 0 0 0; font-size: 0.75rem; color: #94a3b8;">
-      Stato perimetro: <span id="lockdown-status-label" style="color: #00ff99; font-weight: bold;">STANDARD OPERATIONAL</span>
-    </p>
-  </div>
-  <button id="lockdown-btn" style="background: rgba(255, 0, 68, 0.15); color: #ff0044; border: 1px solid #ff0044; padding: 10px 18px; border-radius: 4px; font-family: inherit; font-weight: bold; font-size: 0.8rem; cursor: pointer; letter-spacing: 1px;">INITIATE LOCKDOWN</button>
-</div>
-
-<!-- 3. GRIGLIA PRINCIPALE (THREAT MAP + ATTIVITÀ SOSPETTE) -->
-<div class="soc-grid">
-
-  <!-- WIDGET THREAT MAP DINAMICA -->
-  <div class="soc-card" style="border-top: 3px solid #ff4a4a;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-      <h3 style="margin: 0; color: #ff4a4a; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 2px;">Threat Map</h3>
-      <span id="map-status" style="font-size: 0.7rem; color: #00ff99;">● RADAR ACTIVE</span>
-    </div>
-    <p style="opacity:0.75; font-size:0.78rem; margin-bottom:16px; color:#94a3b8;">Monitoraggio radar in tempo reale dei vettori d'attacco globali.</p>
-    <div style="background: #030712; border: 1px solid #1e293b; border-radius: 4px; padding: 10px; position: relative; height: 210px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
-      <canvas id="realThreatCanvas" width="460" height="190" style="width: 100%; height: 100%; object-fit: contain;"></canvas>
-    </div>
-  </div>
-
-  <!-- WIDGET ATTIVITÀ SOSPETTE -->
-  <div class="soc-card" style="border-top: 3px solid #00eaff;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-      <h3 style="margin: 0; color: #00eaff; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 2px;">Attività sospette</h3>
-      <span style="font-size: 0.7rem; color: #00eaff;">LOG STREAM</span>
-    </div>
-    <p style="opacity:0.75; font-size:0.78rem; margin-bottom:12px; color:#94a3b8;">Eventi anomali e tentativi di accesso non autorizzati.</p>
-    <div id="suspicious-list" style="background: #030712; border: 1px solid #1e293b; border-radius: 4px; padding: 10px; height: 210px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; font-size: 0.75rem;">
-      <div style="color: #64748b; text-align: center; padding: 20px;">Caricamento eventi di sicurezza...</div>
-    </div>
-  </div>
-
-</div> <!-- /soc-grid -->
-
-<!-- 4. WIDGET SOC CONTROL TERMINAL (CONSOLE LOGS) -->
-<div class="soc-card" style="border-top: 3px solid #00ffcc; margin-top: 20px;">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <h3 style="margin: 0; color: #00ffcc; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 2px;">SOC Control Terminal</h3>
-    <span style="font-size: 0.7rem; color: #00ff99; background: rgba(0,255,153,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid #00ff99;">STREAM ACTIVE</span>
-  </div>
-  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 12px; color: #94a3b8;">Console di log interattiva: tracciamento in tempo reale delle azioni utente e del perimetro.</p>
-  <div id="soc-console-log" style="background: #030712; border: 1px solid #1e293b; border-radius: 4px; padding: 12px; height: 160px; overflow-y: auto; font-size: 0.75rem; display: flex; flex-direction: column; gap: 4px;">
-    <div style="color: #64748b;">[SYSTEM] SOC Terminal initialized successfully on anonlab.it</div>
-  </div>
-</div>
-
-<!-- 5. MODALE DI CONFERMA LOCKDOWN (Overlay di sistema) -->
-<div id="lockdown-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 7, 18, 0.9); backdrop-filter: blur(6px); z-index: 10000; justify-content: center; align-items: center;">
-  <div style="background: #070a0f; border: 2px solid #ff0044; width: 420px; max-width: 90%; padding: 24px; border-radius: 8px; text-align: center; color: #e2e8f0; font-family: 'JetBrains Mono', monospace;">
-    <div style="font-size: 2.5rem; margin-bottom: 10px;">⚠️</div>
-    <h3 style="margin: 0; color: #ff0044; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;">Conferma Isolamento Emergenza</h3>
-    <p style="font-size: 0.78rem; color: #94a3b8; margin: 12px 0 20px 0;">Sei sicuro di voler attivare le regole di blocco rigide sul perimetro dell'infrastruttura?</p>
-    <div style="display: flex; gap: 10px;">
-      <button id="cancel-lockdown" style="flex: 1; background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 10px; border-radius: 4px; cursor: pointer;">ANNULLA</button>
-      <button id="confirm-lockdown" style="flex: 1; background: #ff0044; color: #fff; border: none; padding: 10px; border-radius: 4px; font-weight: bold; cursor: pointer;">CONFERMA EXEC</button>
-    </div>
-  </div>
-</div>
-
-		  </div> <!-- /soc-grid -->
+<div class="soc-container">
 
     <!-- 1. BANNER DI ALLERTA RAPIDA (Nascosto di default) -->
     <div id="soc-alert-banner" style="
@@ -445,7 +344,7 @@ fetch("/partials/ticker.html")
   </div>
 </div>
 
-</div> <!-- /soc-grid -->
+ </div> <!-- /soc-grid -->
 
       <!-- ANONYMOUS LIVE OPERATIONS FEED -->
       <div class="cyber-box" style="
