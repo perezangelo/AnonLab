@@ -297,81 +297,13 @@ function startSocMetrics() {
 startSocMetrics();
 
 /* ============================================================
-   SOC SYSTEM INTEGRITY MATRIX — Versione Tecnica
-============================================================ */
-
-function startSystemIntegrityMatrix() {
-    const matrixBox = document.getElementById("telemetry-matrix");
-    const globalStatusEl = document.getElementById("soc-global-status");
-
-    if (!matrixBox || !globalStatusEl) return;
-
-    async function loadTelemetry() {
-        try {
-            // Sfruttiamo lo stesso endpoint PHP che restituisce il breakdown dei controlli
-            const res = await fetch("https://angelonline.altervista.org/soc/security_score.php", {
-                cache: "no-store"
-            });
-            const data = await res.json();
-
-            const status = data.status; // Es. OTTIMO, MEDIO, CRITICO
-            const breakdown = data.breakdown || [];
-
-            // Aggiornamento Badge Globale
-            let globalColor = "#00ff99";
-            let globalBg = "rgba(0,255,153,0.1)";
-            if (status === "CRITICO") { globalColor = "#ff4a4a"; globalBg = "rgba(255,74,74,0.1)"; }
-            else if (status === "BASSO" || status === "MEDIO") { globalColor = "#f59e0b"; globalBg = "rgba(245,158,11,0.1)"; }
-
-            globalStatusEl.textContent = `STATUS: ${status}`;
-            globalStatusEl.style.color = globalColor;
-            globalStatusEl.style.background = globalBg;
-            globalStatusEl.style.borderColor = globalColor;
-
-            // Popolamento Matrice Tecnica
-            matrixBox.innerHTML = "";
-            breakdown.forEach(item => {
-                const isPassed = item.status === "PASSED" || item.status === "SECURE" || item.status === "VALID";
-                const badgeColor = isPassed ? "#00ff99" : "#ff4a4a";
-                const badgeBg = isPassed ? "rgba(0,255,153,0.1)" : "rgba(255,74,74,0.1)";
-
-                matrixBox.innerHTML += `
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;">
-                        <div style="display: flex; flex-direction: column; gap: 2px;">
-                            <span style="color: #e2e8f0; font-weight: bold;">${item.name}</span>
-                            <span style="color: #64748b; font-size: 0.68rem;">${item.desc}</span>
-                        </div>
-                        <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 2px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold; white-space: nowrap;">
-                            [${item.status}]
-                        </span>
-                    </div>
-                `;
-            });
-
-        } catch (error) {
-            console.error("Errore System Integrity Matrix:", error);
-            globalStatusEl.textContent = "OFFLINE";
-            globalStatusEl.style.color = "#ff4a4a";
-        }
-    }
-
-    loadTelemetry();
-    setInterval(loadTelemetry, 15000); // Polling automatico ogni 15 secondi
-}
-
-// Avvio protetto
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", startSystemIntegrityMatrix);
-} else {
-    startSystemIntegrityMatrix();
-}
-
-/* ============================================================
-   ANONLAB.IT — SOC Control Room Master Script
+   ANONLAB.IT — SOC Control Room Master Script (Definitive)
    Percorso: /js/dashboard.js
 ============================================================ */
 
 (function() {
+    'use strict';
+
     // --------------------------------------------------------
     // 1. CONSOLE LOGGER GLOBALE
     // --------------------------------------------------------
@@ -381,7 +313,7 @@ if (document.readyState === "loading") {
             if (!logBox) return;
 
             const time = new Date().toLocaleTimeString();
-            let color = "#00eaff"; // Default INFO
+            let color = "#00eaff";
 
             if (type === "WARN") color = "#f59e0b";
             else if (type === "ERROR") color = "#ff4a4a";
@@ -398,15 +330,54 @@ if (document.readyState === "loading") {
     };
 
     // --------------------------------------------------------
-    // 2. THREAT MAP & ATTIVITÀ SOSPETTE (Polling da Altervista)
+    // 2. THREAT MAP & ATTIVITÀ SOSPETTE (Filtro & Export CSV)
     // --------------------------------------------------------
     function initThreatAndSuspiciousModule() {
         const canvas = document.getElementById("realThreatCanvas");
         const suspiciousBox = document.getElementById("suspicious-list");
+        const filterSelect = document.getElementById("severity-filter");
+        const exportBtn = document.getElementById("export-csv-btn");
         if (!canvas || !suspiciousBox) return;
 
         const ctx = canvas.getContext("2d");
         let radarAngle = 0;
+        let cachedEvents = [];
+
+        function getFilteredEvents() {
+            const selectedFilter = filterSelect ? filterSelect.value : "ALL";
+            return cachedEvents.filter(item => {
+                if (selectedFilter === "ALL") return true;
+                return item.severity === selectedFilter;
+            });
+        }
+
+        function renderList() {
+            const filtered = getFilteredEvents();
+            suspiciousBox.innerHTML = "";
+
+            if (filtered.length === 0) {
+                suspiciousBox.innerHTML = `<div style="color: #64748b; text-align: center; padding: 20px;">Nessun evento trovato per il filtro selezionato.</div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const isCrit = item.severity === "CRITICAL";
+                const badgeColor = isCrit ? "#ff4a4a" : "#f59e0b";
+                const badgeBg = isCrit ? "rgba(255,74,74,0.1)" : "rgba(245,158,11,0.1)";
+
+                suspiciousBox.innerHTML += `
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 6px;">
+                        <div>
+                            <span style="color: #64748b;">[${item.time}]</span>
+                            <span style="color: #e2e8f0; margin-left: 4px;">${item.event}</span>
+                        </div>
+                        <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 1px 5px; font-size: 0.6rem; border-radius: 3px; font-weight: bold;">
+                            ${item.severity}
+                        </span>
+                    </div>
+                `;
+            });
+        }
 
         async function fetchData() {
             try {
@@ -414,28 +385,42 @@ if (document.readyState === "loading") {
                 const data = await res.json();
 
                 if (data.status === "success" && data.suspicious_list) {
-                    suspiciousBox.innerHTML = "";
-                    data.suspicious_list.forEach(item => {
-                        const isCrit = item.severity === "CRITICAL";
-                        const badgeColor = isCrit ? "#ff4a4a" : "#f59e0b";
-                        const badgeBg = isCrit ? "rgba(255,74,74,0.1)" : "rgba(245,158,11,0.1)";
-
-                        suspiciousBox.innerHTML += `
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 6px;">
-                                <div>
-                                    <span style="color: #64748b;">[${item.time}]</span>
-                                    <span style="color: #e2e8f0; margin-left: 4px;">${item.event}</span>
-                                </div>
-                                <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 1px 5px; font-size: 0.6rem; border-radius: 3px; font-weight: bold;">
-                                    ${item.severity}
-                                </span>
-                            </div>
-                        `;
-                    });
+                    cachedEvents = data.suspicious_list;
+                    renderList();
                 }
             } catch (e) {
                 window.SOCConsole.log("Errore di sincronizzazione con threat_stream.php", "ERROR");
             }
+        }
+
+        // Eventi UI
+        if (filterSelect) {
+            filterSelect.addEventListener("change", renderList);
+        }
+
+        if (exportBtn) {
+            exportBtn.addEventListener("click", () => {
+                const filtered = getFilteredEvents();
+                if (filtered.length === 0) {
+                    alert("Nessun log da esportare.");
+                    return;
+                }
+
+                let csvContent = "data:text/csv;charset=utf-8,Time,IP Address,Event,Severity\n";
+                filtered.forEach(row => {
+                    csvContent += `"${row.time}","${row.ip || 'N/A'}","${row.event}","${row.severity}"\n`;
+                });
+
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", `anonlab_soc_logs_${new Date().toISOString().slice(0,10)}.csv`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                window.SOCConsole.log("Esportazione log in formato CSV completata.", "ACTION");
+            });
         }
 
         function drawRadarCanvas() {
@@ -590,11 +575,11 @@ if (document.readyState === "loading") {
         setInterval(checkBanner, 20000);
     }
 
-    // Avvio globale dei moduli all'interno della dashboard
+    // Avvio globale al caricamento della pagina
     document.addEventListener("DOMContentLoaded", function() {
         initThreatAndSuspiciousModule();
         initLockdownSystem();
         initSocAlertBanner();
-        window.SOCConsole.log("Tutti i moduli SOC sono operativi e sincronizzati.", "SUCCESS");
+        window.SOCConsole.log("Tutti i moduli SOC sono operativi e sincronizzati su anonlab.it.", "SUCCESS");
     });
 })();
