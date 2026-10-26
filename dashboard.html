@@ -339,148 +339,94 @@ fetch("/partials/ticker.html")
   </div>
 
 </div>
+     
+<!-- SECURITY SCORE WIDGET -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h3 style="color:#00eaff; margin:0;">Security Score</h3>
+    <span style="font-size: 0.65rem; color: #00eaff; background: rgba(0,234,255,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid #00eaffaa;">CLICCA IL CERCHIO PER DETTAGLI</span>
+  </div>
+  
+  <p style="color:#ccc; margin-bottom:15px; font-size:0.85rem;">
+    Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
+  </p>
 
-      
-<!-- ANONLAB — OPSEC & OSINT DASHBOARD -->
-<section class="widget-large" id="opsec-dashboard">
+  <!-- Cerchio cliccabile -->
+  <div id="security-circle" style="
+      width:180px; height:180px; margin:auto; border-radius:50%;
+      background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 20px #00eaffaa;
+      cursor: pointer;
+      transition: transform 0.2s;
+  " title="Clicca per aprire il breakdown dei controlli">
+    <span id="security-score" style="color:#fff; font-size:32px; font-weight:bold;">0</span>
+  </div>
 
-    <div class="box-title-row">
-        <img src="/img/cyber-shield.png"
-             class="box-title-icon"
-             alt="Security Shield">
-        <h2>OPSEC &amp; OSINT Dashboard</h2>
+  <p id="security-status" style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
+    Stato: —
+  </p>
+</div>
+
+<!-- MODALE DI BREAKDOWN (Nascosta di default) -->
+<div id="security-modal" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(3, 7, 18, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+">
+  <div style="
+      background: #070a0f;
+      border: 1px solid #00eaff;
+      border-top: 3px solid #00eaff;
+      width: 450px;
+      max-width: 90%;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+      color: #e2e8f0;
+  ">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px dashed #1e293b; padding-bottom: 10px;">
+      <h3 style="margin: 0; color: #00eaff; font-size: 1.1rem; text-transform: uppercase;">🛡️ Security Breakdown Audit</h3>
+      <button id="close-modal" style="background: transparent; border: none; color: #ff4a4a; font-weight: bold; font-size: 1.2rem; cursor: pointer;">&times;</button>
     </div>
 
-    <p>
-        Strumenti per analizzare indicatori pubblici e verificare
-        la robustezza delle password.
+    <p style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 16px;">
+      Dettaglio dei controlli di telemetria e delle penalità applicate sul punteggio globale:
     </p>
 
-    <div role="tablist" aria-label="Strumenti OPSEC">
-        <button type="button" data-opsec-tab="ip"
-                aria-controls="panel-ip" aria-selected="true">
-            IP / Dominio
-        </button>
-        <button type="button" data-opsec-tab="password"
-                aria-controls="panel-password" aria-selected="false">
-            Password
-        </button>
-        <button type="button" data-opsec-tab="hash"
-                aria-controls="panel-hash" aria-selected="false">
-            File Hash
-        </button>
+    <!-- Lista dei controlli (dinamica) -->
+    <div id="breakdown-list" style="display: flex; flex-direction: column; gap: 10px; font-size: 0.8rem; max-height: 250px; overflow-y: auto; margin-bottom: 20px;">
+      <div style="color: #64748b; text-align: center; padding: 10px;">Caricamento audit in corso...</div>
     </div>
 
-    <hr>
-
-    <!-- IP E DOMINIO -->
-    <div id="panel-ip" class="opsec-panel" role="tabpanel">
-        <h3>IP &amp; Domain Intelligence</h3>
-
-        <form id="opsec-ip-form">
-            <label for="opsec-ip-input">IP pubblico o dominio</label>
-            <input type="text" id="opsec-ip-input"
-                   name="indicator"
-                   placeholder="8.8.8.8 oppure example.com"
-                   maxlength="253" required>
-            <button type="submit">Analizza indicatore</button>
-        </form>
-
-        <p>
-            La verifica online trasmetterà l'indicatore al servizio
-            esterno utilizzato.
-        </p>
-
-        <div id="opsec-ip-result" aria-live="polite" hidden></div>
-    </div>
-
-    <!-- PASSWORD -->
-    <div id="panel-password" class="opsec-panel"
-         role="tabpanel" hidden>
-        <h3>Password Strength &amp; Leak Check</h3>
-
-        <p>
-            La robustezza sarà calcolata localmente nel browser.
-            La password non deve essere inviata ad AnonLab.
-        </p>
-
-        <form id="opsec-password-form">
-            <label for="opsec-password-input">Password da valutare</label>
-            <input type="password" id="opsec-password-input"
-                   name="password" autocomplete="new-password" required>
-
-            <label>
-                <input type="checkbox" id="opsec-password-visible">
-                Mostra password
-            </label>
-
-            <button type="submit">Valuta robustezza</button>
-        </form>
-
-        <div id="opsec-password-result" aria-live="polite" hidden></div>
-
-        <hr>
-
-        <h4>Controllo facoltativo delle violazioni email</h4>
-
-        <p>
-            Il controllo richiede un servizio esterno. L'indirizzo
-            email verrà trasmesso solo dopo il consenso.
-        </p>
-
-        <form id="opsec-email-form">
-            <label for="opsec-email-input">Indirizzo email</label>
-            <input type="email" id="opsec-email-input"
-                   name="email" autocomplete="email"
-                   placeholder="nome@example.com">
-
-            <label>
-                <input type="checkbox" id="opsec-email-consent">
-                Acconsento a trasmettere l'indirizzo al servizio esterno
-                per verificare le violazioni conosciute.
-            </label>
-
-            <button type="submit">Verifica email</button>
-        </form>
-
-        <div id="opsec-email-result" aria-live="polite" hidden></div>
-    </div>
-
-    <!-- HASH -->
-    <div id="panel-hash" class="opsec-panel"
-         role="tabpanel" hidden>
-        <h3>File Hash Checker</h3>
-
-        <p>
-            Cerca la reputazione di un hash nei database pubblici
-            disponibili.
-        </p>
-
-        <form id="opsec-hash-form">
-            <label for="opsec-hash-input">Hash MD5, SHA-1 o SHA-256</label>
-            <input type="text" id="opsec-hash-input"
-                   name="hash" maxlength="64"
-                   placeholder="Incolla l'hash del file" required>
-
-            <button type="submit">Controlla hash</button>
-        </form>
-
-        <p>
-            L'hash sarà trasmesso al servizio di reputazione configurato.
-            Evita hash relativi a file riservati.
-        </p>
-
-        <div id="opsec-hash-result" aria-live="polite" hidden></div>
-    </div>
-
-    <hr>
-
-    <p>
-        AnonLab · OPSEC Tools — I risultati sono indicativi e dipendono
-        dalla disponibilità e dall'aggiornamento delle fonti.
-    </p>
-
-</section>
+    <button id="modal-ok-btn" style="
+        width: 100%;
+        background: rgba(0, 234, 255, 0.15);
+        color: #00eaff;
+        border: 1px solid #00eaff;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: inherit;
+        font-weight: bold;
+        cursor: pointer;
+    ">CHIUDI AUDIT</button>
+  </div>
+</div>
 
       <div class="cyber-box" style="
           background:#000814;
