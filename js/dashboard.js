@@ -365,3 +365,103 @@ if (document.readyState === "loading") {
 } else {
     startSystemIntegrityMatrix();
 }
+
+/* ============================================================
+   THREAT MAP & SUSPICIOUS ACTIVITIES — Controller Sincronizzato
+============================================================ */
+
+function startThreatAndSuspiciousModule() {
+    const canvas = document.getElementById("realThreatCanvas");
+    const suspiciousBox = document.getElementById("suspicious-list");
+    if (!canvas || !suspiciousBox) return;
+
+    const ctx = canvas.getContext("2d");
+    let radarAngle = 0;
+
+    async function fetchData() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/threat_stream.php", { cache: "no-store" });
+            const data = await res.json();
+
+            if (data.status === "success") {
+                // Aggiorna la lista delle attività sospette
+                suspiciousBox.innerHTML = "";
+                data.suspicious_list.forEach(item => {
+                    const isCrit = item.severity === "CRITICAL";
+                    const badgeColor = isCrit ? "#ff4a4a" : "#f59e0b";
+                    const badgeBg = isCrit ? "rgba(255,74,74,0.1)" : "rgba(245,158,11,0.1)";
+
+                    suspiciousBox.innerHTML += `
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 6px;">
+                            <div>
+                                <span style="color: #64748b;">[${item.time}]</span>
+                                <span style="color: #e2e8f0; margin-left: 4px;">${item.event}</span>
+                            </div>
+                            <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 1px 5px; font-size: 0.6rem; border-radius: 3px; font-weight: bold;">
+                                ${item.severity}
+                            </span>
+                        </div>
+                    `;
+                });
+            }
+        } catch (e) {
+            console.error("Errore caricamento dati Threat/Suspicious:", e);
+        }
+    }
+
+    // Animazione del Radar Canvas in background
+    function drawRadarCanvas() {
+        ctx.fillStyle = "#030712";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Cerchi concentrici
+        ctx.strokeStyle = "rgba(0, 234, 255, 0.12)";
+        ctx.lineWidth = 1;
+        for (let r = 30; r < 120; r += 30) {
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, r, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        // Assi di riferimento
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height / 2); ctx.lineTo(canvas.width, canvas.height / 2);
+        ctx.moveTo(canvas.width / 2, 0); ctx.lineTo(canvas.width / 2, canvas.height);
+        ctx.stroke();
+
+        // Fascio rotante
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate(radarAngle);
+        const grad = ctx.createLinearGradient(0, 0, 90, 90);
+        grad.addColorStop(0, "rgba(255, 74, 74, 0.35)");
+        grad.addColorStop(1, "transparent");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, 110, 0, Math.PI / 4);
+        ctx.lineTo(0, 0);
+        ctx.fill();
+        ctx.restore();
+
+        // Nodo centrale (anonlab.it)
+        ctx.fillStyle = "#00ff99";
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        radarAngle += 0.025;
+        requestAnimationFrame(drawRadarCanvas);
+    }
+
+    drawRadarCanvas();
+    fetchData();
+    setInterval(fetchData, 15000); // Aggiorna i dati ogni 15 secondi
+}
+
+// Avvio protetto
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startThreatAndSuspiciousModule);
+} else {
+    startThreatAndSuspiciousModule();
+}
