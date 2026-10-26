@@ -297,103 +297,71 @@ function startSocMetrics() {
 startSocMetrics();
 
 /* ============================================================
-   SECURITY SCORE CON MODALE DI BREAKDOWN
+   SOC SYSTEM INTEGRITY MATRIX — Versione Tecnica
 ============================================================ */
 
-function startSecurityScore() {
-    const scoreBox = document.getElementById("security-score");
-    const statusBox = document.getElementById("security-status");
-    const circle = document.getElementById("security-circle");
-    const modal = document.getElementById("security-modal");
-    const closeModalBtn = document.getElementById("close-modal");
-    const modalOkBtn = document.getElementById("modal-ok-btn");
-    const breakdownList = document.getElementById("breakdown-list");
+function startSystemIntegrityMatrix() {
+    const matrixBox = document.getElementById("telemetry-matrix");
+    const globalStatusEl = document.getElementById("soc-global-status");
 
-    if (!scoreBox || !statusBox || !circle || !modal) return;
+    if (!matrixBox || !globalStatusEl) return;
 
-    let cachedBreakdown = [];
-
-    async function loadSecurityScore() {
+    async function loadTelemetry() {
         try {
+            // Sfruttiamo lo stesso endpoint PHP che restituisce il breakdown dei controlli
             const res = await fetch("https://angelonline.altervista.org/soc/security_score.php", {
                 cache: "no-store"
             });
             const data = await res.json();
 
-            const score = data.score;
-            const status = data.status;
-            cachedBreakdown = data.breakdown || [];
+            const status = data.status; // Es. OTTIMO, MEDIO, CRITICO
+            const breakdown = data.breakdown || [];
 
-            scoreBox.textContent = score;
-            statusBox.textContent = "Stato: " + status;
+            // Aggiornamento Badge Globale
+            let globalColor = "#00ff99";
+            let globalBg = "rgba(0,255,153,0.1)";
+            if (status === "CRITICO") { globalColor = "#ff4a4a"; globalBg = "rgba(255,74,74,0.1)"; }
+            else if (status === "BASSO" || status === "MEDIO") { globalColor = "#f59e0b"; globalBg = "rgba(245,158,11,0.1)"; }
 
-            const color =
-                status === "CRITICO" ? "#ff0044" :
-                status === "BASSO"   ? "#ffaa00" :
-                status === "MEDIO"   ? "#00eaff" :
-                "#00ff99";
+            globalStatusEl.textContent = `STATUS: ${status}`;
+            globalStatusEl.style.color = globalColor;
+            globalStatusEl.style.background = globalBg;
+            globalStatusEl.style.borderColor = globalColor;
 
-            circle.style.background = `conic-gradient(${color} 0% ${score}%, #111827 ${score}% 100%)`;
-            circle.style.boxShadow = `0 0 25px ${color}44`;
-            statusBox.style.color = color;
-
-        } catch (error) {
-            console.error("Errore Security Score:", error);
-            statusBox.textContent = "Stato: SYNC ERROR";
-            statusBox.style.color = "#ff4a4a";
-        }
-    }
-
-    // Apertura modale al click sul cerchio
-    circle.addEventListener("click", () => {
-        modal.style.display = "flex";
-        
-        // Popola la lista dei dettagli nella modale
-        if (breakdownList) {
-            breakdownList.innerHTML = "";
-            if (cachedBreakdown.length === 0) {
-                breakdownList.innerHTML = `<div style="color: #94a3b8; text-align: center;">Nessun dettaglio disponibile.</div>`;
-                return;
-            }
-
-            cachedBreakdown.forEach(item => {
+            // Popolamento Matrice Tecnica
+            matrixBox.innerHTML = "";
+            breakdown.forEach(item => {
                 const isPassed = item.status === "PASSED" || item.status === "SECURE" || item.status === "VALID";
                 const badgeColor = isPassed ? "#00ff99" : "#ff4a4a";
                 const badgeBg = isPassed ? "rgba(0,255,153,0.1)" : "rgba(255,74,74,0.1)";
 
-                breakdownList.innerHTML += `
-                    <div style="background: #030712; border: 1px solid #1e293b; padding: 10px; border-radius: 4px; display: flex; flex-direction: column; gap: 4px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <strong style="color: #e2e8f0;">${item.name}</strong>
-                            <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 1px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold;">
-                                ${item.status} (${item.impact})
-                            </span>
+                matrixBox.innerHTML += `
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 8px;">
+                        <div style="display: flex; flex-direction: column; gap: 2px;">
+                            <span style="color: #e2e8f0; font-weight: bold;">${item.name}</span>
+                            <span style="color: #64748b; font-size: 0.68rem;">${item.desc}</span>
                         </div>
-                        <span style="color: #94a3b8; font-size: 0.72rem;">${item.desc}</span>
+                        <span style="background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}; padding: 2px 6px; font-size: 0.65rem; border-radius: 3px; font-weight: bold; white-space: nowrap;">
+                            [${item.status}]
+                        </span>
                     </div>
                 `;
             });
-        }
-    });
 
-    // Chiusura modale
-    function closeModal() {
-        modal.style.display = "none";
+        } catch (error) {
+            console.error("Errore System Integrity Matrix:", error);
+            globalStatusEl.textContent = "OFFLINE";
+            globalStatusEl.style.color = "#ff4a4a";
+        }
     }
 
-    if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
-    if (modalOkBtn) modalOkBtn.addEventListener("click", closeModal);
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    loadSecurityScore();
-    setInterval(loadSecurityScore, 20000);
+    loadTelemetry();
+    setInterval(loadTelemetry, 15000); // Polling automatico ogni 15 secondi
 }
 
 // Avvio protetto
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", startSecurityScore);
+    document.addEventListener("DOMContentLoaded", startSystemIntegrityMatrix);
 } else {
-    startSecurityScore();
+    startSystemIntegrityMatrix();
 }
