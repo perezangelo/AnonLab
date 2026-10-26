@@ -567,31 +567,103 @@ startSocMetrics();
         );
     }
 
-    const ipForm = $("#opsec-ip-form");
-    const ipInput = $("#opsec-ip-input");
+    
+const ipForm = $("#opsec-ip-form");
+const ipInput = $("#opsec-ip-input");
 
-    if (ipForm && ipInput) {
-        ipForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+if (ipForm && ipInput) {
+    ipForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-            const value = ipInput.value.trim();
-            const valid = isIPv4(value) || isIPv6(value) || isDomain(value);
+        const value = ipInput.value.trim();
 
-            if (!valid) {
-                showResult(
-                    "#opsec-ip-result",
-                    "Formato non valido. Inserisci un IPv4, un IPv6 o un dominio."
-                );
-                return;
-            }
+        const valid =
+            isIPv4(value) ||
+            isIPv6(value) ||
+            isDomain(value);
 
+        if (!valid) {
             showResult(
                 "#opsec-ip-result",
-                "Formato valido. L'analisi online non è ancora configurata: " +
-                "nessuna richiesta esterna è stata eseguita."
+                "Formato non valido. Inserisci un IPv4, un IPv6 o un dominio."
             );
-        });
-    }
+            return;
+        }
+
+        showResult("#opsec-ip-result", "Analisi in corso…");
+
+        const submitButton = ipForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        if (submitButton) submitButton.disabled = true;
+
+        try {
+            const response = await fetch(
+                "https://angelonline.altervista.org/backend/opsec_ip.php",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ indicator: value })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(
+                    data.error || "Il servizio ha restituito un errore."
+                );
+            }
+
+            const fields = [
+                ["Indicatore", data.input],
+                ["IP analizzato", data.ip],
+                ["Tipo IP", data.type],
+                ["Paese", data.country],
+                ["Regione", data.region],
+                ["Città", data.city],
+                ["ISP", data.isp],
+                ["Organizzazione", data.organization],
+                ["ASN", data.asn],
+                ["Possibile nodo Tor", data.tor],
+                ["Proxy", data.proxy],
+                ["VPN", data.vpn],
+                ["Fonte", data.source],
+                ["Nota", data.note]
+            ];
+
+            const result = $("#opsec-ip-result");
+            result.replaceChildren();
+
+            fields.forEach(([label, value]) => {
+                if (value === null || value === undefined || value === "") {
+                    return;
+                }
+
+                const line = document.createElement("p");
+                const strong = document.createElement("strong");
+
+                strong.textContent = label + ": ";
+                line.appendChild(strong);
+                line.appendChild(document.createTextNode(String(value)));
+
+                result.appendChild(line);
+            });
+
+            result.hidden = false;
+        } catch (error) {
+            showResult(
+                "#opsec-ip-result",
+                "Analisi non riuscita: " + error.message
+            );
+        } finally {
+            if (submitButton) submitButton.disabled = false;
+        }
+    });
+}
 
     // --------------------------------------------------
     // HASH: VALIDAZIONE LOCALE
