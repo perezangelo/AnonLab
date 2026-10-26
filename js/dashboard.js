@@ -366,13 +366,40 @@ if (document.readyState === "loading") {
     startSystemIntegrityMatrix();
 }
 
-//* ============================================================
+/* ============================================================
    ANONLAB.IT — SOC Control Room Master Script
    Percorso: /js/dashboard.js
 ============================================================ */
 
 (function() {
-    // 1. THREAT MAP & ATTIVITÀ SOSPETTE
+    // --------------------------------------------------------
+    // 1. CONSOLE LOGGER GLOBALE
+    // --------------------------------------------------------
+    window.SOCConsole = {
+        log: function(message, type = "INFO") {
+            const logBox = document.getElementById("soc-console-log");
+            if (!logBox) return;
+
+            const time = new Date().toLocaleTimeString();
+            let color = "#00eaff"; // Default INFO
+
+            if (type === "WARN") color = "#f59e0b";
+            else if (type === "ERROR") color = "#ff4a4a";
+            else if (type === "SUCCESS") color = "#00ff99";
+            else if (type === "ACTION") color = "#c084fc";
+
+            const line = document.createElement("div");
+            line.style.color = color;
+            line.innerHTML = `<span style="color: #64748b;">[${time}]</span> <strong style="color: #e2e8f0;">[${type}]</strong> ${message}`;
+
+            logBox.appendChild(line);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+    };
+
+    // --------------------------------------------------------
+    // 2. THREAT MAP & ATTIVITÀ SOSPETTE (Polling da Altervista)
+    // --------------------------------------------------------
     function initThreatAndSuspiciousModule() {
         const canvas = document.getElementById("realThreatCanvas");
         const suspiciousBox = document.getElementById("suspicious-list");
@@ -407,7 +434,7 @@ if (document.readyState === "loading") {
                     });
                 }
             } catch (e) {
-                console.error("Errore fetch Threat Stream:", e);
+                window.SOCConsole.log("Errore di sincronizzazione con threat_stream.php", "ERROR");
             }
         }
 
@@ -457,10 +484,117 @@ if (document.readyState === "loading") {
         setInterval(fetchData, 15000);
     }
 
-    // Avvio automatico al caricamento della pagina
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initThreatAndSuspiciousModule);
-    } else {
-        initThreatAndSuspiciousModule();
+    // --------------------------------------------------------
+    // 3. EMERGENCY LOCKDOWN & MODALE
+    // --------------------------------------------------------
+    function initLockdownSystem() {
+        const btn = document.getElementById("lockdown-btn");
+        const label = document.getElementById("lockdown-status-label");
+        const modal = document.getElementById("lockdown-modal");
+        const cancelBtn = document.getElementById("cancel-lockdown");
+        const confirmBtn = document.getElementById("confirm-lockdown");
+
+        if (!btn || !modal) return;
+
+        let isLockdownActive = false;
+
+        async function checkStatus() {
+            try {
+                const res = await fetch("https://angelonline.altervista.org/soc/lockdown_trigger.php?action=status", { cache: "no-store" });
+                const data = await res.json();
+                isLockdownActive = (data.lockdown === "ON");
+                updateUI(isLockdownActive);
+            } catch (e) {}
+        }
+
+        function updateUI(active) {
+            if (active) {
+                label.textContent = "LOCKDOWN ACTIVE (PERIMETER BLOCKED)";
+                label.style.color = "#ff0044";
+                btn.textContent = "DEACTIVATE LOCKDOWN";
+                btn.style.background = "rgba(0, 255, 153, 0.15)";
+                btn.style.color = "#00ff99";
+                btn.style.borderColor = "#00ff99";
+            } else {
+                label.textContent = "STANDARD OPERATIONAL";
+                label.style.color = "#00ff99";
+                btn.textContent = "INITIATE LOCKDOWN";
+                btn.style.background = "rgba(255, 0, 68, 0.15)";
+                btn.style.color = "#ff0044";
+                btn.style.borderColor = "#ff0044";
+            }
+        }
+
+        btn.addEventListener("click", () => { modal.style.display = "flex"; });
+        cancelBtn.addEventListener("click", () => { modal.style.display = "none"; });
+
+        confirmBtn.addEventListener("click", async () => {
+            modal.style.display = "none";
+            try {
+                const res = await fetch("https://angelonline.altervista.org/soc/lockdown_trigger.php?action=toggle", { cache: "no-store" });
+                const data = await res.json();
+                
+                if (data.status === "success") {
+                    isLockdownActive = (data.lockdown === "ON");
+                    updateUI(isLockdownActive);
+
+                    if (isLockdownActive) {
+                        window.SOCConsole.log("ATTENZIONE: Protocollo di emergenza Lockdown ATTIVATO!", "ERROR");
+                    } else {
+                        window.SOCConsole.log("Perimetro ripristinato: Lockdown disattivato.", "SUCCESS");
+                    }
+                }
+            } catch (e) {
+                window.SOCConsole.log("Errore esecuzione comando Lockdown.", "ERROR");
+            }
+        });
+
+        checkStatus();
     }
+
+    // --------------------------------------------------------
+    // 4. BANNER DI ALLERTA RAPIDA
+    // --------------------------------------------------------
+    function initSocAlertBanner() {
+        const banner = document.getElementById("soc-alert-banner");
+        const closeBtn = document.getElementById("close-banner-btn");
+        if (!banner) return;
+
+        let dismissed = false;
+
+        async function checkBanner() {
+            if (dismissed) return;
+            try {
+                const res = await fetch("https://angelonline.altervista.org/soc/security_score.php", { cache: "no-store" });
+                const data = await res.json();
+
+                if (data.status === "CRITICO" || data.score < 60) {
+                    document.getElementById("banner-threat-title").textContent = `DEFCON WARNING (Score: ${data.score}%)`;
+                    document.getElementById("banner-timestamp").textContent = new Date().toLocaleTimeString();
+                    banner.style.display = "flex";
+                } else {
+                    banner.style.display = "none";
+                }
+            } catch (e) {}
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                banner.style.display = "none";
+                dismissed = true;
+                window.SOCConsole.log("Banner di allerta chiuso temporaneamente dall'operatore.", "WARN");
+            });
+        }
+
+        checkBanner();
+        setInterval(checkBanner, 20000);
+    }
+
+    // Avvio globale dei moduli all'interno della dashboard
+    document.addEventListener("DOMContentLoaded", function() {
+        initThreatAndSuspiciousModule();
+        initLockdownSystem();
+        initSocAlertBanner();
+        window.SOCConsole.log("Tutti i moduli SOC sono operativi e sincronizzati.", "SUCCESS");
+    });
 })();
