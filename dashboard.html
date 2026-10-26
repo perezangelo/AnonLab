@@ -243,63 +243,24 @@ fetch("/partials/ticker.html")
   </ul>
 </div>
 
-<!-- GRIGLIA PRINCIPALE SOC -->
-<div class="soc-grid">
-
-    <!-- MINI THREAT MAP -->
-    <div class="soc-card">
-        <h2>Threat Map</h2>
-        <!-- Radar dinamico integrato perfettamente nella struttura originale -->
-        <div style="position: relative; height: 210px; background: #030712; border-radius: 4px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-            <canvas id="realThreatCanvas" width="460" height="190" style="width: 100%; height: 100%; object-fit: contain;"></canvas>
-        </div>
-    </div>
-
-    <!-- ATTIVITÀ SOSPETTE -->
-    <div class="soc-card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <h2>Attività sospette</h2>
-            
-            <!-- Controlli Filtro & Export puliti e allineati -->
-            <div style="display: flex; gap: 8px; align-items: center;">
-                <select id="severity-filter" style="
-                    background: #030712; 
-                    color: #00eaff; 
-                    border: 1px solid #1e293b; 
-                    padding: 3px 8px; 
-                    border-radius: 4px; 
-                    font-family: 'JetBrains Mono', monospace; 
-                    font-size: 0.7rem;
-                    cursor: pointer;
-                ">
-                    <option value="ALL">TUTTI</option>
-                    <option value="CRITICAL">CRITICAL</option>
-                    <option value="WARNING">WARNING</option>
-                </select>
-
-                <button id="export-csv-btn" style="
-                    background: rgba(0, 234, 255, 0.1);
-                    color: #00eaff;
-                    border: 1px solid #00eaff;
-                    padding: 4px 8px;
-                    border-radius: 4px;
-                    font-family: 'JetBrains Mono', monospace;
-                    font-size: 0.7rem;
-                    cursor: pointer;
-                    font-weight: bold;
-                ">CSV</button>
-            </div>
+        <!-- MINI THREAT MAP -->
+        <div class="soc-card">
+          <h2>Threat Map</h2>
+          <img src="/img/threat-map-placeholder.png" alt="Threat Map" class="map-img">
         </div>
 
-        <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
-            Eventi anomali rilevati dal sistema. Il widget mostra tentativi di accesso non autorizzati,
-            scansioni di rete, processi sospetti e altre attività che potrebbero indicare un rischio di sicurezza.
-        </p>
+        <div class="soc-card">
+    <h2>Attività sospette</h2>
 
-        <div id="suspicious-list" style="height: 160px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;"></div>
-    </div>
+    <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+        Eventi anomali rilevati dal sistema. Il widget mostra tentativi di accesso non autorizzati,
+        scansioni di rete, processi sospetti e altre attività che potrebbero indicare un rischio di sicurezza.
+    </p>
 
-</div> <!-- /soc-grid -->
+    <div id="suspicious-list"></div>
+</div>
+
+      </div> <!-- /soc-grid -->
 
       <!-- ANONYMOUS LIVE OPERATIONS FEED -->
       <div class="cyber-box" style="
@@ -378,45 +339,32 @@ fetch("/partials/ticker.html")
   </div>
 
 </div>
-     
-<!-- SOC SYSTEM INTEGRITY MATRIX -->
-<div class="soc-card" style="
-    background: linear-gradient(135deg, #070a0f 0%, #0d121d 100%);
-    border: 1px solid #1a2638;
-    border-top: 3px solid #00eaff;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-    font-family: 'JetBrains Mono', monospace;
-    color: #e2e8f0;
-    margin-bottom: 20px;
-">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <h3 style="margin: 0; color: #00eaff; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 2px;">
-      System Integrity Matrix
-    </h3>
-    <span id="soc-global-status" style="font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; font-weight: bold; background: rgba(0,234,255,0.1); color: #00eaff; border: 1px solid #00eaff;">
-      SYNCHRONIZING...
-    </span>
-  </div>
 
-  <p style="opacity: 0.75; font-size: 0.78rem; margin-bottom: 16px; color: #94a3b8;">
-    Monitoraggio in tempo reale dei sottosistemi critici dell'infrastruttura di sicurezza.
+      <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Security Score</h3>
+  <p style="color:#ccc; margin-bottom:15px;">
+    Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
   </p>
 
-  <!-- Matrice dei Sottosistemi -->
-  <div id="telemetry-matrix" style="
-      background: #030712; 
-      border: 1px solid #1e293b; 
-      border-radius: 4px; 
-      padding: 12px; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 10px; 
-      font-size: 0.78rem;
+  <div id="security-circle" style="
+      width:180px; height:180px; margin:auto; border-radius:50%;
+      background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 20px #00eaffaa;
   ">
-    <div style="color: #64748b; text-align: center; padding: 10px;">Caricamento telemetria nodi...</div>
+    <span id="security-score" style="color:#fff; font-size:32px; font-weight:bold;">0</span>
   </div>
+
+  <p id="security-status" style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
+    Stato: —
+  </p>
 </div>
 
       <div class="cyber-box" style="
