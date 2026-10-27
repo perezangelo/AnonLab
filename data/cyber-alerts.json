@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-wf6j-7hvr-gr93",
-    "summary": "Hydra legacy target blacklist permits unsafe PyYAML loading",
+    "id": "CVE-2026-116690",
+    "summary": "MLflow vulnerable to arbitrary file read on unauthenticated servers via prompt model version source",
     "severity": "HIGH",
-    "published": "2026-10-27T17:08:41Z",
-    "ghsa": "GHSA-wf6j-7hvr-gr93"
+    "published": "2026-10-27T21:26:56Z",
+    "ghsa": "GHSA-m65p-9j7q-6w33"
   },
   {
-    "id": "CVE-2026-110816",
-    "summary": "qs : qs.stringify with arrayFormat 'comma' throws an uncaught TypeError on array elements carrying a non-callable own toString (DoS)",
+    "id": "CVE-2026-116691",
+    "summary": "MLflow CrewAI autologging records LLM provider API keys in logged trace spans",
     "severity": "MODERATE",
-    "published": "2026-10-27T16:10:55Z",
-    "ghsa": "GHSA-6pq8-jhm2-2vcw"
+    "published": "2026-10-27T21:26:39Z",
+    "ghsa": "GHSA-j7qq-vr8c-xvw3"
   },
   {
-    "id": "CVE-2026-109855",
-    "summary": "undici WebSocket client vulnerable to Denial of Service via failed HTTP/2 handshake",
+    "id": "CVE-2026-116692",
+    "summary": "MLflow vulnerable to remote code execution on unauthenticated servers via third-party scorer deserialization importing caller-placed artifact modules",
+    "severity": "CRITICAL",
+    "published": "2026-10-27T21:26:32Z",
+    "ghsa": "GHSA-26p8-2jq9-3vq9"
+  },
+  {
+    "id": "CVE-2026-116693",
+    "summary": "dd-trace: ReDOS in URL query string obfuscation",
     "severity": "HIGH",
-    "published": "2026-10-27T16:09:45Z",
-    "ghsa": "GHSA-qq8j-7v2v-3rwp"
+    "published": "2026-10-27T21:07:25Z",
+    "ghsa": "GHSA-x94g-w73q-hpcw"
   },
   {
-    "id": "CVE-2026-114616",
-    "summary": "Authlib accepts an empty HMAC key, allowing JWS/JWT signature forgery (HS256/HS384/HS512)",
+    "id": "CVE-2026-116675",
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` serialization",
     "severity": "HIGH",
-    "published": "2026-10-27T16:09:22Z",
-    "ghsa": "GHSA-8m4g-j4wp-wgcg"
+    "published": "2026-10-27T21:07:12Z",
+    "ghsa": "GHSA-mf2p-h6hf-fcwm"
   },
   {
-    "id": "GHSA-vp88-798v-h67f",
-    "summary": "rustls: ECH rejection can expose buffered application data to authenticated outer server before `ech_required` alert",
-    "severity": "LOW",
-    "published": "2026-10-27T16:08:59Z",
-    "ghsa": "GHSA-vp88-798v-h67f"
-  },
-  {
-    "id": "GHSA-w44r-93j7-qv28",
-    "summary": "rustls: An unauthenticated ServerHello poisons the per-name key-exchange record, so later ClientHellos carry only a classical X25519 share",
-    "severity": "LOW",
-    "published": "2026-10-27T16:08:54Z",
-    "ghsa": "GHSA-w44r-93j7-qv28"
-  },
-  {
-    "id": "GHSA-c8m5-c952-6cm4",
-    "summary": "Rustls: Session Debug formatting exposes TLS master secrets and resumption PSKs",
+    "id": "CVE-2026-116684",
+    "summary": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
     "severity": "MODERATE",
-    "published": "2026-10-27T16:08:47Z",
-    "ghsa": "GHSA-c8m5-c952-6cm4"
+    "published": "2026-10-27T21:06:59Z",
+    "ghsa": "GHSA-w4fh-qvv9-3v23"
   },
   {
-    "id": "GHSA-h2v8-394m-p7vv",
-    "summary": "Rustls: Brotli certificate decompression can allocate an attacker-controlled amount of memory up to 1 GiB before authentication.",
+    "id": "CVE-2026-116694",
+    "summary": "OpenTelemetry Python: Unbounded memory allocation in Jaeger baggage propagation",
+    "severity": "MODERATE",
+    "published": "2026-10-27T21:06:54Z",
+    "ghsa": "GHSA-f5m9-jfrj-jjj7"
+  },
+  {
+    "id": "CVE-2026-116685",
+    "summary": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
+    "severity": "MODERATE",
+    "published": "2026-10-27T21:05:34Z",
+    "ghsa": "GHSA-5h93-6whr-6q8j"
+  },
+  {
+    "id": "CVE-2026-116686",
+    "summary": "Model Context Protocol Python SDK: Client fetched server-chosen $ref URLs while validating tool results against output schemas",
+    "severity": "MODERATE",
+    "published": "2026-10-27T21:05:29Z",
+    "ghsa": "GHSA-rwrf-2pqf-9j8j"
+  },
+  {
+    "id": "CVE-2026-116687",
+    "summary": "CKEditor: Cross-site scripting (XSS) in the engine package",
     "severity": "LOW",
-    "published": "2026-10-27T16:08:36Z",
-    "ghsa": "GHSA-h2v8-394m-p7vv"
-  },
-  {
-    "id": "CVE-2026-114620",
-    "summary": "Authlib: Unvalidated request_uri fetch in JWT-secured authorization request (JAR) leading to SSRF",
-    "severity": "MODERATE",
-    "published": "2026-10-27T15:39:18Z",
-    "ghsa": "GHSA-x4rv-c3wx-4cr8"
-  },
-  {
-    "id": "CVE-2026-114617",
-    "summary": "Authlib: ID token can disable its own nonce validation via the nonce_supported claim",
-    "severity": "MODERATE",
-    "published": "2026-10-27T15:39:13Z",
-    "ghsa": "GHSA-c5mf-xmp2-59rc"
+    "published": "2026-10-27T21:05:13Z",
+    "ghsa": "GHSA-v6mg-96c6-gmpq"
   }
 ]
