@@ -1,5 +1,45 @@
 [
   {
+    "title": "Test account using \u201cPassword1\u201d caused data leak affecting thousands of people",
+    "link": "https://cybernews.com/security/password1-caused-data-leak-affecting-thousands/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/07/a-mouth-breathing-out-a-password.jpg"
+  },
+  {
+    "title": "US blocks Huawei-linked surveillance chips over national security fears",
+    "link": "https://cybernews.com/tech/us-blocks-huawei-linked-surveillance-chips/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/09/huawei-shop.png"
+  },
+  {
+    "title": "Maritime Coalition Launches Free Vulnerability Database for Ship and Port Systems",
+    "link": "https://www.securityweek.com/maritime-coalition-launches-free-vulnerability-database-for-ship-and-port-systems/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Maritime-cybersecurity.jpg"
+  },
+  {
+    "title": "Apple says it will replace iPhone Duo units showing screen problems",
+    "link": "https://cybernews.com/tech/apple-will-replace-iphone-duo/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/apple-duo-billboard.png"
+  },
+  {
+    "title": "Microsoft offers buyouts to around 60,000 employees to contain costs",
+    "link": "https://cybernews.com/ai-news/microsoft-offers-buyouts-to-60000-employees/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/microsoft-headquarters-redmond.png"
+  },
+  {
+    "title": "Attackers Hijack Dahua IP Cameras in Ukraine Using P2P Access and Auth Weaknesses",
+    "link": "https://thehackernews.com/2026/10/attackers-hijack-dahua-ip-cameras-in.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjISG9SXb2aeE6Zy-bIbnuaqwUNmGof7xU8RQl0vGZIcxcgNE3YXpuvG7rJKSTn_q9J8d_2DEv6rU2zxoX615DIYePz9rMA2TiLT6Fo1q2leGoyH85hJuIUta8j8FEN2mY5AGaO6zH5o6MkCHZ9Sv7OpjrZ6LE1yZygl9R4hUgt7xWJMMeGXRI4UJziuPCW/s1600/hackers-camera.jpg"
+  },
+  {
+    "title": "CISA Confirms Active Exploitation of Two PHP2Shell Flaws Enabling Remote Code Execution",
+    "link": "https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-vxKiggBxnuXu0fenkg0gfce0iuuA3OxeVzvWAdc0zaDPDayQgY8y_miqnvHJrpYvw61AhvGHEOW4EIKIYZ4QkRGjGEhqiU-3R0o6m0fgHJYDtszsoXyqse7WDGMh4rvEuTf1T-17KOVkyJKgEcaw5yBXFi6ElwIFyU9TjudvJrHz4fz6VNro8bjUZcnD/s1600/cisa-php.jpg"
+  },
+  {
+    "title": "Ransomware chaos hits Richmond, Oneonta school districts as cyberattacks pile up",
+    "link": "https://cybernews.com/news/richmond-oneonta-schools-ransomware-attacks/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/09/School-deepfakes-hero.jpg"
+  },
+  {
     "title": "Cybersecurity Issue Forces a Major New Mexico Hospital to Divert Patients and Close Clinics",
     "link": "https://www.securityweek.com/cybersecurity-issue-forces-a-major-new-mexico-hospital-to-divert-patients-and-close-clinics/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
@@ -108,45 +148,5 @@
     "title": "FBI UFO images spark debate over triangular craft",
     "link": "https://cybernews.com/news/pentagon-ufo-files-triangular-craft/",
     "image": "https://media.cybernews.com/images/featured-big/2026/10/UFO-FBI-Fake.jpg"
-  },
-  {
-    "title": "\u26a1 Weekly Recap: This2Shell, That2Shell, Everything's an RCE? Rogue AI, Supply Chain Chaos and More",
-    "link": "https://thehackernews.com/2026/10/weekly-recap-this2shell-that2shell.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjztmxBbaYZEAd_HSv1heMQm8UuLym1h7XcN8NrgWjJmaoghOIR2O1rHwQzunUd9jlQn4R_8ft4Y0K9xLQOhs2xM8vVh1eHoEsZIFonHd7K6TA1cd0aIJ6jK-K2RNVBCwMfQwq7WWpuFtB8inWvubRjIEw_9fetsRFllw-fsAAnjCnpMCqFIL28ovMhJwbd/s1600/recap2monday.jpg"
-  },
-  {
-    "title": "When an AI Agent Is the Incident, the Identity Record Is the Evidence",
-    "link": "https://www.bleepingcomputer.com/news/security/when-an-ai-agent-is-the-incident-the-identity-record-is-the-evidence/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/10/22/ai-agent-header.jpg"
-  },
-  {
-    "title": "10 Software Security Practices Built for the Next 250 Years",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/10-software-security-practices-built-250-years",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0de7e1fa7b975bb4/6a2830dd09a01a8cc3ee406e/bug-sankai-Getty-2192972249.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Chinese man extradited for role in $36 million cryptocurrency scam",
-    "link": "https://www.bleepingcomputer.com/news/security/chinese-man-extradited-for-role-in-36-million-cryptocurrency-scam/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/bitcoin-dollar-hacker-crypto.jpg"
-  },
-  {
-    "title": "PHP2Shell Exploitation Moves From Probes to Working Shells",
-    "link": "https://www.securityweek.com/php2shell-exploitation-moves-from-probes-to-working-shells/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/php-exploit-code.webp"
-  },
-  {
-    "title": "953 Online Stores Infected in Long-Lasting Malware Campaign",
-    "link": "https://www.securityweek.com/953-online-stores-infected-in-long-lasting-malware-campaign/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Magento.jpeg"
-  },
-  {
-    "title": "iPhone Duo cracked screen images appear hours after purchase, but tech pros aren\u2019t buying it",
-    "link": "https://cybernews.com/tech/iphone-duo-broken-screen/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/apple-foldable-cracked.jpg"
-  },
-  {
-    "title": "Hisense faces $5 million ransom demand over alleged 19GB data theft",
-    "link": "https://cybernews.com/security/ransomware-operator-claims-hisense-demands-5-million/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/Hisense.jpg"
   }
 ]
