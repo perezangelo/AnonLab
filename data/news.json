@@ -1,5 +1,40 @@
 [
   {
+    "title": "OpenAI's GPT-6.1 Terra is safer overall, but shows more destructive-action flags in tests",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-gpt-61-terra-is-safer-overall-but-shows-more-destructive-action-flags-in-tests/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/openai-listening-device.jpg"
+  },
+  {
+    "title": "UNM Health ransomware attack disrupts patient care, surgeries",
+    "link": "https://www.bleepingcomputer.com/news/security/unm-health-ransomware-attack-disrupts-patient-care-surgeries/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/UNM.jpg"
+  },
+  {
+    "title": "3 Frameworks to Protect CISOs &amp; Orgs Against AI Liability",
+    "link": "https://www.darkreading.com/cyber-risk/3-frameworks-cisos-ai-liability",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltbc201b7327a3221e/6ae0e1681ae793f19fb9e1de/Cyber_legal_Abu_Hanifa_Getty_Images.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Cornell 7 reckoning: Research finds AI deepfakes overwhelmingly target girls in schools",
+    "link": "https://cybernews.com/editorial/cornell-7-ai-deepfake-abuse-target-girls-schools/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/CornellUniversityfall.jpg"
+  },
+  {
+    "title": "Hackers hijack Convertr analytics script to steal payment card data",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-hijack-convertr-analytics-script-to-steal-payment-card-data/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/cart.jpg"
+  },
+  {
+    "title": "External Teams Chats Anchor 15-Minute Malware Delivery",
+    "link": "https://www.darkreading.com/cloud-security/email-bombing-external-teams-chats-repeatable-access-path",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt634b295db59f5c55/6ae0fd3853ec236cfd97d242/Email_flood-juststock-GettyImages-2156140935.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "SBOMs Alone Can't Reveal the Scope of a Supply Chain Attack",
+    "link": "https://www.darkreading.com/cyber-risk/sboms-alone-scope-supply-chain-attack",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltaa7bc1b8ce13713c/6ae1025ea3c73d20dd328ef4/sschain_LocalPhotoSomebody_shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "CyberStrikeAI Uses 44 AI Agents to Automate Hacking Operations Against Japan Targets",
     "link": "https://thehackernews.com/2026/10/cyberstrikeai-uses-44-ai-agents-to.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiniSfVwM2b4RVouLhc_nIvm2CdQCg9jtQDBVQP6BjvEC2NBaLFqU0A8RyC_GA3PkI4jF87W3h0GJ4xzycp6LAd4I3eRh3JnhnM9yi7CZ9dX2Pfe3MdDaaUSyrDUy1ksA-fdq0bUVzWcFRmS-JWOy3z7xiWB70DzgXLst_YspRqbGIAyv85_D4H9sPT7Sq3/s1600/cyberstrikeai.jpg"
@@ -105,11 +140,6 @@
     "image": "https://media.cybernews.com/images/featured-big/2026/10/sweden-copilot-chatgpt.jpg"
   },
   {
-    "title": "Severe GoAhead flaws expose security risks for devices from Palo Alto, HP, Lockheed Martin and Boeing",
-    "link": "https://cybernews.com/security/goahead-security-flaws-palo-alto-siemens-boeing/",
-    "image": "https://media.cybernews.com/images/featured-big/2023/10/Boeing.jpg"
-  },
-  {
     "title": "Microsoft Authenticator Flaw Let Permissionless Android Apps Steal Work Account Tokens",
     "link": "https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqk63DF3MJCMgQqpg91UsWY7mjACbBgPl50GfKwDPi7v3md6sP5l8a2BUqHABjgMN_6BzgcMx4vVKW4hR9B9pz8_XHqp5ctKqQQLw-RJwuKmVWm2MaSzEMkHIsV-Yi0V6Mq_gUYYuzTpi-BzV2-8dRVYBjtuW4nb9TbobkPwvOGTkIFTpr334JB_LZIkw/s1600/msms.jpg"
@@ -118,35 +148,5 @@
     "title": "Unexplained DreamHost Incident Prompts Email, FTP Password Resets",
     "link": "https://www.securityweek.com/unexplained-dreamhost-incident-prompts-email-ftp-password-resets/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/08/password-manager.jpeg"
-  },
-  {
-    "title": "Mitsubishi Electric GENESIS, GENESIS64, ICONICS Suite, Hyper Historian, AnalytiX, MobileHMI, IoTWorX, MC Works64, GENESIS32 and BizViz",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-02",
-    "image": ""
-  },
-  {
-    "title": "EPICS Base",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01",
-    "image": ""
-  },
-  {
-    "title": "iOS, macOS 27.2 Patch 286 Bugs; Fix for Exploited Flaw Backported to iOS 18",
-    "link": "https://www.securityweek.com/ios-macos-27-2-patch-286-bugs-fix-for-exploited-flaw-backported-to-ios-18/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Apple-iOS-macOS-Patches.jpg"
-  },
-  {
-    "title": "Keystone to Destroy 18,835 Hardware Wallets After Hackers Steal Device Verification Key",
-    "link": "https://thehackernews.com/2026/10/keystone-to-destroy-18835-hardware.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkvGXPUhZZjWBsYYBAx8KeJ8WilsBMLE-JhqfNAEyCOPuxs6-4VIF1e77IHR5zVdGfRsjJkSOfUVE1JaEmKe0mSAVM-ha4SeROxEGAdkLY5n5rBqx1LBSm6UVxA167sJYZEJTRra7BSipFtdlw2S-kFCUOSa9n70NbfSka3zRNVHd0D69qbVpSGIOnuAU/s1600/keystone.jpg"
-  },
-  {
-    "title": "AI-Generated Fake Login Pages Are Making Account Takeovers Easier",
-    "link": "https://thehackernews.com/2026/10/ai-generated-fake-login-pages-are.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCX1RKz1isf0HwbYOFkKneC7maFNTVr0q0LTVHBsoGhEN5w7ZOfSLYqfq_6-oKzf51Vb3FJTVla21T-RrWus7Dxadw81UmqDBbw8rIWxfbBhPdI5tyAUQZSYwYaq9JetgW4_4yl1qbWU7ScrdxYjoTCot6v9gXMIyjsk4W66Z531z5oHaHHEguj6_EISU/s1600/keeper-password.jpg"
-  },
-  {
-    "title": "Lazarus Abuses South Korean Security Software to Deploy Malware Using Post-Quantum Encryption",
-    "link": "https://thehackernews.com/2026/10/lazarus-abuses-south-korean-security.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwoWz3Ex4w0TebsrzDSdna5WAjqoQx5EHWC1kY3db9VgMg6FrGK6VbncVA9b3tKdPnqlR6qmdwsq7CT1f-Cp57WpH6lpfoF-5zb_Xg-ahdsNxO4OUTsdDVeO_8s7SQFLp54SrsWlWrZn-37sAcqv1ZeG_7Yc62vQ5X9Tq-MlIEm6EOQOiTkQVlcy9F4VG4/s1600/korean-malware.jpg"
   }
 ]
