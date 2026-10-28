@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-116690",
-    "summary": "MLflow vulnerable to arbitrary file read on unauthenticated servers via prompt model version source",
+    "id": "CVE-2026-118250",
+    "summary": "Highcharts: dotted series.keys paths write to Object.prototype",
     "severity": "HIGH",
-    "published": "2026-10-27T21:26:56Z",
-    "ghsa": "GHSA-m65p-9j7q-6w33"
+    "published": "2026-10-28T19:56:18Z",
+    "ghsa": "GHSA-rmqc-xvr3-v46c"
   },
   {
-    "id": "CVE-2026-116691",
-    "summary": "MLflow CrewAI autologging records LLM provider API keys in logged trace spans",
-    "severity": "MODERATE",
-    "published": "2026-10-27T21:26:39Z",
-    "ghsa": "GHSA-j7qq-vr8c-xvw3"
-  },
-  {
-    "id": "CVE-2026-116692",
-    "summary": "MLflow vulnerable to remote code execution on unauthenticated servers via third-party scorer deserialization importing caller-placed artifact modules",
-    "severity": "CRITICAL",
-    "published": "2026-10-27T21:26:32Z",
-    "ghsa": "GHSA-26p8-2jq9-3vq9"
-  },
-  {
-    "id": "CVE-2026-116693",
-    "summary": "dd-trace: ReDOS in URL query string obfuscation",
+    "id": "CVE-2026-118249",
+    "summary": "Highcharts: series column construction writes to Object.prototype",
     "severity": "HIGH",
-    "published": "2026-10-27T21:07:25Z",
-    "ghsa": "GHSA-x94g-w73q-hpcw"
+    "published": "2026-10-28T19:56:13Z",
+    "ghsa": "GHSA-gfvx-2c2g-38wq"
   },
   {
-    "id": "CVE-2026-116675",
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` serialization",
+    "id": "CVE-2026-118246",
+    "summary": "Highcharts Core: `breadcrumbs.style` keys become SVG event-handler attributes",
     "severity": "HIGH",
-    "published": "2026-10-27T21:07:12Z",
-    "ghsa": "GHSA-mf2p-h6hf-fcwm"
+    "published": "2026-10-28T19:56:07Z",
+    "ghsa": "GHSA-35rr-xwfh-x789"
   },
   {
-    "id": "CVE-2026-116684",
-    "summary": "Model Context Protocol Python SDK: Server bearer-token authentication accepts tokens issued for a different resource server",
+    "id": "CVE-2026-116797",
+    "summary": "Highcharts Grid Pro: cell-renderer `attributes` map written with raw `setAttribute`",
+    "severity": "HIGH",
+    "published": "2026-10-28T19:56:02Z",
+    "ghsa": "GHSA-5ghw-9mgr-jvx2"
+  },
+  {
+    "id": "CVE-2026-118242",
+    "summary": "Highcharts Grid: custom icon definition objects written with raw `setAttribute` on `<path>`",
+    "severity": "HIGH",
+    "published": "2026-10-28T19:55:46Z",
+    "ghsa": "GHSA-6g3c-p4fg-xv47"
+  },
+  {
+    "id": "CVE-2026-118245",
+    "summary": "Highcharts Dashboards: `chartConstructor` is an unchecked lookup into the Highcharts namespace",
+    "severity": "HIGH",
+    "published": "2026-10-28T19:55:41Z",
+    "ghsa": "GHSA-grj7-r4jv-pw9j"
+  },
+  {
+    "id": "CVE-2026-118247",
+    "summary": "Highcharts Dashboards / Grid Pro: `DataTable.setCell` and column writers treat `__proto__` as an existing column.",
     "severity": "MODERATE",
-    "published": "2026-10-27T21:06:59Z",
-    "ghsa": "GHSA-w4fh-qvv9-3v23"
+    "published": "2026-10-28T19:55:37Z",
+    "ghsa": "GHSA-c75x-9x9h-28rm"
   },
   {
-    "id": "CVE-2026-116694",
-    "summary": "OpenTelemetry Python: Unbounded memory allocation in Jaeger baggage propagation",
+    "id": "CVE-2026-118243",
+    "summary": "Highcharts Dashboards: `__proto__` data table id writes sync listeners to `Object.prototype`",
     "severity": "MODERATE",
-    "published": "2026-10-27T21:06:54Z",
-    "ghsa": "GHSA-f5m9-jfrj-jjj7"
+    "published": "2026-10-28T19:55:32Z",
+    "ghsa": "GHSA-jqgh-w3cc-7jqw"
   },
   {
-    "id": "CVE-2026-116685",
-    "summary": "Model Context Protocol Python SDK: HTTP client transports followed cross-origin redirects carrying custom headers and bodies",
-    "severity": "MODERATE",
-    "published": "2026-10-27T21:05:34Z",
-    "ghsa": "GHSA-5h93-6whr-6q8j"
+    "id": "CVE-2026-118244",
+    "summary": "Highcharts Core: HTML text parsing falls back to unfiltered `innerHTML` during printing",
+    "severity": "HIGH",
+    "published": "2026-10-28T19:55:22Z",
+    "ghsa": "GHSA-65hg-cf3f-5m39"
   },
   {
-    "id": "CVE-2026-116686",
-    "summary": "Model Context Protocol Python SDK: Client fetched server-chosen $ref URLs while validating tool results against output schemas",
-    "severity": "MODERATE",
-    "published": "2026-10-27T21:05:29Z",
-    "ghsa": "GHSA-rwrf-2pqf-9j8j"
-  },
-  {
-    "id": "CVE-2026-116687",
-    "summary": "CKEditor: Cross-site scripting (XSS) in the engine package",
-    "severity": "LOW",
-    "published": "2026-10-27T21:05:13Z",
-    "ghsa": "GHSA-v6mg-96c6-gmpq"
+    "id": "CVE-2026-116796",
+    "summary": "Highcharts Core: `javascript:` URL in an `xlink:href` attribute survives text filtering and reaches exported charts",
+    "severity": "HIGH",
+    "published": "2026-10-28T19:55:10Z",
+    "ghsa": "GHSA-mw4f-gj5x-6xr4"
   }
 ]
