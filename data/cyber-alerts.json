@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-118250",
-    "summary": "Highcharts: dotted series.keys paths write to Object.prototype",
-    "severity": "HIGH",
-    "published": "2026-10-28T19:56:18Z",
-    "ghsa": "GHSA-rmqc-xvr3-v46c"
-  },
-  {
-    "id": "CVE-2026-118249",
-    "summary": "Highcharts: series column construction writes to Object.prototype",
-    "severity": "HIGH",
-    "published": "2026-10-28T19:56:13Z",
-    "ghsa": "GHSA-gfvx-2c2g-38wq"
-  },
-  {
-    "id": "CVE-2026-118246",
-    "summary": "Highcharts Core: `breadcrumbs.style` keys become SVG event-handler attributes",
-    "severity": "HIGH",
-    "published": "2026-10-28T19:56:07Z",
-    "ghsa": "GHSA-35rr-xwfh-x789"
-  },
-  {
-    "id": "CVE-2026-116797",
-    "summary": "Highcharts Grid Pro: cell-renderer `attributes` map written with raw `setAttribute`",
-    "severity": "HIGH",
-    "published": "2026-10-28T19:56:02Z",
-    "ghsa": "GHSA-5ghw-9mgr-jvx2"
-  },
-  {
-    "id": "CVE-2026-118242",
-    "summary": "Highcharts Grid: custom icon definition objects written with raw `setAttribute` on `<path>`",
-    "severity": "HIGH",
-    "published": "2026-10-28T19:55:46Z",
-    "ghsa": "GHSA-6g3c-p4fg-xv47"
-  },
-  {
-    "id": "CVE-2026-118245",
-    "summary": "Highcharts Dashboards: `chartConstructor` is an unchecked lookup into the Highcharts namespace",
-    "severity": "HIGH",
-    "published": "2026-10-28T19:55:41Z",
-    "ghsa": "GHSA-grj7-r4jv-pw9j"
-  },
-  {
-    "id": "CVE-2026-118247",
-    "summary": "Highcharts Dashboards / Grid Pro: `DataTable.setCell` and column writers treat `__proto__` as an existing column.",
+    "id": "CVE-2026-115927",
+    "summary": "Tornado: Event loop blocking and excess memory use from chunked bodies with many small chunks",
     "severity": "MODERATE",
-    "published": "2026-10-28T19:55:37Z",
-    "ghsa": "GHSA-c75x-9x9h-28rm"
+    "published": "2026-10-28T22:43:50Z",
+    "ghsa": "GHSA-r4j5-9xpp-3985"
   },
   {
-    "id": "CVE-2026-118243",
-    "summary": "Highcharts Dashboards: `__proto__` data table id writes sync listeners to `Object.prototype`",
+    "id": "CVE-2026-116578",
+    "summary": "Tornado: Open redirect in RedirectHandler via protocol-relative URLs",
+    "severity": "LOW",
+    "published": "2026-10-28T22:43:45Z",
+    "ghsa": "GHSA-pw9p-v7r6-gx4p"
+  },
+  {
+    "id": "CVE-2026-116577",
+    "summary": "Tornado: Quadratic CPU usage when parsing HTTP headers with line folding",
     "severity": "MODERATE",
-    "published": "2026-10-28T19:55:32Z",
-    "ghsa": "GHSA-jqgh-w3cc-7jqw"
+    "published": "2026-10-28T22:43:41Z",
+    "ghsa": "GHSA-pcg2-g6cj-q92c"
   },
   {
-    "id": "CVE-2026-118244",
-    "summary": "Highcharts Core: HTML text parsing falls back to unfiltered `innerHTML` during printing",
-    "severity": "HIGH",
-    "published": "2026-10-28T19:55:22Z",
-    "ghsa": "GHSA-65hg-cf3f-5m39"
+    "id": "CVE-2026-116695",
+    "summary": "Crass: Incorrect tokenization of bad URLs enables CSS sanitizer bypass",
+    "severity": "MODERATE",
+    "published": "2026-10-28T22:42:53Z",
+    "ghsa": "GHSA-pq4g-8rxf-4g29"
   },
   {
-    "id": "CVE-2026-116796",
-    "summary": "Highcharts Core: `javascript:` URL in an `xlink:href` attribute survives text filtering and reaches exported charts",
+    "id": "CVE-2026-116576",
+    "summary": "systeminformation vulnerable to Windows command injection in services() through Unicode quotation marks",
     "severity": "HIGH",
-    "published": "2026-10-28T19:55:10Z",
-    "ghsa": "GHSA-mw4f-gj5x-6xr4"
+    "published": "2026-10-28T22:42:49Z",
+    "ghsa": "GHSA-3f7j-7jwc-fxfj"
+  },
+  {
+    "id": "CVE-2026-115923",
+    "summary": "Backstage catalog rules can be bypassed for URL locations using encoded path segments",
+    "severity": "MODERATE",
+    "published": "2026-10-28T22:42:36Z",
+    "ghsa": "GHSA-w658-mh9p-ww8f"
+  },
+  {
+    "id": "CVE-2026-117601",
+    "summary": "Electrum: Malicious server can replace a just-broadcast tx and try to trick user into RBF-ing it",
+    "severity": "CRITICAL",
+    "published": "2026-10-28T21:23:44Z",
+    "ghsa": "GHSA-6jp4-8v48-cc5v"
+  },
+  {
+    "id": "GHSA-2hw4-c9m4-f2fj",
+    "summary": "knative.dev/pkg admission webhooks allow unbounded request-body memory exhaustion",
+    "severity": "MODERATE",
+    "published": "2026-10-28T21:20:53Z",
+    "ghsa": "GHSA-2hw4-c9m4-f2fj"
+  },
+  {
+    "id": "GHSA-jf75-q64q-g65r",
+    "summary": "Waline login accepts a non-string email as a match-all MongoDB query",
+    "severity": "MODERATE",
+    "published": "2026-10-28T21:17:58Z",
+    "ghsa": "GHSA-jf75-q64q-g65r"
+  },
+  {
+    "id": "CVE-2026-116583",
+    "summary": "Seroval: Code injection through a typed array's own constructor property",
+    "severity": "MODERATE",
+    "published": "2026-10-28T21:17:36Z",
+    "ghsa": "GHSA-f86p-h4j2-7qgj"
   }
 ]
