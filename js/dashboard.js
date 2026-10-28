@@ -1,12 +1,10 @@
 /* ============================================================
    ANONLAB.IT — SOC Control Room Master Script (Base44 Edition)
-   Percorso: /js/dashboard.js
 ============================================================ */
 
 (function() {
     'use strict';
 
-    // 1. CONSOLE LOGGER GLOBALE
     window.SOCConsole = {
         log: function(message, type = "INFO") {
             const logBox = document.getElementById("soc-console-log");
@@ -27,7 +25,6 @@
         }
     };
 
-    // 2. THREAT MAP & ATTIVITÀ SOSPETTE (Connesso al Backend di Altervista)
     function initThreatAndSuspiciousModule() {
         const canvas = document.getElementById("realThreatCanvas");
         const suspiciousBox = document.getElementById("suspicious-list");
@@ -91,7 +88,6 @@
 
         async function fetchData() {
             try {
-                // Chiamata al backend PHP su Altervista
                 const res = await fetch("https://angelonline.altervista.org/soc/threat_stream.php", { cache: "no-store" });
                 const data = await res.json();
 
@@ -127,7 +123,7 @@
                 link.click();
                 document.body.removeChild(link);
 
-                window.SOCConsole.log("Esportazione log CSV completata con successo.", "ACTION");
+                window.SOCConsole.log("Esportazione log CSV completata.", "ACTION");
             });
         }
 
@@ -198,7 +194,6 @@
         setInterval(fetchData, 15000);
     }
 
-    // 3. EMERGENCY LOCKDOWN SYSTEM
     function initLockdownSystem() {
         const btn = document.getElementById("lockdown-btn");
         const label = document.getElementById("lockdown-status-label");
