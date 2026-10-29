@@ -10,12 +10,24 @@
   const LOCKDOWN_TOKEN = '45282aecaf38c7a5d69d60f812e86ceaee4603f85402ab2016313d0efcfcf3c4';
   const POLL_MS = 20000;
 
+  // Sanitizzazione anti-XSS per dati provenienti da feed esterni
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
   function initRealSocWidgets() {
     const attacksCanvas = document.getElementById('attacksChart');
     const eventLogBox = document.getElementById('event-log');
     const latCanvas = document.getElementById('lat-chart');
 
     let attacksChart = null;
+    let isLockdownActive = false;
 
     // --- CHART SETUP SICURO ---
     if (attacksCanvas && typeof Chart !== 'undefined') {
@@ -78,10 +90,17 @@
             scales: {
               x: {
                 grid: { color: 'rgba(30, 41, 59, 0.5)' },
-                ticks: { color: '#64748b', font: { size: 9, family: 'JetBrains Mono' }, maxTicksLimit: 8, callback: function (val) {
-                  const l = this.getLabelForValue(val);
-                  return l ? String(l).slice(5) : '';
-                }},
+                ticks: {
+                  color: '#64748b',
+                  font: { size: 9, family: 'JetBrains Mono' },
+                  maxTicksLimit: 8,
+                  callback: function (val) {
+                    const l = this.getLabelForValue(val);
+                    if (!l) return '';
+                    const str = String(l);
+                    return str.length === 10 && str.charAt(4) === '-' ? str.slice(5) : str;
+                  }
+                },
               },
               y: {
                 position: 'left',
@@ -107,6 +126,7 @@
     async function fetchThreat() {
       try {
         const res = await fetch(THREAT_API + '?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (data.status !== 'success') return;
 
@@ -117,23 +137,32 @@
           attacksChart.update('none');
         }
 
-        if (eventLogBox && data.event_log && data.event_log.length) {
-          eventLogBox.innerHTML = '';
+        if (eventLogBox && Array.isArray(data.event_log) && data.event_log.length) {
+          let htmlBuffer = '';
           data.event_log.forEach(function (item) {
-            const sev = (item.severity || 'INFO').toUpperCase();
-            const isCrit = sev === 'CRITICAL';
-            const isWarn = sev === 'WARNING';
+            const rawSev = (item.severity || 'INFO').toUpperCase();
+            const sev = escapeHtml(rawSev);
+            const isCrit = rawSev === 'CRITICAL';
+            const isWarn = rawSev === 'WARNING';
             const badgeColor = isCrit ? '#f87171' : isWarn ? '#fbbf24' : '#38bdf8';
             const badgeBg = isCrit ? 'rgba(239,68,68,0.1)' : isWarn ? 'rgba(245,158,11,0.1)' : 'rgba(56,189,248,0.1)';
 
-            eventLogBox.innerHTML += `
+            const itemTime = escapeHtml(item.time || '');
+            const itemId = escapeHtml(item.id || '');
+            const itemSource = escapeHtml(item.source || '');
+            const itemEvent = escapeHtml(item.event || '');
+            const itemVendor = escapeHtml(item.vendor || '');
+            const itemProduct = escapeHtml(item.product || '');
+            const vendorDetails = itemVendor ? ' · ' + itemVendor + (itemProduct ? ' / ' + itemProduct : '') : '';
+
+            htmlBuffer += `
               <div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px dashed #1e293b;padding-bottom:6px;gap:8px;">
                 <div style="min-width:0;flex:1;">
-                  <span style="color:#64748b;">[${item.time || ''}]</span>
-                  <strong style="color:#38bdf8;margin-left:4px;">${item.id || ''}</strong>
-                  <span style="color:#94a3b8;font-size:0.6rem;margin-left:4px;">${item.source || ''}</span>
+                  <span style="color:#64748b;">[${itemTime}]</span>
+                  <strong style="color:#38bdf8;margin-left:4px;">${itemId}</strong>
+                  <span style="color:#94a3b8;font-size:0.6rem;margin-left:4px;">${itemSource}</span>
                   <div style="color:#e2e8f0;margin-top:2px;font-size:0.7rem;word-break:break-word;">
-                    ${item.event || ''} ${item.vendor ? ' · ' + item.vendor + (item.product ? ' / ' + item.product : '') : ''}
+                    ${itemEvent} ${vendorDetails}
                   </div>
                 </div>
                 <span style="background:${badgeBg};color:${badgeColor};border:1px solid ${badgeColor};padding:1px 5px;font-size:0.6rem;border-radius:3px;font-weight:bold;white-space:nowrap;">
@@ -141,6 +170,7 @@
                 </span>
               </div>`;
           });
+          eventLogBox.innerHTML = htmlBuffer;
         }
       } catch (e) {
         console.error('SOC threat_intel error:', e);
@@ -173,6 +203,7 @@
     async function fetchInfra() {
       try {
         const res = await fetch(INFRA_API + '?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (data.status !== 'success') return;
 
@@ -190,7 +221,7 @@
         }
 
         if (latencyEl) latencyEl.textContent = (data.latency_ms || 0) + ' ms';
-        if (data.latency_ms) {
+        if (typeof data.latency_ms === 'number') {
           latencyHistory.shift();
           latencyHistory.push(data.latency_ms);
           drawSparkline();
@@ -222,48 +253,89 @@
     const cancelLockdown = document.getElementById('cancel-lockdown');
     const confirmLockdown = document.getElementById('confirm-lockdown');
     const lockdownLabel = document.getElementById('lockdown-status-label');
+    const modalMessage = document.getElementById('modal-message');
+    const modalTitle = document.getElementById('modal-title');
+    const modalIcon = document.getElementById('modal-icon');
+    const modalActions = document.getElementById('modal-actions');
+    const redirectAction = document.getElementById('modal-redirect-action');
+    const redirectBtn = document.getElementById('redirect-login-btn');
 
     function applyLockdownUI(active) {
+      isLockdownActive = active;
       if (lockdownLabel) {
         lockdownLabel.textContent = active ? 'LOCKDOWN ACTIVE (PERIMETER BLOCKED)' : 'STANDARD OPERATIONAL';
         lockdownLabel.style.color = active ? '#f87171' : '#34d399';
       }
       if (lockdownBtn) {
         lockdownBtn.textContent = active ? 'DEACTIVATE LOCKDOWN' : 'INITIATE LOCKDOWN';
+        lockdownBtn.style.color = active ? '#fca5a5' : '#f87171';
+        lockdownBtn.style.background = active ? 'rgba(239,68,68,0.3)' : 'rgba(239,68,68,0.15)';
       }
+    }
+
+    function openLockdownModal() {
+      if (!lockdownModal) return;
+
+      if (modalIcon) modalIcon.textContent = isLockdownActive ? '🔓' : '⚠️';
+      if (modalTitle) {
+        modalTitle.textContent = isLockdownActive ? 'Revoca Isolamento Perimetro' : 'Conferma Isolamento Emergenza';
+        modalTitle.style.color = isLockdownActive ? '#34d399' : '#f87171';
+      }
+      if (modalMessage) {
+        modalMessage.textContent = isLockdownActive
+          ? 'Vuoi riaprire il perimetro di rete e ripristinare il routing operativo standard?'
+          : "Sei sicuro di voler attivare le regole di blocco rigide sul perimetro dell'infrastruttura? Le sessioni esterne verranno terminate.";
+        modalMessage.style.color = '#94a3b8';
+      }
+      if (confirmLockdown) {
+        confirmLockdown.textContent = isLockdownActive ? 'REVOCA LOCKDOWN' : 'CONFERMA EXEC';
+        confirmLockdown.style.background = isLockdownActive ? '#10b981' : '#ef4444';
+      }
+      if (modalActions) modalActions.style.display = 'flex';
+      if (redirectAction) redirectAction.style.display = 'none';
+
+      lockdownModal.style.display = 'flex';
+    }
+
+    function closeLockdownModal() {
+      if (lockdownModal) lockdownModal.style.display = 'none';
     }
 
     async function refreshLockdownStatus() {
       try {
         const res = await fetch(LOCKDOWN_API + '?action=status&t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) return;
         const data = await res.json();
         if (data.status === 'success') {
           applyLockdownUI(data.lockdown === 'ON');
         }
-      } catch (e) {}
+      } catch (e) {
+        console.warn('Errore refresh stato lockdown:', e);
+      }
     }
 
-    if (lockdownBtn) {
-      lockdownBtn.addEventListener('click', function () {
-        if (lockdownModal) lockdownModal.style.display = 'flex';
+    if (lockdownBtn) lockdownBtn.addEventListener('click', openLockdownModal);
+    if (cancelLockdown) cancelLockdown.addEventListener('click', closeLockdownModal);
+
+    if (lockdownModal) {
+      lockdownModal.addEventListener('click', function (e) {
+        if (e.target === lockdownModal) closeLockdownModal();
       });
     }
 
-    if (cancelLockdown && lockdownModal) {
-      cancelLockdown.addEventListener('click', function () {
-        lockdownModal.style.display = 'none';
-      });
-    }
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lockdownModal && lockdownModal.style.display === 'flex') {
+        closeLockdownModal();
+      }
+    });
 
     async function doToggleLockdown() {
-      const modalMessage = document.getElementById('modal-message');
-      const modalTitle = document.getElementById('modal-title');
-      const modalIcon = document.getElementById('modal-icon');
-      const modalActions = document.getElementById('modal-actions');
-      const redirectAction = document.getElementById('modal-redirect-action');
-      const redirectBtn = document.getElementById('redirect-login-btn');
-
       try {
+        if (confirmLockdown) {
+          confirmLockdown.disabled = true;
+          confirmLockdown.textContent = 'ESECUZIONE...';
+        }
+
         const url = LOCKDOWN_API + '?action=toggle&token=' + encodeURIComponent(LOCKDOWN_TOKEN) + '&t=' + Date.now();
         const res = await fetch(url, { cache: 'no-store' });
         const data = await res.json();
@@ -294,12 +366,17 @@
 
         if (data.status === 'success') {
           applyLockdownUI(data.lockdown === 'ON');
-          if (lockdownModal) lockdownModal.style.display = 'none';
+          closeLockdownModal();
         } else {
-          alert('Lockdown fallito: ' + (data.message || 'Errore'));
+          alert('Lockdown fallito: ' + (data.message || 'Errore non specificato'));
         }
       } catch (e) {
         console.error('Lockdown error:', e);
+        alert('Errore di comunicazione durante il cambio stato lockdown.');
+      } finally {
+        if (confirmLockdown) {
+          confirmLockdown.disabled = false;
+        }
       }
     }
 
@@ -309,7 +386,7 @@
       });
     }
 
-    // --- START ---
+    // --- AVVIO TELEMETRIA ---
     fetchThreat();
     fetchInfra();
     refreshLockdownStatus();
