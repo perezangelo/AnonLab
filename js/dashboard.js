@@ -1,5 +1,5 @@
 /* ============================================================
-   ANONLAB.IT — SOC Widgets REAL (Definitive & Safe)
+   ANONLAB.IT — SOC Widgets REAL (Definitive, Clean & Safe)
 ============================================================ */
 (function () {
   'use strict';
@@ -18,86 +18,89 @@
     let attacksChart = null;
 
     // --- CHART SETUP SICURO ---
-    if (attacksCanvas && attacksCanvas.parentNode && typeof Chart !== 'undefined') {
-      // Distrugge eventuali istanze precedenti sullo stesso canvas
-      const oldChart = Chart.getChart(attacksCanvas);
-      if (oldChart) {
-        oldChart.destroy();
+    if (attacksCanvas && typeof Chart !== 'undefined') {
+      try {
+        const oldChart = Chart.getChart(attacksCanvas);
+        if (oldChart) {
+          oldChart.destroy();
+        }
+
+        const ctx = attacksCanvas.getContext('2d');
+        const gKev = ctx.createLinearGradient(0, 0, 0, 220);
+        gKev.addColorStop(0, 'rgba(56, 189, 248, 0.35)');
+        gKev.addColorStop(1, 'rgba(56, 189, 248, 0.0)');
+        const gPhish = ctx.createLinearGradient(0, 0, 0, 220);
+        gPhish.addColorStop(0, 'rgba(248, 113, 113, 0.30)');
+        gPhish.addColorStop(1, 'rgba(248, 113, 113, 0.0)');
+
+        attacksChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: [],
+            datasets: [
+              {
+                label: 'CISA KEV',
+                data: [],
+                borderColor: '#38bdf8',
+                borderWidth: 2,
+                backgroundColor: gKev,
+                fill: true,
+                tension: 0.3,
+                pointRadius: 3,
+                pointBackgroundColor: '#38bdf8',
+                yAxisID: 'y',
+              },
+              {
+                label: 'OpenPhish',
+                data: [],
+                borderColor: '#f87171',
+                borderWidth: 2,
+                backgroundColor: gPhish,
+                fill: true,
+                tension: 0.3,
+                pointRadius: 3,
+                pointBackgroundColor: '#f87171',
+                yAxisID: 'y1',
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: {
+                display: true,
+                labels: { color: '#94a3b8', font: { size: 10, family: 'JetBrains Mono, monospace' }, boxWidth: 12 },
+              },
+              tooltip: { backgroundColor: '#0f172a', titleColor: '#e2e8f0', bodyColor: '#e2e8f0', borderColor: '#1e293b', borderWidth: 1 },
+            },
+            scales: {
+              x: {
+                grid: { color: 'rgba(30, 41, 59, 0.5)' },
+                ticks: { color: '#64748b', font: { size: 9, family: 'JetBrains Mono' }, maxTicksLimit: 8, callback: function (val) {
+                  const l = this.getLabelForValue(val);
+                  return l ? String(l).slice(5) : '';
+                }},
+              },
+              y: {
+                position: 'left',
+                grid: { color: 'rgba(30, 41, 59, 0.5)' },
+                ticks: { color: '#38bdf8', font: { size: 10, family: 'JetBrains Mono' }, precision: 0 },
+                beginAtZero: true,
+              },
+              y1: {
+                position: 'right',
+                grid: { drawOnChartArea: false },
+                ticks: { color: '#f87171', font: { size: 10, family: 'JetBrains Mono' }, precision: 0 },
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      } catch (err) {
+        console.error('Errore inizializzazione Chart.js:', err);
       }
-
-      const ctx = attacksCanvas.getContext('2d');
-      const gKev = ctx.createLinearGradient(0, 0, 0, 220);
-      gKev.addColorStop(0, 'rgba(56, 189, 248, 0.35)');
-      gKev.addColorStop(1, 'rgba(56, 189, 248, 0.0)');
-      const gPhish = ctx.createLinearGradient(0, 0, 0, 220);
-      gPhish.addColorStop(0, 'rgba(248, 113, 113, 0.30)');
-      gPhish.addColorStop(1, 'rgba(248, 113, 113, 0.0)');
-
-      attacksChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: [],
-          datasets: [
-            {
-              label: 'CISA KEV',
-              data: [],
-              borderColor: '#38bdf8',
-              borderWidth: 2,
-              backgroundColor: gKev,
-              fill: true,
-              tension: 0.3,
-              pointRadius: 3,
-              pointBackgroundColor: '#38bdf8',
-              yAxisID: 'y',
-            },
-            {
-              label: 'OpenPhish',
-              data: [],
-              borderColor: '#f87171',
-              borderWidth: 2,
-              backgroundColor: gPhish,
-              fill: true,
-              tension: 0.3,
-              pointRadius: 3,
-              pointBackgroundColor: '#f87171',
-              yAxisID: 'y1',
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          interaction: { mode: 'index', intersect: false },
-          plugins: {
-            legend: {
-              display: true,
-              labels: { color: '#94a3b8', font: { size: 10, family: 'JetBrains Mono, monospace' }, boxWidth: 12 },
-            },
-            tooltip: { backgroundColor: '#0f172a', titleColor: '#e2e8f0', bodyColor: '#e2e8f0', borderColor: '#1e293b', borderWidth: 1 },
-          },
-          scales: {
-            x: {
-              grid: { color: 'rgba(30, 41, 59, 0.5)' },
-              ticks: { color: '#64748b', font: { size: 9, family: 'JetBrains Mono' }, maxTicksLimit: 8, callback: function (val) {
-                const l = this.getLabelForValue(val);
-                return l ? String(l).slice(5) : '';
-              }},
-            },
-            y: {
-              position: 'left',
-              grid: { color: 'rgba(30, 41, 59, 0.5)' },
-              ticks: { color: '#38bdf8', font: { size: 10, family: 'JetBrains Mono' }, precision: 0 },
-              beginAtZero: true,
-            },
-            y1: {
-              position: 'right',
-              grid: { drawOnChartArea: false },
-              ticks: { color: '#f87171', font: { size: 10, family: 'JetBrains Mono' }, precision: 0 },
-              beginAtZero: true,
-            },
-          },
-        },
-      });
     }
 
     // --- THREAT INTEL FETCH ---
