@@ -1,5 +1,5 @@
 /* ============================================================
-   ANONLAB.IT — SOC Widgets REAL (Safe & Clean)
+   ANONLAB.IT — SOC Widgets REAL (Definitive & Safe)
 ============================================================ */
 (function () {
   'use strict';
@@ -18,7 +18,7 @@
     let attacksChart = null;
 
     // --- CHART SETUP SICURO ---
-    if (attacksCanvas && typeof Chart !== 'undefined') {
+    if (attacksCanvas && attacksCanvas.parentNode && typeof Chart !== 'undefined') {
       // Distrugge eventuali istanze precedenti sullo stesso canvas
       const oldChart = Chart.getChart(attacksCanvas);
       if (oldChart) {
@@ -306,26 +306,11 @@
       });
     }
 
-    // --- FUNZIONI DI SUPPORTO SICURE PER METRICHE E SECURITY SCORE (se presenti) ---
-    async function loadSocMetrics() {
-      const el = document.getElementById('soc-metrics');
-      if (!el) return; // Esce se l'elemento non esiste nella pagina
-      // ... logica metriche ...
-    }
-
-    async function loadSecurityScore() {
-      const el = document.getElementById('security-score');
-      if (!el) return; // Esce se l'elemento non esiste nella pagina
-      // ... logica security score ...
-    }
-
     // --- START ---
     fetchThreat();
     fetchInfra();
     refreshLockdownStatus();
     drawSparkline();
-    loadSocMetrics();
-    loadSecurityScore();
 
     setInterval(fetchThreat, POLL_MS);
     setInterval(fetchInfra, POLL_MS);
