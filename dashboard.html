@@ -176,21 +176,28 @@ fetch("/partials/ticker.html")
 
 </div>
 
-<!-- HEADER & PANNELLO LOCKDOWN -->
-<div class="soc-card" style="margin-bottom:24px; border-top:3px solid #ef4444;">
-  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-    <div>
-      <h2 style="margin:0; color:#f87171; font-size:0.95rem;">Emergency Lockdown Protocols</h2>
-      <p style="margin:6px 0 0; font-size:0.75rem; color:#94a3b8;">
-        Perimeter State:
-        <span id="lockdown-status-label" style="color:#34d399; font-weight:700;">STANDARD OPERATIONAL</span>
-      </p>
+<!-- MODALE DI CONFERMA LOCKDOWN -->
+<div id="lockdown-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(8px); z-index: 10000; justify-content: center; align-items: center;">
+  <div style="background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.4); width: 440px; max-width: 90%; padding: 28px; border-radius: 10px; text-align: center; color: #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+    <div id="modal-icon" style="font-size: 2.5rem; margin-bottom: 12px;">⚠️</div>
+    <h3 id="modal-title" style="margin: 0; color: #f87171; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.1em;">Conferma Isolamento Emergenza</h3>
+    <p id="modal-message" style="font-size: 0.80rem; color: #94a3b8; margin: 12px 0 18px 0; line-height: 1.5;">Sei sicuro di voler attivare le regole di blocco rigide sul perimetro dell'infrastruttura?</p>
+    
+    <!-- CAMPO PASSWORD AMMINISTRATORE -->
+    <div id="modal-auth-field" style="margin-bottom: 18px;">
+      <input type="password" id="lockdown-admin-key" placeholder="Password Amministratore (Admin_71)" autocomplete="current-password"
+        style="width: 100%; box-sizing: border-box; padding: 10px 14px; background: #030712; border: 1px solid #334155; border-radius: 6px; color: #38bdf8; font-family: monospace; font-size: 0.85rem; text-align: center; outline: none;">
+      <div id="modal-auth-hint" style="color: #64748b; font-size: 0.70rem; margin-top: 6px;">Autenticazione richiesta per eseguire modifiche al perimetro</div>
     </div>
-    <button id="lockdown-btn" type="button"
-      style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.4);
-             padding:10px 20px; border-radius:6px; font-weight:700; cursor:pointer;">
-      INITIATE LOCKDOWN
-    </button>
+
+    <div id="modal-actions" style="display: flex; gap: 12px;">
+      <button id="cancel-lockdown" type="button" style="flex: 1; background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 10px; border-radius: 6px; cursor: pointer; font-family: inherit; font-weight: 600;">ANNULLA</button>
+      <button id="confirm-lockdown" type="button" style="flex: 1; background: #ef4444; color: #fff; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-family: inherit;">CONFERMA EXEC</button>
+    </div>
+
+    <div id="modal-redirect-action" style="display: none; margin-top: 12px;">
+      <button id="redirect-login-btn" type="button" style="width: 100%; background: #38bdf8; color: #09090b; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-family: inherit;">CHIUDI</button>
+    </div>
   </div>
 </div>
 
