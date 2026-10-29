@@ -176,7 +176,29 @@ fetch("/partials/ticker.html")
 
 </div>
 
-<!-- MODALE DI CONFERMA LOCKDOWN -->
+<!-- ============================================================
+     1. PANNELLO LOCKDOWN (WIDGET VISIBILE SULLA PAGINA)
+============================================================ -->
+<div class="soc-card" style="margin-bottom:24px; border-top:3px solid #ef4444;">
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+    <div>
+      <h2 style="margin:0; color:#f87171; font-size:0.95rem;">Emergency Lockdown Protocols</h2>
+      <p style="margin:6px 0 0; font-size:0.75rem; color:#94a3b8;">
+        Perimeter State:
+        <span id="lockdown-status-label" style="color:#34d399; font-weight:700;">STANDARD OPERATIONAL</span>
+      </p>
+    </div>
+    <button id="lockdown-btn" type="button"
+      style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.4);
+             padding:10px 20px; border-radius:6px; font-weight:700; cursor:pointer; transition: all 0.2s;">
+      INITIATE LOCKDOWN
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     2. MODALE DI CONFERMA LOCKDOWN (POPUP NASCOSTO CON PASSWORD)
+============================================================ -->
 <div id="lockdown-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(8px); z-index: 10000; justify-content: center; align-items: center;">
   <div style="background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.4); width: 440px; max-width: 90%; padding: 28px; border-radius: 10px; text-align: center; color: #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
     <div id="modal-icon" style="font-size: 2.5rem; margin-bottom: 12px;">⚠️</div>
