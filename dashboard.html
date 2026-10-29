@@ -179,154 +179,75 @@ fetch("/partials/ticker.html")
 
 </div>
 
-<div class="soc-container" style="position: relative; z-index: 10; max-width: 1400px; margin: 0 auto; padding: 24px; font-family: 'JetBrains Mono', monospace; color: #e2e8f0; background: #09090b; min-height: 100vh; box-sizing: border-box;">
-
-    <!-- HEADER & PANNELLO LOCKDOWN -->
-    <div style="
-        background: linear-gradient(135deg, #0f172a 0%, #09090b 100%);
-        border: 1px solid #1e293b;
-        border-top: 3px solid #ef4444;
-        padding: 20px 24px;
-        border-radius: 8px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 24px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-    ">
-      <div>
-        <h2 style="margin: 0; color: #f87171; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.1em;">🚨 Emergency Lockdown Protocols</h2>
-        <p style="margin: 6px 0 0 0; font-size: 0.75rem; color: #94a3b8;">
-          Perimeter State: <span id="lockdown-status-label" style="color: #34d399; font-weight: 700;">STANDARD OPERATIONAL</span>
-        </p>
-      </div>
-      <button id="lockdown-btn" style="
-          background: rgba(239, 68, 68, 0.15); 
-          color: #f87171; 
-          border: 1px solid rgba(239, 68, 68, 0.4); 
-          padding: 10px 20px; 
-          border-radius: 6px; 
-          font-family: inherit; 
-          font-weight: 700; 
-          font-size: 0.75rem; 
-          cursor: pointer; 
-          letter-spacing: 0.05em;
-      ">INITIATE LOCKDOWN</button>
+<div class="soc-card" style="margin-bottom:24px; border-top:3px solid #ef4444;">
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+    <div>
+      <h2 style="margin:0; color:#f87171; font-size:0.95rem;">Emergency Lockdown Protocols</h2>
+      <p style="margin:6px 0 0; font-size:0.75rem; color:#94a3b8;">
+        Perimeter State:
+        <span id="lockdown-status-label" style="color:#34d399; font-weight:700;">STANDARD OPERATIONAL</span>
+      </p>
     </div>
-
-    <!-- GRIGLIA PRINCIPALE SOC (I 3 WIDGET) -->
-    <div class="soc-grid" style="
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
-        gap: 24px; 
-        margin-bottom: 24px; 
-        box-sizing: border-box;
-    ">
-
-      <!-- 1. GRAFICO ATTACCHI ULTIME 24H -->
-      <div class="soc-card" style="
-          background: linear-gradient(135deg, #0f172a 0%, #09090b 100%);
-          border: 1px solid #1e293b;
-          border-top: 3px solid #38bdf8;
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      ">
-        <h2 style="margin: 0 0 8px 0; color: #38bdf8; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;">Attacchi rilevati (ultime 24h)</h2>
-        <p style="opacity:0.8; font-size:0.75rem; margin-bottom:16px; color: #94a3b8; line-height: 1.4;">
-          Attività ostili rilevate nelle ultime 24 ore aggregate per fascia oraria dal WAF di anonlab.it.
-        </p>
-        <div style="background: #030712; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; overflow: hidden;">
-          <canvas id="attacksChart" height="220" style="width: 100%; display: block;"></canvas>
-        </div>
-      </div>
-          
-      <!-- 2. EVENT LOG (ATTIVITÀ SOSPETTE) -->
-      <div class="soc-card" style="
-          background: linear-gradient(135deg, #0f172a 0%, #09090b 100%);
-          border: 1px solid #1e293b;
-          border-top: 3px solid #f87171;
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      ">
-        <h2 style="margin: 0 0 8px 0; color: #f87171; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;">Event Log</h2>
-        <p style="opacity:0.8; font-size:0.75rem; margin-bottom:16px; color: #94a3b8; line-height: 1.4;">
-          Registro in tempo reale degli eventi con geolocalizzazione (IP, Paese e Città) e severità.
-        </p>
-        <div id="event-log" class="event-log" style="
-            background: #030712; 
-            border: 1px solid #1e293b; 
-            border-radius: 6px; 
-            padding: 12px; 
-            height: 245px; 
-            overflow-y: auto; 
-            font-size: 0.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        ">
-          <div style="color: #64748b; text-align: center; padding: 30px;">Caricamento telemetria eventi...</div>
-        </div>
-      </div>
-
-      <!-- 3. SYSTEM STATUS -->
-      <div class="soc-card" style="
-          background: linear-gradient(135deg, #0f172a 0%, #09090b 100%);
-          border: 1px solid #1e293b;
-          border-top: 3px solid #34d399;
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      ">
-        <h2 style="margin: 0 0 8px 0; color: #34d399; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;">System Status</h2>
-        <p style="opacity:0.8; font-size:0.75rem; margin-bottom:16px; color: #94a3b8; line-height: 1.4;">
-          Monitoraggio continuo dello stato di rete, latenza e integrità del firewall perimetrale.
-        </p>
-        <ul class="system-status" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.75rem;">
-          <li style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #1e293b; padding-bottom: 6px;">
-            <strong style="color: #94a3b8;">Status:</strong>
-            <span id="sys-badge" class="dash-number" style="padding: 3px 8px; border-radius: 4px; font-weight: bold; background: rgba(52, 211, 153, 0.1); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3);">ONLINE</span>
-          </li>
-          <li style="border-bottom: 1px dashed #1e293b; padding-bottom: 6px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-              <span style="color: #94a3b8;">Network Speed:</span>
-              <span id="net-speed" class="dash-number" style="color: #38bdf8; font-weight: bold;">94.2 Mb/s</span>
-            </div>
-            <div id="net-bar" style="height: 6px; background: #030712; border: 1px solid #1e293b; border-radius: 4px; overflow: hidden;">
-              <div id="net-fill" style="height: 100%; width: 94%; background: #38bdf8; transition: width .4s;"></div>
-            </div>
-          </li>
-          <li style="border-bottom: 1px dashed #1e293b; padding-bottom: 6px;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="color: #94a3b8;">Latency:</span>
-              <span id="latency" class="dash-number" style="color: #fbbf24; font-weight: bold;">21 ms</span>
-            </div>
-            <div style="background: #030712; border: 1px solid #1e293b; border-radius: 4px; padding: 4px; margin-top: 4px;">
-              <canvas id="lat-chart" width="240" height="35" style="width: 100%; height: 32px; display: block;"></canvas>
-            </div>
-          </li>
-          <li style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: #94a3b8;">Firewall:</span>
-            <span id="fw-status" class="dash-number" style="color: #34d399; font-weight: bold;">ACTIVE (WAF SHIELD)</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
+    <button id="lockdown-btn" type="button"
+      style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.4);
+             padding:10px 20px; border-radius:6px; font-weight:700; cursor:pointer;">
+      INITIATE LOCKDOWN
+    </button>
+  </div>
 </div>
 
-<!-- MODALE LOCKDOWN -->
-<div id="lockdown-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(8px); z-index: 10000; justify-content: center; align-items: center;">
-  <div style="background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.4); width: 420px; max-width: 90%; padding: 28px; border-radius: 10px; text-align: center; color: #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
-    <div style="font-size: 2.5rem; margin-bottom: 12px;">⚠️</div>
-    <h3 style="margin: 0; color: #f87171; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.1em;">Conferma Isolamento Emergenza</h3>
-    <p style="font-size: 0.78rem; color: #94a3b8; margin: 12px 0 24px 0;">Sei sicuro di voler attivare le regole di blocco rigide sul perimetro dell'infrastruttura?</p>
-    <div style="display: flex; gap: 12px;">
-      <button id="cancel-lockdown" style="flex: 1; background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 10px; border-radius: 6px; cursor: pointer; font-family: inherit; font-weight: 600;">ANNULLA</button>
-      <button id="confirm-lockdown" style="flex: 1; background: #ef4444; color: #fff; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-family: inherit;">CONFERMA EXEC</button>
-    </div>
+<!-- GRAFICO THREAT ACTIVITY (KEV + OpenPhish) -->
+<div class="soc-card">
+  <h2>Threat Activity (KEV + Phishing)</h2>
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Nuove vulnerabilità CISA KEV per giorno e volume URL phishing OpenPhish (ultimi 14 giorni).
+    Fonti: CISA Known Exploited Vulnerabilities, OpenPhish.
+  </p>
+  <canvas id="attacksChart" height="260"></canvas>
+</div>
+
+<!-- EVENT LOG -->
+<div class="soc-card">
+  <h2>Threat Event Log</h2>
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Eventi da CISA KEV (CVE sfruttate), OpenPhish (URL phishing) e CIRCL (CVE recenti).
+  </p>
+  <div id="event-log" class="event-log">
+    <div style="color:#64748b; text-align:center; padding:20px;">Caricamento telemetria eventi...</div>
   </div>
+</div>
+
+<!-- SYSTEM / INFRA STATUS -->
+<div class="soc-card">
+  <h2>Infrastructure Status</h2>
+  <p style="opacity:0.8; font-size:0.85rem; margin-bottom:12px;">
+    Stato di anonlab.it, backend, GitHub e feed pubblici, con latenza reale misurata dal server.
+  </p>
+  <ul class="system-status">
+    <li>
+      <strong>Status:</strong>
+      <span id="sys-badge" class="dash-number"
+        style="padding:4px 10px; border-radius:4px; font-weight:bold;">
+        --
+      </span>
+    </li>
+    <li>
+      Feeds:
+      <span id="net-speed" class="dash-number">--</span>
+      <div id="net-bar" style="height:6px; background:#111; border-radius:4px; margin-top:4px;">
+        <div id="net-fill" style="height:100%; width:0%; background:#00ff99; transition:width .4s;"></div>
+      </div>
+    </li>
+    <li>
+      Latency:
+      <span id="latency" class="dash-number">-- ms</span>
+      <canvas id="lat-chart" width="260" height="60" style="margin-top:6px;"></canvas>
+    </li>
+    <li>
+      Firewall:
+      <span id="fw-status" class="dash-number">--</span>
+    </li>
+  </ul>
 </div>
 		  
         <!-- MINI THREAT MAP -->
