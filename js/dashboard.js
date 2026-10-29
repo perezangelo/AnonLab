@@ -1,5 +1,5 @@
 /* ============================================================
-   ANONLAB.IT — SOC Widgets REAL (Definitive con Modale Lockdown)
+   ANONLAB.IT — SOC Widgets REAL (Safe & Clean)
 ============================================================ */
 (function () {
   'use strict';
@@ -17,8 +17,14 @@
 
     let attacksChart = null;
 
-    // --- CHART SETUP ---
+    // --- CHART SETUP SICURO ---
     if (attacksCanvas && typeof Chart !== 'undefined') {
+      // Distrugge eventuali istanze precedenti sullo stesso canvas
+      const oldChart = Chart.getChart(attacksCanvas);
+      if (oldChart) {
+        oldChart.destroy();
+      }
+
       const ctx = attacksCanvas.getContext('2d');
       const gKev = ctx.createLinearGradient(0, 0, 0, 220);
       gKev.addColorStop(0, 'rgba(56, 189, 248, 0.35)');
@@ -246,7 +252,7 @@
       });
     }
 
-async function doToggleLockdown() {
+    async function doToggleLockdown() {
       const modalMessage = document.getElementById('modal-message');
       const modalTitle = document.getElementById('modal-title');
       const modalIcon = document.getElementById('modal-icon');
@@ -256,12 +262,9 @@ async function doToggleLockdown() {
 
       try {
         const url = LOCKDOWN_API + '?action=toggle&token=' + encodeURIComponent(LOCKDOWN_TOKEN) + '&t=' + Date.now();
-        
-        // Rimozione di credentials: 'include' per evitare il blocco CORS cross-origin
         const res = await fetch(url, { cache: 'no-store' });
         const data = await res.json();
 
-        // Controllo se l'utente non è autorizzato (Unauthorized / 401)
         if (res.status === 401 || data.status === 'unauthorized') {
           if (lockdownModal) lockdownModal.style.display = 'flex';
           if (modalIcon) modalIcon.textContent = '⛔';
@@ -294,7 +297,6 @@ async function doToggleLockdown() {
         }
       } catch (e) {
         console.error('Lockdown error:', e);
-        alert('Errore di connessione al server di perimetro.');
       }
     }
 
@@ -304,11 +306,27 @@ async function doToggleLockdown() {
       });
     }
 
+    // --- FUNZIONI DI SUPPORTO SICURE PER METRICHE E SECURITY SCORE (se presenti) ---
+    async function loadSocMetrics() {
+      const el = document.getElementById('soc-metrics');
+      if (!el) return; // Esce se l'elemento non esiste nella pagina
+      // ... logica metriche ...
+    }
+
+    async function loadSecurityScore() {
+      const el = document.getElementById('security-score');
+      if (!el) return; // Esce se l'elemento non esiste nella pagina
+      // ... logica security score ...
+    }
+
     // --- START ---
     fetchThreat();
     fetchInfra();
     refreshLockdownStatus();
     drawSparkline();
+    loadSocMetrics();
+    loadSecurityScore();
+
     setInterval(fetchThreat, POLL_MS);
     setInterval(fetchInfra, POLL_MS);
     setInterval(refreshLockdownStatus, POLL_MS * 2);
