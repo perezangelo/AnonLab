@@ -329,75 +329,104 @@
       }
     });
 
-     async function doToggleLockdown() {
+         async function doToggleLockdown() {
       const modalMessage = document.getElementById('modal-message');
       const modalTitle = document.getElementById('modal-title');
       const modalIcon = document.getElementById('modal-icon');
       const modalActions = document.getElementById('modal-actions');
+      const modalAuthField = document.getElementById('modal-auth-field');
       const redirectAction = document.getElementById('modal-redirect-action');
       const redirectBtn = document.getElementById('redirect-login-btn');
+      const keyInput = document.getElementById('lockdown-admin-key');
+
+      const adminPassword = keyInput ? keyInput.value.trim() : '';
+
+      // Se non viene inserita alcuna password
+      if (!adminPassword) {
+        showAccessDenied("Inserisci la password di amministrazione (Admin_71) per autorizzare l'operazione.");
+        return;
+      }
 
       try {
         if (confirmLockdown) {
           confirmLockdown.disabled = true;
-          confirmLockdown.textContent = 'ESECUZIONE...';
+          confirmLockdown.textContent = 'AUTORIZZAZIONE...';
         }
 
-        // Chiamata all'endpoint: credentials: 'include' invia la sessione PHP di Admin_71
+        // Invia la password via POST in modo sicuro ad Altervista
         const url = LOCKDOWN_API + '?action=toggle&t=' + Date.now();
+        const formData = new FormData();
+        formData.append('password', adminPassword);
+
         const res = await fetch(url, {
-          method: 'GET',
-          cache: 'no-store',
-          credentials: 'include'
+          method: 'POST',
+          body: formData,
+          cache: 'no-store'
         });
         
         const data = await res.json();
 
-        // ⛔ UTENTE NON AUTORIZZATO (O NON LOGGATO COME ADMIN_71)
+        // ⛔ PASSWORD ERRATA O UTENTE NON AUTORIZZATO
         if (res.status === 401 || data.status === 'unauthorized') {
-          if (lockdownModal) lockdownModal.style.display = 'flex';
-          if (modalIcon) modalIcon.textContent = '⛔';
-          if (modalTitle) {
-            modalTitle.textContent = 'Accesso Negato';
-            modalTitle.style.color = '#f87171';
-          }
-          if (modalMessage) {
-            modalMessage.textContent = data.message || "Non sei autorizzato a interagire con questa sezione. Area riservata all'amministratore di sistema (Admin_71).";
-            modalMessage.style.color = '#fca5a5';
-          }
-          if (modalActions) modalActions.style.display = 'none';
-          if (redirectAction) redirectAction.style.display = 'block';
-
-          const targetUrl = data.redirect || '/login.html';
-          if (redirectBtn) {
-            redirectBtn.onclick = () => {
-              window.location.href = targetUrl;
-            };
-          }
-
-          // Reindirizza automaticamente al login dopo 3.2 secondi
-          setTimeout(() => {
-            window.location.href = targetUrl;
-          }, 3200);
+          showAccessDenied(data.message || "Credenziali non valide. Accesso negato.");
           return;
         }
 
-        // ✅ AUTORIZZATO: STATO CAMBIATO CON SUCCESSO
+        // ✅ AUTORIZZAZIONE RIUSCITA: ATTIVA/DISATTIVA LOCKDOWN SULLA PAGINA
         if (data.status === 'success') {
           applyLockdownUI(data.lockdown === 'ON');
+          if (keyInput) keyInput.value = ''; // pulisce il campo password
           if (lockdownModal) lockdownModal.style.display = 'none';
         } else {
-          alert('Lockdown fallito: ' + (data.message || 'Errore non specificato'));
+          alert('Errore: ' + (data.message || 'Operazione fallita'));
         }
       } catch (e) {
         console.error('Lockdown error:', e);
-        alert('Errore di comunicazione durante il cambio stato lockdown.');
+        showAccessDenied("Errore di connessione con il server di autenticazione.");
       } finally {
         if (confirmLockdown) {
           confirmLockdown.disabled = false;
-          // Ripristina l'etichetta del pulsante in base allo stato attuale
           const isCurrentlyLocked = (lockdownLabel && lockdownLabel.textContent.includes('LOCKDOWN ACTIVE'));
           confirmLockdown.textContent = isCurrentlyLocked ? 'REVOCA LOCKDOWN' : 'CONFERMA EXEC';
+        }
+      }
+
+      function showAccessDenied(msg) {
+        if (lockdownModal) lockdownModal.style.display = 'flex';
+        if (modalIcon) modalIcon.textContent = '⛔';
+        if (modalTitle) {
+          modalTitle.textContent = 'Accesso Negato';
+          modalTitle.style.color = '#f87171';
+        }
+        if (modalMessage) {
+          modalMessage.textContent = msg;
+          modalMessage.style.color = '#fca5a5';
+        }
+        if (modalAuthField) modalAuthField.style.display = 'none';
+        if (modalActions) modalActions.style.display = 'none';
+        if (redirectAction) redirectAction.style.display = 'block';
+
+        if (redirectBtn) {
+          redirectBtn.textContent = 'RIPROVA';
+          redirectBtn.onclick = () => {
+            // Ripristina la visuale della modale per consentire un nuovo tentativo
+            if (modalIcon) modalIcon.textContent = '⚠️';
+            if (modalTitle) {
+              modalTitle.textContent = 'Conferma Isolamento Emergenza';
+              modalTitle.style.color = '#f87171';
+            }
+            if (modalMessage) {
+              modalMessage.textContent = "Sei sicuro di voler attivare le regole di blocco rigide sul perimetro dell'infrastruttura?";
+              modalMessage.style.color = '#94a3b8';
+            }
+            if (modalAuthField) modalAuthField.style.display = 'block';
+            if (modalActions) modalActions.style.display = 'flex';
+            if (redirectAction) redirectAction.style.display = 'none';
+            if (keyInput) {
+              keyInput.value = '';
+              keyInput.focus();
+            }
+          };
         }
       }
     }
@@ -405,6 +434,16 @@
     if (confirmLockdown) {
       confirmLockdown.addEventListener('click', function () {
         doToggleLockdown();
+      });
+    }
+
+    // Permette di premere INVIO direttamente dal campo password
+    const keyInputField = document.getElementById('lockdown-admin-key');
+    if (keyInputField) {
+      keyInputField.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          doToggleLockdown();
+        }
       });
     }
 
