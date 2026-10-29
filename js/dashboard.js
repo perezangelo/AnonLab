@@ -329,17 +329,31 @@
       }
     });
 
-    async function doToggleLockdown() {
+     async function doToggleLockdown() {
+      const modalMessage = document.getElementById('modal-message');
+      const modalTitle = document.getElementById('modal-title');
+      const modalIcon = document.getElementById('modal-icon');
+      const modalActions = document.getElementById('modal-actions');
+      const redirectAction = document.getElementById('modal-redirect-action');
+      const redirectBtn = document.getElementById('redirect-login-btn');
+
       try {
         if (confirmLockdown) {
           confirmLockdown.disabled = true;
           confirmLockdown.textContent = 'ESECUZIONE...';
         }
 
-        const url = LOCKDOWN_API + '?action=toggle&token=' + encodeURIComponent(LOCKDOWN_TOKEN) + '&t=' + Date.now();
-        const res = await fetch(url, { cache: 'no-store' });
+        // Chiamata all'endpoint: credentials: 'include' invia la sessione PHP di Admin_71
+        const url = LOCKDOWN_API + '?action=toggle&t=' + Date.now();
+        const res = await fetch(url, {
+          method: 'GET',
+          cache: 'no-store',
+          credentials: 'include'
+        });
+        
         const data = await res.json();
 
+        // ⛔ UTENTE NON AUTORIZZATO (O NON LOGGATO COME ADMIN_71)
         if (res.status === 401 || data.status === 'unauthorized') {
           if (lockdownModal) lockdownModal.style.display = 'flex';
           if (modalIcon) modalIcon.textContent = '⛔';
@@ -348,7 +362,7 @@
             modalTitle.style.color = '#f87171';
           }
           if (modalMessage) {
-            modalMessage.textContent = data.message || "Non sei autorizzato a interagire con questa sezione. Area riservata all'amministratore di sistema.";
+            modalMessage.textContent = data.message || "Non sei autorizzato a interagire con questa sezione. Area riservata all'amministratore di sistema (Admin_71).";
             modalMessage.style.color = '#fca5a5';
           }
           if (modalActions) modalActions.style.display = 'none';
@@ -356,17 +370,22 @@
 
           const targetUrl = data.redirect || '/login.html';
           if (redirectBtn) {
-            redirectBtn.onclick = () => window.location.href = targetUrl;
+            redirectBtn.onclick = () => {
+              window.location.href = targetUrl;
+            };
           }
+
+          // Reindirizza automaticamente al login dopo 3.2 secondi
           setTimeout(() => {
             window.location.href = targetUrl;
           }, 3200);
           return;
         }
 
+        // ✅ AUTORIZZATO: STATO CAMBIATO CON SUCCESSO
         if (data.status === 'success') {
           applyLockdownUI(data.lockdown === 'ON');
-          closeLockdownModal();
+          if (lockdownModal) lockdownModal.style.display = 'none';
         } else {
           alert('Lockdown fallito: ' + (data.message || 'Errore non specificato'));
         }
@@ -376,6 +395,9 @@
       } finally {
         if (confirmLockdown) {
           confirmLockdown.disabled = false;
+          // Ripristina l'etichetta del pulsante in base allo stato attuale
+          const isCurrentlyLocked = (lockdownLabel && lockdownLabel.textContent.includes('LOCKDOWN ACTIVE'));
+          confirmLockdown.textContent = isCurrentlyLocked ? 'REVOCA LOCKDOWN' : 'CONFERMA EXEC';
         }
       }
     }
