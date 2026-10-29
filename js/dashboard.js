@@ -1,6 +1,5 @@
 /* ============================================================
-   ANONLAB.IT — SOC Widgets REAL
-   CISA KEV + OpenPhish + Infra Status + Lockdown (token)
+   ANONLAB.IT — SOC Widgets REAL (Definitive con Modale Lockdown)
 ============================================================ */
 (function () {
   'use strict';
@@ -8,9 +7,7 @@
   const THREAT_API = 'https://angelonline.altervista.org/soc/threat_intel.php';
   const INFRA_API = 'https://angelonline.altervista.org/soc/infra_status.php';
   const LOCKDOWN_API = 'https://angelonline.altervista.org/soc/lockdown_trigger.php';
-  // Stesso token di lockdown_trigger.php
-  const LOCKDOWN_TOKEN =
-    '45282aecaf38c7a5d69d60f812e86ceaee4603f85402ab2016313d0efcfcf3c4';
+  const LOCKDOWN_TOKEN = '45282aecaf38c7a5d69d60f812e86ceaee4603f85402ab2016313d0efcfcf3c4';
   const POLL_MS = 20000;
 
   function initRealSocWidgets() {
@@ -18,21 +15,9 @@
     const eventLogBox = document.getElementById('event-log');
     const latCanvas = document.getElementById('lat-chart');
 
-    // Titoli widget
-    document.querySelectorAll('.soc-card h2').forEach(function (h) {
-      const t = (h.textContent || '').toLowerCase();
-      if (t.indexOf('attacchi') !== -1 || t.indexOf('attacks') !== -1) {
-        h.textContent = 'Threat Activity (KEV + Phishing)';
-      } else if (t.indexOf('event log') !== -1) {
-        h.textContent = 'Threat Event Log';
-      } else if (t.indexOf('system status') !== -1) {
-        h.textContent = 'Infrastructure Status';
-      }
-    });
-
     let attacksChart = null;
 
-    // ---------- CHART ----------
+    // --- CHART SETUP ---
     if (attacksCanvas && typeof Chart !== 'undefined') {
       const ctx = attacksCanvas.getContext('2d');
       const gKev = ctx.createLinearGradient(0, 0, 0, 220);
@@ -48,7 +33,7 @@
           labels: [],
           datasets: [
             {
-              label: 'CISA KEV (nuove/giorno)',
+              label: 'CISA KEV',
               data: [],
               borderColor: '#38bdf8',
               borderWidth: 2,
@@ -60,7 +45,7 @@
               yAxisID: 'y',
             },
             {
-              label: 'OpenPhish (URL attivi)',
+              label: 'OpenPhish',
               data: [],
               borderColor: '#f87171',
               borderWidth: 2,
@@ -80,76 +65,39 @@
           plugins: {
             legend: {
               display: true,
-              labels: {
-                color: '#94a3b8',
-                font: { size: 10, family: 'JetBrains Mono, monospace' },
-                boxWidth: 12,
-              },
+              labels: { color: '#94a3b8', font: { size: 10, family: 'JetBrains Mono, monospace' }, boxWidth: 12 },
             },
-            tooltip: {
-              backgroundColor: '#0f172a',
-              titleColor: '#e2e8f0',
-              bodyColor: '#e2e8f0',
-              borderColor: '#1e293b',
-              borderWidth: 1,
-            },
+            tooltip: { backgroundColor: '#0f172a', titleColor: '#e2e8f0', bodyColor: '#e2e8f0', borderColor: '#1e293b', borderWidth: 1 },
           },
           scales: {
             x: {
               grid: { color: 'rgba(30, 41, 59, 0.5)' },
-              ticks: {
-                color: '#64748b',
-                font: { size: 9, family: 'JetBrains Mono, monospace' },
-                maxTicksLimit: 8,
-                callback: function (val) {
-                  const l = this.getLabelForValue(val);
-                  return l ? String(l).slice(5) : '';
-                },
-              },
+              ticks: { color: '#64748b', font: { size: 9, family: 'JetBrains Mono' }, maxTicksLimit: 8, callback: function (val) {
+                const l = this.getLabelForValue(val);
+                return l ? String(l).slice(5) : '';
+              }},
             },
             y: {
               position: 'left',
               grid: { color: 'rgba(30, 41, 59, 0.5)' },
-              ticks: {
-                color: '#38bdf8',
-                font: { size: 10, family: 'JetBrains Mono, monospace' },
-                precision: 0,
-              },
+              ticks: { color: '#38bdf8', font: { size: 10, family: 'JetBrains Mono' }, precision: 0 },
               beginAtZero: true,
-              title: {
-                display: true,
-                text: 'KEV',
-                color: '#38bdf8',
-                font: { size: 9 },
-              },
             },
             y1: {
               position: 'right',
               grid: { drawOnChartArea: false },
-              ticks: {
-                color: '#f87171',
-                font: { size: 10, family: 'JetBrains Mono, monospace' },
-                precision: 0,
-              },
+              ticks: { color: '#f87171', font: { size: 10, family: 'JetBrains Mono' }, precision: 0 },
               beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Phish',
-                color: '#f87171',
-                font: { size: 9 },
-              },
             },
           },
         },
       });
     }
 
-    // ---------- THREAT INTEL ----------
+    // --- THREAT INTEL FETCH ---
     async function fetchThreat() {
       try {
-        const res = await fetch(THREAT_API + '?t=' + Date.now(), {
-          cache: 'no-store',
-        });
+        const res = await fetch(THREAT_API + '?t=' + Date.now(), { cache: 'no-store' });
         const data = await res.json();
         if (data.status !== 'success') return;
 
@@ -166,46 +114,23 @@
             const sev = (item.severity || 'INFO').toUpperCase();
             const isCrit = sev === 'CRITICAL';
             const isWarn = sev === 'WARNING';
-            const badgeColor = isCrit
-              ? '#f87171'
-              : isWarn
-              ? '#fbbf24'
-              : '#38bdf8';
-            const badgeBg = isCrit
-              ? 'rgba(239,68,68,0.1)'
-              : isWarn
-              ? 'rgba(245,158,11,0.1)'
-              : 'rgba(56,189,248,0.1)';
+            const badgeColor = isCrit ? '#f87171' : isWarn ? '#fbbf24' : '#38bdf8';
+            const badgeBg = isCrit ? 'rgba(239,68,68,0.1)' : isWarn ? 'rgba(245,158,11,0.1)' : 'rgba(56,189,248,0.1)';
 
-            eventLogBox.innerHTML +=
-              '<div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px dashed #1e293b;padding-bottom:6px;gap:8px;">' +
-              '<div style="min-width:0;flex:1;">' +
-              '<span style="color:#64748b;">[' +
-              (item.time || '') +
-              ']</span>' +
-              '<strong style="color:#38bdf8;margin-left:4px;">' +
-              (item.id || '') +
-              '</strong>' +
-              '<span style="color:#94a3b8;font-size:0.6rem;margin-left:4px;">' +
-              (item.source || '') +
-              '</span>' +
-              '<div style="color:#e2e8f0;margin-top:2px;font-size:0.7rem;word-break:break-word;">' +
-              (item.event || '') +
-              (item.vendor
-                ? ' · ' +
-                  item.vendor +
-                  (item.product ? ' / ' + item.product : '')
-                : '') +
-              '</div></div>' +
-              '<span style="background:' +
-              badgeBg +
-              ';color:' +
-              badgeColor +
-              ';border:1px solid ' +
-              badgeColor +
-              ';padding:1px 5px;font-size:0.6rem;border-radius:3px;font-weight:bold;white-space:nowrap;">' +
-              sev +
-              '</span></div>';
+            eventLogBox.innerHTML += `
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px dashed #1e293b;padding-bottom:6px;gap:8px;">
+                <div style="min-width:0;flex:1;">
+                  <span style="color:#64748b;">[${item.time || ''}]</span>
+                  <strong style="color:#38bdf8;margin-left:4px;">${item.id || ''}</strong>
+                  <span style="color:#94a3b8;font-size:0.6rem;margin-left:4px;">${item.source || ''}</span>
+                  <div style="color:#e2e8f0;margin-top:2px;font-size:0.7rem;word-break:break-word;">
+                    ${item.event || ''} ${item.vendor ? ' · ' + item.vendor + (item.product ? ' / ' + item.product : '') : ''}
+                  </div>
+                </div>
+                <span style="background:${badgeBg};color:${badgeColor};border:1px solid ${badgeColor};padding:1px 5px;font-size:0.6rem;border-radius:3px;font-weight:bold;white-space:nowrap;">
+                  ${sev}
+                </span>
+              </div>`;
           });
         }
       } catch (e) {
@@ -213,7 +138,7 @@
       }
     }
 
-    // ---------- INFRA ----------
+    // --- INFRA & SPARKLINE ---
     let latencyHistory = [20, 22, 19, 25, 21, 24, 22, 20, 23, 22];
 
     function drawSparkline() {
@@ -229,8 +154,7 @@
       const range = Math.max(max - min, 1);
       latencyHistory.forEach(function (val, index) {
         const x = index * step;
-        const y =
-          latCanvas.height - ((val - min) / range) * (latCanvas.height - 4) - 2;
+        const y = latCanvas.height - ((val - min) / range) * (latCanvas.height - 4) - 2;
         if (index === 0) latCtx.moveTo(x, y);
         else latCtx.lineTo(x, y);
       });
@@ -239,9 +163,7 @@
 
     async function fetchInfra() {
       try {
-        const res = await fetch(INFRA_API + '?t=' + Date.now(), {
-          cache: 'no-store',
-        });
+        const res = await fetch(INFRA_API + '?t=' + Date.now(), { cache: 'no-store' });
         const data = await res.json();
         if (data.status !== 'success') return;
 
@@ -254,21 +176,11 @@
         if (badge) {
           badge.textContent = data.overall || 'ONLINE';
           const ok = data.overall === 'ONLINE';
-          badge.style.color = ok
-            ? '#34d399'
-            : data.overall === 'DEGRADED'
-            ? '#fbbf24'
-            : '#f87171';
-          badge.style.background = ok
-            ? 'rgba(52,211,153,0.1)'
-            : 'rgba(248,113,113,0.1)';
-          badge.style.borderColor = badge.style.color;
+          badge.style.color = ok ? '#34d399' : data.overall === 'DEGRADED' ? '#fbbf24' : '#f87171';
+          badge.style.background = ok ? 'rgba(52,211,153,0.1)' : 'rgba(248,113,113,0.1)';
         }
 
-        if (latencyEl) {
-          latencyEl.textContent = (data.latency_ms || 0) + ' ms';
-        }
-
+        if (latencyEl) latencyEl.textContent = (data.latency_ms || 0) + ' ms';
         if (data.latency_ms) {
           latencyHistory.shift();
           latencyHistory.push(data.latency_ms);
@@ -276,33 +188,26 @@
         }
 
         if (netSpeed && data.checks) {
-          const ups = Object.values(data.checks).filter(function (v) {
-            return v === 'UP';
-          }).length;
+          const ups = Object.values(data.checks).filter(v => v === 'UP').length;
           const total = Object.keys(data.checks).length;
           netSpeed.textContent = ups + '/' + total + ' feeds UP';
           if (netFill) {
             const pct = total ? Math.round((ups / total) * 100) : 0;
             netFill.style.width = pct + '%';
-            netFill.style.background =
-              pct === 100 ? '#34d399' : pct >= 50 ? '#fbbf24' : '#f87171';
+            netFill.style.background = pct === 100 ? '#34d399' : pct >= 50 ? '#fbbf24' : '#f87171';
           }
         }
 
         if (fwStatus) {
-          const gh = data.github_status || '';
-          fwStatus.textContent =
-            (data.firewall || 'ACTIVE') +
-            (gh && gh !== 'operational' ? ' · GH:' + gh : '');
-          fwStatus.style.color =
-            data.overall === 'ONLINE' ? '#34d399' : '#fbbf24';
+          fwStatus.textContent = (data.firewall || 'ACTIVE');
+          fwStatus.style.color = data.overall === 'ONLINE' ? '#34d399' : '#fbbf24';
         }
       } catch (e) {
         console.error('SOC infra_status error:', e);
       }
     }
 
-    // ---------- LOCKDOWN ----------
+    // --- LOCKDOWN HANDLER ---
     const lockdownBtn = document.getElementById('lockdown-btn');
     const lockdownModal = document.getElementById('lockdown-modal');
     const cancelLockdown = document.getElementById('cancel-lockdown');
@@ -311,41 +216,27 @@
 
     function applyLockdownUI(active) {
       if (lockdownLabel) {
-        lockdownLabel.textContent = active
-          ? 'LOCKDOWN ACTIVE (PERIMETER BLOCKED)'
-          : 'STANDARD OPERATIONAL';
+        lockdownLabel.textContent = active ? 'LOCKDOWN ACTIVE (PERIMETER BLOCKED)' : 'STANDARD OPERATIONAL';
         lockdownLabel.style.color = active ? '#f87171' : '#34d399';
       }
       if (lockdownBtn) {
-        lockdownBtn.textContent = active
-          ? 'DEACTIVATE LOCKDOWN'
-          : 'INITIATE LOCKDOWN';
+        lockdownBtn.textContent = active ? 'DEACTIVATE LOCKDOWN' : 'INITIATE LOCKDOWN';
       }
     }
 
     async function refreshLockdownStatus() {
       try {
-        const res = await fetch(
-          LOCKDOWN_API + '?action=status&t=' + Date.now(),
-          { cache: 'no-store' }
-        );
+        const res = await fetch(LOCKDOWN_API + '?action=status&t=' + Date.now(), { cache: 'no-store' });
         const data = await res.json();
         if (data.status === 'success') {
           applyLockdownUI(data.lockdown === 'ON');
         }
-      } catch (e) {
-        console.error('Lockdown status error:', e);
-      }
+      } catch (e) {}
     }
 
     if (lockdownBtn) {
       lockdownBtn.addEventListener('click', function () {
-        if (lockdownModal) {
-          lockdownModal.style.display = 'flex';
-        } else {
-          // Fallback senza modale: toggle diretto
-          doToggleLockdown();
-        }
+        if (lockdownModal) lockdownModal.style.display = 'flex';
       });
     }
 
@@ -355,44 +246,62 @@
       });
     }
 
-    if (lockdownModal) {
-      lockdownModal.addEventListener('click', function (e) {
-        if (e.target === lockdownModal) {
-          lockdownModal.style.display = 'none';
-        }
-      });
-    }
-
     async function doToggleLockdown() {
+      const modalMessage = document.getElementById('modal-message');
+      const modalTitle = document.getElementById('modal-title');
+      const modalIcon = document.getElementById('modal-icon');
+      const modalActions = document.getElementById('modal-actions');
+      const redirectAction = document.getElementById('modal-redirect-action');
+      const redirectBtn = document.getElementById('redirect-login-btn');
+
       try {
-        const url =
-          LOCKDOWN_API +
-          '?action=toggle&token=' +
-          encodeURIComponent(LOCKDOWN_TOKEN) +
-          '&t=' +
-          Date.now();
-        const res = await fetch(url, { cache: 'no-store' });
+        const url = LOCKDOWN_API + '?action=toggle&token=' + encodeURIComponent(LOCKDOWN_TOKEN) + '&t=' + Date.now();
+        const res = await fetch(url, { cache: 'no-store', credentials: 'include' });
         const data = await res.json();
+
+        // Controllo se l'utente non è autorizzato (Unauthorized / 401)
+        if (res.status === 401 || data.status === 'unauthorized') {
+          if (lockdownModal) lockdownModal.style.display = 'flex';
+          if (modalIcon) modalIcon.textContent = '⛔';
+          if (modalTitle) {
+            modalTitle.textContent = 'Accesso Negato';
+            modalTitle.style.color = '#f87171';
+          }
+          if (modalMessage) {
+            modalMessage.textContent = data.message || "Non sei autorizzato a interagire con questa sezione. Area riservata all'amministratore di sistema.";
+            modalMessage.style.color = '#fca5a5';
+          }
+          if (modalActions) modalActions.style.display = 'none';
+          if (redirectAction) redirectAction.style.display = 'block';
+
+          const targetUrl = data.redirect || '/login.html';
+          if (redirectBtn) {
+            redirectBtn.onclick = () => window.location.href = targetUrl;
+          }
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 3200);
+          return;
+        }
+
         if (data.status === 'success') {
           applyLockdownUI(data.lockdown === 'ON');
+          if (lockdownModal) lockdownModal.style.display = 'none';
         } else {
-          console.error('Lockdown toggle failed:', data);
-          alert('Lockdown non riuscito: ' + (data.message || res.status));
+          alert('Lockdown fallito: ' + (data.message || 'Errore'));
         }
       } catch (e) {
-        console.error('Lockdown toggle error:', e);
-        alert('Errore di rete sul lockdown');
+        console.error('Lockdown error:', e);
       }
     }
 
     if (confirmLockdown) {
       confirmLockdown.addEventListener('click', function () {
-        if (lockdownModal) lockdownModal.style.display = 'none';
         doToggleLockdown();
       });
     }
 
-    // ---------- START ----------
+    // --- START ---
     fetchThreat();
     fetchInfra();
     refreshLockdownStatus();
@@ -407,8 +316,6 @@
   } else {
     initRealSocWidgets();
   }
-
-  window.initRealSocWidgets = initRealSocWidgets;
 })();
 
 /* ============================================================
