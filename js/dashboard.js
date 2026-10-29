@@ -246,7 +246,7 @@
       });
     }
 
-    async function doToggleLockdown() {
+async function doToggleLockdown() {
       const modalMessage = document.getElementById('modal-message');
       const modalTitle = document.getElementById('modal-title');
       const modalIcon = document.getElementById('modal-icon');
@@ -256,7 +256,9 @@
 
       try {
         const url = LOCKDOWN_API + '?action=toggle&token=' + encodeURIComponent(LOCKDOWN_TOKEN) + '&t=' + Date.now();
-        const res = await fetch(url, { cache: 'no-store', credentials: 'include' });
+        
+        // Rimozione di credentials: 'include' per evitare il blocco CORS cross-origin
+        const res = await fetch(url, { cache: 'no-store' });
         const data = await res.json();
 
         // Controllo se l'utente non è autorizzato (Unauthorized / 401)
@@ -292,6 +294,7 @@
         }
       } catch (e) {
         console.error('Lockdown error:', e);
+        alert('Errore di connessione al server di perimetro.');
       }
     }
 
