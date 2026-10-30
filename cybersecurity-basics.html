@@ -458,7 +458,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const listContainer = document.getElementById("youtube-dynamic-list");
 
     // Chiama il backend PHP con cache
-    fetch("get_videos.php?t=" + Date.now())
+    fetch("https://angelonline.altervista.org/soc/get_videos.php?t=" + Date.now())
         .then(res => {
             if (!res.ok) throw new Error("Errore recupero feed");
             return res.json();
