@@ -160,8 +160,9 @@ fetch("/partials/ticker.html")
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    margin-bottom: 24px; /* <--- AGGIUNTO: Crea lo spazio esatto prima della mappa */
+    clear: both;         /* <--- AGGIUNTO: Impedisce qualsiasi sovrapposizione di flusso */
   }
-
   /* Layout interno Box Unificato Threat Level + Trend Chart */
   .threat-unified-grid {
     display: grid;
@@ -203,6 +204,7 @@ fetch("/partials/ticker.html")
   @media (max-width: 1100px) {
     .threat-unified-grid, .soc-ops-grid {
       grid-template-columns: 1fr;
+      margin-bottom: 20px; /* Margine sicuro anche su mobile */
     }
   }
 </style>
