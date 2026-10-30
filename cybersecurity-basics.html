@@ -391,31 +391,240 @@ radar delle minacce, strumenti OSINT e analisi tecniche.
 </div>
 </div>
 
-<!-- POSIZIONE 3: QUIZ DI SECURITY AWARENESS (Tra le Best Practice e lo Scenario Reale per Spezzare la Lettura) -->
-<div class="section" id="quiz-section">
-  <h2>Mettiti alla prova: Test di Sicurezza Rapido</h2>
-  <p id="quiz-question" style="font-weight: bold; color: #fff;">Ricevi un'email urgente dalla tua banca che ti chiede di cliccare su un link per sbloccare il conto. Cosa fai?</p>
-  
-  <div id="quiz-options" style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-    <button onclick="checkQuiz(false)" style="padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem;">A) Clicco subito per evitare il blocco del conto.</button>
-    <button onclick="checkQuiz(true)" style="padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem;">B) Ignoro l'email e verifico accedendo direttamente dall'app ufficiale o digitando l'URL nel browser.</button>
-    <button onclick="checkQuiz(false)" style="padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem;">C) Rispondo all'email chiedendo spiegazioni al mittente.</button>
+<!-- ============================================================
+     QUIZ INTERATTIVO DI CYBERSECURITY (10 DOMANDE CON PUNTEGGIO)
+     ============================================================ -->
+<div class="section" id="security-quiz">
+  <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #0f2a3a; padding-bottom:8px; margin-bottom:20px;">
+    <h2 style="margin:0; font-size:1.1rem; text-transform:uppercase; letter-spacing:0.04em; color:#00eaff;">
+      Security Awareness // Test di Valutazione del Rischio
+    </h2>
+    <span id="quiz-counter" style="font-family:ui-monospace, monospace; font-size:0.75rem; color:#38bdf8; background:#030712; padding:3px 8px; border-radius:4px; border:1px solid #1e293b;">
+      Domanda 1 di 10
+    </span>
   </div>
-  
-  <div id="quiz-result" style="margin-top: 15px; font-weight: bold; font-size: 0.95rem;"></div>
+
+  <!-- Contenitore dinamico del quiz -->
+  <div id="quiz-container">
+    <p id="quiz-question" style="font-weight: 600; color: #fff; font-size: 1.02rem; margin-bottom: 20px;"></p>
+    <div id="quiz-options" style="display: flex; flex-direction: column; gap: 10px;"></div>
+  </div>
+
+  <!-- Risultato e spiegazione interattiva -->
+  <div id="quiz-feedback" style="margin-top: 20px; padding: 12px; border-radius: 6px; display: none; font-size: 0.90rem; line-height: 1.5;"></div>
+
+  <!-- Pulsante Avanzamento -->
+  <button id="quiz-next-btn" onclick="nextQuizQuestion()" style="display: none; margin-top: 20px; background: #00eaff; color: #030712; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
+    Prossima Domanda →
+  </button>
 </div>
 
+<!-- Logica JavaScript del Quiz Avanzato -->
 <script>
-function checkQuiz(isCorrect) {
-  const resultDiv = document.getElementById("quiz-result");
-  if (isCorrect) {
-    resultDiv.innerHTML = "✅ Corretto! Hai riconosciuto un classico tentativo di phishing. Non bisogna mai cliccare su link sospetti ricevuti via email.";
-    resultDiv.style.color = "#34d399";
-  } else {
-    resultDiv.innerHTML = "❌ Attenzione! Questa è una mossa rischiosa. Si tratta di un tipico schema di phishing. Verifica sempre accedendo direttamente dai canali ufficiali.";
-    resultDiv.style.color = "#f87171";
+const quizData = [
+  {
+    q: "Ricevi un'email urgente dalla tua banca che ti intima di cliccare su un link per sbloccare il conto bloccato. Cosa fai?",
+    options: [
+      { text: "A) Clicco subito per evitare il blocco del conto.", score: -2, type: "danger" },
+      { text: "B) Ignoro l'email e verifico accedendo dall'app ufficiale o digitando l'URL nel browser.", score: 3, type: "correct" },
+      { text: "C) Rispondo all'email chiedendo chiarimenti all'assistenza.", score: -1, type: "warning" }
+    ],
+    explanation: "Le banche non chiedono mai credenziali o sblocchi tramite link via email. Questa è una tecnica classica di phishing."
+  },
+  {
+    q: "Qual è la pratica più sicura per la gestione delle password sui vari account?",
+    options: [
+      { text: "A) Usare la stessa password complessa per comodità ovunque.", score: -3, type: "danger" },
+      { text: "B) Usare un Password Manager per generare e custodire password uniche e complesse.", score: 3, type: "correct" },
+      { text: "C) Scriverle tutte su un file di testo cifrato salvato sul desktop.", score: 0, type: "warning" }
+    ],
+    explanation: "Il riutilizzo delle password compromette tutti gli account se anche un solo sito subisce un data breach."
+  },
+  {
+    q: "Ti viene richiesto di collegare una chiavetta USB trovata nel parcheggio dell'azienda. Come ti comporti?",
+    options: [
+      { text: "A) La inserisco nel pc aziendale per vedere di chi è il proprietario.", score: -3, type: "danger" },
+      { text: "B) La consegno immediatamente al reparto IT o di sicurezza senza inserire nulla.", score: 3, type: "correct" },
+      { text: "C) La formatto prima di aprirla su un computer isolato.", score: -1, type: "warning" }
+    ],
+    explanation: "Le USB drop sono attacchi di social engineering comuni per iniettare malware (BadUSB) bypassando i perimetri di rete."
+  },
+  {
+    q: "Stai navigando su un sito e compare un pop-up che dice: 'Il tuo computer è infetto! Clicca qui per pulirlo'. Cosa fai?",
+    options: [
+      { text: "A) Clicco sul link per scaricare l'antivirus consigliato.", score: -3, type: "danger" },
+      { text: "B) Chiudo immediatamente la scheda del browser.", score: 3, type: "correct" },
+      { text: "C) Faccio una scansione online direttamente dal banner.", score: -2, type: "danger" }
+    ],
+    explanation: "Si tratta di 'scareware', un finto allarme utile solo a spingerti a scaricare malware o adware sul dispositivo."
+  },
+  {
+    q: "Cos'è l'Autenticazione a Due Fattori (MFA / 2FA) e perché è fondamentale?",
+    options: [
+      { text: "A) Serve solo a raddoppiare il tempo di login senza aggiungere sicurezza.", score: -2, type: "danger" },
+      { text: "B) Richiede due password diverse da ricordare ogni volta.", score: -1, type: "warning" },
+      { text: "C) Aggiunge un secondo livello di verifica (es. codice OTP) bloccando la maggior parte degli accessi non autorizzati anche in caso di furto password.", score: 3, type: "correct" }
+    ],
+    explanation: "Anche se un attaccante scopre la tua password, senza il secondo fattore fisico o app-based non potrà accedere all'account."
+  },
+  {
+    q: "Durante una connessione in un bar, ti connetti a una rete Wi-Fi pubblica aperta senza password ('Free Wi-Fi'). Qual è il rischio principale?",
+    options: [
+      { text: "A) La velocità di navigazione è solitamente molto lenta.", score: 0, type: "warning" },
+      { text: "B) Esposizione a intercettazioni del traffico (Man-in-the-Middle) e furto di dati in chiaro.", score: 3, type: "correct" },
+      { text: "C) Nessun rischio particolare se il computer è acceso.", score: -2, type: "danger" }
+    ],
+    explanation: "Le reti Wi-Fi aperte permettono ad aggressori sulla stessa rete di analizzare pacchetti non cifrati. È sempre consigliato l'uso di una VPN."
+  },
+  {
+    q: "Ricevi un allegato in formato '.zip' o '.exe' da un mittente sconosciuto con oggetto 'Fattura_urgente.zip'. Qual è la mossa corretta?",
+    options: [
+      { text: "A) Apro lo zip per controllare di quale fattura si tratti.", score: -3, type: "danger" },
+      { text: "B) Elimino l'email senza scaricare o aprire alcun allegato.", score: 3, type: "correct" },
+      { text: "C) Lo salvo sul computer e controllo le proprietà.", score: -1, type: "warning" }}
+    ],
+    explanation: "Gli eseguibili o archivi compressi non verificati sono il vettore primario per la diffusione di ransomware e trojan."
+  },
+  {
+    q: "Perché è importante mantenere il sistema operativo e i software sempre aggiornati?",
+    options: [
+      { text: "A) Solo per avere le nuove emoticon e interfacce grafiche.", score: -2, type: "danger" },
+      { text: "B) Per chiudere le falle di sicurezza note (patching delle vulnerabilità) prima che vengano sfruttate da exploit.", score: 3, type: "correct" },
+      { text: "C) Non è importante, gli aggiornamenti servono solo a rallentare il computer.", score: -3, type: "danger" }
+    ],
+    explanation: "Il patch management tempestivo impedisce agli hacker di sfruttare vulnerabilità note (CVE) presenti nei software obsoleti."
+  },
+  {
+    q: "Che cos'è la Threat Intelligence in ambito aziendale o di sicurezza?",
+    options: [
+      { text: "A) Un software antivirus installato sui singoli smartphone.", score: 0, type: "warning" },
+      { text: "B) La raccolta e l'analisi di informazioni sulle minacce emergenti per anticipare e prevenire gli attacchi.", score: 3, type: "correct" },
+      { text: "C) Un database segreto delle password degli utenti.", score: -3, type: "danger" }
+    ],
+    explanation: "La Threat Intelligence trasforma dati grezzi su IOC e TTP in informazioni strategiche per difendere proattivamente l'infrastruttura."
+  },
+  {
+    q: "Un collega ti contatta su una chat interna chiedendoti con urgenza le credenziali di accesso al pannello amministrativo per un'emergenza. Cosa fai?",
+    options: [
+      { text: "A) Gliele invio subito per non bloccare il suo lavoro.", score: -3, type: "danger" },
+      { text: "B) Verifico la sua identità tramite un canale alternativo (es. chiamata vocale o di persona) prima di valutare.", score: 3, type: "correct" },
+      { text: "C) Le pubblico temporaneamente sulla chat di gruppo.", score: -3, type: "danger" }
+    ],
+    explanation: "Questo è un tipico attacco di 'Business Email Compromise' o social engineering avanzato (anche tramite deepfake vocali)."
   }
+];
+
+let currentQuestion = 0;
+let totalScore = 0;
+
+function loadQuizQuestion() {
+  if (currentQuestion >= quizData.length) {
+    showQuizResults();
+    return;
+  }
+
+  const qData = quizData[currentQuestion];
+  document.getElementById("quiz-counter").innerText = `Domanda ${currentQuestion + 1} di ${quizData.length}`;
+  document.getElementById("quiz-question").innerText = qData.q;
+  
+  const optionsContainer = document.getElementById("quiz-options");
+  optionsContainer.innerHTML = "";
+  
+  document.getElementById("quiz-feedback").style.display = "none";
+  document.getElementById("quiz-next-btn").style.display = "none";
+
+  qData.options.forEach((opt, index) => {
+    const btn = document.createElement("button");
+    btn.innerHTML = opt.text;
+    btn.style.cssText = "padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem; transition: background 0.2s;";
+    btn.onclick = () => selectQuizOption(opt.score, opt.type, qData.explanation, btn);
+    optionsContainer.appendChild(btn);
+  });
 }
+
+function selectQuizOption(score, type, explanation, selectedBtn) {
+  totalScore += score;
+  
+  // Disabilita tutti i pulsanti dopo la risposta
+  const buttons = document.getElementById("quiz-options").getElementsByTagName("button");
+  for (let b of buttons) {
+    b.disabled = true;
+    b.style.cursor = "default";
+  }
+
+  // Evidenzia la scelta
+  if (type === "correct") {
+    selectedBtn.style.background = "#064e3b";
+    selectedBtn.style.borderColor = "#34d399";
+  } else if (type === "warning") {
+    selectedBtn.style.background = "#78350f";
+    selectedBtn.style.borderColor = "#fbbf24";
+  } else {
+    selectedBtn.style.background = "#7f1d1d";
+    selectedBtn.style.borderColor = "#f87171";
+  }
+
+  const feedbackDiv = document.getElementById("quiz-feedback");
+  feedbackDiv.style.display = "block";
+  
+  if (type === "correct") {
+    feedbackDiv.innerHTML = `<strong style="color: #34d399;">✅ Risposta Corretta!</strong><br>${explanation}`;
+    feedbackDiv.style.background = "#022c22";
+    feedbackDiv.style.border = "1px solid #059669";
+  } else {
+    feedbackDiv.innerHTML = `<strong style="color: #f87171;">❌ Attenzione / Rischio rilevato:</strong><br>${explanation}`;
+    feedbackDiv.style.background = "#450a0a";
+    feedbackDiv.style.border = "1px solid #dc2626";
+  }
+
+  document.getElementById("quiz-next-btn").style.display = "block";
+}
+
+function nextQuizQuestion() {
+  currentQuestion++;
+  loadQuizQuestion();
+}
+
+function showQuizResults() {
+  const container = document.getElementById("quiz-container");
+  document.getElementById("quiz-counter").innerText = "Test Completato";
+  document.getElementById("quiz-feedback").style.display = "none";
+  document.getElementById("quiz-next-btn").style.display = "none";
+
+  let profile = "";
+  let color = "";
+  if (totalScore >= 25) {
+    profile = "🛡️ Profilo: Esperto di Sicurezza / Postura Eccellente. Possiedi una forte consapevolezza delle minacce e adotti le migliori pratiche difensive.";
+    color = "#34d399";
+  } else if (totalScore >= 15) {
+    profile = "⚠️ Profilo: Consapevolezza Media. Conosci le basi, ma ci sono alcune aree di distrazione che potrebbero esporre a rischi di social engineering.";
+    color = "#fbbf24";
+  } else {
+    profile = "🚨 Profilo: Alto Rischio. La tua postura digitale necessita di una revisione urgente delle abitudini di sicurezza e igiene delle password.";
+    color = "#f87171";
+  }
+
+  container.innerHTML = `
+    <div style="text-align: center; padding: 20px;">
+      <h3 style="color: #00eaff; margin-bottom: 15px;">Test Completato con Successo</h3>
+      <p style="font-size: 1.1rem; margin-bottom: 10px;">Il tuo punteggio totale: <strong style="color: #00eaff; font-size: 1.3rem;">${totalScore} / 30</strong></p>
+      <p style="color: ${color}; font-weight: bold; font-size: 1.05rem; margin-top: 15px; line-height: 1.6;">${profile}</p>
+      <button onclick="resetQuiz()" style="margin-top: 25px; background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
+        Ricomincia il Test ↺
+      </button>
+    </div>
+  `;
+}
+
+function resetQuiz() {
+  currentQuestion = 0;
+  totalScore = 0;
+  // Ricrea la struttura base del container se resettato
+  location.reload(); 
+}
+
+// Avvia il quiz all'avvio della pagina
+document.addEventListener("DOMContentLoaded", loadQuizQuestion);
 </script>
 
 <!-- RISORSE AVANZATE -->
