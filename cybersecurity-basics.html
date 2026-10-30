@@ -162,6 +162,19 @@ fetch("/partials/ticker.html")
 
 <h1>Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale</h1>
 
+<!-- POSIZIONE 1: INDICE DI NAVIGAZIONE RAPIDA (Subito dopo l'H1 per migliorare la UX) -->
+<div style="background: #030712; border: 1px solid #1e293b; border-radius: 8px; padding: 15px 20px; margin-bottom: 30px;">
+  <h4 style="color: #00eaff; margin-top: 0; margin-bottom: 10px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em;">Indice della Guida</h4>
+  <ul style="list-style: none; padding-left: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; font-size: 0.88rem;">
+    <li>👉 <a href="#minacce" style="color: #38bdf8; text-decoration: none;">Le minacce informatiche</a></li>
+    <li>👉 <a href="#threat-intel" style="color: #38bdf8; text-decoration: none;">Threat Intelligence</a></li>
+    <li>👉 <a href="#pilastri" style="color: #38bdf8; text-decoration: none;">I pilastri e i Framework</a></li>
+    <li>👉 <a href="#soc-role" style="color: #38bdf8; text-decoration: none;">Il ruolo del SOC</a></li>
+    <li>👉 <a href="#quiz-section" style="color: #38bdf8; text-decoration: none;">Test di Sicurezza Rapido</a></li>
+    <li>👉 <a href="#faq-section" style="color: #38bdf8; text-decoration: none;">Domande Frequenti (FAQ)</a></li>
+  </ul>
+</div>
+
 <div class="section">
 <p>
 La cybersecurity è l’insieme delle tecniche, delle tecnologie e delle procedure utilizzate per proteggere sistemi, reti, applicazioni e dati da accessi non autorizzati, attacchi informatici e danni accidentali.
@@ -177,6 +190,7 @@ Nel 2026 la sicurezza informatica è diventata un elemento strategico per aziend
   </ul>
 </div>
 </div>
+
 <!-- Annuncio AdSense -->
 <ins class="adsbygoogle"
      style="display:block; margin:25px 0;"
@@ -185,7 +199,7 @@ Nel 2026 la sicurezza informatica è diventata un elemento strategico per aziend
      data-ad-format="auto"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<div class="section">
+<div class="section" id="minacce">
 <h2>Le principali minacce informatiche</h2>
 
 <h3>Malware</h3>
@@ -221,7 +235,7 @@ Nel 2026 la sicurezza informatica è diventata un elemento strategico per aziend
      data-ad-format="horizontal"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<div class="section">
+<div class="section" id="threat-intel">
 <h2>Threat Intelligence</h2>
 <p>
 La Threat Intelligence è la raccolta e analisi di informazioni sulle minacce informatiche.
@@ -242,7 +256,8 @@ osservare trend di attacco e fornire insight tecnici utili a SOC e analisti.
   </ul>
 </div>
 </div>
-<div class="section">
+
+<div class="section" id="pilastri">
 <h2>I pilastri della sicurezza informatica</h2>
 
 <ul>
@@ -254,6 +269,37 @@ osservare trend di attacco e fornire insight tecnici utili a SOC e analisti.
   <li><strong>Monitoraggio continuo</strong></li>
 </ul>
 
+<!-- POSIZIONE 2: TABELLA DEI FRAMEWORK (Integrazione concettuale sui pilastri) -->
+<h3 style="margin-top:30px; font-size:1.1rem; color:#00eaff;">Framework e Standard di Riferimento</h3>
+<p>Per strutturare la difesa in modo efficace, le organizzazioni adottano standard riconosciuti a livello internazionale:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Framework / Standard</th>
+      <th>Ambito Principale</th>
+      <th>Obiettivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>NIST CSF</strong></td>
+      <td>Aziendale / Governativo</td>
+      <td>Identificare, Proteggere, Rilevare, Rispondere e Ripristinare i sistemi.</td>
+    </tr>
+    <tr>
+      <td><strong>ISO/IEC 27001</strong></td>
+      <td>Gestione Sicurezza (ISMS)</td>
+      <td>Certificazione internazionale per la gestione organizzativa della sicurezza.</td>
+    </tr>
+    <tr>
+      <td><strong>OWASP Top 10</strong></td>
+      <td>Applicazioni Web</td>
+      <td>Mappatura delle 10 vulnerabilità critiche più diffuse nel software.</td>
+    </tr>
+  </tbody>
+</table>
+
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
@@ -263,7 +309,7 @@ osservare trend di attacco e fornire insight tecnici utili a SOC e analisti.
 </div>
 </div>
 
-<div class="section">
+<div class="section" id="soc-role">
 <h2>Il ruolo del SOC (Security Operations Center)</h2>
 
 <p>Un SOC è un centro operativo dedicato alla sicurezza informatica.</p>
@@ -345,27 +391,49 @@ radar delle minacce, strumenti OSINT e analisi tecniche.
 </div>
 </div>
 
+<!-- POSIZIONE 3: QUIZ DI SECURITY AWARENESS (Tra le Best Practice e lo Scenario Reale per Spezzare la Lettura) -->
+<div class="section" id="quiz-section">
+  <h2>Mettiti alla prova: Test di Sicurezza Rapido</h2>
+  <p id="quiz-question" style="font-weight: bold; color: #fff;">Ricevi un'email urgente dalla tua banca che ti chiede di cliccare su un link per sbloccare il conto. Cosa fai?</p>
+  
+  <div id="quiz-options" style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+    <button onclick="checkQuiz(false)" style="padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem;">A) Clicco subito per evitare il blocco del conto.</button>
+    <button onclick="checkQuiz(true)" style="padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem;">B) Ignoro l'email e verifico accedendo direttamente dall'app ufficiale o digitando l'URL nel browser.</button>
+    <button onclick="checkQuiz(false)" style="padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem;">C) Rispondo all'email chiedendo spiegazioni al mittente.</button>
+  </div>
+  
+  <div id="quiz-result" style="margin-top: 15px; font-weight: bold; font-size: 0.95rem;"></div>
+</div>
+
+<script>
+function checkQuiz(isCorrect) {
+  const resultDiv = document.getElementById("quiz-result");
+  if (isCorrect) {
+    resultDiv.innerHTML = "✅ Corretto! Hai riconosciuto un classico tentativo di phishing. Non bisogna mai cliccare su link sospetti ricevuti via email.";
+    resultDiv.style.color = "#34d399";
+  } else {
+    resultDiv.innerHTML = "❌ Attenzione! Questa è una mossa rischiosa. Si tratta di un tipico schema di phishing. Verifica sempre accedendo direttamente dai canali ufficiali.";
+    resultDiv.style.color = "#f87171";
+  }
+}
+</script>
+
 <!-- RISORSE AVANZATE -->
 <div class="section">
- 
 <h2>Risorse utili: Video, Guide e Strumenti</h2>
- 
 <p>
 La cybersecurity richiede aggiornamento continuo, formazione e strumenti adeguati.
 Le risorse seguenti aiutano a comprendere meglio le minacce digitali e a migliorare la propria postura di sicurezza.
 </p>
- 
 </div>
- 
+
 <!-- CHECKLIST -->
 <div class="section">
- 
 <h2>Checklist Rapida di Cybersecurity</h2>
- 
 <p>
 Prima di considerare protetto un dispositivo o un account, verifica questi elementi essenziali.
 </p>
- 
+
 <ul>
 <li>✅ Password robuste e uniche per ogni servizio</li>
 <li>✅ Autenticazione a più fattori (MFA) attiva</li>
@@ -376,14 +444,12 @@ Prima di considerare protetto un dispositivo o un account, verifica questi eleme
 <li>✅ Verifica periodica delle violazioni dati</li>
 <li>✅ Attenzione a email e allegati sospetti</li>
 </ul>
- 
 </div>
- 
+
 <!-- GLOSSARIO -->
 <div class="section">
- 
 <h2>Glossario Essenziale</h2>
- 
+
 <ul>
 <li><strong>Cybersecurity:</strong> insieme di pratiche e tecnologie per proteggere sistemi e dati.</li>
 <li><strong>IOC:</strong> indicatore di compromissione utilizzato per identificare attività malevole.</li>
@@ -394,39 +460,34 @@ Prima di considerare protetto un dispositivo o un account, verifica questi eleme
 <li><strong>EDR:</strong> soluzione avanzata per rilevare e rispondere agli attacchi sugli endpoint.</li>
 <li><strong>Phishing:</strong> attacco volto a sottrarre credenziali e informazioni riservate.</li>
 </ul>
- 
 </div>
- 
+
 <!-- SCENARIO REALE -->
 <div class="section">
- 
 <h2>Scenario Reale</h2>
- 
+
 <p>
 Un dipendente riceve un'email apparentemente proveniente dalla propria banca.
 L'allegato contiene un malware progettato per rubare credenziali e informazioni sensibili.
 L'uso combinato di autenticazione multifattore, formazione degli utenti e sistemi EDR può interrompere l'attacco prima che provochi danni significativi.
 </p>
- 
 </div>
- 
+
 <!-- MONITORAGGIO -->
 <div class="section">
- 
 <h2>Monitoraggio delle Minacce in Tempo Reale</h2>
- 
+
 <p>
 La formazione è importante, ma monitorare l'evoluzione delle minacce è essenziale per mantenere un livello di difesa adeguato.
 AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informatica.
 </p>
- 
+
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
   <li>🛰️ <a href="/soc-dashboard.html">SOC Dashboard</a></li>
   <li>🛰️ <a href="/threat-intelligence-report.html">Threat Intelligence Report</a></li>
   <li>🛰️ <a href="/vulnerabilities-cve-analysis.html">Analisi Vulnerabilità e CVE</a></li>
   <li>🛰️ <a href="/osint-tools-explained.html">OSINT Tools Explained</a></li>
 </ul>
- 
 </div>
 
 <!-- ============================================================
@@ -477,7 +538,7 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
             </div>
         </li>
 
-        <!-- VIDEO 2: CHECK POINT SOFTWARE (VIDEO DIRETTO STABILE) -->
+        <!-- VIDEO 2: CHECK POINT SOFTWARE -->
         <li>
             <div style="border:1px solid #0f2a3a; border-radius:10px; padding:18px; background:#0a0f14; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
@@ -544,7 +605,8 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
     </ul>
 
 </div>
-    
+
+<div class="section" style="margin-top:30px;">
 <h3>Guide PDF scaricabili</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
   <li>📄 <a href="/docs/cybersecurity-basics.pdf" download>Cybersecurity Basics — Guida completa</a></li>
@@ -569,6 +631,66 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
 </ul>
 </div>
 
+<!-- POSIZIONE 4: SEZIONE FAQ + SCHEMA JSON-LD (Posizionato subito prima della Conclusione) -->
+<div class="section" id="faq-section">
+  <h2>Domande Frequenti (FAQ)</h2>
+  
+  <details style="margin-bottom: 12px; background: #030712; padding: 12px; border: 1px solid #1e293b; border-radius: 6px;">
+    <summary style="color: #00eaff; cursor: pointer; font-weight: bold;">Cos'è esattamente un SOC e perché è importante?</summary>
+    <p style="margin-top: 8px; color: #ccc; font-size: 0.9rem;">
+      Un SOC (Security Operations Center) è un team o una struttura dedicata al monitoraggio continuo dell'infrastruttura informatica per rilevare, analizzare e rispondere tempestivamente a qualsiasi minaccia o tentativo di attacco cibernetico.
+    </p>
+  </details>
+
+  <details style="margin-bottom: 12px; background: #030712; padding: 12px; border: 1px solid #1e293b; border-radius: 6px;">
+    <summary style="color: #00eaff; cursor: pointer; font-weight: bold;">Qual è la differenza tra Vulnerabilità e Exploit?</summary>
+    <p style="margin-top: 8px; color: #ccc; font-size: 0.9rem;">
+      Una <em>vulnerabilità</em> è una debolezza o una falla all'interno di un software o sistema. Un <em>exploit</em> è invece il codice o la tecnica sfruttata dagli attaccanti per trarre vantaggio da quella vulnerabilità specifica.
+    </p>
+  </details>
+
+  <details style="background: #030712; padding: 12px; border: 1px solid #1e293b; border-radius: 6px;">
+    <summary style="color: #00eaff; cursor: pointer; font-weight: bold;">Come posso capire se la mia password è stata compromessa?</summary>
+    <p style="margin-top: 8px; color: #ccc; font-size: 0.9rem;">
+      Puoi utilizzare strumenti di verifica pubblici e sicuri come <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">Have I Been Pwned</a>, che incrociano il tuo indirizzo email con i database di dati trafugati nei data breach globali.
+    </p>
+  </details>
+</div>
+
+<!-- Schema JSON-LD per FAQ (Rich Snippets Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Cos'è esattamente un SOC e perché è importante?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un SOC (Security Operations Center) è un team o una struttura dedicata al monitoraggio continuo dell'infrastruttura informatica per rilevare, analizzare e rispondere tempestivamente a qualsiasi minaccia o tentativo di attacco cibernetico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual è la differenza tra Vulnerabilità e Exploit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una vulnerabilità è una debolezza o una falla all'interno di un software o sistema. Un exploit è invece il codice o la tecnica sfruttata dagli attaccanti per trarre vantaggio da quella vulnerabilità specifica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Come posso capire se la mia password è stata compromessa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puoi utilizzare strumenti di verifica pubblici e sicuri come Have I Been Pwned, che incrociano il tuo indirizzo email con i database di dati trafugati nei data breach globali."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- LINK INTERNI -->
 <nav class="anonlab-explorer" aria-label="Esplora altre sezioni AnonLab" style="margin-top: 25px;">
   <h4 style="color: #00eaff; margin-bottom: 12px; font-size: 1.1rem; font-weight: 600;">
@@ -587,7 +709,7 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
       <span role="img" aria-label="Libro">📘</span> 
       <a href="/osint-investigation-case-study.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">OSINT Case Study</a>
     </li>
-	  <li style="margin-bottom: 8px;">
+    <li style="margin-bottom: 8px;">
       <span role="img" aria-label="Libro">📘</span> 
       <a href="/soc-dashboard.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">AnonLab SOC Dashboard</a>
     </li>
@@ -595,7 +717,7 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
       <span role="img" aria-label="Libro">📘</span> 
       <a href="/threat-intelligence-report.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Threat Intelligence Report</a>
     </li>
-	  <li style="margin-bottom: 8px;">
+    <li style="margin-bottom: 8px;">
       <span role="img" aria-label="Libro">📘</span> 
       <a href="/vulnerabilities-cve-analysis.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Vulnerabilità & CVE Analysis</a>
     </li>
@@ -603,7 +725,7 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
 </nav>
 
 <!-- CONCLUSIONE -->
-<div class="section">
+<div class="section" style="margin-top:25px;">
 <h2>Conclusione</h2>
 <p>
 Questa pagina offre una panoramica chiara e completa dei fondamenti della cybersecurity.
