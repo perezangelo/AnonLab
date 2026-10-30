@@ -466,16 +466,14 @@ function anonlabPulse() {
 } // ⭐ Chiusura corretta aggiunta per eliminare l'Unexpected end of input!
 
 // ============================================================
-// WIDGET AGGIORNAMENTI DINAMICO (POSIZIONE: BASSO A SINISTRA)
+// WIDGET AGGIORNAMENTI DINAMICO (CON CHIUSURA AUTOMATICA)
 // ============================================================
 function initUpdateNotification() {
-  const currentUpdateId = "upd_2026_10_30"; // Cambia questo ID ogni volta che pubblichi novità importanti
+  const currentUpdateId = "upd_2026_10_30"; // ID aggiornato
   const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
 
-  // Se l'utente ha già chiuso questa specifica notifica, non mostrarla più
   if (lastSeenUpdate === currentUpdateId) return;
 
-  // Crea dinamicamente l'elemento HTML del Toast
   const toastContainer = document.createElement("div");
   toastContainer.id = "anonlab-update-toast";
   toastContainer.innerHTML = `
@@ -503,11 +501,9 @@ function initUpdateNotification() {
         Piattaforma in costante evoluzione
       </p>
       <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
-        Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, <strong>VIDEO cybersecurity-basics</strong> e rivisto i moduli della <strong>SOC Dashboard</strong>.
+        Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, i video formativi e rivisto i moduli della <strong>SOC Dashboard</strong>.
       </p>
       <a href="/osint-tools-explained.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
-      </a>
-      <a href="/cybersecurity-basics.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
         Esplora le novità →
       </a>
     </div>
@@ -515,11 +511,20 @@ function initUpdateNotification() {
 
   document.body.appendChild(toastContainer);
 
-  // Gestione chiusura notifica e salvataggio in localStorage
-  document.getElementById("close-toast-btn").addEventListener("click", () => {
-    toastContainer.remove();
-    localStorage.setItem("anonlab_last_update_id", currentUpdateId);
-  });
+  // Funzione unificata per chiudere e memorizzare la lettura
+  const dismissToast = () => {
+    const el = document.getElementById("anonlab-update-toast");
+    if (el) {
+      el.remove();
+      localStorage.setItem("anonlab_last_update_id", currentUpdateId);
+    }
+  };
+
+  // Chiusura manuale tramite pulsante ✕
+  document.getElementById("close-toast-btn").addEventListener("click", dismissToast);
+
+  // Chiusura automatica dopo 12 secondi (tempo ottimale di lettura)
+  setTimeout(dismissToast, 12000);
 }
 
 // Avvia la notifica dopo 2,5 secondi dal caricamento della pagina
