@@ -1,5 +1,40 @@
 [
   {
+    "title": "OpenAI doubles ChatGPT Pro usage limits after backlash over planned 50% cut",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-doubles-chatgpt-pro-usage-limits-after-backlash-over-planned-50-percent-cut/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/11/08/ChatGPT.jpg"
+  },
+  {
+    "title": "Binance probes potential $5.8 billion crypto-theft hack",
+    "link": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/13/back.png"
+  },
+  {
+    "title": "Hugging Face malware campaign returns to hijack GPUs for crypto mining",
+    "link": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/Hugging-Face.jpg"
+  },
+  {
+    "title": "Japan Airlines suffers third-party data breach exposing passenger info",
+    "link": "https://www.bleepingcomputer.com/news/security/japan-airlines-suffers-third-party-data-breach-exposing-passenger-info/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/aircraft.jpg"
+  },
+  {
+    "title": "Polymarket halts trading after crypto-draining script breach, $2.5M traced",
+    "link": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/polymarket-crypto.jpg"
+  },
+  {
+    "title": "Anthropic-Themed Phishing Emails Bypass Top Security Tools",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/anthropic-phishing-emails-bypass-security-tools",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltfbdba6806da96431/6ae3993ee7e856faec896a9e/Mask-beast01-Getty.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Rethinking Cybersecurity Awareness in the AI Era",
+    "link": "https://www.darkreading.com/cyber-risk/rethinking-cybersecurity-awareness-ai-era",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltcc4390b0f2e6c554/6ae3b02dfe80872ab5936fa3/cybersecuritytraining-_Maria_Vonotna-Getty-1351111419.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
     "title": "Fake crypto app on Apple App Store linked to $23K wallet theft",
     "link": "https://www.bleepingcomputer.com/news/security/fake-crypto-app-on-apple-app-store-linked-to-23k-wallet-theft/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/12/01/Hackers_cryptocurrency_red.jpg"
@@ -90,11 +125,6 @@
     "image": "https://www.bleepstatic.com/content/posts/2026/10/27/ai-agents-header.jpg"
   },
   {
-    "title": "CISA warns of Fragnesia Linux flaw chained in PHP2Shell attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-fragnesia-linux-flaw-chained-in-php2shell-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Linux_tux.jpg"
-  },
-  {
     "title": "Deutsche Geheimdienste planen den Austausch geheimer Daten \u00fcber die Google Cloud",
     "link": "https://cybernews.com/de/tech/deutscher-geheimdienst-google-cloud/",
     "image": "https://media.cybernews.com/images/featured-big/2026/10/german-intelligence-google-cloud.jpg"
@@ -118,35 +148,5 @@
     "title": "We spoke to 100 researchers. This is the biggest threat from AI",
     "link": "https://cybernews.com/ai-news/ai-researchers-survey/",
     "image": "https://media.cybernews.com/images/featured-big/2026/10/ai-survey-scientists.jpg"
-  },
-  {
-    "title": "BAE Says No Data Extracted in Incident Hitting Bankruptcy Courts",
-    "link": "https://www.securityweek.com/bae-says-no-data-extracted-in-incident-hitting-bankruptcy-courts/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/law-court-order-lawsuit-e1782819788980.jpg"
-  },
-  {
-    "title": "German spy agencies plan to exchange secret information via the Google Cloud",
-    "link": "https://cybernews.com/tech/german-intelligence-google-cloud/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/german-intelligence-google-cloud.jpg"
-  },
-  {
-    "title": "42 million docs left unsecured: local complaints exposed personal data for years",
-    "link": "https://cybernews.com/security/local-complaints-database-exposed-personal-data/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/ezgif-optimized.gif"
-  },
-  {
-    "title": "Over 41,000 DHS Employee Records Leaked Online",
-    "link": "https://www.securityweek.com/over-41000-dhs-employee-records-leaked-online/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/DHS.jpeg"
-  },
-  {
-    "title": "Windows 11 KB5127936 update released with 41 changes and fixes",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5127936-update-released-with-41-changes-and-fixes/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Windows-11-logo.jpg"
-  },
-  {
-    "title": "Hitachi Energy CoreTec Product",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03",
-    "image": ""
   }
 ]
