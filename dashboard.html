@@ -121,18 +121,18 @@ fetch("/partials/ticker.html")
   report sulle minacce attuali e indicatori di compromissione.
 </div>
 
-      <p class="cyber-intro">
-        Monitoraggio in tempo reale dello stato dei sistemi, livello di minaccia, log eventi e attività di rete.
-      </p>
+     <p class="cyber-intro">
+  Monitoraggio in tempo reale di sistemi, minacce, log ed eventi di rete.
+</p>
 		
 <!-- ============================================================
-     SOC DASHBOARD WORKSPACE (REDISTRIBUITO SENZA SCROLLBAR FORZATE)
+     SOC DASHBOARD UNIFIED: COMPACT & ERGONOMIC LAYOUT
 ============================================================ -->
 <style>
   .soc-workspace {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
@@ -141,73 +141,67 @@ fetch("/partials/ticker.html")
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
   
-  /* GRIGLIE ASIMMETRICHE AD ALTO RESPIRO */
-  .soc-row {
-    display: grid;
-    gap: 20px;
-    align-items: stretch;
-  }
-  .soc-row-top {
-    grid-template-columns: 380px 1fr;
-  }
-  .soc-row-split {
-    grid-template-columns: 1.6fr 1fr;
-  }
-
-  /* CARD STYLE SOC */
   .soc-card {
     background: #090e17;
     border: 1px solid #1e293b;
     border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    padding: 16px 20px;
     box-sizing: border-box;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .soc-header {
-    margin-bottom: 14px;
-  }
-  .soc-title {
-    margin: 0;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .soc-subtitle {
-    margin: 6px 0 0 0;
-    font-size: 0.78rem;
-    color: #94a3b8;
-    line-height: 1.45;
+    position: relative;
   }
 
   .mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
-  /* SCROLLBAR MODERNE E NON INVASIVE (SOLO SE STRETTAMENTE NECESSARIE) */
+  /* Griglia 2 Colonne per Telemetria & Log */
+  .soc-ops-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* Layout interno Box Unificato Threat Level + Trend Chart */
+  .threat-unified-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  /* Telemetria compatta Infrastructure Status */
+  .infra-compact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    height: 100%;
+  }
+  .infra-tile {
+    background: #030712;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Scrollbar fine solo per log */
   .custom-scroll {
     scrollbar-width: thin;
     scrollbar-color: #334155 transparent;
   }
   .custom-scroll::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
   }
   .custom-scroll::-webkit-scrollbar-thumb {
     background: #334155;
     border-radius: 4px;
   }
-  .custom-scroll::-webkit-scrollbar-track {
-    background: transparent;
-  }
 
   @media (max-width: 1100px) {
-    .soc-row-top, .soc-row-split {
+    .threat-unified-grid, .soc-ops-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -216,262 +210,269 @@ fetch("/partials/ticker.html")
 <div class="soc-workspace">
 
   <!-- ============================================================
-       RIGA 1: THREAT LEVEL (ESPANDIBILE E COMPLETO) + LOCKDOWN & RADAR
+       1. BLOCCO UNIFICATO: THREAT LEVEL & THREAT ACTIVITY (GRAFICO 14GG)
   ============================================================ -->
-  <div class="soc-row soc-row-top">
-
-    <!-- 1. THREAT LEVEL -->
-    <div class="soc-card" style="border-top: 3px solid #00eaff;">
-      <div class="soc-header">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h2 class="soc-title" style="color: #00eaff;">Threat Level</h2>
-          <div id="threat-status" class="mono" style="font-size:0.75rem; font-weight:700; padding:3px 8px; border-radius:4px; background:#0f172a; border:1px solid #1e293b;">--</div>
-        </div>
-        <p class="soc-subtitle">
-          Indicatore percentuale del rischio cyber attuale, basato su vulnerabilità critiche e attività malevole rilevate.
-        </p>
+  <div class="soc-card" style="border-top: 3px solid #00eaff;">
+    
+    <!-- HEADER GENERALE BOX MINACCE -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid #1e293b; padding-bottom:10px;">
+      <div>
+        <h2 style="margin:0; font-size:0.95rem; color:#00eaff; letter-spacing:0.04em; text-transform:uppercase; display:flex; align-items:center; gap:8px;">
+          <span>🛡️</span> Threat Posture &amp; Activity (KEV + Phishing)
+        </h2>
+        <span style="font-size:0.75rem; color:#94a3b8;">Monitoraggio rischio aggregato e andamento vulnerabilità sfruttate (ultimi 14 giorni)</span>
       </div>
-
-      <!-- CIFRE E BARRA -->
-      <div style="margin: 4px 0 16px 0;">
-        <div style="display:flex; align-items:baseline; gap:6px;">
-          <div id="threat-value" class="dash-number mono" style="font-size: 3.4rem; font-weight:800; line-height:1; color:#f8fafc;">--</div>
-          <div id="threat-percent" class="percent-symbol" style="font-size: 1.6rem; color:#00eaff; font-weight:700;">%</div>
-        </div>
-        
-        <div style="margin-top:14px; width:100%; background:#030712; border-radius:6px; height:10px; overflow:hidden; border:1px solid #1e293b;">
-          <div id="threat-bar" style="height:100%; width:0%; transition: width 0.8s ease, background-color 0.5s ease; box-shadow: 0 0 10px #00eaff; background:#00eaff;"></div>
-        </div>
-
-        <div id="threat-desc" style="color:#cbd5e1; margin-top:10px; font-size:0.80rem; line-height:1.4;">
-          Analisi in corso...
-        </div>
-      </div>
-
-      <!-- LEGENDA COMPLETA ORIGINALE (NESSUN TAGLIO, NESSUNO SCROLL) -->
-      <div style="margin-top:auto; padding-top:14px; border-top:1px solid #1e293b; display:flex; flex-direction:column; gap:8px;">
-        <div style="color: #7fdfff; font-size: 0.75rem; line-height: 1.45;">
-          <strong>Fonti telemetriche:</strong><br>
-          NVD (CVE critici), OTX (campagne attive), Honeypot, GeoIP malevoli, Malware Activity.
-        </div>
-        <div style="color: #94a3b8; font-size: 0.74rem; line-height: 1.45; background: #030712; padding: 10px; border-radius: 6px; border: 1px solid #1e293b;">
-          <strong style="color: #f1f5f9;">Cosa indica il valore:</strong><br>
-          Percentuale (0–100) che riflette la pressione complessiva delle minacce correlando vulnerabilità exploitabili e attacchi su vasta scala.
-        </div>
-      </div>
+      <div id="threat-status" class="mono" style="font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:4px; background:#0f172a; border:1px solid #1e293b;">--</div>
     </div>
 
-    <!-- 2. PANNELLO UNIFICATO: LOCKDOWN + ATTIVITÀ SOSPETTE -->
-    <div class="soc-card" style="border-top: 3px solid #ef4444;">
+    <!-- CORPO: SINISTRA (KPI + LEGENDA) | DESTRA (GRAFICO AMPIO) -->
+    <div class="threat-unified-grid">
       
-      <!-- SUB-BARRA LOCKDOWN -->
-      <div style="display:flex; justify-content:space-between; align-items:center; background:#030712; padding:12px 16px; border-radius:6px; border:1px solid #1e293b; margin-bottom:18px; flex-wrap:wrap; gap:12px;">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <span style="font-size:1.3rem;">🛡️</span>
-          <div>
-            <h2 style="margin:0; color:#f87171; font-size:0.88rem; font-weight:700; letter-spacing:0.04em;">EMERGENCY LOCKDOWN PROTOCOLS</h2>
-            <div style="margin-top:3px; font-size:0.75rem; color:#94a3b8;">
-              Perimeter State: <span id="lockdown-status-label" class="mono" style="color:#34d399; font-weight:700;">STANDARD OPERATIONAL</span>
-            </div>
+      <!-- COLONNA SINISTRA: THREAT LEVEL, INDICATORE E LEGENDA -->
+      <div style="display:flex; flex-direction:column; justify-content:space-between; border-right:1px solid #1e293b; padding-right:20px;">
+        <div>
+          <div style="display:flex; align-items:baseline; gap:4px; margin-top:2px;">
+            <div id="threat-value" class="dash-number mono" style="font-size:3.4rem; font-weight:800; line-height:1; color:#f8fafc;">--</div>
+            <div id="threat-percent" class="percent-symbol" style="font-size:1.6rem; color:#00eaff; font-weight:700;">%</div>
+          </div>
+
+          <!-- BARRA NEON -->
+          <div style="margin-top:12px; width:100%; background:#030712; border-radius:4px; height:8px; overflow:hidden; border:1px solid #1e293b;">
+            <div id="threat-bar" style="height:100%; width:0%; transition: width 0.8s ease, background-color 0.5s ease; box-shadow: 0 0 10px #00eaff; background:#00eaff;"></div>
+          </div>
+
+          <div id="threat-desc" style="color:#cbd5e1; margin-top:8px; font-size:0.78rem; line-height:1.4;">
+            Analisi in corso...
           </div>
         </div>
-        <button id="lockdown-btn" type="button"
-          style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.4); padding:10px 18px; border-radius:6px; font-weight:700; font-size:0.78rem; cursor:pointer; transition: all 0.2s;"
-          onmouseover="this.style.background='rgba(239,68,68,0.3)'" onmouseout="this.style.background='rgba(239,68,68,0.15)'">
-          INITIATE LOCKDOWN
-        </button>
+
+        <!-- LEGENDA INTEGRATA SENZA SPAZI MORTI -->
+        <div style="margin-top:14px; padding-top:12px; border-top:1px dashed #1e293b; display:flex; flex-direction:column; gap:6px; font-size:0.72rem;">
+          <div style="color:#7fdfff; line-height:1.4;">
+            <strong>Fonti:</strong> NVD (CVE critici), OTX (campagne), Honeypot, GeoIP, Malware Feeds.
+          </div>
+          <div style="color:#94a3b8; line-height:1.4;">
+            <strong>Cosa indica:</strong> Pressione cyber complessiva basata su exploit attivi e minacce perimetrali.
+          </div>
+        </div>
       </div>
 
-      <!-- ATTIVITÀ SOSPETTE -->
-      <div id="suspicious-box" style="display:flex; flex-direction:column; flex:1;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-          <div>
-            <h2 class="soc-title" style="color:#f8fafc; font-size:0.88rem;">
-              <span style="color:#fbbf24;">⚠️</span> Attività sospette rilevate
-            </h2>
-            <p class="soc-subtitle" style="max-width: 900px;">
-              Eventi anomali rilevati dal sistema: tentativi di accesso non autorizzati, scansioni porta massive, processi anomali o payload identificati dai sensori.
-            </p>
-          </div>
-          <div class="mono" style="display:flex; align-items:center; gap:8px; font-size:0.72rem; color:#64748b; background:#030712; padding:4px 8px; border-radius:4px; border:1px solid #1e293b;">
-            <span id="suspicious-status-badge" style="display:inline-flex; align-items:center; gap:5px; color:#34d399;">
-              <span class="live-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#34d399;"></span>
-              <span id="suspicious-status-text">LIVE RADAR</span>
-            </span>
-            <span>•</span>
-            <span id="suspicious-last-sync">--:--:--</span>
-          </div>
+      <!-- COLONNA DESTRA: GRAFICO THREAT ACTIVITY (KEV + PHISHING) -->
+      <div style="display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <span class="mono" style="font-size:0.72rem; color:#38bdf8;">TIMELINE INCIDENTI // 14-DAYS FEED</span>
+          <span style="font-size:0.68rem; color:#64748b;">CISA KEV + OpenPhish URLs</span>
         </div>
-
-        <!-- LISTA CON ALTEZZA NATURALE SENZA SCROLLBAR STRETTE -->
-        <div id="suspicious-list" class="suspicious-grid custom-scroll" style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:12px; min-height:140px; flex:1; display:flex; flex-direction:column; justify-content:center;">
-          <div style="color:#64748b; font-size:0.78rem; padding:16px; text-align:center;">
-            Inizializzazione radar attività anomale in corso...
-          </div>
+        <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:10px; height:200px; box-sizing:border-box;">
+          <canvas id="attacksChart" style="width:100%; height:100%; display:block;"></canvas>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- ============================================================
-       RIGA 2: THREAT ACTIVITY (AMPIO, 65%) + THREAT EVENT LOG (35%)
-  ============================================================ -->
-  <div class="soc-row soc-row-split">
 
-    <!-- 1. GRAFICO THREAT ACTIVITY (GRAFICO LUNGO A 14 GIORNI BEN VISIBILE) -->
-    <div class="soc-card" style="border-top:3px solid #38bdf8;">
-      <div class="soc-header">
-        <h2 class="soc-title" style="color:#38bdf8;">Threat Activity (KEV + Phishing)</h2>
-        <p class="soc-subtitle">
-          Nuove vulnerabilità CISA KEV per giorno e volume URL phishing OpenPhish (ultimi 14 giorni).
-          Fonti: CISA Known Exploited Vulnerabilities, OpenPhish feeds.
-        </p>
+  <!-- ============================================================
+       2. PANNELLO TATTICO: EMERGENCY LOCKDOWN + ATTIVITÀ SOSPETTE
+  ============================================================ -->
+  <div class="soc-card" style="border-top:3px solid #ef4444;">
+    
+    <!-- SUB-BARRA LOCKDOWN -->
+    <div style="display:flex; justify-content:space-between; align-items:center; background:#030712; padding:10px 16px; border-radius:6px; border:1px solid #1e293b; margin-bottom:14px; flex-wrap:wrap; gap:12px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size:1.2rem;">⚠️</span>
+        <div>
+          <h2 style="margin:0; color:#f87171; font-size:0.86rem; font-weight:700; letter-spacing:0.04em;">EMERGENCY LOCKDOWN PROTOCOLS</h2>
+          <div style="margin-top:2px; font-size:0.72rem; color:#94a3b8;">
+            Perimeter State: <span id="lockdown-status-label" class="mono" style="color:#34d399; font-weight:700;">STANDARD OPERATIONAL</span>
+          </div>
+        </div>
       </div>
-      <!-- Altezza calibrata a 270px per dare piena leggibilità agli assi temporali -->
-      <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:14px; height:270px; box-sizing:border-box;">
-        <canvas id="attacksChart" style="width:100%; height:100%; display:block;"></canvas>
+      <button id="lockdown-btn" type="button"
+        style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.4); padding:8px 16px; border-radius:4px; font-weight:700; font-size:0.75rem; cursor:pointer; transition: all 0.2s;"
+        onmouseover="this.style.background='rgba(239,68,68,0.3)'" onmouseout="this.style.background='rgba(239,68,68,0.15)'">
+        INITIATE LOCKDOWN
+      </button>
+    </div>
+
+    <!-- ATTIVITÀ SOSPETTE -->
+    <div id="suspicious-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+        <div>
+          <h2 style="margin:0; font-size:0.86rem; color:#f8fafc; font-weight:600; display:flex; align-items:center; gap:6px;">
+            <span style="color:#fbbf24;">⚡</span> Radar Attività Sospette
+          </h2>
+          <p style="margin:2px 0 0 0; font-size:0.74rem; color:#94a3b8;">
+            Tentativi di intrusione, anomalie di routing, port scanning e processi non autorizzati.
+          </p>
+        </div>
+        <div class="mono" style="display:flex; align-items:center; gap:8px; font-size:0.70rem; color:#64748b; background:#030712; padding:3px 8px; border-radius:4px; border:1px solid #1e293b;">
+          <span id="suspicious-status-badge" style="display:inline-flex; align-items:center; gap:5px; color:#34d399;">
+            <span class="live-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#34d399;"></span>
+            <span id="suspicious-status-text">LIVE RADAR</span>
+          </span>
+          <span>•</span>
+          <span id="suspicious-last-sync">--:--:--</span>
+        </div>
+      </div>
+
+      <div id="suspicious-list" class="suspicious-grid custom-scroll" style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:10px; min-height:80px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="color:#64748b; font-size:0.75rem; text-align:center;">
+          Inizializzazione radar attività anomale in corso...
+        </div>
       </div>
     </div>
 
-    <!-- 2. THREAT EVENT LOG (ALLINEATO PERFETTAMENTE AL GRAFICO) -->
-    <div class="soc-card" style="border-top:3px solid #f87171;">
-      <div class="soc-header" style="display:flex; justify-content:space-between; align-items:flex-start;">
-        <div>
-          <h2 class="soc-title" style="color:#f87171;">Threat Event Log</h2>
-          <p class="soc-subtitle">Feed CVE sfruttate CISA KEV, URL malevoli e CIRCL.</p>
-        </div>
-        <span class="mono" style="font-size:0.68rem; color:#64748b; background:#030712; padding:3px 8px; border-radius:4px; border:1px solid #1e293b;">FEED LIVE</span>
+  </div>
+
+
+  <!-- ============================================================
+       3. RIGA OPERATIVA: INFRASTRUCTURE STATUS (COMPATTO) + THREAT EVENT LOG
+  ============================================================ -->
+  <div class="soc-ops-grid">
+
+    <!-- 1. INFRASTRUCTURE STATUS (STRINGHE SINTETICHE COMPATTE AD ALTA DENSITÀ) -->
+    <div class="soc-card" style="border-top:3px solid #34d399;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h2 style="margin:0; font-size:0.86rem; color:#34d399; text-transform:uppercase; letter-spacing:0.04em;">
+          Infrastructure Telemetry
+        </h2>
+        <span class="mono" style="font-size:0.68rem; color:#64748b;">anonlab.it:node-1</span>
       </div>
-      <!-- Altezza identica a quella del grafico (270px) -->
-      <div id="event-log" class="event-log mono custom-scroll" style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:12px; height:270px; overflow-y:auto; font-size:0.74rem; display:flex; flex-direction:column; gap:8px; box-sizing:border-box;">
+
+      <!-- GRIGLIA TILES COMPATTA (4/4 FEEDS UP, LATENZA, FIREWALL) -->
+      <div class="infra-compact-grid">
+        
+        <!-- TILE 1: SYSTEM BADGE -->
+        <div class="infra-tile">
+          <span style="font-size:0.68rem; color:#94a3b8; text-transform:uppercase;">PERIMETER STATUS</span>
+          <div style="margin-top:6px;">
+            <span id="sys-badge" class="dash-number mono" style="font-size:0.82rem; font-weight:bold; color:#34d399; background:rgba(52,211,153,0.1); padding:4px 8px; border-radius:4px; border:1px solid rgba(52,211,153,0.3);">
+              OPERATIONAL
+            </span>
+          </div>
+        </div>
+
+        <!-- TILE 2: FEEDS UP COMPATTO -->
+        <div class="infra-tile">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.68rem; color:#94a3b8; text-transform:uppercase;">FEEDS SYNC</span>
+            <span id="net-speed" class="dash-number mono" style="font-size:0.78rem; color:#38bdf8; font-weight:bold;">4/4 feeds UP</span>
+          </div>
+          <div id="net-bar" style="height:5px; background:#090d16; border:1px solid #1e293b; border-radius:3px; overflow:hidden; margin-top:8px;">
+            <div id="net-fill" style="height:100%; width:100%; background:#38bdf8; transition:width .4s;"></div>
+          </div>
+        </div>
+
+        <!-- TILE 3: LATENCY + MINI SPARKLINE -->
+        <div class="infra-tile">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.68rem; color:#94a3b8; text-transform:uppercase;">LATENCY</span>
+            <span id="latency" class="dash-number mono" style="font-size:0.78rem; color:#fbbf24; font-weight:bold;">280 ms</span>
+          </div>
+          <div style="margin-top:6px; background:#090d16; border:1px solid #1e293b; border-radius:3px; padding:2px;">
+            <canvas id="lat-chart" width="180" height="24" style="width:100%; height:24px; display:block;"></canvas>
+          </div>
+        </div>
+
+        <!-- TILE 4: FIREWALL ENGINE COMPATTO -->
+        <div class="infra-tile">
+          <span style="font-size:0.68rem; color:#94a3b8; text-transform:uppercase;">FIREWALL FILTER</span>
+          <div style="margin-top:6px;">
+            <span id="fw-status" class="dash-number mono" style="font-size:0.76rem; color:#34d399; font-weight:bold; letter-spacing:0.02em;">
+              ACTIVE (PUBLIC FEEDS)
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2. THREAT EVENT LOG (STREAM COMPATTO AFFIANCATO ALLA TELEMETRIA) -->
+    <div class="soc-card" style="border-top:3px solid #f87171;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h2 style="margin:0; font-size:0.86rem; color:#f87171; text-transform:uppercase; letter-spacing:0.04em;">
+          Threat Event Log
+        </h2>
+        <span class="mono" style="font-size:0.68rem; color:#64748b; background:#030712; padding:2px 8px; border-radius:4px; border:1px solid #1e293b;">FEED LIVE</span>
+      </div>
+      <div id="event-log" class="event-log mono custom-scroll" style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:10px; height:140px; overflow-y:auto; font-size:0.72rem; display:flex; flex-direction:column; gap:6px; box-sizing:border-box;">
         <div style="color:#64748b; text-align:center; margin:auto;">Caricamento telemetria eventi in tempo reale...</div>
       </div>
     </div>
 
   </div>
 
+
   <!-- ============================================================
-       RIGA 3: THREAT MAP & RADAR (65%) + INFRASTRUCTURE STATUS (35%)
+       4. MINI THREAT MAP & RADAR INTERCEPTOR (PANORAMICO BASE)
   ============================================================ -->
-  <div class="soc-row soc-row-split">
-
-    <!-- 1. MINI THREAT MAP & INTERCEPTOR (AMPIO SPAZIO GLOBALE) -->
-    <div class="soc-card" style="border-top:3px solid #10b981;">
-      <div class="soc-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
-        <div>
-          <h2 class="soc-title" style="color:#f8fafc;">
-            <span style="color:#10b981;">🌐</span> Threat Map &amp; Interceptor
-          </h2>
-          <p class="soc-subtitle">
-            Tracciamento vettori globali in tempo reale su anonlab.it. Traiettorie balistiche e contromisure firewall.
-          </p>
-        </div>
-        <div class="mono" style="display:flex; align-items:center; gap:8px; font-size:0.72rem; color:#10b981; background:#030712; padding:4px 10px; border-radius:4px; border:1px solid #1e293b;">
-          <span style="display:inline-flex; align-items:center; gap:5px;">
-            <span id="threat-map-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#10b981; box-shadow:0 0 6px #10b981;"></span>
-            <span id="threat-map-status">RADAR ACTIVE</span>
-          </span>
-          <span>•</span>
-          <span id="threat-intercept-count" style="color:#38bdf8; font-weight:bold;">0 INTERCEPTS</span>
-        </div>
+  <div class="soc-card" style="border-top:3px solid #10b981;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+      <div>
+        <h2 style="margin:0; font-size:0.88rem; color:#f8fafc; display:flex; align-items:center; gap:8px;">
+          <span style="color:#10b981;">🌐</span> Threat Map &amp; Interceptor
+        </h2>
+        <span style="font-size:0.70rem; color:#94a3b8;">Tracciamento vettori globali in tempo reale su anonlab.it. Traiettorie balistiche e contromisure.</span>
       </div>
-
-      <!-- MAP CANVAS -->
-      <div style="position:relative; width:100%; height:200px; background:#020617; border:1px solid #1e293b; border-radius:6px; overflow:hidden;">
-        <canvas id="threatMapCanvas" style="width:100%; height:100%; display:block;"></canvas>
-        <div style="position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18) 1px, transparent 1px, transparent 2px); pointer-events:none;"></div>
-        <div class="mono" style="position:absolute; top:8px; left:10px; font-size:0.65rem; color:rgba(52,211,153,0.8); pointer-events:none;">
-          SYS // DEFENSE NODE [IT-ROM-01]
-        </div>
-        <div class="mono" style="position:absolute; top:8px; right:10px; font-size:0.65rem; color:rgba(56,189,248,0.8); pointer-events:none;">
-          41.9028° N, 12.4964° E
-        </div>
-      </div>
-
-      <!-- TICKER TERMINAL -->
-      <div id="threat-map-ticker" class="mono" style="margin-top:10px; background:#020617; border:1px solid #1e293b; border-radius:4px; padding:8px 12px; font-size:0.70rem; color:#34d399; height:46px; display:flex; flex-direction:column; justify-content:center; gap:3px; box-sizing:border-box;">
-        <div class="ticker-line" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0.9;">
-          &gt; [INIT] Radar balistico cyber perimetrale sincronizzato su anonlab.it...
-        </div>
-        <div class="ticker-line-sub" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0.6; color:#94a3b8; font-size:0.65rem;">
-          &gt; In attesa di telemetria vettori perimetrali...
-        </div>
+      <div class="mono" style="display:flex; align-items:center; gap:8px; font-size:0.70rem; color:#10b981; background:#030712; padding:3px 8px; border-radius:4px; border:1px solid #1e293b;">
+        <span style="display:inline-flex; align-items:center; gap:5px;">
+          <span id="threat-map-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#10b981; box-shadow:0 0 6px #10b981;"></span>
+          <span id="threat-map-status">RADAR ACTIVE</span>
+        </span>
+        <span>•</span>
+        <span id="threat-intercept-count" style="color:#38bdf8; font-weight:bold;">0 INTERCEPTS</span>
       </div>
     </div>
 
-    <!-- 2. INFRASTRUCTURE STATUS -->
-    <div class="soc-card" style="border-top:3px solid #34d399;">
-      <div class="soc-header">
-        <h2 class="soc-title" style="color:#34d399;">Infrastructure Status</h2>
-        <p class="soc-subtitle">
-          Stato di anonlab.it, backend, GitHub e feed pubblici, con latenza reale misurata dal server.
-        </p>
+    <!-- CANVAS WRAPPER -->
+    <div style="position:relative; width:100%; height:180px; background:#020617; border:1px solid #1e293b; border-radius:6px; overflow:hidden;">
+      <canvas id="threatMapCanvas" style="width:100%; height:100%; display:block;"></canvas>
+      <div style="position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18) 1px, transparent 1px, transparent 2px); pointer-events:none;"></div>
+      <div class="mono" style="position:absolute; top:6px; left:8px; font-size:0.62rem; color:rgba(52,211,153,0.7); pointer-events:none;">
+        SYS // DEFENSE NODE [IT-ROM-01]
       </div>
-
-      <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:16px; flex:1; display:flex; flex-direction:column; justify-content:space-around; box-sizing:border-box;">
-        <ul class="system-status" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px; font-size:0.78rem;">
-          
-          <li style="border-bottom: 1px dashed #1e293b; padding-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
-            <strong style="color:#94a3b8;">Status Perimetro:</strong>
-            <span id="sys-badge" class="dash-number mono" style="padding:3px 10px; border-radius:4px; font-weight:bold; font-size:0.72rem; background:#0f172a; border:1px solid #334155;">--</span>
-          </li>
-
-          <li style="border-bottom: 1px dashed #1e293b; padding-bottom:8px;">
-            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
-              <span style="color:#94a3b8;">Sincronizzazione Feeds:</span>
-              <span id="net-speed" class="dash-number mono" style="color:#38bdf8; font-weight:bold;">--</span>
-            </div>
-            <div id="net-bar" style="height:6px; background:#090d16; border:1px solid #1e293b; border-radius:4px; overflow:hidden;">
-              <div id="net-fill" style="height:100%; width:0%; background:#34d399; transition:width .4s;"></div>
-            </div>
-          </li>
-
-          <li style="border-bottom: 1px dashed #1e293b; padding-bottom:8px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <span style="color:#94a3b8;">Latenza Gateway:</span>
-              <span id="latency" class="dash-number mono" style="color:#fbbf24; font-weight:bold;">-- ms</span>
-            </div>
-            <div style="background:#090d16; border:1px solid #1e293b; border-radius:4px; padding:4px;">
-              <canvas id="lat-chart" width="260" height="34" style="width:100%; height:34px; display:block;"></canvas>
-            </div>
-          </li>
-
-          <li style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="color:#94a3b8;">Firewall Engine:</span>
-            <span id="fw-status" class="dash-number mono" style="color:#34d399; font-weight:bold;">--</span>
-          </li>
-
-        </ul>
+      <div class="mono" style="position:absolute; top:6px; right:8px; font-size:0.62rem; color:rgba(56,189,248,0.7); pointer-events:none;">
+        41.9028° N, 12.4964° E
       </div>
     </div>
 
+    <!-- TERMINALE TICKER -->
+    <div id="threat-map-ticker" class="mono" style="margin-top:8px; background:#020617; border:1px solid #1e293b; border-radius:4px; padding:6px 10px; font-size:0.68rem; color:#34d399; height:38px; display:flex; flex-direction:column; justify-content:center; gap:2px; box-sizing:border-box;">
+      <div class="ticker-line" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0.9;">
+        &gt; [INIT] Radar balistico cyber perimetrale sincronizzato su anonlab.it...
+      </div>
+      <div class="ticker-line-sub" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0.6; color:#94a3b8; font-size:0.62rem;">
+        &gt; In attesa di telemetria vettori perimetrali...
+      </div>
+    </div>
   </div>
 
 </div>
 
+
 <!-- ============================================================
-     MODALE LOCKDOWN CON PASSWORD (SINGOLO, ESTERNO ALLA GRIGLIA)
+     MODALE LOCKDOWN CON PASSWORD (ESTERNO)
 ============================================================ -->
 <div id="lockdown-modal" style="display: none; position: fixed; inset: 0; width: 100%; height: 100%; background: rgba(9, 9, 11, 0.88); backdrop-filter: blur(8px); z-index: 10000; justify-content: center; align-items: center;">
-  <div style="background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.4); width: 440px; max-width: 90%; padding: 26px; border-radius: 10px; text-align: center; color: #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
-    <div id="modal-icon" style="font-size: 2.4rem; margin-bottom: 10px;">⚠️</div>
-    <h3 id="modal-title" style="margin:0; color:#f87171; font-size:1.05rem; text-transform:uppercase; letter-spacing:0.08em;">Conferma Isolamento Emergenza</h3>
-    <p id="modal-message" style="font-size:0.78rem; color:#94a3b8; margin:10px 0 16px 0; line-height:1.5;">Sei sicuro di voler attivare le regole di blocco rigide sul perimetro dell'infrastruttura?</p>
+  <div style="background: #0f172a; border: 1px solid rgba(239, 68, 68, 0.4); width: 440px; max-width: 90%; padding: 24px; border-radius: 8px; text-align: center; color: #e2e8f0; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+    <div id="modal-icon" style="font-size: 2.2rem; margin-bottom: 10px;">⚠️</div>
+    <h3 id="modal-title" style="margin: 0; color: #f87171; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Conferma Isolamento Emergenza</h3>
+    <p id="modal-message" style="font-size: 0.78rem; color: #94a3b8; margin: 10px 0 16px 0; line-height: 1.5;">Sei sicuro di voler attivare le regole di blocco rigide sul perimetro dell'infrastruttura?</p>
     
     <div id="modal-auth-field" style="margin-bottom: 16px;">
       <input type="password" id="lockdown-admin-key" placeholder="Password Amministratore (Admin_71)" autocomplete="current-password"
-        class="mono" style="width: 100%; box-sizing: border-box; padding: 10px 14px; background: #030712; border: 1px solid #334155; border-radius: 6px; color: #38bdf8; font-size: 0.85rem; text-align: center; outline: none;">
+        class="mono" style="width: 100%; box-sizing: border-box; padding: 10px 14px; background: #030712; border: 1px solid #334155; border-radius: 6px; color: #38bdf8; font-size: 0.82rem; text-align: center; outline: none;">
       <div id="modal-auth-hint" style="color: #64748b; font-size: 0.68rem; margin-top: 6px;">Autenticazione richiesta per eseguire modifiche al perimetro</div>
     </div>
 
     <div id="modal-actions" style="display: flex; gap: 10px;">
-      <button id="cancel-lockdown" type="button" style="flex:1; background:#1e293b; color:#94a3b8; border:1px solid #334155; padding:10px; border-radius:6px; cursor:pointer; font-weight:600; font-size:0.78rem;">ANNULLA</button>
-      <button id="confirm-lockdown" type="button" style="flex:1; background:#ef4444; color:#fff; border:none; padding:10px; border-radius:6px; font-weight:700; cursor:pointer; font-size:0.78rem;">CONFERMA EXEC</button>
+      <button id="cancel-lockdown" type="button" style="flex: 1; background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 9px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; font-weight: 600;">ANNULLA</button>
+      <button id="confirm-lockdown" type="button" style="flex: 1; background: #ef4444; color: #fff; border: none; padding: 9px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; cursor: pointer;">CONFERMA EXEC</button>
     </div>
 
-    <div id="modal-redirect-action" style="display: none; margin-top: 12px;">
-      <button id="redirect-login-btn" type="button" style="width: 100%; background: #38bdf8; color: #09090b; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.78rem;">CHIUDI</button>
+    <div id="modal-redirect-action" style="display: none; margin-top: 10px;">
+      <button id="redirect-login-btn" type="button" style="width: 100%; background: #38bdf8; color: #09090b; border: none; padding: 9px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; cursor: pointer;">CHIUDI</button>
     </div>
   </div>
 </div>
