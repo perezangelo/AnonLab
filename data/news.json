@@ -1,5 +1,90 @@
 [
   {
+    "title": "Chinese Hackers Use AI-Powered ARTEX to Target Over 200 Organizations Worldwide",
+    "link": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP1M46Z4Xs0qNHz9xzhTea14XsqTHvNhAfnGb4Ni9goHQR2ypz3BLKRgu-WxWD8VSUNMB3YAP7UhcCAK1AweCc3lC-7VlJ-OqNniD4FvZdE_R-XJkkRadhl2tp3-PqbKPWmQTeJ3a3gvd1kHH_zaW06tCf9cH-7k5feNqHrqbChMAsc5K3hruiX9BDROAe/s1600/CS.jpg"
+  },
+  {
+    "title": "Trezor warns of suspected crypto-theft implant in hardware wallet",
+    "link": "https://www.bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/08/13/Trezor.jpg"
+  },
+  {
+    "title": "L\u2019Italia \u00e8 afflitta da vulnerabilit\u00e0 informatiche, senza una causa chiara",
+    "link": "https://www.darkreading.com/cybersecurity-analytics/cyber-vulnerabilities-besiege-italy-italian",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0dafcf0847efff9a/6ae24fff8ec8cff4371f87c5/rome-Sean_Gallup-GettyImages-623337092jpg.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "TeamViewer Flaw Lets Remote Computers Attack Users Who Connect to Control Them",
+    "link": "https://thehackernews.com/2026/10/teamviewer-flaw-lets-remote-computers.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEge-ZayNgwlu4fhpD2BSyGgkMYehkV0atRJINisISPLpiubkgyXopa4NWVnxOZs9gi-DEYTNEQ5G2pu-X5iSHyMp8pguzp-Q6g-1-mGwcy3so4AkeuYFuYoaotOcmF5A-2oVDvnxd0B_FaZ7JJt8W3zrNFot6kBlJp7WffHkb7m92C9bNQnwFLwnNgXpDk/s1600/teamviewer-flaw.jpg"
+  },
+  {
+    "title": "PHP2Shell Attacks Root Palo Alto Firewalls but Fail Against WordPress",
+    "link": "https://www.securityweek.com/php2shell-attacks-root-palo-alto-firewalls-but-fail-against-wordpress/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/php-exploit-code.webp"
+  },
+  {
+    "title": "In Other News: Anthropic Breach Dispute, UEFI Flaw Hits Most Servers, Cloudflare AI Data Leak",
+    "link": "https://www.securityweek.com/in-other-news-anthropic-breach-dispute-uefi-flaw-hits-most-servers-cloudflare-ai-data-leak/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "Malicious Claude Code extension on Cursor planted SSH backdoors",
+    "link": "https://www.bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/claude-code-attack.jpg"
+  },
+  {
+    "title": "UFO disclosure rocked as Kelly Chase alleges drugging and deception",
+    "link": "https://cybernews.com/news/ufo-disclosure-kelly-chase-allegations/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/kelly-chase.jpg"
+  },
+  {
+    "title": "Undead Software Projects Continue to Raise Security Risks",
+    "link": "https://www.darkreading.com/application-security/undead-software-projects-raise-security-risks",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd40811c92b905082/6ae3b49914ffedf86f1c84cc/zombies-in-graveyard-zef_art-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "WordPress RCE Flaw Draws Nearly 63,000 Attack Attempts in Just 24 Hours",
+    "link": "https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf-pzflJO9HQoCdvBvYNtS12gwwEjAbM4dQ30ak7UYaIPzsVPN9MlFwvIDEFkbe9cWg4wQRFPbGfJ0YXjzGcBS6mUTwttwkQ8IR7OoHyTz3owZkVzYQOAObyJUqfjsC-PqMw2pv41_m68hb6ZkwJb56kGx-Ypv7GWZBtDzjyTTQ8L8i9NxA8_MDVoJSEba/s1600/wp-hack.jpg"
+  },
+  {
+    "title": "TikTok influencers caught willing to hide sponsored political content",
+    "link": "https://cybernews.com/entertainment/tiktok-influencers-fake-political-ad/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/tiktok-people.jpg"
+  },
+  {
+    "title": "SS7 and Diameter Attacks: How Signaling Flaws Expose Your Phone",
+    "link": "https://www.bleepingcomputer.com/news/security/ss7-and-diameter-attacks-how-signaling-flaws-expose-your-phone/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/10/29/cell-tower-header.jpg"
+  },
+  {
+    "title": "Passkeys Are Better Than Passwords. But They Are Not Enough.",
+    "link": "https://www.securityweek.com/passkeys-are-better-than-passwords-but-they-are-not-enough/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Passkey-Password-Authentication.jpg"
+  },
+  {
+    "title": "Bulletproof Host Virtualine Loses Its Domain to FBI Seizure",
+    "link": "https://www.securityweek.com/bulletproof-host-virtualine-loses-its-domain-to-fbi-seizure/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Virtualine-seized.jpg"
+  },
+  {
+    "title": "Proton users cancel subscriptions following CEO Andy Yen\u2019s \u201closer thinking\u201d remarks",
+    "link": "https://cybernews.com/ai-news/proton-cancel-subscriptions/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/proton-andy-yen.jpg"
+  },
+  {
+    "title": "Cyberattack knocks Belgium\u2019s tax services offline ahead of filing deadline",
+    "link": "https://cybernews.com/security/belgium-tax-portal-offline-before-filing-deadline/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/10/hacker-server-files.jpg"
+  },
+  {
+    "title": "CISA says max severity GitLab flaw now exploited in the wild",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/GitLab.jpg"
+  },
+  {
     "title": "Trezor Warns of Suspected Hardware Implant in One of Its Wallets Sold by CryptoBilis",
     "link": "https://thehackernews.com/2026/10/trezor-warns-of-suspected-hardware.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih5QxhFnBw6d40ollOAoolmZedxywTm7DeBQpEqydVG5Pqg0v5iDVFT1hhbsW7Thqg00oI8MACNXC9FX6MCp_qMRkBRiqdxb9D4CDKfTWTZwI5eyY3V2IOa8ODSg24kX7Ni_C968r2X89tUXwPbDnHPV9xX-ydhytwerqMI1ru7tqdIK-cqA0p9oM5Ppxr/s1600/trezor-wallet.jpg"
@@ -8,6 +93,11 @@
     "title": "Fresh WordPress Vulnerability in Attackers\u2019 Crosshairs",
     "link": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+  },
+  {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
   },
   {
     "title": "Why Urgent Security Fixes Aren't Fixed. Observe, Prove, Act, Confirm Gets Them Moving",
@@ -58,95 +148,5 @@
     "title": "Nvidia CEO targeted by alleged Chinese spy",
     "link": "https://cybernews.com/ai-news/nvidia-ceo-targeted-chinese-spy/",
     "image": "https://media.cybernews.com/images/featured-big/2026/10/taipex-china-ceo-spy-nvidia-huang.png"
-  },
-  {
-    "title": "Hacker attack hits Sony\u2019s internet provider,  exposing millions of records",
-    "link": "https://cybernews.com/security/sony-so-net-data-breach-millions-records/",
-    "image": "https://media.cybernews.com/images/featured-big/2023/09/sony-logo-screen.png"
-  },
-  {
-    "title": "Binance links $6.3 billion crypto theft to compromised DevOps laptop",
-    "link": "https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/Binance.jpg"
-  },
-  {
-    "title": "Reddit CEO shares major platform updates in new shareholder letter: Rollout starts outside the US",
-    "link": "https://cybernews.com/news/reddit-mandatory-log-in/",
-    "image": "https://media.cybernews.com/images/featured-big/2022/08/RedditRedditReddit.png"
-  },
-  {
-    "title": "Official Claude Code Extension on Cursor Marketplace Trojanized with Persistent SSH Backdoor",
-    "link": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMAV00lkxu7R724ItLdgrRsnEYHR_d2eUSdcen_KymGeBY1tCo8SRVz6w_XiNzzYgwpcl0Me3JCJz8DeieRM_0jb8aL4VkHAAIeXrqNf8oQkmzKahqMHOGvhkFK32HOasHZht8BwtI1NxEZ-_nIwmQY_8fxpGbbl3csC6oZKCVnIRk3iYTRhH975dyxsWS/s1600/cursor-vscode.jpg"
-  },
-  {
-    "title": "TeamViewer Flaw Could Let Malicious Hosts Take Over Support Technicians\u2019 Machines",
-    "link": "https://www.securityweek.com/teamviewer-flaw-could-let-malicious-hosts-take-over-support-technicians-machines/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Teamviewer.jpeg"
-  },
-  {
-    "title": "$6 Billion Binance Hack Bears Hallmarks of North Korea\u2019s TraderTraitor",
-    "link": "https://www.securityweek.com/6-billion-binance-hack-bears-hallmarks-of-north-koreas-tradertraitor/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Binance-hacked.jpeg"
-  },
-  {
-    "title": "As Russia's Cyberwar Evolves, Belarus Steps Forward",
-    "link": "https://www.darkreading.com/physical-security/russia-cyber-war-belarus-steps-forward",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltd600d33b7bbbc448/6ae39a9b20628a26ab67c66f/Belarus_Russia_flags-Oleksii_Liskonih-GettyImages-1089909770.jpg?disable=upscale&width=1200&height=630&fit=crop"
-  },
-  {
-    "title": "Hackers Actively Exploit Highly Critical Drupal Commerce Core Authorization Bypass Flaw",
-    "link": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitgPkf4uToEgXwcfmDEKipEveRL2l0PEz6WIegAc2uWyf5_khO7Scgu6MpWHRovED7S-4sKJb4o88JsJT8NI8zB8WCBo04Q9TrEVNJa-08EbxP_zdPkaA7wsBEPIjXbApW1StdY8JunSewAi9TNrAcMwYZjqSsVktddqQ0uIi8-rUzXq1LMMLBHBdccapz/s1600/drupal-rce.jpg"
-  },
-  {
-    "title": "Finland launches criminal probe into land clearance for Google data centre",
-    "link": "https://cybernews.com/tech/finland-launches-criminal-probe-into-land-clearance-for-google-data-centre/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/finland-google-land-clearance.png"
-  },
-  {
-    "title": "CISA Adds Actively Exploited GitLab RCE and Cisco Firewall DoS Flaws to KEV",
-    "link": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw1Ms9mKdtALczFoDaNy5Bm0HVMfxu0ps0ykDUXuLn3BeOEqUCDnzUiCP2lU_7xbC2kYuIAGCuOiQCGIlkR6wYBfCfb7g0wRESfIFaMtSltOjWphyswldC4LJxFf0RnCB9FzEVc-euJGtGbUvpJr7FOE0QefC3_rn8xLSFTij_yJn1MNP6bJVu8VgrcLaV/s1600/github-cisco.jpg"
-  },
-  {
-    "title": "UK social media ban could mean more users must prove their age online",
-    "link": "https://cybernews.com/tech/uk-social-media-ban-ofcom-report/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/03/parent_kid_social_media_uk.jpg"
-  },
-  {
-    "title": "French privacy watchdog fines FNAC \u20ac7M for tracking app users without consent",
-    "link": "https://cybernews.com/privacy/french-privacy-watchdog-fines-fnac/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/french-electronics-store-fnac.png"
-  },
-  {
-    "title": "Google suffers its worst value crash in history amid AI bubble burst fears",
-    "link": "https://cybernews.com/news/google-500b-stock-crash/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/06/googlr_logo_colorful_globe.jpg"
-  },
-  {
-    "title": "Columbia University to pay $16.1M to settle cyberattack lawsuit",
-    "link": "https://cybernews.com/security/columbia-university-cyberattack-lawsuit-settlement/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/columbia-university.png"
-  },
-  {
-    "title": "Binance Suffers Security Breach Affecting $6.3 Billion in Assets, Nearly $3 Billion Frozen",
-    "link": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmTtJggkBbk2ERH6bhZMSPnb_E1aQ44w4EpzkwAt1tqp45sGvG7jeAg2QvmbWQsBy5hyphenhyphen7ur18XQ1Uax7D9XRg-CZpQpMAByXt37Fn1loBClsu49KlBEsnxRCfy7vSuI-5yrpHB4JLWc1vtw0aITnhbFXDb4CosJzm07My3Lw6p3fOLTfcaxJLBR-Pdi2A6/s1600/Binance.jpg"
-  },
-  {
-    "title": "OpenAI doubles ChatGPT Pro usage limits after backlash over planned 50% cut",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-doubles-chatgpt-pro-usage-limits-after-backlash-over-planned-50-percent-cut/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/11/08/ChatGPT.jpg"
-  },
-  {
-    "title": "Binance probes potential $5.8 billion crypto-theft hack",
-    "link": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/13/back.png"
-  },
-  {
-    "title": "Hugging Face malware campaign returns to hijack GPUs for crypto mining",
-    "link": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/Hugging-Face.jpg"
   }
 ]
