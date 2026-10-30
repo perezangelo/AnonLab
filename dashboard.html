@@ -196,6 +196,38 @@ fetch("/partials/ticker.html")
   </div>
 </div>
 
+		   <!-- SEPARATORE DI SEZIONE -->
+  <div style="margin:18px 0 16px 0; border-top:1px dashed #1e293b;"></div>
+  <!-- RIGA INFERIORE: ATTIVITÀ SOSPETTE (INTEGRATO NELLO STESSO BOX) -->
+  <div id="suspicious-box">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+      <div>
+        <h2 style="margin:0 0 4px 0; font-size:0.90rem; color:#f8fafc; display:flex; align-items:center; gap:6px;">
+          <span style="color:#fbbf24;">⚠️</span> Attività sospette
+        </h2>
+        <p style="opacity:0.8; font-size:0.80rem; margin:0; color:#94a3b8; max-width:850px; line-height:1.4;">
+          Eventi anomali rilevati dal sistema. Il widget mostra tentativi di accesso non autorizzati,
+          scansioni di rete, processi sospetti e altre attività che potrebbero indicare un rischio di sicurezza.
+        </p>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; font-size:0.72rem; color:#64748b; font-family:ui-monospace, monospace;">
+        <span id="suspicious-status-badge" style="display:inline-flex; align-items:center; gap:5px; color:#34d399;">
+          <span class="live-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#34d399;"></span>
+          <span id="suspicious-status-text">LIVE RADAR</span>
+        </span>
+        <span>•</span>
+        <span id="suspicious-last-sync">--:--:--</span>
+      </div>
+    </div>
+    <!-- LISTA DINAMICA -->
+    <div id="suspicious-list" class="suspicious-grid">
+      <div style="color:#64748b; font-size:0.75rem; padding:16px; text-align:center; background:#030712; border:1px solid #1e293b; border-radius:6px; grid-column:1 / -1;">
+        Inizializzazione radar attività anomale in corso...
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ============================================================
      2. MODALE DI CONFERMA LOCKDOWN (POPUP NASCOSTO CON PASSWORD)
 ============================================================ -->
