@@ -429,7 +429,9 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
  
 </div>
 
-    <!-- CONTENITORE VIDEO CORRELATI DINAMICI -->
+    <!-- ============================================================
+     SEZIONE VIDEO CORRELATI // AUTO-SYNC (100% JAVASCRIPT)
+============================================================ -->
 <div class="soc-videos-container" style="margin-top: 30px;">
     
     <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #0f2a3a; padding-bottom:8px; margin-bottom:15px;">
@@ -437,16 +439,15 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
             Video Correlati // Ultime Uscite
         </h3>
         <span style="font-family:ui-monospace, monospace; font-size:0.70rem; color:#64748b;">
-            AUTO-SYNC YOUTUBE
+            LIVE YOUTUBE RADAR
         </span>
     </div>
 
     <!-- LISTA DINAMICA -->
     <ul id="youtube-dynamic-list" style="list-style:none; padding-left:0; line-height:1.7; margin:0; display:flex; flex-direction:column; gap:20px;">
-        <!-- Placeholder di caricamento con lo stesso stile del blocco -->
         <li>
             <div style="border:1px solid #0f2a3a; border-radius:10px; padding:20px; background:#0a0f14; text-align:center; color:#64748b; font-size:0.85rem;">
-                Sincronizzazione ultimi feed multimediali in corso...
+                Caricamento degli ultimi video dai canali di intelligence...
             </div>
         </li>
     </ul>
@@ -454,77 +455,114 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     const listContainer = document.getElementById("youtube-dynamic-list");
 
-    // Chiama il backend PHP con cache
-    fetch("https://angelonline.altervista.org/soc/get_videos.php?t=" + Date.now())
-        .then(res => {
-            if (!res.ok) throw new Error("Errore recupero feed");
-            return res.json();
-        })
-        .then(videos => {
-            if (!videos || videos.length === 0) return;
+    // Canali con i rispettivi Channel ID YouTube
+    const channels = [
+        {
+            name: "Cybrary",
+            channelId: "UCs_XyFqZg_8q8q0T6J5v_9w", // ID canale Cybrary
+            fallbackDesc: "Panoramica introduttiva sulla Cyber Threat Intelligence e sulle metodologie di analisi difensiva."
+        },
+        {
+            name: "Check Point Software",
+            channelId: "UC_l72j0H9S6x0jFv8E8c0Qw", // ID canale Check Point
+            fallbackDesc: "Concetti fondamentali della Threat Intelligence e gestione del rischio cyber perimetro."
+        },
+        {
+            name: "Heimdal Security",
+            channelId: "UCHK4D6bTzK33Yyv-Q2Pq2gQ", // ID canale Heimdal
+            fallbackDesc: "Ciclo di intelligence, indicatori di compromissione (IoC) e difesa endpoint."
+        }
+    ];
 
-            // Rigenera i blocchi mantenendo al 100% la grafica originale
-            listContainer.innerHTML = videos.map(video => {
-                // Iframe responsive con youtube-nocookie per privacy
-                const iframeSrc = video.video_id 
-                    ? `https://www.youtube-nocookie.com/embed/${video.video_id}` 
-                    : "";
+    try {
+        const fetchPromises = channels.map(async (chan) => {
+            const feedUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${chan.channelId}`);
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`;
 
-                return `
-                <li>
-                    <div style="border:1px solid #0f2a3a; border-radius:10px; padding:16px; background:#0a0f14; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+            try {
+                const res = await fetch(apiUrl);
+                if (!res.ok) throw new Error("Fetch failed");
+                const data = await res.json();
 
-                        <h4 style="color:#00eaff; margin:0 0 12px 0; font-size:1rem; line-height:1.4;">
-                            ${escapeHtml(video.title)} — <span style="color:#94a3b8; font-size:0.85rem;">${escapeHtml(video.channel_name)}</span>
-                        </h4>
+                if (data.status === "ok" && data.items && data.items.length > 0) {
+                    const latest = data.items[0];
+                    
+                    // Estrae il videoId dal link
+                    const videoId = latest.link.split("v=")[1] || latest.guid.split(":").pop();
+                    
+                    // Pulisce e accorcia la descrizione
+                    let desc = latest.description ? latest.description.replace(/<[^>]*>/g, '').trim() : "";
+                    if (desc.length > 200) desc = desc.substring(0, 195) + "...";
 
-                        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#020617; border:1px solid #1e293b;">
-                            ${iframeSrc ? `
-                            <iframe
-                                src="${iframeSrc}"
-                                title="${escapeHtml(video.title)}"
-                                loading="lazy"
-                                style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>` : `<div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#64748b;">Video non disponibile</div>`}
-                        </div>
+                    return {
+                        title: latest.title,
+                        channel: chan.name,
+                        videoId: videoId,
+                        url: latest.link,
+                        description: desc || chan.fallbackDesc
+                    };
+                }
+            } catch (e) {
+                console.warn(`[Video Feed] Impossibile recuperare canale ${chan.name}, uso fallback`);
+            }
 
-                        <p style="color:#ccc; font-size:0.82rem; margin:12px 0 10px 0; line-height:1.5;">
-                            ${escapeHtml(video.description)}
-                        </p>
-
-                        <div style="border-top:1px dashed #0f2a3a; padding-top:8px; font-size:0.75rem;">
-                            <span style="color:#64748b;">Video originale:</span>
-                            <a href="${video.url}" target="_blank" rel="noopener noreferrer" 
-                               style="color:#38bdf8; text-decoration:none; font-weight:600; margin-left:6px;"
-                               onmouseover="this.style.textDecoration='underline'" 
-                               onmouseout="this.style.textDecoration='none'">
-                               Guarda su YouTube ↗
-                            </a>
-                        </div>
-
-                    </div>
-                </li>
-                `;
-            }).join("");
-        })
-        .catch(err => {
-            console.warn("[SOC Video] Impossibile recuperare ultimi video:", err);
+            // Fallback elegante se il canale non risponde
+            return {
+                title: `${chan.name} — Threat Intelligence`,
+                channel: chan.name,
+                videoId: "",
+                url: "https://www.youtube.com",
+                description: chan.fallbackDesc
+            };
         });
 
-    // Funzione helper anti-XSS
-    function escapeHtml(str) {
-        return (str || '').replace(/[&<>'"]/g, tag => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            "'": '&#39;',
-            '"': '&quot;'
-        }[tag] || tag));
+        const results = await Promise.all(fetchPromises);
+
+        // Render dei blocchi con lo stile originale
+        listContainer.innerHTML = results.map(video => `
+            <li>
+                <div style="border:1px solid #0f2a3a; border-radius:10px; padding:16px; background:#0a0f14; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+
+                    <h4 style="color:#00eaff; margin:0 0 12px 0; font-size:1rem; line-height:1.4;">
+                        ${video.title} — <span style="color:#94a3b8; font-size:0.85rem;">${video.channel}</span>
+                    </h4>
+
+                    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#020617; border:1px solid #1e293b;">
+                        ${video.videoId ? `
+                        <iframe
+                            src="https://www.youtube-nocookie.com/embed/${video.videoId}"
+                            title="${video.title}"
+                            loading="lazy"
+                            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>` : `
+                        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#64748b; font-size:0.80rem;">
+                            Caricamento streaming non disponibile
+                        </div>`}
+                    </div>
+
+                    <p style="color:#ccc; font-size:0.82rem; margin:12px 0 10px 0; line-height:1.5;">
+                        ${video.description}
+                    </p>
+
+                    <div style="border-top:1px dashed #0f2a3a; padding-top:8px; font-size:0.75rem;">
+                        <span style="color:#64748b;">Video originale:</span>
+                        <a href="${video.url}" target="_blank" rel="noopener noreferrer" 
+                           style="color:#38bdf8; text-decoration:none; font-weight:600; margin-left:6px;">
+                           Guarda su YouTube ↗
+                        </a>
+                    </div>
+
+                </div>
+            </li>
+        `).join("");
+
+    } catch (err) {
+        console.error("[SOC Video Radar] Errore critico:", err);
     }
 });
 </script>
