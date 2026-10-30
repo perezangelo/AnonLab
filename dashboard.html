@@ -177,9 +177,11 @@ fetch("/partials/ticker.html")
 </div>
 
 <!-- ============================================================
-     1. PANNELLO LOCKDOWN (WIDGET VISIBILE SULLA PAGINA)
+     1. PANNELLO UNIFICATO: LOCKDOWN + ATTIVITÀ SOSPETTE (STESSO BOX)
 ============================================================ -->
 <div class="soc-card" style="margin-bottom:24px; border-top:3px solid #ef4444;">
+  
+  <!-- RIGA SUPERIORE: EMERGENCY LOCKDOWN PROTOCOLS -->
   <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
     <div>
       <h2 style="margin:0; color:#f87171; font-size:0.95rem;">Emergency Lockdown Protocols</h2>
@@ -194,11 +196,11 @@ fetch("/partials/ticker.html")
       INITIATE LOCKDOWN
     </button>
   </div>
-</div>
 
-		   <!-- SEPARATORE DI SEZIONE -->
+  <!-- SEPARATORE DI SEZIONE ALL'INTERNO DEL BOX -->
   <div style="margin:18px 0 16px 0; border-top:1px dashed #1e293b;"></div>
-  <!-- RIGA INFERIORE: ATTIVITÀ SOSPETTE (INTEGRATO NELLO STESSO BOX) -->
+
+  <!-- RIGA INFERIORE: ATTIVITÀ SOSPETTE (DENTRO LO STESSO BOX) -->
   <div id="suspicious-box">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
       <div>
@@ -219,6 +221,7 @@ fetch("/partials/ticker.html")
         <span id="suspicious-last-sync">--:--:--</span>
       </div>
     </div>
+
     <!-- LISTA DINAMICA -->
     <div id="suspicious-list" class="suspicious-grid">
       <div style="color:#64748b; font-size:0.75rem; padding:16px; text-align:center; background:#030712; border:1px solid #1e293b; border-radius:6px; grid-column:1 / -1;">
@@ -226,7 +229,9 @@ fetch("/partials/ticker.html")
       </div>
     </div>
   </div>
-</div>
+
+</div><!-- FINE .soc-card UNICA -->
+
 
 <!-- ============================================================
      2. MODALE DI CONFERMA LOCKDOWN (POPUP NASCOSTO CON PASSWORD)
