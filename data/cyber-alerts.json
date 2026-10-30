@@ -1,5 +1,19 @@
 [
   {
+    "id": "GHSA-5xjx-3w67-w9x9",
+    "summary": "pypi-publish action revocation of CA in the chain that Sigstore uses in Trusted Publishing and Digital Attestations for PyPI",
+    "severity": "CRITICAL",
+    "published": "2026-10-30T20:24:24Z",
+    "ghsa": "GHSA-5xjx-3w67-w9x9"
+  },
+  {
+    "id": "CVE-2026-59978",
+    "summary": "AdminNeo: version-cache array injection causes persistent denial of service",
+    "severity": "HIGH",
+    "published": "2026-10-30T18:53:08Z",
+    "ghsa": "GHSA-jm85-8cpp-9cjc"
+  },
+  {
     "id": "CVE-2026-119284",
     "summary": "joserfc: Compact JWS size guard allocates attacker-controlled segments before rejection",
     "severity": "MODERATE",
@@ -54,19 +68,5 @@
     "severity": "HIGH",
     "published": "2026-10-29T16:40:19Z",
     "ghsa": "GHSA-9hj8-73fh-9963"
-  },
-  {
-    "id": "CVE-2026-115908",
-    "summary": "zip: Arbitrary file write outside the extraction directory, because ZipArchive::extract validates symlink targets lexically. ",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:40:12Z",
-    "ghsa": "GHSA-hjqx-j4rw-g7xv"
-  },
-  {
-    "id": "CVE-2026-115906",
-    "summary": "zip: AES Entry HMAC Authentication Bypass on Premature EOF",
-    "severity": "MODERATE",
-    "published": "2026-10-29T16:40:07Z",
-    "ghsa": "GHSA-8hxf-qr8p-62x4"
   }
 ]
