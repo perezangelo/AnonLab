@@ -345,8 +345,9 @@ fetch("/partials/ticker.html")
   </div>
 </div>
 		  
-        <!-- ============================================================
+<!-- ============================================================
      MINI THREAT MAP — CYBER HACKER & MATRIX RADAR INTERCEPTOR
+     (100% AUTONOMO - ZERO CSS O TAG <STYLE> RICHIESTI)
 ============================================================ -->
 <div class="soc-card" style="border-top:3px solid #10b981;">
   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
@@ -360,7 +361,7 @@ fetch("/partials/ticker.html")
     </div>
     <div style="display:flex; align-items:center; gap:8px; font-size:0.70rem; color:#10b981; font-family:ui-monospace, monospace;">
       <span style="display:inline-flex; align-items:center; gap:5px;">
-        <span class="live-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#10b981; animation:livePulse 2s infinite ease-in-out;"></span>
+        <span id="threat-map-dot" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#10b981; box-shadow:0 0 6px #10b981;"></span>
         <span id="threat-map-status">RADAR ACTIVE</span>
       </span>
       <span>•</span>
@@ -368,9 +369,13 @@ fetch("/partials/ticker.html")
     </div>
   </div>
 
-  <!-- CONTAINER MAPPA CANVAS CON EFFETTO SCANLINE MATRIX -->
-  <div class="threat-map-screen" style="position:relative; width:100%; height:200px; background:#020617; border:1px solid #1e293b; border-radius:6px; overflow:hidden;">
+  <!-- CONTAINER MAPPA CANVAS -->
+  <div style="position:relative; width:100%; height:200px; background:#020617; border:1px solid #1e293b; border-radius:6px; overflow:hidden;">
     <canvas id="threatMapCanvas" style="width:100%; height:100%; display:block;"></canvas>
+    
+    <!-- EFFETTO SCANLINE CRT MATRIX REALIZZATO AL 100% INLINE -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:repeating-linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18) 1px, transparent 1px, transparent 2px); pointer-events:none;"></div>
+
     <div style="position:absolute; top:6px; left:8px; font-family:ui-monospace, monospace; font-size:0.62rem; color:rgba(52,211,153,0.7); pointer-events:none;">
       SYS // DEFENSE NODE [IT-ROM-01]
     </div>
