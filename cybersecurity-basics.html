@@ -559,10 +559,8 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
     </li>
 </ul>
 
-<!-- SCRIPT DI AUTO-AGGIORNAMENTO ULTIMO VIDEO -->
 <script>
 (function() {
-    // Canali YouTube: ID Canale e ID iframe di destinazione
     const channels = [
         {
             iframeId: 'iframe-checkpoint',
@@ -576,16 +574,29 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
 
     channels.forEach(ch => {
         const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${ch.channelId}`;
-        // Conversione RSS in JSON client-side
-        fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`)
+        // Usiamo un proxy CORS alternativo e affidabile
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`;
+
+        fetch(proxyUrl)
             .then(res => res.json())
             .then(data => {
-                if (data.items && data.items.length > 0) {
-                    const videoLink = data.items[0].link;
-                    const videoId = videoLink.split('v=')[1];
-                    const iframe = document.getElementById(ch.iframeId);
-                    if (iframe && videoId) {
-                        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?cc_load_policy=1&hl=it`;
+                if (data && data.contents) {
+                    // Analizziamo l'XML restituito usando il DOMParser nativo del browser
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+                    
+                    // Cerchiamo il primo tag <entry> e poi <yt:videoId>
+                    const firstEntry = xmlDoc.querySelector("entry");
+                    if (firstEntry) {
+                        const videoIdTag = firstEntry.querySelector("videoId") || firstEntry.getElementsByTagNameNS("*", "videoId")[0];
+                        
+                        if (videoIdTag) {
+                            const videoId = videoIdTag.textContent;
+                            const iframe = document.getElementById(ch.iframeId);
+                            if (iframe && videoId) {
+                                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?cc_load_policy=1&hl=it`;
+                            }
+                        }
                     }
                 }
             })
