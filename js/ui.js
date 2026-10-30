@@ -506,7 +506,6 @@ function initUpdateNotification() {
         Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, <strong>VIDEO cybersecurity-basics</strong> e rivisto i moduli della <strong>SOC Dashboard</strong>.
       </p>
       <a href="/osint-tools-explained.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
-        Esplora le novità →
       </a>
       <a href="/cybersecurity-basics.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
         Esplora le novità →
