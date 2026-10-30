@@ -2897,6 +2897,68 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+	// ============================================================
+// WIDGET AGGIORNAMENTI DINAMICO (POSIZIONE: BASSO A SINISTRA)
+// ============================================================
+function initUpdateNotification() {
+  const currentUpdateId = "upd_2026_10_30"; // Cambia questo ID ogni volta che pubblichi novità importanti
+  const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
+
+  // Se l'utente ha già chiuso questa specifica notifica, non mostrarla più
+  if (lastSeenUpdate === currentUpdateId) return;
+
+  // Crea dinamicamente l'elemento HTML del Toast
+  const toastContainer = document.createElement("div");
+  toastContainer.id = "anonlab-update-toast";
+  toastContainer.innerHTML = `
+    <div style="
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9990;
+      max-width: 320px;
+      background: #030712;
+      border: 1px solid #00eaff;
+      border-radius: 8px;
+      padding: 14px 16px;
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.25);
+      font-family: Arial, sans-serif;
+      animation: fadeInLeft 0.4s ease;
+    ">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="font-family: ui-monospace, monospace; font-size: 0.70rem; color: #34d399; background: #0a0f14; padding: 2px 6px; border-radius: 4px; border: 1px solid #1e293b;">
+          ● SYSTEM REVISION
+        </span>
+        <button id="close-toast-btn" style="background: none; border: none; color: #64748b; cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 4px;">✕</button>
+      </div>
+      <p style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; font-weight: 600;">
+        Piattaforma in costante evoluzione
+      </p>
+      <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
+        Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, <strong>VIDEO cybersecurity-basics</strong> e rivisto i moduli della <strong>SOC Dashboard</strong>.
+      </p>
+      <a href="/osint-tools-explained.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
+      </a>
+      <a href="/cybersecurity-basics.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
+        Esplora le novità →
+      </a>
+    </div>
+  `;
+
+  document.body.appendChild(toastContainer);
+
+  // Gestione chiusura notifica e salvataggio in localStorage
+  document.getElementById("close-toast-btn").addEventListener("click", () => {
+    toastContainer.remove();
+    localStorage.setItem("anonlab_last_update_id", currentUpdateId);
+  });
+}
+
+// Avvia la notifica dopo 2,5 secondi dal caricamento della pagina
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(initUpdateNotification, 2500);
+});
+
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
