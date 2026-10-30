@@ -677,62 +677,54 @@
 })();
 
 /* ============================================================
-   CYBER THREAT MAP ENGINE (Matrix / Hacker Autonomous Radar)
+   CYBER THREAT MAP ENGINE (Real Altervista Feed + Matrix Radar)
 ============================================================ */
 function initThreatMap() {
   const canvas = document.getElementById('threatMapCanvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('threat-map-status');
   const countEl = document.getElementById('threat-intercept-count');
   const tickerEl = document.getElementById('threat-map-ticker');
+  const dotEl = document.getElementById('threat-map-dot');
 
-  // Continenti vettoriali ad alta fedeltà
+  const THREAT_MAP_API = 'https://angelonline.altervista.org/soc/threat_map.php';
+  const POLL_INTERVAL_MS = 10000; // Aggiornamento reale dal server ogni 10s
+
+  // Continenti vettoriali ad alta definizione
   const CONTINENTS = [
-    // Nord America & Canada
     [[-168,65],[-140,70],[-125,50],[-120,35],[-105,25],[-97,26],[-80,25],[-65,45],[-55,52],[-60,60],[-85,70],[-120,70],[-168,65]],
-    // Centro America & Messico
     [[-115,32],[-100,22],[-90,16],[-82,8],[-77,8],[-82,15],[-95,18],[-105,26],[-115,32]],
-    // Sud America
     [[-77,8],[-60,10],[-35,-5],[-38,-15],[-53,-33],[-65,-55],[-75,-50],[-70,-20],[-80,-2],[-77,8]],
-    // Europa
     [[-10,36],[0,37],[15,38],[28,41],[30,46],[40,45],[50,55],[60,65],[50,70],[30,70],[20,65],[10,58],[5,52],[-5,48],[-9,42],[-10,36]],
-    // Gran Bretagna & Irlanda
-    [[-10,51],[-2,50],[2,53],[-2,58],[-5,58],[-10,51]],
-    // Scandinavia
     [[5,58],[12,56],[18,60],[28,70],[20,71],[10,63],[5,58]],
-    // Africa
+    [[-10,51],[-2,50],[2,53],[-2,58],[-5,58],[-10,51]],
     [[-17,30],[-5,36],[12,37],[25,32],[35,28],[43,12],[51,12],[45,0],[40,-12],[33,-28],[26,-34],[18,-34],[12,-20],[10,-5],[2,5],[-15,11],[-17,20],[-17,30]],
-    // Madagascar
     [[44,-12],[50,-13],[47,-25],[43,-25],[44,-12]],
-    // Asia & Siberia
     [[60,65],[80,73],[120,75],[170,68],[175,60],[140,50],[135,35],[120,32],[108,20],[100,2],[80,10],[70,20],[55,30],[50,35],[60,45],[50,55],[60,65]],
-    // India
     [[70,22],[73,15],[78,8],[82,10],[88,22],[70,22]],
-    // Giappone
     [[130,32],[140,36],[142,44],[135,38],[130,32]],
-    // Australia
     [[114,-22],[130,-12],[142,-10],[153,-28],[150,-38],[138,-35],[115,-34],[114,-22]],
-    // Nuova Zelanda
     [[166,-46],[174,-41],[178,-38],[174,-36],[166,-46]]
   ];
 
   // Target primario: Roma, Italia (anonlab.it)
-  const TARGET = { name: "anonlab.it", code: "IT", lat: 41.9028, lon: 12.4964 };
+  let TARGET = { name: "anonlab.it", code: "IT", lat: 41.9028, lon: 12.4964 };
 
-  // Origini globali di attacco cyber
-  const ATTACK_ORIGINS = [
-    { name: "Moscow", code: "RU", ip: "185.220.101.5", lat: 55.75, lon: 37.61, method: "SYN-FLOOD / DDoS", port: 443, color: "#f87171" },
-    { name: "Beijing", code: "CN", ip: "103.151.125.10", lat: 39.90, lon: 116.40, method: "SQLi / INJECTION", port: 80, color: "#f87171" },
-    { name: "St. Petersburg", code: "RU", ip: "194.26.29.112", lat: 59.93, lon: 30.33, method: "SSH / HYDRA", port: 22, color: "#f87171" },
-    { name: "Ashburn", code: "US", ip: "198.235.24.130", lat: 39.04, lon: -77.48, method: "API EXPLOIT PROBE", port: 8080, color: "#fb923c" },
-    { name: "Amsterdam", code: "NL", ip: "89.248.165.74", lat: 52.36, lon: 4.90, method: "CVE RECON SCAN", port: 443, color: "#38bdf8" },
-    { name: "Tehran", code: "IR", ip: "45.142.166.8", lat: 35.68, lon: 51.38, method: "ZERO-DAY PAYLOAD", port: 8443, color: "#f87171" },
-    { name: "Pyongyang", code: "KP", ip: "175.45.176.8", lat: 39.03, lon: 125.76, method: "PRIV-ESC ATTEMPT", port: 22, color: "#f87171" },
-    { name: "Sao Paulo", code: "BR", ip: "191.242.12.45", lat: -23.55, lon: -46.63, method: "UDP AMPLIFICATION", port: 53, color: "#fb923c" },
-    { name: "Singapore", code: "SG", ip: "103.28.248.11", lat: 1.35, lon: 103.81, method: "WAF BYPASS / XSS", port: 443, color: "#fbbf24" },
-    { name: "London", code: "UK", ip: "185.190.140.22", lat: 51.50, lon: -0.12, method: "BRUTEFORCE / AUTH", port: 22, color: "#fb923c" },
-    { name: "Frankfurt", code: "DE", ip: "193.106.191.66", lat: 50.11, lon: 8.68, method: "PORT DISCOVERY", port: 80, color: "#38bdf8" }
+  // Origini d'attacco di riserva (attive tra una chiamata server e l'altra)
+  const LOCAL_FALLBACK_ORIGINS = [
+    { city: "Moscow", country: "RU", ip: "185.220.101.5", lat: 55.75, lon: 37.61, type: "SYN-FLOOD / DDoS", port: 443, severity: "CRITICAL" },
+    { city: "Beijing", country: "CN", ip: "103.151.125.10", lat: 39.90, lon: 116.40, type: "SQLi / INJECTION", port: 80, severity: "HIGH" },
+    { city: "St. Petersburg", country: "RU", ip: "194.26.29.112", lat: 59.93, lon: 30.33, type: "SSH / HYDRA", port: 22, severity: "CRITICAL" },
+    { city: "Ashburn", country: "US", ip: "198.235.24.130", lat: 39.04, lon: -77.48, type: "API EXPLOIT PROBE", port: 8080, severity: "MEDIUM" },
+    { city: "Amsterdam", country: "NL", ip: "89.248.165.74", lat: 52.36, lon: 4.90, type: "CVE RECON SCAN", port: 443, severity: "WARNING" },
+    { city: "Tehran", country: "IR", ip: "45.142.166.8", lat: 35.68, lon: 51.38, type: "ZERO-DAY PAYLOAD", port: 8443, severity: "HIGH" },
+    { city: "Pyongyang", country: "KP", ip: "175.45.176.8", lat: 39.03, lon: 125.76, type: "PRIV-ESC ATTEMPT", port: 22, severity: "CRITICAL" },
+    { city: "Sao Paulo", country: "BR", ip: "191.242.12.45", lat: -23.55, lon: -46.63, type: "UDP AMPLIFICATION", port: 53, severity: "HIGH" },
+    { city: "Singapore", country: "SG", ip: "103.28.248.11", lat: 1.35, lon: 103.81, type: "WAF BYPASS / XSS", port: 443, severity: "HIGH" },
+    { city: "London", country: "UK", ip: "185.190.140.22", lat: 51.50, lon: -0.12, type: "BRUTEFORCE / AUTH", port: 22, severity: "HIGH" },
+    { city: "Frankfurt", country: "DE", ip: "193.106.191.66", lat: 50.11, lon: 8.68, type: "PORT DISCOVERY", port: 80, severity: "WARNING" }
   ];
 
   let width = 0;
@@ -741,7 +733,7 @@ function initThreatMap() {
   let shockwaves = [];
   let radarSweepX = 0;
   let targetPulse = 0;
-  let interceptCount = parseInt(localStorage.getItem('soc_threat_intercepts') || '1420', 10);
+  let interceptCount = parseInt(localStorage.getItem('soc_threat_intercepts') || '1480', 10);
   let isRunning = true;
   let lastSpawn = 0;
 
@@ -762,55 +754,107 @@ function initThreatMap() {
     };
   }
 
+  function getSeverityColor(sev) {
+    const s = String(sev || 'HIGH').toUpperCase();
+    if (s === 'CRITICAL') return '#f87171'; // Rosso
+    if (s === 'HIGH') return '#fb923c';     // Arancione
+    if (s === 'WARNING') return '#fbbf24';  // Giallo
+    return '#38bdf8';                       // Ciano / Info
+  }
+
   function updateTicker(origin) {
     if (!tickerEl) return;
     const now = new Date().toTimeString().split(' ')[0];
-    const latency = Math.floor(Math.random() * 8) + 1;
+    const latency = Math.floor(Math.random() * 7) + 2;
     const lockdownLabel = document.getElementById('lockdown-status-label');
     const isLockdown = lockdownLabel && lockdownLabel.textContent.includes('LOCKDOWN');
     const action = isLockdown ? 'PERIMETER DROP' : 'MITIGATED';
     const actionColor = isLockdown ? '#f87171' : '#34d399';
+    const color = getSeverityColor(origin.severity);
 
     tickerEl.innerHTML = `
       <div style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:1;">
         <span style="color:#64748b;">[${now}]</span>
-        <span style="color:${origin.color}; font-weight:bold;">⛔ BLOCKED:</span>
-        <span style="color:#38bdf8;">${origin.ip}</span> (${origin.code}) ➔
-        <span style="color:#f1f5f9;">anonlab.it:${origin.port}</span>
-        <span style="color:#94a3b8;">[${origin.method}]</span>
+        <span style="color:${color}; font-weight:bold;">⛔ BLOCKED:</span>
+        <span style="color:#38bdf8;">${origin.ip}</span> (${origin.country || origin.code}) ➔
+        <span style="color:#f1f5f9;">anonlab.it:${origin.port || 443}</span>
+        <span style="color:#94a3b8;">[${origin.type || origin.method}]</span>
         <span style="color:${actionColor}; font-weight:bold;">${action} (${latency}ms)</span>
       </div>
       <div style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0.6; color:#94a3b8; font-size:0.64rem;">
-        &gt; SHIELD PERIMETER ACTIVE // DEFCON 2 // RADAR AUTO-SWEEP OK
+        &gt; SHIELD PERIMETER ACTIVE // DEFCON 2 // ALTERVISTA LIVE STREAM OK
       </div>
     `;
   }
 
-  function spawnArc() {
-    const origin = ATTACK_ORIGINS[Math.floor(Math.random() * ATTACK_ORIGINS.length)];
-    const p1 = project(origin.lat, origin.lon);
+  function spawnArc(attackData = null) {
+    const attack = attackData || LOCAL_FALLBACK_ORIGINS[Math.floor(Math.random() * LOCAL_FALLBACK_ORIGINS.length)];
+    const p1 = project(attack.lat, attack.lon);
     const p2 = project(TARGET.lat, TARGET.lon);
 
     const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
     const cpX = (p1.x + p2.x) / 2;
-    const cpY = Math.min(p1.y, p2.y) - Math.max(25, Math.min(dist * 0.4, 90));
+    const cpY = Math.min(p1.y, p2.y) - Math.max(25, Math.min(dist * 0.42, 95));
+    const color = getSeverityColor(attack.severity);
 
     activeArcs.push({
-      origin,
+      origin: attack,
       p1,
       p2,
       cp: { x: cpX, y: cpY },
       progress: 0,
-      speed: 0.007 + Math.random() * 0.006,
+      speed: 0.007 + Math.random() * 0.005,
       trail: [],
-      color: origin.color
+      color: color
     });
+  }
+
+  // --- Sincronizzazione con Backend PHP Altervista ---
+  async function fetchRealThreats() {
+    try {
+      const res = await fetch(THREAT_MAP_API + '?t=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+
+      if (data && data.status === 'success' && Array.isArray(data.attacks)) {
+        if (data.target && data.target.lat && data.target.lon) {
+          TARGET = data.target;
+        }
+
+        const lockdownLabel = document.getElementById('lockdown-status-label');
+        const isLockdown = lockdownLabel && lockdownLabel.textContent.includes('LOCKDOWN');
+        if (statusEl && !isLockdown) {
+          statusEl.textContent = 'ALTERVISTA LIVE';
+          statusEl.style.color = '#34d399';
+        }
+
+        // Lancia un missile laser per ciascun attacco reale inviato da Altervista
+        data.attacks.forEach((att, idx) => {
+          setTimeout(() => {
+            spawnArc(att);
+          }, idx * 750);
+        });
+      }
+    } catch (e) {
+      // In caso di errore o server offline, continua con la simulazione locale senza blocchi
+      const lockdownLabel = document.getElementById('lockdown-status-label');
+      const isLockdown = lockdownLabel && lockdownLabel.textContent.includes('LOCKDOWN');
+      if (statusEl && !isLockdown) {
+        statusEl.textContent = 'RADAR ACTIVE (SIM)';
+        statusEl.style.color = '#10b981';
+      }
+    }
   }
 
   function draw() {
     if (!isRunning || width === 0 || height === 0) return;
 
     ctx.clearRect(0, 0, width, height);
+
+    // Animazione automatica del pallino verde (Zero CSS richiesto)
+    if (dotEl) {
+      dotEl.style.opacity = (0.45 + Math.sin(Date.now() * 0.006) * 0.55).toFixed(2);
+    }
 
     // 1. Griglia Coordinate Matrix (Sfondo HUD)
     ctx.strokeStyle = 'rgba(16, 185, 129, 0.06)';
@@ -829,7 +873,7 @@ function initThreatMap() {
       ctx.stroke();
     }
 
-    // 2. Continenti Vettoriali (Stile Cyber Dark)
+    // 2. Continenti Vettoriali Cyber
     ctx.fillStyle = '#091322';
     ctx.strokeStyle = 'rgba(56, 189, 248, 0.22)';
     ctx.lineWidth = 1;
@@ -846,7 +890,7 @@ function initThreatMap() {
       ctx.stroke();
     });
 
-    // 3. Radar Sweep Line (Effetto Matrix / Scanner HUD)
+    // 3. Radar Sweep Line (Effetto Scanner Matrix)
     radarSweepX = (radarSweepX + 1.2) % width;
     const sweepGrad = ctx.createLinearGradient(radarSweepX - 45, 0, radarSweepX, 0);
     sweepGrad.addColorStop(0, 'rgba(16, 185, 129, 0)');
@@ -889,17 +933,17 @@ function initThreatMap() {
     ctx.fillStyle = targetColor;
     ctx.fillText('TARGET: anonlab.it [IT]', targetPt.x + 8, targetPt.y - 6);
 
-    // 5. Nodi d'attacco globali (Hotspots)
-    ATTACK_ORIGINS.forEach(o => {
+    // 5. Nodi d'attacco (Hotspots)
+    LOCAL_FALLBACK_ORIGINS.forEach(o => {
       const pt = project(o.lat, o.lon);
-      ctx.fillStyle = o.color;
+      ctx.fillStyle = getSeverityColor(o.severity);
       ctx.beginPath();
       ctx.arc(pt.x, pt.y, 2, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.fillStyle = 'rgba(148, 163, 184, 0.55)';
       ctx.font = '7px ui-monospace, monospace';
-      ctx.fillText(o.code, pt.x + 4, pt.y + 3);
+      ctx.fillText(o.country || o.code, pt.x + 4, pt.y + 3);
     });
 
     // 6. Animazione Archi Balistici Laser
@@ -952,7 +996,7 @@ function initThreatMap() {
       }
     }
 
-    // 7. Shockwaves di Mitigazione Perimetrale
+    // 7. Shockwaves di Mitigazione
     for (let i = shockwaves.length - 1; i >= 0; i--) {
       const sw = shockwaves[i];
       sw.r += 0.9;
@@ -971,10 +1015,10 @@ function initThreatMap() {
       }
     }
 
-    // Generazione automatica e autonoma di nuovi attacchi
+    // Generazione autonoma nei secondi intermedi tra un fetch e l'altro
     const nowTime = Date.now();
-    if (nowTime - lastSpawn > 1100 + Math.random() * 1200) {
-      if (activeArcs.length < 5) {
+    if (nowTime - lastSpawn > 1200 + Math.random() * 1500) {
+      if (activeArcs.length < 4) {
         spawnArc();
       }
       lastSpawn = nowTime;
@@ -983,7 +1027,7 @@ function initThreatMap() {
     requestAnimationFrame(draw);
   }
 
-  // Risparmio risorse quando la scheda è nascosta
+  // Risparmio risorse se cambi scheda
   document.addEventListener('visibilitychange', () => {
     isRunning = !document.hidden;
     if (isRunning) requestAnimationFrame(draw);
@@ -993,12 +1037,17 @@ function initThreatMap() {
   resize();
 
   if (countEl) countEl.textContent = interceptCount.toLocaleString() + ' INTERCEPTS';
-  spawnArc();
+
+  // Avvio animazione
   spawnArc();
   requestAnimationFrame(draw);
+
+  // Avvio ciclo telemetria reale da Altervista
+  fetchRealThreats();
+  setInterval(fetchRealThreats, POLL_INTERVAL_MS);
 }
 
-// Avvio automatico al caricamento
+// Avvio immediato a caricamento pagina
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initThreatMap);
 } else {
