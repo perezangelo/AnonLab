@@ -429,118 +429,105 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
  
 </div>
 
-    <h3>Video correlati</h3>
+    <!-- CONTENITORE VIDEO CORRELATI DINAMICI -->
+<div class="soc-videos-container" style="margin-top: 30px;">
+    
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #0f2a3a; padding-bottom:8px; margin-bottom:15px;">
+        <h3 style="color:#00eaff; margin:0; font-size:1.15rem; text-transform:uppercase; letter-spacing:0.04em;">
+            Video Correlati // Ultime Uscite
+        </h3>
+        <span style="font-family:ui-monospace, monospace; font-size:0.70rem; color:#64748b;">
+            AUTO-SYNC YOUTUBE
+        </span>
+    </div>
 
-    <ul style="list-style:none; padding-left:0; line-height:1.7;">
-
-        <!-- Video 1 -->
-        <li style="margin-top:20px;">
-            <div style="margin:15px 0; border:1px solid #0f2a3a; border-radius:10px; padding:12px; background:#0a0f14;">
-
-                <h4 style="color:#00eaff; margin-bottom:10px;">
-                    Cyber Threat Intelligence Overview — Cybrary
-                </h4>
-
-                <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px;">
-                    <iframe
-                        src="https://www.youtube.com/embed/_NqnKjsS1ZE"
-                        title="Cyber Threat Intelligence Overview - Cybrary"
-                        loading="lazy"
-                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <p>
-                    Questo video fornisce una panoramica introduttiva sulla Cyber Threat Intelligence,
-                    spiegando come raccogliere, analizzare e condividere informazioni sulle minacce
-                    informatiche per migliorare le capacità difensive di organizzazioni e professionisti.
-                </p>
-
-                <p>
-                    Video originale:
-                    https://www.youtube.com/watch?v=_NqnKjsS1ZE
-                        Guarda su YouTube
-                    </a>
-                </p>
-
+    <!-- LISTA DINAMICA -->
+    <ul id="youtube-dynamic-list" style="list-style:none; padding-left:0; line-height:1.7; margin:0; display:flex; flex-direction:column; gap:20px;">
+        <!-- Placeholder di caricamento con lo stesso stile del blocco -->
+        <li>
+            <div style="border:1px solid #0f2a3a; border-radius:10px; padding:20px; background:#0a0f14; text-align:center; color:#64748b; font-size:0.85rem;">
+                Sincronizzazione ultimi feed multimediali in corso...
             </div>
         </li>
-
-        <!-- Video 2 -->
-        <li style="margin-top:20px;">
-            <div style="margin:15px 0; border:1px solid #0f2a3a; border-radius:10px; padding:12px; background:#0a0f14;">
-
-                <h4 style="color:#00eaff; margin-bottom:10px;">
-                    What is Cyber Threat Intelligence? — Check Point
-                </h4>
-
-                <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px;">
-                    <iframe
-                        src="https://www.youtube.com/embed/zCnJehJovEo"
-                        title="What is Cyber Threat Intelligence - Check Point"
-                        loading="lazy"
-                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <p>
-                    Una spiegazione chiara dei concetti fondamentali della Threat Intelligence,
-                    delle sue applicazioni pratiche e del ruolo che svolge nella prevenzione
-                    degli attacchi informatici e nella gestione del rischio cyber.
-                </p>
-
-                <p>
-                    Video originale:
-                    https://www.youtube.com/watch?v=zCnJehJovEo
-                        Guarda su YouTube
-                    </a>
-                </p>
-
-            </div>
-        </li>
-
-        <!-- Video 3 -->
-        <li style="margin-top:20px;">
-            <div style="margin:15px 0; border:1px solid #0f2a3a; border-radius:10px; padding:12px; background:#0a0f14;">
-
-                <h4 style="color:#00eaff; margin-bottom:10px;">
-                    Threat Intelligence Explained in 5 Minutes — Heimdal Security
-                </h4>
-
-                <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px;">
-                    <iframe
-                        src="https://www.youtube.com/embed/OZ80zXwTh0g"
-                        title="Threat Intelligence Explained in 5 Minutes - Heimdal Security"
-                        loading="lazy"
-                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <p>
-                    Un'introduzione rapida alla Threat Intelligence che illustra in modo sintetico
-                    il ciclo di intelligence, i diversi tipi di indicatori di compromissione e il loro
-                    utilizzo nelle attività di difesa informatica.
-                </p>
-
-                <p>
-                    Video originale:
-                    https://www.youtube.com/watch?v=OZ80zXwTh0g
-                        Guarda su YouTube
-                    </a>
-                </p>
-
-            </div>
-        </li>
-
     </ul>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const listContainer = document.getElementById("youtube-dynamic-list");
+
+    // Chiama il backend PHP con cache
+    fetch("get_videos.php?t=" + Date.now())
+        .then(res => {
+            if (!res.ok) throw new Error("Errore recupero feed");
+            return res.json();
+        })
+        .then(videos => {
+            if (!videos || videos.length === 0) return;
+
+            // Rigenera i blocchi mantenendo al 100% la grafica originale
+            listContainer.innerHTML = videos.map(video => {
+                // Iframe responsive con youtube-nocookie per privacy
+                const iframeSrc = video.video_id 
+                    ? `https://www.youtube-nocookie.com/embed/${video.video_id}` 
+                    : "";
+
+                return `
+                <li>
+                    <div style="border:1px solid #0f2a3a; border-radius:10px; padding:16px; background:#0a0f14; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+
+                        <h4 style="color:#00eaff; margin:0 0 12px 0; font-size:1rem; line-height:1.4;">
+                            ${escapeHtml(video.title)} — <span style="color:#94a3b8; font-size:0.85rem;">${escapeHtml(video.channel_name)}</span>
+                        </h4>
+
+                        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#020617; border:1px solid #1e293b;">
+                            ${iframeSrc ? `
+                            <iframe
+                                src="${iframeSrc}"
+                                title="${escapeHtml(video.title)}"
+                                loading="lazy"
+                                style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>` : `<div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#64748b;">Video non disponibile</div>`}
+                        </div>
+
+                        <p style="color:#ccc; font-size:0.82rem; margin:12px 0 10px 0; line-height:1.5;">
+                            ${escapeHtml(video.description)}
+                        </p>
+
+                        <div style="border-top:1px dashed #0f2a3a; padding-top:8px; font-size:0.75rem;">
+                            <span style="color:#64748b;">Video originale:</span>
+                            <a href="${video.url}" target="_blank" rel="noopener noreferrer" 
+                               style="color:#38bdf8; text-decoration:none; font-weight:600; margin-left:6px;"
+                               onmouseover="this.style.textDecoration='underline'" 
+                               onmouseout="this.style.textDecoration='none'">
+                               Guarda su YouTube ↗
+                            </a>
+                        </div>
+
+                    </div>
+                </li>
+                `;
+            }).join("");
+        })
+        .catch(err => {
+            console.warn("[SOC Video] Impossibile recuperare ultimi video:", err);
+        });
+
+    // Funzione helper anti-XSS
+    function escapeHtml(str) {
+        return (str || '').replace(/[&<>'"]/g, tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        }[tag] || tag));
+    }
+});
+</script>
     
 <h3>Guide PDF scaricabili</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
