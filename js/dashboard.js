@@ -677,6 +677,335 @@
 })();
 
 /* ============================================================
+   CYBER THREAT MAP ENGINE (Matrix / Hacker Autonomous Radar)
+============================================================ */
+function initThreatMap() {
+  const canvas = document.getElementById('threatMapCanvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const countEl = document.getElementById('threat-intercept-count');
+  const tickerEl = document.getElementById('threat-map-ticker');
+
+  // Continenti vettoriali ad alta fedeltà
+  const CONTINENTS = [
+    // Nord America & Canada
+    [[-168,65],[-140,70],[-125,50],[-120,35],[-105,25],[-97,26],[-80,25],[-65,45],[-55,52],[-60,60],[-85,70],[-120,70],[-168,65]],
+    // Centro America & Messico
+    [[-115,32],[-100,22],[-90,16],[-82,8],[-77,8],[-82,15],[-95,18],[-105,26],[-115,32]],
+    // Sud America
+    [[-77,8],[-60,10],[-35,-5],[-38,-15],[-53,-33],[-65,-55],[-75,-50],[-70,-20],[-80,-2],[-77,8]],
+    // Europa
+    [[-10,36],[0,37],[15,38],[28,41],[30,46],[40,45],[50,55],[60,65],[50,70],[30,70],[20,65],[10,58],[5,52],[-5,48],[-9,42],[-10,36]],
+    // Gran Bretagna & Irlanda
+    [[-10,51],[-2,50],[2,53],[-2,58],[-5,58],[-10,51]],
+    // Scandinavia
+    [[5,58],[12,56],[18,60],[28,70],[20,71],[10,63],[5,58]],
+    // Africa
+    [[-17,30],[-5,36],[12,37],[25,32],[35,28],[43,12],[51,12],[45,0],[40,-12],[33,-28],[26,-34],[18,-34],[12,-20],[10,-5],[2,5],[-15,11],[-17,20],[-17,30]],
+    // Madagascar
+    [[44,-12],[50,-13],[47,-25],[43,-25],[44,-12]],
+    // Asia & Siberia
+    [[60,65],[80,73],[120,75],[170,68],[175,60],[140,50],[135,35],[120,32],[108,20],[100,2],[80,10],[70,20],[55,30],[50,35],[60,45],[50,55],[60,65]],
+    // India
+    [[70,22],[73,15],[78,8],[82,10],[88,22],[70,22]],
+    // Giappone
+    [[130,32],[140,36],[142,44],[135,38],[130,32]],
+    // Australia
+    [[114,-22],[130,-12],[142,-10],[153,-28],[150,-38],[138,-35],[115,-34],[114,-22]],
+    // Nuova Zelanda
+    [[166,-46],[174,-41],[178,-38],[174,-36],[166,-46]]
+  ];
+
+  // Target primario: Roma, Italia (anonlab.it)
+  const TARGET = { name: "anonlab.it", code: "IT", lat: 41.9028, lon: 12.4964 };
+
+  // Origini globali di attacco cyber
+  const ATTACK_ORIGINS = [
+    { name: "Moscow", code: "RU", ip: "185.220.101.5", lat: 55.75, lon: 37.61, method: "SYN-FLOOD / DDoS", port: 443, color: "#f87171" },
+    { name: "Beijing", code: "CN", ip: "103.151.125.10", lat: 39.90, lon: 116.40, method: "SQLi / INJECTION", port: 80, color: "#f87171" },
+    { name: "St. Petersburg", code: "RU", ip: "194.26.29.112", lat: 59.93, lon: 30.33, method: "SSH / HYDRA", port: 22, color: "#f87171" },
+    { name: "Ashburn", code: "US", ip: "198.235.24.130", lat: 39.04, lon: -77.48, method: "API EXPLOIT PROBE", port: 8080, color: "#fb923c" },
+    { name: "Amsterdam", code: "NL", ip: "89.248.165.74", lat: 52.36, lon: 4.90, method: "CVE RECON SCAN", port: 443, color: "#38bdf8" },
+    { name: "Tehran", code: "IR", ip: "45.142.166.8", lat: 35.68, lon: 51.38, method: "ZERO-DAY PAYLOAD", port: 8443, color: "#f87171" },
+    { name: "Pyongyang", code: "KP", ip: "175.45.176.8", lat: 39.03, lon: 125.76, method: "PRIV-ESC ATTEMPT", port: 22, color: "#f87171" },
+    { name: "Sao Paulo", code: "BR", ip: "191.242.12.45", lat: -23.55, lon: -46.63, method: "UDP AMPLIFICATION", port: 53, color: "#fb923c" },
+    { name: "Singapore", code: "SG", ip: "103.28.248.11", lat: 1.35, lon: 103.81, method: "WAF BYPASS / XSS", port: 443, color: "#fbbf24" },
+    { name: "London", code: "UK", ip: "185.190.140.22", lat: 51.50, lon: -0.12, method: "BRUTEFORCE / AUTH", port: 22, color: "#fb923c" },
+    { name: "Frankfurt", code: "DE", ip: "193.106.191.66", lat: 50.11, lon: 8.68, method: "PORT DISCOVERY", port: 80, color: "#38bdf8" }
+  ];
+
+  let width = 0;
+  let height = 0;
+  let activeArcs = [];
+  let shockwaves = [];
+  let radarSweepX = 0;
+  let targetPulse = 0;
+  let interceptCount = parseInt(localStorage.getItem('soc_threat_intercepts') || '1420', 10);
+  let isRunning = true;
+  let lastSpawn = 0;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function project(lat, lon) {
+    return {
+      x: ((lon + 180) / 360) * width,
+      y: ((90 - lat) / 180) * height
+    };
+  }
+
+  function updateTicker(origin) {
+    if (!tickerEl) return;
+    const now = new Date().toTimeString().split(' ')[0];
+    const latency = Math.floor(Math.random() * 8) + 1;
+    const lockdownLabel = document.getElementById('lockdown-status-label');
+    const isLockdown = lockdownLabel && lockdownLabel.textContent.includes('LOCKDOWN');
+    const action = isLockdown ? 'PERIMETER DROP' : 'MITIGATED';
+    const actionColor = isLockdown ? '#f87171' : '#34d399';
+
+    tickerEl.innerHTML = `
+      <div style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:1;">
+        <span style="color:#64748b;">[${now}]</span>
+        <span style="color:${origin.color}; font-weight:bold;">⛔ BLOCKED:</span>
+        <span style="color:#38bdf8;">${origin.ip}</span> (${origin.code}) ➔
+        <span style="color:#f1f5f9;">anonlab.it:${origin.port}</span>
+        <span style="color:#94a3b8;">[${origin.method}]</span>
+        <span style="color:${actionColor}; font-weight:bold;">${action} (${latency}ms)</span>
+      </div>
+      <div style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0.6; color:#94a3b8; font-size:0.64rem;">
+        &gt; SHIELD PERIMETER ACTIVE // DEFCON 2 // RADAR AUTO-SWEEP OK
+      </div>
+    `;
+  }
+
+  function spawnArc() {
+    const origin = ATTACK_ORIGINS[Math.floor(Math.random() * ATTACK_ORIGINS.length)];
+    const p1 = project(origin.lat, origin.lon);
+    const p2 = project(TARGET.lat, TARGET.lon);
+
+    const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+    const cpX = (p1.x + p2.x) / 2;
+    const cpY = Math.min(p1.y, p2.y) - Math.max(25, Math.min(dist * 0.4, 90));
+
+    activeArcs.push({
+      origin,
+      p1,
+      p2,
+      cp: { x: cpX, y: cpY },
+      progress: 0,
+      speed: 0.007 + Math.random() * 0.006,
+      trail: [],
+      color: origin.color
+    });
+  }
+
+  function draw() {
+    if (!isRunning || width === 0 || height === 0) return;
+
+    ctx.clearRect(0, 0, width, height);
+
+    // 1. Griglia Coordinate Matrix (Sfondo HUD)
+    ctx.strokeStyle = 'rgba(16, 185, 129, 0.06)';
+    ctx.lineWidth = 1;
+    const step = 28;
+    for (let x = 0; x < width; x += step) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+      ctx.stroke();
+    }
+    for (let y = 0; y < height; y += step) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+
+    // 2. Continenti Vettoriali (Stile Cyber Dark)
+    ctx.fillStyle = '#091322';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.22)';
+    ctx.lineWidth = 1;
+
+    CONTINENTS.forEach(poly => {
+      ctx.beginPath();
+      poly.forEach(([lon, lat], i) => {
+        const pt = project(lat, lon);
+        if (i === 0) ctx.moveTo(pt.x, pt.y);
+        else ctx.lineTo(pt.x, pt.y);
+      });
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    });
+
+    // 3. Radar Sweep Line (Effetto Matrix / Scanner HUD)
+    radarSweepX = (radarSweepX + 1.2) % width;
+    const sweepGrad = ctx.createLinearGradient(radarSweepX - 45, 0, radarSweepX, 0);
+    sweepGrad.addColorStop(0, 'rgba(16, 185, 129, 0)');
+    sweepGrad.addColorStop(1, 'rgba(16, 185, 129, 0.18)');
+    ctx.fillStyle = sweepGrad;
+    ctx.fillRect(radarSweepX - 45, 0, 45, height);
+
+    ctx.strokeStyle = 'rgba(52, 211, 153, 0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(radarSweepX, 0);
+    ctx.lineTo(radarSweepX, height);
+    ctx.stroke();
+
+    // 4. Disegno Target: anonlab.it (Roma, Italia)
+    const targetPt = project(TARGET.lat, TARGET.lon);
+    targetPulse += 0.04;
+    const pulseR = 5 + Math.sin(targetPulse) * 4;
+
+    const lockdownLabel = document.getElementById('lockdown-status-label');
+    const isLockdown = lockdownLabel && lockdownLabel.textContent.includes('LOCKDOWN');
+    const targetColor = isLockdown ? '#ef4444' : '#34d399';
+
+    ctx.strokeStyle = targetColor;
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.arc(targetPt.x, targetPt.y, pulseR, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(targetPt.x, targetPt.y, pulseR + 7, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(targetPt.x, targetPt.y, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.font = '8px ui-monospace, monospace';
+    ctx.fillStyle = targetColor;
+    ctx.fillText('TARGET: anonlab.it [IT]', targetPt.x + 8, targetPt.y - 6);
+
+    // 5. Nodi d'attacco globali (Hotspots)
+    ATTACK_ORIGINS.forEach(o => {
+      const pt = project(o.lat, o.lon);
+      ctx.fillStyle = o.color;
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = 'rgba(148, 163, 184, 0.55)';
+      ctx.font = '7px ui-monospace, monospace';
+      ctx.fillText(o.code, pt.x + 4, pt.y + 3);
+    });
+
+    // 6. Animazione Archi Balistici Laser
+    for (let i = activeArcs.length - 1; i >= 0; i--) {
+      const arc = activeArcs[i];
+      arc.progress += arc.speed;
+
+      const t = arc.progress;
+      const x = (1 - t) * (1 - t) * arc.p1.x + 2 * (1 - t) * t * arc.cp.x + t * t * arc.p2.x;
+      const y = (1 - t) * (1 - t) * arc.p1.y + 2 * (1 - t) * t * arc.cp.y + t * t * arc.p2.y;
+
+      arc.trail.push({ x, y });
+      if (arc.trail.length > 12) arc.trail.shift();
+
+      if (arc.trail.length > 1) {
+        ctx.strokeStyle = arc.color;
+        ctx.lineWidth = 1.5;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = arc.color;
+        ctx.beginPath();
+        ctx.moveTo(arc.trail[0].x, arc.trail[0].y);
+        for (let j = 1; j < arc.trail.length; j++) {
+          ctx.lineTo(arc.trail[j].x, arc.trail[j].y);
+        }
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (arc.progress >= 1) {
+        shockwaves.push({
+          x: targetPt.x,
+          y: targetPt.y,
+          r: 2,
+          maxR: 26,
+          alpha: 1,
+          color: isLockdown ? '#ef4444' : '#34d399'
+        });
+
+        interceptCount++;
+        localStorage.setItem('soc_threat_intercepts', interceptCount.toString());
+        if (countEl) countEl.textContent = interceptCount.toLocaleString() + ' INTERCEPTS';
+
+        updateTicker(arc.origin);
+        activeArcs.splice(i, 1);
+      }
+    }
+
+    // 7. Shockwaves di Mitigazione Perimetrale
+    for (let i = shockwaves.length - 1; i >= 0; i--) {
+      const sw = shockwaves[i];
+      sw.r += 0.9;
+      sw.alpha -= 0.035;
+
+      if (sw.alpha <= 0) {
+        shockwaves.splice(i, 1);
+      } else {
+        ctx.strokeStyle = sw.color;
+        ctx.lineWidth = 1.5;
+        ctx.globalAlpha = Math.max(0, sw.alpha);
+        ctx.beginPath();
+        ctx.arc(sw.x, sw.y, sw.r, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    // Generazione automatica e autonoma di nuovi attacchi
+    const nowTime = Date.now();
+    if (nowTime - lastSpawn > 1100 + Math.random() * 1200) {
+      if (activeArcs.length < 5) {
+        spawnArc();
+      }
+      lastSpawn = nowTime;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  // Risparmio risorse quando la scheda è nascosta
+  document.addEventListener('visibilitychange', () => {
+    isRunning = !document.hidden;
+    if (isRunning) requestAnimationFrame(draw);
+  });
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  if (countEl) countEl.textContent = interceptCount.toLocaleString() + ' INTERCEPTS';
+  spawnArc();
+  spawnArc();
+  requestAnimationFrame(draw);
+}
+
+// Avvio automatico al caricamento
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initThreatMap);
+} else {
+  initThreatMap();
+}
+
+/* ============================================================
    SOC METRICS OVERVIEW — Dinamico e Autonomo
 ============================================================ */
 
