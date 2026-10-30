@@ -326,12 +326,12 @@ fetch("/partials/ticker.html")
 
   </div>
 
-  <!-- ============================================================
-       3. RIGA OPERATIVA: INFRASTRUCTURE STATUS (COMPATTO) + THREAT EVENT LOG
+<!-- ============================================================
+       3. RIGA OPERATIVA: INFRASTRUCTURE STATUS + THREAT EVENT LOG
   ============================================================ -->
   <div class="soc-ops-grid">
 
-    <!-- 1. INFRASTRUCTURE STATUS + LEGENDA COMPATTA -->
+    <!-- 1. INFRASTRUCTURE STATUS + LEGENDA COMPATTA (SINISTRA) -->
     <div class="soc-card" style="border-top:3px solid #34d399; display:flex; flex-direction:column; justify-content:space-between;">
       <div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
@@ -341,7 +341,7 @@ fetch("/partials/ticker.html")
           <span class="mono" style="font-size:0.68rem; color:#64748b;">anonlab.it:node-1</span>
         </div>
 
-        <!-- GRIGLIA TILES COMPATTA (4/4 FEEDS UP, LATENZA, FIREWALL) -->
+        <!-- GRIGLIA TILES COMPATTA -->
         <div class="infra-compact-grid" style="margin-bottom: 12px;">
           
           <!-- TILE 1: SYSTEM BADGE -->
@@ -349,7 +349,7 @@ fetch("/partials/ticker.html")
             <span style="font-size:0.68rem; color:#94a3b8; text-transform:uppercase;">PERIMETER STATUS</span>
             <div style="margin-top:6px;">
               <span id="sys-badge" class="dash-number mono" style="font-size:0.82rem; font-weight:bold; color:#34d399; background:rgba(52,211,153,0.1); padding:4px 8px; border-radius:4px; border:1px solid rgba(52,211,153,0.3);">
-                ONLINE
+                OPERATIONAL
               </span>
             </div>
           </div>
@@ -369,7 +369,7 @@ fetch("/partials/ticker.html")
           <div class="infra-tile">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:0.68rem; color:#94a3b8; text-transform:uppercase;">LATENCY</span>
-              <span id="latency" class="dash-number mono" style="font-size:0.78rem; color:#fbbf24; font-weight:bold;">114 ms</span>
+              <span id="latency" class="dash-number mono" style="font-size:0.78rem; color:#fbbf24; font-weight:bold;">280 ms</span>
             </div>
             <div style="margin-top:6px; background:#090d16; border:1px solid #1e293b; border-radius:3px; padding:2px;">
               <canvas id="lat-chart" width="180" height="24" style="width:100%; height:24px; display:block;"></canvas>
@@ -389,7 +389,7 @@ fetch("/partials/ticker.html")
         </div>
       </div>
 
-      <!-- LEGENDA / INFO BOX INTEGRATO IN BASSO -->
+      <!-- LEGENDA / INFO BOX INTEGRATO IN BASSO (ALL'INTERNO DELLA CARD) -->
       <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:8px 12px; font-size:0.70rem; color:#94a3b8; display:flex; justify-content:space-between; align-items:center;">
         <span>ℹ️ Telemetria nodo perimetrale e sincronizzazione feed attivi in tempo reale.</span>
         <span class="mono" style="color:#34d399;">SEC-OK</span>
@@ -397,17 +397,27 @@ fetch("/partials/ticker.html")
 
     </div>
 
-    <!-- 2. THREAT EVENT LOG (STREAM COMPATTO AFFIANCATO ALLA TELEMETRIA) -->
-    <div class="soc-card" style="border-top:3px solid #f87171;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <h2 style="margin:0; font-size:0.86rem; color:#f87171; text-transform:uppercase; letter-spacing:0.04em;">
-          Threat Event Log
-        </h2>
-        <span class="mono" style="font-size:0.68rem; color:#64748b; background:#030712; padding:2px 8px; border-radius:4px; border:1px solid #1e293b;">FEED LIVE</span>
+    <!-- 2. THREAT EVENT LOG (DESTRA) -->
+    <div class="soc-card" style="border-top:3px solid #f87171; display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <h2 style="margin:0; font-size:0.86rem; color:#f87171; text-transform:uppercase; letter-spacing:0.04em;">
+            Threat Event Log
+          </h2>
+          <span class="mono" style="font-size:0.68rem; color:#64748b; background:#030712; padding:2px 8px; border-radius:4px; border:1px solid #1e293b;">FEED LIVE</span>
+        </div>
+        
+        <!-- FINESTRA LOG ALLUNGATA (height: 210px) -->
+        <div id="event-log" class="event-log mono custom-scroll" style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:10px; height:210px; overflow-y:auto; font-size:0.72rem; display:flex; flex-direction:column; gap:6px; box-sizing:border-box;">
+          <div style="color:#64748b; text-align:center; margin:auto;">Caricamento telemetria eventi in tempo reale...</div>
+        </div>
       </div>
-      <div id="event-log" class="event-log mono custom-scroll" style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:10px; height:140px; overflow-y:auto; font-size:0.72rem; display:flex; flex-direction:column; gap:6px; box-sizing:border-box;">
-        <div style="color:#64748b; text-align:center; margin:auto;">Caricamento telemetria eventi in tempo reale...</div>
+
+      <!-- SPAZIATORE INFERIORE TRASPARENTE PER PERFETTO ALLINEAMENTO VERTICALE -->
+      <div style="background:transparent; border:1px solid transparent; padding:8px 12px; font-size:0.70rem; visibility:hidden;">
+        <span>Spaziatore simmetrico</span>
       </div>
+
     </div>
 
   </div>
