@@ -419,7 +419,7 @@ radar delle minacce, strumenti OSINT e analisi tecniche.
   </button>
 </div>
 
-<!-- Logica JavaScript del Quiz Avanzato -->
+<!-- Logica JavaScript del Quiz Avanzato (Corretta) -->
 <script>
 const quizData = [
   {
@@ -481,7 +481,7 @@ const quizData = [
     options: [
       { text: "A) Apro lo zip per controllare di quale fattura si tratti.", score: -3, type: "danger" },
       { text: "B) Elimino l'email senza scaricare o aprire alcun allegato.", score: 3, type: "correct" },
-      { text: "C) Lo salvo sul computer e controllo le proprietà.", score: -1, type: "warning" }}
+      { text: "C) Lo salvo sul computer e controllo le proprietà.", score: -1, type: "warning" }
     ],
     explanation: "Gli eseguibili o archivi compressi non verificati sono il vettore primario per la diffusione di ransomware e trojan."
   },
@@ -545,14 +545,12 @@ function loadQuizQuestion() {
 function selectQuizOption(score, type, explanation, selectedBtn) {
   totalScore += score;
   
-  // Disabilita tutti i pulsanti dopo la risposta
   const buttons = document.getElementById("quiz-options").getElementsByTagName("button");
   for (let b of buttons) {
     b.disabled = true;
     b.style.cursor = "default";
   }
 
-  // Evidenzia la scelta
   if (type === "correct") {
     selectedBtn.style.background = "#064e3b";
     selectedBtn.style.borderColor = "#34d399";
@@ -619,8 +617,13 @@ function showQuizResults() {
 function resetQuiz() {
   currentQuestion = 0;
   totalScore = 0;
-  // Ricrea la struttura base del container se resettato
-  location.reload(); 
+  // Ripristina il container interno del quiz senza ricaricare la pagina
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = `
+    <p id="quiz-question" style="font-weight: 600; color: #fff; font-size: 1.02rem; margin-bottom: 20px;"></p>
+    <div id="quiz-options" style="display: flex; flex-direction: column; gap: 10px;"></div>
+  `;
+  loadQuizQuestion();
 }
 
 // Avvia il quiz all'avvio della pagina
@@ -840,9 +843,16 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
 </ul>
 </div>
 
-<!-- POSIZIONE 4: SEZIONE FAQ + SCHEMA JSON-LD (Posizionato subito prima della Conclusione) -->
+<!-- POSIZIONE 4: SEZIONE FAQ + LEGENDA + SCHEMA JSON-LD -->
 <div class="section" id="faq-section">
-  <h2>Domande Frequenti (FAQ)</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid #0f2a3a; padding-bottom: 10px; margin-bottom: 20px;">
+    <h2 style="margin: 0; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.04em; color: #00eaff;">
+      Domande Frequenti (FAQ)
+    </h2>
+    <span style="font-family: ui-monospace, monospace; font-size: 0.78rem; color: #38bdf8; background: #030712; padding: 4px 10px; border-radius: 4px; border: 1px solid #1e293b;">
+      💡 Legenda: Clicca su una domanda per aprire/chiudere la risposta
+    </span>
+  </div>
   
   <details style="margin-bottom: 12px; background: #030712; padding: 12px; border: 1px solid #1e293b; border-radius: 6px;">
     <summary style="color: #00eaff; cursor: pointer; font-weight: bold;">Cos'è esattamente un SOC e perché è importante?</summary>
