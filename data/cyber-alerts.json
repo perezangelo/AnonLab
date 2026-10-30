@@ -1,5 +1,40 @@
 [
   {
+    "id": "CVE-2026-119284",
+    "summary": "joserfc: Compact JWS size guard allocates attacker-controlled segments before rejection",
+    "severity": "MODERATE",
+    "published": "2026-10-30T14:54:25Z",
+    "ghsa": "GHSA-9pg5-8c7x-5hfx"
+  },
+  {
+    "id": "CVE-2026-119283",
+    "summary": "joserfc: Unbounded JWE General JSON `recipients` Array Leads to CPU Exhaustion (DoS) via Repeated RSA Private-Key Decryption",
+    "severity": "HIGH",
+    "published": "2026-10-30T14:54:20Z",
+    "ghsa": "GHSA-jpxq-7h8p-2q76"
+  },
+  {
+    "id": "GHSA-f3fj-9625-rv3m",
+    "summary": "charmbracelet/soft-serve: Race in `SetPrivate` leaves a private repository readable by unauthenticated users",
+    "severity": "MODERATE",
+    "published": "2026-10-30T14:53:57Z",
+    "ghsa": "GHSA-f3fj-9625-rv3m"
+  },
+  {
+    "id": "GHSA-fgxm-5hvv-x4vh",
+    "summary": "charmbracelet/soft-serve HTTP responses disclose the existence and names of private repositories",
+    "severity": "MODERATE",
+    "published": "2026-10-30T14:42:35Z",
+    "ghsa": "GHSA-fgxm-5hvv-x4vh"
+  },
+  {
+    "id": "CVE-2026-119282",
+    "summary": "@nx/maven and @nx/gradle have OS command injection via nx.json plugin options",
+    "severity": "HIGH",
+    "published": "2026-10-30T14:42:14Z",
+    "ghsa": "GHSA-qm8w-vx34-5j9j"
+  },
+  {
     "id": "CVE-2026-118664",
     "summary": "decode-uri-component vulnerable to denial of service via quadratic replacement of percent-encoded runs",
     "severity": "HIGH",
@@ -33,40 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-10-29T16:40:07Z",
     "ghsa": "GHSA-8hxf-qr8p-62x4"
-  },
-  {
-    "id": "CVE-2026-115909",
-    "summary": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:40:01Z",
-    "ghsa": "GHSA-q7v9-x93c-xqv3"
-  },
-  {
-    "id": "CVE-2026-118662",
-    "summary": "Vite: `server.fs.deny` bypassed with queries",
-    "severity": "MODERATE",
-    "published": "2026-10-29T16:39:56Z",
-    "ghsa": "GHSA-8g5g-mxqh-grgj"
-  },
-  {
-    "id": "CVE-2026-63414",
-    "summary": "Shopify App: Token exchange shop context confusion may allow cross-shop authorization bypass in affected apps",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:39:49Z",
-    "ghsa": "GHSA-6j52-38f8-qhxr"
-  },
-  {
-    "id": "CVE-2026-62290",
-    "summary": "cert-manager: Direct ACME Challenge resources can bypass Issuer DNS01 solver policy and use ClusterIssuer DNS credentials",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:39:41Z",
-    "ghsa": "GHSA-8rvj-mm4h-c258"
-  },
-  {
-    "id": "CVE-2026-9086",
-    "summary": "Keycloak vulnerable to cross-site scripting (xss) via case-insensitive uri validation bypass",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:39:03Z",
-    "ghsa": "GHSA-v3f7-2p4r-mwfw"
   }
 ]
