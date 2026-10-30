@@ -271,7 +271,6 @@ fetch("/partials/ticker.html")
     </div>
   </div>
 
-
   <!-- ============================================================
        2. PANNELLO TATTICO: EMERGENCY LOCKDOWN + ATTIVITÀ SOSPETTE
   ============================================================ -->
@@ -324,7 +323,6 @@ fetch("/partials/ticker.html")
     </div>
 
   </div>
-
 
   <!-- ============================================================
        3. RIGA OPERATIVA: INFRASTRUCTURE STATUS (COMPATTO) + THREAT EVENT LOG
@@ -403,7 +401,6 @@ fetch("/partials/ticker.html")
 
   </div>
 
-
   <!-- ============================================================
        4. MINI THREAT MAP & RADAR INTERCEPTOR (PANORAMICO BASE)
   ============================================================ -->
@@ -450,7 +447,6 @@ fetch("/partials/ticker.html")
 
 </div>
 
-
 <!-- ============================================================
      MODALE LOCKDOWN CON PASSWORD (ESTERNO)
 ============================================================ -->
@@ -475,6 +471,57 @@ fetch("/partials/ticker.html")
       <button id="redirect-login-btn" type="button" style="width: 100%; background: #38bdf8; color: #09090b; border: none; padding: 9px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; cursor: pointer;">CHIUDI</button>
     </div>
   </div>
+</div>
+
+		<div style="display:flex; gap:20px; flex-wrap:wrap;">
+
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Incidenti aperti</h4>
+    <p id="soc-incidents" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
+
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Minacce critiche</h4>
+    <p id="soc-critical" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
+
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Allarmi attivi</h4>
+    <p id="soc-alerts" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
+
+  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+    <h4 style="color:#ffaa00;">Zero‑day monitorati</h4>
+    <p id="soc-zeroday" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
+  </div>
+
+</div>
+
+      <div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff;">Security Score</h3>
+  <p style="color:#ccc; margin-bottom:15px;">
+    Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
+  </p>
+
+  <div id="security-circle" style="
+      width:180px; height:180px; margin:auto; border-radius:50%;
+      background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 20px #00eaffaa;
+  ">
+    <span id="security-score" style="color:#fff; font-size:32px; font-weight:bold;">0</span>
+  </div>
+
+  <p id="security-status" style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
+    Stato: —
+  </p>
 </div>
 
       <!-- ANONYMOUS LIVE OPERATIONS FEED -->
@@ -531,56 +578,6 @@ fetch("/partials/ticker.html")
         startAnonLiveFeed();
         </script>
       </div>
-      <div style="display:flex; gap:20px; flex-wrap:wrap;">
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Incidenti aperti</h4>
-    <p id="soc-incidents" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Minacce critiche</h4>
-    <p id="soc-critical" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Allarmi attivi</h4>
-    <p id="soc-alerts" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Zero‑day monitorati</h4>
-    <p id="soc-zeroday" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-</div>
-
-      <div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #00eaffaa;
-    padding:25px;
-    margin-top:40px;
-    border-radius:8px;
-    box-shadow:0 0 12px #00eaffaa;
-">
-  <h3 style="color:#00eaff;">Security Score</h3>
-  <p style="color:#ccc; margin-bottom:15px;">
-    Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
-  </p>
-
-  <div id="security-circle" style="
-      width:180px; height:180px; margin:auto; border-radius:50%;
-      background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 0 20px #00eaffaa;
-  ">
-    <span id="security-score" style="color:#fff; font-size:32px; font-weight:bold;">0</span>
-  </div>
-
-  <p id="security-status" style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
-    Stato: —
-  </p>
-</div>
 
       <div class="cyber-box" style="
           background:#000814;
