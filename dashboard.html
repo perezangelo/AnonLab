@@ -473,55 +473,122 @@ fetch("/partials/ticker.html")
   </div>
 </div>
 
-		<div style="display:flex; gap:20px; flex-wrap:wrap;">
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Incidenti aperti</h4>
-    <p id="soc-incidents" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Minacce critiche</h4>
-    <p id="soc-critical" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Allarmi attivi</h4>
-    <p id="soc-alerts" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-  <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
-    <h4 style="color:#ffaa00;">Zero‑day monitorati</h4>
-    <p id="soc-zeroday" style="color:#fff; font-size:24px; margin-top:10px;">0</p>
-  </div>
-
-</div>
-
-      <div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #00eaffaa;
-    padding:25px;
-    margin-top:40px;
-    border-radius:8px;
-    box-shadow:0 0 12px #00eaffaa;
+		<!-- ============================================================
+     EXECUTIVE SECURITY POSTURE & KPI TILES
+============================================================ -->
+<div class="soc-card" style="
+  background: #090e17;
+  border: 1px solid #1e293b;
+  border-top: 3px solid #00eaff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
 ">
-  <h3 style="color:#00eaff;">Security Score</h3>
-  <p style="color:#ccc; margin-bottom:15px;">
-    Valutazione complessiva dello stato di sicurezza dell’infrastruttura.
-  </p>
 
-  <div id="security-circle" style="
-      width:180px; height:180px; margin:auto; border-radius:50%;
-      background:conic-gradient(#00eaff 0% 78%, #222 78% 100%);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 0 20px #00eaffaa;
-  ">
-    <span id="security-score" style="color:#fff; font-size:32px; font-weight:bold;">0</span>
+  <!-- HEADER DEL BLOCCO -->
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:1px solid #1e293b; padding-bottom:10px;">
+    <div>
+      <h3 style="margin:0; font-size:0.95rem; color:#00eaff; text-transform:uppercase; letter-spacing:0.04em; font-weight:700;">
+        Posture &amp; Security Metrics
+      </h3>
+      <span style="font-size:0.72rem; color:#94a3b8;">Sintesi esecutiva degli incidenti attivi e indice di sicurezza complessivo</span>
+    </div>
+    <span style="font-family:ui-monospace, monospace; font-size:0.68rem; color:#64748b; background:#030712; padding:3px 8px; border-radius:4px; border:1px solid #1e293b;">
+      REAL-TIME AUDIT
+    </span>
   </div>
 
-  <p id="security-status" style="color:#00eaff; text-align:center; margin-top:15px; font-size:18px; font-weight:bold;">
-    Stato: —
-  </p>
+  <!-- GRIGLIA PRINCIPALE: 4 METRICHE (SX) + SECURITY SCORE GAUGE (DX) -->
+  <div style="display:grid; grid-template-columns: 1fr 280px; gap:20px; align-items:stretch;">
+
+    <!-- 1. GRIGLIA DELLE 4 METRICHE RAPIDE -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:12px;">
+
+      <!-- KPI 1: INCIDENTI APERTI (ARANCIONE) -->
+      <div style="background:#030712; border:1px solid #1e293b; border-left:3px solid #f97316; padding:12px 14px; border-radius:6px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#94a3b8; font-size:0.72rem; font-weight:600; text-transform:uppercase;">Incidenti aperti</span>
+          <span style="font-size:0.90rem;">🔥</span>
+        </div>
+        <p id="soc-incidents" style="font-family:ui-monospace, monospace; color:#f97316; font-size:1.8rem; font-weight:800; margin:8px 0 0 0; line-height:1;">0</p>
+      </div>
+
+      <!-- KPI 2: MINACCE CRITICHE (ROSSO EMERGENZA) -->
+      <div style="background:#030712; border:1px solid #1e293b; border-left:3px solid #ef4444; padding:12px 14px; border-radius:6px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#94a3b8; font-size:0.72rem; font-weight:600; text-transform:uppercase;">Minacce critiche</span>
+          <span style="font-size:0.90rem;">🛑</span>
+        </div>
+        <p id="soc-critical" style="font-family:ui-monospace, monospace; color:#ef4444; font-size:1.8rem; font-weight:800; margin:8px 0 0 0; line-height:1;">0</p>
+      </div>
+
+      <!-- KPI 3: ALLARMI ATTIVI (GIALLO WARNING) -->
+      <div style="background:#030712; border:1px solid #1e293b; border-left:3px solid #eab308; padding:12px 14px; border-radius:6px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#94a3b8; font-size:0.72rem; font-weight:600; text-transform:uppercase;">Allarmi attivi</span>
+          <span style="font-size:0.90rem;">⚠️</span>
+        </div>
+        <p id="soc-alerts" style="font-family:ui-monospace, monospace; color:#eab308; font-size:1.8rem; font-weight:800; margin:8px 0 0 0; line-height:1;">0</p>
+      </div>
+
+      <!-- KPI 4: ZERO-DAY (VIOLA/CYBER) -->
+      <div style="background:#030712; border:1px solid #1e293b; border-left:3px solid #a855f7; padding:12px 14px; border-radius:6px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="color:#94a3b8; font-size:0.72rem; font-weight:600; text-transform:uppercase;">Zero‑day</span>
+          <span style="font-size:0.90rem;">🧪</span>
+        </div>
+        <p id="soc-zeroday" style="font-family:ui-monospace, monospace; color:#a855f7; font-size:1.8rem; font-weight:800; margin:8px 0 0 0; line-height:1;">0</p>
+      </div>
+
+    </div>
+
+    <!-- 2. SECURITY SCORE DONUT GAUGE (DESTRA) -->
+    <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+      
+      <div style="font-size:0.75rem; font-weight:700; color:#00eaff; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:10px;">
+        Security Score
+      </div>
+
+      <!-- ANELLO DINAMICO CON FORO CENTRALE (DONUT GAUGE) -->
+      <!-- Il JS continua ad aggiornare lo stile di #security-circle normalmente -->
+      <div id="security-circle" style="
+          width: 110px;
+          height: 110px;
+          border-radius: 50%;
+          background: conic-gradient(#00eaff 0% 78%, #1e293b 78% 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 16px rgba(0, 234, 255, 0.25);
+          transition: background 0.6s ease;
+      ">
+        <!-- Nucleo interno che crea l'effetto anello circolare moderno -->
+        <div style="
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            background: #030712;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        ">
+          <span id="security-score" style="font-family:ui-monospace, monospace; color:#fff; font-size:1.7rem; font-weight:800; line-height:1;">0</span>
+          <span style="font-size:0.60rem; color:#64748b; font-weight:600; text-transform:uppercase; margin-top:2px;">INDEX</span>
+        </div>
+      </div>
+
+      <!-- STATO SECURITY -->
+      <div id="security-status" style="color:#00eaff; font-size:0.75rem; font-weight:700; margin-top:10px; font-family:ui-monospace, monospace;">
+        Stato: —
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
       <!-- ANONYMOUS LIVE OPERATIONS FEED -->
