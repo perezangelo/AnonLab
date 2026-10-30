@@ -332,7 +332,9 @@ fetch("/partials/ticker.html")
   <div class="soc-ops-grid">
 
     <!-- 1. INFRASTRUCTURE STATUS + LEGENDA COMPATTA (SINISTRA) -->
-    <div class="soc-card" style="border-top:3px solid #34d399; display:flex; flex-direction:column; justify-content:space-between;">
+    <div class="soc-card" style="border-top:3px solid #34d399; display:flex; flex-direction:column; justify-content:space-between; height:100%; box-sizing:border-box;">
+      
+      <!-- CONTENUTO SUPERIORE (HEADER + TILES) -->
       <div>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
           <h2 style="margin:0; font-size:0.86rem; color:#34d399; text-transform:uppercase; letter-spacing:0.04em;">
@@ -342,7 +344,7 @@ fetch("/partials/ticker.html")
         </div>
 
         <!-- GRIGLIA TILES COMPATTA -->
-        <div class="infra-compact-grid" style="margin-bottom: 12px;">
+        <div class="infra-compact-grid">
           
           <!-- TILE 1: SYSTEM BADGE -->
           <div class="infra-tile">
@@ -389,8 +391,8 @@ fetch("/partials/ticker.html")
         </div>
       </div>
 
-      <!-- LEGENDA / INFO BOX INTEGRATO IN BASSO (ALL'INTERNO DELLA CARD) -->
-      <div style="background:#030712; border:1px solid #1e293b; border-radius:6px; padding:8px 12px; font-size:0.70rem; color:#94a3b8; display:flex; justify-content:space-between; align-items:center;">
+      <!-- LEGENDA / INFO BOX INTEGRATO IN BASSO (CON MARGINE SUPERIORE DI DISTACCO) -->
+      <div style="margin-top: 14px; background:#030712; border:1px solid #1e293b; border-radius:6px; padding:8px 12px; font-size:0.70rem; color:#94a3b8; display:flex; justify-content:space-between; align-items:center; box-sizing:border-box;">
         <span>ℹ️ Telemetria nodo perimetrale e sincronizzazione feed attivi in tempo reale.</span>
         <span class="mono" style="color:#34d399;">SEC-OK</span>
       </div>
