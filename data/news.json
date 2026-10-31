@@ -1,5 +1,30 @@
 [
   {
+    "title": "From Beginner to Bug Hunter: Learning Cybersecurity in the AI Era.",
+    "link": "https://www.bleepingcomputer.com/news/security/from-beginner-to-bug-hunter-learning-cybersecurity-in-the-ai-era/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/10/30/tryhackme-laptop.jpg"
+  },
+  {
+    "title": "Chainalysis discloses data breach from \"offensive agentic techniques\"",
+    "link": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/03/18/Blockchain-2.jpg"
+  },
+  {
+    "title": "Chainalysis Confirms Intrusion Into Internal Tools and Exposure of Customer Identity Data",
+    "link": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFRN0kXDPnLLvRBYqNZG4BTyUK0EaSxRtepYOQ-msXGAqu1IW8t2cdnav4ANAO8fXwY_-ug6Ictj29WcseInPhJmYOwpgcinvc8KO36A8HK6Wo41lgztgyH2jb9hGg7bVyWZ4A-adjBYuTi-hOJxMALa7myG172BWKwB_SyvrfMeqxH_3DdcyJxYwXFIKG/s1600/chain.jpg"
+  },
+  {
+    "title": "Syrian Hacker Gets Prison Time in US After Over a Decade on the Run",
+    "link": "https://www.securityweek.com/syrian-hacker-gets-prison-time-in-us-after-over-a-decade-on-the-run/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-sentenced-prison.jpeg"
+  },
+  {
+    "title": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access",
+    "link": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeqP4vPt6j2lLPFj77A_1OthmSKb8mItfBrX_q8sQCAUVgTry1FxKizDI2SCLS4CglfjgbVkaMDN8ainqoOZm2pdaF6xw7sU4STZhwIFPCLSz84YXQTVx2tquPo7YJsZhgOWcD3V_w5td9BA_vVuOu1cFcrgL3SXyLF4E24IyGotrzDcbJ-M1mA85biDuW/s1600/1000120841.jpg"
+  },
+  {
     "title": "A Shared ChatGPT Link Could Run Attacker Code in Your Session and Read Private Chats",
     "link": "https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEplEzMjNIg5IBNIX4uz_WyVhtJqqbKICvvpW5LbwPEsQVd4ypSQC1ISnXoR0pMLlQEF4erNUIf-5-ELvBXIE8VH2Iv7dCPCuaZAFVeS9VIITs_5e_77DwtIvo3ExUcfJC_aT4x3FDD3AmTKeQFKnOrufXorlbiHOJNO-pUhwzBNwL98r-2JSW2CWiTBs/s1600/chatgpt.jpg"
@@ -123,30 +148,5 @@
     "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
     "link": "https://www.cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog",
     "image": ""
-  },
-  {
-    "title": "Why Urgent Security Fixes Aren't Fixed. Observe, Prove, Act, Confirm Gets Them Moving",
-    "link": "https://thehackernews.com/2026/10/why-urgent-security-fixes-arent-fixed.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitJWSYL167QzDoyvN2y9DAuXmFFe0en34dEHp-I2sSVLEPIfljdlRfeIthyMQUgSvf9AfwW4p-solbE5zH3cKpfeLKWg-IqPnVdHbKQ99Bw91fDAoqHx3E9mlpNmXYA5i3RnaTYxZYkZcwbeY31O4CljtFQYp2JPLTmJo1BI09Al9Kh-CDtzFubVly7hM/s1600/cp.jpg"
-  },
-  {
-    "title": "Microsoft finally fixes VPN issues caused by September updates",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-finally-fixes-vpn-issues-caused-by-september-updates/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Windows_headpic.jpg"
-  },
-  {
-    "title": "Drupal Commerce Core Vulnerability Exploited Against Online Stores",
-    "link": "https://www.securityweek.com/drupal-commerce-core-vulnerability-exploited-against-online-stores/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
-  },
-  {
-    "title": "Syrian Hacker Behind Fake Tweet That Triggered $136 Billion Market Drop Gets 42 Months in Prison",
-    "link": "https://thehackernews.com/2026/10/syrian-hacker-behind-fake-tweet-that.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxhyw9NKYcR8Nkb28O8I-MA0sr3NhXC_Xr7gjpFqZKFd-29F8pGa5TCuIL2GTBPLAPzQ9iW5DsU_2zK-pUWIar_TdJdKiQMsptNjA-XxvVwMACBSQR9tW_qAC8d7I21YdqraYoY5LdWCRE8vKXjrxYCEW8X7ZbPulwCzdTdxODqnMuJbqQUZStRMRiKHc/s1600/tweets.jpg"
-  },
-  {
-    "title": "Invisible \u201cSMS of Death\u201d crashes Android phone, traps victim in reboot loop until factory reset",
-    "link": "https://cybernews.com/security/android-sms-of-death-critical-vulnerability/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/10/Android-phones-can-be-bricked.jpg"
   }
 ]
