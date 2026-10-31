@@ -2954,6 +2954,10 @@ function initUpdateNotification() {
   });
 }
 
+	  // Chiusura automatica dopo 12 secondi (tempo ottimale di lettura)
+  setTimeout(dismissToast, 12000);
+}
+	
 // Avvia la notifica dopo 2,5 secondi dal caricamento della pagina
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(initUpdateNotification, 2500);
