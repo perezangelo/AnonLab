@@ -2897,7 +2897,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-	// ============================================================
+// ============================================================
 // WIDGET AGGIORNAMENTI DINAMICO (POSIZIONE: BASSO A SINISTRA)
 // ============================================================
 function initUpdateNotification() {
@@ -2937,8 +2937,6 @@ function initUpdateNotification() {
       <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
         Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, <strong>VIDEO cybersecurity-basics</strong> e rivisto i moduli della <strong>SOC Dashboard</strong>.
       </p>
-      <a href="/osint-tools-explained.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
-      </a>
       <a href="/cybersecurity-basics.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
         Esplora le novità →
       </a>
@@ -2947,17 +2945,27 @@ function initUpdateNotification() {
 
   document.body.appendChild(toastContainer);
 
-  // Gestione chiusura notifica e salvataggio in localStorage
+  // Funzione interna per rimuovere il toast (registrata nel localStorage se chiuso)
+  const closeToast = (markAsRead = false) => {
+    if (toastContainer && toastContainer.parentNode) {
+      toastContainer.remove();
+    }
+    if (markAsRead) {
+      localStorage.setItem("anonlab_last_update_id", currentUpdateId);
+    }
+  };
+
+  // Gestione chiusura manuale tramite il pulsante "✕"
   document.getElementById("close-toast-btn").addEventListener("click", () => {
-    toastContainer.remove();
-    localStorage.setItem("anonlab_last_update_id", currentUpdateId);
+    closeToast(true);
   });
+
+  // Chiusura automatica dopo 12 secondi (senza bloccare il localStorage per permettere di rivederlo se non interagito)
+  setTimeout(() => {
+    closeToast(false);
+  }, 12000);
 }
 
-	  // Chiusura automatica dopo 12 secondi (tempo ottimale di lettura)
-  setTimeout(dismissToast, 12000);
-}
-	
 // Avvia la notifica dopo 2,5 secondi dal caricamento della pagina
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(initUpdateNotification, 2500);
