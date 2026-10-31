@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-5xjx-3w67-w9x9",
-    "summary": "pypi-publish action revocation of CA in the chain that Sigstore uses in Trusted Publishing and Digital Attestations for PyPI",
-    "severity": "CRITICAL",
-    "published": "2026-10-30T20:24:24Z",
-    "ghsa": "GHSA-5xjx-3w67-w9x9"
-  },
-  {
-    "id": "CVE-2026-59978",
-    "summary": "AdminNeo: version-cache array injection causes persistent denial of service",
+    "id": "CVE-2026-118761",
+    "summary": "Kubeflow Pipelines: Pipeline archive upload allows decompression bomb to exhaust server memory",
     "severity": "HIGH",
-    "published": "2026-10-30T18:53:08Z",
-    "ghsa": "GHSA-jm85-8cpp-9cjc"
+    "published": "2026-10-30T23:13:38Z",
+    "ghsa": "GHSA-8fmv-6rg5-5924"
   },
   {
-    "id": "CVE-2026-119284",
-    "summary": "joserfc: Compact JWS size guard allocates attacker-controlled segments before rejection",
+    "id": "CVE-2026-118759",
+    "summary": "Kubeflow Pipelines: Run-log endpoint permits unauthorized access to pod logs",
+    "severity": "HIGH",
+    "published": "2026-10-30T23:13:29Z",
+    "ghsa": "GHSA-wg5q-x4j9-qm54"
+  },
+  {
+    "id": "CVE-2026-119203",
+    "summary": "pypdf has possible infinite loop when hitting EOF in standard xref table during trailer search",
+    "severity": "HIGH",
+    "published": "2026-10-30T23:13:16Z",
+    "ghsa": "GHSA-5849-834g-hvw5"
+  },
+  {
+    "id": "CVE-2026-119204",
+    "summary": "pypdf has possible large memory usage when parsing page tree",
+    "severity": "HIGH",
+    "published": "2026-10-30T23:13:01Z",
+    "ghsa": "GHSA-cggf-277g-3q54"
+  },
+  {
+    "id": "CVE-2026-119205",
+    "summary": "pypdf has possible infinite loop when cloning dictionaries",
+    "severity": "HIGH",
+    "published": "2026-10-30T23:12:20Z",
+    "ghsa": "GHSA-mfr5-77xh-9j7h"
+  },
+  {
+    "id": "CVE-2026-118772",
+    "summary": "joi: quadratic-time split in `string().email({ multiple: true })` allows denial of service",
+    "severity": "HIGH",
+    "published": "2026-10-30T23:10:23Z",
+    "ghsa": "GHSA-4528-x5fx-h6hg"
+  },
+  {
+    "id": "CVE-2026-119202",
+    "summary": "@hapi/content: quadratic-time parsing of Content-Disposition parameters allows denial of service",
+    "severity": "HIGH",
+    "published": "2026-10-30T23:10:13Z",
+    "ghsa": "GHSA-8494-f6mr-cjpv"
+  },
+  {
+    "id": "CVE-2026-118764",
+    "summary": "minimatch has potential denial of service via globparts amplification",
     "severity": "MODERATE",
-    "published": "2026-10-30T14:54:25Z",
-    "ghsa": "GHSA-9pg5-8c7x-5hfx"
+    "published": "2026-10-30T23:09:55Z",
+    "ghsa": "GHSA-g3hv-75wg-m249"
   },
   {
-    "id": "CVE-2026-119283",
-    "summary": "joserfc: Unbounded JWE General JSON `recipients` Array Leads to CPU Exhaustion (DoS) via Repeated RSA Private-Key Decryption",
-    "severity": "HIGH",
-    "published": "2026-10-30T14:54:20Z",
-    "ghsa": "GHSA-jpxq-7h8p-2q76"
-  },
-  {
-    "id": "GHSA-f3fj-9625-rv3m",
-    "summary": "charmbracelet/soft-serve: Race in `SetPrivate` leaves a private repository readable by unauthenticated users",
+    "id": "CVE-2026-118773",
+    "summary": "Glob: AbortSignal cancellation bypass allows post-timeout filesystem traversal",
     "severity": "MODERATE",
-    "published": "2026-10-30T14:53:57Z",
-    "ghsa": "GHSA-f3fj-9625-rv3m"
+    "published": "2026-10-30T23:09:11Z",
+    "ghsa": "GHSA-3g3m-2fjr-6pw4"
   },
   {
-    "id": "GHSA-fgxm-5hvv-x4vh",
-    "summary": "charmbracelet/soft-serve HTTP responses disclose the existence and names of private repositories",
-    "severity": "MODERATE",
-    "published": "2026-10-30T14:42:35Z",
-    "ghsa": "GHSA-fgxm-5hvv-x4vh"
-  },
-  {
-    "id": "CVE-2026-119282",
-    "summary": "@nx/maven and @nx/gradle have OS command injection via nx.json plugin options",
+    "id": "CVE-2026-116672",
+    "summary": "Authlib RFC 7592 examples omit registration-access-token client binding",
     "severity": "HIGH",
-    "published": "2026-10-30T14:42:14Z",
-    "ghsa": "GHSA-qm8w-vx34-5j9j"
-  },
-  {
-    "id": "CVE-2026-118664",
-    "summary": "decode-uri-component vulnerable to denial of service via quadratic replacement of percent-encoded runs",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:41:28Z",
-    "ghsa": "GHSA-qr28-fpjm-wq7f"
-  },
-  {
-    "id": "GHSA-vpp8-g58w-m8mp",
-    "summary": "Twisted: Unauthenticated Remote Denial of Service in the Twisted HTTP/2 Server via Rapid Stream Reset",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:41:06Z",
-    "ghsa": "GHSA-vpp8-g58w-m8mp"
-  },
-  {
-    "id": "CVE-2026-115907",
-    "summary": "zip: legacy Shrink/Reduce/Implode decoder: denial of service from attacker-controlled ZIP64 uncompressed size",
-    "severity": "HIGH",
-    "published": "2026-10-29T16:40:19Z",
-    "ghsa": "GHSA-9hj8-73fh-9963"
+    "published": "2026-10-30T23:09:04Z",
+    "ghsa": "GHSA-c73q-w75p-j82v"
   }
 ]
