@@ -469,13 +469,17 @@ function anonlabPulse() {
 // WIDGET AGGIORNAMENTI DINAMICO (POSIZIONE: BASSO A SINISTRA)
 // ============================================================
 function initUpdateNotification() {
-  const currentUpdateId = "upd_2026_10_30"; // Cambia questo ID ogni volta che pubblichi novità importanti
+  const currentUpdateId = "upd_2026_10_30"; 
   const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
 
-  // Se l'utente ha già chiuso questa specifica notifica, non mostrarla più
+  // Se l'utente ha già chiuso questa specifica notifica, esci
   if (lastSeenUpdate === currentUpdateId) return;
 
-  // Crea dinamicamente l'elemento HTML del Toast
+  // Rimuovi eventuali duplicati preesistenti
+  const existingToast = document.getElementById("anonlab-update-toast");
+  if (existingToast) existingToast.remove();
+
+  // Crea l'elemento Toast
   const toastContainer = document.createElement("div");
   toastContainer.id = "anonlab-update-toast";
   toastContainer.innerHTML = `
@@ -513,28 +517,34 @@ function initUpdateNotification() {
 
   document.body.appendChild(toastContainer);
 
-  // Funzione interna per rimuovere il toast (registrata nel localStorage se chiuso)
-  const closeToast = (markAsRead = false) => {
-    if (toastContainer && toastContainer.parentNode) {
-      toastContainer.remove();
-    }
-    if (markAsRead) {
-      localStorage.setItem("anonlab_last_update_id", currentUpdateId);
+  // Funzione di rimozione sicura
+  const removeToast = () => {
+    const el = document.getElementById("anonlab-update-toast");
+    if (el && el.parentNode) {
+      el.parentNode.removeChild(el);
     }
   };
 
-  // Gestione chiusura manuale tramite il pulsante "✕"
-  document.getElementById("close-toast-btn").addEventListener("click", () => {
-    closeToast(true);
-  });
+  // Chiusura manuale con il pulsante X
+  const closeBtn = document.getElementById("close-toast-btn");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      removeToast();
+      localStorage.setItem("anonlab_last_update_id", currentUpdateId);
+    });
+  }
 
-  // Chiusura automatica dopo 12 secondi (senza bloccare il localStorage per permettere di rivederlo se non interagito)
+  // Chiusura automatica garantita dopo 12 secondi
   setTimeout(() => {
-    closeToast(false);
+    removeToast();
   }, 12000);
 }
 
-// Avvia la notifica dopo 2,5 secondi dal caricamento della pagina
-document.addEventListener("DOMContentLoaded", () => {
+// Avvio sicuro indipendente dallo stato del DOM
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(initUpdateNotification, 2500);
+  });
+} else {
   setTimeout(initUpdateNotification, 2500);
-});
+}
