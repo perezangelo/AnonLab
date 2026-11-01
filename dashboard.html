@@ -612,67 +612,87 @@ fetch("/partials/ticker.html")
 
 </div>
 
-      document.addEventListener("DOMContentLoaded", () => {
-    const box = document.getElementById("anon-live-feed");
-    if (!box) return;
+      <!-- ANONYMOUS LIVE OPERATIONS FEED -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+    <h3 style="color:#00eaff;">Anonymous — Live Operations Feed</h3>
 
-    async function loadAnonOps() {
-        try {
-            const res = await fetch("https://angelonline.altervista.org/soc/anon_live_ops.php?t=" + Date.now());
-            if (!res.ok) throw new Error("Errore HTTP: " + res.status);
-            
-            const data = await res.json();
+    <p style="color:#ccc; margin-bottom:15px;">
+      Attività operative, comunicati e movimenti del collettivo Anonymous monitorati in tempo reale.
+    </p>
 
-            if (!Array.isArray(data) || data.length === 0) {
-                box.innerHTML = "<span style='color:#888;'>Nessuna operazione recente registrata.</span>";
-                return;
-            }
+    <!-- Contenitore in cui verrà caricato il feed -->
+    <div id="anon-live-feed" style="color:#fff; line-height:1.7;">
+      Caricamento feed...
+    </div>
 
-            let htmlContent = "";
-            data.forEach(item => {
-                // Decostruzione dei 6 elementi ricevuti dal PHP
-                const [operazione, ora, fonte, link, risk, thumbnail] = item;
+    <!-- SCRIPT CORRETTAMENTE APERTO E CHIUSO -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => { 
+        const box = document.getElementById("anon-live-feed"); 
+        if (!box) return; 
+
+        async function loadAnonOps() { 
+            try { 
+                const res = await fetch("https://angelonline.altervista.org/soc/anon_live_ops.php?t=" + Date.now()); 
+                if (!res.ok) throw new Error("Errore HTTP: " + res.status); 
                 
-                let riskColor = "#00eaff";
-                if (risk === "ALTO") riskColor = "#ff3333";
-                if (risk === "MEDIO") riskColor = "#ffaa00";
-                if (risk === "BASSO") riskColor = "#55ff55";
+                const data = await res.json(); 
+                if (!Array.isArray(data) || data.length === 0) { 
+                    box.innerHTML = "<span style='color:#888;'>Nessuna operazione recente registrata.</span>"; 
+                    return; 
+                } 
 
-                // Gestione dell'immagine a fianco (se l'anteprima esiste ed è valida)
-                let imgHtml = "";
-                if (thumbnail && thumbnail.startsWith("http")) {
-                    imgHtml = `<img src="${thumbnail}" alt="Thumbnail operazione" style="width:60px; height:60px; object-fit:cover; border-radius:4px; flex-shrink:0; border:1px solid #00eaff44;">`;
-                }
+                let htmlContent = ""; 
+                data.forEach(item => { 
+                    const [operazione, ora, fonte, link, risk, thumbnail] = item; 
+                    
+                    let riskColor = "#00eaff"; 
+                    if (risk === "ALTO") riskColor = "#ff3333"; 
+                    if (risk === "MEDIO") riskColor = "#ffaa00"; 
+                    if (risk === "BASSO") riskColor = "#55ff55"; 
 
-                htmlContent += `
-                    <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px; border-left: 2px solid ${riskColor}; padding: 10px; background: rgba(0,232,255,0.02); border-radius: 4px;">
-                        ${imgHtml}
-                        <div style="flex-grow:1;">
-                            <strong style="color:#00eaff; font-size:0.95rem;">${operazione}</strong>
-                            <span style="font-size:0.7rem; background:${riskColor}22; color:${riskColor}; padding:2px 5px; border-radius:3px; margin-left:6px; border:1px solid ${riskColor}55;">
-                                ${risk}
-                            </span><br>
-                            <span style="color:#7fdfff; font-size:0.8rem;">${ora} • Fonte: ${fonte}</span><br>
-                            <a href="${link}" target="_blank" rel="noopener noreferrer" style="color:#00eaff; font-size:0.8rem; text-decoration:underline;">Visualizza dettagli →</a>
+                    let imgHtml = ""; 
+                    if (thumbnail && thumbnail.startsWith("http")) { 
+                        imgHtml = `<img src="${thumbnail}" alt="Thumbnail operazione" style="width:60px; height:60px; object-fit:cover; border-radius:4px; flex-shrink:0; border:1px solid #00eaff44;">`; 
+                    } 
+
+                    htmlContent += `
+                        <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px; border-left: 2px solid ${riskColor}; padding: 10px; background: rgba(0,232,255,0.02); border-radius: 4px;">
+                            ${imgHtml}
+                            <div style="flex-grow:1;">
+                                <strong style="color:#00eaff; font-size:0.95rem;">${operazione}</strong> 
+                                <span style="font-size:0.7rem; background:${riskColor}22; color:${riskColor}; padding:2px 5px; border-radius:3px; margin-left:6px; border:1px solid ${riskColor}55;">
+                                    ${risk}
+                                </span><br>
+                                <span style="color:#7fdfff; font-size:0.8rem;">${ora} • Fonte: ${fonte}</span><br>
+                                <a href="${link}" target="_blank" rel="noopener noreferrer" style="color:#00eaff; font-size:0.8rem; text-decoration:underline;">Visualizza dettagli →</a>
+                            </div>
                         </div>
-                    </div>
-                `;
-            });
+                    `; 
+                }); 
+                
+                box.innerHTML = htmlContent; 
+            } catch (error) { 
+                console.error("Errore Anonymous Live Feed:", error); 
+                if (box.innerHTML.includes("Caricamento")) { 
+                    box.innerHTML = "<span style='color:#ff5555;'>Impossibile sincronizzare il feed live.</span>"; 
+                } 
+            } 
+        } 
 
-            box.innerHTML = htmlContent;
-
-        } catch (error) {
-            console.error("Errore Anonymous Live Feed:", error);
-            if (box.innerHTML.includes("Caricamento")) {
-                box.innerHTML = "<span style='color:#ff5555;'>Impossibile sincronizzare il feed live.</span>";
-            }
-        }
-    }
-
-    loadAnonOps();
-    setInterval(loadAnonOps, 20000);
-});
-
+        loadAnonOps(); 
+        setInterval(loadAnonOps, 20000); 
+    });
+    </script>
+</div>
+		
       <div class="cyber-box" style="
           background:#000814;
           border:1px solid #00eaffaa;
