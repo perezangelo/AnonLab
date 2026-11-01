@@ -4,21 +4,70 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
 
 jobs:
   notify-indexnow:
     runs-on: ubuntu-latest
     steps:
-      - name: Submit URLs to IndexNow
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Submit All Sitemap URLs to IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
-          curl -X POST "https://api.indexnow.org/indexnow" \
-          -H "Content-Type: application/json" \
-          -d '{
-            "host": "anonlab.it",
-            "key": "f3b9e4c2d7a14e8fb92c6d1a3f7e5c4b",
-            "keyLocation": "https://anonlab.it/indexnow-key.txt",
-            "urlList": [
-              "https://anonlab.it/",
-              "https://anonlab.it/dashboard.html"
-            ]
-          }'
+          php -r '
+          $key = getenv("INDEXNOW_KEY") ?: "f3b9e4c2d7a14e8fb92c6d1a3f7e5c4b";
+          $host = "anonlab.it";
+          $sitemaps = [
+              "https://anonlab.it/sitemap-static.xml",
+              "https://angelonline.altervista.org/sitemap.php"
+          ];
+
+          $allUrls = [];
+          foreach ($sitemaps as $url) {
+              $content = @file_get_contents($url);
+              if ($content === false) continue;
+              $xml = @simplexml_load_string($content);
+              if ($xml === false) continue;
+              
+              if (isset($xml->url)) {
+                  foreach ($xml->url as $el) {
+                      $loc = trim((string)$el->loc);
+                      if (!empty($loc)) $allUrls[] = $loc;
+                  }
+              }
+          }
+
+          $urls = array_values(array_unique($allUrls));
+          if (empty($urls)) {
+              echo "Nessun URL trovato nelle sitemap.\n";
+              exit(0);
+          }
+
+          $payload = [
+              "host" => $host,
+              "key" => $key,
+              "keyLocation" => "https://{$host}/f3b9e4c2d7a14e8fb92c6d1a3f7e5c4b.txt",
+              "urlList" => $urls
+          ];
+
+          $options = [
+              "http" => [
+                  "header" => "Content-Type: application/json; charset=utf-8\r\n",
+                  "method" => "POST",
+                  "content" => json_encode($payload),
+                  "timeout" => 15
+              ]
+          ];
+
+          $context = stream_context_create($options);
+          $res = @file_get_contents("https://api.indexnow.org/indexnow", false, $context);
+
+          echo "Notificati con successo " . count($urls) . " URL a IndexNow.\n";
+          '
