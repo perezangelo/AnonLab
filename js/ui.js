@@ -339,7 +339,8 @@ function anonlabSet(id, value) {
 ============================================================ */
 
 function loadCounterData() {
-    anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) + "&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
+    // Invia un ping periodico per mantenere lo stato "online" e aggiornare l'interfaccia
+    anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore loadCounterData:", err); });
 }
@@ -347,26 +348,19 @@ function loadCounterData() {
 function initVisitCounter() {
     ANONLAB.vid = anonlabVisitId();
 
-    // 1) Registra la visita e aggiorna l'interfaccia
+    // 1) Registra la visita UNA SOLA VOLTA all'apertura della pagina
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore update.php:", err); });
 
-    // 2) Carica subito i dati
-    loadCounterData();
-
-    // 3) Timers periodici (evita duplicati)
+    // 2) Timers periodici ottimizzati
     if (!window.__anonlabTimersStarted) {
         window.__anonlabTimersStarted = true;
         
-        setInterval(function () {
-            anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
-                .catch(function () {});
-        }, ANONLAB.pingMs);
-
-        setInterval(loadCounterData, ANONLAB.pollMs);
+        // Mantiene il battito e aggiorna i dati ogni 30 secondi (senza incrementare le visite)
+        setInterval(loadCounterData, 30000);
 
         anonlabPulse();
     }
