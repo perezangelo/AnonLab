@@ -245,24 +245,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ============================================================
-   I) HEADER SCROLL EFFECT
+   I) HEADER SCROLL EFFECT (Spostato dentro window scope sicuro)
 ============================================================ */
 
-let lastScroll = 0;
+window.addEventListener("DOMContentLoaded", () => {
+    let lastScrollUi = 0;
+    window.addEventListener("scroll", () => {
+        const header = document.querySelector(".site-header");
+        if (!header) return;
 
-window.addEventListener("scroll", () => {
-    const header = document.querySelector(".site-header");
-    if (!header) return;
+        const current = window.scrollY;
 
-    const current = window.scrollY;
+        if (current > 20 && lastScrollUi <= 20) {
+            header.classList.add("scrolled-header");
+        } else if (current <= 20 && lastScrollUi > 20) {
+            header.classList.remove("scrolled-header");
+        }
 
-    if (current > 20 && lastScroll <= 20) {
-        header.classList.add("scrolled-header");
-    } else if (current <= 20 && lastScroll > 20) {
-        header.classList.remove("scrolled-header");
-    }
-
-    lastScroll = current;
+        lastScrollUi = current;
+    });
 });
 
 /* ============================================================
@@ -339,7 +340,6 @@ function anonlabSet(id, value) {
 ============================================================ */
 
 function loadCounterData() {
-    // Invia un ping periodico per mantenere lo stato "online" e aggiornare l'interfaccia
     anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore loadCounterData:", err); });
@@ -348,20 +348,15 @@ function loadCounterData() {
 function initVisitCounter() {
     ANONLAB.vid = anonlabVisitId();
 
-    // 1) Registra la visita UNA SOLA VOLTA all'apertura della pagina
     anonlabGet(ANONLAB.api + "update.php?page=" + encodeURIComponent(anonlabPage()) +
                "&vid=" + encodeURIComponent(ANONLAB.vid) +
                "&device=" + anonlabDevice() + "&t=" + Date.now())
         .then(updateCounterUI)
         .catch(function (err) { console.error("Errore update.php:", err); });
 
-    // 2) Timers periodici ottimizzati
     if (!window.__anonlabTimersStarted) {
         window.__anonlabTimersStarted = true;
-        
-        // Mantiene il battito e aggiorna i dati ogni 30 secondi (senza incrementare le visite)
         setInterval(loadCounterData, 30000);
-
         anonlabPulse();
     }
 }
@@ -372,7 +367,6 @@ function initVisitCounter() {
 function updateCounterUI(data) {
     if (!data || data.error) return;
 
-    /* 1. Numeri principali */
     anonlabSet("visit-unique",   anonlabNum(data.unique));
     anonlabSet("visit-counter", anonlabNum(data.total));
     anonlabSet("visit-today",   anonlabNum(data.today ? data.today.visits : 0));
@@ -384,7 +378,6 @@ function updateCounterUI(data) {
     var pageViews = (pagesObj[currentPageKey] !== undefined) ? pagesObj[currentPageKey] : 0;
     anonlabSet("current-page-count", anonlabNum(pageViews));
 
-    /* 2. Dispositivi di oggi + barre proporzionali */
     var today   = data.today || {};
     var mobile  = Number(today.mobile) || 0;
     var desktop = Number(today.desktop) || 0;
@@ -407,7 +400,6 @@ function updateCounterUI(data) {
     if (barDesktop) barDesktop.style.width = percDesktop + "%";
     if (barTablet)  barTablet.style.width  = percTablet + "%";
 
-    /* 3. Elenco delle pagine viste */
     var list = document.getElementById("pages-list");
     if (list) {
         var pages = data.pages || {};
@@ -431,7 +423,6 @@ function updateCounterUI(data) {
         });
     }
 
-    /* 4. Saluto, data e ora */
     var ora = new Date().getHours();
     var saluto = "Ciao!";
     if (ora < 12) saluto = "Buongiorno!";
@@ -457,88 +448,79 @@ function anonlabPulse() {
         acceso = !acceso;
         dot.style.opacity = acceso ? "1" : ".35";
     }, 900);
-} // ⭐ Chiusura corretta aggiunta per eliminare l'Unexpected end of input!
-
-// ============================================================
-// WIDGET AGGIORNAMENTI DINAMICO (POSIZIONE: BASSO A SINISTRA)
-// ============================================================
-function initUpdateNotification() {
-  const currentUpdateId = "upd_2026_10_30"; 
-  const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
-
-  // Se l'utente ha già chiuso questa specifica notifica, esci
-  if (lastSeenUpdate === currentUpdateId) return;
-
-  // Rimuovi eventuali duplicati preesistenti
-  const existingToast = document.getElementById("anonlab-update-toast");
-  if (existingToast) existingToast.remove();
-
-  // Crea l'elemento Toast
-  const toastContainer = document.createElement("div");
-  toastContainer.id = "anonlab-update-toast";
-  toastContainer.innerHTML = `
-    <div style="
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 9990;
-      max-width: 320px;
-      background: #030712;
-      border: 1px solid #00eaff;
-      border-radius: 8px;
-      padding: 14px 16px;
-      box-shadow: 0 0 20px rgba(0, 234, 255, 0.25);
-      font-family: Arial, sans-serif;
-      animation: fadeInLeft 0.4s ease;
-    ">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <span style="font-family: ui-monospace, monospace; font-size: 0.70rem; color: #34d399; background: #0a0f14; padding: 2px 6px; border-radius: 4px; border: 1px solid #1e293b;">
-          ● SYSTEM REVISION
-        </span>
-        <button id="close-toast-btn" style="background: none; border: none; color: #64748b; cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 4px;">✕</button>
-      </div>
-      <p style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; font-weight: 600;">
-        Piattaforma in costante evoluzione
-      </p>
-      <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
-        Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, <strong>VIDEO cybersecurity-basics</strong> e rivisto i moduli della <strong>SOC Dashboard</strong>.
-      </p>
-      <a href="/cybersecurity-basics.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
-        Esplora le novità →
-      </a>
-    </div>
-  `;
-
-  document.body.appendChild(toastContainer);
-
-  // Funzione di rimozione sicura
-  const removeToast = () => {
-    const el = document.getElementById("anonlab-update-toast");
-    if (el && el.parentNode) {
-      el.parentNode.removeChild(el);
-    }
-  };
-
-  // Chiusura manuale con il pulsante X
-  const closeBtn = document.getElementById("close-toast-btn");
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      removeToast();
-      localStorage.setItem("anonlab_last_update_id", currentUpdateId);
-    });
-  }
-
-  // Chiusura automatica garantita dopo 12 secondi
-  setTimeout(() => {
-    removeToast();
-  }, 12000);
 }
 
-// Avvio sicuro indipendente dallo stato del DOM
+/* ============================================================
+// WIDGET AGGIORNAMENTI DINAMICO (PROTETTO DA LOOP / FLASHING)
+============================================================ */
+function initUpdateNotification() {
+    const currentUpdateId = "upd_2026_10_30"; 
+    const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
+
+    if (lastSeenUpdate === currentUpdateId) return;
+    if (document.getElementById("anonlab-update-toast")) return;
+
+    const toastContainer = document.createElement("div");
+    toastContainer.id = "anonlab-update-toast";
+    toastContainer.innerHTML = `
+        <div style="
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9990;
+            max-width: 320px;
+            background: #030712;
+            border: 1px solid #00eaff;
+            border-radius: 8px;
+            padding: 14px 16px;
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.25);
+            font-family: Arial, sans-serif;
+            animation: fadeInLeft 0.4s ease;
+        ">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-family: ui-monospace, monospace; font-size: 0.70rem; color: #34d399; background: #0a0f14; padding: 2px 6px; border-radius: 4px; border: 1px solid #1e293b;">
+                    ● SYSTEM REVISION
+                </span>
+                <button id="close-toast-btn" style="background: none; border: none; color: #64748b; cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 4px;">✕</button>
+            </div>
+            <p style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; font-weight: 600;">
+                Piattaforma in costante evoluzione
+            </p>
+            <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
+                Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, <strong>VIDEO cybersecurity-basics</strong> e rivisto i moduli della <strong>SOC Dashboard</strong>.
+            </p>
+            <a href="/cybersecurity-basics.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
+                Esplora le novità →
+            </a>
+        </div>
+    `;
+
+    document.body.appendChild(toastContainer);
+
+    const removeToast = () => {
+        const el = document.getElementById("anonlab-update-toast");
+        if (el && el.parentNode) {
+            el.parentNode.removeChild(el);
+        }
+    };
+
+    const closeBtn = document.getElementById("close-toast-btn");
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            removeToast();
+            localStorage.setItem("anonlab_last_update_id", currentUpdateId);
+        });
+    }
+
+    setTimeout(() => {
+        removeToast();
+    }, 12000);
+}
+
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(initUpdateNotification, 2500);
-  });
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(initUpdateNotification, 2500);
+    });
 } else {
-  setTimeout(initUpdateNotification, 2500);
+    setTimeout(initUpdateNotification, 2500);
 }
