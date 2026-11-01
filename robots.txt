@@ -5,12 +5,11 @@ User-agent: *
 Allow: /
 
 # ============================================================
-# OTTIMIZZAZIONE CRAWL BUDGET
+# OTTIMIZZAZIONE CRAWL BUDGET & FILE PRIVATI
 # ============================================================
 Disallow: /*.map$
 Disallow: /*.tmp$
 Disallow: /*.bak$
-Disallow: /img/*.svg$
 Disallow: /api/
 Disallow: /backend/
 Disallow: /private/
@@ -19,50 +18,29 @@ Disallow: /logs/
 Disallow: /phpmyadmin/
 
 # ============================================================
-# PARAMETRI DA IGNORARE (evita duplicati)
-# ============================================================
-Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content /
-Clean-param: fbclid /
-Clean-param: ref /
-Clean-param: gclid /
-Clean-param: mc_cid&mc_eid /
-
-# ============================================================
-# GOOGLEBOT (WEB)
+# GOOGLEBOT (WEB, IMAGES, NEWS, ADSENSE)
 # ============================================================
 User-agent: Googlebot
 Allow: /
 
-# ============================================================
-# GOOGLE NEWS — sezioni editoriali
-# ============================================================
 User-agent: Googlebot-News
 Allow: /
 Allow: /news.html
 Allow: /cyber.html
 Allow: /tech.html
 
-# ============================================================
-# GOOGLE IMAGES — indicizzazione immagini
-# ============================================================
 User-agent: Googlebot-Image
 Allow: /img/
 Allow: /assets/
 Allow: /media/
 
-# ============================================================
-# GOOGLE ADSENSE — consigliato
-# ============================================================
 User-agent: Mediapartners-Google
 Allow: /
 
 # ============================================================
-# BING / YANDEX / ALTRI
+# BING / DUCKDUCKGO / BAIDU
 # ============================================================
 User-agent: Bingbot
-Allow: /
-
-User-agent: Yandex
 Allow: /
 
 User-agent: DuckDuckBot
@@ -72,6 +50,17 @@ User-agent: Baiduspider
 Disallow: /
 
 # ============================================================
-# SITEMAP PRINCIPALE (UNA SOLA)
+# YANDEX (Gestione parametri puliti)
+# ============================================================
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content /
+Clean-param: fbclid /
+Clean-param: ref /
+Clean-param: gclid /
+Clean-param: mc_cid&mc_eid /
+
+# ============================================================
+# SITEMAP INDEX PRINCIPALE
 # ============================================================
 Sitemap: https://anonlab.it/sitemap.xml
