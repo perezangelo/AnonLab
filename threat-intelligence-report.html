@@ -26,15 +26,18 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 <style>
-body { background:#0a0a0a; color:#e0e0e0; font-family:Arial, sans-serif; line-height:1.7; padding:20px; }
+body { background:#0a0a0a; color:#e0e0e0; font-family:Arial; line-height:1.7; padding:20px; }
 h1, h2, h3 { color:#00eaff; margin-top:40px; }
 .section { background:#111; padding:25px; border-radius:12px; border:1px solid #00eaff33; margin-bottom:40px; }
 </style>
      
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
+     crossorigin="anonymous"></script>
 
-<!-- IUBENDA CMP -->
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
+<!-- CARICAMENTO JAVASCRIPT DEL SITO -->
+<script src="/js/main.js"></script>
+
+  <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
 <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
 <script>
@@ -47,9 +50,15 @@ h1, h2, h3 { color:#00eaff; margin-top:40px; }
 	enableTcf: true,
 	tcfVersion: 2,
 	tcfPurposes: {
-		 "2": "consent_only", "3": "consent_only", "4": "consent_only", 
-		 "5": "consent_only", "6": "consent_only", "7": "consent_only", 
-		 "8": "consent_only", "9": "consent_only", "10": "consent_only"
+		 "2": "consent_only",
+		 "3": "consent_only",
+		 "4": "consent_only",
+		 "5": "consent_only",
+		 "6": "consent_only",
+		 "7": "consent_only",
+		 "8": "consent_only",
+		 "9": "consent_only",
+		"10": "consent_only"
 	},
 	invalidateConsentWithoutLog: true,
 	googleAdditionalConsentMode: true,
@@ -65,374 +74,478 @@ h1, h2, h3 { color:#00eaff; margin-top:40px; }
 }
 </script>
 <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
+
 </head>
 
 <body>
 
 	<div id="header"></div>
 
-	<div id="ticker" aria-label="Ticker informazioni"></div>
+  <div id="ticker" aria-label="Ticker informazioni"></div>
 
-	<script>
-	  fetch("/partials/ticker.html")
-		.then(response => {
-			if (!response.ok) throw new Error("Ticker non caricato");
-			return response.text();
-		})
-		.then(html => {
-			document.getElementById("ticker").innerHTML = html;
-			if (typeof loadTickerNews === "function") {
-			  loadTickerNews();
-			}
-		})
-		.catch(error => { console.error("Errore caricamento ticker:", error); });
-	</script>
+  <!-- Il file deve essere caricato prima dell'inizializzazione -->
+  <script src="/js/ticker.js"></script>
 
-	<main class="page">
-	  <section class="main-column">
-
-        <h1>Threat Intelligence Report — AnonLab</h1>
-
-        <div class="section">
-            <p>
-            Il <strong>Threat Intelligence Report</strong> analizza i principali trend globali delle minacce informatiche, con focus su ransomware, gruppi APT, vulnerabilità critiche, attacchi supply chain e nuove tecniche di compromissione.
-            </p>
-
-            <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-              <h4 style="color:#00eaff; margin-bottom:8px;">Fonti TI autorevoli</h4>
-              <ul style="list-style:none; padding-left:0; line-height:1.7;">
-                <li>🛰️ <a href="https://www.mandiant.com/resources" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Mandiant Threat Intelligence</a></li>
-                <li>🛰️ <a href="https://www.crowdstrike.com/blog" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">CrowdStrike Intelligence Blog</a></li>
-                <li>🛰️ <a href="https://www.secureworks.com/research" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Secureworks Counter Threat Unit</a></li>
-              </ul>
-            </div>
-        </div>
-
-		<div class="section">
-            <h2>Threat Intelligence Lifecycle</h2>
-            <p>
-            La threat intelligence moderna segue un ciclo continuo composto da pianificazione,
-            raccolta, elaborazione, analisi e distribuzione delle informazioni.
-            L'obiettivo è trasformare dati tecnici grezzi in informazioni actionable
-            utilizzabili dai team di sicurezza.
-            </p>
-            <ul>
-                <li>Collection</li>
-                <li>Processing</li>
-                <li>Analysis</li>
-                <li>Dissemination</li>
-                <li>Feedback</li>
-            </ul>
-            <p style="margin-top:15px;">
-            Una corretta implementazione del ciclo di intelligence permette di migliorare
-            la capacità di rilevare minacce emergenti e ridurre i tempi di risposta.
-            </p>
-        </div>
-
-        <!-- AdSense -->
-        <ins class="adsbygoogle" style="display:block; margin:25px 0;" data-ad-client="ca-pub-1655066977213725" data-ad-slot="1122334455" data-ad-format="auto"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-        <div class="section">
-            <h2>Trend globali</h2>
-            <ul>
-                <li>Aumento degli attacchi ransomware</li>
-                <li>Crescita dei gruppi APT sponsorizzati da stati</li>
-                <li>Espansione degli attacchi supply chain</li>
-                <li>Maggiore uso di AI per phishing e social engineering</li>
-                <li>Incremento delle vulnerabilità zero‑day</li>
-            </ul>
-
-            <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-              <h4 style="color:#00eaff; margin-bottom:8px;">Fonti sui trend globali</h4>
-              <ul style="list-style:none; padding-left:0; line-height:1.7;">
-                <li>🌐 <a href="https://www.kaspersky.com/blog" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Kaspersky Security Trends</a></li>
-                <li>🌐 <a href="https://www.mcafee.com/blogs" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">McAfee Global Threat Reports</a></li>
-                <li>🌐 <a href="https://www.fortinet.com/blog" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Fortinet Threat Landscape</a></li>
-              </ul>
-            </div>
-        </div>
-
-		<div class="section">
-            <h2>Video: Global Cyber Threat Landscape</h2>
-            <iframe src="https://www.youtube.com/embed/fNzpcB7ODxQ" title="Global Cyber Threat Landscape" width="100%" height="450" loading="lazy" allowfullscreen></iframe>
-            <p style="margin-top:15px;">
-            Le minacce informatiche evolvono costantemente. Questo approfondimento descrive
-            le principali tendenze globali, l'aumento degli attacchi ransomware e
-            l'espansione del panorama di rischio digitale.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>Ransomware</h2>
-            <p>
-            Il ransomware resta la minaccia più devastante.  
-            I gruppi criminali operano come aziende strutturate, con modelli RaaS (Ransomware‑as‑a‑Service).
-            </p>
-
-            <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-              <h4 style="color:#00eaff; margin-bottom:8px;">Fonti ransomware</h4>
-              <ul style="list-style:none; padding-left:0; line-height:1.7;">
-                <li>⚠️ <a href="https://www.ransomware.live" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Ransomware.live — Leak Sites Monitor</a></li>
-                <li>⚠️ <a href="https://www.blackfog.com/the-state-of-ransomware/" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">BlackFog — Ransomware Report</a></li>
-                <li>⚠️ <a href="https://www.sophos.com/en-us/ransomware" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Sophos Ransomware Hub</a></li>
-              </ul>
-            </div>
-        </div>
-
-		<div class="section">
-            <h2>Video: Come operano i gruppi Ransomware</h2>
-            <iframe src="https://www.youtube.com/embed/RMBNnd8XObs" title="Ransomware Operations" width="100%" height="450" loading="lazy" allowfullscreen></iframe>
-            <p style="margin-top:15px;">
-            Il modello Ransomware-as-a-Service ha trasformato il cybercrime in un ecosistema
-            organizzato. Questo video mostra le tecniche utilizzate dai gruppi criminali,
-            le fasi dell'attacco e le metodologie di mitigazione.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>APT (Advanced Persistent Threat)</h2>
-            <p>I gruppi APT, spesso legati a stati, hanno aumentato le operazioni di spionaggio digitale.</p>
-            <ul>
-                <li>attacchi supply chain</li>
-                <li>compromissione di VPN</li>
-                <li>zero‑day su software enterprise</li>
-            </ul>
-
-            <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-              <h4 style="color:#00eaff; margin-bottom:8px;">Fonti APT</h4>
-              <ul style="list-style:none; padding-left:0; line-height:1.7;">
-                <li>🕵️ <a href="https://attack.mitre.org/groups/" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">MITRE ATT&CK — APT Groups</a></li>
-                <li>🕵️ <a href="https://www.threatconnect.com/blog/" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">ThreatConnect Intelligence Blog</a></li>
-                <li>🕵️ <a href="https://www.recordedfuture.com/research" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Recorded Future APT Research</a></li>
-              </ul>
-            </div>
-        </div>
-
-		<div class="section">
-            <h2>Video: Comprendere le Advanced Persistent Threat</h2>
-            <iframe src="https://www.youtube.com/embed/pL9q2lOZ1Fw" title="Advanced Persistent Threat" width="100%" height="450" loading="lazy" allowfullscreen></iframe>
-            <p style="margin-top:15px;">
-            Le APT rappresentano una delle minacce più sofisticate. In questo approfondimento
-            vengono illustrate le tecniche utilizzate per mantenere la persistenza all'interno
-            delle reti compromesse e le strategie di difesa proattiva.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>Vulnerabilità critiche</h2>
-            <p>Le vulnerabilità più sfruttate includono:</p>
-            <ul>
-                <li>RCE su firewall</li>
-                <li>zero‑day su hypervisor</li>
-                <li>autenticazione bypass su VPN</li>
-                <li>SQL injection su CMS</li>
-            </ul>
-
-            <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-              <h4 style="color:#00eaff; margin-bottom:8px;">Fonti vulnerabilità critiche</h4>
-              <ul style="list-style:none; padding-left:0; line-height:1.7;">
-                <li>📄 <a href="https://www.cisa.gov/known-exploited-vulnerabilities" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">CISA — KEV Catalog</a></li>
-                <li>📄 <a href="https://www.zerodayinitiative.com/advisories" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Zero Day Initiative (ZDI)</a></li>
-                <li>📄 <a href="https://www.projectzero.google.com" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Google Project Zero</a></li>
-              </ul>
-            </div>
-        </div>
-
-		<div class="section">
-            <h2>Indicatori di Compromissione (IOC)</h2>
-            <p>
-            Gli IOC costituiscono la base delle attività di rilevamento e analisi.
-            Possono essere utilizzati per identificare rapidamente attività malevole
-            all'interno di una rete.
-            </p>
-            <ul>
-                <li>Hash malware</li>
-                <li>Indirizzi IP malevoli</li>
-                <li>Domini sospetti</li>
-                <li>URL utilizzati per phishing</li>
-                <li>Certificati TLS anomali</li>
-                <li>Pattern di traffico insoliti</li>
-            </ul>
-            <p style="margin-top:15px;">
-            La correlazione degli IOC con feed di intelligence consente una visione più
-            accurata del rischio informatico.
-            </p>
-        </div>
-
-		<div class="section">
-            <h2>Come una SOC Dashboard utilizza la Threat Intelligence</h2>
-            <p>
-            Una dashboard SOC moderna aggrega costantemente informazioni provenienti da feed
-            di threat intelligence, fonti OSINT, sistemi SIEM e piattaforme EDR.
-            Questi dati vengono correlati automaticamente per individuare comportamenti
-            potenzialmente malevoli.
-            </p>
-            <ul>
-                <li>Monitoraggio eventi</li>
-                <li>Correlazione automatica</li>
-                <li>Gestione alert</li>
-                <li>Analisi IOC</li>
-                <li>Threat hunting</li>
-                <li>Reporting operativo</li>
-            </ul>
-            <p style="margin-top:15px;">
-            La combinazione tra monitoraggio e intelligence consente di rilevare minacce
-            che altrimenti passerebbero inosservate.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>Previsioni</h2>
-            <ul>
-                <li>Aumento degli attacchi AI‑driven</li>
-                <li>Maggiore automazione dei gruppi criminali</li>
-                <li>Espansione degli attacchi IoT</li>
-                <li>Nuove tecniche di evasione</li>
-            </ul>
-
-            <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-              <h4 style="color:#00eaff; margin-bottom:8px;">Fonti previsionali</h4>
-              <ul style="list-style:none; padding-left:0; line-height:1.7;">
-                <li>🔮 <a href="https://www.enisa.europa.eu/publications" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">ENISA — Threat Landscape</a></li>
-                <li>🔮 <a href="https://www.ibm.com/reports/threat-intelligence" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">IBM X‑Force Threat Intelligence Index</a></li>
-                <li>🔮 <a href="https://www.paloaltonetworks.com/blog" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Palo Alto Networks — Threat Forecasts</a></li>
-              </ul>
-            </div>
-        </div>
-
-		<div class="section">
-            <h2>Domande Frequenti sulla Threat Intelligence</h2>
-            <h3>Cos'è la Threat Intelligence?</h3>
-            <p>È il processo di raccolta, analisi e distribuzione di informazioni relative alle minacce informatiche.</p>
-
-            <h3>Qual è la differenza tra IOC e IOA?</h3>
-            <p>Gli IOC identificano compromissioni già avvenute, mentre gli IOA descrivono comportamenti che indicano un attacco in corso.</p>
-
-            <h3>Perché le APT sono considerate pericolose?</h3>
-            <p>Perché utilizzano tecniche avanzate di persistenza e operano per lunghi periodi senza essere individuate.</p>
-
-            <h3>Quali organizzazioni producono report di Threat Intelligence?</h3>
-            <p>Mandiant, CrowdStrike, Microsoft, Palo Alto Networks, IBM X-Force, Recorded Future, Secureworks e molte altre organizzazioni specializzate.</p>
-        </div>
-
-        <!-- LINK INTERNI (Esclusa la pagina corrente) -->
-        <nav class="anonlab-explorer section" aria-label="Esplora altre sezioni AnonLab">
-          <h4 style="color: #00eaff; margin-bottom: 12px; font-size: 1.1rem; font-weight: 600;">
-            Esplora altre sezioni AnonLab
-          </h4>
-          <ul style="list-style: none; padding-left: 0; margin: 0; line-height: 1.8;">
-            <li style="margin-bottom: 8px;">
-              <span>📘</span> <a href="/cybersecurity-basics.html" style="text-decoration: underline; color: inherit;">Cybersecurity Basics</a>
-            </li>
-            <li style="margin-bottom: 8px;">
-              <span>📘</span> <a href="/osint-tools-explained.html" style="text-decoration: underline; color: inherit;">OSINT Tools Explained</a>
-            </li>
-            <li style="margin-bottom: 8px;">
-              <span>📘</span> <a href="/osint-investigation-case-study.html" style="text-decoration: underline; color: inherit;">OSINT Case Study</a>
-            </li>
-            <li style="margin-bottom: 8px;">
-              <span>📘</span> <a href="/soc-dashboard.html" style="text-decoration: underline; color: inherit;">AnonLab SOC Dashboard</a>
-            </li>
-            <li style="margin-bottom: 8px;">
-              <span>📘</span> <a href="/vulnerabilities-cve-analysis.html" style="text-decoration: underline; color: inherit;">Vulnerabilità & CVE Analysis</a>
-            </li>
-          </ul>
-        </nav>
-					
-        <div class="section">
-            <h2>Conclusione</h2>
-            <p>
-            Le minacce informatiche continuano a evolversi rapidamente.  
-            AnonLab monitora costantemente trend, vulnerabilità e attività sospette tramite la dashboard SOC.
-            </p>
-
-            <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-              <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti finali</h4>
-              <ul style="list-style:none; padding-left:0; line-height:1.7;">
-                <li>📚 <a href="https://www.cyberdefensemagazine.com" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Cyber Defense Magazine</a></li>
-                <li>📚 <a href="https://www.securityweek.com/threat-intelligence" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">SecurityWeek — Threat Intelligence</a></li>
-              </ul>
-            </div>
-        </div>
-
-	  </section>
-	</main>
-
-	<!-- SIDEBAR -->
-	<div id="sidebar" class="sidebar"></div>
-    <script>
-    fetch("/partials/sidebar.html")
+  <script>
+    fetch("/partials/ticker.html")
       .then(response => {
-          if (!response.ok) throw new Error("Errore caricamento sidebar: " + response.status);
-          return response.text();
-      })
-      .then(data => {
-          document.getElementById("sidebar").innerHTML = data;
-          if (typeof initCalculator === "function") initCalculator();
-          if (typeof initRadio === "function") initRadio();
-          if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-          if (typeof initOroscopo === "function") initOroscopo();
-          if (typeof initVisitCounter === "function") initVisitCounter();
-      })
-      .catch(error => { console.error("Errore sidebar:", error); });
-    </script>
-
-	<!-- FOOTER -->
-    <div id="footer"></div>
-    <script>
-    fetch("/partials/footer.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("footer").innerHTML = html; });
-    </script>
-
-	<!-- BACK TO TOP -->
-    <button id="backToTop">↑</button>
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const backToTop = document.getElementById("backToTop");
-      if (!backToTop) return;
-
-      window.addEventListener("scroll", () => {
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        backToTop.style.display = scrollTop > 50 ? "block" : "none";
-      });
-
-      backToTop.addEventListener("click", () => {
-        document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-        document.body.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      function adjustBackToTopPosition() {
-        const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
-        if (iubendaLogo) {
-          const rect = iubendaLogo.getBoundingClientRect();
-          const offset = window.innerHeight - rect.top + 10;
-          backToTop.style.bottom = offset + "px";
-        } else {
-          backToTop.style.bottom = "80px";
+        if (!response.ok) {
+          throw new Error("Ticker non caricato");
         }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById("ticker").innerHTML = html;
+
+        /*
+         * ticker.js attualmente non contiene initTicker().
+         * La funzione disponibile è loadTickerNews().
+         */
+        if (typeof loadTickerNews === "function") {
+          loadTickerNews();
+        }
+      })
+      .catch(error => {
+        console.error("Errore caricamento ticker:", error);
+      });
+  </script>
+
+  <main class="page">
+    <section class="main-column">
+
+<h1>Threat Intelligence Report — AnonLab</h1>
+
+<div class="section">
+<p>
+Il <strong>Threat Intelligence Report</strong> analizza i principali trend globali delle minacce informatiche, con focus su ransomware, gruppi APT, vulnerabilità critiche, attacchi supply chain e новые tecniche di compromissione.
+</p>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti TI autorevoli</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🛰️ <a href="https://www.mandiant.com/resources" target="_blank" rel="noopener" style="color:#00eaff;">Mandiant Threat Intelligence</a></li>
+    <li>🛰️ <a href="https://www.crowdstrike.com/blog" target="_blank" rel="noopener" style="color:#00eaff;">CrowdStrike Intelligence Blog</a></li>
+    <li>🛰️ <a href="https://www.secureworks.com/research" target="_blank" rel="noopener" style="color:#00eaff;">Secureworks Counter Threat Unit</a></li>
+  </ul>
+</div>
+</div>
+
+		<div class="section">
+<h2>Threat Intelligence Lifecycle</h2>
+
+<p>
+La threat intelligence moderna segue un ciclo continuo composto da pianificazione,
+raccolta, elaborazione, analisi e distribuzione delle informazioni.
+L'obiettivo è trasformare dati tecnici grezzi in informazioni actionable
+utilizzabili dai team di sicurezza.
+</p>
+
+<ul>
+<li>Collection</li>
+<li>Processing</li>
+<li>Analysis</li>
+<li>Dissemination</li>
+<li>Feedback</li>
+</ul>
+
+<p>
+Una corretta implementazione del ciclo di intelligence permette di migliorare
+la capacità di rilevare minacce emergenti e ridurre i tempi di risposta.
+</p>
+</div>
+
+<!-- AdSense -->
+<ins class="adsbygoogle" style="display:block; margin:25px 0;" data-ad-client="ca-pub-1655066977213725" data-ad-slot="1122334455" data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<div class="section">
+<h2>Trend globali</h2>
+<ul>
+<li>Aumento degli attacchi ransomware</li>
+<li>Crescita dei gruppi APT sponsorizzati da stati</li>
+<li>Espansione degli attacchi supply chain</li>
+<li>Maggiore uso di AI per phishing e social engineering</li>
+<li>Incremento delle vulnerabilità zero‑day</li>
+</ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti sui trend globali</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🌐 <a href="https://www.kaspersky.com/blog" target="_blank" rel="noopener" style="color:#00eaff;">Kaspersky Security Trends</a></li>
+    <li>🌐 <a href="https://www.mcafee.com/blogs" target="_blank" rel="noopener" style="color:#00eaff;">McAfee Global Threat Reports</a></li>
+    <li>🌐 <a href="https://www.fortinet.com/blog" target="_blank" rel="noopener" style="color:#00eaff;">Fortinet Threat Landscape</a></li>
+  </ul>
+</div>
+</div>
+
+		<div class="section">
+<h2>Video: Global Cyber Threat Landscape</h2>
+
+<iframe
+src="https://www.youtube.com/embed/fNzpcB7ODxQ"
+title="Global Cyber Threat Landscape"
+width="100%"
+height="450"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+<p>
+Le minacce informatiche evolvono costantemente. Questo approfondimento descrive
+le principali tendenze globali, l'aumento degli attacchi ransomware e
+l'espansione del panorama di rischio digitale.
+</p>
+</div>
+
+<div class="section">
+<h2>Ransomware</h2>
+<p>
+Il ransomware resta la minaccia più devastante.  
+I gruppi criminali operano come aziende strutturate, con modelli RaaS (Ransomware‑as‑a‑Service).
+</p>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti ransomware</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>⚠️ <a href="https://www.ransomware.live" target="_blank" rel="noopener" style="color:#00eaff;">Ransomware.live — Leak Sites Monitor</a></li>
+    <li>⚠️ <a href="https://www.blackfog.com/the-state-of-ransomware/" target="_blank" rel="noopener" style="color:#00eaff;">BlackFog — Ransomware Report</a></li>
+    <li>⚠️ <a href="https://www.sophos.com/en-us/ransomware" target="_blank" rel="noopener" style="color:#00eaff;">Sophos Ransomware Hub</a></li>
+  </ul>
+</div>
+</div>
+
+			<div class="section">
+<h2>Video: Come operano i gruppi Ransomware</h2>
+
+<iframe
+src="https://www.youtube.com/embed/RMBNnd8XObs"
+title="Ransomware Operations"
+width="100%"
+height="450"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+<p>
+Il modello Ransomware-as-a-Service ha trasformato il cybercrime in un ecosistema
+organizzato. Questo video mostra le tecniche utilizzate dai gruppi criminali,
+le fasi dell'attacco e le metodologie di mitigazione.
+</p>
+</div>
+
+<div class="section">
+<h2>APT (Advanced Persistent Threat)</h2>
+<p>
+I gruppi APT, spesso legati a stati, hanno aumentato le operazioni di spionaggio digitale.
+</p>
+
+<ul>
+<li>attacchi supply chain</li>
+<li>compromissione di VPN</li>
+<li>zero‑day su software enterprise</li>
+</ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti APT</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🕵️ <a href="https://attack.mitre.org/groups/" target="_blank" rel="noopener" style="color:#00eaff;">MITRE ATT&CK — APT Groups</a></li>
+    <li>🕵️ <a href="https://www.threatconnect.com/blog/" target="_blank" rel="noopener" style="color:#00eaff;">ThreatConnect Intelligence Blog</a></li>
+    <li>🕵️ <a href="https://www.recordedfuture.com/research" target="_blank" rel="noopener" style="color:#00eaff;">Recorded Future APT Research</a></li>
+  </ul>
+</div>
+</div>
+
+				<div class="section">
+<h2>Video: Comprendere le Advanced Persistent Threat</h2>
+
+<iframe
+src="https://www.youtube.com/embed/pL9q2lOZ1Fw"
+title="Advanced Persistent Threat"
+width="100%"
+height="450"
+loading="lazy"
+allowfullscreen>
+</iframe>
+
+<p>
+Le APT rappresentano una delle minacce più sofisticate. In questo approfondimento
+vengono illustrate le tecniche utilizzate per mantenere la persistenza all'interno
+delle reti compromesse e le strategie di difesa proattiva.
+</p>
+</div>
+
+<div class="section">
+<h2>Vulnerabilità critiche</h2>
+<p>Le vulnerabilità più sfruttate includono:</p>
+
+<ul>
+<li>RCE su firewall</li>
+<li>zero‑day su hypervisor</li>
+<li>autenticazione bypass su VPN</li>
+<li>SQL injection sur CMS</li>
+</ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti vulnerabilità critiche</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>📄 <a href="https://www.cisa.gov/known-exploited-vulnerabilities" target="_blank" rel="noopener" style="color:#00eaff;">CISA — KEV Catalog</a></li>
+    <li>📄 <a href="https://www.zerodayinitiative.com/advisories" target="_blank" rel="noopener" style="color:#00eaff;">Zero Day Initiative (ZDI)</a></li>
+    <li>📄 <a href="https://www.projectzero.google.com" target="_blank" rel="noopener" style="color:#00eaff;">Google Project Zero</a></li>
+  </ul>
+</div>
+</div>
+
+					<div class="section">
+<h2>Indicatori di Compromissione (IOC)</h2>
+
+<p>
+Gli IOC costituiscono la base delle attività di rilevamento e analisi.
+Possono essere utilizzati per identificare rapidamente attività malevole
+all'interno di una rete.
+</p>
+
+<ul>
+<li>Hash malware</li>
+<li>Indirizzi IP malevoli</li>
+<li>Domini sospetti</li>
+<li>URL utilizzati per phishing</li>
+<li>Certificati TLS anomali</li>
+<li>Pattern di traffico insoliti</li>
+</ul>
+
+<p>
+La correlazione degli IOC con feed di intelligence consente una visione più
+accurata del rischio informatico.
+</p>
+</div>
+
+					<div class="section">
+<h2>Come una SOC Dashboard utilizza la Threat Intelligence</h2>
+
+<p>
+Una dashboard SOC moderna aggrega costantemente informazioni provenienti da feed
+di threat intelligence, fonti OSINT, sistemi SIEM e piattaforme EDR.
+Questi dati vengono correlati automaticamente per individuare comportamenti
+potenzialmente malevoli.
+</p>
+
+<ul>
+<li>Monitoraggio eventi</li>
+<li>Correlazione automatica</li>
+<li>Gestione alert</li>
+<li>Analisi IOC</li>
+<li>Threat hunting</li>
+<li>Reporting operativo</li>
+</ul>
+
+<p>
+La combinazione tra monitoraggio e intelligence consente di rilevare minacce
+che altrimenti passerebbero inosservate.
+</p>
+</div>
+
+<div class="section">
+<h2>Previsioni</h2>
+<ul>
+<li>Aumento degli attacchi AI‑driven</li>
+<li>Maggiore automazione dei gruppi criminali</li>
+<li>Espansione degli attacchi IoT</li>
+<li>Nuove tecniche di evasione</li>
+</ul>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti previsionali</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>🔮 <a href="https://www.enisa.europa.eu/publications" target="_blank" rel="noopener" style="color:#00eaff;">ENISA — Threat Landscape</a></li>
+    <li>🔮 <a href="https://www.ibm.com/reports/threat-intelligence" target="_blank" rel="noopener" style="color:#00eaff;">IBM X‑Force Threat Intelligence Index</a></li>
+    <li>🔮 <a href="https://www.paloaltonetworks.com/blog" target="_blank" rel="noopener" style="color:#00eaff;">Palo Alto Networks — Threat Forecasts</a></li>
+  </ul>
+</div>
+</div>
+
+					<div class="section">
+<h2>Domande Frequenti sulla Threat Intelligence</h2>
+
+<h3>Cos'è la Threat Intelligence?</h3>
+<p>
+È il processo di raccolta, analisi e distribuzione di informazioni relative
+alle minacce informatiche.
+</p>
+
+<h3>Qual è la differenza tra IOC e IOA?</h3>
+<p>
+Gli IOC identificano compromissioni già avvenute, mentre gli IOA descrivono
+comportamenti che indicano un attacco in corso.
+</p>
+
+<h3>Perché le APT sono considerate pericolose?</h3>
+<p>
+Perché utilizzano tecniche avanzate di persistenza e operano per lunghi periodi
+senza essere individuate.
+</p>
+
+<h3>Quali organizzazioni producono report di Threat Intelligence?</h3>
+<p>
+Mandiant, CrowdStrike, Microsoft, Palo Alto Networks, IBM X-Force, Recorded Future,
+Secureworks e molte altre organizzazioni specializzate.
+</p>
+</div>
+
+<!-- LINK INTERNI -->
+<nav class="anonlab-explorer" aria-label="Esplora altre sezioni AnonLab" style="margin-top: 25px;">
+  <h4 style="color: #00eaff; margin-bottom: 12px; font-size: 1.1rem; font-weight: 600;">
+    Esplora altre sezioni AnonLab
+  </h4>
+  <ul style="list-style: none; padding-left: 0; margin: 0; line-height: 1.8;">
+    <li style="margin-bottom: 8px;">
+      <span role="img" aria-label="Libro">📘</span> 
+      <a href="/cybersecurity-basics.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Cybersecurity Basics</a>
+    </li>
+    <li style="margin-bottom: 8px;">
+      <span role="img" aria-label="Libro">📘</span> 
+      <a href="/osint-tools-explained.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">OSINT Tools Explained</a>
+    </li>
+    <li style="margin-bottom: 8px;">
+      <span role="img" aria-label="Libro">📘</span> 
+      <a href="/osint-investigation-case-study.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">OSINT Case Study</a>
+    </li>
+	 <li style="margin-bottom: 8px;">
+      <span role="img" aria-label="Libro">📘</span> 
+      <a href="/soc-dashboard.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">AnonLab SOC Dashboard</a>
+    </li>
+    <li style="margin-bottom: 8px;">
+      <span role="img" aria-label="Libro">📘</span> 
+      <a href="/threat-intelligence-report.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Threat Intelligence Report</a>
+    </li>
+	 <li style="margin-bottom: 8px;">
+      <span role="img" aria-label="Libro">📘</span> 
+      <a href="/vulnerabilities-cve-analysis.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Vulnerabilità & CVE Analysis</a>
+    </li>
+  </ul>
+</nav>
+					
+<div class="section">
+<h2>Conclusione</h2>
+<p>
+Le minacce informatiche continuano a evolversi rapidamente.  
+AnonLab monitora costantemente trend, vulnerabilità e attività sospette tramite la dashboard SOC.
+</p>
+
+<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
+  <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti finali</h4>
+  <ul style="list-style:none; padding-left:0; line-height:1.7;">
+    <li>📚 <a href="https://www.cyberdefensemagazine.com" target="_blank" rel="noopener" style="color:#00eaff;">Cyber Defense Magazine</a></li>
+    <li>📚 <a href="https://www.securityweek.com/threat-intelligence" target="_blank" rel="noopener" style="color:#00eaff;">SecurityWeek — Threat Intelligence</a></li>
+  </ul>
+</div>
+</div>
+
+	    </section>
+
+  <script src="/js/main.js"></script>
+<script src="/js/ui.js"></script>
+
+  <div id="sidebar" class="sidebar"></div>
+
+    <script>
+fetch("/partials/sidebar.html")
+  .then(response => {
+      if (!response.ok) {
+          throw new Error("Errore caricamento sidebar: " + response.status);
       }
-      adjustBackToTopPosition();
-      setInterval(adjustBackToTopPosition, 800);
-    });
-    </script>
+      return response.text();
+  })
+  .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
 
-	<!-- SCRIPT ESTERNI (Analytics & Ads) -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "y46cg93s3m");
-    </script>
-    
-    <meta name="google-adsense-account" content="ca-pub-1655066977213725">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
+      if (typeof initCalculator === "function") {
+          initCalculator();
+      }
 
-    <!-- SCRIPT GLOBALI PRINCIPALI (Caricati una sola volta in fondo) -->
-    <script src="/js/main.js"></script>
-    <script src="/js/ui.js"></script>
+      if (typeof initRadio === "function") {
+          initRadio();
+      }
+
+      if (typeof initYouTubePlayer === "function") {
+          initYouTubePlayer();
+      }
+
+      if (typeof initOroscopo === "function") {
+          initOroscopo();
+      }
+
+      if (typeof initVisitCounter === "function") {
+          initVisitCounter();
+      }
+  })
+  .catch(error => {
+      console.error("Errore sidebar:", error);
+  });
+</script>
+	  
+    <!-- /main-column -->
+
+	<!-- ⭐ FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("/partials/footer.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("footer").innerHTML = html;
+  });
+</script>
+	<!-- ⭐ BACK TO TOP -->
+<button id="backToTop">↑</button>
+
+<!-- SCRIPT BACK TO TOP -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTop = document.getElementById("backToTop");
+  if (!backToTop) return;
+
+  // Mostra / nasconde il pulsante
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    backToTop.style.display = scrollTop > 50 ? "block" : "none";
+  });
+
+  // Scrolla davvero la pagina
+  backToTop.addEventListener("click", () => {
+    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+    document.body.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // ⭐ Posiziona il pulsante sopra il badge Iubenda
+  function adjustBackToTopPosition() {
+    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+
+    if (iubendaLogo) {
+      const rect = iubendaLogo.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
+      backToTop.style.bottom = offset + "px";
+    } else {
+      backToTop.style.bottom = "80px"; // fallback sicuro
+    }
+  }
+
+  // Controllo iniziale
+  adjustBackToTopPosition();
+
+  // Il CMP appare dopo → serve un controllo ripetuto
+  setInterval(adjustBackToTopPosition, 800);
+});
+</script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y46cg93s3m");
+</script> 
+<meta name="google-adsense-account" content="ca-pub-1655066977213725">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
 
 </body>
 </html>
