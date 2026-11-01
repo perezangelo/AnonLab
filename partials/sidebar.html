@@ -823,18 +823,20 @@
         Meteo Italia – 7 Giorni
     </h3>
 
-    <!-- Contenitore dinamico -->
-    <div id="meteo-box" style="min-height:340px;">
-        <!-- Placeholder visibile di fallback -->
-        <div id="meteo-placeholder" style="height:340px; display:flex; align-items:center; justify-content:center; color:#5e5e5e; font-size:12px;">Caricamento Meteo...</div>
-    </div>
+    <!-- Widget 3BMeteo visibile subito e direttamente nel DOM -->
+    <iframe 
+        src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
+        sandbox="allow-scripts allow-same-origin allow-popups"
+        width="100%" height="340" frameborder="0" scrolling="no"
+        title="Previsioni meteo 7 giorni">
+    </iframe>
 
     <a href="https://www.3bmeteo.com/meteo/italia"
        style="color:#00eaff; text-decoration:none; font-size:13px;">
        Previsioni complete →
     </a>
 </div>
-
+       
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const ua = navigator.userAgent.toLowerCase();
