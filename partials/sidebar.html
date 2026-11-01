@@ -823,13 +823,8 @@
         Meteo Italia – 7 Giorni
     </h3>
 
-    <!-- Widget 3BMeteo isolato con sandbox -->
-    <iframe 
-        src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
-        sandbox="allow-scripts allow-same-origin allow-popups"
-        width="100%" height="340" frameborder="0" scrolling="no"
-        title="Previsioni meteo 7 giorni">
-    </iframe>
+    <!-- Contenitore vuoto: invisibile ai bot che non eseguono JavaScript -->
+    <div id="meteo-box"></div>
 
     <a href="https://www.3bmeteo.com/meteo/italia"
        style="color:#00eaff; text-decoration:none; font-size:13px;">
@@ -839,13 +834,16 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Ritardo di 1.5 secondi → Bing NON esegue JS → NON vede il widget
     setTimeout(() => {
-        document.getElementById("meteo-box").innerHTML = `
-            <iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
-                width="100%" height="340" frameborder="0" scrolling="no"
-                title="Previsioni meteo 7 giorni"></iframe>
-        `;
+        const meteoBox = document.getElementById("meteo-box");
+        if (meteoBox) {
+            meteoBox.innerHTML = `
+                <iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
+                    sandbox="allow-scripts allow-same-origin allow-popups"
+                    width="100%" height="340" frameborder="0" scrolling="no"
+                    title="Previsioni meteo 7 giorni"></iframe>
+            `;
+        }
     }, 1500);
 });
 </script>
