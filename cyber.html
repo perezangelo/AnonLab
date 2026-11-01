@@ -1410,15 +1410,15 @@ async function loadThreatDistribution() {
 
         const total = data.reduce((sum, item) => sum + item.attacks, 0);
 
-        data.forEach((item, index) => {
-            const key = Object.keys(mapping)[index];
-            const ids = mapping[key];
-            const pct = Math.round((item.attacks / total) * 100);
+        data.forEach(item => {
+    if (!mapping[item.type]) return;
+    const ids = mapping[item.type];
+    const pct = total > 0 ? Math.round((item.attacks / total) * 100) : 0;
 
-            document.getElementById(ids.bar).style.height = (pct * 2) + "px";
-            document.getElementById(ids.pct).innerText = pct + "%";
-            document.getElementById(ids.trend).innerText = pct > 50 ? "↑" : "→";
-        });
+    document.getElementById(ids.bar).style.height = Math.max(10, pct * 2) + "px";
+    document.getElementById(ids.pct).innerText = pct + "%";
+    document.getElementById(ids.trend).innerText = pct > 20 ? "↑" : "→";
+});
 
     } catch (e) {
         console.error("Threat Distribution Error:", e);
