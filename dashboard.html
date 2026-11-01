@@ -631,41 +631,35 @@ fetch("/partials/ticker.html")
           Caricamento feed...
         </div>
 
-        <script>
-        function startAnonLiveFeed() {
-            const box = document.getElementById("anon-live-feed");
-            if (!box) return setTimeout(startAnonLiveFeed, 200);
+        data.forEach(item => {
+    // Decostruzione dei 6 elementi ricevuti dal PHP
+    const [operazione, ora, fonte, link, risk, thumbnail] = item;
+    
+    let riskColor = "#00eaff";
+    if (risk === "ALTO") riskColor = "#ff3333";
+    if (risk === "MEDIO") riskColor = "#ffaa00";
+    if (risk === "BASSO") riskColor = "#55ff55";
 
-            async function loadAnonOps() {
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/soc/anon_live_ops.php");
-                    const data = await res.json();
+    // Gestione dell'immagine a fianco (se l'anteprima esiste ed è valida)
+    let imgHtml = "";
+    if (thumbnail && thumbnail.startsWith("http")) {
+        imgHtml = `<img src="${thumbnail}" alt="Thumbnail operazione" style="width:60px; height:60px; object-fit:cover; border-radius:4px; flex-shrink:0; border:1px solid #00eaff44;">`;
+    }
 
-                    box.innerHTML = "";
-                    data.forEach(item => {
-                        const [operazione, ora, fonte, link] = item;
-                        box.innerHTML += `
-                            <div style="margin-bottom:12px;">
-                                <strong style="color:#00eaff;">${operazione}</strong><br>
-                                <span style="color:#7fdfff;">${ora}</span><br>
-                                <span style="color:#ccc;">Fonte: ${fonte}</span><br>
-                                <a href="${link}" target="_blank" style="color:#00eaff;">Dettagli →</a>
-                            </div>
-                        `;
-                    });
-
-                } catch (error) {
-                    console.error("Errore Anonymous Live Feed:", error);
-                    box.innerHTML = "<span style='color:#888;'>Impossibile caricare il feed</span>";
-                }
-            }
-
-            loadAnonOps();
-            setInterval(loadAnonOps, 20000);
-        }
-        startAnonLiveFeed();
-        </script>
-      </div>
+    htmlContent += `
+        <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px; border-left: 2px solid ${riskColor}; padding-left: 10px; background: rgba(0,232,255,0.02); padding: 8px; border-radius: 4px;">
+            ${imgHtml}
+            <div style="flex-grow:1;">
+                <strong style="color:#00eaff; font-size:0.95rem;">${operazione}</strong>
+                <span style="font-size:0.7rem; background:${riskColor}22; color:${riskColor}; padding:2px 5px; border-radius:3px; margin-left:6px; border:1px solid ${riskColor}55;">
+                   ${risk}
+                </span><br>
+                <span style="color:#7fdfff; font-size:0.8rem;">${ora} • Fonte: ${fonte}</span><br>
+                <a href="${link}" target="_blank" rel="noopener noreferrer" style="color:#00eaff; font-size:0.8rem; text-decoration:underline;">Visualizza dettagli →</a>
+            </div>
+        </div>
+    `;
+});
 
       <div class="cyber-box" style="
           background:#000814;
