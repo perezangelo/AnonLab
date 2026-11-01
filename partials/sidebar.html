@@ -823,8 +823,11 @@
         Meteo Italia – 7 Giorni
     </h3>
 
-    <!-- Contenitore vuoto: invisibile ai bot che non eseguono JavaScript -->
-    <div id="meteo-box"></div>
+    <!-- Contenitore dinamico -->
+    <div id="meteo-box" style="min-height:340px;">
+        <!-- Placeholder visibile di fallback -->
+        <div id="meteo-placeholder" style="height:340px; display:flex; align-items:center; justify-content:center; color:#5e5e5e; font-size:12px;">Caricamento Meteo...</div>
+    </div>
 
     <a href="https://www.3bmeteo.com/meteo/italia"
        style="color:#00eaff; text-decoration:none; font-size:13px;">
@@ -834,7 +837,16 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
+    const ua = navigator.userAgent.toLowerCase();
+    
+    // Lista delle firme tipiche dei crawler e bot dei motori di ricerca
+    const isBot = /bot|crawl|spider|slurp|curl|wget|python|googlebot|bingbot|ia_archiver|semrush|ahrefs/i.test(ua);
+
+    // Se NON è un bot, inseriamo l'iframe dinamicamente nel DOM
+    if (!isBot) {
+        const placeholder = document.getElementById("meteo-placeholder");
+        if (placeholder) placeholder.remove();
+
         const meteoBox = document.getElementById("meteo-box");
         if (meteoBox) {
             meteoBox.innerHTML = `
@@ -844,10 +856,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     title="Previsioni meteo 7 giorni"></iframe>
             `;
         }
-    }, 1500);
+    }
 });
 </script>
-
 <!-- CALCOLATRICE CYBER NEON -->
 <div class="sidebar-box" aria-label="Calcolatrice"
      style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding: 8px 12px 12px 12px;">
