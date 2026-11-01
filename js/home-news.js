@@ -1,6 +1,6 @@
 /* ============================
    ANONLAB — HOME NEWS
-   Versione 1009
+   Versione 1009 (Ottimizzata Accessibilità A11y)
    - The Hacker News
    - HackRead
    - DarkReading
@@ -210,6 +210,7 @@ function renderNews(container, rawItems) {
                         class="news-link"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Leggi l'articolo: ${title}"
                     >
                         Leggi l'articolo →
                     </a>
