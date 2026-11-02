@@ -1209,56 +1209,7 @@ async function loadThreatFeed() {
 }
 loadThreatFeed();
 </script>
-
-            <!-- Tor Exit Node Detector -->
-<div class="widget-large tools-box" id="tordetector" aria-label="Tor Detector">
-    <div class="box-title-row">
-        <img src="/img/ip.png" alt="Icona Tor Detector" class="box-title-icon">
-        <h3>Tor Exit Node & Anonymity Detector</h3>
-    </div>
-
-    <input id="torIpInput" type="text" placeholder="Inserisci IP (es: 185.220.101.5)"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
-
-    <button onclick="checkTorNode()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Scansiona Rete Onion
-    </button>
-
-    <div id="torResult" aria-live="polite" style="background:#000; color:#0ff; padding:15px; margin-top:15px; border:1px solid #00eaff; display:none;"></div>
-</div>
-
-<script>
-async function checkTorNode() {
-    const ip = document.getElementById("torIpInput").value.trim();
-    const out = document.getElementById("torResult");
-    if (!ip) return;
-
-    out.style.display = "block";
-    out.innerText = "Interrogazione registri Tor Project...";
-
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/tor_check.php?ip=" + encodeURIComponent(ip));
-        const data = await res.json();
-
-        if (data.error) {
-            out.innerHTML = `<span style="color:#ff4444;">${data.error}</span>`;
-            return;
-        }
-
-        const color = data.is_tor ? "#ff4444" : "#00ff88";
-        const icon = data.is_tor ? "🧅 ATTENZIONE:" : "🛡️ OK:";
-
-        out.innerHTML = `
-            <h4 style="color:${color}; margin-bottom:5px;">${icon} ${data.status}</h4>
-            <p style="color:#ccc; font-size:12px;">Target IP: <strong style="color:#fff;">${data.ip}</strong></p>
-            <p style="color:#777; font-size:11px;">Feed aggiornato: ${data.updated} UTC</p>
-        `;
-    } catch(e) {
-        out.innerText = "Errore durante il controllo del nodo.";
-    }
-}
-</script>
-
+            
             <!-- 1. VIDEO CYBER TUTORIAL & BRIEFING -->
             <div class="widget-large tools-box" id="cybervideo" aria-label="Cyber Briefing">
                 <div class="box-title-row">
