@@ -1210,53 +1210,6 @@ async function loadThreatFeed() {
 loadThreatFeed();
 </script>
 
-            <!-- Multi-Resolver DNS Checker -->
-<div class="widget-large tools-box" id="multidns" aria-label="Multi-DNS Checker">
-    <div class="box-title-row">
-        <img src="/img/dns.png" alt="Icona Multi DNS" class="box-title-icon">
-        <h3>Global DNS Resolver Status</h3>
-    </div>
-
-    <input id="multiDnsInput" type="text" placeholder="es: anonlab.it"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
-
-    <button onclick="checkMultiDNS()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Verifica Propagazione
-    </button>
-
-    <div id="multiDnsResult" aria-live="polite" style="background:#000; color:#0ff; padding:15px; margin-top:15px; border:1px solid #00eaff; display:none;"></div>
-</div>
-
-<script>
-async function checkMultiDNS() {
-    const domain = document.getElementById("multiDnsInput").value.trim();
-    const out = document.getElementById("multiDnsResult");
-    if (!domain) return;
-
-    out.style.display = "block";
-    out.innerText = "Interrogazione resolver mondiali...";
-
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/dns_multi.php?domain=" + encodeURIComponent(domain));
-        const data = await res.json();
-        
-        let html = `<h4 style="color:#00eaff; margin-bottom:10px;">Propagazione per: ${data.domain}</h4><ul style="list-style:none; padding:0;">`;
-        data.resolvers.forEach(r => {
-            const statusColor = r.status === "ONLINE" ? "#00ff88" : "#ff4444";
-            html += `
-                <li style="border-bottom:1px solid #00eaff22; padding:6px 0; display:flex; justify-content:space-between; font-size:13px;">
-                    <span style="color:#fff;">${r.resolver}</span>
-                    <span style="color:${statusColor}; font-weight:bold;">${r.ip}</span>
-                </li>`;
-        });
-        html += "</ul>";
-        out.innerHTML = html;
-    } catch(e) {
-        out.innerText = "Errore durante il controllo DNS.";
-    }
-}
-</script>
-
             <!-- Tor Exit Node Detector -->
 <div class="widget-large tools-box" id="tordetector" aria-label="Tor Detector">
     <div class="box-title-row">
