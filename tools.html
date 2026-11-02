@@ -1135,143 +1135,60 @@ nisi ut aliquip ex ea commodo consequat.`;
             }
             </script>
 
-           <!-- Cyber Tutorial & Threat Intel Video -->
+           <!-- Cyber Tutorial & Threat Intel Video (Dinamico) -->
 <div class="widget-large tools-box" id="cybervideo" aria-label="Cyber Threat Intel Briefing">
     <div class="box-title-row">
-        <img src="/img/eyes.png" alt="Icona Video" class="box-title-icon">
-        <h3>Cyber Tutorial & Threat Intel Briefing</h3>
+        <!-- SVG Cyber Screen Play (sostituisce eyes.png) -->
+        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
+            <rect x="2" y="3" width="20" height="15" rx="3" />
+            <polygon points="10 8 16 11.5 10 15 10 8" fill="#00eaff" stroke="#00eaff" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="18" x2="12" y2="21" />
+        </svg>
+
+        <h3 id="cyberVideoTitle">Cyber Threat Intel Briefing</h3>
     </div>
 
-    <p style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
-        Guida operativa su Cyber Threat Intelligence (CTI), analisi dei pattern di attacco e intelligence difensiva.
+    <p id="cyberVideoMeta" style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
+        Caricamento ultimo briefing di Threat Intelligence...
     </p>
 
-    <!-- Contenitore 16:9 Responsive con stile Cyber Neon -->
-    <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; border:1px solid #00eaff; box-shadow:0 0 12px rgba(0,234,255,0.25); background:#000;">
-        <iframe 
-            src="https://www.youtube-nocookie.com/embed/videoseries?list=UU8doeiISRoPaHDVUDdzLdQ" 
-            title="Cyber Threat Intelligence Briefing" 
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen 
-            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
-        </iframe>
-    </div>
-</div>
-            <!-- Live Threat Intelligence Feed -->
-<div class="widget-large tools-box" id="threatfeed" aria-label="Live Threat Feed">
-    <div class="box-title-row">
-        <img src="/img/ip.png" alt="Icona Threat Feed" class="box-title-icon">
-        <h3>Live Cyber Advisories & Threat Alerts</h3>
-    </div>
-    
-    <div id="threatsContainer" aria-live="polite" style="max-height:350px; overflow-y:auto; color:#0ff; font-size:13px;">
-        Caricamento bollettini di minaccia in corso...
+    <!-- Contenitore 16:9 Responsive Cyber Neon -->
+    <div id="cyberVideoPlayer" style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; border:1px solid #00eaff; box-shadow:0 0 12px rgba(0,234,255,0.25); background:#000;">
+        <!-- L'iframe viene generato automaticamente dallo script sottostante -->
     </div>
 </div>
 
 <script>
-async function loadThreatFeed() {
-    const container = document.getElementById("threatsContainer");
+async function initCyberVideo() {
     try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/live_threats.php");
-        const list = await res.json();
-        
-        if (list.error || !Array.isArray(list)) {
-            container.innerHTML = `<span style="color:#ff4444;">${list.error || "Errore nel caricamento del feed"}</span>`;
-            return;
-        }
+        const res = await fetch("https://angelonline.altervista.org/widgets/video_feed.php");
+        const data = await res.json();
 
-        let html = "";
-        list.forEach(item => {
-            const date = new Date(item.pubDate).toLocaleDateString("it-IT", {
-                day: '2-digit', month: '2-digit', year: 'numeric'
-            });
-
-            html += `
-                <div style="border-bottom:1px solid #00eaff33; padding:10px 0;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <a href="${item.link}" target="_blank" rel="noopener" style="color:#ff4444; font-weight:bold; text-decoration:none;">
-                            ⚠️ ${item.title}
-                        </a>
-                    </div>
-                    <div style="color:#777; font-size:11px; margin:3px 0;">Data: ${date}</div>
-                    <div style="color:#7fdfff; font-size:12px; line-height:1.4;">
-                        ${item.description.length > 150 ? item.description.substring(0, 150) + '...' : item.description}
-                    </div>
-                </div>
+        if (data.videoId) {
+            document.getElementById("cyberVideoTitle").innerText = data.title;
+            const dataPub = new Date(data.published).toLocaleDateString("it-IT");
+            document.getElementById("cyberVideoMeta").innerText = `Fonte: ${data.author} | Aggiornato al: ${dataPub}`;
+            
+            document.getElementById("cyberVideoPlayer").innerHTML = `
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/${data.videoId}" 
+                    title="${data.title}" 
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+                </iframe>
             `;
-        });
-        container.innerHTML = html;
-    } catch(e) {
-        container.innerHTML = "<span style='color:#ff4444;'>Errore durante la connessione all'API di backend.</span>";
+        } else {
+            document.getElementById("cyberVideoMeta").innerText = "Briefing video al momento non disponibile.";
+        }
+    } catch (e) {
+        document.getElementById("cyberVideoMeta").innerText = "Errore di connessione al feed video.";
     }
 }
-loadThreatFeed();
+initCyberVideo();
 </script>
-            
-            <!-- 1. VIDEO CYBER TUTORIAL & BRIEFING -->
-            <div class="widget-large tools-box" id="cybervideo" aria-label="Cyber Briefing">
-                <div class="box-title-row">
-                    <img src="/img/eyes.png" alt="Icona Video" class="box-title-icon">
-                    <h3>Cyber Threat Intel Briefing</h3>
-                </div>
-                <p style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
-                    Analisi delle minacce, vettori d'attacco e cyber threat intelligence operativa.
-                </p>
-                <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border:1px solid #00eaff;">
-                    <iframe 
-                        src="https://www.youtube-nocookie.com/embed/videoseries?list=UU74kDUY5_PU0&t" 
-                        title="Cyber Intel Briefing" 
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen 
-                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- 2. LIVE THREAT ALERTS (CSIRT ITALIA) -->
-            <div class="widget-large tools-box" id="threatfeed" aria-label="Live Threat Feed">
-                <div class="box-title-row">
-                    <img src="/img/ip.png" alt="Icona Threat Feed" class="box-title-icon">
-                    <h3>Live Threat Alerts (CSIRT Italia)</h3>
-                </div>
-                <div id="threatsContainer" aria-live="polite" style="max-height:350px; overflow-y:auto; color:#0ff; font-size:13px;">
-                    Caricamento bollettini in corso...
-                </div>
-            </div>
-
-            <script>
-            async function loadThreatFeed() {
-                const container = document.getElementById("threatsContainer");
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/widgets/live_threats.php");
-                    const list = await res.json();
-                    
-                    if (list.error || !Array.isArray(list)) {
-                        container.innerText = "Nessun bollettino disponibile al momento.";
-                        return;
-                    }
-
-                    let html = "";
-                    list.forEach(item => {
-                        html += `
-                            <div style="border-bottom:1px solid #00eaff33; padding:8px 0;">
-                                <a href="${item.link}" target="_blank" rel="noopener" style="color:#ff4444; font-weight:bold; text-decoration:none; font-size:13px;">
-                                    ⚠️ ${item.title}
-                                </a>
-                                <div style="color:#777; font-size:11px; margin:2px 0;">Data: ${item.pubDate}</div>
-                                <div style="color:#7fdfff; font-size:12px;">${item.description.substring(0, 140)}...</div>
-                            </div>`;
-                    });
-                    container.innerHTML = html;
-                } catch(e) {
-                    container.innerText = "Feed temporaneamente offline.";
-                }
-            }
-            loadThreatFeed();
-            </script>
 
             <!-- 3. MULTI-DNS RESOLVER STATUS -->
             <div class="widget-large tools-box" id="multidns" aria-label="Multi-DNS Checker">
