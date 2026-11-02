@@ -684,58 +684,59 @@ ${JSON.stringify(data, null, 2)}
                 output.innerText += "\nScansione completata.";
             }
             </script>
-            <!-- HTTP Headers -->
-            <div class="widget-large tools-box" id="headerinspector" aria-label="HTTP Headers">
-                <div class="box-title-row">
-                    <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
-                    <h3>HTTP Headers</h3>
-                </div>
+            
+            <!-- Live HTTP Headers & SSL Inspector -->
+<div class="widget-large tools-box" id="headerinspector" aria-label="HTTP Headers & SSL">
+    <div class="box-title-row">
+        <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
+        <h3>Live Headers & SSL Inspector</h3>
+    </div>
 
-                <input id="headerUrl" type="text" placeholder="es: https://example.com"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+    <input id="headerUrlInput" type="text" placeholder="es: anonlab.it"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-                <button onclick="fetchHeaders()" style="
-                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-                    Analizza Headers
-                </button>
+    <button onclick="inspectHost()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Analizza Target in Tempo Reale
+    </button>
 
-                <div id="headerResult" aria-live="polite" style="
-                    background:#000; color:#0ff; padding:15px; margin-top:15px;
-                    max-height:400px; overflow-y:auto; border:1px solid #00eaff;
-                    white-space:pre-wrap;"></div>
-            </div>
+    <div id="headerInspectorResult" aria-live="polite" style="background:#000; color:#0ff; padding:15px; margin-top:15px; max-height:400px; overflow-y:auto; border:1px solid #00eaff; white-space:pre-wrap; display:none;"></div>
+</div>
 
-            <script>
-            async function fetchHeaders() {
-                const url = document.getElementById("headerUrl").value.trim();
-                const output = document.getElementById("headerResult");
+<script>
+async function inspectHost() {
+    const rawUrl = document.getElementById("headerUrlInput").value.trim();
+    const out = document.getElementById("headerInspectorResult");
 
-                if (!url) {
-                    output.innerText = "Inserisci un URL valido.";
-                    return;
-                }
+    if (!rawUrl) {
+        out.style.display = "block";
+        out.innerText = "Inserisci un dominio o URL.";
+        return;
+    }
 
-                output.innerText = "Caricamento headers...";
+    out.style.display = "block";
+    out.innerText = "Interrogazione target in corso...";
 
-                try {
-                    const apiUrl = "https://httpbin.org/headers";
-                    const res = await fetch(apiUrl);
-                    const data = await res.json();
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/headers_ssl.php?url=" + encodeURIComponent(rawUrl));
+        const data = await res.json();
 
-                    let html = `
-                        <h4 style="color:#00eaff;">HTTP Headers</h4>
-                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
-${JSON.stringify(data.headers, null, 2)}
-                        </pre>
-                    `;
+        if (data.error) {
+            out.innerHTML = `<span style="color:#ff4444;">Errore: ${data.error}</span>`;
+            return;
+        }
 
-                    output.innerHTML = html;
-
-                } catch (e) {
-                    output.innerText = "Errore durante il recupero degli headers.";
-                }
-            }
-            </script>
+        out.innerHTML = `
+            <h4 style="color:#00eaff;">Risultati per: ${data.url}</h4>
+            <p><strong>HTTP Status:</strong> ${data.http_code}</p>
+            <p><strong>Scadenza SSL:</strong> ${data.ssl_expire}</p>
+            <h4 style="color:#00eaff; margin-top:15px;">Headers Ricevuti:</h4>
+            <pre style="background:#0a0a0a; padding:10px; border:1px solid #00eaff55;">${JSON.stringify(data.headers, null, 2)}</pre>
+        `;
+    } catch(e) {
+        out.innerText = "Errore durante la scansione remota.";
+    }
+}
+</script>
 
             <!-- URL Expander -->
             <div class="widget-large tools-box" id="urlexpander" aria-label="URL Expander">
@@ -1157,6 +1158,51 @@ nisi ut aliquip ex ea commodo consequat.`;
         </iframe>
     </div>
 </div>
+
+            <!-- Live Threat Intelligence Feed -->
+<div class="widget-large tools-box" id="threatfeed" aria-label="Live Threat Feed">
+    <div class="box-title-row">
+        <img src="/img/ip.png" alt="Icona Threat Feed" class="box-title-icon">
+        <h3>Live Exploited Vulnerabilities (CISA KEV)</h3>
+    </div>
+    
+    <div id="threatsContainer" aria-live="polite" style="max-height:300px; overflow-y:auto; color:#0ff; font-size:13px;">
+        Caricamento bollettini di minaccia in corso...
+    </div>
+</div>
+
+<script>
+async function loadThreatFeed() {
+    const container = document.getElementById("threatsContainer");
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/live_threats.php");
+        const list = await res.json();
+        
+        if (list.error || !Array.isArray(list)) {
+            container.innerText = "Nessun dato al momento.";
+            return;
+        }
+
+        let html = "";
+        list.forEach(item => {
+            html += `
+                <div style="border-bottom:1px solid #00eaff33; padding:8px 0; margin-bottom:5px;">
+                    <div style="display:flex; justify-content:space-between; color:#ff4444; font-weight:bold;">
+                        <span>${item.cveID}</span>
+                        <span style="color:#888;">${item.dateAdded}</span>
+                    </div>
+                    <div style="color:#fff; font-size:12px; margin-top:2px;"><strong>${item.vendorProject} - ${item.product}</strong></div>
+                    <div style="color:#7fdfff; font-size:12px; margin-top:4px;">${item.shortDescription}</div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    } catch(e) {
+        container.innerText = "Errore durante il recupero dei dati threat.";
+    }
+}
+loadThreatFeed();
+</script>
         </section>
 
         <!-- SIDEBAR -->
