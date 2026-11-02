@@ -1209,6 +1209,266 @@ async function loadThreatFeed() {
 }
 loadThreatFeed();
 </script>
+
+            <!-- Multi-Resolver DNS Checker -->
+<div class="widget-large tools-box" id="multidns" aria-label="Multi-DNS Checker">
+    <div class="box-title-row">
+        <img src="/img/dns.png" alt="Icona Multi DNS" class="box-title-icon">
+        <h3>Global DNS Resolver Status</h3>
+    </div>
+
+    <input id="multiDnsInput" type="text" placeholder="es: anonlab.it"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <button onclick="checkMultiDNS()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Verifica Propagazione
+    </button>
+
+    <div id="multiDnsResult" aria-live="polite" style="background:#000; color:#0ff; padding:15px; margin-top:15px; border:1px solid #00eaff; display:none;"></div>
+</div>
+
+<script>
+async function checkMultiDNS() {
+    const domain = document.getElementById("multiDnsInput").value.trim();
+    const out = document.getElementById("multiDnsResult");
+    if (!domain) return;
+
+    out.style.display = "block";
+    out.innerText = "Interrogazione resolver mondiali...";
+
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/dns_multi.php?domain=" + encodeURIComponent(domain));
+        const data = await res.json();
+        
+        let html = `<h4 style="color:#00eaff; margin-bottom:10px;">Propagazione per: ${data.domain}</h4><ul style="list-style:none; padding:0;">`;
+        data.resolvers.forEach(r => {
+            const statusColor = r.status === "ONLINE" ? "#00ff88" : "#ff4444";
+            html += `
+                <li style="border-bottom:1px solid #00eaff22; padding:6px 0; display:flex; justify-content:space-between; font-size:13px;">
+                    <span style="color:#fff;">${r.resolver}</span>
+                    <span style="color:${statusColor}; font-weight:bold;">${r.ip}</span>
+                </li>`;
+        });
+        html += "</ul>";
+        out.innerHTML = html;
+    } catch(e) {
+        out.innerText = "Errore durante il controllo DNS.";
+    }
+}
+</script>
+
+            <!-- Tor Exit Node Detector -->
+<div class="widget-large tools-box" id="tordetector" aria-label="Tor Detector">
+    <div class="box-title-row">
+        <img src="/img/ip.png" alt="Icona Tor Detector" class="box-title-icon">
+        <h3>Tor Exit Node & Anonymity Detector</h3>
+    </div>
+
+    <input id="torIpInput" type="text" placeholder="Inserisci IP (es: 185.220.101.5)"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+    <button onclick="checkTorNode()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Scansiona Rete Onion
+    </button>
+
+    <div id="torResult" aria-live="polite" style="background:#000; color:#0ff; padding:15px; margin-top:15px; border:1px solid #00eaff; display:none;"></div>
+</div>
+
+<script>
+async function checkTorNode() {
+    const ip = document.getElementById("torIpInput").value.trim();
+    const out = document.getElementById("torResult");
+    if (!ip) return;
+
+    out.style.display = "block";
+    out.innerText = "Interrogazione registri Tor Project...";
+
+    try {
+        const res = await fetch("https://angelonline.altervista.org/widgets/tor_check.php?ip=" + encodeURIComponent(ip));
+        const data = await res.json();
+
+        if (data.error) {
+            out.innerHTML = `<span style="color:#ff4444;">${data.error}</span>`;
+            return;
+        }
+
+        const color = data.is_tor ? "#ff4444" : "#00ff88";
+        const icon = data.is_tor ? "🧅 ATTENZIONE:" : "🛡️ OK:";
+
+        out.innerHTML = `
+            <h4 style="color:${color}; margin-bottom:5px;">${icon} ${data.status}</h4>
+            <p style="color:#ccc; font-size:12px;">Target IP: <strong style="color:#fff;">${data.ip}</strong></p>
+            <p style="color:#777; font-size:11px;">Feed aggiornato: ${data.updated} UTC</p>
+        `;
+    } catch(e) {
+        out.innerText = "Errore durante il controllo del nodo.";
+    }
+}
+</script>
+
+            <!-- 1. VIDEO CYBER TUTORIAL & BRIEFING -->
+            <div class="widget-large tools-box" id="cybervideo" aria-label="Cyber Briefing">
+                <div class="box-title-row">
+                    <img src="/img/eyes.png" alt="Icona Video" class="box-title-icon">
+                    <h3>Cyber Threat Intel Briefing</h3>
+                </div>
+                <p style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
+                    Analisi delle minacce, vettori d'attacco e cyber threat intelligence operativa.
+                </p>
+                <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border:1px solid #00eaff;">
+                    <iframe 
+                        src="https://www.youtube-nocookie.com/embed/videoseries?list=UU8doeiISRoPaHDVUDdzLdQ" 
+                        title="Cyber Intel Briefing" 
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- 2. LIVE THREAT ALERTS (CSIRT ITALIA) -->
+            <div class="widget-large tools-box" id="threatfeed" aria-label="Live Threat Feed">
+                <div class="box-title-row">
+                    <img src="/img/ip.png" alt="Icona Threat Feed" class="box-title-icon">
+                    <h3>Live Threat Alerts (CSIRT Italia)</h3>
+                </div>
+                <div id="threatsContainer" aria-live="polite" style="max-height:350px; overflow-y:auto; color:#0ff; font-size:13px;">
+                    Caricamento bollettini in corso...
+                </div>
+            </div>
+
+            <script>
+            async function loadThreatFeed() {
+                const container = document.getElementById("threatsContainer");
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/live_threats.php");
+                    const list = await res.json();
+                    
+                    if (list.error || !Array.isArray(list)) {
+                        container.innerText = "Nessun bollettino disponibile al momento.";
+                        return;
+                    }
+
+                    let html = "";
+                    list.forEach(item => {
+                        html += `
+                            <div style="border-bottom:1px solid #00eaff33; padding:8px 0;">
+                                <a href="${item.link}" target="_blank" rel="noopener" style="color:#ff4444; font-weight:bold; text-decoration:none; font-size:13px;">
+                                    ⚠️ ${item.title}
+                                </a>
+                                <div style="color:#777; font-size:11px; margin:2px 0;">Data: ${item.pubDate}</div>
+                                <div style="color:#7fdfff; font-size:12px;">${item.description.substring(0, 140)}...</div>
+                            </div>`;
+                    });
+                    container.innerHTML = html;
+                } catch(e) {
+                    container.innerText = "Feed temporaneamente offline.";
+                }
+            }
+            loadThreatFeed();
+            </script>
+
+            <!-- 3. MULTI-DNS RESOLVER STATUS -->
+            <div class="widget-large tools-box" id="multidns" aria-label="Multi-DNS Checker">
+                <div class="box-title-row">
+                    <img src="/img/dns.png" alt="Icona Multi DNS" class="box-title-icon">
+                    <h3>Global DNS Resolver Status</h3>
+                </div>
+
+                <input id="multiDnsInput" type="text" placeholder="es: anonlab.it"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+                <button onclick="checkMultiDNS()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Verifica Risoluzione DNS
+                </button>
+
+                <div id="multiDnsResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; display:none;"></div>
+            </div>
+
+            <script>
+            async function checkMultiDNS() {
+                const domain = document.getElementById("multiDnsInput").value.trim();
+                const out = document.getElementById("multiDnsResult");
+                if (!domain) return;
+
+                out.style.display = "block";
+                out.innerText = "Interrogazione resolver globali...";
+
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/dns_multi.php?domain=" + encodeURIComponent(domain));
+                    const data = await res.json();
+                    
+                    let html = `<h4 style="color:#00eaff; margin-bottom:8px;">Target: ${data.domain}</h4><ul style="list-style:none; padding:0; margin:0;">`;
+                    data.resolvers.forEach(r => {
+                        const col = r.status === "ONLINE" ? "#00ff88" : "#ff4444";
+                        html += `
+                            <li style="border-bottom:1px solid #00eaff22; padding:6px 0; display:flex; justify-content:space-between; font-size:12px;">
+                                <span style="color:#fff;">${r.resolver}</span>
+                                <span style="color:${col}; font-weight:bold;">${r.ip}</span>
+                            </li>`;
+                    });
+                    html += "</ul>";
+                    out.innerHTML = html;
+                } catch(e) {
+                    out.innerText = "Errore durante il controllo dei resolver.";
+                }
+            }
+            </script>
+
+            <!-- 4. TOR EXIT NODE DETECTOR -->
+            <div class="widget-large tools-box" id="tordetector" aria-label="Tor Detector">
+                <div class="box-title-row">
+                    <img src="/img/ip.png" alt="Icona Tor Detector" class="box-title-icon">
+                    <h3>Tor Exit Node Detector</h3>
+                </div>
+
+                <input id="torIpInput" type="text" placeholder="es: 185.220.101.5"
+                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+
+                <button onclick="checkTorNode()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Analizza Rete Tor
+                </button>
+
+                <div id="torResult" aria-live="polite" style="
+                    background:#000; color:#0ff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; display:none;"></div>
+            </div>
+
+            <script>
+            async function checkTorNode() {
+                const ip = document.getElementById("torIpInput").value.trim();
+                const out = document.getElementById("torResult");
+                if (!ip) return;
+
+                out.style.display = "block";
+                out.innerText = "Interrogazione registri Tor Project...";
+
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/tor_check.php?ip=" + encodeURIComponent(ip));
+                    const data = await res.json();
+
+                    if (data.error) {
+                        out.innerHTML = `<span style="color:#ff4444;">${data.error}</span>`;
+                        return;
+                    }
+
+                    const color = data.is_tor ? "#ff4444" : "#00ff88";
+                    const statusText = data.is_tor ? "⚠️ Nodo di Uscita TOR Rilevato" : "🛡️ IP Diretto / Standard (Non TOR)";
+
+                    out.innerHTML = `
+                        <h4 style="color:${color}; margin-bottom:5px;">${statusText}</h4>
+                        <p style="color:#ccc; font-size:12px;">Indirizzo IP: <strong style="color:#fff;">${data.ip}</strong></p>
+                    `;
+                } catch(e) {
+                    out.innerText = "Errore durante l'interrogazione.";
+                }
+            }
+            </script>
         </section>
 
         <!-- SIDEBAR -->
