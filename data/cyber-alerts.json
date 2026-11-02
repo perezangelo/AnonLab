@@ -1,5 +1,19 @@
 [
   {
+    "id": "GHSA-j656-3hf2-fvjc",
+    "summary": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
+    "severity": "MODERATE",
+    "published": "2026-11-02T17:57:51Z",
+    "ghsa": "GHSA-j656-3hf2-fvjc"
+  },
+  {
+    "id": "CVE-2026-62374",
+    "summary": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
+    "severity": "HIGH",
+    "published": "2026-11-02T17:54:39Z",
+    "ghsa": "GHSA-f9j6-8p6x-r9j6"
+  },
+  {
     "id": "CVE-2026-118761",
     "summary": "Kubeflow Pipelines: Pipeline archive upload allows decompression bomb to exhaust server memory",
     "severity": "HIGH",
@@ -54,19 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-10-30T23:09:55Z",
     "ghsa": "GHSA-g3hv-75wg-m249"
-  },
-  {
-    "id": "CVE-2026-118773",
-    "summary": "Glob: AbortSignal cancellation bypass allows post-timeout filesystem traversal",
-    "severity": "MODERATE",
-    "published": "2026-10-30T23:09:11Z",
-    "ghsa": "GHSA-3g3m-2fjr-6pw4"
-  },
-  {
-    "id": "CVE-2026-116672",
-    "summary": "Authlib RFC 7592 examples omit registration-access-token client binding",
-    "severity": "HIGH",
-    "published": "2026-10-30T23:09:04Z",
-    "ghsa": "GHSA-c73q-w75p-j82v"
   }
 ]
