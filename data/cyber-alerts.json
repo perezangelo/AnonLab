@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-62848",
+    "summary": "Metalama: Unsafe deserialization over Metalama's Visual Studio inter-process named pipe enables local code execution",
+    "severity": "HIGH",
+    "published": "2026-11-03T16:37:44Z",
+    "ghsa": "GHSA-h26j-4vp7-x9w2"
+  },
+  {
+    "id": "GHSA-m3qr-fvp4-78xj",
+    "summary": "Arc has unauthenticated application log disclosure via `/api/v1/logs`",
+    "severity": "LOW",
+    "published": "2026-11-03T16:29:38Z",
+    "ghsa": "GHSA-m3qr-fvp4-78xj"
+  },
+  {
     "id": "GHSA-j656-3hf2-fvjc",
     "summary": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
     "severity": "MODERATE",
@@ -54,19 +68,5 @@
     "severity": "HIGH",
     "published": "2026-10-30T23:10:23Z",
     "ghsa": "GHSA-4528-x5fx-h6hg"
-  },
-  {
-    "id": "CVE-2026-119202",
-    "summary": "@hapi/content: quadratic-time parsing of Content-Disposition parameters allows denial of service",
-    "severity": "HIGH",
-    "published": "2026-10-30T23:10:13Z",
-    "ghsa": "GHSA-8494-f6mr-cjpv"
-  },
-  {
-    "id": "CVE-2026-118764",
-    "summary": "minimatch has potential denial of service via globparts amplification",
-    "severity": "MODERATE",
-    "published": "2026-10-30T23:09:55Z",
-    "ghsa": "GHSA-g3hv-75wg-m249"
   }
 ]
