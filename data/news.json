@@ -1,5 +1,60 @@
 [
   {
+    "title": "Vercel rolls out new protection against stolen session cookie attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/vercel-rolls-out-new-protection-against-stolen-session-cookie-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/vercel.jpg"
+  },
+  {
+    "title": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
+    "link": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/zyxel-gs1900.jpg"
+  },
+  {
+    "title": "DreamHost confirms data breach exposed FTP logins and webmail sessions",
+    "link": "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/DreamHost.jpg"
+  },
+  {
+    "title": "Cyberattack disrupts blood storage refrigeration systems in France",
+    "link": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/blood-bags.jpg"
+  },
+  {
+    "title": "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified Packages and Run Code as Root",
+    "link": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUPaNgRQEg3TU6-9BBgKse77CGVpbBFbn48cBnN1aanKvaMzk_mT74RxyWZA3_NbcrYe0UnRAQlELRYKGiGNrLUDcBMSKXFgRNxaND7RoaVFOs1Q7rkFFtlpoAzYQ7C8i6RAY4bNNTarEMUI-iFR4A_IfjIkFE9vpyQjG-0QFngy5cRE8f2GhGfTltkaI/s1600/linux-apt.jpg"
+  },
+  {
+    "title": "SonicWall Won't Patch EoL GMS Flaws That Could Expose Files, Alter Database Records",
+    "link": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgME1T4MkjI8UEzzSmlLgbPG6a__VNQNoKkhuxiaW5zF5fnHLPmsTdkGoIL06JTeER1jcOMH-WLuNYyva_sSW_8DnZojbMC8ikgNME3ZPUAdkij-9nVm8joHHdaZRoLNbVgcSVLNSc6Tt7UJ3YPhQmea3OtQwg-H2UzUPIgWq7nFwoEQcMsGCKf-0fImEvd/s1600/sonic.jpg"
+  },
+  {
+    "title": "NIKKE PC game launcher hacked to spread remote access, data-stealing malware",
+    "link": "https://www.bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/nikke.jpg"
+  },
+  {
+    "title": "Millions of Android phones face massive hacking risk: zero-click critical flaw",
+    "link": "https://cybernews.com/security/google-patches-critical-android-security-flaws/",
+    "image": "https://media.cybernews.com/images/featured-big/2026/11/Android-recovery-mode.jpg"
+  },
+  {
+    "title": "Google, Partners Disrupt 1.3 Million-Device-Strong XCPE Botnet",
+    "link": "https://www.darkreading.com/endpoint-security/google-13-million-device-strong-xcpe-botnet",
+    "image": ""
+  },
+  {
+    "title": "Researchers Uncover Prompt Adware Hidden in OpenAI Codex Jailbreak Toolkit",
+    "link": "https://thehackernews.com/2026/11/researchers-uncover-prompt-adware.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiO7-xs-0dO1uqFLbfphgPbe8T7cbCLkrab6XhAjlNPVo-bLQOFw4mkcArqglQOvhuIYif4ohTAub-TNWlket6iguifshMRo3zBrYvM4G_IwFTtbh8ifIqh1Vuf8GuNmqDg_PB2Roy7yzYuTFhRrFM8wxOo8HVwfG9Y2eqJnq82LGYHnAKI5S6TuvZ_Q95A/s1600/ai-adware.jpg"
+  },
+  {
+    "title": "mSecure password manager hack prompts password reset warnings",
+    "link": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/hacker-password-manager-redlock.jpg"
+  },
+  {
     "title": "Google Calendar phishing campaign hijacks sessions, bypasses MFA",
     "link": "https://www.bleepingcomputer.com/news/security/google-calendar-phishing-campaign-hijacks-sessions-bypasses-mfa/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/22/google-workspace-breach.jpg"
@@ -93,60 +148,5 @@
     "title": "CISA flags WordPress RCE flaw as actively exploited in attacks",
     "link": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/WordPress.jpg"
-  },
-  {
-    "title": "Teens could lose AI girlfriends as Apple rates all virtual companions 18+ on App Store",
-    "link": "https://cybernews.com/ai-news/apple-app-store-ai-companions/",
-    "image": "https://media.cybernews.com/images/featured-big/2025/05/AppleAppStore.jpg"
-  },
-  {
-    "title": "Critical Rails Flaw Lets Attackers Write Server Files via Crafted ImageMagick Uploads",
-    "link": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaJWnScdkMx0R5_Zt00NtYVNjNavBR7IMrLzJM_tZGMTpZtAvV7uNWt6BQbBrlUzH-aBoj_ZmMEOG__aTA8VmfTeiHUR9gfqNe2eYf9fSM-sYQkmCOg10qZ3ZaKyM_RS1QUQhm8s5NMw-xnYaWMDgDakmFyp9tbJgQ4hOZTf0cxe9E6x7uWt3JeN6bS3k/s1600/ruby-rails.jpg"
-  },
-  {
-    "title": "Xen Hypervisor Flaws Let One Malicious VM Read and Write Any Other VM's Memory",
-    "link": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAVPXiuTBfhBnpwaZHMfSDWymKJrXbS88kOEO1Xuh5t11qAnwSKeFTHGQy6ZG9Sr2N-wRYrJg58x3lKFbybvU9p1a85lxaCHfBa61vO1DfjEhUi5Yzf6bQS1eN7Mu-s_sUwkE-JGc-UznJ1p0qfmwMDusXFzWawXKXMt6jj-vENxyQG12uAUDUe0p0gtg/s1600/xen.jpg"
-  },
-  {
-    "title": "Radio With No Radar: Why Agent Runtime Security Fails Without the Layers Beneath It",
-    "link": "https://thehackernews.com/2026/11/radio-with-no-radar-why-agent-runtime.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQqFIm3V3DsL6rHtjhkN8qVT2sU-caHUEuPgeepdZ6lLsIJ-09GFg_HVVBgeHP36W0abqUeCuaNuAOIheSGYB9hxmHbQGcgREBBxStEFLijgx-Cd8C8Z8wLuxgFFu75O8hAAOcdjAxgCZ-iYoBvYS09AcITdqMnmLZOn2JdGaEp04SPrgYkgQ14dl1S0JS/s1600/reco.gif"
-  },
-  {
-    "title": "China-Aligned Hackers Hijack Sogou Input Method DNS Requests to Deploy DarkVigil Backdoor",
-    "link": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMawvNNOvRYRm-k7ii9yDdw214v4kwQ7h5fAfOaUVkvMetNwArral8qumlObtaftjOcBsibL9vkqM1UT0-9l9jYPjj3M3C9NcPfg5pdIuENUfdKlK7lyseCS30AVhgLLs6a-2fdXlSDymSVeyIziO7IC13HFCaOf1v4sjbgmkeKfewWNsbTJCJ0WR2zLBZ/s1600/key.jpg"
-  },
-  {
-    "title": "Malicious cPGuard Updates Served in OpsShield Supply Chain Attack",
-    "link": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/supply-chain-threat.webp"
-  },
-  {
-    "title": "Chrome 157 Rolls Out With 213 Security Fixes, Seven Rated Critical",
-    "link": "https://www.securityweek.com/chrome-157-rolls-out-with-213-security-fixes-seven-rated-critical/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Chrome-Zero-Day-exploits.jpg"
-  },
-  {
-    "title": "Rigged Coding Assignment, Abused AI Tool Opened Path to $6 Billion Binance Heist",
-    "link": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Binance-hacked.jpeg"
-  },
-  {
-    "title": "Attackers exploit just 0.5% of disclosed vulnerabilities, but they know which ones to pick",
-    "link": "https://cybernews.com/security/attackers-exploit-few-disclosed-vulnerabilities/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/09/malware-campaign.jpg"
-  },
-  {
-    "title": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Russian_hacker.jpg"
-  },
-  {
-    "title": "North Korea Launches Missiles Toward the Sea as Pyongyang Protests Against US Claims on Binance Hack",
-    "link": "https://www.securityweek.com/north-korea-launches-missiles-toward-the-sea-as-pyongyang-protests-against-us-claims-on-binance-hack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/North-Korea-Hackers.jpg"
   }
 ]
