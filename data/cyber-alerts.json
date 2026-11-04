@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-55098",
+    "summary": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
+    "severity": "MODERATE",
+    "published": "2026-11-04T17:02:37Z",
+    "ghsa": "GHSA-93cm-2v4m-c56c"
+  },
+  {
+    "id": "CVE-2026-93363",
+    "summary": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
+    "severity": "MODERATE",
+    "published": "2026-11-04T17:00:39Z",
+    "ghsa": "GHSA-mc8m-rr6c-r5qr"
+  },
+  {
+    "id": "CVE-2026-113787",
+    "summary": "odf-kit: HTML injection leading to XSS in odtToHtml() and odsToHtml() via unescaped style attribute values",
+    "severity": "MODERATE",
+    "published": "2026-11-04T16:14:34Z",
+    "ghsa": "GHSA-3cgg-c5pp-57h6"
+  },
+  {
     "id": "CVE-2026-115878",
     "summary": "Stanza: RCE via pickle deserialization in the lemmatizer",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "HIGH",
     "published": "2026-11-03T17:24:27Z",
     "ghsa": "GHSA-j97h-3f8r-mrjr"
-  },
-  {
-    "id": "GHSA-9ppr-wfw9-xvr2",
-    "summary": "Netfoil doesn't decrement TTL",
-    "severity": "MODERATE",
-    "published": "2026-11-03T16:48:29Z",
-    "ghsa": "GHSA-9ppr-wfw9-xvr2"
-  },
-  {
-    "id": "CVE-2026-62848",
-    "summary": "Metalama: Unsafe deserialization over Metalama's Visual Studio inter-process named pipe enables local code execution",
-    "severity": "HIGH",
-    "published": "2026-11-03T16:37:44Z",
-    "ghsa": "GHSA-h26j-4vp7-x9w2"
-  },
-  {
-    "id": "GHSA-m3qr-fvp4-78xj",
-    "summary": "Arc has unauthenticated application log disclosure via `/api/v1/logs`",
-    "severity": "LOW",
-    "published": "2026-11-03T16:29:38Z",
-    "ghsa": "GHSA-m3qr-fvp4-78xj"
   }
 ]
