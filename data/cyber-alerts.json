@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-62300",
+    "summary": "filecoin-pin: Unbounded DAG pinning can exhaust server resources",
+    "severity": "MODERATE",
+    "published": "2026-11-05T18:07:30Z",
+    "ghsa": "GHSA-m5ph-mmg5-6w5h"
+  },
+  {
+    "id": "CVE-2026-61536",
+    "summary": "Banks: Unsafe importlib.import_module of attacker-controlled Tool.import_path in CompletionExtension allows RCE",
+    "severity": "HIGH",
+    "published": "2026-11-05T17:51:02Z",
+    "ghsa": "GHSA-64vx-6h2c-rjh7"
+  },
+  {
+    "id": "CVE-2026-105769",
+    "summary": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
+    "severity": "CRITICAL",
+    "published": "2026-11-05T17:48:54Z",
+    "ghsa": "GHSA-5q7h-w9jf-cx97"
+  },
+  {
+    "id": "CVE-2026-12411",
+    "summary": "lxd allows Cross-guest volume hijack via DevLXD device patch",
+    "severity": "HIGH",
+    "published": "2026-11-05T17:40:59Z",
+    "ghsa": "GHSA-hhf9-qw4v-72xp"
+  },
+  {
     "id": "CVE-2026-55098",
     "summary": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
     "severity": "MODERATE",
@@ -40,33 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-11-03T17:51:30Z",
     "ghsa": "GHSA-7w38-ggh5-v542"
-  },
-  {
-    "id": "CVE-2026-44265",
-    "summary": "Elo backends have code injection via unvalidated emission of programmatic AST fields",
-    "severity": "HIGH",
-    "published": "2026-11-03T17:48:09Z",
-    "ghsa": "GHSA-x9rp-7wh3-2rj5"
-  },
-  {
-    "id": "GHSA-p3jp-9v83-76w9",
-    "summary": "Microsoft Security Advisory CVE-2026-111497 - .NET Brotli Decoder Out-of-bounds Write Vulnerability",
-    "severity": "HIGH",
-    "published": "2026-11-03T17:33:48Z",
-    "ghsa": "GHSA-p3jp-9v83-76w9"
-  },
-  {
-    "id": "CVE-2026-62331",
-    "summary": "praktor: Path traversal in Telegram file uploads allows writing outside the agent workspace uploads/ directory (stored instruction injection)",
-    "severity": "HIGH",
-    "published": "2026-11-03T17:27:25Z",
-    "ghsa": "GHSA-48v2-6jcm-fc99"
-  },
-  {
-    "id": "CVE-2026-11800",
-    "summary": "Keycloak has authentication bypass via jwt algorithm confusion",
-    "severity": "HIGH",
-    "published": "2026-11-03T17:24:27Z",
-    "ghsa": "GHSA-j97h-3f8r-mrjr"
   }
 ]
