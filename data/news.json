@@ -1,5 +1,35 @@
 [
   {
+    "title": "UK Wades Into Tech Sovereignty Amid AI Policy Changes",
+    "link": "https://www.darkreading.com/cybersecurity-operations/uk-tech-sovereignty-ai-policy",
+    "image": ""
+  },
+  {
+    "title": "OpenAI's new GPT-6 Cyber AI finds 81 Firefox flaws, 948 Linux bugs",
+    "link": "https://www.bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/07/29/openai-escape-sandbox.jpg"
+  },
+  {
+    "title": "Fake security tools on GitHub push backdoors and infostealers",
+    "link": "https://www.bleepingcomputer.com/news/security/fake-security-tools-on-github-push-backdoors-and-infostealers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/github.jpg"
+  },
+  {
+    "title": "Japan Announces Emergency Cybersecurity Package Following a Wave of Attacks",
+    "link": "https://www.securityweek.com/japan-announces-emergency-cybersecurity-package-following-a-wave-of-attacks/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/Geopolitics-Cybersecurity.jpg"
+  },
+  {
+    "title": "AI Gave Your Incident Archive a Second Job",
+    "link": "https://www.darkreading.com/cyber-risk/ai-gave-your-incident-archive-second-job",
+    "image": ""
+  },
+  {
+    "title": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/QNAP.jpg"
+  },
+  {
     "title": "Installing the Fix for an Exploited WordPress Flaw Can Expose Some Sites One Last Time",
     "link": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4gwg9bgmxLj_anXtQvOZdeKYWN-aAZxZqlOrI7wXwZ_qW_lUZrzwYufexnbDLcC20eXBkh7TgA-dAQHm6EEmEc80i9A6GOBGkiOb8NhcR1d1CFLKDLc7VJzyC4Bv-5Ye2AEE_ApPcKmAWqJJFfbQ2AOGffKhCPNznyYyz5s0Jro-mxcTxfxPoqRe-ZoY/s1600/wp-update.jpg"
@@ -118,35 +148,5 @@
     "title": "OpenSSH Rushes Patches for \u2018SSHole\u2019 Authentication Bypass",
     "link": "https://www.securityweek.com/openssh-rushes-patches-for-sshole-authentication-bypass/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/11/SSH.webp"
-  },
-  {
-    "title": "Microsoft Paint RCE Fix Now Available, but Windows Update Won't Deliver It",
-    "link": "https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFEFFUv1MUNRoFx03Jcw0k5NZCU0EOf5qEpbvAEQoTSTzoxHWPk1rc7XgQeG1USPP9vVB0ePI_lzQLqBU5bHdQ7-YrwEXFo8gJwayqwCvCtcDrw1JYMxKYxieV3bcQeCRAJAxt8CRfifzMzL22_ab0Z0OxwWrNckC36gPEOnubZnzagv6DkV7iY4AQJfA/s1600/paint-rce.jpg"
-  },
-  {
-    "title": "Malicious Browser Extensions Could Use Claude Dispatch to Run Code on Users' Computers",
-    "link": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil2RWGFxPYdzFDr1Tl0G6604dLCacXJDMaR-i0nSdrR7vBGgK-lUkZbE5eZYMbWO0Geqw_rDbN2qUkWpEadukl6gccv-xuUWJfEOx2_FWFiZxjVs4uNPiRK3JYOBo0QI1Lx08xd9Iz3-8TFN_kf-njbCQ-AFDcLNNRy6JcwsZyoM12qLt99OzNQNhmaGs/s1600/claude-dispatch.jpg"
-  },
-  {
-    "title": "The Flood is Coming And The Pipes Were Already Full",
-    "link": "https://thehackernews.com/2026/11/the-flood-is-coming-and-pipes-were.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhRlCxdfW4sb5-1zEBHpFyJfxetSva89fr67wc8zSfvidW5W4KQKckoTrRxOAUbjM94U2ydFjiXybLJPrp6pm1V-WUuC4IpkJjhIT56OG8go8E_8fR8cK-llV0UtXdRIxZS5XxuVwEbRj1G_zAErMjpkMHVdzkGBQrB46VErPyE7MBaW6sj0N64pRd3_A/s1600/FLOOD.jpg"
-  },
-  {
-    "title": "Any long password will do: SSH flaw lets hackers into Alpine systems, routers and more",
-    "link": "https://cybernews.com/security/openssh-password-authentication-bypass-flaw-alpine-musl-systems/",
-    "image": "https://media.cybernews.com/images/featured-big/2026/11/sshole.jpg"
-  },
-  {
-    "title": "OpenAI Model Wrote Its Own Network Code to Get Around Sandbox Restrictions",
-    "link": "https://www.securityweek.com/openai-model-wrote-its-own-network-code-to-get-around-sandbox-restrictions/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/rogue-AI-artificial-intelligence.jpeg"
-  },
-  {
-    "title": "MetaMask says recent attack didn't affect wallet infrastructure",
-    "link": "https://www.bleepingcomputer.com/news/security/metamask-says-recent-attack-didnt-affect-wallet-infrastructure/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/Metamask.jpg"
   }
 ]
