@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-62300",
-    "summary": "filecoin-pin: Unbounded DAG pinning can exhaust server resources",
-    "severity": "MODERATE",
-    "published": "2026-11-05T18:07:30Z",
-    "ghsa": "GHSA-m5ph-mmg5-6w5h"
-  },
-  {
-    "id": "CVE-2026-61536",
-    "summary": "Banks: Unsafe importlib.import_module of attacker-controlled Tool.import_path in CompletionExtension allows RCE",
-    "severity": "HIGH",
-    "published": "2026-11-05T17:51:02Z",
-    "ghsa": "GHSA-64vx-6h2c-rjh7"
-  },
-  {
-    "id": "CVE-2026-105769",
-    "summary": "kaniko can send the build's Azure (Entra ID) access token to lookalike ACR registry hosts",
+    "id": "GHSA-47w9-6r3f-938g",
+    "summary": "LXD has restricted project bypass leading to arbitrary command execution",
     "severity": "CRITICAL",
-    "published": "2026-11-05T17:48:54Z",
-    "ghsa": "GHSA-5q7h-w9jf-cx97"
+    "published": "2026-11-06T19:51:26Z",
+    "ghsa": "GHSA-47w9-6r3f-938g"
   },
   {
-    "id": "CVE-2026-12411",
-    "summary": "lxd allows Cross-guest volume hijack via DevLXD device patch",
+    "id": "GHSA-7mr3-28h5-m5vx",
+    "summary": "LXD has project restriction bypass for custom volume copy across projects ",
     "severity": "HIGH",
-    "published": "2026-11-05T17:40:59Z",
-    "ghsa": "GHSA-hhf9-qw4v-72xp"
+    "published": "2026-11-06T19:51:16Z",
+    "ghsa": "GHSA-7mr3-28h5-m5vx"
   },
   {
-    "id": "CVE-2026-55098",
-    "summary": "Arc: DuckDB I/O aliases bypass database RBAC after CVE-2026-47735",
-    "severity": "MODERATE",
-    "published": "2026-11-04T17:02:37Z",
-    "ghsa": "GHSA-93cm-2v4m-c56c"
-  },
-  {
-    "id": "CVE-2026-93363",
-    "summary": "@payloadcms/storage-vercel-blob has access control bypass of uploads in Vercel Storage adapter",
-    "severity": "MODERATE",
-    "published": "2026-11-04T17:00:39Z",
-    "ghsa": "GHSA-mc8m-rr6c-r5qr"
-  },
-  {
-    "id": "CVE-2026-113787",
-    "summary": "odf-kit: HTML injection leading to XSS in odtToHtml() and odsToHtml() via unescaped style attribute values",
-    "severity": "MODERATE",
-    "published": "2026-11-04T16:14:34Z",
-    "ghsa": "GHSA-3cgg-c5pp-57h6"
-  },
-  {
-    "id": "CVE-2026-115878",
-    "summary": "Stanza: RCE via pickle deserialization in the lemmatizer",
+    "id": "GHSA-qx75-2p3r-pwm5",
+    "summary": "LXD has project restriction bypass in instance copy across projects ",
     "severity": "HIGH",
-    "published": "2026-11-03T20:29:16Z",
-    "ghsa": "GHSA-gh9r-c94j-cmp5"
+    "published": "2026-11-06T19:51:00Z",
+    "ghsa": "GHSA-qx75-2p3r-pwm5"
   },
   {
-    "id": "CVE-2026-44267",
-    "summary": "Elo JavaScript emitter has sandbox escape to arbitrary Node.js / browser code execution via unfiltered `.constructor` member access",
-    "severity": "CRITICAL",
-    "published": "2026-11-03T17:53:42Z",
-    "ghsa": "GHSA-33r5-xmm8-v6x5"
+    "id": "CVE-2026-55649",
+    "summary": "GeoNode has Stored XSS in Documents metadata abstract field",
+    "severity": "MODERATE",
+    "published": "2026-11-06T19:50:34Z",
+    "ghsa": "GHSA-r4hm-p9f9-fj9v"
   },
   {
-    "id": "CVE-2026-44266",
-    "summary": "Elo Ruby backend has Remote Code Execution via unescaped `#{...}` interpolation in emitted string literals and subtype-constraint labels",
+    "id": "CVE-2026-46429",
+    "summary": "GeoNode has Unrestricted File Upload",
+    "severity": "MODERATE",
+    "published": "2026-11-06T19:41:23Z",
+    "ghsa": "GHSA-fqpv-mq26-pr4j"
+  },
+  {
+    "id": "CVE-2026-33050",
+    "summary": "GeoNode has OS command injection via uploaded file layer name",
+    "severity": "HIGH",
+    "published": "2026-11-06T19:39:38Z",
+    "ghsa": "GHSA-9fpx-fr6j-2vh6"
+  },
+  {
+    "id": "CVE-2026-9639",
+    "summary": "LXD has CreateCustomVolumeFromBackup nil-pointer dereference on volumes[0].snapshots[*].expires_at",
+    "severity": "MODERATE",
+    "published": "2026-11-06T19:37:14Z",
+    "ghsa": "GHSA-j93m-3j9p-m5m8"
+  },
+  {
+    "id": "GHSA-pjff-c2wc-f6jm",
+    "summary": "LXD has arbitrary file write on client due to trusted image hash",
     "severity": "CRITICAL",
-    "published": "2026-11-03T17:51:30Z",
-    "ghsa": "GHSA-7w38-ggh5-v542"
+    "published": "2026-11-06T19:36:55Z",
+    "ghsa": "GHSA-pjff-c2wc-f6jm"
+  },
+  {
+    "id": "GHSA-fmc8-p6q7-75cc",
+    "summary": "LXD has argument injection in backup compression algorithm leading to AFW and ACE",
+    "severity": "CRITICAL",
+    "published": "2026-11-06T19:36:37Z",
+    "ghsa": "GHSA-fmc8-p6q7-75cc"
+  },
+  {
+    "id": "GHSA-vghh-5rfx-xhq8",
+    "summary": "LXD has arbitrary file read+write on host via rootfs/ symlink in malicious image",
+    "severity": "CRITICAL",
+    "published": "2026-11-06T19:36:07Z",
+    "ghsa": "GHSA-vghh-5rfx-xhq8"
   }
 ]
