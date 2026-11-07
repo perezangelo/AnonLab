@@ -1412,6 +1412,20 @@ async function analyzeTargetIp() {
         <h3>IPv4 CIDR & Subnet Calculator</h3>
     </div>
 
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: ARCHITETTURA DI RETE E SUB-NETTING</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è:</strong> La notazione <em>CIDR (Classless Inter-Domain Routing)</em> esprime la maschera di sottorete tramite un prefisso numerico (es. <code>/24</code> = 255.255.255.0).
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ A cosa serve:</strong> È fondamentale per configurare regole di firewall, segmentare reti aziendali (VLAN), evitare conflitti di routing e definire scope di scansione durante attività di penetration testing.
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Come leggerlo:</strong> <em>Network ID</em> è l'indirizzo che identifica la rete; <em>Broadcast</em> è l'indirizzo usato per parlare a tutti i client; il <em>Range Host</em> indica i soli IP assegnabili a computer e server.
+        </p>
+    </div>
+
     <input id="cidrInput" type="text" placeholder="es: 192.168.1.0/24 oppure 10.50.0.1/20"
            style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
 
@@ -1442,7 +1456,7 @@ function calculateCIDR() {
     const prefix = parseInt(parts[1].trim(), 10);
 
     if (isNaN(prefix) || prefix < 0 || prefix > 32) {
-        out.innerHTML = `<span style="color:#ff4444;">Prefisso CIDR non valido (deve essere tra 0 e 32).</span>`;
+        out.innerHTML = `<span style="color:#ff4444;">Prefisso CIDR non valido (deve essere compreso tra 0 e 32).</span>`;
         return;
     }
 
@@ -1467,9 +1481,9 @@ function calculateCIDR() {
 
     out.innerHTML = `
         <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Analisi Rete: ${raw}</h4>
-        <div>Network ID: <strong style="color:#fff;">${toIp(netInt)}</strong></div>
-        <div>Subnet Mask: <strong style="color:#fff;">${toIp(maskInt)}</strong></div>
-        <div>Wildcard Mask: <strong style="color:#fff;">${toIp(wildInt)}</strong></div>
+        <div>Network ID (Rete): <strong style="color:#fff;">${toIp(netInt)}</strong></div>
+        <div>Subnet Mask (Maschera): <strong style="color:#fff;">${toIp(maskInt)}</strong></div>
+        <div>Wildcard Mask (ACL/Cisco): <strong style="color:#fff;">${toIp(wildInt)}</strong></div>
         <div>Broadcast Address: <strong style="color:#fff;">${toIp(bcastInt)}</strong></div>
         <div>Range Host Utili: <strong style="color:#fff;">${firstHost} — ${lastHost}</strong></div>
         <div>Host Totali Assegnabili: <strong style="color:#ffcc00;">${usableHosts.toLocaleString()}</strong> (${totalHosts.toLocaleString()} indirizzi)</div>
@@ -1478,15 +1492,29 @@ function calculateCIDR() {
 </script>
 
 
-<!-- 22. IOC DEFANGER / REFANGER (THREAT INTEL UTILITY) -->
+<!-- 22. IOC DEFANGER / REFANGER -->
 <div class="widget-large tools-box" id="iocdefang" aria-label="IoC Defanger Refanger">
     <div class="box-title-row">
         <img src="/img/url.png" alt="Icona IoC Defanger" class="box-title-icon" width="28" height="28">
         <h3>IoC Defanger & Sanitizer</h3>
     </div>
 
-    <textarea id="iocInput" placeholder="Incolla URL o IP malevoli (es: https://malicious-site.com/payload.exe oppure 185.220.101.5)..."
-              style="width:100%; height:90px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: SANITIZZAZIONE DEGLI INDICATORI DI COMPROMISSIONE (IoC)</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è il "Defanging":</strong> È la pratica di alterare sintatticamente URL, domini e indirizzi IP malevoli (es. sostituendo <code>https://</code> con <code>hxxps[://]</code> e i punti con <code>[.]</code>).
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ A cosa serve:</strong> Impedisce a colleghi, clienti o sistemi automatici di cliccare inavvertitamente su un link malevolo o di attivare filtri antispam durante lo scambio di report di Threat Intelligence.
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Come si usa:</strong> Incolla l'URL malevolo e clicca <em>Defang</em> per renderlo sicuro da inviare via chat o email. Clicca <em>Refang</em> per riconvertirlo nel formato originale quando devi analizzarlo.
+        </p>
+    </div>
+
+    <textarea id="iocInput" placeholder="Incolla URL o IP (es: https://malicious-site.com/payload.exe oppure 185.220.101.5)..."
+              style="width:100%; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
 
     <div style="display:flex; gap:10px; margin-bottom:10px;">
         <button onclick="processIoC(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
@@ -1526,15 +1554,29 @@ function processIoC(defang) {
 </script>
 
 
-<!-- 23. JWT (JSON WEB TOKEN) INSPECTOR -->
+<!-- 23. JWT INSPECTOR -->
 <div class="widget-large tools-box" id="jwtinspector" aria-label="JWT Token Inspector">
     <div class="box-title-row">
         <img src="/img/hash.png" alt="Icona JWT Inspector" class="box-title-icon" width="28" height="28">
         <h3>JWT (JSON Web Token) Inspector</h3>
     </div>
 
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: AUTENTICAZIONE WEB E TOKEN JWT</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è:</strong> Lo standard <em>RFC 7519</em> definisce i token JWT per trasmettere in sicurezza identità e ruoli utente tra client e server in formato JSON codificato in Base64URL.
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ A cosa serve:</strong> Nelle analisi di sicurezza web e API audit, permette di ispezionare permessi (claims come <code>admin: true</code>), algoritmi crittografici (<code>HS256</code> vs <code>RS256</code>) ed eventuali timestamp scaduti.
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Nota di Sicurezza:</strong> La decodifica avviene al 100% nel tuo browser (lato client): nessun token o credenziale riservata viene inviata a server esterni.
+        </p>
+    </div>
+
     <textarea id="jwtInput" placeholder="Incolla il token JWT (header.payload.signature)..."
-              style="width:100%; height:90px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+              style="width:100%; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
 
     <button onclick="decodeJWT()" style="
         width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
@@ -1555,7 +1597,7 @@ function decodeJWT() {
 
     const parts = token.split(".");
     if (parts.length !== 3) {
-        out.innerHTML = `<span style="color:#ff4444;">Formato JWT non valido (deve contenere 3 sezioni separate da un punto).</span>`;
+        out.innerHTML = `<span style="color:#ff4444;">Formato JWT non valido (un token è composto da 3 parti separate da un punto).</span>`;
         return;
     }
 
@@ -1579,7 +1621,7 @@ function decodeJWT() {
             </div>
             <strong style="color:#ff7b00;">[ Header (Algoritmo & Tipo) ]</strong>
             <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(header, null, 2)}</pre>
-            <strong style="color:#00eaff;">[ Payload (Claims & Dati) ]</strong>
+            <strong style="color:#00eaff;">[ Payload (Claims & Ruoli) ]</strong>
             <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(payload, null, 2)}</pre>
         `;
     } catch(e) {
@@ -1588,18 +1630,29 @@ function decodeJWT() {
 }
 </script>
 
-            <!-- 24. EMAIL SECURITY: SPF & DMARC ANTI-SPOOFING CHECKER -->
+
+<!-- 24. EMAIL SECURITY (SPF & DMARC) -->
 <div class="widget-large tools-box" id="emailsecurity" aria-label="Email SPF DMARC Checker">
     <div class="box-title-row">
         <img src="/img/http.png" alt="Icona Email Security" class="box-title-icon" width="28" height="28">
         <h3>Email Security: SPF & DMARC Inspector</h3>
     </div>
 
-    <p style="color:#aaa; font-size:0.85rem; margin-bottom:12px; line-height:1.4;">
-        Verifica se un dominio ha configurato correttamente i meccanismi di autenticazione email (SPF e DMARC) per prevenire attacchi di Phishing, Spoofing ed Email Impersonation.
-    </p>
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 255, 136, 0.03); border:1px solid rgba(0, 255, 136, 0.18); border-left:3px solid #00ff88; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00ff88; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: PROTEZIONE ANTI-SPOOFING E ANTI-PHISHING</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è SPF (Sender Policy Framework):</strong> Un record DNS TXT che elenca quali server IP hanno il permesso di inviare email per conto di un dominio.
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è DMARC:</strong> Indica ai server riceventi cosa fare con i messaggi falsificati: <em>p=none</em> (solo controllo), <em>p=quarantine</em> (invia in spam), <em>p=reject</em> (blocca l'email prima che arrivi a destinazione).
+        </p>
+        <p style="margin:0;">
+            <strong>🛡️ A cosa serve:</strong> Se un dominio non ha DMARC attivo con policy di blocco, i cybercriminali possono inviare email spacciandosi per quel dominio (Spoofing) senza essere intercettati.
+        </p>
+    </div>
 
-    <input id="emailDomainInput" type="text" placeholder="es: anonlab.it oppure paypal.com"
+    <input id="emailDomainInput" type="text" placeholder="es: anonlab.it oppure poste.it"
            style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
 
     <button onclick="checkEmailSecurity()" id="btnEmailSec" style="
@@ -1626,43 +1679,38 @@ async function checkEmailSecurity() {
     }
 
     out.style.display = "block";
-    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione record SPF e DMARC per ${domain}...</span>`;
+    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione record DNS di sicurezza per ${domain}...</span>`;
     btn.disabled = true;
 
     try {
-        // Query DoH per SPF e DMARC via Google DoH
         const [spfRes, dmarcRes] = await Promise.all([
             fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=TXT`).then(r => r.json()),
             fetch(`https://dns.google/resolve?name=_dmarc.${encodeURIComponent(domain)}&type=TXT`).then(r => r.json())
         ]);
 
-        // Estrazione SPF
         let spfRecord = null;
         if (spfRes.Answer) {
             const match = spfRes.Answer.find(a => (a.data || "").includes("v=spf1"));
             if (match) spfRecord = match.data.replace(/"/g, "");
         }
 
-        // Estrazione DMARC
         let dmarcRecord = null;
         if (dmarcRes.Answer) {
             const match = dmarcRes.Answer.find(a => (a.data || "").includes("v=DMARC1"));
             if (match) dmarcRecord = match.data.replace(/"/g, "");
         }
 
-        // Valutazione DMARC policy
-        let dmarcStatus = "<span style='color:#ff4444;'>⚠️ ASSENTE (Vulnerabile a spoofing diretto)</span>";
+        let dmarcStatus = "<span style='color:#ff4444;'>⚠️ ASSENTE (Vulnerabile a impersonation diretta)</span>";
         if (dmarcRecord) {
             if (/p=reject/i.test(dmarcRecord)) {
-                dmarcStatus = "<span style='color:#00ff88;'>🛡️ OTTIMO (p=reject - Email non autorizzate bloccate)</span>";
+                dmarcStatus = "<span style='color:#00ff88;'>🛡️ PROTETTO (p=reject - Blocca i tentativi di spoofing)</span>";
             } else if (/p=quarantine/i.test(dmarcRecord)) {
-                dmarcStatus = "<span style='color:#ffcc00;'>⚠️ MEDIO (p=quarantine - Email sospette inviate in spam)</span>";
+                dmarcStatus = "<span style='color:#ffcc00;'>⚠️ MEDIO (p=quarantine - Sposta in spam)</span>";
             } else if (/p=none/i.test(dmarcRecord)) {
-                dmarcStatus = "<span style='color:#ff8800;'>⚠️ SOLO MONITORAGGIO (p=none - Nessun blocco attivo)</span>";
+                dmarcStatus = "<span style='color:#ff8800;'>⚠️ SOLO MONITOR (p=none - Nessun blocco attivo)</span>";
             }
         }
 
-        // Valutazione SPF
         let spfStatus = spfRecord 
             ? "<span style='color:#00ff88;'>● CONFIGURATO</span>" 
             : "<span style='color:#ff4444;'>● MANCANTE</span>";
@@ -1676,7 +1724,7 @@ async function checkEmailSecurity() {
                     ${dmarcStatus}
                 </div>
                 <div style="color:#aaa; font-size:0.78rem; word-break:break-all; margin-top:2px;">
-                    ${dmarcRecord ? dmarcRecord : "Nessun record _dmarc trovato."}
+                    ${dmarcRecord ? dmarcRecord : "Nessun record _dmarc individuato."}
                 </div>
             </div>
 
@@ -1692,7 +1740,7 @@ async function checkEmailSecurity() {
         `;
 
     } catch (e) {
-        out.innerHTML = `<span style="color:#ff4444;">Errore durante la risoluzione DNS dei record di sicurezza.</span>`;
+        out.innerHTML = `<span style="color:#ff4444;">Errore durante la risoluzione DNS dei record.</span>`;
     } finally {
         btn.disabled = false;
     }
@@ -1700,16 +1748,26 @@ async function checkEmailSecurity() {
 </script>
 
 
-<!-- 25. MAC ADDRESS & OUI VENDOR LOOKUP -->
+<!-- 25. MAC ADDRESS & OUI LOOKUP -->
 <div class="widget-large tools-box" id="maclookup" aria-label="MAC Address Lookup">
     <div class="box-title-row">
         <img src="/img/dns.png" alt="Icona MAC Lookup" class="box-title-icon" width="28" height="28">
         <h3>MAC Address & OUI Vendor Lookup</h3>
     </div>
 
-    <p style="color:#aaa; font-size:0.85rem; margin-bottom:12px; line-height:1.4;">
-        Identifica il produttore hardware (Cisco, Apple, Intel, Raspberry Pi, ecc.) associato a una scheda di rete partendo dall'indirizzo MAC o dal prefisso OUI.
-    </p>
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: LIVELLO DATA LINK & IDENTIFICATORI HARDWARE (OUI)</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è un MAC Address:</strong> È l'indirizzo fisico a 48 bit univoco della scheda di rete. I primi 24 bit (3 byte) formano l'<em>OUI (Organizationally Unique Identifier)</em> assegnato dall'ente mondiale IEEE.
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ A cosa serve in OSINT e Triage:</strong> Durante un'analisi di rete (o un'intrusione Wi-Fi), permette di capire all'istante che tipo di apparato è connesso (es. se è una webcam cinese, un firewall Fortinet, un Mac o un Raspberry Pi).
+        </p>
+        <p style="margin:0;">
+            <strong>💡 MAC Randomizzati:</strong> I moderni smartphone (iOS e Android) usano MAC casuali per tutelare la privacy ed evitare il tracciamento su reti pubbliche.
+        </p>
+    </div>
 
     <input id="macInput" type="text" placeholder="es: 00:1A:2B:3C:4D:5E oppure B8-27-EB"
            style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
@@ -1738,7 +1796,7 @@ async function lookupMAC() {
     }
 
     out.style.display = "block";
-    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione database IEEE OUI...</span>`;
+    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione registro mondiale IEEE OUI...</span>`;
     btn.disabled = true;
 
     try {
@@ -1747,26 +1805,26 @@ async function lookupMAC() {
 
         if (!data.success || !data.found) {
             out.innerHTML = `
-                <h4 style="color:#ffcc00; margin-bottom:6px;">⚠️ Produttore non trovato</h4>
+                <h4 style="color:#ffcc00; margin-bottom:6px;">⚠️ Produttore non registrato</h4>
                 <p style="color:#aaa; font-size:0.8rem; margin:0;">
-                    L'indirizzo MAC inserito potrebbe essere privato, randomizzato localmente (Locally Administered) o non ancora registrato nei registri pubblici IEEE.
+                    L'indirizzo MAC inserito potrebbe essere privato, virtuale (es. Docker o VMware senza OUI standard) o randomizzato via software.
                 </p>
             `;
             return;
         }
 
-        const isRandom = data.isRand ? "<span style='color:#ff7b00;'>SI (MAC Casuale/Privacy)</span>" : "<span style='color:#00ff88;'>NO (Hardware Reale)</span>";
+        const isRandom = data.isRand ? "<span style='color:#ff7b00;'>SI (MAC Randomizzato/Privacy)</span>" : "<span style='color:#00ff88;'>NO (Hardware Autentico)</span>";
 
         out.innerHTML = `
             <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Dispositivo Identificato</h4>
             <div>Produttore: <strong style="color:#fff; font-size:1rem;">${data.company || 'Sconosciuto'}</strong></div>
-            <div>Paese di Registrazione: <strong style="color:#fff;">${data.country || 'N/D'}</strong></div>
-            <div>Tipo di Blocco: <strong style="color:#fff;">${data.blockType || 'OUI Standard'}</strong></div>
+            <div>Paese Registrato: <strong style="color:#fff;">${data.country || 'N/D'}</strong></div>
+            <div>Tipo Blocco OUI: <strong style="color:#fff;">${data.blockType || 'OUI Standard'}</strong></div>
             <div>Indirizzo Randomizzato: ${isRandom}</div>
-            <div style="color:#888; font-size:0.75rem; margin-top:6px;">Sede: ${data.address || 'Non specificata'}</div>
+            <div style="color:#888; font-size:0.75rem; margin-top:6px;">Sede Aziendale: ${data.address || 'Non specificata'}</div>
         `;
     } catch (e) {
-        out.innerHTML = `<span style="color:#ff4444;">Errore di connessione al database OUI.</span>`;
+        out.innerHTML = `<span style="color:#ff4444;">Errore durante la connessione al database OUI.</span>`;
     } finally {
         btn.disabled = false;
     }
@@ -1774,14 +1832,28 @@ async function lookupMAC() {
 </script>
 
 
-<!-- 26. CYBER MULTI-CODEC (HEX, BINARY, URL-ENCODE, ROT13) -->
+<!-- 26. CYBER MULTI-CODEC -->
 <div class="widget-large tools-box" id="multicodec" aria-label="Cyber Multi Codec Converter">
     <div class="box-title-row">
         <img src="/img/hash.png" alt="Icona Multi Codec" class="box-title-icon" width="28" height="28">
         <h3>Cyber Multi-Codec (Hex, Bin, URL, ROT13)</h3>
     </div>
 
-    <textarea id="codecInput" placeholder="Inserisci il testo o payload da codificare/decodificare..."
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: CODIFICHE DATI E CRITTOGRAFIA CLASSICA</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è:</strong> Un convertitore polivalente per trasformare stringhe di testo grezze nelle rappresentazioni binarie ed esadecimali a basso livello utilizzate nei protocolli di rete e negli shellcode.
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ A cosa serve:</strong> Indispensabile per deoffuscare payload malevoli, analizzare parametri offuscati nelle URL durante attacchi di Web Application (XSS, SQLi) o risolvere sfide di crittografia CTF (ROT13).
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Differenza da Crittografia:</strong> Codifiche come Hex, Binary o Base64 <em>non proteggono il dato</em> (non richiedono una chiave segreta per essere lette): sono solo modi diversi di rappresentare i byte.
+        </p>
+    </div>
+
+    <textarea id="codecInput" placeholder="Inserisci il testo o payload da elaborare..."
               style="width:100%; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
 
     <div style="display:flex; gap:10px; margin-bottom:10px;">
@@ -1808,14 +1880,9 @@ function convertCodec(encode) {
     out.style.display = "block";
 
     if (encode) {
-        // ENCODE
-        // Hex
         const hex = Array.from(text).map(c => c.charCodeAt(0).toString(16).padStart(2, "0")).join(" ");
-        // Binary
         const bin = Array.from(text).map(c => c.charCodeAt(0).toString(2).padStart(8, "0")).join(" ");
-        // URL Encode
         const urlEnc = encodeURIComponent(text);
-        // ROT13
         const rot13 = text.replace(/[a-zA-Z]/g, function(c) {
             return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
         });
@@ -1839,7 +1906,6 @@ function convertCodec(encode) {
             </div>
         `;
     } else {
-        // DECODE
         let decodedHex = "N/D (formato non esadecimale)";
         try {
             const cleanHex = text.replace(/[^a-fA-F0-9]/g, "");
