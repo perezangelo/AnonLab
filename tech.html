@@ -1208,9 +1208,400 @@ function generaCF() {
         fps + " FPS = <strong>" + ms.toFixed(2) + " ms</strong> per frame";
     }
   </script>
-</div>     
+</div>  
+
+		<!-- ==========================================
+     1. TECH VIDEO LAB: HARDWARE & AI REVOLUTION
+     ========================================== -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff; margin-top:0;">Tech Vision: Hardware, NPU & AI Computing</h3>
+
+  <!-- LEGENDA TECNICA -->
+  <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.18); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:15px; font-size:0.82rem; line-height:1.5; color:#b0b8c4;">
+    <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: L'EVOLUZIONE DEL CALCOLO NELL'ERA DELL'AI</strong>
+    <p style="margin:0 0 6px 0;">
+      <strong>📌 Cos'è:</strong> Un hub multimediale focalizzato sull'evoluzione dei semiconduttori (nodi a 2nm/3nm), sui chip con architettura ibrida e sull'integrazione di <em>NPU (Neural Processing Unit)</em> dedicate all'accelerazione dell'intelligenza artificiale sui dispositivi edge e PC desktop.
+    </p>
+    <p style="margin:0 0 6px 0;">
+      <strong>💡 Perché è importante:</strong> Con la saturazione parziale della Legge di Moore, la potenza computazionale si ottiene tramite architetture specializzate (Tensor Core, memoria HBM3e e packaging chiplet) anziché solo con l'aumento delle frequenze di clock.
+    </p>
+    <p style="margin:0;">
+      <strong>🛡️ Privacy:</strong> Il player è ospitato su <em>youtube-nocookie.com</em> per prevenire il caricamento di traccianti pubblicitari prima della riproduzione.
+    </p>
+  </div>
+
+  <p style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
+    Documentario Tech: <strong>Come i semiconduttori moderni alimentano l'Intelligenza Artificiale</strong>
+  </p>
+
+  <!-- Player 16:9 Responsive Cyber Neon -->
+  <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; border:1px solid #00eaff; box-shadow:0 0 12px rgba(0,234,255,0.25); background:#000;">
+    <iframe 
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9zn5Qb444MF" 
+        title="Hardware & AI Architecture Documentaries" 
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen 
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+    </iframe>
+  </div>
+</div>
 
 
+<!-- ==========================================
+     2. CALCOLATORE WATTAGGIO & ALIMENTATORE PC (PSU ESTIMATOR)
+     ========================================== -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ffaa00aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ffaa00aa;
+">
+  <h3 style="color:#ffaa00; margin-top:0;">Calcolatore Wattaggio & Alimentatore PC (PSU)</h3>
+
+  <!-- LEGENDA TECNICA -->
+  <div style="background:rgba(255, 170, 0, 0.03); border:1px solid rgba(255, 170, 0, 0.2); border-left:3px solid #ffaa00; border-radius:6px; padding:12px 14px; margin-bottom:15px; font-size:0.82rem; line-height:1.5; color:#b0b8c4;">
+    <strong style="color:#ffaa00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: TDP, CONSUMI ELETTRICI E CURVA DI EFFICIENZA (80 PLUS)</strong>
+    <p style="margin:0 0 6px 0;">
+      <strong>📌 Cos'è il TDP (Thermal Design Power):</strong> Rappresenta il calore massimo in Watt che il sistema di raffreddamento deve dissipare a pieno carico, ed è strettamente correlato all'assorbimento elettrico di CPU e GPU.
+    </p>
+    <p style="margin:0 0 6px 0;">
+      <strong>⚡ Picchi di Assorbimento (Power Spikes):</strong> Le schede video di ultima generazione generano micro-picchi transitori (spikes) che possono superare di 1,5x il consumo nominale.
+    </p>
+    <p style="margin:0;">
+      <strong>💡 Regola del 50-70%:</strong> Gli alimentatori (PSU Bronze, Gold, Platinum) offrono la massima efficienza e silenziosità quando lavorano tra il 50% e il 70% della loro potenza nominale.
+    </p>
+  </div>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Inserisci i componenti hardware per calcolare il consumo stimato e il taglio di alimentatore raccomandato.
+  </p>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-bottom:10px;">
+    <div>
+      <label style="color:#ffaa00; font-size:12px; display:block; margin-bottom:4px;">TDP Processore / CPU (Watt):</label>
+      <input id="psuCpu" type="number" placeholder="es: 105 (Ryzen) o 180 (Intel)" value="125"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00; box-sizing:border-box;">
+    </div>
+    <div>
+      <label style="color:#ffaa00; font-size:12px; display:block; margin-bottom:4px;">TDP Scheda Video / GPU (Watt):</label>
+      <input id="psuGpu" type="number" placeholder="es: 220 (RTX 4070) o 450 (RTX 4090)" value="220"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00; box-sizing:border-box;">
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-bottom:12px;">
+    <div>
+      <label style="color:#ffaa00; font-size:12px; display:block; margin-bottom:4px;">Unità SSD / NVMe installate:</label>
+      <input id="psuSsd" type="number" placeholder="Quantità SSD" value="2"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00; box-sizing:border-box;">
+    </div>
+    <div>
+      <label style="color:#ffaa00; font-size:12px; display:block; margin-bottom:4px;">Ventole / Pompa Dissipatore:</label>
+      <input id="psuFans" type="number" placeholder="Quantità Ventole" value="4"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00; box-sizing:border-box;">
+    </div>
+  </div>
+
+  <button onclick="calcPsuPower()" style="
+      width:100%; padding:12px; background:#ffaa00; color:#000; font-weight:bold; border:none; cursor:pointer; border-radius:4px;
+  ">Calcola Potenza Alimentatore</button>
+
+  <div id="psuResult" style="color:#fff; margin-top:15px; font-size:16px; line-height:1.6; display:none; background:#000; padding:15px; border:1px solid #ffaa00;"></div>
+
+  <script>
+    function calcPsuPower() {
+      const cpu = parseFloat(document.getElementById('psuCpu').value) || 0;
+      const gpu = parseFloat(document.getElementById('psuGpu').value) || 0;
+      const ssd = (parseFloat(document.getElementById('psuSsd').value) || 0) * 8; // ~8W per SSD
+      const fans = (parseFloat(document.getElementById('psuFans').value) || 0) * 4; // ~4W per ventola
+      const moboRam = 50; // Scheda madre + RAM standard ~50W
+
+      const consumoNominale = cpu + gpu + ssd + fans + moboRam;
+      const psuMinima = Math.ceil((consumoNominale * 1.3) / 50) * 50; // +30% margine
+      const psuOttimale = Math.ceil((consumoNominale * 1.5) / 50) * 50; // +50% efficienza Gold
+
+      const out = document.getElementById('psuResult');
+      out.style.display = "block";
+      out.innerHTML = `
+        <div>Consumo Nominale Stimato a pieno carico: <strong style="color:#ffaa00;">${consumoNominale} Watt</strong></div>
+        <div>Taglio Minimo Consigliato (Margine sicurezza picchi): <strong style="color:#fff;">${psuMinima} Watt</strong></div>
+        <div>Taglio Ottimale (Curva di efficienza 80 Plus & Silenziosità): <strong style="color:#00ff99; font-size:1.15rem;">${psuOttimale} Watt</strong></div>
+      `;
+    }
+  </script>
+</div>
+
+
+<!-- ==========================================
+     3. CALCOLATORE TEMPO DI DOWNLOAD FILE
+     ========================================== -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00ff99aa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00ff99aa;
+">
+  <h3 style="color:#00ff99; margin-top:0;">Calcolatore Tempo di Download Reale</h3>
+
+  <!-- LEGENDA TECNICA -->
+  <div style="background:rgba(0, 255, 153, 0.03); border:1px solid rgba(0, 255, 153, 0.2); border-left:3px solid #00ff99; border-radius:6px; padding:12px 14px; margin-bottom:15px; font-size:0.82rem; line-height:1.5; color:#b0b8c4;">
+    <strong style="color:#00ff99; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: THROUGHPUT DI RETE, MEBIBYTE E OVERHEAD TCP</strong>
+    <p style="margin:0 0 6px 0;">
+      <strong>📌 Bit vs Byte:</strong> La velocità dei provider viene venduta in <em>Megabit per secondo (Mbps)</em>, mentre le dimensioni dei file su disco sono espresse in <em>Gigabyte (GB)</em>. Servono 8 bit per fare 1 Byte.
+    </p>
+    <p style="margin:0 0 6px 0;">
+      <strong>📉 Overhead di Rete:</strong> Circa il 5-8% della banda viene assorbito dai pacchetti di controllo (header IP/TCP, conferme ACK e latenza DNS).
+    </p>
+    <p style="margin:0;">
+      <strong>💡 Formula:</strong> Il calcolo applica un fattore correttivo realistico per mostrarti il tempo effettivo di scaricamento di backup, giochi o modelli di intelligenza artificiale.
+    </p>
+  </div>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Stima con precisione ore e minuti necessari per scaricare un file in base alla tua linea.
+  </p>
+
+  <div style="display:flex; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:160px;">
+      <label style="color:#00ff99; font-size:12px; display:block; margin-bottom:4px;">Dimensione File:</label>
+      <input id="dlSize" type="number" placeholder="es: 45" value="50"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #00ff99; box-sizing:border-box;">
+    </div>
+    <div style="width:110px;">
+      <label style="color:#00ff99; font-size:12px; display:block; margin-bottom:4px;">Unità:</label>
+      <select id="dlUnit" style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #00ff99; box-sizing:border-box;">
+        <option value="GB">GB</option>
+        <option value="MB">MB</option>
+        <option value="TB">TB</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-bottom:12px;">
+    <label style="color:#00ff99; font-size:12px; display:block; margin-bottom:4px;">Velocità di Connessione (Download in Mbps):</label>
+    <input id="dlSpeed" type="number" placeholder="es: 100 per FTTC, 1000 per Fibra FTTH" value="200"
+           style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #00ff99; box-sizing:border-box;">
+  </div>
+
+  <button onclick="calcDownloadTime()" style="
+      width:100%; padding:12px; background:#00ff99; color:#000; font-weight:bold; border:none; cursor:pointer; border-radius:4px;
+  ">Calcola Tempo di Download</button>
+
+  <div id="dlResult" style="color:#fff; margin-top:15px; font-size:16px; line-height:1.6; display:none; background:#000; padding:15px; border:1px solid #00ff99;"></div>
+
+  <script>
+    function calcDownloadTime() {
+      const size = parseFloat(document.getElementById('dlSize').value);
+      const unit = document.getElementById('dlUnit').value;
+      const speedMbps = parseFloat(document.getElementById('dlSpeed').value);
+      const out = document.getElementById('dlResult');
+
+      if (!size || !speedMbps || size <= 0 || speedMbps <= 0) {
+        alert("Inserisci valori numerici validi.");
+        return;
+      }
+
+      // Converti tutto in Megabyte (MB)
+      let sizeMB = size;
+      if (unit === "GB") sizeMB = size * 1024;
+      if (unit === "TB") sizeMB = size * 1024 * 1024;
+
+      // Velocità reale di trasferimento in MB/s con ~7% di overhead di pacchetto
+      const realSpeedMBs = (speedMbps / 8) * 0.93;
+      const totalSeconds = sizeMB / realSpeedMBs;
+
+      const ore = Math.floor(totalSeconds / 3600);
+      const minuti = Math.floor((totalSeconds % 3600) / 60);
+      const secondi = Math.floor(totalSeconds % 60);
+
+      out.style.display = "block";
+      out.innerHTML = `
+        <div>Velocità effettiva stimata: <strong style="color:#00ff99;">${realSpeedMBs.toFixed(2)} MB/s</strong></div>
+        <div>Tempo Stimato di Scaricamento: <strong style="color:#fff; font-size:1.15rem;">${ore > 0 ? ore + " ore " : ""}${minuti} minuti e ${secondi} secondi</strong></div>
+      `;
+    }
+  </script>
+</div>
+
+
+<!-- ==========================================
+     4. CALCOLATORE STORAGE & BITRATE VIDEO (STREAMING & ARCHIVI)
+     ========================================== -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #b366ffaa;
+    padding:25px;
+    margin-top:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #b366ffaa;
+">
+  <h3 style="color:#b366ff; margin-top:0;">Calcolatore Bitrate & Spazio Archiviazione Video</h3>
+
+  <!-- LEGENDA TECNICA -->
+  <div style="background:rgba(179, 102, 255, 0.03); border:1px solid rgba(179, 102, 255, 0.2); border-left:3px solid #b366ff; border-radius:6px; padding:12px 14px; margin-bottom:15px; font-size:0.82rem; line-height:1.5; color:#b0b8c4;">
+    <strong style="color:#b366ff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: CODEC DI COMPRESSIONE E PESO DEI FLUSSI AUDIO/VIDEO</strong>
+    <p style="margin:0 0 6px 0;">
+      <strong>📌 Cos'è il Bitrate:</strong> La quantità di dati elaborata al secondo in uno stream video (es. <em>Mbps</em>). Un bitrate più alto garantisce fedeltà cromatica e assenza di artefatti grafici.
+    </p>
+    <p style="margin:0 0 6px 0;">
+      <strong>🎞️ Efficienza dei Codec:</strong> Il moderno codec <em>AV1</em> e l'<em>HEVC (H.265)</em> garantiscono circa il 40-50% di risparmio di spazio e banda a parità di risoluzione rispetto al vecchio standard <em>H.264 (AVC)</em>.
+    </p>
+    <p style="margin:0;">
+      <strong>🛡️ Applicazioni:</strong> Calcola lo spazio su disco necessario per registrazioni di videosorveglianza IP, gameplay streaming su OBS/Twitch o rendering grafici.
+    </p>
+  </div>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Calcola quanto spazio occuperà un file video registrato o trasmesso a un determinato bitrate.
+  </p>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-bottom:10px;">
+    <div>
+      <label style="color:#b366ff; font-size:12px; display:block; margin-bottom:4px;">Bitrate Video Medio (Mbps):</label>
+      <input id="vidBitrate" type="number" placeholder="es: 15 (1080p60) o 45 (4K)" value="25"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #b366ff; box-sizing:border-box;">
+    </div>
+    <div>
+      <label style="color:#b366ff; font-size:12px; display:block; margin-bottom:4px;">Durata Registrazione (Ore):</label>
+      <input id="vidHours" type="number" placeholder="Durata in ore" value="2"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #b366ff; box-sizing:border-box;">
+    </div>
+  </div>
+
+  <button onclick="calcVideoStorage()" style="
+      width:100%; padding:12px; background:#b366ff; color:#000; font-weight:bold; border:none; cursor:pointer; border-radius:4px;
+  ">Calcola Spazio Occupato</button>
+
+  <div id="vidResult" style="color:#fff; margin-top:15px; font-size:16px; line-height:1.6; display:none; background:#000; padding:15px; border:1px solid #b366ff;"></div>
+
+  <script>
+    function calcVideoStorage() {
+      const bitrate = parseFloat(document.getElementById('vidBitrate').value);
+      const hours = parseFloat(document.getElementById('vidHours').value);
+      const out = document.getElementById('vidResult');
+
+      if (!bitrate || !hours || bitrate <= 0 || hours <= 0) {
+        alert("Inserisci valori validi per bitrate e durata.");
+        return;
+      }
+
+      // Bitrate (Mbps) * 3600 sec per ora / 8 = Megabyte per ora
+      const mbPerHour = (bitrate / 8) * 3600;
+      const totalMB = mbPerHour * hours;
+      const totalGB = totalMB / 1024;
+
+      out.style.display = "block";
+      out.innerHTML = `
+        <div>Spazio consumato ogni ora: <strong style="color:#b366ff;">${(mbPerHour / 1024).toFixed(2)} GB/ora</strong></div>
+        <div>Spazio Totale Stimato su Disco: <strong style="color:#fff; font-size:1.15rem;">${totalGB.toFixed(2)} GB</strong> (${(totalGB / 1024).toFixed(3)} TB)</div>
+      `;
+    }
+  </script>
+</div>
+
+
+<!-- ==========================================
+     5. CONVERTITORE BASI NUMERICHE (DEC, HEX, BIN, OCT)
+     ========================================== -->
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #00eaffaa;
+    padding:25px;
+    margin-top:40px;
+    margin-bottom:40px;
+    border-radius:8px;
+    box-shadow:0 0 12px #00eaffaa;
+">
+  <h3 style="color:#00eaff; margin-top:0;">Convertitore Basi Numeriche (Decimale, Hex, Binario, Ottale)</h3>
+
+  <!-- LEGENDA TECNICA -->
+  <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.18); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:15px; font-size:0.82rem; line-height:1.5; color:#b0b8c4;">
+    <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: RAPPRESENTAZIONE DI MEMORIA NEI COMPUTER</strong>
+    <p style="margin:0 0 6px 0;">
+      <strong>📌 Le 4 Basi Principali:</strong>
+      <br>• <strong>Decimale (Base 10):</strong> Sistema numerico convenzionale umano (0–9).
+      <br>• <strong>Esadecimale (Base 16):</strong> Utilizzato per indirizzi di memoria RAM, registri CPU e codici colore (0–9, A–F).
+      <br>• <strong>Binario (Base 2):</strong> Il linguaggio nativo dei transistor e dei circuiti logici (0 e 1).
+      <br>• <strong>Ottale (Base 8):</strong> Storicamente adoperato per i permessi nei file system Linux/UNIX (es. <code>chmod 755</code>).
+    </p>
+    <p style="margin:0;">
+      <strong>💡 Uso Operativo:</strong> Inserisci un valore in qualsiasi formato: il tool sincronizzerà istantaneamente tutte le altre rappresentazioni matematiche.
+    </p>
+  </div>
+
+  <p style="color:#ccc; margin-bottom:15px;">
+    Inserisci un numero in una delle caselle per convertirlo contemporaneamente in tutte le basi:
+  </p>
+
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <div>
+      <label style="color:#00eaff; font-size:12px; display:block; margin-bottom:3px;">Decimale (Base 10):</label>
+      <input id="baseDec" type="number" placeholder="es: 255" oninput="convertFromDec(this.value)"
+             style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace; box-sizing:border-box;">
+    </div>
+    <div>
+      <label style="color:#00ff99; font-size:12px; display:block; margin-bottom:3px;">Esadecimale (Base 16):</label>
+      <input id="baseHex" type="text" placeholder="es: FF" oninput="convertFromHex(this.value)"
+             style="width:100%; padding:10px; background:#111; color:#00ff99; border:1px solid #00ff99; font-family:monospace; box-sizing:border-box;">
+    </div>
+    <div>
+      <label style="color:#ffaa00; font-size:12px; display:block; margin-bottom:3px;">Binario (Base 2):</label>
+      <input id="baseBin" type="text" placeholder="es: 11111111" oninput="convertFromBin(this.value)"
+             style="width:100%; padding:10px; background:#111; color:#ffaa00; border:1px solid #ffaa00; font-family:monospace; box-sizing:border-box;">
+    </div>
+    <div>
+      <label style="color:#b366ff; font-size:12px; display:block; margin-bottom:3px;">Ottale (Base 8):</label>
+      <input id="baseOct" type="text" placeholder="es: 377" oninput="convertFromOct(this.value)"
+             style="width:100%; padding:10px; background:#111; color:#b366ff; border:1px solid #b366ff; font-family:monospace; box-sizing:border-box;">
+    </div>
+  </div>
+
+  <script>
+    function updateAllBases(num) {
+      if (isNaN(num) || num === null || num === "") {
+        document.getElementById('baseDec').value = "";
+        document.getElementById('baseHex').value = "";
+        document.getElementById('baseBin').value = "";
+        document.getElementById('baseOct').value = "";
+        return;
+      }
+      const val = BigInt(num);
+      document.getElementById('baseDec').value = val.toString(10);
+      document.getElementById('baseHex').value = val.toString(16).toUpperCase();
+      document.getElementById('baseBin').value = val.toString(2);
+      document.getElementById('baseOct').value = val.toString(8);
+    }
+
+    function convertFromDec(val) {
+      if (!val) { updateAllBases(""); return; }
+      try { updateAllBases(BigInt(val)); } catch(e){}
+    }
+    function convertFromHex(val) {
+      if (!val) { updateAllBases(""); return; }
+      try { updateAllBases(BigInt("0x" + val.trim())); } catch(e){}
+    }
+    function convertFromBin(val) {
+      if (!val) { updateAllBases(""); return; }
+      try { updateAllBases(BigInt("0b" + val.trim())); } catch(e){}
+    }
+    function convertFromOct(val) {
+      if (!val) { updateAllBases(""); return; }
+      try { updateAllBases(BigInt("0o" + val.trim())); } catch(e){}
+    }
+  </script>
+</div>
         </section>
 
     <!-- SIDEBAR -->
