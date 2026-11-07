@@ -138,76 +138,75 @@ function initMobileMenu() {
 }
 
 // ===============================
-// ONLINE SESSION TIMER
+// ONLINE SESSION TIMER (AUTO-RECOVERY RESILIENTE)
 // ===============================
 
 function initSessionTimer() {
+    let timerInterval = null;
 
-    function startTimer() {
+    function getStartTime() {
+        let start = parseInt(sessionStorage.getItem("anonlabStartTime"), 10);
+        if (isNaN(start) || !start) {
+            start = Date.now();
+            sessionStorage.setItem("anonlabStartTime", start.toString());
+        }
+        return start;
+    }
 
+    function updateDisplay(timerEl) {
+        const startTime = getStartTime();
+        const elapsed = Math.max(0, Math.floor((Date.now() - startTime) / 1000));
+
+        const hours = String(Math.floor(elapsed / 3600)).padStart(2, "0");
+        const minutes = String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
+        const seconds = String(elapsed % 60).padStart(2, "0");
+
+        timerEl.textContent = `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
+    }
+
+    function checkAndBindTimer() {
         const timer = document.getElementById("session-timer");
 
-        // La navbar potrebbe essere caricata dopo main.js
-        if (!timer) {
-            return false;
-        }
+        if (!timer) return false;
 
-        // Evita doppie inizializzazioni
-        if (timer.dataset.timerStarted === "true") {
+        // Se l'elemento è già controllato dal nostro intervallo attivo, tutto ok
+        if (timer.dataset.timerStarted === "true" && timerInterval !== null) {
             return true;
         }
 
+        // Segna il nuovo elemento
         timer.dataset.timerStarted = "true";
 
-        const startTime = parseInt(
-            sessionStorage.getItem("anonlabStartTime"),
-            10
-        );
+        // Aggiorna subito il testo per evitare scatti
+        updateDisplay(timer);
 
-        function updateTimer() {
+        // Se c'era un vecchio intervallo su un elemento distrutto, puliscilo
+        if (timerInterval) clearInterval(timerInterval);
 
-            const elapsed = Math.max(
-                0,
-                Math.floor((Date.now() - startTime) / 1000)
-            );
+        // Avvia il conteggio continuo
+        timerInterval = setInterval(() => {
+            const currentTimer = document.getElementById("session-timer");
+            // Se il ticker è stato sovrascritto via fetch, ricolleghiamolo
+            if (currentTimer && currentTimer !== timer) {
+                checkAndBindTimer();
+            } else if (currentTimer) {
+                updateDisplay(currentTimer);
+            }
+        }, 1000);
 
-            const hours = String(
-                Math.floor(elapsed / 3600)
-            ).padStart(2, "0");
-
-            const minutes = String(
-                Math.floor((elapsed % 3600) / 60)
-            ).padStart(2, "0");
-
-            const seconds = String(
-                elapsed % 60
-            ).padStart(2, "0");
-
-            timer.textContent =
-                `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
-        }
-
-        updateTimer();
-
-        setInterval(updateTimer, 1000);
-
-        console.log("✅ ONLINE SESSION TIMER AVVIATO");
-
+        console.log("✅ ONLINE SESSION TIMER ATTIVO");
         return true;
     }
 
-    // Prova subito
-    if (startTimer()) {
-        return;
-    }
+    // 1. Tentativo immediato
+    checkAndBindTimer();
 
-    // La navbar potrebbe arrivare tramite fetch()
+    // 2. Observer continuo: NON si disconnette se il DOM viene rimpiazzato dal fetch del ticker
     const observer = new MutationObserver(() => {
-
-        if (startTimer()) {
-            observer.disconnect();
+        const timer = document.getElementById("session-timer");
+        if (timer && timer.dataset.timerStarted !== "true") {
+            checkAndBindTimer();
         }
-
     });
 
     observer.observe(document.body, {
