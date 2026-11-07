@@ -2123,7 +2123,7 @@ setInterval(loadCyberAlerts, 60000);
 </section>
 
 <!-- BLOCCO SOC-TV -->
-<div id="soc-tv" style="
+<div id="soc-tv" role="region" aria-label="SOC TV Live Feed" aria-live="polite" style="
   background:#000;
   border:2px solid #333;
   padding:10px;
@@ -2131,11 +2131,11 @@ setInterval(loadCyberAlerts, 60000);
   border-radius:8px;
   position:relative;
   overflow:hidden;
-  min-height:275px; /* 1. Riserva fin da subito l'altezza dell'intero widget */
+  min-height:275px;
 ">
 
-  <!-- LOADER IN OVERLAY: non occupa spazio nel flusso del documento -->
-  <div id="soc-tv-loading" style="
+  <!-- LOADER IN OVERLAY -->
+  <div id="soc-tv-loading" aria-hidden="false" style="
     position:absolute;
     top:0;
     left:0;
@@ -2171,11 +2171,10 @@ setInterval(loadCyberAlerts, 60000);
     📡 Acquisizione feed...
   </div>
 
-  <!-- 2. Altezza fissa a 180px: zero shift al download dell'immagine -->
   <img
     id="soc-tv-img"
     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
-    alt="Immagine della notizia Cyber Alert Live"
+    alt="Anteprima notizia Cyber Alert Live"
     width="320"
     height="180"
     style="
@@ -2189,7 +2188,6 @@ setInterval(loadCyberAlerts, 60000);
     "
   >
 
-  <!-- 3. min-height per contenere fino a 2-3 righe di titolo senza muovere il layout -->
   <div
     id="soc-tv-title"
     style="
@@ -2202,7 +2200,6 @@ setInterval(loadCyberAlerts, 60000);
     "
   ></div>
 
-  <!-- 4. min-height fissa per la fonte -->
   <div
     id="soc-tv-source"
     style="
@@ -2259,9 +2256,10 @@ async function loadSocTV() {
         title.classList.add("soc-visible");
         source.classList.add("soc-visible");
 
-        // Al primo completamento, rimuoviamo l'overlay di caricamento
         if (loading.style.display !== "none") {
           loading.style.display = "none";
+          loading.setAttribute("aria-hidden", "true");
+          loading.style.pointerEvents = "none";
         }
 
       }, 400);
