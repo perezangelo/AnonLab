@@ -195,99 +195,242 @@
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
 
-<!-- MENU NEWS SOTTO HERO — VERSIONE DEFINITIVA -->
+<!-- MENU NEWS SOTTO HERO — VERSIONE REFINED -->
 <div style="position:relative; margin-top:25px; display:inline-block;">
 
   <!-- BOTTONE -->
   <button id="newsToggle"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
           style="
             cursor:pointer;
-            background:none;
-            border:none;
-            font-size:1.2rem;
-            font-weight:bold;
-            color:#ff7b00;
-            text-shadow:0 0 8px #ff7b00;
-            white-space:nowrap;
+            background: rgba(255, 123, 0, 0.08);
+            border: 1px solid rgba(255, 123, 0, 0.4);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #ff7b00;
+            text-shadow: 0 0 8px rgba(255, 123, 0, 0.6);
+            box-shadow: 0 0 12px rgba(255, 123, 0, 0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
           ">
-    Esplora le ultime news ▾
+    <span>Esplora le ultime news</span>
+    <span id="newsArrow" style="display:inline-block; transition:transform 0.25s ease;">▾</span>
   </button>
 
-  <!-- MENU A TENDINA -->
+  <!-- MENU A TENDINA FLUTTUANTE -->
   <div id="newsPanel"
        style="
-         display:none;
-         opacity:0;
-         transform:translateY(-10px);
-         transition:opacity 0.25s ease, transform 0.25s ease;
+         visibility: hidden;
+         opacity: 0;
+         transform: translateY(-8px);
+         transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 
-         position:absolute;
-         top:40px;
-         left:0;
+         position: absolute;
+         top: calc(100% + 10px);
+         left: 0;
 
-         width:260px;
-         background:#000;
-         border:1px solid #ff7b00aa;
-         border-radius:8px;
-         box-shadow:0 0 18px #ff7b00aa;
-         padding:15px;
-         z-index:9999;
+         width: 290px;
+         background: rgba(10, 10, 12, 0.95);
+         backdrop-filter: blur(12px);
+         -webkit-backdrop-filter: blur(12px);
+         border: 1px solid rgba(255, 123, 0, 0.45);
+         border-radius: 10px;
+         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 123, 0, 0.2);
+         padding: 10px;
+         z-index: 9999;
        ">
 
-    <a href='https://thehackernews.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>TheHackerNews</a>
+    <!-- INTESTAZIONE INTERNA DEL MENU -->
+    <div style="
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      padding: 6px 10px 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 6px;
+    ">
+      Fonti Internazionali Certificate
+    </div>
 
-    <a href='https://www.bleepingcomputer.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>BleepingComputer</a>
+    <!-- LINK 1: TheHackerNews -->
+    <a href="https://thehackernews.com" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="news-item"
+       style="
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 8px 10px;
+         margin-bottom: 4px;
+         border-radius: 6px;
+         color: #ffb366;
+         text-decoration: none;
+         border-left: 2px solid transparent;
+         transition: all 0.2s ease;
+       ">
+      <div>
+        <strong style="display:block; font-size:0.95rem; color:#fff;">TheHackerNews</strong>
+        <span style="font-size:0.75rem; color:#aaa;">Cyber Attack & Vulnerability</span>
+      </div>
+      <span style="color:#ff7b00; font-size:0.9rem;">↗</span>
+    </a>
 
-    <a href='https://www.darkreading.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>DarkReading</a>
+    <!-- LINK 2: BleepingComputer -->
+    <a href="https://www.bleepingcomputer.com" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="news-item"
+       style="
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 8px 10px;
+         margin-bottom: 4px;
+         border-radius: 6px;
+         color: #ffb366;
+         text-decoration: none;
+         border-left: 2px solid transparent;
+         transition: all 0.2s ease;
+       ">
+      <div>
+        <strong style="display:block; font-size:0.95rem; color:#fff;">BleepingComputer</strong>
+        <span style="font-size:0.75rem; color:#aaa;">Ransomware & Security News</span>
+      </div>
+      <span style="color:#ff7b00; font-size:0.9rem;">↗</span>
+    </a>
 
-    <a href='https://www.securityweek.com' target='_blank'
-       style='display:block; margin-bottom:12px; color:#ffb366;'>SecurityWeek</a>
+    <!-- LINK 3: DarkReading -->
+    <a href="https://www.darkreading.com" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="news-item"
+       style="
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 8px 10px;
+         margin-bottom: 4px;
+         border-radius: 6px;
+         color: #ffb366;
+         text-decoration: none;
+         border-left: 2px solid transparent;
+         transition: all 0.2s ease;
+       ">
+      <div>
+        <strong style="display:block; font-size:0.95rem; color:#fff;">DarkReading</strong>
+        <span style="font-size:0.75rem; color:#aaa;">Threats & Enterprise Defense</span>
+      </div>
+      <span style="color:#ff7b00; font-size:0.9rem;">↗</span>
+    </a>
+
+    <!-- LINK 4: SecurityWeek -->
+    <a href="https://www.securityweek.com" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="news-item"
+       style="
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 8px 10px;
+         border-radius: 6px;
+         color: #ffb366;
+         text-decoration: none;
+         border-left: 2px solid transparent;
+         transition: all 0.2s ease;
+       ">
+      <div>
+        <strong style="display:block; font-size:0.95rem; color:#fff;">SecurityWeek</strong>
+        <span style="font-size:0.75rem; color:#aaa;">Global Cyber Intelligence</span>
+      </div>
+      <span style="color:#ff7b00; font-size:0.9rem;">↗</span>
+    </a>
 
   </div>
 </div>
-	
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("newsToggle");
   const panel = document.getElementById("newsPanel");
+  const arrow = document.getElementById("newsArrow");
 
-  if (!button || !panel) return;
+  if (!button || !panel || !arrow) return;
 
+  function openMenu() {
+    panel.style.visibility = "visible";
+    panel.style.opacity = "1";
+    panel.style.transform = "translateY(0)";
+    arrow.style.transform = "rotate(180deg)";
+    button.setAttribute("aria-expanded", "true");
+    button.style.background = "rgba(255, 123, 0, 0.18)";
+    button.style.borderColor = "#ff7b00";
+  }
+
+  function closeMenu() {
+    panel.style.opacity = "0";
+    panel.style.transform = "translateY(-8px)";
+    arrow.style.transform = "rotate(0deg)";
+    button.setAttribute("aria-expanded", "false");
+    button.style.background = "rgba(255, 123, 0, 0.08)";
+    button.style.borderColor = "rgba(255, 123, 0, 0.4)";
+    // Aspetta la fine della transizione prima di nascondere visibilità
+    setTimeout(() => {
+      if (button.getAttribute("aria-expanded") === "false") {
+        panel.style.visibility = "hidden";
+      }
+    }, 250);
+  }
+
+  // Toggle al click sul bottone
   button.addEventListener("click", (e) => {
     e.stopPropagation();
-
-    const isOpen = panel.style.display === "block";
-
-    panel.style.display = isOpen ? "none" : "block";
-    panel.style.opacity = isOpen ? "0" : "1";
-    panel.style.transform = isOpen
-      ? "translateY(-10px)"
-      : "translateY(0)";
-
-    button.setAttribute("aria-expanded", String(!isOpen));
+    const isOpen = button.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
+  // Hover effect dinamico sulle voci
+  panel.querySelectorAll(".news-item").forEach(item => {
+    item.addEventListener("mouseenter", () => {
+      item.style.background = "rgba(255, 123, 0, 0.12)";
+      item.style.borderLeftColor = "#ff7b00";
+      item.style.transform = "translateX(4px)";
+    });
+    item.addEventListener("mouseleave", () => {
+      item.style.background = "transparent";
+      item.style.borderLeftColor = "transparent";
+      item.style.transform = "translateX(0)";
+    });
+  });
+
+  // Impedisce la chiusura se si clicca dentro il pannello
   panel.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 
+  // Chiude se si clicca altrove
   document.addEventListener("click", () => {
-    panel.style.display = "none";
-    panel.style.opacity = "0";
-    panel.style.transform = "translateY(-10px)";
-    button.setAttribute("aria-expanded", "false");
+    closeMenu();
   });
-});
 
-	document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    panel.style.display = "none";
-    panel.style.opacity = "0";
-    panel.style.transform = "translateY(-10px)";
-  }
+  // Chiude con il tasto ESC (ora corretto dentro lo scope)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeMenu();
+    }
+  });
 });
 </script>
      
