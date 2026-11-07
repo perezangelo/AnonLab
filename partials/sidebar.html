@@ -103,13 +103,15 @@
   </div>
 
   <!-- immagine cliccabile: porta alla registrazione -->
-  <a href="https://anonlab.it/index.html#register-form"
-     aria-label="Registrati ad AnonLab per usare AnonBot"
-     style="display:block;text-align:center;text-decoration:none;">
-    <img src="/img/anonbot.png"
-         alt="AnonBot, l'assistente AI di AnonLab"
-         style="display:inline-block;width:130px;max-width:70%;height:auto;border:0;filter:drop-shadow(0 0 10px #00eaff);">
-  </a>
+<a href="https://anonlab.it/index.html#register-form"
+   aria-label="Registrati ad AnonLab per usare AnonBot"
+   style="display:block;text-align:center;text-decoration:none;">
+  <img src="/img/anonbot.png"
+       alt="AnonBot, l'assistente AI di AnonLab"
+       width="685"
+       height="448"
+       style="display:inline-block;width:130px;max-width:70%;height:auto;aspect-ratio:685 / 448;border:0;filter:drop-shadow(0 0 10px #00eaff);">
+</a>
 
   <!-- invito -->
   <p style="margin:12px 0 0;font-size:12.5px;line-height:1.55;color:#b5d9ff;">
@@ -192,8 +194,13 @@
 <div style="text-align:center; margin-top:15px;">
   <img src="/img/qrcode.png"
        alt="PayPal QR Code"
+       width="500"
+       height="500"
        style="
          width:160px;
+         max-width:100%;
+         height:auto;
+         aspect-ratio:500 / 500;
          border-radius:6px;
          filter:drop-shadow(0 0 6px #00eaff);
        ">
@@ -318,7 +325,7 @@
     
 <!-- FORM — RICHIESTA INFO -->
 <div class="sidebar-box" aria-label="Richiesta informazioni">
-  <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni">
+  <img src="/img/envelope.png" class="sidebar-icon" alt="Icona richiesta informazioni" width="329" height="170" style="aspect-ratio: 329 / 170;">
   <h3>Richiedi Informazioni</h3>
 
   <form action="https://angelonline.altervista.org/backend/send-info.php" method="POST">
@@ -338,9 +345,9 @@
 
 <!-- FORM — FAQ & DOMANDE -->
 <div class="sidebar-box" aria-label="FAQ e domande">
-  <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ">
+  <img src="/img/support.png" class="sidebar-icon" alt="Icona supporto FAQ" width="328" height="176" style="aspect-ratio: 328 / 176;">
   <h3>FAQ & Domande</h3>
-
+     
   <form action="https://angelonline.altervista.org/backend/send-faq.php" method="POST">
       <input type="checkbox" name="botcheck" style="display:none;">
 
@@ -363,7 +370,7 @@
 
 <!-- FORM — REGISTRAZIONE UTENTE -->
 <div class="sidebar-box" aria-label="Registrazione utente">
-  <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente">
+  <img src="/img/register.png" class="sidebar-icon" alt="Icona registrazione utente" width="136" height="100" style="aspect-ratio: 136 / 100;">
   <h3>Registrazione Utente</h3>
 
   <form id="register-form" action="https://angelonline.altervista.org/backend/register.php" method="POST" onsubmit="this.querySelector('button').disabled=true;">
@@ -387,7 +394,7 @@
 
 <!-- FORM — LOGIN -->
 <div class="sidebar-box" aria-label="Login utente">
-  <img src="/img/Pc.png" class="sidebar-icon" alt="Icona login">
+  <img src="/img/Pc.png" class="sidebar-icon" alt="Icona login" width="478" height="130" style="aspect-ratio: 478 / 130;">
   <h3>Login</h3>
 
   <form id="login-form" action="https://angelonline.altervista.org/backend/login.php" method="POST">
@@ -882,8 +889,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <div style="text-align:center; margin-bottom:12px;">
     <img src="/img/calc-neon.png"
          alt="Calcolatrice Neon"
-         style="width:100%; max-width:180px; filter:drop-shadow(0 0 8px #00eaff);">
+         width="1024"
+         height="1024"
+         style="width:100%; max-width:180px; height:auto; aspect-ratio: 1024 / 1024; filter:drop-shadow(0 0 8px #00eaff);">
   </div>
+</div>
 
   <div id="calc-display"
        style="background:#050a18; color:#8be9ff; font-size:1.4rem; text-align:right;
