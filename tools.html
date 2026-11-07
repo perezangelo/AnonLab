@@ -1291,145 +1291,114 @@ initCyberVideo();
             }
             </script>
 
-            <!-- WIDGET: IP & DEVICE FINGERPRINT ANALYZER -->
-<div class="widget-large tools-box" id="fingerprintDetector" aria-label="IP & Client Fingerprint Inspector">
+<!-- WIDGET: OSINT IP & GEOLOCATION INTELLIGENCE -->
+<div class="widget-large tools-box" id="ipintelligence" aria-label="IP Intelligence & Geolocation">
     <div class="box-title-row">
-        <img src="/img/ip.png" alt="Icona IP Fingerprint" class="box-title-icon" width="28" height="28">
-        <h3>IP & Device Fingerprint Inspector</h3>
+        <img src="/img/ip.png" alt="Icona IP Intelligence" class="box-title-icon" width="28" height="28">
+        <h3>OSINT IP & Geo Intelligence</h3>
     </div>
 
     <p style="color:#aaa; font-size:0.85rem; margin-bottom:12px; line-height:1.4;">
-        Analizza la tua impronta digitale (fingerprint): individua indirizzo IP pubblico, fornitore ISP, geolocalizzazione stimata, sistema operativo e specifiche hardware del browser.
+        Inserisci un indirizzo IPv4 o IPv6 per estrarre geolocalizzazione, fornitore ISP, Autonomous System (ASN), tipo di rete e dati di instradamento.
     </p>
 
-    <button onclick="inspectClientFingerprint()" id="btnFingerprint" style="
+    <!-- INPUT PER INDIRIZZO IP -->
+    <div style="display:flex; gap:8px; margin-bottom:10px;">
+        <input id="targetIpInput" type="text" placeholder="es: 172.68.218.179"
+               style="flex:1; padding:10px; background:#111; color:#fff; border:1px solid #00eaff; border-radius:4px; font-family:monospace; font-size:0.95rem;">
+        
+        <button onclick="useMyIp()" type="button" style="padding:10px 14px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; border-radius:4px; cursor:pointer; font-size:0.8rem; font-weight:bold; white-space:nowrap;">
+            Mio IP
+        </button>
+    </div>
+
+    <!-- PULSANTE ANALISI -->
+    <button onclick="analyzeTargetIp()" id="btnAnalyzeIp" style="
         width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:4px; cursor:pointer; box-shadow:0 0 10px rgba(0,234,255,0.3); transition:0.2s;"
         onmouseover="this.style.boxShadow='0 0 16px #00eaff';"
         onmouseout="this.style.boxShadow='0 0 10px rgba(0,234,255,0.3)';">
-        🔍 Esegui Scansione Impronta Digitale
+        Analizza Indirizzo IP
     </button>
 
-    <div id="fingerprintResult" aria-live="polite" style="
+    <!-- CONTAINER RISULTATO (CYBER STILE) -->
+    <div id="targetIpResult" aria-live="polite" style="
         background:#000; color:#00eaff; padding:15px; margin-top:15px;
         border:1px solid #00eaff; border-radius:6px; display:none; font-family:'Courier New', Courier, monospace;">
     </div>
 </div>
 
 <script>
-// Rilevamento avanzato del Sistema Operativo
-function detectOS() {
-    const ua = navigator.userAgent;
-    if (ua.includes("Win64") || ua.includes("WOW64") || ua.includes("Windows NT 10.0")) return "Windows 10 / 11 (64-bit)";
-    if (ua.includes("Windows")) return "Microsoft Windows";
-    if (ua.includes("Android")) return "Android OS";
-    if (ua.includes("iPhone") || ua.includes("iPad")) return "Apple iOS";
-    if (ua.includes("Macintosh") || ua.includes("Mac OS X")) return "Apple macOS";
-    if (ua.includes("Linux")) return "Linux (Distribuzione PC)";
-    return "Non identificabile / Mascherato";
-}
-
-// Rilevamento del Browser
-function detectBrowser() {
-    const ua = navigator.userAgent;
-    if (ua.includes("Firefox/")) return "Mozilla Firefox";
-    if (ua.includes("Edg/")) return "Microsoft Edge (Chromium)";
-    if (ua.includes("Chrome/") && !ua.includes("Edg/")) return "Google Chrome / Chromium";
-    if (ua.includes("Safari/") && !ua.includes("Chrome/")) return "Apple Safari";
-    if (ua.includes("Opera") || ua.includes("OPR/")) return "Opera";
-    return "Browser Web Standard";
-}
-
-// Rilevamento Scheda Video (GPU) tramite WebGL
-function detectGPU() {
+// Compila con l'IP del visitatore
+async function useMyIp() {
+    const input = document.getElementById("targetIpInput");
+    input.value = "Rilevamento...";
     try {
-        const canvas = document.createElement("canvas");
-        const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-        if (gl) {
-            const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
-            if (debugInfo) {
-                return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-            }
-        }
-    } catch(e) {}
-    return "Non rilevabile / Sandboxed";
+        const res = await fetch("https://ipwho.is/");
+        const d = await res.json();
+        input.value = d.ip;
+        analyzeTargetIp();
+    } catch(e) {
+        input.value = "";
+    }
 }
 
-async function inspectClientFingerprint() {
-    const out = document.getElementById("fingerprintResult");
-    const btn = document.getElementById("btnFingerprint");
+// Analisi dell'IP inserito
+async function analyzeTargetIp() {
+    const ipInput = document.getElementById("targetIpInput").value.trim();
+    const out = document.getElementById("targetIpResult");
+    const btn = document.getElementById("btnAnalyzeIp");
+
+    if (!ipInput) {
+        alert("Inserisci un indirizzo IP valido.");
+        return;
+    }
 
     out.style.display = "block";
-    out.innerHTML = `<span style="color:#ffcc00;">⏳ Acquisizione parametri di rete e analisi hardware in corso...</span>`;
+    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione database RIR, BGP e GeoIP per ${ipInput}...</span>`;
     btn.disabled = true;
 
-    // 1. Parametri Hardware & Browser estratti dal client
-    const os = detectOS();
-    const browser = detectBrowser();
-    const gpu = detectGPU();
-    const screenRes = `${window.screen.width}x${window.screen.height} (${window.screen.colorDepth}-bit)`;
-    const cpuCores = navigator.hardwareConcurrency ? `${navigator.hardwareConcurrency} Thread logici` : "N/D";
-    const ram = navigator.deviceMemory ? `~${navigator.deviceMemory} GB` : "Protetto / N/D";
-    const lang = navigator.language || "N/D";
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "N/D";
-
     try {
-        // 2. Parametri di Rete & Geolocalizzazione via IP (HTTPS, CORS-Free)
-        const res = await fetch("https://ipwho.is/");
+        const res = await fetch("https://ipwho.is/" + encodeURIComponent(ipInput));
         const data = await res.json();
 
         if (!data.success) {
-            throw new Error(data.message || "Impossibile reperire i dati di rete");
+            out.innerHTML = `<span style="color:#ff4444;">⚠️ Errore: ${data.message || "Indirizzo IP non valido o non raggiungibile."}</span>`;
+            return;
         }
 
         const flag = data.flag ? data.flag.emoji : "🌐";
+        const mapUrl = `https://www.google.com/maps?q=${data.latitude},${data.longitude}`;
+        const isDatacenter = (data.connection && data.connection.asn == 13335) || (data.connection && /cloudflare|hosting|server|datacenter|amazon|google/i.test(data.connection.isp || data.connection.org));
 
         out.innerHTML = `
             <div style="border-bottom:1px solid #1a1a1a; padding-bottom:8px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
-                <h4 style="color:#00ff88; margin:0; font-size:1rem;">🛡️ Impronta Client Rilevata</h4>
-                <span style="color:#888; font-size:0.75rem;">Status: VERIFIED</span>
+                <h4 style="color:#00ff88; margin:0; font-size:1rem;">Target: ${data.ip}</h4>
+                <span style="color:#ff7b00; font-size:0.75rem; border:1px solid #ff7b00; padding:2px 6px; border-radius:4px;">
+                    ${isDatacenter ? 'DATACENTER / PROXY' : 'LINEA REGOLARE'}
+                </span>
             </div>
 
-            <!-- SEZIONE RETE -->
-            <div style="margin-bottom:14px;">
-                <span style="color:#ff7b00; font-weight:bold; font-size:0.85rem; text-transform:uppercase;">[ 🌐 Network & Geo Intelligence ]</span>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:6px; margin-top:6px; font-size:0.82rem;">
-                    <div>IP Pubblico: <strong style="color:#fff;">${data.ip}</strong></div>
-                    <div>Nazionalità: <strong style="color:#fff;">${data.country} ${flag}</strong> (${data.country_code})</div>
-                    <div>Posizione: <strong style="color:#fff;">${data.city}, ${data.region}</strong></div>
-                    <div>Fornitore (ISP): <strong style="color:#fff;">${data.connection.isp || 'N/D'}</strong></div>
-                    <div>Routing (ASN): <strong style="color:#fff;">AS${data.connection.asn || 'N/D'}</strong></div>
-                    <div>Fuso Orario: <strong style="color:#fff;">${timeZone}</strong></div>
-                </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:8px; font-size:0.83rem; line-height:1.5;">
+                <div>Nazionalità: <strong style="color:#fff;">${data.country} ${flag}</strong> (${data.country_code})</div>
+                <div>Regione / Stato: <strong style="color:#fff;">${data.region || 'N/D'}</strong></div>
+                <div>Città: <strong style="color:#fff;">${data.city || 'N/D'}</strong> (CAP: ${data.postal || 'N/D'})</div>
+                <div>Fornitore (ISP): <strong style="color:#fff;">${data.connection?.isp || 'N/D'}</strong></div>
+                <div>Organizzazione: <strong style="color:#fff;">${data.connection?.org || 'N/D'}</strong></div>
+                <div>Autonomous System: <strong style="color:#fff;">AS${data.connection?.asn || 'N/D'}</strong></div>
+                <div>Fuso Orario: <strong style="color:#fff;">${data.timezone?.id || 'N/D'}</strong></div>
+                <div>Coordinate GPS: <strong style="color:#fff;">${data.latitude}, ${data.longitude}</strong></div>
             </div>
 
-            <!-- SEZIONE CLIENT & HARDWARE -->
-            <div>
-                <span style="color:#00eaff; font-weight:bold; font-size:0.85rem; text-transform:uppercase;">[ 💻 Device & Hardware Fingerprint ]</span>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:6px; margin-top:6px; font-size:0.82rem;">
-                    <div>Sistema Operativo: <strong style="color:#fff;">${os}</strong></div>
-                    <div>Browser Web: <strong style="color:#fff;">${browser}</strong></div>
-                    <div>Risoluzione Schermo: <strong style="color:#fff;">${screenRes}</strong></div>
-                    <div>Processore (CPU): <strong style="color:#fff;">${cpuCores}</strong></div>
-                    <div>Memoria RAM: <strong style="color:#fff;">${ram}</strong></div>
-                    <div>Lingua Primaria: <strong style="color:#fff;">${lang}</strong></div>
-                    <div style="grid-column: 1 / -1;">GPU (Scheda Grafica): <strong style="color:#ccc; font-size:0.78rem;">${gpu}</strong></div>
-                </div>
+            <div style="margin-top:12px; padding-top:10px; border-top:1px solid #1a1a1a; display:flex; justify-content:space-between; align-items:center; font-size:0.78rem;">
+                <span style="color:#888;">Tipo IP: ${data.type}</span>
+                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="color:#00eaff; text-decoration:underline;">
+                    Visualizza Mappa Satellitare ↗
+                </a>
             </div>
         `;
 
     } catch (err) {
-        // Fallback: se le API di rete sono bloccate da un adblocker, mostra comunque i dati hardware locali
-        out.innerHTML = `
-            <h4 style="color:#ffcc00; margin-bottom:8px;">⚠️ Rete protetta (AdBlock o Firewall attivo)</h4>
-            <p style="color:#bbb; font-size:0.8rem; margin-bottom:10px;">Impossibile recuperare i dati IP pubblici esterni, ma ecco l'impronta hardware locale:</p>
-            <div style="font-size:0.82rem; line-height:1.5;">
-                <div>Sistema Operativo: <strong style="color:#fff;">${os}</strong></div>
-                <div>Browser: <strong style="color:#fff;">${browser}</strong></div>
-                <div>Display: <strong style="color:#fff;">${screenRes}</strong></div>
-                <div>CPU Cores: <strong style="color:#fff;">${cpuCores}</strong></div>
-                <div>GPU: <strong style="color:#fff;">${gpu}</strong></div>
-            </div>
-        `;
+        out.innerHTML = `<span style="color:#ff4444;">Errore di connessione ai servizi di intelligence.</span>`;
     } finally {
         btn.disabled = false;
     }
