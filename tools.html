@@ -1587,6 +1587,289 @@ function decodeJWT() {
     }
 }
 </script>
+
+            <!-- 24. EMAIL SECURITY: SPF & DMARC ANTI-SPOOFING CHECKER -->
+<div class="widget-large tools-box" id="emailsecurity" aria-label="Email SPF DMARC Checker">
+    <div class="box-title-row">
+        <img src="/img/http.png" alt="Icona Email Security" class="box-title-icon" width="28" height="28">
+        <h3>Email Security: SPF & DMARC Inspector</h3>
+    </div>
+
+    <p style="color:#aaa; font-size:0.85rem; margin-bottom:12px; line-height:1.4;">
+        Verifica se un dominio ha configurato correttamente i meccanismi di autenticazione email (SPF e DMARC) per prevenire attacchi di Phishing, Spoofing ed Email Impersonation.
+    </p>
+
+    <input id="emailDomainInput" type="text" placeholder="es: anonlab.it oppure paypal.com"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
+
+    <button onclick="checkEmailSecurity()" id="btnEmailSec" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Analizza Protezione Email
+    </button>
+
+    <div id="emailSecResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:15px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
+    </div>
+</div>
+
+<script>
+async function checkEmailSecurity() {
+    const raw = document.getElementById("emailDomainInput").value.trim().toLowerCase();
+    const domain = raw.replace(/^https?:\/\//, "").replace(/\/.*$/, "").replace(/^www\./, "");
+    const out = document.getElementById("emailSecResult");
+    const btn = document.getElementById("btnEmailSec");
+
+    if (!domain) {
+        alert("Inserisci un dominio valido.");
+        return;
+    }
+
+    out.style.display = "block";
+    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione record SPF e DMARC per ${domain}...</span>`;
+    btn.disabled = true;
+
+    try {
+        // Query DoH per SPF e DMARC via Google DoH
+        const [spfRes, dmarcRes] = await Promise.all([
+            fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=TXT`).then(r => r.json()),
+            fetch(`https://dns.google/resolve?name=_dmarc.${encodeURIComponent(domain)}&type=TXT`).then(r => r.json())
+        ]);
+
+        // Estrazione SPF
+        let spfRecord = null;
+        if (spfRes.Answer) {
+            const match = spfRes.Answer.find(a => (a.data || "").includes("v=spf1"));
+            if (match) spfRecord = match.data.replace(/"/g, "");
+        }
+
+        // Estrazione DMARC
+        let dmarcRecord = null;
+        if (dmarcRes.Answer) {
+            const match = dmarcRes.Answer.find(a => (a.data || "").includes("v=DMARC1"));
+            if (match) dmarcRecord = match.data.replace(/"/g, "");
+        }
+
+        // Valutazione DMARC policy
+        let dmarcStatus = "<span style='color:#ff4444;'>⚠️ ASSENTE (Vulnerabile a spoofing diretto)</span>";
+        if (dmarcRecord) {
+            if (/p=reject/i.test(dmarcRecord)) {
+                dmarcStatus = "<span style='color:#00ff88;'>🛡️ OTTIMO (p=reject - Email non autorizzate bloccate)</span>";
+            } else if (/p=quarantine/i.test(dmarcRecord)) {
+                dmarcStatus = "<span style='color:#ffcc00;'>⚠️ MEDIO (p=quarantine - Email sospette inviate in spam)</span>";
+            } else if (/p=none/i.test(dmarcRecord)) {
+                dmarcStatus = "<span style='color:#ff8800;'>⚠️ SOLO MONITORAGGIO (p=none - Nessun blocco attivo)</span>";
+            }
+        }
+
+        // Valutazione SPF
+        let spfStatus = spfRecord 
+            ? "<span style='color:#00ff88;'>● CONFIGURATO</span>" 
+            : "<span style='color:#ff4444;'>● MANCANTE</span>";
+
+        out.innerHTML = `
+            <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Stato Sicurezza Email: ${domain}</h4>
+            
+            <div style="margin-bottom:12px;">
+                <div style="display:flex; justify-content:space-between;">
+                    <strong>Policy DMARC:</strong>
+                    ${dmarcStatus}
+                </div>
+                <div style="color:#aaa; font-size:0.78rem; word-break:break-all; margin-top:2px;">
+                    ${dmarcRecord ? dmarcRecord : "Nessun record _dmarc trovato."}
+                </div>
+            </div>
+
+            <div>
+                <div style="display:flex; justify-content:space-between;">
+                    <strong>Record SPF (v=spf1):</strong>
+                    ${spfStatus}
+                </div>
+                <div style="color:#aaa; font-size:0.78rem; word-break:break-all; margin-top:2px;">
+                    ${spfRecord ? spfRecord : "Nessun record SPF autorizzato."}
+                </div>
+            </div>
+        `;
+
+    } catch (e) {
+        out.innerHTML = `<span style="color:#ff4444;">Errore durante la risoluzione DNS dei record di sicurezza.</span>`;
+    } finally {
+        btn.disabled = false;
+    }
+}
+</script>
+
+
+<!-- 25. MAC ADDRESS & OUI VENDOR LOOKUP -->
+<div class="widget-large tools-box" id="maclookup" aria-label="MAC Address Lookup">
+    <div class="box-title-row">
+        <img src="/img/dns.png" alt="Icona MAC Lookup" class="box-title-icon" width="28" height="28">
+        <h3>MAC Address & OUI Vendor Lookup</h3>
+    </div>
+
+    <p style="color:#aaa; font-size:0.85rem; margin-bottom:12px; line-height:1.4;">
+        Identifica il produttore hardware (Cisco, Apple, Intel, Raspberry Pi, ecc.) associato a una scheda di rete partendo dall'indirizzo MAC o dal prefisso OUI.
+    </p>
+
+    <input id="macInput" type="text" placeholder="es: 00:1A:2B:3C:4D:5E oppure B8-27-EB"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
+
+    <button onclick="lookupMAC()" id="btnMacLookup" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Identifica Produttore Hardware
+    </button>
+
+    <div id="macResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:15px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
+    </div>
+</div>
+
+<script>
+async function lookupMAC() {
+    const raw = document.getElementById("macInput").value.trim();
+    const out = document.getElementById("macResult");
+    const btn = document.getElementById("btnMacLookup");
+
+    const cleanMac = raw.replace(/[^a-fA-F0-9]/g, "");
+    if (cleanMac.length < 6) {
+        alert("Inserisci almeno i primi 6 caratteri esadecimali del MAC address (OUI).");
+        return;
+    }
+
+    out.style.display = "block";
+    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione database IEEE OUI...</span>`;
+    btn.disabled = true;
+
+    try {
+        const res = await fetch(`https://api.maclookup.app/v2/macs/${encodeURIComponent(cleanMac)}`);
+        const data = await res.json();
+
+        if (!data.success || !data.found) {
+            out.innerHTML = `
+                <h4 style="color:#ffcc00; margin-bottom:6px;">⚠️ Produttore non trovato</h4>
+                <p style="color:#aaa; font-size:0.8rem; margin:0;">
+                    L'indirizzo MAC inserito potrebbe essere privato, randomizzato localmente (Locally Administered) o non ancora registrato nei registri pubblici IEEE.
+                </p>
+            `;
+            return;
+        }
+
+        const isRandom = data.isRand ? "<span style='color:#ff7b00;'>SI (MAC Casuale/Privacy)</span>" : "<span style='color:#00ff88;'>NO (Hardware Reale)</span>";
+
+        out.innerHTML = `
+            <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Dispositivo Identificato</h4>
+            <div>Produttore: <strong style="color:#fff; font-size:1rem;">${data.company || 'Sconosciuto'}</strong></div>
+            <div>Paese di Registrazione: <strong style="color:#fff;">${data.country || 'N/D'}</strong></div>
+            <div>Tipo di Blocco: <strong style="color:#fff;">${data.blockType || 'OUI Standard'}</strong></div>
+            <div>Indirizzo Randomizzato: ${isRandom}</div>
+            <div style="color:#888; font-size:0.75rem; margin-top:6px;">Sede: ${data.address || 'Non specificata'}</div>
+        `;
+    } catch (e) {
+        out.innerHTML = `<span style="color:#ff4444;">Errore di connessione al database OUI.</span>`;
+    } finally {
+        btn.disabled = false;
+    }
+}
+</script>
+
+
+<!-- 26. CYBER MULTI-CODEC (HEX, BINARY, URL-ENCODE, ROT13) -->
+<div class="widget-large tools-box" id="multicodec" aria-label="Cyber Multi Codec Converter">
+    <div class="box-title-row">
+        <img src="/img/hash.png" alt="Icona Multi Codec" class="box-title-icon" width="28" height="28">
+        <h3>Cyber Multi-Codec (Hex, Bin, URL, ROT13)</h3>
+    </div>
+
+    <textarea id="codecInput" placeholder="Inserisci il testo o payload da codificare/decodificare..."
+              style="width:100%; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+        <button onclick="convertCodec(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+            ⚡ Codifica Multipla
+        </button>
+        <button onclick="convertCodec(false)" style="flex:1; padding:12px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
+            🔄 Decodifica Hex/URL
+        </button>
+    </div>
+
+    <div id="codecResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:10px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.83rem; line-height:1.5;">
+    </div>
+</div>
+
+<script>
+function convertCodec(encode) {
+    const text = document.getElementById("codecInput").value;
+    const out = document.getElementById("codecResult");
+    if (!text.trim()) return;
+
+    out.style.display = "block";
+
+    if (encode) {
+        // ENCODE
+        // Hex
+        const hex = Array.from(text).map(c => c.charCodeAt(0).toString(16).padStart(2, "0")).join(" ");
+        // Binary
+        const bin = Array.from(text).map(c => c.charCodeAt(0).toString(2).padStart(8, "0")).join(" ");
+        // URL Encode
+        const urlEnc = encodeURIComponent(text);
+        // ROT13
+        const rot13 = text.replace(/[a-zA-Z]/g, function(c) {
+            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+        });
+
+        out.innerHTML = `
+            <div style="margin-bottom:8px;">
+                <strong style="color:#ff7b00;">[ Hexadecimal ]</strong>
+                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${hex}</pre>
+            </div>
+            <div style="margin-bottom:8px;">
+                <strong style="color:#00ff88;">[ Binary (8-bit) ]</strong>
+                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${bin}</pre>
+            </div>
+            <div style="margin-bottom:8px;">
+                <strong style="color:#00eaff;">[ URL-Encoded ]</strong>
+                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${urlEnc}</pre>
+            </div>
+            <div>
+                <strong style="color:#ffcc00;">[ ROT13 / Caesar-13 ]</strong>
+                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${rot13}</pre>
+            </div>
+        `;
+    } else {
+        // DECODE
+        let decodedHex = "N/D (formato non esadecimale)";
+        try {
+            const cleanHex = text.replace(/[^a-fA-F0-9]/g, "");
+            if (cleanHex.length % 2 === 0) {
+                let str = "";
+                for (let i = 0; i < cleanHex.length; i += 2) {
+                    str += String.fromCharCode(parseInt(cleanHex.substr(i, 2), 16));
+                }
+                decodedHex = str;
+            }
+        } catch(e) {}
+
+        let decodedUrl = "N/D";
+        try {
+            decodedUrl = decodeURIComponent(text);
+        } catch(e) {}
+
+        out.innerHTML = `
+            <div style="margin-bottom:8px;">
+                <strong style="color:#00eaff;">[ Testo da Hex ]</strong>
+                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap;">${decodedHex}</pre>
+            </div>
+            <div>
+                <strong style="color:#ff7b00;">[ Testo da URL-Decoded ]</strong>
+                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap;">${decodedUrl}</pre>
+            </div>
+        `;
+    }
+}
+</script>
         </section>
 
         <!-- SIDEBAR -->
