@@ -818,20 +818,31 @@
 
 </div>
 
-<div class="sidebar-box" aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
+<!-- BLOCCO METEO PROTETTO DA DATA-NOSNIPPET -->
+<div class="sidebar-box" 
+     data-nosnippet 
+     aria-label="Meteo Italia – 7 Giorni" 
+     style="margin-top:20px;">
+
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff; margin-bottom:10px;">
         Meteo Italia – 7 Giorni
     </h3>
 
-    <!-- Widget 3BMeteo visibile subito e direttamente nel DOM -->
+    <!-- Widget 3BMeteo con caricamento lazy -->
     <iframe 
         src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
         sandbox="allow-scripts allow-same-origin allow-popups"
-        width="100%" height="340" frameborder="0" scrolling="no"
+        width="100%" 
+        height="340" 
+        frameborder="0" 
+        scrolling="no"
+        loading="lazy"
         title="Previsioni meteo 7 giorni">
     </iframe>
 
     <a href="https://www.3bmeteo.com/meteo/italia"
+       target="_blank"
+       rel="noopener noreferrer"
        style="color:#00eaff; text-decoration:none; font-size:13px;">
        Previsioni complete →
     </a>
@@ -861,6 +872,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 </script>
+       
 <!-- CALCOLATRICE CYBER NEON -->
 <div class="sidebar-box" aria-label="Calcolatrice"
      style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding: 8px 12px 12px 12px;">
