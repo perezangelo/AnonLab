@@ -454,7 +454,8 @@ function anonlabPulse() {
 // WIDGET AGGIORNAMENTI DINAMICO (PROTETTO DA LOOP / FLASHING)
 ============================================================ */
 function initUpdateNotification() {
-    const currentUpdateId = "upd_2026_10_30"; 
+    // ID aggiornato per farlo mostrare nuovamente a tutti gli utenti
+    const currentUpdateId = "upd_2026_11_07"; 
     const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
 
     if (lastSeenUpdate === currentUpdateId) return;
@@ -481,16 +482,16 @@ function initUpdateNotification() {
                 <span style="font-family: ui-monospace, monospace; font-size: 0.70rem; color: #34d399; background: #0a0f14; padding: 2px 6px; border-radius: 4px; border: 1px solid #1e293b;">
                     ● SYSTEM REVISION
                 </span>
-                <button id="close-toast-btn" style="background: none; border: none; color: #64748b; cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 4px;">✕</button>
+                <button id="close-toast-btn" style="background: none; border: none; color: #64748b; cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 4px;" aria-label="Chiudi notifica">✕</button>
             </div>
             <p style="margin: 0 0 6px 0; color: #fff; font-size: 0.85rem; font-weight: 600;">
-                Piattaforma in costante evoluzione
+                Nuovo aggiornamento rilasciato
             </p>
             <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
-                Abbiamo aggiornato la guida <strong>OSINT Tools Explained</strong>, <strong>VIDEO cybersecurity-basics</strong> e rivisto i moduli della <strong>SOC Dashboard</strong>.
+                Abbiamo rinnovato il layout della <strong>Home Page</strong> e aggiornato le risorse della sezione <strong>Tools</strong>.
             </p>
-            <a href="/cybersecurity-basics.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
-                Esplora le novità →
+            <a href="/tools.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
+                Scopri i nuovi Tools →
             </a>
         </div>
     `;
