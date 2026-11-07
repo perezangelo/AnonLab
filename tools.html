@@ -1404,6 +1404,189 @@ async function analyzeTargetIp() {
     }
 }
 </script>
+
+            <!-- 21. SUBNET & CIDR CALCULATOR -->
+<div class="widget-large tools-box" id="subnetcalc" aria-label="CIDR Subnet Calculator">
+    <div class="box-title-row">
+        <img src="/img/port.png" alt="Icona Subnet Calculator" class="box-title-icon" width="28" height="28">
+        <h3>IPv4 CIDR & Subnet Calculator</h3>
+    </div>
+
+    <input id="cidrInput" type="text" placeholder="es: 192.168.1.0/24 oppure 10.50.0.1/20"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
+
+    <button onclick="calculateCIDR()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Calcola Parametri Subnet
+    </button>
+
+    <div id="cidrResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:15px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
+    </div>
+</div>
+
+<script>
+function calculateCIDR() {
+    const raw = document.getElementById("cidrInput").value.trim();
+    const out = document.getElementById("cidrResult");
+    out.style.display = "block";
+
+    const parts = raw.split("/");
+    if (parts.length !== 2) {
+        out.innerHTML = `<span style="color:#ff4444;">Formato non valido. Usa la notazione IP/CIDR (es: 192.168.1.0/24).</span>`;
+        return;
+    }
+
+    const ipStr = parts[0].trim();
+    const prefix = parseInt(parts[1].trim(), 10);
+
+    if (isNaN(prefix) || prefix < 0 || prefix > 32) {
+        out.innerHTML = `<span style="color:#ff4444;">Prefisso CIDR non valido (deve essere tra 0 e 32).</span>`;
+        return;
+    }
+
+    const ipOctets = ipStr.split(".").map(Number);
+    if (ipOctets.length !== 4 || ipOctets.some(o => isNaN(o) || o < 0 || o > 255)) {
+        out.innerHTML = `<span style="color:#ff4444;">Indirizzo IPv4 non valido.</span>`;
+        return;
+    }
+
+    const ipInt = (ipOctets[0] << 24) | (ipOctets[1] << 16) | (ipOctets[2] << 8) | ipOctets[3];
+    const maskInt = prefix === 0 ? 0 : (~0 << (32 - prefix));
+    const netInt = (ipInt & maskInt) >>> 0;
+    const wildInt = (~maskInt) >>> 0;
+    const bcastInt = (netInt | wildInt) >>> 0;
+
+    const toIp = int => [(int >>> 24) & 255, (int >>> 16) & 255, (int >>> 8) & 255, int & 255].join(".");
+    const totalHosts = prefix === 32 ? 1 : (prefix === 31 ? 2 : Math.pow(2, 32 - prefix));
+    const usableHosts = prefix >= 31 ? totalHosts : Math.max(0, totalHosts - 2);
+
+    const firstHost = prefix >= 31 ? toIp(netInt) : toIp(netInt + 1);
+    const lastHost = prefix >= 31 ? toIp(bcastInt) : toIp(bcastInt - 1);
+
+    out.innerHTML = `
+        <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Analisi Rete: ${raw}</h4>
+        <div>Network ID: <strong style="color:#fff;">${toIp(netInt)}</strong></div>
+        <div>Subnet Mask: <strong style="color:#fff;">${toIp(maskInt)}</strong></div>
+        <div>Wildcard Mask: <strong style="color:#fff;">${toIp(wildInt)}</strong></div>
+        <div>Broadcast Address: <strong style="color:#fff;">${toIp(bcastInt)}</strong></div>
+        <div>Range Host Utili: <strong style="color:#fff;">${firstHost} — ${lastHost}</strong></div>
+        <div>Host Totali Assegnabili: <strong style="color:#ffcc00;">${usableHosts.toLocaleString()}</strong> (${totalHosts.toLocaleString()} indirizzi)</div>
+    `;
+}
+</script>
+
+
+<!-- 22. IOC DEFANGER / REFANGER (THREAT INTEL UTILITY) -->
+<div class="widget-large tools-box" id="iocdefang" aria-label="IoC Defanger Refanger">
+    <div class="box-title-row">
+        <img src="/img/url.png" alt="Icona IoC Defanger" class="box-title-icon" width="28" height="28">
+        <h3>IoC Defanger & Sanitizer</h3>
+    </div>
+
+    <textarea id="iocInput" placeholder="Incolla URL o IP malevoli (es: https://malicious-site.com/payload.exe oppure 185.220.101.5)..."
+              style="width:100%; height:90px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+        <button onclick="processIoC(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+            🛡️ Defang (Rendi Inoffensivo)
+        </button>
+        <button onclick="processIoC(false)" style="flex:1; padding:12px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
+            🔄 Refang (Ripristina)
+        </button>
+    </div>
+
+    <div id="iocResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:10px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; white-space:pre-wrap; word-break:break-all;">
+    </div>
+</div>
+
+<script>
+function processIoC(defang) {
+    const raw = document.getElementById("iocInput").value;
+    const out = document.getElementById("iocResult");
+    if (!raw.trim()) return;
+
+    let res = raw;
+    if (defang) {
+        res = res.replace(/https:\/\//gi, "hxxps[://]")
+                 .replace(/http:\/\//gi, "hxxp[://]")
+                 .replace(/\./g, "[.]");
+    } else {
+        res = res.replace(/hxxps\[:\/\/\]/gi, "https://")
+                 .replace(/hxxp\[:\/\/\]/gi, "http://")
+                 .replace(/\[\.\]/g, ".");
+    }
+
+    out.style.display = "block";
+    out.innerText = res;
+}
+</script>
+
+
+<!-- 23. JWT (JSON WEB TOKEN) INSPECTOR -->
+<div class="widget-large tools-box" id="jwtinspector" aria-label="JWT Token Inspector">
+    <div class="box-title-row">
+        <img src="/img/hash.png" alt="Icona JWT Inspector" class="box-title-icon" width="28" height="28">
+        <h3>JWT (JSON Web Token) Inspector</h3>
+    </div>
+
+    <textarea id="jwtInput" placeholder="Incolla il token JWT (header.payload.signature)..."
+              style="width:100%; height:90px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+
+    <button onclick="decodeJWT()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+        Decodifica & Verifica Scadenza
+    </button>
+
+    <div id="jwtResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:15px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace;">
+    </div>
+</div>
+
+<script>
+function decodeJWT() {
+    const token = document.getElementById("jwtInput").value.trim();
+    const out = document.getElementById("jwtResult");
+    out.style.display = "block";
+
+    const parts = token.split(".");
+    if (parts.length !== 3) {
+        out.innerHTML = `<span style="color:#ff4444;">Formato JWT non valido (deve contenere 3 sezioni separate da un punto).</span>`;
+        return;
+    }
+
+    try {
+        const b64Url = str => decodeURIComponent(atob(str.replace(/-/g, "+").replace(/_/g, "/")).split("").map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join(""));
+        const header = JSON.parse(b64Url(parts[0]));
+        const payload = JSON.parse(b64Url(parts[1]));
+
+        let statusText = "<span style='color:#00ff88;'>● Nessuna data di scadenza definita</span>";
+        if (payload.exp) {
+            const expDate = new Date(payload.exp * 1000);
+            const isExpired = Date.now() > expDate.getTime();
+            statusText = isExpired 
+                ? `<span style='color:#ff4444;'>⚠️ Token SCADUTO il ${expDate.toLocaleString()}</span>` 
+                : `<span style='color:#00ff88;'>🛡️ Token VALIDO fino al ${expDate.toLocaleString()}</span>`;
+        }
+
+        out.innerHTML = `
+            <div style="margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:6px;">
+                Stato Validità: ${statusText}
+            </div>
+            <strong style="color:#ff7b00;">[ Header (Algoritmo & Tipo) ]</strong>
+            <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(header, null, 2)}</pre>
+            <strong style="color:#00eaff;">[ Payload (Claims & Dati) ]</strong>
+            <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(payload, null, 2)}</pre>
+        `;
+    } catch(e) {
+        out.innerHTML = `<span style="color:#ff4444;">Errore durante la decodifica Base64Url del token.</span>`;
+    }
+}
+</script>
         </section>
 
         <!-- SIDEBAR -->
