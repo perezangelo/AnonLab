@@ -1936,6 +1936,167 @@ function convertCodec(encode) {
     }
 }
 </script>
+
+            <!-- 27. CYBERSECURITY & OSINT VIDEO LAB (YOUTUBE WORKSHOP) -->
+<div class="widget-large tools-box" id="osintvideolab" aria-label="OSINT & Ethical Hacking Video Workshop">
+    <div class="box-title-row">
+        <!-- SVG Monitor Video Cyber -->
+        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
+            <rect x="2" y="3" width="20" height="15" rx="3" />
+            <polygon points="10 8 16 11.5 10 15 10 8" fill="#ff7b00" stroke="#ff7b00" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="18" x2="12" y2="21" />
+        </svg>
+        <h3>OSINT & Ethical Hacking Workshop</h3>
+    </div>
+
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: FORMAZIONE CONTINUA & THREAT HUNTING</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è:</strong> Uno spazio multimediale dedicato a conferenze internazionali (DEF CON, Black Hat), tutorial operativi di indagine su fonti aperte (OSINT) e dimostrazioni pratiche di reverse engineering.
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ A cosa serve:</strong> La difesa perimetrale e l'analisi SOC richiedono di comprendere in anticipo le TTPs (Tactics, Techniques, and Procedures) adoperate dagli attaccanti reali.
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Privacy & Prestazioni:</strong> Il player utilizza la modalità <em>youtube-nocookie.com</em> con caricamento ritardato (lazy loading), garantendo che nessun cookie pubblicitario o tracciante venga iniettato prima dell'avvio.
+        </p>
+    </div>
+
+    <p style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
+        Focus didattico: <strong>Tecniche investigative OSINT & Network Forensics</strong>
+    </p>
+
+    <!-- Player 16:9 Responsive Cyber Neon -->
+    <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; border:1px solid #00eaff; box-shadow:0 0 12px rgba(0,234,255,0.25); background:#000;">
+        <!-- Puoi sostituire l'ID del video con qualsiasi video o playlist di tuo gradimento -->
+        <iframe 
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PLBf0hzazHTGOeHGnC18ZgUvdtK-KkK1zL" 
+            title="OSINT & Ethical Hacking Workshop" 
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+        </iframe>
+    </div>
+</div>
+
+
+<!-- 28. PASSWORD ENTROPY & BRUTE-FORCE CRACKING ESTIMATOR -->
+<div class="widget-large tools-box" id="entropycalculator" aria-label="Password Entropy Calculator">
+    <div class="box-title-row">
+        <img src="/img/password.png" alt="Icona Password Entropy" class="box-title-icon" width="28" height="28">
+        <h3>Password Entropy & Brute-Force Estimator</h3>
+    </div>
+
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: MISURA MATEMATICA DELLA ROBUSTEZZA (SHANNON ENTROPY)</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è l'Entropia (in Bit):</strong> È il grado di casualità teorica di una stringa, calcolato con la formula <code>E = L × log₂(R)</code>, dove <em>L</em> è la lunghezza e <em>R</em> è la dimensione del set di caratteri (numeri, minuscole, maiuscole, simboli).
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ Soglie di Sicurezza NIST:</strong>
+            <br>• <strong>&lt; 40 bit:</strong> Debolissima (violabile in millisecondi via Hashcat).
+            <br>• <strong>40 – 60 bit:</strong> Discreta per account secondari.
+            <br>• <strong>&gt; 80 bit:</strong> Crittograficamente robusta (richiede anni o secoli di calcolo GPU).
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Nota di Sicurezza:</strong> Il calcolo avviene interamente nella RAM del tuo browser. La password non viene mai salvata né inviata in rete.
+        </p>
+    </div>
+
+    <input id="entropyPassInput" type="text" placeholder="Digita una password per testarne la resistenza matematica..."
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"
+           oninput="calculateEntropy()">
+
+    <div id="entropyResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:5px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
+    </div>
+</div>
+
+<script>
+function calculateEntropy() {
+    const pass = document.getElementById("entropyPassInput").value;
+    const out = document.getElementById("entropyResult");
+
+    if (!pass) {
+        out.style.display = "none";
+        return;
+    }
+
+    out.style.display = "block";
+
+    let pool = 0;
+    if (/[a-z]/.test(pass)) pool += 26;
+    if (/[A-Z]/.test(pass)) pool += 26;
+    if (/[0-9]/.test(pass)) pool += 10;
+    if (/[^a-zA-Z0-9]/.test(pass)) pool += 33;
+
+    const len = pass.length;
+    const entropy = pool > 0 ? (len * (Math.log(pool) / Math.log(2))).toFixed(1) : 0;
+
+    // Stima tempo di cracking con rig moderno (100 miliardi di tentativi/sec - es. 8x RTX 4090 con NTLM)
+    const combinations = Math.pow(pool, len);
+    const hashesPerSec = 100_000_000_000; // 100 GH/s
+    const seconds = combinations / hashesPerSec;
+
+    function formatTime(sec) {
+        if (sec < 0.001) return "< 1 millisecondo (Istantaneo)";
+        if (sec < 60) return `${sec.toFixed(1)} secondi`;
+        if (sec < 3600) return `${(sec / 60).toFixed(0)} minuti`;
+        if (sec < 86400) return `${(sec / 3600).toFixed(1)} ore`;
+        if (sec < 31536000) return `${(sec / 86400).toFixed(0)} giorni`;
+        if (sec < 31536000000) return `${(sec / 31536000).toLocaleString(undefined, {maximumFractionDigits: 0})} anni`;
+        return "Miliardi di secoli (Inviolabile via Brute-Force classico)";
+    }
+
+    let color = "#ff4444";
+    let rating = "CRITICA / DEBOLE";
+    if (entropy >= 80) {
+        color = "#00ff88";
+        rating = "ECCELLENTE / MILITARY GRADE";
+    } else if (entropy >= 60) {
+        color = "#00eaff";
+        rating = "BUONA / ROBUSTA";
+    } else if (entropy >= 45) {
+        color = "#ffcc00";
+        rating = "MODERATA (Esposta a dizionario)";
+    }
+
+    out.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1a1a1a; padding-bottom:6px; margin-bottom:8px;">
+            <span>Valutazione: <strong style="color:${color};">${rating}</strong></span>
+            <span>Entropia: <strong style="color:${color}; font-size:1.05rem;">${entropy} bit</strong></span>
+        </div>
+        <div>Lunghezza Password: <strong style="color:#fff;">${len} caratteri</strong></div>
+        <div>Ampiezza Charset: <strong style="color:#fff;">${pool} combinazioni/carattere</strong></div>
+        <div>Tempo Stimato di Cracking (Cluster GPU 100 GH/s): <strong style="color:${color};">${formatTime(seconds)}</strong></div>
+    `;
+}
+</script>
+
+
+<!-- 29. SYMMETRIC AES & XOR PAYLOAD ENCRYPTOR -->
+<div class="widget-large tools-box" id="symmetriccipher" aria-label="Symmetric Payload Encryptor">
+    <div class="box-title-row">
+        <img src="/img/hash.png" alt="Icona Symmetric Cipher" class="box-title-icon" width="28" height="28">
+        <h3>Symmetric XOR & Payload Obfuscator</h3>
+    </div>
+
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 255, 136, 0.03); border:1px solid rgba(0, 255, 136, 0.18); border-left:3px solid #00ff88; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00ff88; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: CIFRATURA SIMMETRICA & OFFUSCAMENTO SHELLCODE</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è l'operazione XOR (Exclusive OR):</strong> È la base della crittografia simmetrica a livello binario: applicando la stessa chiave logica due volte allo stesso dato cifrato si riottene il dato originale (<code>A ⊕ K ⊕ K = A</code>).
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ A cosa serve in Malware Analysis:</strong> Gli autori di malware utilizzano XOR e chiavi simmetriche per nascondere stringhe C2 (Command & Control), indirizzi IP e chiamate API alle firme statiche degli antivirus e degli EDR.
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Come si usa:</strong> Inserisci il testo e digita una chiave segreta alfanumerica. Cliccando su Cifr
         </section>
 
         <!-- SIDEBAR -->
