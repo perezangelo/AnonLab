@@ -138,109 +138,101 @@ function initMobileMenu() {
 }
 
 // ===============================
-// ONLINE SESSION TIMER
+// ONLINE SESSION TIMER (CORRETTO & RESILIENTE)
 // ===============================
+
 function initSessionTimer() {
+    let timerInterval = null;
 
-    function startTimer() {
+    function getStartTime() {
+        let start = parseInt(sessionStorage.getItem("anonlabStartTime"), 10);
+        if (isNaN(start) || !start) {
+            start = Date.now();
+            sessionStorage.setItem("anonlabStartTime", start.toString());
+        }
+        return start;
+    }
 
+    function updateDisplay(timerEl) {
+        const startTime = getStartTime();
+        const elapsed = Math.max(0, Math.floor((Date.now() - startTime) / 1000));
+
+        const hours = String(Math.floor(elapsed / 3600)).padStart(2, "0");
+        const minutes = String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
+        const seconds = String(elapsed % 60).padStart(2, "0");
+
+        timerEl.textContent = `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
+    }
+
+    function checkAndBindTimer() {
         const timer = document.getElementById("session-timer");
 
         if (!timer) return false;
 
-        if (timer.dataset.timerStarted === "true") {
+        // Se l'elemento è già controllato dall'intervallo attivo, non duplicare
+        if (timer.dataset.timerStarted === "true" && timerInterval !== null) {
             return true;
         }
 
         timer.dataset.timerStarted = "true";
 
-        let startTime = parseInt(
-            sessionStorage.getItem("anonlabStartTime"),
-            10
-        );
+        // Aggiorna subito il display visivo
+        updateDisplay(timer);
 
-        if (!startTime) {
-            startTime = Date.now();
-            sessionStorage.setItem(
-                "anonlabStartTime",
-                startTime
-            );
-        }
+        // Se c'era un vecchio intervallo attivo, ripuliscilo
+        if (timerInterval) clearInterval(timerInterval);
 
-        function updateTimer() {
+        // Avvia il battito al secondo
+        timerInterval = setInterval(() => {
+            const currentTimer = document.getElementById("session-timer");
+            // Se l'elemento è stato sostituito dal fetch del ticker, riaggancialo
+            if (currentTimer && currentTimer !== timer) {
+                checkAndBindTimer();
+            } else if (currentTimer) {
+                updateDisplay(currentTimer);
+            }
+        }, 1000);
 
-            const elapsed = Math.floor(
-                (Date.now() - startTime) / 1000
-            );
-
-            const hours = String(
-                Math.floor(elapsed / 3600)
-            ).padStart(2, "0");
-
-            const minutes = String(
-                Math.floor((elapsed % 3600) / 60)
-            ).padStart(2, "0");
-
-            const seconds = String(
-                elapsed % 60
-            ).padStart(2, "0");
-
-            timer.textContent =
-                `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
-        }
-
-        updateTimer();
-
-        timer._interval = setInterval(
-            updateTimer,
-            1000
-        );
-
-        console.log(
-            "✅ ONLINE SESSION TIMER AVVIATO"
-        );
-
+        console.log("✅ ONLINE SESSION TIMER AVVIATO");
         return true;
     }
 
-    if (startTimer()) return;
+    // 1. Prova subito
+    checkAndBindTimer();
 
+    // 2. Observer: rimane in ascolto se il ticker arriva via fetch() dopo il caricamento
     const observer = new MutationObserver(() => {
-
-        if (startTimer()) {
-            observer.disconnect();
+        const timer = document.getElementById("session-timer");
+        if (timer && timer.dataset.timerStarted !== "true") {
+            checkAndBindTimer();
         }
-
     });
 
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+    if (document.body) {
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
 }
 
 // ===============================
-// DOM READY — INIZIALIZZAZIONI
+// INIZIALIZZAZIONE SICURA (NO BLOCCHI SULLA HOME)
 // ===============================
 
-document.addEventListener("DOMContentLoaded", () => {
+function startAnonLabApp() {
 
     // NAVBAR MOBILE
     setTimeout(() => {
-        initMobileMenu();
+        if (typeof initMobileMenu === "function") initMobileMenu();
     }, 300);
 
-    // CALCOLATRICE (Verifica silenziosa della presenza nella pagina/sidebar)
+    // CALCOLATRICE
     const initCalculatorSafe = () => {
         const display = document.getElementById("calc-display");
         const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
 
-        // Se non ci sono gli elementi, esce in silenzio senza errori
-        if (!display || buttons.length === 0) {
-            return false;
-        }
-
-        // Evita doppie inizializzazioni
+        if (!display || buttons.length === 0) return false;
         if (display.dataset.ready === "true") return true;
         display.dataset.ready = "true";
 
@@ -275,20 +267,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return true;
     };
 
-    // Tenta di inizializzarla subito; se la sidebar arriva dopo (es. include dinamici), 
-    // usa un controllo leggero o lasciala pronta.
-    if (!initCalculatorSafe()) {
-        // Se la sidebar viene iniettata dinamicamente in un secondo momento, 
-        // puoi lasciare un observer mirato o semplicemente fare in modo che 
-        // non emetta alcun log di errore se la pagina è sprovvista di calcolatrice.
-    }
+    initCalculatorSafe();
 
     // RADIO
-    initRadio();
+    if (typeof initRadio === "function") initRadio();
 
     // YOUTUBE PLAYER
-    initYouTubePlayer();
+    if (typeof initYouTubePlayer === "function") initYouTubePlayer();
 
-    // TIMER SESSIONE
+    // TIMER SESSIONE (Avvio garantito)
     initSessionTimer();
-});
+}
+
+// ⭐ RISOLUZIONE DEL PROBLEMA HOME:
+// Se il DOM è già pronto si avvia subito, altrimenti attende DOMContentLoaded!
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startAnonLabApp);
+} else {
+    startAnonLabApp();
+}
