@@ -332,6 +332,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- IMMAGINE SOTTO IL MENU -->
 <img src="img/ai-soc.jpg"
      alt="AI SOC"
+     width="400"
+     height="225"
      style="
        width:220px;        /* 🔥 ridotta per evitare sovrapposizioni */
        height:auto;
@@ -362,9 +364,11 @@ document.addEventListener("DOMContentLoaded", () => {
         width:100%;
     ">
         <img src="/img/gears.png"
-     alt="Gears Icon"
-     class="box-title-icon"
-     style="filter:drop-shadow(0 0 10px #00eaff);">
+             alt="Gears Icon"
+             class="box-title-icon"
+             width="32"
+             height="32"
+             style="filter:drop-shadow(0 0 10px #00eaff);">
 
         <form action="https://www.google.com/search" method="GET"
               style="
@@ -403,58 +407,60 @@ document.addEventListener("DOMContentLoaded", () => {
         </form>
     </div>
 
-<!-- NEWSLETTER -->
-<div style="
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:15px;
-    width:100%;
-">
-    <img src="/img/newsletter.png"
-     alt="Newsletter Icon"
-     class="box-title-icon"
-     style="filter:drop-shadow(0 0 10px #00eaff);">
+    <!-- NEWSLETTER -->
+    <div style="
+        display:flex;
+        justify-content:flex-end;
+        align-items:center;
+        gap:15px;
+        width:100%;
+    ">
+        <img src="/img/newsletter.png"
+             alt="Newsletter Icon"
+             class="box-title-icon"
+             width="32"
+             height="32"
+             style="filter:drop-shadow(0 0 10px #00eaff);">
 
-    <form onsubmit="return sendNewsletter(event)"
-          style="
-            display:flex;
-            gap:8px;
-            width:100%;
-            max-width:300px;
-            justify-content:flex-end;
-          ">
+        <form onsubmit="return sendNewsletter(event)"
+              style="
+                display:flex;
+                gap:8px;
+                width:100%;
+                max-width:300px;
+                justify-content:flex-end;
+              ">
 
-        <input type="email" id="newsletterEmail"
-               name="email"
-               placeholder="La tua email"
-               required
-               style="
-                 width:100%;
-                 padding:10px 12px;
-                 font-size:1rem;
-                 border-radius:8px;
-                 border:1px solid #00eaff;
-                 background:#000814;
-                 color:#e0faff;
-                 box-shadow:0 0 10px #00eaff55;
-               ">
+            <input type="email" id="newsletterEmail"
+                   name="email"
+                   placeholder="La tua email"
+                   required
+                   style="
+                     width:100%;
+                     padding:10px 12px;
+                     font-size:1rem;
+                     border-radius:8px;
+                     border:1px solid #00eaff;
+                     background:#000814;
+                     color:#e0faff;
+                     box-shadow:0 0 10px #00eaff55;
+                   ">
 
-        <button type="submit"
-                style="
-                  padding:10px 14px;
-                  background:#00eaff;
-                  color:#000;
-                  font-weight:bold;
-                  border:none;
-                  border-radius:8px;
-                  cursor:pointer;
-                  box-shadow:0 0 10px #00eaffaa;
-                ">
-          Iscriviti gratis alle newsletter
-        </button>
-    </form>
-</div>
+            <button type="submit"
+                    style="
+                      padding:10px 14px;
+                      background:#00eaff;
+                      color:#000;
+                      font-weight:bold;
+                      border:none;
+                      border-radius:8px;
+                      cursor:pointer;
+                      box-shadow:0 0 10px #00eaffaa;
+                    ">
+              Iscriviti gratis alle newsletter
+            </button>
+        </form>
+    </div>
 </div>
 
 <!-- ANONBOT WELCOME CARD -->
@@ -2113,16 +2119,30 @@ setInterval(loadCyberAlerts, 60000);
   border-radius:8px;
   position:relative;
   overflow:hidden;
+  min-height:275px; /* 1. Riserva fin da subito l'altezza dell'intero widget */
 ">
 
+  <!-- LOADER IN OVERLAY: non occupa spazio nel flusso del documento -->
   <div id="soc-tv-loading" style="
-    padding:40px 20px;
-    text-align:center;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    box-sizing:border-box;
+    z-index:2;
     color:#00eaff;
     font-weight:bold;
   ">
     <div style="
-      width:100%;
+      width:80%;
+      max-width:200px;
       height:6px;
       background:#003344;
       border-radius:4px;
@@ -2136,25 +2156,28 @@ setInterval(loadCyberAlerts, 60000);
         animation: loadbar 1.2s infinite;
       "></div>
     </div>
-
     📡 Acquisizione feed...
   </div>
 
+  <!-- 2. Altezza fissa a 180px: zero shift al download dell'immagine -->
   <img
     id="soc-tv-img"
-    src=""
+    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
     alt="Immagine della notizia Cyber Alert Live"
+    width="320"
+    height="180"
     style="
       width:100%;
-      height:auto;
-      max-height:180px;
+      height:180px;
       object-fit:cover;
+      background:#111;
       border:1px solid #444;
       border-radius:4px;
-      display:none;
+      display:block;
     "
   >
 
+  <!-- 3. min-height per contenere fino a 2-3 righe di titolo senza muovere il layout -->
   <div
     id="soc-tv-title"
     style="
@@ -2162,17 +2185,20 @@ setInterval(loadCyberAlerts, 60000);
       margin-top:8px;
       font-weight:bold;
       line-height:1.4;
-      display:none;
+      min-height:2.8em;
+      display:block;
     "
   ></div>
 
+  <!-- 4. min-height fissa per la fonte -->
   <div
     id="soc-tv-source"
     style="
       color:#d0d0d0;
       font-size:0.9rem;
       margin-top:4px;
-      display:none;
+      min-height:1.2rem;
+      display:block;
     "
   ></div>
 
@@ -2194,11 +2220,6 @@ async function loadSocTV() {
       return;
     }
 
-    loading.style.display = "none";
-    img.style.display = "block";
-    title.style.display = "block";
-    source.style.display = "block";
-
     img.classList.add("soc-fade");
     title.classList.add("soc-fade");
     source.classList.add("soc-fade");
@@ -2219,13 +2240,17 @@ async function loadSocTV() {
         }
 
         img.src = imgUrl;
-
         title.textContent = item.title;
         source.textContent = "Fonte: " + item.source;
 
         img.classList.add("soc-visible");
         title.classList.add("soc-visible");
         source.classList.add("soc-visible");
+
+        // Al primo completamento, rimuoviamo l'overlay di caricamento
+        if (loading.style.display !== "none") {
+          loading.style.display = "none";
+        }
 
       }, 400);
 
