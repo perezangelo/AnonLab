@@ -138,75 +138,79 @@ function initMobileMenu() {
 }
 
 // ===============================
-// ONLINE SESSION TIMER (AUTO-RECOVERY RESILIENTE)
+// ONLINE SESSION TIMER
 // ===============================
-
 function initSessionTimer() {
-    let timerInterval = null;
 
-    function getStartTime() {
-        let start = parseInt(sessionStorage.getItem("anonlabStartTime"), 10);
-        if (isNaN(start) || !start) {
-            start = Date.now();
-            sessionStorage.setItem("anonlabStartTime", start.toString());
-        }
-        return start;
-    }
+    function startTimer() {
 
-    function updateDisplay(timerEl) {
-        const startTime = getStartTime();
-        const elapsed = Math.max(0, Math.floor((Date.now() - startTime) / 1000));
-
-        const hours = String(Math.floor(elapsed / 3600)).padStart(2, "0");
-        const minutes = String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
-        const seconds = String(elapsed % 60).padStart(2, "0");
-
-        timerEl.textContent = `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
-    }
-
-    function checkAndBindTimer() {
         const timer = document.getElementById("session-timer");
 
         if (!timer) return false;
 
-        // Se l'elemento è già controllato dal nostro intervallo attivo, tutto ok
-        if (timer.dataset.timerStarted === "true" && timerInterval !== null) {
+        if (timer.dataset.timerStarted === "true") {
             return true;
         }
 
-        // Segna il nuovo elemento
         timer.dataset.timerStarted = "true";
 
-        // Aggiorna subito il testo per evitare scatti
-        updateDisplay(timer);
+        let startTime = parseInt(
+            sessionStorage.getItem("anonlabStartTime"),
+            10
+        );
 
-        // Se c'era un vecchio intervallo su un elemento distrutto, puliscilo
-        if (timerInterval) clearInterval(timerInterval);
+        if (!startTime) {
+            startTime = Date.now();
+            sessionStorage.setItem(
+                "anonlabStartTime",
+                startTime
+            );
+        }
 
-        // Avvia il conteggio continuo
-        timerInterval = setInterval(() => {
-            const currentTimer = document.getElementById("session-timer");
-            // Se il ticker è stato sovrascritto via fetch, ricolleghiamolo
-            if (currentTimer && currentTimer !== timer) {
-                checkAndBindTimer();
-            } else if (currentTimer) {
-                updateDisplay(currentTimer);
-            }
-        }, 1000);
+        function updateTimer() {
 
-        console.log("✅ ONLINE SESSION TIMER ATTIVO");
+            const elapsed = Math.floor(
+                (Date.now() - startTime) / 1000
+            );
+
+            const hours = String(
+                Math.floor(elapsed / 3600)
+            ).padStart(2, "0");
+
+            const minutes = String(
+                Math.floor((elapsed % 3600) / 60)
+            ).padStart(2, "0");
+
+            const seconds = String(
+                elapsed % 60
+            ).padStart(2, "0");
+
+            timer.textContent =
+                `● ONLINE SESSION: ${hours}:${minutes}:${seconds}`;
+        }
+
+        updateTimer();
+
+        timer._interval = setInterval(
+            updateTimer,
+            1000
+        );
+
+        console.log(
+            "✅ ONLINE SESSION TIMER AVVIATO"
+        );
+
         return true;
     }
 
-    // 1. Tentativo immediato
-    checkAndBindTimer();
+    if (startTimer()) return;
 
-    // 2. Observer continuo: NON si disconnette se il DOM viene rimpiazzato dal fetch del ticker
     const observer = new MutationObserver(() => {
-        const timer = document.getElementById("session-timer");
-        if (timer && timer.dataset.timerStarted !== "true") {
-            checkAndBindTimer();
+
+        if (startTimer()) {
+            observer.disconnect();
         }
+
     });
 
     observer.observe(document.body, {
