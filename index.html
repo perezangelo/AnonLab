@@ -1832,7 +1832,10 @@ modal.onclick = () => modal.style.display = "none";
     <h2>Cyber Alert Live</h2>
 
     <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
-       target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Consulta tutti gli Advisory CISA (si apre in una nuova scheda)"
+       style="color:#ff7b00;">
        Advisory CISA →
     </a>
   </div>
@@ -1929,6 +1932,8 @@ async function loadCyberAlerts() {
       const li = document.createElement("li");
       li.style.marginBottom = "15px";
 
+      const alertRef = alert.ghsa || alert.id;
+
       li.innerHTML = `
         <div style="
           background:#0d0d0d;
@@ -1940,7 +1945,7 @@ async function loadCyberAlerts() {
           transition:transform .2s ease, box-shadow .2s ease;
         ">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <svg width="22" height="22" fill="#00eaff">
+            <svg width="22" height="22" fill="#00eaff" aria-hidden="true" focusable="false">
               <circle cx="11" cy="11" r="9"/>
             </svg>
 
@@ -1959,6 +1964,8 @@ async function loadCyberAlerts() {
 
           <a href="https://github.com/advisories/${alert.ghsa}" 
              target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Apri Advisory ${alertRef} (si apre in una nuova scheda)"
              style="color:#ffffff;text-decoration:underline;font-size:0.9rem;">
             Apri Advisory →
           </a>
