@@ -434,32 +434,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-		<!-- BADGE LIVE STATUS -->
-<div style="
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(0, 234, 255, 0.06);
-  border: 1px solid rgba(0, 234, 255, 0.35);
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #00eaff;
-  box-shadow: 0 0 10px rgba(0, 234, 255, 0.12);
-">
-  <!-- Led verde/ciano pulsante -->
-  <span style="
-    width: 8px;
-    height: 8px;
-    background: #00ff99;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #00ff99;
-    display: inline-block;
-  "></span>
-
-  <span>SOC Monitor: <strong style="color:#00ff99;">Attivo</strong></span>
-</div>
+		<!-- PULSANTE RAPIDO DIRETTO (SENZA TENDINA) -->
+<a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   style="
+     display: inline-flex;
+     align-items: center;
+     gap: 6px;
+     background: rgba(0, 234, 255, 0.08);
+     border: 1px solid rgba(0, 234, 255, 0.4);
+     border-radius: 8px;
+     padding: 8px 14px;
+     font-size: 0.95rem;
+     font-weight: bold;
+     color: #00eaff;
+     text-decoration: none;
+     text-shadow: 0 0 8px rgba(0, 234, 255, 0.5);
+     box-shadow: 0 0 10px rgba(0, 234, 255, 0.12);
+     transition: all 0.2s ease;
+   "
+   onmouseenter="this.style.background='rgba(0, 234, 255, 0.18)'; this.style.boxShadow='0 0 14px rgba(0, 234, 255, 0.3)';"
+   onmouseleave="this.style.background='rgba(0, 234, 255, 0.08)'; this.style.boxShadow='0 0 10px rgba(0, 234, 255, 0.12)';"
+>
+  <span>⚡ Advisory CISA</span>
+  <span style="font-size:0.85rem;">↗</span>
+</a>
      
 		<!-- DASH ADMIN IMAGE BUTTON + HERO4 -->
 <div style="
