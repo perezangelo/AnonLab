@@ -455,7 +455,7 @@ function anonlabPulse() {
 ============================================================ */
 function initUpdateNotification() {
     // ID aggiornato per farlo mostrare nuovamente a tutti gli utenti
-    const currentUpdateId = "upd_2026_11_07"; 
+    const currentUpdateId = "upd_2026_11_07_v2"; 
     const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
 
     if (lastSeenUpdate === currentUpdateId) return;
@@ -488,10 +488,10 @@ function initUpdateNotification() {
                 Nuovo aggiornamento rilasciato
             </p>
             <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
-                Abbiamo rinnovato il layout della <strong>Home Page</strong> e aggiornato le risorse della sezione <strong>Tools</strong>.
+                Abbiamo rinnovato la <strong>Home Page</strong> e aggiornato le sezioni <strong>Tech</strong> e <strong>Tools</strong>.
             </p>
             <a href="/tools.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
-                Scopri i nuovi Tools →
+                Scopri le novità →
             </a>
         </div>
     `;
