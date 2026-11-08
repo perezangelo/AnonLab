@@ -2321,7 +2321,7 @@ loadSocTV();
     </p>
   </div>
 
-  <div id="tech-radar"></div>
+  <div id="tech-radar" style="min-height: 200px;"></div>
 </section>
 
 <script>
@@ -2360,7 +2360,9 @@ async function loadTechRadar() {
           <strong>Aggiornato:</strong> ${item.updated}
         </p>
 
-        <a href="${item.url}" target="_blank" 
+        <!-- LINK CORRETTO PER ACCESSIBILITÀ E BEST PRACTICE -->
+        <a href="${item.url}" target="_blank" rel="noopener"
+           aria-label="Vai alla risorsa ${item.title}"
            style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
           Vai alla risorsa →
         </a>
@@ -2385,9 +2387,14 @@ async function loadTechRadar() {
 }
 
 document.addEventListener("DOMContentLoaded", loadTechRadar);
-setInterval(loadTechRadar, 15000);
+
+// 💡 SUGGERIMENTO: La GitHub Action si aggiorna una volta al giorno (alle 06:00).
+// Ricaricarlo ogni 15 secondi (15000) sovraccarica Altervista inutilmente.
+// Impostare 5 minuti (300000 ms) è ideale:
+setInterval(loadTechRadar, 300000);
 </script>
-      <script>
+
+<script>
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(registrations => {
         for (let reg of registrations) {
