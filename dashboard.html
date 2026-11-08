@@ -1509,11 +1509,11 @@ async function loadIOCFeed() {
       const statusIcon = ioc.status === "online" ? "🟢" : "🔴";
 
       // Flag paese
-      const countryFlag = ioc.country 
-        ? ioc.country.replace(/./g, c => 
-            String.fromCodePoint(0x1F1E6 - 65 + c.charCodeAt(0))
-          )
-        : "🏳️";
+      const countryCode = (ioc.country || "").toUpperCase();
+const countryFlag = countryCode.length === 2
+  ? String.fromCodePoint(0x1F1E6 - 65 + countryCode.charCodeAt(0)) +
+    String.fromCodePoint(0x1F1E6 - 65 + countryCode.charCodeAt(1))
+  : "🏳️";
 
       html += `
         <div style="
@@ -1590,13 +1590,17 @@ setInterval(loadIOCFeed, 60000);
 let IOC_CACHE = [];
 
 async function loadIOCSearch() {
-  const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
-  const d = await res.json();
-  IOC_CACHE = d.ioc_list || [];
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
+    const d = await res.json();
+    IOC_CACHE = d.ioc_list || [];
+  } catch (e) {
+    console.error("Errore cache search:", e);
+  }
 }
 
 document.getElementById("ioc-search").addEventListener("input", function() {
-  const q = this.value.toLowerCase();
+  const q = this.value.trim().toLowerCase();
   const box = document.getElementById("ioc-search-results");
 
   if (!q) {
@@ -1604,7 +1608,13 @@ document.getElementById("ioc-search").addEventListener("input", function() {
     return;
   }
 
-  const results = IOC_CACHE.filter(i => i.toLowerCase().includes(q)).slice(0, 50);
+  // Cerca su IP, malware o hostname dell'oggetto IOC
+  const results = IOC_CACHE.filter(i => {
+    const ip = (i.ip_address || "").toLowerCase();
+    const mal = (i.malware || "").toLowerCase();
+    const host = (i.hostname || "").toLowerCase();
+    return ip.includes(q) || mal.includes(q) || host.includes(q);
+  }).slice(0, 50);
 
   if (results.length === 0) {
     box.innerHTML = "<div style='color:#f66;'>Nessun risultato.</div>";
@@ -1613,7 +1623,7 @@ document.getElementById("ioc-search").addEventListener("input", function() {
 
   box.innerHTML = results.map(i => `
     <div style="padding:6px 0; border-bottom:1px solid #112;">
-      <span style="color:#00eaff;">IOC:</span> ${i}
+      <span style="color:#00eaff;">IOC:</span> ${i.ip_address} <span style="color:#ff4444;">(${i.malware || "Sconosciuto"})</span>
     </div>
   `).join("");
 });
@@ -1680,10 +1690,9 @@ async function analyzeIOC() {
 }
 </script>
 
-		<!-- ============================
+<!-- ============================
      IOC REPUTATION
      ============================ -->
-
 <div class="cyber-box" style="
     background:#001a00;
     border:1px solid #00eaffaa;
@@ -1692,7 +1701,6 @@ async function analyzeIOC() {
     border-radius:8px;
     box-shadow:0 0 12px #00eaffaa;
 ">
-
   <h3 style="color:#00eaff;">IOC Reputation</h3>
 
   <p style="color:#999; font-size:13px; margin-top:10px; line-height:1.6;">
@@ -1704,7 +1712,7 @@ async function analyzeIOC() {
     style="width:100%; padding:10px; background:#000; color:#00eaff; border:1px solid #00eaff;">
   
   <button onclick="checkReputation()" style="
-      margin-top:10px; padding:10px 20px; background:#00eaff; border:none; color:#000;">
+      margin-top:10px; padding:10px 20px; background:#00eaff; border:none; color:#000; cursor:pointer;">
     Verifica
   </button>
 
@@ -1712,9 +1720,6 @@ async function analyzeIOC() {
 </div>
 
 <script>
-const VT_KEY = "INSERISCI_LA_TUA_API_KEY";
-const ABUSE_KEY = "INSERISCI_LA_TUA_API_KEY";
-
 async function checkReputation() {
   const ioc = document.getElementById("ioc-rep").value.trim();
   const box = document.getElementById("ioc-rep-result");
@@ -1724,23 +1729,25 @@ async function checkReputation() {
     return;
   }
 
-  box.innerHTML = "Verifica in corso...";
+  box.innerHTML = "<div style='color:#00eaff;'>Verifica in corso su Altervista...</div>";
 
   try {
-    const vt = await fetch(`https://www.virustotal.com/api/v3/urls/${btoa(ioc)}`, {
-      headers: { "x-apikey": VT_KEY }
-    }).then(r => r.json());
+    // Chiama il tuo file su Altervista passando l'IOC inserito
+    const res = await fetch(`https://angelonline.altervista.org/soc/ioc-lookup.php?target=${encodeURIComponent(ioc)}`);
+    const data = await res.json();
 
-    const abuse = await fetch(`https://api.abuseipdb.com/api/v2/check?ipAddress=${ioc}`, {
-      headers: { "Key": ABUSE_KEY, "Accept": "application/json" }
-    }).then(r => r.json());
+    if (data.error) {
+      box.innerHTML = `<div style="color:#f66;">Errore: ${data.error}</div>`;
+      return;
+    }
 
+    // Mostra l'output con lo stesso stile di prima (<pre style="color:#00eaff;">)
     box.innerHTML = `
-      <pre style="color:#00eaff;">VirusTotal:\n${JSON.stringify(vt, null, 2)}</pre>
-      <pre style="color:#00eaff;">AbuseIPDB:\n${JSON.stringify(abuse, null, 2)}</pre>
+      <pre style="color:#00eaff; background:#000a00; padding:10px; border:1px solid #00eaff44; border-radius:4px; max-height:250px; overflow-y:auto;">Risultato AbuseIPDB:\n${JSON.stringify(data.abuseipdb || "Nessun dato o IP non valido", null, 2)}</pre>
+      <pre style="color:#00eaff; background:#000a00; padding:10px; border:1px solid #00eaff44; border-radius:4px; max-height:250px; overflow-y:auto;">Risultato DNS:\n${JSON.stringify(data.dns || "Nessun record DNS", null, 2)}</pre>
     `;
   } catch (e) {
-    box.innerHTML = "<div style='color:#f66;'>Errore nella reputazione.</div>";
+    box.innerHTML = "<div style='color:#f66;'>Errore nella reputazione. Controlla la connessione al server.</div>";
   }
 }
 </script>
