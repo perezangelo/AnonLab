@@ -2766,7 +2766,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- 2. POI INIETTIAMO LA SIDEBAR ED ESEGUIAMO LE INIZIALIZZAZIONI -->
 <script>
-    fetch("/partials/sidebar.html")
+fetch("/partials/sidebar.html")
 .then(response => response.text())
 .then(data => {
     document.getElementById("sidebar").innerHTML = data;
@@ -2776,13 +2776,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof initRadio === "function") initRadio();
     if (typeof initYouTubePlayer === "function") initYouTubePlayer();
     if (typeof initOroscopo === "function") initOroscopo();
-    
-    // Inizializza sempre il contatore dopo aver caricato la sidebar
-    if (typeof initVisitCounter === "function") {
-        initVisitCounter();
+    if (typeof initVisitCounter === "function") initVisitCounter();
+
+    // ⭐ FORZA L'AVVIO DEL TIMER DELLA SESSIONE
+    if (typeof initSessionTimer === "function") {
+        initSessionTimer();
     }
 
-    console.log("Sidebar e Contatore pronti!");
+    console.log("Sidebar e Contatori pronti!");
 })
 .catch(err => console.error("Errore sidebar:", err));
 </script>
