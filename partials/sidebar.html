@@ -622,18 +622,26 @@
   </ul>
 </div>
 
-<!-- METEO VARESE -->
+    <!-- ============================
+    SIDEBAR COMPLETA — BLOCCO 2/4
+    CALCOLATRICE + OROSCOPO + SOCIAL + VIDEO
+============================= -->
+
+<!-- METEO NEON HUD (REALTIME) -->
 <div class="sidebar-box" aria-label="Previsioni meteo Varese"
-     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:24px 12px 20px 12px;">
+     style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding:34px 12px 26px 12px;">
+
   <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff;">Meteo</h3>
 
-  <div style="text-align:center; margin-bottom:12px; margin-top:10px;">
-    <img id="meteo-icon" src="/img/meteo/default.svg"
-         width="100" height="100"
-         style="width:100px; height:100px; filter:drop-shadow(0 0 10px #00eaff);" alt="Icona Meteo">
+  <!-- ICONA METEO — FUORI DA .meteo-box -->
+  <div style="text-align:center; margin-bottom:14px; padding-top:26px; margin-top:12px;">
+    <img id="meteo-icon" src="/img/img/meteo/default.svg"
+         style="width:100px; filter:drop-shadow(0 0 10px #00eaff);" alt="Icona Meteo">
   </div>
 
-  <div id="meteo-box" class="meteo-box" style="font-size:13px; color:#8be9ff; text-align:center;">
+  <!-- TESTO METEO -->
+  <div id="meteo-box" class="meteo-box"
+       style="font-size:13px; color:#8be9ff; text-align:center;">
     <div style="margin-bottom:4px;">
       <span id="meteo-city" style="color:#ff7b00; font-weight:bold;">Varese</span>
     </div>
@@ -642,27 +650,63 @@
       <span id="meteo-desc">Caricamento meteo...</span>
     </div>
   </div>
+
 </div>
 
-<!-- METEO ITALIA 7 GIORNI (DIMENSIONI BLOCCATE ANTI-CLS) -->
-<div class="sidebar-box" data-nosnippet aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
+<!-- BLOCCO METEO PROTETTO DA DATA-NOSNIPPET -->
+<div class="sidebar-box" 
+     data-nosnippet 
+     aria-label="Meteo Italia – 7 Giorni" 
+     style="margin-top:20px;">
+
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff; margin-bottom:10px;">
         Meteo Italia – 7 Giorni
     </h3>
+
+    <!-- Widget 3BMeteo con caricamento lazy -->
     <iframe 
         src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
         sandbox="allow-scripts allow-same-origin allow-popups"
         width="100%" 
         height="340" 
-        style="width:100%; height:340px; border:0;"
+        frameborder="0" 
         scrolling="no"
         loading="lazy"
         title="Previsioni meteo 7 giorni">
     </iframe>
-    <a href="https://www.3bmeteo.com/meteo/italia" target="_blank" rel="noopener noreferrer" style="color:#00eaff; text-decoration:none; font-size:13px; display:inline-block; margin-top:6px;">
+
+    <a href="https://www.3bmeteo.com/meteo/italia"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="color:#00eaff; text-decoration:none; font-size:13px;">
        Previsioni complete →
     </a>
 </div>
+       
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const ua = navigator.userAgent.toLowerCase();
+    
+    // Lista delle firme tipiche dei crawler e bot dei motori di ricerca
+    const isBot = /bot|crawl|spider|slurp|curl|wget|python|googlebot|bingbot|ia_archiver|semrush|ahrefs/i.test(ua);
+
+    // Se NON è un bot, inseriamo l'iframe dinamicamente nel DOM
+    if (!isBot) {
+        const placeholder = document.getElementById("meteo-placeholder");
+        if (placeholder) placeholder.remove();
+
+        const meteoBox = document.getElementById("meteo-box");
+        if (meteoBox) {
+            meteoBox.innerHTML = `
+                <iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
+                    sandbox="allow-scripts allow-same-origin allow-popups"
+                    width="100%" height="340" frameborder="0" scrolling="no"
+                    title="Previsioni meteo 7 giorni"></iframe>
+            `;
+        }
+    }
+});
+</script>
 
 <!-- CALCOLATRICE (SINTASSI HTML CORRETTA) -->
 <div class="sidebar-box" aria-label="Calcolatrice"
