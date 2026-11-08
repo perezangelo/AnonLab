@@ -1,17 +1,30 @@
-/* ============================
-   HERO — STILE NEON DOMINANTE
-============================ */
+/* ============================================================
+   CUSTOM.CSS — ANONLAB (LAYOUT 100% INVARIATO + ANTI-CLS)
+============================================================ */
 
+/* ============================
+   HERO — STILE NEON DEFINITIVO DI PRODUZIONE
+============================ */
 .hero-big {
-    background: url('/img/cyber-bg.png') center/cover no-repeat !important;
-    padding: 50px 20px !important;
+    background-image: url('/img/hero-bg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    min-height: 420px !important; /* ⭐ Fissa l'altezza: zero salto di caricamento */
+    padding: 40px 20px !important;
     border-radius: 12px !important;
     box-shadow: inset 0 0 40px rgba(0, 200, 255, 0.15) !important;
     text-align: center !important;
-    overflow: visible !important; /* necessario per dropdown */
+    overflow: visible !important;
+    position: relative !important;
 }
 
+/* Titolo Hero */
 .hero-big h1 {
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    margin: 0 !important;
     color: #00f6ff !important;
     font-weight: 900 !important;
     font-size: 3.2rem !important;
@@ -19,22 +32,30 @@
     background: rgba(0, 0, 0, 0.35) !important;
     padding: 6px 14px !important;
     border-radius: 6px !important;
-    display: inline-block !important;
+    z-index: 3 !important;
 }
 
+/* Sottotitolo Hero distanziato per gli occhi nel cappuccio */
 .hero-big .hero-sub {
     color: #b0eaff !important;
     font-weight: 600 !important;
     font-size: 1.2rem !important;
-    margin-top: 14px !important;
+    margin-top: 300px !important; /* ⭐ Mantiene l'esatta posizione attuale */
     text-shadow: 0 0 10px rgba(0, 200, 255, 0.5) !important;
     background: rgba(0, 0, 0, 0.35) !important;
     padding: 6px 12px !important;
     border-radius: 6px !important;
-    display: inline-block !important;
+    text-align: center !important;
+    display: block !important;
 }
 
-/* Pulsante */
+.hero-big .dropdown-news {
+    margin-top: 40px !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+/* Pulsante Hero */
 .hero-big .hero-button {
     font-weight: 700 !important;
     color: #fff !important;
@@ -51,10 +72,17 @@
     transform: scale(1.05) !important;
     box-shadow: 0 0 18px rgba(0, 200, 255, 0.7) !important;
 }
+
+/* Cleanup interferenze grafiche */
+.hero-big::before,
+.hero-big::after,
+.hero-big .scanlines {
+    display: none !important;
+}
+
 /* ============================
    DROPDOWN NEWS — MENU A TENDINA
 ============================ */
-
 .dropdown-news {
   position: relative !important;
   display: inline-block !important;
@@ -97,9 +125,8 @@
 }
 
 /* ============================
-   HEADER — LOGO FIX
+   HEADER — LOGO & TESTI
 ============================ */
-
 .site-header .logo a {
     display: flex !important;
     align-items: center !important;
@@ -107,6 +134,8 @@
     color: var(--accent) !important;
     font-weight: 700 !important;
     text-shadow: 0 0 6px rgba(0,255,255,0.6) !important;
+    position: relative !important;
+    z-index: 999 !important;
 }
 
 .site-header .logo .logo-icon {
@@ -115,11 +144,9 @@
     opacity: 1 !important;
     display: inline-block !important;
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important;
+    position: relative !important;
+    z-index: 999 !important;
 }
-
-/* ============================
-   HEADER — VISIBILITÀ TESTO
-============================ */
 
 .site-header .logo,
 .site-header h1,
@@ -134,10 +161,10 @@
     text-shadow: 0 0 6px #00eaff, 0 0 12px rgba(0,234,255,0.5) !important;
     font-weight: 600 !important;
 }
+
 /* ============================
    FIX VISIBILITÀ TESTO ABOUT
 ============================ */
-
 .about-section p,
 #about p {
     color: #e8faff !important;
@@ -152,10 +179,10 @@
     text-shadow: 0 0 8px rgba(0,255,255,0.6);
 }
 
-/* NON applicare il blu ai widget della sidebar */
 .sidebar-box a {
     color: inherit !important;
 }
+
 .about-section a:hover,
 #about a:hover {
     color: #00faff !important;
@@ -186,36 +213,9 @@
   box-shadow: 0 0 18px #00eaff;
 }
 
-/* ============================
-   CLEANUP FINALE — PRIORITÀ
-============================ */
-
-/* Rimuove interferenze del main.css */
-.hero-big::before,
-.hero-big::after,
-.hero-big .scanlines {
-    display: none !important;
-}
-
-.hero-big {
-    overflow: visible !important;
-}
-
-/* Assicura che il dropdown sia sempre sopra */
-.dropdown-menu {
-    z-index: 99999 !important;
-}
-
-/* Assicura che il logo non venga sovrascritto */
-.site-header .logo a,
-.site-header .logo .logo-icon {
-    position: relative !important;
-    z-index: 999 !important;
-}
 /* ============================================================
    TICKER — VERSIONE COMPATIBILE CON ticker.js
 ============================================================ */
-
 .ticker {
     display: flex !important;
     align-items: center !important;
@@ -262,18 +262,12 @@
     transition: opacity 0.4s ease;
 }
 
-/* Effetto neon al passaggio */
 #ticker-text:hover {
     color: #00faff;
     text-shadow: 0 0 10px rgba(0,255,255,0.9);
 }
 
-/* ============================
-   RESPONSIVE — VERSIONE CORRETTA PER MOBILE
-============================ */
-
 @media (max-width: 480px) {
-
     .ticker {
         padding: 6px 0;
         gap: 8px;
@@ -286,7 +280,7 @@
     }
 
     .ticker-content {
-        overflow: hidden; /* ⭐ fondamentale per il treno continuo */
+        overflow: hidden;
         position: relative;
     }
 
@@ -294,8 +288,8 @@
         font-size: 0.80rem;
         white-space: nowrap;
         display: inline-block;
-        will-change: transform; /* ⭐ accelera lo scroll su mobile */
-        transform: translateX(0); /* ⭐ reset sicuro */
+        will-change: transform;
+        transform: translateX(0);
     }
 
     #ticker-text img {
@@ -309,7 +303,6 @@
 /* ============================
    SOC DASHBOARD — NEON STYLE
 ============================ */
-
 .soc-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -338,6 +331,7 @@
     color: #00faff;
     text-shadow: 0 0 10px rgba(0,255,255,0.9);
 }
+
 .percent-symbol {
     font-weight: 700;
     font-size: inherit;
@@ -359,23 +353,20 @@
     background: #00eaff;
     border-radius: 4px;
 }
+
 /* ============================
    CHART.JS — NEON STYLE
 ============================ */
-
-/* Neon SOLO per i canvas dei widget */
 .soc-card canvas {
     filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));
 }
 
-/* Altezza fissa della card per impedire espansione */
 .attacks-card {
     position: relative;
     height: 320px;
     overflow: hidden;
 }
 
-/* Altezza fissa del canvas */
 #attacksChart {
     width: 100% !important;
     height: 260px !important;
@@ -388,10 +379,10 @@
     font-size: 2.4rem !important;
     margin-bottom: 20px !important;
 }
+
 /* ============================
    PAGINA CYBER — NEON STYLE
 ============================ */
-
 .page-title,
 .main-column h1 {
     color: #00eaff !important;
@@ -434,18 +425,10 @@
     color: #baf7ff;
     line-height: 1.5;
 }
+
 /* ============================
    PAGINA TECH — NEON STYLE
 ============================ */
-
-.page-title,
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.8) !important;
-    font-size: 2.2rem !important;
-    margin-bottom: 18px !important;
-}
-
 .tech-intro {
     color: #baf7ff !important;
     font-size: 1.1rem !important;
@@ -480,46 +463,36 @@
     color: #baf7ff;
     line-height: 1.5;
 }
+
 /* ============================
-   PAGINA ABOUT — NEON STYLE
+   PAGINE ABOUT, CONTATTI, PRIVACY, COOKIE, TERMINI
 ============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
 .main-column h2 {
     color: #00eaff !important;
     text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
     margin-bottom: 12px !important;
 }
 
-.widget-large {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.widget-large p {
+.widget-large p,
+.contact-box p,
+.privacy-box p,
+.cookie-box p,
+.terms-box p {
     color: #baf7ff !important;
     line-height: 1.6 !important;
     text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
 }
 
-.tools-list li {
+.tools-list li,
+.contact-box li,
+.privacy-box li,
+.cookie-box li,
+.terms-box li {
     color: #baf7ff !important;
     margin-bottom: 6px;
     text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
 }
 
-/* TIMELINE ABOUT */
 .cyber-feed-list {
     display: grid;
     gap: 18px;
@@ -535,155 +508,15 @@
     text-shadow: 0 0 6px rgba(0,255,255,0.35);
 }
 
-.cyber-feed-list strong {
+.cyber-feed-list strong,
+.contact-box strong {
     color: #00eaff;
     text-shadow: 0 0 8px rgba(0,255,255,0.6);
 }
-/* ============================
-   PAGINA CONTATTI — NEON STYLE
-============================ */
 
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
-.contact-box {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.contact-box p,
-.contact-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.contact-box strong {
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-/* ============================
-   PAGINA PRIVACY — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
-.privacy-box {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.privacy-box p,
-.privacy-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.privacy-box ul {
-    margin-left: 18px !important;
-    margin-bottom: 12px !important;
-}
-
-.privacy-box a {
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-/* ============================
-   PAGINA COOKIE POLICY — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
-.cookie-box {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
-}
-
-.cookie-box p,
-.cookie-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
-.cookie-box ul {
-    margin-left: 18px !important;
-    margin-bottom: 12px !important;
-}
-
-.cookie-box a {
-    color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
-}
-/* ============================
-   PAGINA TERMINI — NEON STYLE
-============================ */
-
-.main-column h1 {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
-.main-column h2 {
-    color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
-    margin-top: 25px !important;
-    margin-bottom: 12px !important;
-}
-
+.contact-box,
+.privacy-box,
+.cookie-box,
 .terms-box {
     background: rgba(0, 0, 0, 0.55);
     border: 1px solid rgba(0, 255, 255, 0.25);
@@ -694,24 +527,22 @@
     backdrop-filter: blur(4px);
 }
 
-.terms-box p,
-.terms-box li {
-    color: #baf7ff !important;
-    line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
-}
-
+.privacy-box ul,
+.cookie-box ul,
 .terms-box ul {
     margin-left: 18px !important;
     margin-bottom: 12px !important;
 }
 
+.privacy-box a,
+.cookie-box a,
 .terms-box a {
     color: #00eaff !important;
     text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
 }
+
 /* ============================
-   LOGO ANONLAB — NEON
+   NAVBAR & HAMBURGER
 ============================ */
 .logo {
     color: #00eaff !important;
@@ -719,14 +550,11 @@
     font-size: 1.4rem !important;
     letter-spacing: 1px !important;
     text-shadow: 0 0 12px rgba(0,255,255,0.9) !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* ============================
-   MENU HEADER — NEON
-============================ */
-/* ============================
-   NAVBAR ORIZZONTALE
-============================ */
 @media (min-width: 821px) {
     .main-nav {
         display: flex;
@@ -743,13 +571,11 @@
     transition: color 0.2s ease;
 }
 
-/* Effetto neon hover */
 .main-nav a:hover {
     color: #00eaff;
     text-shadow: 0 0 6px rgba(0, 234, 255, 0.6);
 }
 
-/* Underline animato */
 .main-nav a::after {
     content: "";
     position: absolute;
@@ -765,9 +591,6 @@
     width: 100%;
 }
 
-/* ============================
-   HAMBURGER (mobile)
-============================ */
 .nav-toggle {
     display: none;
     background: none;
@@ -777,11 +600,7 @@
     cursor: pointer;
 }
 
-/* ============================
-   RESPONSIVE
-============================ */
 @media (max-width: 820px) {
-
     .nav-toggle {
         display: block;
     }
@@ -793,13 +612,10 @@
         background: rgba(0,0,0,0.85);
         padding: 20px;
         border-radius: 8px;
-
-        /* POSIZIONE CORRETTA DEL MENU */
         position: absolute;
-        top: 100%;   /* sotto l’hamburger */
+        top: 100%;
         left: 0;
         right: 0;
-
         width: 100%;
         z-index: 999;
     }
@@ -809,9 +625,6 @@
     }
 }
 
-/* ============================
-   ABOUT (HOME) — NEON
-============================ */
 .home-about h2 {
     color: #00eaff !important;
     text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
@@ -836,7 +649,7 @@
 }
 
 /* ============================
-   FOOTER — NEON
+   FOOTER
 ============================ */
 .site-footer {
     margin-top: 40px;
@@ -861,7 +674,10 @@
     font-size: 0.9rem;
     text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
 }
-/* GOOGLE SEARCH — INPUT */
+
+/* ============================
+   GOOGLE SEARCH
+============================ */
 .search-input {
     width: 100%;
     padding: 10px;
@@ -873,7 +689,6 @@
     box-shadow: 0 0 8px rgba(0,255,255,0.25);
 }
 
-/* GOOGLE SEARCH — BUTTON NEON */
 .search-btn {
     width: 100%;
     background: #00eaff;
@@ -893,47 +708,13 @@
     box-shadow: 0 0 18px rgba(0,255,255,1);
     transform: translateY(-1px);
 }
-/* HERO — override sfondo */
-.hero-big {
-    background-image: url('/img/hero-bg.png') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 420px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
 
-/* Titolo */
-.hero-big h1 {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    margin: 0;
-    font-size: 3.2rem;
-    z-index: 3;
-}
-
-/* Sottotitolo */
-.hero-big .hero-sub {
-    margin-top: 300px !important; /* prima 260px */
-    text-align: center;
-    display: block;
-}
-
-.hero-big .dropdown-news {
-    margin-top: 40px !important; /* prima 20px */
-    text-align: center;
-    display: block;
-}
-/* Google Search wrapper */
 .google-search-wrapper {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-/* Icona Google */
 .google-icon {
     width: 48px;
     height: auto;
@@ -941,14 +722,6 @@
     filter: drop-shadow(0 0 6px rgba(0,255,255,0.4));
 }
 
-/* Logo header */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Logo ANONLAB nella navbar */
 .site-header .logo img.logo-icon {
     width: 48px !important;
     height: auto;
@@ -959,7 +732,10 @@
         width: 36px !important;
     }
 }
-/* RADIO */
+
+/* ============================
+   RADIO & VISIT BOX (SIDEBAR)
+============================ */
 .radio-logo {
   width: 100%;
   max-height: 120px;
@@ -1003,41 +779,7 @@
 
 /* ============================================================
    PAGINA CYBER — ANALISI AVANZATA
-   ============================================================ */
-
-.cyber-intro {
-  margin-bottom: 25px;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-.cyber-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-bottom: 40px;
-}
-
-.cyber-card {
-  background: #050505;
-  border: 1px solid rgba(0, 170, 255, 0.25);
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 0 10px rgba(0, 170, 255, 0.12);
-}
-
-.cyber-card h3 {
-  color: #00eaff;
-  margin-bottom: 8px;
-}
-
-.cyber-card p {
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-/* Sezione analisi avanzata */
-
+============================================================ */
 .cyber-analytics {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -1121,6 +863,7 @@
   padding: 2px 8px;
   margin-right: 6px;
 }
+
 .map-img {
   width: 100%;
   height: auto;
@@ -1139,8 +882,7 @@
 
 /* ================================
    PAGINA TECH — SEZIONI AVANZATE
-   ================================ */
-
+================================ */
 .tech-section {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -1158,12 +900,6 @@
   border-radius: 10px;
   padding: 18px;
   box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
-}
-
-.panel-desc {
-  color: #bfbfbf;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
 }
 
 .radar-list,
@@ -1207,19 +943,13 @@
   color: #ccc;
   font-size: 0.9rem;
 }
+
 /* ================================
    PAGINA NEWS — SEZIONI AVANZATE
-   ================================ */
-
+================================ */
 .news-section {
   margin-top: 40px;
   margin-bottom: 40px;
-}
-
-.news-title {
-  font-size: 1.6rem;
-  color: #00eaff;
-  margin-bottom: 16px;
 }
 
 .news-panel {
@@ -1231,7 +961,6 @@
 }
 
 .news-list,
-.timeline-list,
 .vuln-list,
 .ransom-list,
 .law-list {
@@ -1240,7 +969,6 @@
 }
 
 .news-list li,
-.timeline-list li,
 .vuln-list li,
 .ransom-list li,
 .law-list li {
@@ -1249,56 +977,19 @@
   font-size: 0.95rem;
 }
 
-.time-tag {
-  display: inline-block;
-  min-width: 80px;
-  font-size: 0.8rem;
-  color: #00eaff;
-  border: 1px solid rgba(0, 170, 255, 0.5);
-  border-radius: 999px;
-  padding: 2px 8px;
-  margin-right: 6px;
-}
-.soc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.soc-card {
-  background: #050505;
-  border: 1px solid rgba(0, 170, 255, 0.25);
-  border-radius: 10px;
-  padding: 18px;
-  box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
-}
-
-.dash-number {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #00eaff;
-}
-
-.event-log {
-  max-height: 260px;
-  overflow-y: auto;
-}
-
 .log-item {
   padding: 6px 0;
   border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.map-img {
-  width: 100%;
-  border-radius: 8px;
 }
 
 .suspicious-list li {
   margin-bottom: 6px;
   color: #ff4b6e;
 }
-/* BOX COUNTER */
+
+/* ============================
+   BOX COUNTER (SIDEBAR)
+============================ */
 .counter-box {
     padding: 14px;
     border: 1px solid rgba(0,255,255,0.25);
@@ -1308,7 +999,6 @@
     box-shadow: 0 0 12px rgba(0,255,255,0.15);
 }
 
-/* Icona animata */
 .counter-icon {
     font-size: 22px;
     color: #00faff;
@@ -1326,7 +1016,6 @@
     to   { transform: rotate(360deg); }
 }
 
-/* Righe */
 .counter-row {
     display: flex;
     justify-content: space-between;
@@ -1344,7 +1033,6 @@
     text-shadow: 0 0 8px rgba(0,255,255,0.8);
 }
 
-/* Saluto */
 .counter-greeting {
     margin-top: 10px;
     color: #baf7ff;
@@ -1352,7 +1040,6 @@
     text-align: center;
 }
 
-/* Pulse neon */
 .neon-pulse {
     animation: neonPulse 0.6s ease-out;
 }
@@ -1362,7 +1049,10 @@
     50%  { text-shadow: 0 0 12px rgba(0,255,255,1); }
     100% { text-shadow: 0 0 4px rgba(0,255,255,0.4); }
 }
-/* HERO ORIZZONTALE COMPLETA */
+
+/* ============================
+   HERO & BOX TOOLS (TOOLS.HTML)
+============================ */
 .tools-hero {
     display: flex;
     align-items: center;
@@ -1403,10 +1093,7 @@
         width: 60%;
     }
 }
-/* ...ultimo blocco del tuo custom.css... */
 
-
-/* BOX TOOLS MODERNI */
 details {
     background: #0d0f14;
     border: 1px solid #1a2333;
@@ -1448,16 +1135,15 @@ details input {
     margin-top: 15px;
 }
 
-/* ACCESSIBILITÀ — TOUCH TARGET MINIMO 44x44px */
-
-/* Pulsanti dei form: Registrati, Accedi, Invia, ecc. */
+/* ============================
+   ACCESSIBILITÀ & TARGET TOUCH
+============================ */
 .sidebar-box form button {
     min-height: 44px;
     padding: 12px 16px;
     line-height: 1.2;
 }
 
-/* Link di recupero account */
 .recover-links {
     display: flex;
     flex-direction: column;
@@ -1477,7 +1163,6 @@ details input {
     line-height: 1.3;
 }
 
-/* Link del feed Euronews */
 .feed-links {
     list-style: none;
     padding: 0;
@@ -1496,13 +1181,11 @@ details input {
     line-height: 1.3;
 }
 
-/* Spaziatura tra i link principali della sidebar */
 .sidebar-box > a,
 .sidebar-box li > a {
     min-height: 44px;
 }
 
-/* Evita che i link di testo siano troppo ravvicinati */
 .sidebar-box ul li {
     margin-bottom: 4px;
 }
