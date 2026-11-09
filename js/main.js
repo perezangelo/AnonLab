@@ -16,7 +16,7 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
 }
 
 // ==========================================================
-// CALCOLATRICE CYBER NEON — Delegazione Globale Definitiva
+// CALCOLATRICE CYBER NEON — Delegazione Globale (Capturing Definitivo)
 // ==========================================================
 document.addEventListener('click', function (e) {
     const btn = e.target.closest('.calc-btn');
@@ -70,7 +70,7 @@ document.addEventListener('click', function (e) {
             display.textContent += value;
         }
     }
-});
+}, true); // ⭐ 'true' cattura il click bypassando qualsiasi stopPropagation
 
 // ===============================
 // INIZIALIZZAZIONE CALCOLATRICE
