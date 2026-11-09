@@ -70,7 +70,7 @@ document.addEventListener('click', function (e) {
             display.textContent += value;
         }
     }
-}, true); // ⭐ 'true' cattura il click bypassando qualsiasi stopPropagation
+}, true); // ⭐ Il parametro 'true' cattura l'evento prima di qualsiasi stopPropagation esterno
 
 // ===============================
 // INIZIALIZZAZIONE CALCOLATRICE
