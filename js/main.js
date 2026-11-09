@@ -16,7 +16,7 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
 }
 
 // ===============================
-// INIZIALIZZAZIONE CALCOLATRICE ASINCRONA
+// INIZIALIZZAZIONE CALCOLATRICE
 // ===============================
 
 function initCalculator() {
@@ -37,7 +37,6 @@ function initCalculator() {
                 return;
             }
 
-            // CORRETTO: gestisce il singolo '=' presente nell'HTML
             if (value === '=' || value === '==') {
                 try {
                     display.textContent = String(
@@ -105,7 +104,7 @@ function initMobileMenu() {
     const toggle = document.querySelector(".nav-toggle");
     const nav = document.querySelector(".main-nav");
 
-    if (!toggle || !nav) return;  // niente warning
+    if (!toggle || !nav) return;
 
     toggle.addEventListener("click", () => {
         nav.classList.toggle("open");
@@ -144,23 +143,17 @@ function initSessionTimer() {
 
         if (!timer) return false;
 
-        // Se l'elemento è già controllato dall'intervallo attivo, non duplicare
         if (timer.dataset.timerStarted === "true" && timerInterval !== null) {
             return true;
         }
 
         timer.dataset.timerStarted = "true";
-
-        // Aggiorna subito il display visivo
         updateDisplay(timer);
 
-        // Se c'era un vecchio intervallo attivo, ripuliscilo
         if (timerInterval) clearInterval(timerInterval);
 
-        // Avvia il battito al secondo
         timerInterval = setInterval(() => {
             const currentTimer = document.getElementById("session-timer");
-            // Se l'elemento è stato sostituito dal fetch del ticker, riaggancialo
             if (currentTimer && currentTimer !== timer) {
                 checkAndBindTimer();
             } else if (currentTimer) {
@@ -172,10 +165,8 @@ function initSessionTimer() {
         return true;
     }
 
-    // 1. Prova subito
     checkAndBindTimer();
 
-    // 2. Observer: rimane in ascolto se il ticker arriva via fetch() dopo il caricamento
     const observer = new MutationObserver(() => {
         const timer = document.getElementById("session-timer");
         if (timer && timer.dataset.timerStarted !== "true") {
@@ -192,17 +183,9 @@ function initSessionTimer() {
 }
 
 // ===============================
-// INIZIALIZZAZIONE SICURA (NO BLOCCHI SULLA HOME)
+// GESTIONE CARICAMENTO PARTIALS & WIDGET
 // ===============================
 
-function startAnonLabApp() {
-
-    // NAVBAR MOBILE
-    setTimeout(() => {
-        if (typeof initMobileMenu === "function") initMobileMenu();
-    }, 300);
-
-    // CALCOLATRICE
 document.addEventListener("DOMContentLoaded", () => {
     loadPartial("header", "partials/header.html");
     loadPartial("ticker", "partials/ticker.html").then(() => {
@@ -215,26 +198,34 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attende che la sidebar sia caricata nel DOM prima di inizializzare i widget interni
     waitForSidebar().then(() => {
         loadMeteo();
-        initCalculator(); // ⭐ Ora parte nel momento esatto in cui la calcolatrice esiste davvero
+        initCalculator(); // ⭐ Inizializzazione calcolatrice sicura all'arrivo della sidebar
 
         if (typeof initVisitCounter === "function") {
             initVisitCounter();
         }
     });
 });
-    
+
+// ===============================
+// INIZIALIZZAZIONE APP GLOBALE
+// ===============================
+
+function startAnonLabApp() {
+    // NAVBAR MOBILE
+    setTimeout(() => {
+        if (typeof initMobileMenu === "function") initMobileMenu();
+    }, 300);
+
     // RADIO
     if (typeof initRadio === "function") initRadio();
 
     // YOUTUBE PLAYER
     if (typeof initYouTubePlayer === "function") initYouTubePlayer();
 
-    // TIMER SESSIONE (Avvio garantito)
+    // TIMER SESSIONE
     initSessionTimer();
 }
 
-// ⭐ RISOLUZIONE DEL PROBLEMA HOME:
-// Se il DOM è già pronto si avvia subito, altrimenti attende DOMContentLoaded!
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startAnonLabApp);
 } else {
