@@ -230,100 +230,91 @@ function startAnonLabApp() {
     }, 300);
 
     // CALCOLATRICE
-const initCalculatorSafe = () => {
-  const display = document.getElementById("calc-display");
-  const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
-
-  if (!display || buttons.length === 0) {
-    return false;
-  }
-
-  // Evita listener duplicati
-  if (display.dataset.ready === "true") return true;
-  display.dataset.ready = "true";
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault(); // Previene submit involontari
-      const value = btn.textContent.trim();
-
-      // Reset
-      if (value === 'C') {
-        display.textContent = '0';
-        return;
-      }
-
-      // Tasto UGUALE (corretto: controlla sia '=' che '==')
-      if (value === '=' || value === '==') {
-        try {
-          // Prevenzione errori su operatori finali non completi (es. "5+")
-          let expr = display.textContent.trim();
-          
-          // Controlla che contenga solo caratteri matematici consentiti
-          if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
-            throw new Error("Sintassi non valida");
-          }
-
-          // Calcola il risultato
-          const result = Function('"use strict"; return (' + expr + ')')();
-
-          // Gestione divisione per zero o NaN
-          if (!isFinite(result)) {
-            display.textContent = 'Errore';
-          } else {
-            // Arrotonda per evitare decimali infiniti (es. 0.1 + 0.2)
-            display.textContent = String(Math.round(result * 100000000) / 100000000);
-          }
-        } catch {
-          display.textContent = 'Errore';
+function startAnonLabApp() {
+    console.log("✅ AnonLab App in fase di avvio...");
+    // 1. CALCOLATRICE
+    const initCalculatorSafe = () => {
+        const display = document.getElementById("calc-display");
+        const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
+        if (!display || buttons.length === 0) {
+            return false;
         }
-        return;
-      }
-
-      // Se c'è '0' o 'Errore', sostituisce il valore (a meno che non sia un operatore)
-      if (display.textContent === '0' || display.textContent === 'Errore') {
-        if (['+', '-', '*', '/'].includes(value)) {
-          display.textContent = '0' + value;
-        } else {
-          display.textContent = value;
+        // Evita listener duplicati
+        if (display.dataset.ready === "true") return true;
+        display.dataset.ready = "true";
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const value = btn.textContent.trim();
+                // Reset C
+                if (value === 'C') {
+                    display.textContent = '0';
+                    return;
+                }
+                // Tasto Uguale =
+                if (value === '=' || value === '==') {
+                    try {
+                        let expr = display.textContent.trim();
+                        expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
+                        if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
+                            throw new Error("Sintassi non valida");
+                        }
+                        const result = Function('"use strict"; return (' + expr + ')')();
+                        if (!isFinite(result)) {
+                            display.textContent = 'Errore';
+                        } else {
+                            display.textContent = String(Math.round(result * 100000000) / 100000000);
+                        }
+                    } catch {
+                        display.textContent = 'Errore';
+                    }
+                    return;
+                }
+                // Inserimento cifre e operatori
+                if (display.textContent === '0' || display.textContent === 'Errore') {
+                    if (['+', '-', '*', '/'].includes(value)) {
+                        display.textContent = '0' + value;
+                    } else {
+                        display.textContent = value;
+                    }
+                } else {
+                    const lastChar = display.textContent.slice(-1);
+                    if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
+                        display.textContent = display.textContent.slice(0, -1) + value;
+                    } else {
+                        display.textContent += value;
+                    }
+                }
+            });
+        });
+        console.log("✅ Calcolatrice inizializzata con successo!");
+        return true;
+    };
+    // Inizializzazione calcolatrice (subito o con Observer se asincrona)
+    if (!initCalculatorSafe()) {
+        const observer = new MutationObserver(() => {
+            if (initCalculatorSafe()) {
+                observer.disconnect();
+            }
+        });
+        if (document.body) {
+            observer.observe(document.body, { childList: true, subtree: true });
         }
-      } else {
-        // Previene la scrittura di due operatori consecutivi (es. "++" o "+*")
-        const lastChar = display.textContent.slice(-1);
-        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
-          display.textContent = display.textContent.slice(0, -1) + value;
-        } else {
-          display.textContent += value;
-        }
-      }
-    });
-  });
-
-  return true;
-};
-
-// Inizializzazione sicura (funziona sia statica che con include asincroni)
-if (!initCalculatorSafe()) {
-  const observer = new MutationObserver(() => {
-    if (initCalculatorSafe()) {
-      observer.disconnect();
     }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
+    // 2. RADIO
+    if (typeof initRadio === "function") {
+        initRadio();
+    }
+    // 3. YOUTUBE PLAYER
+    if (typeof initYouTubePlayer === "function") {
+        initYouTubePlayer();
+    }
+    // 4. TIMER SESSIONE
+    if (typeof initSessionTimer === "function") {
+        initSessionTimer();
+    }
 }
-    
-    // RADIO
-    if (typeof initRadio === "function") initRadio();
-
-    // YOUTUBE PLAYER
-    if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-
-    // TIMER SESSIONE (Avvio garantito)
-    initSessionTimer();
-}
-
-// ⭐ RISOLUZIONE DEL PROBLEMA HOME:
-// Se il DOM è già pronto si avvia subito, altrimenti attende DOMContentLoaded!
+// ⭐ AVVIO SICURO DELL'APPLICAZIONE
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startAnonLabApp);
 } else {
