@@ -33,8 +33,7 @@ function setupCalculatorSilent() {
     calcDisplay.dataset.ready = "true";
 
     calcButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
+        btn.addEventListener('click', () => {
             const value = btn.textContent.trim();
 
             if (value === 'C') {
@@ -42,8 +41,7 @@ function setupCalculatorSilent() {
                 return;
             }
 
-            // CORRETTO: un solo uguale '=' (oppure entrambi per sicurezza)
-            if (value === '=' || value === '==') {
+            if (value === '==') {
                 try {
                     calcDisplay.textContent = String(
                         Function('"use strict"; return (' + calcDisplay.textContent + ')')()
@@ -218,102 +216,71 @@ function initSessionTimer() {
     }
 }
 
-// ==========================================================
-// 1. CALCOLATRICE (A prova di iniezione asincrona nel DOM)
-// ==========================================================
-document.addEventListener('click', function (e) {
-    const btn = e.target.closest('.calc-btn');
-    if (!btn) return; // Se non è un tasto della calcolatrice, ignora
+// ===============================
+// INIZIALIZZAZIONE SICURA (NO BLOCCHI SULLA HOME)
+// ===============================
 
-    e.preventDefault();
-
-    // Trova il display anche se il widget viene iniettato dopo
-    const box = btn.closest('.sidebar-box') || document;
-    const display = box.querySelector('#calc-display') || document.getElementById('calc-display');
-
-    if (!display) return;
-
-    const value = btn.textContent.trim();
-
-    // Tasto C (Cancella)
-    if (value === 'C') {
-        display.textContent = '0';
-        return;
-    }
-
-    // Tasto Uguale = (Calcola)
-    if (value === '=' || value === '==') {
-        try {
-            let expr = display.textContent.trim();
-            expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
-
-            if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
-                display.textContent = 'Errore';
-                return;
-            }
-
-            const result = Function('"use strict"; return (' + expr + ')')();
-
-            if (result === undefined || !isFinite(result)) {
-                display.textContent = 'Errore';
-            } else {
-                display.textContent = String(Math.round(result * 100000000) / 100000000);
-            }
-        } catch {
-            display.textContent = 'Errore';
-        }
-        return;
-    }
-
-    // Inserimento Cifre e Operatori
-    if (display.textContent === '0' || display.textContent === 'Errore') {
-        if (['+', '-', '*', '/'].includes(value)) {
-            display.textContent = '0' + value;
-        } else {
-            display.textContent = value;
-        }
-    } else {
-        const lastChar = display.textContent.slice(-1);
-        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
-            display.textContent = display.textContent.slice(0, -1) + value;
-        } else {
-            display.textContent += value;
-        }
-    }
-});
-
-
-// ==========================================================
-// 2. INIZIALIZZAZIONE APPLICAZIONE (Mobile menu, Radio, YouTube, Timer)
-// ==========================================================
 function startAnonLabApp() {
-    console.log("✅ AnonLab App in fase di avvio...");
 
     // NAVBAR MOBILE
     setTimeout(() => {
         if (typeof initMobileMenu === "function") initMobileMenu();
     }, 300);
 
+    // CALCOLATRICE
+    const initCalculatorSafe = () => {
+        const display = document.getElementById("calc-display");
+        const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
+
+        if (!display || buttons.length === 0) return false;
+        if (display.dataset.ready === "true") return true;
+        display.dataset.ready = "true";
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = btn.textContent.trim();
+
+                if (value === 'C') {
+                    display.textContent = '0';
+                    return;
+                }
+
+                if (value === '==') {
+                    try {
+                        display.textContent = String(
+                            Function('"use strict"; return (' + display.textContent + ')')()
+                        );
+                    } catch {
+                        display.textContent = 'Errore';
+                    }
+                    return;
+                }
+
+                if (display.textContent === '0' || display.textContent === 'Errore') {
+                    display.textContent = value;
+                } else {
+                    display.textContent += value;
+                }
+            });
+        });
+
+        return true;
+    };
+
+    initCalculatorSafe();
+
     // RADIO
-    if (typeof initRadio === "function") {
-        initRadio();
-    }
+    if (typeof initRadio === "function") initRadio();
 
     // YOUTUBE PLAYER
-    if (typeof initYouTubePlayer === "function") {
-        initYouTubePlayer();
-    }
+    if (typeof initYouTubePlayer === "function") initYouTubePlayer();
 
-    // TIMER SESSIONE
-    if (typeof initSessionTimer === "function") {
-        initSessionTimer();
-    }
+    // TIMER SESSIONE (Avvio garantito)
+    initSessionTimer();
 }
 
-
-// ==========================================================
-// 3. AVVIO SICURO (NO BLOCCHI SULLA HOME)
-// ==========================================================
+// ⭐ RISOLUZIONE DEL PROBLEMA HOME:
+// Se il DOM è già pronto si avvia subito, altrimenti attende DOMContentLoaded!
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startAnonLabApp);
 } else {
