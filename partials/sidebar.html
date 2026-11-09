@@ -726,14 +726,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div id="calc-display"
        style="background:#050a18; color:#8be9ff; font-size:1.4rem; text-align:right;
-              padding:10px; border-radius:6px; margin-bottom:10px;">0</div>
+              padding:10px; border-radius:6px; margin-bottom:10px; overflow-x:auto;">0</div>
 
   <div id="calc-buttons" style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
-    <button class="calc-btn">7</button><button class="calc-btn">8</button><button class="calc-btn">9</button><button class="calc-btn">/</button>
-    <button class="calc-btn">4</button><button class="calc-btn">5</button><button class="calc-btn">6</button><button class="calc-btn">*</button>
-    <button class="calc-btn">1</button><button class="calc-btn">2</button><button class="calc-btn">3</button><button class="calc-btn">-</button>
-    <button class="calc-btn">0</button><button class="calc-btn">.</button><button class="calc-btn">=</button><button class="calc-btn">+</button>
-    <button class="calc-btn" style="grid-column: span 4; background:#ff0040; color:white; font-weight:bold; min-height:38px;">C</button>
+    <button type="button" class="calc-btn">7</button>
+    <button type="button" class="calc-btn">8</button>
+    <button type="button" class="calc-btn">9</button>
+    <button type="button" class="calc-btn">/</button>
+
+    <button type="button" class="calc-btn">4</button>
+    <button type="button" class="calc-btn">5</button>
+    <button type="button" class="calc-btn">6</button>
+    <button type="button" class="calc-btn">*</button>
+
+    <button type="button" class="calc-btn">1</button>
+    <button type="button" class="calc-btn">2</button>
+    <button type="button" class="calc-btn">3</button>
+    <button type="button" class="calc-btn">-</button>
+
+    <button type="button" class="calc-btn">0</button>
+    <button type="button" class="calc-btn">.</button>
+    <button type="button" class="calc-btn">=</button>
+    <button type="button" class="calc-btn">+</button>
+
+    <button type="button" class="calc-btn" style="grid-column: span 4; background:#ff0040; color:white; font-weight:bold; min-height:38px; border:none; border-radius:4px; cursor:pointer;">C</button>
   </div>
 </div>
 
