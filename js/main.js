@@ -16,68 +16,65 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
 }
 
 // ==========================================================
-// CALCOLATRICE BLINDATA (CATTURA EVENTI GLOBALE)
+// CALCOLATRICE CYBER NEON (Funzionante e testata)
 // ==========================================================
 document.addEventListener('click', function (e) {
     const btn = e.target.closest('.calc-btn');
     if (!btn) return;
 
     e.preventDefault();
-    console.log("👉 Click rilevato sul tasto:", btn.textContent.trim());
 
-    // Cerca il display sia come DIV che come INPUT
-    const box = btn.closest('.sidebar-box') || document;
-    const display = box.querySelector('#calc-display') || document.getElementById('calc-display');
-
-    if (!display) {
-        alert("Errore: elemento #calc-display non trovato nella pagina!");
-        return;
-    }
-
-    // Funzione di lettura/scrittura universale (funziona sia su <div> che su <input>)
-    const getVal = () => (display.tagName === 'INPUT' ? display.value : display.textContent).trim();
-    const setVal = (txt) => {
-        if (display.tagName === 'INPUT') display.value = txt;
-        else display.textContent = txt;
-    };
+    const display = document.getElementById('calc-display');
+    if (!display) return;
 
     const value = btn.textContent.trim();
-    const current = getVal();
 
-    // Tasto C
+    // Tasto C (Cancella)
     if (value === 'C') {
-        setVal('0');
+        display.textContent = '0';
         return;
     }
 
-    // Tasto =
+    // Tasto Uguale = (Calcola)
     if (value === '=' || value === '==') {
         try {
-            let expr = current.replace(/×/g, '*').replace(/÷/g, '/');
+            let expr = display.textContent.trim();
+            expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
+
             if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
-                setVal('Errore');
+                display.textContent = 'Errore';
                 return;
             }
-            const res = Function('"use strict"; return (' + expr + ')')();
-            setVal(!isFinite(res) ? 'Errore' : String(Math.round(res * 100000000) / 100000000));
+
+            const result = Function('"use strict"; return (' + expr + ')')();
+
+            if (result === undefined || !isFinite(result)) {
+                display.textContent = 'Errore';
+            } else {
+                display.textContent = String(Math.round(result * 100000000) / 100000000);
+            }
         } catch {
-            setVal('Errore');
+            display.textContent = 'Errore';
         }
         return;
     }
 
-    // Cifre e Operatori
-    if (current === '0' || current === 'Errore') {
-        setVal(['+', '-', '*', '/'].includes(value) ? '0' + value : value);
-    } else {
-        const last = current.slice(-1);
-        if (['+', '-', '*', '/'].includes(last) && ['+', '-', '*', '/'].includes(value)) {
-            setVal(current.slice(0, -1) + value);
+    // Inserimento Cifre e Operatori
+    if (display.textContent === '0' || display.textContent === 'Errore') {
+        if (['+', '-', '*', '/'].includes(value)) {
+            display.textContent = '0' + value;
         } else {
-            setVal(current + value);
+            display.textContent = value;
+        }
+    } else {
+        const lastChar = display.textContent.slice(-1);
+        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
+            display.textContent = display.textContent.slice(0, -1) + value;
+        } else {
+            display.textContent += value;
         }
     }
-}, true); // 👈 Questo 'true' finale forza la priorità massima scavalcando qualsiasi altro script!
+});
 
 // ===============================
 // RADIO — APERTURA PAGINA ON AIR
