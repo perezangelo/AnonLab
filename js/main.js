@@ -15,6 +15,63 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
     );
 }
 
+// ==========================================================
+// CALCOLATRICE CYBER NEON — Delegazione Globale Definitiva
+// ==========================================================
+document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.calc-btn');
+    if (!btn) return;
+
+    e.preventDefault();
+
+    const display = document.getElementById('calc-display');
+    if (!display) return;
+
+    const value = btn.textContent.trim();
+
+    if (value === 'C') {
+        display.textContent = '0';
+        return;
+    }
+
+    if (value === '=' || value === '==') {
+        try {
+            let expr = display.textContent.trim().replace(/×/g, '*').replace(/÷/g, '/');
+
+            if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
+                display.textContent = 'Errore';
+                return;
+            }
+
+            const result = Function('"use strict"; return (' + expr + ')')();
+
+            if (result === undefined || !isFinite(result)) {
+                display.textContent = 'Errore';
+            } else {
+                display.textContent = String(Math.round(result * 100000000) / 100000000);
+            }
+        } catch {
+            display.textContent = 'Errore';
+        }
+        return;
+    }
+
+    if (display.textContent === '0' || display.textContent === 'Errore') {
+        if (['+', '-', '*', '/'].includes(value)) {
+            display.textContent = '0' + value;
+        } else {
+            display.textContent = value;
+        }
+    } else {
+        const lastChar = display.textContent.slice(-1);
+        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
+            display.textContent = display.textContent.slice(0, -1) + value;
+        } else {
+            display.textContent += value;
+        }
+    }
+});
+
 // ===============================
 // INIZIALIZZAZIONE CALCOLATRICE
 // ===============================
