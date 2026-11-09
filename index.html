@@ -364,7 +364,7 @@
          ">
   </div>
 
-   <!-- GOOGLE SEARCH + NEWSLETTER (A DESTRA, DIMENSIONI ORIGINALI 320PX) -->
+  <!-- GOOGLE SEARCH + NEWSLETTER (A DESTRA, SENZA MARGINE NEGATIVO) -->
   <div style="
       display: flex;
       flex-direction: column;
@@ -383,16 +383,13 @@
           width: 100%;
       ">
           <img src="/img/gears.png"
-               alt=""
-               aria-hidden="true"
+               alt="Gears Icon"
                class="box-title-icon"
                width="32"
                height="32"
                style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form action="https://www.google.com/search" method="GET"
-                role="search"
-                aria-label="Cerca su Google"
                 style="
                   display: flex;
                   gap: 8px;
@@ -402,8 +399,6 @@
                 ">
               <input type="text" name="q"
                      placeholder="Cerca su Google..."
-                     aria-label="Cerca su Google"
-                     autocomplete="off"
                      style="
                        width: 100%;
                        padding: 10px 12px;
@@ -416,7 +411,6 @@
                      ">
 
               <button type="submit"
-                      aria-label="Avvia ricerca Google"
                       style="
                         padding: 10px 14px;
                         background: #00eaff;
@@ -442,15 +436,13 @@
           width: 100%;
       ">
           <img src="/img/newsletter.png"
-               alt=""
-               aria-hidden="true"
+               alt="Newsletter Icon"
                class="box-title-icon"
                width="32"
                height="32"
                style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form onsubmit="return sendNewsletter(event)"
-                aria-label="Iscrizione alla newsletter"
                 style="
                   display: flex;
                   gap: 8px;
@@ -460,9 +452,7 @@
                 ">
               <input type="email" id="newsletterEmail"
                      name="email"
-                     placeholder="La tua email..."
-                     aria-label="Indirizzo email per la newsletter"
-                     autocomplete="email"
+                     placeholder="La tua email"
                      required
                      style="
                        width: 100%;
@@ -476,7 +466,6 @@
                      ">
 
               <button type="submit"
-                      aria-label="Iscriviti alla newsletter"
                       style="
                         padding: 10px 14px;
                         background: #00eaff;
@@ -488,12 +477,14 @@
                         box-shadow: 0 0 10px #00eaffaa;
                         white-space: nowrap;
                       ">
-                Iscriviti
+                Iscriviti gratis alle newsletter
               </button>
           </form>
       </div>
 
   </div>
+
+</div>
 
 <!-- ANONBOT WELCOME CARD -->
 
