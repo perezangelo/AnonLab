@@ -19,69 +19,44 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
 // INIZIALIZZAZIONE CALCOLATRICE ASINCRONA
 // ===============================
 
-function setupCalculatorSilent() {
-    const calcDisplay = document.getElementById('calc-display');
-    const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
+function initCalculator() {
+    const display = document.getElementById("calc-display");
+    const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
 
-    // Se gli elementi non ci sono ancora, esce in silenzio (ritorna false)
-    if (!calcDisplay || calcButtons.length === 0) {
-        return false;
-    }
+    if (!display || buttons.length === 0) return;
 
-    // Evita di registrare gli eventi più di una volta
-    if (calcDisplay.dataset.ready === "true") return true;
-    calcDisplay.dataset.ready = "true";
+    if (display.dataset.ready === "true") return;
+    display.dataset.ready = "true";
 
-    calcButtons.forEach(btn => {
+    buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             const value = btn.textContent.trim();
 
             if (value === 'C') {
-                calcDisplay.textContent = '0';
+                display.textContent = '0';
                 return;
             }
 
-            if (value === '==') {
+            // CORRETTO: gestisce il singolo '=' presente nell'HTML
+            if (value === '=' || value === '==') {
                 try {
-                    calcDisplay.textContent = String(
-                        Function('"use strict"; return (' + calcDisplay.textContent + ')')()
+                    display.textContent = String(
+                        Function('"use strict"; return (' + display.textContent + ')')()
                     );
                 } catch {
-                    calcDisplay.textContent = 'Errore';
+                    display.textContent = 'Errore';
                 }
                 return;
             }
 
-            if (calcDisplay.textContent === '0' || calcDisplay.textContent === 'Errore') {
-                calcDisplay.textContent = value;
+            if (display.textContent === '0' || display.textContent === 'Errore') {
+                display.textContent = value;
             } else {
-                calcDisplay.textContent += value;
+                display.textContent += value;
             }
         });
     });
-
-    return true; // Calcolatrice trovata e inizializzata con successo
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    // 1. Primo tentativo immediato al DOM ready
-    if (!setupCalculatorSilent()) {
-        
-        // 2. Se non c'è ancora, osserva le modifiche del DOM fino a quando non appare la sidebar
-        const calcObserver = new MutationObserver((mutations, observer) => {
-            if (setupCalculatorSilent()) {
-                observer.disconnect(); // Si disattiva subito appena trova la calcolatrice
-            }
-        });
-
-        calcObserver.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    }
-
-});
 
 // ===============================
 // RADIO — APERTURA PAGINA ON AIR
@@ -228,47 +203,26 @@ function startAnonLabApp() {
     }, 300);
 
     // CALCOLATRICE
-    const initCalculatorSafe = () => {
-        const display = document.getElementById("calc-display");
-        const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    loadPartial("header", "partials/header.html");
+    loadPartial("ticker", "partials/ticker.html").then(() => {
+        if (typeof loadTickerNews === "function") loadTickerNews();
+    });
 
-        if (!display || buttons.length === 0) return false;
-        if (display.dataset.ready === "true") return true;
-        display.dataset.ready = "true";
+    loadPartial("sidebar", "partials/sidebar.html");
+    loadPartial("footer", "partials/footer.html");
 
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const value = btn.textContent.trim();
+    // Attende che la sidebar sia caricata nel DOM prima di inizializzare i widget interni
+    waitForSidebar().then(() => {
+        loadMeteo();
+        initCalculator(); // ⭐ Ora parte nel momento esatto in cui la calcolatrice esiste davvero
 
-                if (value === 'C') {
-                    display.textContent = '0';
-                    return;
-                }
-
-                if (value === '==') {
-                    try {
-                        display.textContent = String(
-                            Function('"use strict"; return (' + display.textContent + ')')()
-                        );
-                    } catch {
-                        display.textContent = 'Errore';
-                    }
-                    return;
-                }
-
-                if (display.textContent === '0' || display.textContent === 'Errore') {
-                    display.textContent = value;
-                } else {
-                    display.textContent += value;
-                }
-            });
-        });
-
-        return true;
-    };
-
-    initCalculatorSafe();
-
+        if (typeof initVisitCounter === "function") {
+            initVisitCounter();
+        }
+    });
+});
+    
     // RADIO
     if (typeof initRadio === "function") initRadio();
 
