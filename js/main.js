@@ -15,65 +15,72 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
     );
 }
 
-// ==========================================================
-// CALCOLATRICE CYBER NEON (Funzionante e testata)
-// ==========================================================
-document.addEventListener('click', function (e) {
-    const btn = e.target.closest('.calc-btn');
-    if (!btn) return;
+// ===============================
+// INIZIALIZZAZIONE CALCOLATRICE ASINCRONA
+// ===============================
 
-    e.preventDefault();
+function setupCalculatorSilent() {
+    const calcDisplay = document.getElementById('calc-display');
+    const calcButtons = document.querySelectorAll('#calc-buttons .calc-btn');
 
-    const display = document.getElementById('calc-display');
-    if (!display) return;
-
-    const value = btn.textContent.trim();
-
-    // Tasto C (Cancella)
-    if (value === 'C') {
-        display.textContent = '0';
-        return;
+    // Se gli elementi non ci sono ancora, esce in silenzio (ritorna false)
+    if (!calcDisplay || calcButtons.length === 0) {
+        return false;
     }
 
-    // Tasto Uguale = (Calcola)
-    if (value === '=' || value === '==') {
-        try {
-            let expr = display.textContent.trim();
-            expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
+    // Evita di registrare gli eventi più di una volta
+    if (calcDisplay.dataset.ready === "true") return true;
+    calcDisplay.dataset.ready = "true";
 
-            if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
-                display.textContent = 'Errore';
+    calcButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const value = btn.textContent.trim();
+
+            if (value === 'C') {
+                calcDisplay.textContent = '0';
                 return;
             }
 
-            const result = Function('"use strict"; return (' + expr + ')')();
-
-            if (result === undefined || !isFinite(result)) {
-                display.textContent = 'Errore';
-            } else {
-                display.textContent = String(Math.round(result * 100000000) / 100000000);
+            if (value === '==') {
+                try {
+                    calcDisplay.textContent = String(
+                        Function('"use strict"; return (' + calcDisplay.textContent + ')')()
+                    );
+                } catch {
+                    calcDisplay.textContent = 'Errore';
+                }
+                return;
             }
-        } catch {
-            display.textContent = 'Errore';
-        }
-        return;
+
+            if (calcDisplay.textContent === '0' || calcDisplay.textContent === 'Errore') {
+                calcDisplay.textContent = value;
+            } else {
+                calcDisplay.textContent += value;
+            }
+        });
+    });
+
+    return true; // Calcolatrice trovata e inizializzata con successo
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // 1. Primo tentativo immediato al DOM ready
+    if (!setupCalculatorSilent()) {
+        
+        // 2. Se non c'è ancora, osserva le modifiche del DOM fino a quando non appare la sidebar
+        const calcObserver = new MutationObserver((mutations, observer) => {
+            if (setupCalculatorSilent()) {
+                observer.disconnect(); // Si disattiva subito appena trova la calcolatrice
+            }
+        });
+
+        calcObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     }
 
-    // Inserimento Cifre e Operatori
-    if (display.textContent === '0' || display.textContent === 'Errore') {
-        if (['+', '-', '*', '/'].includes(value)) {
-            display.textContent = '0' + value;
-        } else {
-            display.textContent = value;
-        }
-    } else {
-        const lastChar = display.textContent.slice(-1);
-        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
-            display.textContent = display.textContent.slice(0, -1) + value;
-        } else {
-            display.textContent += value;
-        }
-    }
 });
 
 // ===============================
@@ -123,7 +130,7 @@ function initMobileMenu() {
     const toggle = document.querySelector(".nav-toggle");
     const nav = document.querySelector(".main-nav");
 
-    if (!toggle || !nav) return;
+    if (!toggle || !nav) return;  // niente warning
 
     toggle.addEventListener("click", () => {
         nav.classList.toggle("open");
@@ -162,18 +169,23 @@ function initSessionTimer() {
 
         if (!timer) return false;
 
+        // Se l'elemento è già controllato dall'intervallo attivo, non duplicare
         if (timer.dataset.timerStarted === "true" && timerInterval !== null) {
             return true;
         }
 
         timer.dataset.timerStarted = "true";
 
+        // Aggiorna subito il display visivo
         updateDisplay(timer);
 
+        // Se c'era un vecchio intervallo attivo, ripuliscilo
         if (timerInterval) clearInterval(timerInterval);
 
+        // Avvia il battito al secondo
         timerInterval = setInterval(() => {
             const currentTimer = document.getElementById("session-timer");
+            // Se l'elemento è stato sostituito dal fetch del ticker, riaggancialo
             if (currentTimer && currentTimer !== timer) {
                 checkAndBindTimer();
             } else if (currentTimer) {
@@ -185,8 +197,10 @@ function initSessionTimer() {
         return true;
     }
 
+    // 1. Prova subito
     checkAndBindTimer();
 
+    // 2. Observer: rimane in ascolto se il ticker arriva via fetch() dopo il caricamento
     const observer = new MutationObserver(() => {
         const timer = document.getElementById("session-timer");
         if (timer && timer.dataset.timerStarted !== "true") {
@@ -213,6 +227,48 @@ function startAnonLabApp() {
         if (typeof initMobileMenu === "function") initMobileMenu();
     }, 300);
 
+    // CALCOLATRICE
+    const initCalculatorSafe = () => {
+        const display = document.getElementById("calc-display");
+        const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
+
+        if (!display || buttons.length === 0) return false;
+        if (display.dataset.ready === "true") return true;
+        display.dataset.ready = "true";
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = btn.textContent.trim();
+
+                if (value === 'C') {
+                    display.textContent = '0';
+                    return;
+                }
+
+                if (value === '==') {
+                    try {
+                        display.textContent = String(
+                            Function('"use strict"; return (' + display.textContent + ')')()
+                        );
+                    } catch {
+                        display.textContent = 'Errore';
+                    }
+                    return;
+                }
+
+                if (display.textContent === '0' || display.textContent === 'Errore') {
+                    display.textContent = value;
+                } else {
+                    display.textContent += value;
+                }
+            });
+        });
+
+        return true;
+    };
+
+    initCalculatorSafe();
+
     // RADIO
     if (typeof initRadio === "function") initRadio();
 
@@ -223,7 +279,8 @@ function startAnonLabApp() {
     initSessionTimer();
 }
 
-// ⭐ AVVIO APPLICAZIONE
+// ⭐ RISOLUZIONE DEL PROBLEMA HOME:
+// Se il DOM è già pronto si avvia subito, altrimenti attende DOMContentLoaded!
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startAnonLabApp);
 } else {
