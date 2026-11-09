@@ -218,103 +218,102 @@ function initSessionTimer() {
     }
 }
 
-// ===============================
-// INIZIALIZZAZIONE SICURA (NO BLOCCHI SULLA HOME)
-// ===============================
+// ==========================================================
+// 1. CALCOLATRICE (A prova di iniezione asincrona nel DOM)
+// ==========================================================
+document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.calc-btn');
+    if (!btn) return; // Se non è un tasto della calcolatrice, ignora
 
+    e.preventDefault();
+
+    // Trova il display anche se il widget viene iniettato dopo
+    const box = btn.closest('.sidebar-box') || document;
+    const display = box.querySelector('#calc-display') || document.getElementById('calc-display');
+
+    if (!display) return;
+
+    const value = btn.textContent.trim();
+
+    // Tasto C (Cancella)
+    if (value === 'C') {
+        display.textContent = '0';
+        return;
+    }
+
+    // Tasto Uguale = (Calcola)
+    if (value === '=' || value === '==') {
+        try {
+            let expr = display.textContent.trim();
+            expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
+
+            if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
+                display.textContent = 'Errore';
+                return;
+            }
+
+            const result = Function('"use strict"; return (' + expr + ')')();
+
+            if (result === undefined || !isFinite(result)) {
+                display.textContent = 'Errore';
+            } else {
+                display.textContent = String(Math.round(result * 100000000) / 100000000);
+            }
+        } catch {
+            display.textContent = 'Errore';
+        }
+        return;
+    }
+
+    // Inserimento Cifre e Operatori
+    if (display.textContent === '0' || display.textContent === 'Errore') {
+        if (['+', '-', '*', '/'].includes(value)) {
+            display.textContent = '0' + value;
+        } else {
+            display.textContent = value;
+        }
+    } else {
+        const lastChar = display.textContent.slice(-1);
+        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
+            display.textContent = display.textContent.slice(0, -1) + value;
+        } else {
+            display.textContent += value;
+        }
+    }
+});
+
+
+// ==========================================================
+// 2. INIZIALIZZAZIONE APPLICAZIONE (Mobile menu, Radio, YouTube, Timer)
+// ==========================================================
 function startAnonLabApp() {
+    console.log("✅ AnonLab App in fase di avvio...");
 
     // NAVBAR MOBILE
     setTimeout(() => {
         if (typeof initMobileMenu === "function") initMobileMenu();
     }, 300);
 
-    // CALCOLATRICE
-function startAnonLabApp() {
-    console.log("✅ AnonLab App in fase di avvio...");
-    // 1. CALCOLATRICE
-    const initCalculatorSafe = () => {
-        const display = document.getElementById("calc-display");
-        const buttons = document.querySelectorAll("#calc-buttons .calc-btn");
-        if (!display || buttons.length === 0) {
-            return false;
-        }
-        // Evita listener duplicati
-        if (display.dataset.ready === "true") return true;
-        display.dataset.ready = "true";
-        buttons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const value = btn.textContent.trim();
-                // Reset C
-                if (value === 'C') {
-                    display.textContent = '0';
-                    return;
-                }
-                // Tasto Uguale =
-                if (value === '=' || value === '==') {
-                    try {
-                        let expr = display.textContent.trim();
-                        expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
-                        if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
-                            throw new Error("Sintassi non valida");
-                        }
-                        const result = Function('"use strict"; return (' + expr + ')')();
-                        if (!isFinite(result)) {
-                            display.textContent = 'Errore';
-                        } else {
-                            display.textContent = String(Math.round(result * 100000000) / 100000000);
-                        }
-                    } catch {
-                        display.textContent = 'Errore';
-                    }
-                    return;
-                }
-                // Inserimento cifre e operatori
-                if (display.textContent === '0' || display.textContent === 'Errore') {
-                    if (['+', '-', '*', '/'].includes(value)) {
-                        display.textContent = '0' + value;
-                    } else {
-                        display.textContent = value;
-                    }
-                } else {
-                    const lastChar = display.textContent.slice(-1);
-                    if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
-                        display.textContent = display.textContent.slice(0, -1) + value;
-                    } else {
-                        display.textContent += value;
-                    }
-                }
-            });
-        });
-        console.log("✅ Calcolatrice inizializzata con successo!");
-        return true;
-    };
-    // Inizializzazione calcolatrice (subito o con Observer se asincrona)
-    if (!initCalculatorSafe()) {
-        const observer = new MutationObserver(() => {
-            if (initCalculatorSafe()) {
-                observer.disconnect();
-            }
-        });
-        if (document.body) {
-            observer.observe(document.body, { childList: true, subtree: true });
-        }
-    }
-    // 2. RADIO
+    // RADIO
     if (typeof initRadio === "function") {
         initRadio();
     }
-    // 3. YOUTUBE PLAYER
+
+    // YOUTUBE PLAYER
     if (typeof initYouTubePlayer === "function") {
         initYouTubePlayer();
     }
-    // 4. TIMER SESSIONE
+
+    // TIMER SESSIONE
     if (typeof initSessionTimer === "function") {
         initSessionTimer();
     }
 }
-// ⭐ AVVIO SICURO DELL'APPLICAZIONE
+
+
+// ==========================================================
+// 3. AVVIO SICURO (NO BLOCCHI SULLA HOME)
+// ==========================================================
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startAnonLabApp);
 } else {
