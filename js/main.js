@@ -15,70 +15,69 @@ if (!sessionStorage.getItem("anonlabStartTime")) {
     );
 }
 
-// ===============================
-// CALCOLATRICE (DELEGAZIONE GLOBALE — FUNZIONA SEMPRE, ANCHE SE INIETTATA DOPO)
-// ===============================
-
-document.addEventListener('click', (e) => {
+// ==========================================================
+// CALCOLATRICE BLINDATA (CATTURA EVENTI GLOBALE)
+// ==========================================================
+document.addEventListener('click', function (e) {
     const btn = e.target.closest('.calc-btn');
-    if (!btn) return; // Se non è un tasto della calcolatrice, ignora
+    if (!btn) return;
 
     e.preventDefault();
+    console.log("👉 Click rilevato sul tasto:", btn.textContent.trim());
 
-    // Trova il display anche se il box è stato iniettato dinamicamente
+    // Cerca il display sia come DIV che come INPUT
     const box = btn.closest('.sidebar-box') || document;
     const display = box.querySelector('#calc-display') || document.getElementById('calc-display');
 
-    if (!display) return;
+    if (!display) {
+        alert("Errore: elemento #calc-display non trovato nella pagina!");
+        return;
+    }
+
+    // Funzione di lettura/scrittura universale (funziona sia su <div> che su <input>)
+    const getVal = () => (display.tagName === 'INPUT' ? display.value : display.textContent).trim();
+    const setVal = (txt) => {
+        if (display.tagName === 'INPUT') display.value = txt;
+        else display.textContent = txt;
+    };
 
     const value = btn.textContent.trim();
+    const current = getVal();
 
-    // Tasto C (Cancella)
+    // Tasto C
     if (value === 'C') {
-        display.textContent = '0';
+        setVal('0');
         return;
     }
 
-    // Tasto Uguale = (Corretto con '=' e '==')
+    // Tasto =
     if (value === '=' || value === '==') {
         try {
-            let expr = display.textContent.trim();
-            expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
-
+            let expr = current.replace(/×/g, '*').replace(/÷/g, '/');
             if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
-                display.textContent = 'Errore';
+                setVal('Errore');
                 return;
             }
-
-            const result = Function('"use strict"; return (' + expr + ')')();
-
-            if (result === undefined || !isFinite(result)) {
-                display.textContent = 'Errore';
-            } else {
-                display.textContent = String(Math.round(result * 100000000) / 100000000);
-            }
+            const res = Function('"use strict"; return (' + expr + ')')();
+            setVal(!isFinite(res) ? 'Errore' : String(Math.round(res * 100000000) / 100000000));
         } catch {
-            display.textContent = 'Errore';
+            setVal('Errore');
         }
         return;
     }
 
-    // Inserimento Cifre e Operatori
-    if (display.textContent === '0' || display.textContent === 'Errore') {
-        if (['+', '-', '*', '/'].includes(value)) {
-            display.textContent = '0' + value;
-        } else {
-            display.textContent = value;
-        }
+    // Cifre e Operatori
+    if (current === '0' || current === 'Errore') {
+        setVal(['+', '-', '*', '/'].includes(value) ? '0' + value : value);
     } else {
-        const lastChar = display.textContent.slice(-1);
-        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
-            display.textContent = display.textContent.slice(0, -1) + value;
+        const last = current.slice(-1);
+        if (['+', '-', '*', '/'].includes(last) && ['+', '-', '*', '/'].includes(value)) {
+            setVal(current.slice(0, -1) + value);
         } else {
-            display.textContent += value;
+            setVal(current + value);
         }
     }
-});
+}, true); // 👈 Questo 'true' finale forza la priorità massima scavalcando qualsiasi altro script!
 
 // ===============================
 // RADIO — APERTURA PAGINA ON AIR
