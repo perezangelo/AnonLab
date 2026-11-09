@@ -27,6 +27,8 @@ async function loadPartial(id, file) {
             requestAnimationFrame(() => {
                 loadMeteo();
                 initOroscopo();
+                if (typeof initRadio === "function") initRadio();
+                if (typeof initYouTubePlayer === "function") initYouTubePlayer();
             });
         }
 
@@ -237,7 +239,6 @@ document.addEventListener("DOMContentLoaded", () => {
     waitForSidebar().then(() => {
         loadMeteo();
 
-        // ⭐ Inizializza il contatore SOLO quando la sidebar esiste
         if (typeof initVisitCounter === "function") {
             initVisitCounter();
         }
@@ -335,10 +336,6 @@ function anonlabSet(id, value) {
     }
 }
 
-/* ============================================================
-   AVVIO CONTATORE SICURO (DEFINIZIONI COMPLETE)
-============================================================ */
-
 function loadCounterData() {
     anonlabGet(ANONLAB.api + "update.php?ping=1&vid=" + encodeURIComponent(ANONLAB.vid) + "&t=" + Date.now())
         .then(updateCounterUI)
@@ -361,9 +358,6 @@ function initVisitCounter() {
     }
 }
 
-/* ============================================================
-   AGGIORNAMENTO INTERFACCIA
-============================================================ */
 function updateCounterUI(data) {
     if (!data || data.error) return;
 
@@ -435,9 +429,6 @@ function updateCounterUI(data) {
     anonlabSet("visit-time", adesso.toLocaleTimeString("it-IT"));
 }
 
-/* ============================================================
-   PALLINO "ONLINE"
-============================================================ */
 function anonlabPulse() {
     var dot = document.getElementById("online-dot");
     if (!dot) return;
@@ -450,11 +441,7 @@ function anonlabPulse() {
     }, 900);
 }
 
-/* ============================================================
-// WIDGET AGGIORNAMENTI DINAMICO (PROTETTO DA LOOP / FLASHING)
-============================================================ */
 function initUpdateNotification() {
-    // ID aggiornato per farlo mostrare nuovamente a tutti gli utenti
     const currentUpdateId = "upd_2026_11_07_v2"; 
     const lastSeenUpdate = localStorage.getItem("anonlab_last_update_id");
 
@@ -525,3 +512,64 @@ if (document.readyState === "loading") {
 } else {
     setTimeout(initUpdateNotification, 2500);
 }
+
+/* ============================================================
+   ⭐ CALCOLATRICE SIDEBAR — GESTIONE EVENTI IMMEDIATA
+============================================================ */
+document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.calc-btn');
+    if (!btn) return;
+
+    e.preventDefault();
+
+    const display = document.getElementById('calc-display');
+    if (!display) return;
+
+    const value = btn.textContent.trim();
+
+    // Reset C
+    if (value === 'C') {
+        display.textContent = '0';
+        return;
+    }
+
+    // Tasto Uguale = (Calcolo)
+    if (value === '=' || value === '==') {
+        try {
+            let expr = display.textContent.trim();
+            expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
+
+            if (!/^[0-9+\-*/.() ]+$/.test(expr)) {
+                display.textContent = 'Errore';
+                return;
+            }
+
+            const result = Function('"use strict"; return (' + expr + ')')();
+
+            if (result === undefined || !isFinite(result)) {
+                display.textContent = 'Errore';
+            } else {
+                display.textContent = String(Math.round(result * 100000000) / 100000000);
+            }
+        } catch {
+            display.textContent = 'Errore';
+        }
+        return;
+    }
+
+    // Cifre e Operatori
+    if (display.textContent === '0' || display.textContent === 'Errore') {
+        if (['+', '-', '*', '/'].includes(value)) {
+            display.textContent = '0' + value;
+        } else {
+            display.textContent = value;
+        }
+    } else {
+        const lastChar = display.textContent.slice(-1);
+        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(value)) {
+            display.textContent = display.textContent.slice(0, -1) + value;
+        } else {
+            display.textContent += value;
+        }
+    }
+});
