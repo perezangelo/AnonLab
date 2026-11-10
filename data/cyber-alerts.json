@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-88986",
-    "summary": "Kubeflow Pipelines: Reflected XSS in the frontend pod information and events error responses",
-    "severity": "MODERATE",
-    "published": "2026-11-09T23:25:58Z",
-    "ghsa": "GHSA-g3qx-frcg-j979"
+    "id": "CVE-2026-126068",
+    "summary": "Action Mailbox: Possible signature replay in Action Mailbox Mailgun ingress",
+    "severity": "LOW",
+    "published": "2026-11-10T21:28:16Z",
+    "ghsa": "GHSA-5957-c7qm-m469"
   },
   {
-    "id": "CVE-2026-88985",
-    "summary": "Kubeflow Pipelines: SQL injection through unvalidated pagination tokens in Kubeflow Pipelines API server",
+    "id": "CVE-2026-126075",
+    "summary": "Active Support: Possible XSS vulnerability in Active Support MessagePack serializer",
     "severity": "MODERATE",
-    "published": "2026-11-09T23:25:00Z",
-    "ghsa": "GHSA-r4mx-2gr2-8277"
+    "published": "2026-11-10T21:27:12Z",
+    "ghsa": "GHSA-2w9f-fxwj-w2qf"
   },
   {
-    "id": "CVE-2026-77433",
-    "summary": "Kiwi TCMS account confirmation open redirect through protocol-relative URLs",
+    "id": "CVE-2026-126073",
+    "summary": "Action Pack: Possible cache poisoning in Action Pack content negotiation",
     "severity": "MODERATE",
-    "published": "2026-11-09T23:24:14Z",
-    "ghsa": "GHSA-gcwf-c25f-p9rv"
+    "published": "2026-11-10T21:26:12Z",
+    "ghsa": "GHSA-r9jg-fmfx-2gv6"
   },
   {
-    "id": "CVE-2026-88984",
-    "summary": "Kubeflow Pipelines: RBAC bypass on shared pipelines allows any authenticated user to delete or modify global pipelines",
+    "id": "CVE-2026-126067",
+    "summary": "Action Pack: Missing SameSite attribute on session cookies from Action Pack session stores",
+    "severity": "LOW",
+    "published": "2026-11-10T21:25:18Z",
+    "ghsa": "GHSA-gmj8-hvj3-49mw"
+  },
+  {
+    "id": "CVE-2026-126071",
+    "summary": "Active Storage: Possible DoS vulnerability in Active Storage proxy mode via storage errors during streaming",
+    "severity": "MODERATE",
+    "published": "2026-11-10T21:24:31Z",
+    "ghsa": "GHSA-4v2w-w6g6-f8f8"
+  },
+  {
+    "id": "CVE-2026-126083",
+    "summary": "Action Pack: Possible IP spoofing in Action Dispatch RemoteIp",
     "severity": "HIGH",
-    "published": "2026-11-09T22:48:03Z",
-    "ghsa": "GHSA-ghgh-57qv-h687"
+    "published": "2026-11-10T21:20:06Z",
+    "ghsa": "GHSA-2gff-2mmg-m73p"
   },
   {
-    "id": "CVE-2026-88983",
-    "summary": "Kubeflow Pipelines — API server fetches a caller-supplied pipelineURL without host validation",
+    "id": "CVE-2026-126076",
+    "summary": "Action Pack: Possible restoration of destroyed sessions in Action Dispatch CacheStore",
     "severity": "MODERATE",
-    "published": "2026-11-09T22:44:17Z",
-    "ghsa": "GHSA-f7vj-6669-qvv4"
+    "published": "2026-11-10T21:19:09Z",
+    "ghsa": "GHSA-2586-8ghr-69fj"
   },
   {
-    "id": "CVE-2026-88982",
-    "summary": "Kubeflow Pipelines: Cross-tenant execution-cache poisoning / output substitution via a namespace-blind cache key in the cache webhook (multi-user)",
+    "id": "CVE-2026-125335",
+    "summary": "Forge: Ed25519 signature verification accepts small-order public keys",
+    "severity": "LOW",
+    "published": "2026-11-10T21:18:23Z",
+    "ghsa": "GHSA-6889-vf6x-f3g5"
+  },
+  {
+    "id": "CVE-2026-125332",
+    "summary": "Forge: TLS client crash on an unsupported ServerHello compression method",
     "severity": "MODERATE",
-    "published": "2026-11-09T22:43:33Z",
-    "ghsa": "GHSA-2xwh-426q-42c5"
+    "published": "2026-11-10T21:17:14Z",
+    "ghsa": "GHSA-w4xr-hqv8-ch44"
   },
   {
-    "id": "CVE-2026-88968",
-    "summary": "Claude Code: TOCTOU Race in Edit Tool Allows File Writes Outside the Workspace",
-    "severity": "HIGH",
-    "published": "2026-11-09T22:42:03Z",
-    "ghsa": "GHSA-5xjx-9qx6-jcrv"
-  },
-  {
-    "id": "CVE-2026-119298",
-    "summary": "croc: Overwrite-confirmation bypass via a crafted \"croc-stdin-\" filename on receive",
+    "id": "CVE-2026-125333",
+    "summary": "Forge: ReDoS in forge.http response header and cookie trimming",
     "severity": "MODERATE",
-    "published": "2026-11-09T22:40:12Z",
-    "ghsa": "GHSA-x89h-7h96-v88f"
-  },
-  {
-    "id": "CVE-2026-108262",
-    "summary": "DDEV incomplete tar symlink traversal fix allows host file overwrite - Incomplete fix of CVE-2026-32885",
-    "severity": "HIGH",
-    "published": "2026-11-09T22:37:58Z",
-    "ghsa": "GHSA-9hq4-hm3j-jmph"
-  },
-  {
-    "id": "CVE-2026-97705",
-    "summary": "Moleculer: Unauthenticated Denial of Service via negative length field in the TCP transporter packet parser",
-    "severity": "HIGH",
-    "published": "2026-11-09T22:31:16Z",
-    "ghsa": "GHSA-h89v-g948-47vp"
+    "published": "2026-11-10T21:16:22Z",
+    "ghsa": "GHSA-6cv4-p8m7-4r25"
   }
 ]
