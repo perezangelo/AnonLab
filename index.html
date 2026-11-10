@@ -364,66 +364,55 @@
          ">
   </div>
 
-  <!-- GOOGLE SEARCH + NEWSLETTER (AFFIANCATI IN PARALLELO) -->
+  <!-- GOOGLE SEARCH + NEWSLETTER (A DESTRA, SENZA MARGINE NEGATIVO) -->
   <div style="
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 24px;
-      width: 100%;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+      flex: 1;
+      min-width: 280px;
   ">
 
       <!-- GOOGLE SEARCH -->
       <div style="
           display: flex;
-          align-items: center;
-          gap: 12px;
-          flex: 1 1 300px;
-          max-width: 440px;
           justify-content: flex-end;
+          align-items: center;
+          gap: 15px;
+          width: 100%;
       ">
           <img src="/img/gears.png"
-               alt="Icona Ingranaggi"
+               alt="Gears Icon"
                class="box-title-icon"
                width="32"
                height="32"
-               aria-hidden="true"
-               style="filter: drop-shadow(0 0 10px #00eaff); flex-shrink: 0;">
+               style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form action="https://www.google.com/search" method="GET"
-                role="search"
-                aria-label="Cerca su Google"
                 style="
                   display: flex;
                   gap: 8px;
                   width: 100%;
-                  align-items: center;
+                  max-width: 320px;
+                  justify-content: flex-end;
                 ">
-              <input type="text" 
-                     name="q"
+              <input type="text" name="q"
                      placeholder="Cerca su Google..."
-                     autocomplete="off"
-                     aria-label="Termine da cercare su Google"
                      style="
-                       flex: 1 1 130px;
-                       min-width: 120px;
+                       width: 100%;
                        padding: 10px 12px;
-                       font-size: 0.95rem;
+                       font-size: 1rem;
                        border-radius: 8px;
                        border: 1px solid #00eaff;
                        background: #000814;
                        color: #e0faff;
                        box-shadow: 0 0 10px #00eaff55;
-                       outline: none;
                      ">
 
               <button type="submit"
-                      aria-label="Avvia ricerca su Google"
                       style="
-                        flex-shrink: 0;
-                        padding: 10px 16px;
+                        padding: 10px 14px;
                         background: #00eaff;
                         color: #000;
                         font-weight: bold;
@@ -441,54 +430,44 @@
       <!-- NEWSLETTER -->
       <div style="
           display: flex;
-          align-items: center;
-          gap: 12px;
-          flex: 1 1 390px;
-          max-width: 520px;
           justify-content: flex-end;
+          align-items: center;
+          gap: 15px;
+          width: 100%;
       ">
           <img src="/img/newsletter.png"
-               alt="Icona Newsletter"
+               alt="Newsletter Icon"
                class="box-title-icon"
                width="32"
                height="32"
-               aria-hidden="true"
-               style="filter: drop-shadow(0 0 10px #00eaff); flex-shrink: 0;">
+               style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form onsubmit="return sendNewsletter(event)"
-                aria-label="Iscrizione alla newsletter gratuita"
                 style="
                   display: flex;
                   gap: 8px;
                   width: 100%;
-                  align-items: center;
+                  max-width: 320px;
+                  justify-content: flex-end;
                 ">
-              <input type="email" 
-                     id="newsletterEmail"
+              <input type="email" id="newsletterEmail"
                      name="email"
                      placeholder="La tua email"
                      required
-                     autocomplete="email"
-                     spellcheck="false"
-                     aria-label="Inserisci il tuo indirizzo email"
                      style="
-                       flex: 1 1 180px;
-                       min-width: 170px;
+                       width: 100%;
                        padding: 10px 12px;
-                       font-size: 0.95rem;
+                       font-size: 1rem;
                        border-radius: 8px;
                        border: 1px solid #00eaff;
                        background: #000814;
                        color: #e0faff;
                        box-shadow: 0 0 10px #00eaff55;
-                       outline: none;
                      ">
 
               <button type="submit"
-                      aria-label="Conferma iscrizione gratuita alla newsletter"
                       style="
-                        flex-shrink: 0;
-                        padding: 10px 16px;
+                        padding: 10px 14px;
                         background: #00eaff;
                         color: #000;
                         font-weight: bold;
@@ -504,6 +483,8 @@
       </div>
 
   </div>
+
+</div> il box di newsletter forse è troppo piccolo per contenere e rendere visibile "La tua email"; però se ingrandiamo il box dobbiamo adesuare anche il box sopta di google per mantenerli adeguati e paralleli. quale soluzione adottare?
 
 <!-- ANONBOT WELCOME CARD -->
 
