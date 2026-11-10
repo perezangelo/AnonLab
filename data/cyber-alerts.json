@@ -1,72 +1,72 @@
 [
   {
-    "id": "GHSA-47w9-6r3f-938g",
-    "summary": "LXD has restricted project bypass leading to arbitrary command execution",
-    "severity": "CRITICAL",
-    "published": "2026-11-06T19:51:26Z",
-    "ghsa": "GHSA-47w9-6r3f-938g"
-  },
-  {
-    "id": "GHSA-7mr3-28h5-m5vx",
-    "summary": "LXD has project restriction bypass for custom volume copy across projects ",
-    "severity": "HIGH",
-    "published": "2026-11-06T19:51:16Z",
-    "ghsa": "GHSA-7mr3-28h5-m5vx"
-  },
-  {
-    "id": "GHSA-qx75-2p3r-pwm5",
-    "summary": "LXD has project restriction bypass in instance copy across projects ",
-    "severity": "HIGH",
-    "published": "2026-11-06T19:51:00Z",
-    "ghsa": "GHSA-qx75-2p3r-pwm5"
-  },
-  {
-    "id": "CVE-2026-55649",
-    "summary": "GeoNode has Stored XSS in Documents metadata abstract field",
+    "id": "CVE-2026-88986",
+    "summary": "Kubeflow Pipelines: Reflected XSS in the frontend pod information and events error responses",
     "severity": "MODERATE",
-    "published": "2026-11-06T19:50:34Z",
-    "ghsa": "GHSA-r4hm-p9f9-fj9v"
+    "published": "2026-11-09T23:25:58Z",
+    "ghsa": "GHSA-g3qx-frcg-j979"
   },
   {
-    "id": "CVE-2026-46429",
-    "summary": "GeoNode has Unrestricted File Upload",
+    "id": "CVE-2026-88985",
+    "summary": "Kubeflow Pipelines: SQL injection through unvalidated pagination tokens in Kubeflow Pipelines API server",
     "severity": "MODERATE",
-    "published": "2026-11-06T19:41:23Z",
-    "ghsa": "GHSA-fqpv-mq26-pr4j"
+    "published": "2026-11-09T23:25:00Z",
+    "ghsa": "GHSA-r4mx-2gr2-8277"
   },
   {
-    "id": "CVE-2026-33050",
-    "summary": "GeoNode has OS command injection via uploaded file layer name",
+    "id": "CVE-2026-77433",
+    "summary": "Kiwi TCMS account confirmation open redirect through protocol-relative URLs",
+    "severity": "MODERATE",
+    "published": "2026-11-09T23:24:14Z",
+    "ghsa": "GHSA-gcwf-c25f-p9rv"
+  },
+  {
+    "id": "CVE-2026-88984",
+    "summary": "Kubeflow Pipelines: RBAC bypass on shared pipelines allows any authenticated user to delete or modify global pipelines",
     "severity": "HIGH",
-    "published": "2026-11-06T19:39:38Z",
-    "ghsa": "GHSA-9fpx-fr6j-2vh6"
+    "published": "2026-11-09T22:48:03Z",
+    "ghsa": "GHSA-ghgh-57qv-h687"
   },
   {
-    "id": "CVE-2026-9639",
-    "summary": "LXD has CreateCustomVolumeFromBackup nil-pointer dereference on volumes[0].snapshots[*].expires_at",
+    "id": "CVE-2026-88983",
+    "summary": "Kubeflow Pipelines — API server fetches a caller-supplied pipelineURL without host validation",
     "severity": "MODERATE",
-    "published": "2026-11-06T19:37:14Z",
-    "ghsa": "GHSA-j93m-3j9p-m5m8"
+    "published": "2026-11-09T22:44:17Z",
+    "ghsa": "GHSA-f7vj-6669-qvv4"
   },
   {
-    "id": "GHSA-pjff-c2wc-f6jm",
-    "summary": "LXD has arbitrary file write on client due to trusted image hash",
-    "severity": "CRITICAL",
-    "published": "2026-11-06T19:36:55Z",
-    "ghsa": "GHSA-pjff-c2wc-f6jm"
+    "id": "CVE-2026-88982",
+    "summary": "Kubeflow Pipelines: Cross-tenant execution-cache poisoning / output substitution via a namespace-blind cache key in the cache webhook (multi-user)",
+    "severity": "MODERATE",
+    "published": "2026-11-09T22:43:33Z",
+    "ghsa": "GHSA-2xwh-426q-42c5"
   },
   {
-    "id": "GHSA-fmc8-p6q7-75cc",
-    "summary": "LXD has argument injection in backup compression algorithm leading to AFW and ACE",
-    "severity": "CRITICAL",
-    "published": "2026-11-06T19:36:37Z",
-    "ghsa": "GHSA-fmc8-p6q7-75cc"
+    "id": "CVE-2026-88968",
+    "summary": "Claude Code: TOCTOU Race in Edit Tool Allows File Writes Outside the Workspace",
+    "severity": "HIGH",
+    "published": "2026-11-09T22:42:03Z",
+    "ghsa": "GHSA-5xjx-9qx6-jcrv"
   },
   {
-    "id": "GHSA-vghh-5rfx-xhq8",
-    "summary": "LXD has arbitrary file read+write on host via rootfs/ symlink in malicious image",
-    "severity": "CRITICAL",
-    "published": "2026-11-06T19:36:07Z",
-    "ghsa": "GHSA-vghh-5rfx-xhq8"
+    "id": "CVE-2026-119298",
+    "summary": "croc: Overwrite-confirmation bypass via a crafted \"croc-stdin-\" filename on receive",
+    "severity": "MODERATE",
+    "published": "2026-11-09T22:40:12Z",
+    "ghsa": "GHSA-x89h-7h96-v88f"
+  },
+  {
+    "id": "CVE-2026-108262",
+    "summary": "DDEV incomplete tar symlink traversal fix allows host file overwrite - Incomplete fix of CVE-2026-32885",
+    "severity": "HIGH",
+    "published": "2026-11-09T22:37:58Z",
+    "ghsa": "GHSA-9hq4-hm3j-jmph"
+  },
+  {
+    "id": "CVE-2026-97705",
+    "summary": "Moleculer: Unauthenticated Denial of Service via negative length field in the TCP transporter packet parser",
+    "severity": "HIGH",
+    "published": "2026-11-09T22:31:16Z",
+    "ghsa": "GHSA-h89v-g948-47vp"
   }
 ]
