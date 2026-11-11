@@ -190,7 +190,7 @@
 
 #backToTop {
   position: fixed;
-  bottom: 25px;
+  bottom: 80px;                  /* ⭐ Alzato a 80px per non coprire Iubenda su nessuna pagina */
   right: 25px;
   width: 45px;
   height: 45px;
@@ -202,9 +202,9 @@
   border: none;
   cursor: pointer;
   display: none;
-  box-shadow: 0 0 12px #00eaff;
+  box-shadow: 0 0 14px rgba(0, 234, 255, 0.8);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 9999;
+  z-index: 99999;                /* ⭐ Priorità massima sopra gli altri elementi */
 }
 
 #backToTop:hover {
@@ -374,13 +374,6 @@
     display: block;
 }
 
-.page-title {
-    color: #00eaff !important;
-    text-shadow: 0 0 12px rgba(0,255,255,0.8) !important;
-    font-size: 2.4rem !important;
-    margin-bottom: 20px !important;
-}
-
 /* ============================
    PAGINA CYBER — NEON STYLE
 ============================ */
@@ -465,35 +458,31 @@
     line-height: 1.5;
 }
 
-/* ============================
+/* ============================================================
    PAGINE ABOUT, CONTATTI, PRIVACY, COOKIE, TERMINI
-============================ */
+============================================================ */
+
+/* Titolo H2 della colonna principale */
 .main-column h2 {
     color: #00eaff !important;
-    text-shadow: 0 0 10px rgba(0,255,255,0.7) !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7) !important;
     margin-bottom: 12px !important;
 }
 
-.widget-large p,
-.contact-box p,
-.privacy-box p,
-.cookie-box p,
-.terms-box p {
+/* Paragrafi generici widget grandi e lista tools */
+.widget-large p {
     color: #baf7ff !important;
     line-height: 1.6 !important;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.35) !important;
 }
 
-.tools-list li,
-.contact-box li,
-.privacy-box li,
-.cookie-box li,
-.terms-box li {
+.tools-list li {
     color: #baf7ff !important;
     margin-bottom: 6px;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35) !important;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.35) !important;
 }
 
+/* Feed Cyber */
 .cyber-feed-list {
     display: grid;
     gap: 18px;
@@ -506,20 +495,22 @@
     padding: 12px 14px;
     border-radius: 6px;
     color: #baf7ff;
-    text-shadow: 0 0 6px rgba(0,255,255,0.35);
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.35);
 }
 
-.cyber-feed-list strong,
-.contact-box strong {
+.cyber-feed-list strong {
     color: #00eaff;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
 }
 
+/* ============================
+   BOX INFORMATIVI (CONTATTI, PRIVACY, COOKIE, TERMINI)
+============================ */
 .contact-box,
 .privacy-box,
 .cookie-box,
 .terms-box {
-    background: #050a18; /* ⭐ Sfondo solido: elimina il calcolo con il bianco di default */
+    background: #050a18; /* Sfondo solido: evita problemi di calcolo contrasto */
     border: 1px solid rgba(0, 255, 255, 0.25);
     border-radius: 10px;
     padding: 22px;
@@ -527,17 +518,18 @@
     box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
 }
 
-/* Testo dei paragrafi e delle liste (Contrasto elevato > 14:1) */
+/* Testo paragrafi e liste: Alto contrasto WCAG (> 14:1) */
 .contact-box p, .contact-box li,
 .privacy-box p, .privacy-box li,
 .cookie-box p, .cookie-box li,
 .terms-box p, .terms-box li {
     color: #d1f7ff !important;
     line-height: 1.6 !important;
+    margin-bottom: 6px;
     text-shadow: 0 0 6px rgba(0, 255, 255, 0.35) !important;
 }
 
-/* Intestazioni e titoli in bianco puro */
+/* Titoli e scritte in grassetto: Bianco puro */
 .contact-box h2, .contact-box h3,
 .privacy-box h2, .privacy-box h3,
 .cookie-box h2, .cookie-box h3,
@@ -555,14 +547,14 @@
     margin-bottom: 12px !important;
 }
 
-/* Link accessibili (con sottolineatura e grassetto a norma WCAG) */
+/* Link conformi WCAG con sottolineatura visiva */
 .contact-box a,
 .privacy-box a,
 .cookie-box a,
 .terms-box a {
     color: #00eaff !important;
     font-weight: 700 !important;
-    text-decoration: underline !important; /* ⭐ Distingue i link dal testo circostante */
+    text-decoration: underline !important;
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.6) !important;
 }
 
