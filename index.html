@@ -37,7 +37,7 @@
   <!-- ⭐ 2. PRELOAD DELLE RISORSE CRITICHE (AVVIO IMMEDIATO) -->
   <link rel="preload" href="/partials/sidebar.html" as="fetch" crossorigin>
   <link rel="preload" as="image" href="/img/eyes.png">
-  <link rel="preload" as="image" href="/img/calc-neon.png">
+  <link rel="preload" as="image" href="/img/calc-neon.webp">
 
   <!-- ⭐ 3. FAVICON -->
   <link rel="icon" type="image/png" href="/img/favicon.webp">
@@ -1746,7 +1746,7 @@ async function sendNewsletter(e) {
 <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/cyber-grid.png" class="box-title-icon" alt="Cyber Grid">
+    <img src="/img/cyber-grid.webp" class="box-title-icon" alt="Cyber Grid">
     <h2>Vulnerabilità del Giorno</h2>
   </div>
 
@@ -1869,7 +1869,7 @@ modal.onclick = () => modal.style.display = "none";
 <!-- CYBER ALERT LIVE -->
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/cyber-circuit.png" class="box-title-icon" alt="Cyber Circuit">
+    <img src="/img/cyber-circuit.webp" class="box-title-icon" alt="Cyber Circuit">
     <h2>Cyber Alert Live</h2>
 
     <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
@@ -2268,7 +2268,7 @@ async function loadSocTV() {
       setTimeout(() => {
         let imgUrl = item.image;
         if (!imgUrl || imgUrl.trim() === "" || imgUrl.length < 5) {
-          imgUrl = "/img/cyber-circuit.png";
+          imgUrl = "/img/cyber-circuit.webp";
         }
 
         img.src = imgUrl;
