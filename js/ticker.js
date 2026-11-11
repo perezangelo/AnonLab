@@ -1,5 +1,5 @@
 /* ============================================================
-   TICKER — VERSIONE "TRENO DI NEWS" (continua + immagini)
+   TICKER — VERSIONE "TRENO DI NEWS" (OTTIMIZZATA & VELOCE)
 ============================================================ */
 
 let tickerNews = [];
@@ -36,12 +36,11 @@ function buildTickerTrain() {
     if (!el) return;
 
     const wrapper = el.parentElement;
-    wrapper.style.overflow = "hidden";
+    if (wrapper) wrapper.style.overflow = "hidden";
 
     const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
     const icons = ["◆", "◉", "✦", "❯"];
 
-    // Costruisco una stringa unica con TUTTE le news concatenate
     let html = "";
 
     tickerNews.forEach((item, idx) => {
@@ -51,6 +50,9 @@ function buildTickerTrain() {
         const img = item.image && item.image.trim() !== ""
             ? item.image
             : "https://picsum.photos/40/40?random=" + idx;
+
+        // Pulizia del titolo per evitare che eventuali virgolette rompano l'HTML
+        const cleanTitle = String(item.title || "Notizia cyber").replace(/"/g, '&quot;');
 
         html += `
             <a href="${item.link || "#"}" style="
@@ -65,10 +67,15 @@ function buildTickerTrain() {
                 text-shadow:0 0 8px ${neon};
             ">
                 <img src="${img}" 
-     alt="${item.title || 'Notizia cyber'}"
-     style="height:20px;width:20px;object-fit:cover;border-radius:4px;margin-right:6px;">
+                     width="20" 
+                     height="20"
+                     alt=""
+                     aria-hidden="true"
+                     loading="lazy"
+                     decoding="async"
+                     style="width:20px;height:20px;object-fit:cover;border-radius:4px;margin-right:6px;flex-shrink:0;">
                 <span style="margin-right:6px;">${icon}</span>
-                <span>${item.title}</span>
+                <span>${cleanTitle}</span>
             </a>
         `;
     });
@@ -80,7 +87,6 @@ function buildTickerTrain() {
     el.style.whiteSpace = "nowrap";
     el.style.transform = "translateX(0px)";
 
-    // posizione iniziale
     pos = 0;
 
     if (tickerFrame) cancelAnimationFrame(tickerFrame);
@@ -88,24 +94,17 @@ function buildTickerTrain() {
 }
 
 /* ============================================================
-   SCORRIMENTO CONTINUO SENZA FERMARSI
+   SCORRIMENTO CONTINUO SENZA FORCED REFLOW
 ============================================================ */
 function startContinuousScroll() {
     const el = document.getElementById("ticker-text");
     if (!el) return;
 
     const contentWidth = el.scrollWidth;
-    const tickerEl = document.querySelector(".ticker");
-    if (!tickerEl) return;
-
-    const tickerWidth = tickerEl.getBoundingClientRect().width;
 
     function step() {
         pos -= speed;
 
-        // quando metà del contenuto è uscita a sinistra,
-        // riportiamo la posizione avanti di metà larghezza
-        // così il "treno" è sempre continuo
         if (pos <= -contentWidth / 2) {
             pos += contentWidth / 2;
         }
