@@ -518,15 +518,35 @@
 .privacy-box,
 .cookie-box,
 .terms-box {
-    background: rgba(0, 0, 0, 0.55);
+    background: #050a18; /* ⭐ Sfondo solido: elimina il calcolo con il bianco di default */
     border: 1px solid rgba(0, 255, 255, 0.25);
     border-radius: 10px;
     padding: 22px;
     margin-bottom: 25px;
     box-shadow: 0 0 14px rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(4px);
 }
 
+/* Testo dei paragrafi e delle liste (Contrasto elevato > 14:1) */
+.contact-box p, .contact-box li,
+.privacy-box p, .privacy-box li,
+.cookie-box p, .cookie-box li,
+.terms-box p, .terms-box li {
+    color: #d1f7ff !important;
+    line-height: 1.6 !important;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.35) !important;
+}
+
+/* Intestazioni e titoli in bianco puro */
+.contact-box h2, .contact-box h3,
+.privacy-box h2, .privacy-box h3,
+.cookie-box h2, .cookie-box h3,
+.terms-box h2, .terms-box h3,
+.contact-box strong, .privacy-box strong, .cookie-box strong, .terms-box strong {
+    color: #ffffff !important;
+}
+
+/* Rientro delle liste */
+.contact-box ul,
 .privacy-box ul,
 .cookie-box ul,
 .terms-box ul {
@@ -534,11 +554,15 @@
     margin-bottom: 12px !important;
 }
 
+/* Link accessibili (con sottolineatura e grassetto a norma WCAG) */
+.contact-box a,
 .privacy-box a,
 .cookie-box a,
 .terms-box a {
     color: #00eaff !important;
-    text-shadow: 0 0 8px rgba(0,255,255,0.6) !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important; /* ⭐ Distingue i link dal testo circostante */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6) !important;
 }
 
 /* ============================
