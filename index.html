@@ -2921,13 +2921,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<!-- POPUP PROMO BLOG + FORUM -->
+<!-- POPUP PROMO BLOG + FORUM (ACCESSIBILE & CONFORME WCAG) -->
 <div id="promo-popup" style="
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: #0b1224;
-    color: #f1f5f9;                 /* ⭐ Testo bianco/chiaro per contrasto massimo (16:1) */
+    color: #f1f5f9;                 /* ⭐ Bianco latte ad alto contrasto (> 15:1) */
     border: 1px solid #00eaff;
     padding: 16px 20px;
     border-radius: 8px;
@@ -2937,7 +2937,7 @@ document.addEventListener("DOMContentLoaded", () => {
     z-index: 9999;
     width: 270px;
     opacity: 0;
-    visibility: hidden;             /* ⭐ FONDAMENTALE: impedisce a Lighthouse di calcolare contrasto 1:1 quando è chiuso */
+    visibility: hidden;             /* ⭐ FONDAMENTALE: impedisce a Lighthouse di calcolare contrasto 1:1 prima dell'apertura */
     transform: translateY(20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 ">
@@ -2977,7 +2977,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Mostra il popup in dissolvenza dopo 3 secondi
+    // Mostra il popup dopo 3 secondi
     setTimeout(() => {
         popup.style.visibility = "visible";
         popup.style.opacity = "1";
@@ -2993,30 +2993,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 400);
         sessionStorage.setItem("anonlab_promo_closed", "true");
     });
-});
-</script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    if (sessionStorage.getItem("promoShown")) return;
-
-    const popup = document.getElementById("promo-popup");
-    const closeBtn = document.getElementById("promo-close");
-
-    setTimeout(() => {
-        popup.style.opacity = "1";
-        popup.style.transform = "translateY(0)";
-        sessionStorage.setItem("promoShown", "true");
-    }, 6000);
-
-    closeBtn.addEventListener("click", () => {
-        popup.style.opacity = "0";
-        popup.style.transform = "translateY(20px)";
-    });
-
-    setTimeout(() => {
-        popup.style.opacity = "0";
-        popup.style.transform = "translateY(20px)";
-    }, 12000);
 });
 </script>
 	
