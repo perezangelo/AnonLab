@@ -139,11 +139,10 @@
 }
 
 .site-header .logo .logo-icon {
-    width: 26px !important;
-    height: 26px !important;
+    /* width e height rimosse da qui perché gestite più in basso a 48px / 36px */
     opacity: 1 !important;
     display: inline-block !important;
-    filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important;
+    filter: drop-shadow(0 0 6px rgba(0,255,255,0.9)) !important; /* ⭐ Tiene il neon */
     position: relative !important;
     z-index: 999 !important;
 }
