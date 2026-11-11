@@ -2921,13 +2921,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<!-- POPUP PROMO BLOG + FORUM (ORIGINALE RIPRISTINATO + OTTIMIZZAZIONI WCAG & LIGHTHOUSE) -->
+<!-- POPUP PROMO BLOG + FORUM (SINCRONIZZATO CON I TEMPI DELL'UPDATE NOTIFICATION) -->
 <div id="promo-popup" style="
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: #0b1224;
-    color: #f1f5f9;                 /* ⭐ Alto contrasto WCAG (> 15:1) */
+    color: #f1f5f9;                 /* Alto contrasto WCAG (> 15:1) */
     border: 1px solid #00eaff;
     padding: 16px 20px;
     border-radius: 8px;
@@ -2936,8 +2936,10 @@ document.addEventListener("DOMContentLoaded", () => {
     line-height: 1.5;
     z-index: 9999;
     width: 270px;
+    max-width: calc(100vw - 40px);  /* Previene sgranamenti o overflow su mobile */
+    box-sizing: border-box;
     opacity: 0;
-    visibility: hidden;             /* ⭐ Lighthouse: evita errori di contrasto prima dell'apertura */
+    visibility: hidden;             /* Lighthouse compliant */
     transform: translateY(20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 ">
@@ -2966,47 +2968,47 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Rispetta la sessione come nell'originale
+function initPromoPopup() {
+    // Se già visualizzato in questa sessione, non ripeterlo
     if (sessionStorage.getItem("promoShown")) return;
 
     const popup = document.getElementById("promo-popup");
     const closeBtn = document.getElementById("promo-close");
-
     if (!popup || !closeBtn) return;
 
     let autoCloseTimer = null;
 
-    // Funzione unificata di dissolvenza
-    function nascondiPopup() {
+    // Funzione di chiusura con dissolvenza fluida
+    function chiudiPromo() {
         if (autoCloseTimer) clearTimeout(autoCloseTimer);
 
         popup.style.opacity = "0";
         popup.style.transform = "translateY(20px)";
 
-        // Quando finisce la transizione (400ms), nasconde del tutto per liberare l'area di tocco su mobile
         setTimeout(() => {
             popup.style.visibility = "hidden";
         }, 400);
+
+        sessionStorage.setItem("promoShown", "true");
     }
 
-    // 2. TEMPO ORIGINALE: Compare dopo 6 secondi (6000ms)
-    setTimeout(() => {
-        popup.style.visibility = "visible";
-        popup.style.opacity = "1";
-        popup.style.transform = "translateY(0)";
-        
-        // Segna come già mostrato per questa sessione
-        sessionStorage.setItem("promoShown", "true");
+    // 1. Mostra il popup
+    popup.style.visibility = "visible";
+    popup.style.opacity = "1";
+    popup.style.transform = "translateY(0)";
+    sessionStorage.setItem("promoShown", "true");
 
-        // 3. TEMPO ORIGINALE: Sparisce da solo dopo altri 6 secondi (totale 12000ms dall'apertura pagina)
-        autoCloseTimer = setTimeout(nascondiPopup, 6000);
-    }, 6000);
+    // 2. Chiusura automatica dopo 12 secondi (12000 ms) esatti dalla comparsa
+    autoCloseTimer = setTimeout(chiudiPromo, 12000);
 
-    // Chiusura manuale immediata al click della '✕'
-    closeBtn.addEventListener("click", nascondiPopup);
-});
-</script>
+    // 3. Chiusura manuale se l'utente preme la '✕'
+    closeBtn.addEventListener("click", chiudiPromo);
+}
+
+// Avvio dopo 2,5 secondi (2500 ms) come nel popup di aggiornamento
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(initPromoPopup, 2500);
 	
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
