@@ -222,27 +222,55 @@ function waitForSidebar() {
 }
 
 /* ============================================================
-   D) DOM READY — VERSIONE OTTIMIZZATA
+   PRE-FETCH IMMEDIATO DEI PARTIALS (Parte a tempo 0)
+============================================================ */
+// I file iniziano a scaricare subito in parallelo, prima ancora che il DOM sia pronto
+const partialsCache = {
+    header: fetch("partials/header.html").then(r => r.ok ? r.text() : "").catch(() => ""),
+    ticker: fetch("partials/ticker.html").then(r => r.ok ? r.text() : "").catch(() => ""),
+    sidebar: fetch("partials/sidebar.html").then(r => r.ok ? r.text() : "").catch(() => ""),
+    footer: fetch("partials/footer.html").then(r => r.ok ? r.text() : "").catch(() => "")
+};
+
+/* ============================================================
+   D) DOM READY — INIEZIONE ISTANTANEA (ZERO ATTESE)
 ============================================================ */
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Caricamento partials
-    loadPartial("header", "partials/header.html");
-    loadPartial("ticker", "partials/ticker.html").then(() => {
+document.addEventListener("DOMContentLoaded", async () => {
+    
+    // 1. Inietta Header
+    const headerEl = document.getElementById("header");
+    if (headerEl) {
+        headerEl.innerHTML = await partialsCache.header;
+    }
+
+    // 2. Inietta Ticker
+    const tickerEl = document.getElementById("ticker");
+    if (tickerEl) {
+        tickerEl.innerHTML = await partialsCache.ticker;
         if (typeof loadTickerNews === "function") loadTickerNews();
-    });
+    }
 
-    loadPartial("sidebar", "partials/sidebar.html");   // ⭐ Sidebar obbligatoria
-    loadPartial("footer", "partials/footer.html");
+    // 3. Inietta Sidebar (Già pronta in cache!)
+    const sidebarEl = document.getElementById("sidebar");
+    if (sidebarEl) {
+        sidebarEl.innerHTML = await partialsCache.sidebar;
 
-    // Attende che la sidebar sia caricata
-    waitForSidebar().then(() => {
-        loadMeteo();
+        // Inizializza i widget subito e UNA SOLA VOLTA (senza polling waitForSidebar)
+        requestAnimationFrame(() => {
+            loadMeteo();
+            initOroscopo();
+            if (typeof initVisitCounter === "function") initVisitCounter();
+            if (typeof initRadio === "function") initRadio();
+            if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+        });
+    }
 
-        if (typeof initVisitCounter === "function") {
-            initVisitCounter();
-        }
-    });
+    // 4. Inietta Footer
+    const footerEl = document.getElementById("footer");
+    if (footerEl) {
+        footerEl.innerHTML = await partialsCache.footer;
+    }
 });
 
 /* ============================================================
