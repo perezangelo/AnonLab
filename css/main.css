@@ -161,58 +161,6 @@ h3 {
 }
 
 /* ============================================================
-   TICKER (Struttura Base)
-============================================================ */
-
-.ticker {
-  max-width: 1200px;
-  margin: 0 auto 14px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.ticker-title {
-  background: linear-gradient(135deg, #ff4b6e, #ff9f43);
-  color: #050308;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 10px 14px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.ticker-content {
-  background: #111;
-  border: 1px solid var(--border-subtle);
-  border-radius: 999px;
-  padding: 8px 14px;
-  overflow: visible;
-  position: relative;
-  white-space: nowrap;
-}
-
-#ticker-text {
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(0,255,255,0.6);
-  text-decoration: none;
-  transition: opacity 0.4s ease, color 0.3s ease;
-}
-
-#ticker-text:hover {
-  color: #00faff;
-  text-shadow: 0 0 10px rgba(0,255,255,0.9);
-}
-
-/* ============================================================
    SEZIONE 3 — WIDGET + NEWS + FEED + ALERT
 ============================================================ */
 
