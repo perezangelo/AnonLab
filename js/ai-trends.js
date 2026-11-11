@@ -11,13 +11,14 @@ fetch('https://angelonline.altervista.org/api/ai-trends.php')
         <div class="widget-mini" style="display:flex;align-items:flex-start;gap:15px;margin-bottom:20px;">
           
           <!-- IMMAGINE CON LAZY LOADING PER RISPARMIARE BANDA -->
-          <img src="${item.image}" 
-               alt="${item.title || 'AI trend'}"
-               width="90" height="60"
-               loading="lazy"
-               decoding="async"
-               class="tech-thumb"
-               style="width:90px;height:auto;border-radius:6px;flex-shrink:0;">
+          <img src="${item.image}"
+     alt="${item.title || 'AI trend'}"
+     width="90"
+     height="60"
+     loading="lazy"
+     decoding="async"
+     class="tech-thumb"
+     style="width:90px;height:60px;aspect-ratio:3/2;object-fit:cover;border-radius:6px;flex-shrink:0;">
 
           <!-- TESTO A DESTRA -->
           <div class="box-content" style="flex:1;">
