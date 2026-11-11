@@ -36,7 +36,7 @@
 
   <!-- ⭐ 2. PRELOAD DELLE RISORSE CRITICHE (AVVIO IMMEDIATO) -->
   <link rel="preload" href="/partials/sidebar.html" as="fetch" crossorigin>
-  <link rel="preload" as="image" href="/img/eyes.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/img/eyes.png">
   <link rel="preload" as="image" href="/img/calc-neon.png">
 
   <!-- ⭐ 3. FAVICON -->
@@ -121,9 +121,22 @@
     }
   </script>
 
-  <!-- ⭐ 8. GOOGLE ADSENSE (ASYNC) -->
   <meta name="google-adsense-account" content="ca-pub-1655066977213725">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
+<script>
+  function caricaAdSense() {
+      if (window.adsenseCaricato) return;
+      window.adsenseCaricato = true;
+      const script = document.createElement('script');
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725";
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      document.head.appendChild(script);
+  }
+  // Si attiva solo al primo scroll, al primo tocco dello schermo o dopo 3,5 secondi
+  window.addEventListener('scroll', caricaAdSense, { once: true, passive: true });
+  window.addEventListener('touchstart', caricaAdSense, { once: true, passive: true });
+  setTimeout(caricaAdSense, 3500);
+</script>
 
   <!-- ⭐ 9. IUBENDA COOKIE BANNER (NON PIÙ BLOCCANTE) -->
   <script async src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
