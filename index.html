@@ -5,15 +5,10 @@
   <title>AnonLab — Cybersecurity, Threat Intelligence e Analisi Tecniche</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ⭐ META DESCRIPTION -->
+  <!-- ⭐ META SEO -->
   <meta name="description" content="AnonLab: cybersecurity, threat intelligence, analisi delle minacce e strumenti SOC. Scopri report tecnici e AnonBot, il tuo assistente AI per la sicurezza digitale.">
-
-  <!-- ⭐ KEYWORDS -->
   <meta name="keywords" content="cybersecurity, threat intelligence, SOC, OSINT, vulnerabilità, CVE, attacchi informatici, sicurezza informatica, cyber threat, analisi tecnica, AI security, digital forensics">
-
   <meta name="author" content="AnonLab">
-
-  <!-- ⭐ CANONICAL -->
   <link rel="canonical" href="https://anonlab.it/">
 
   <!-- ⭐ ROBOTS -->
@@ -24,24 +19,31 @@
   <!-- ⭐ SITEMAP -->
   <link rel="sitemap" type="application/xml" href="https://anonlab.it/sitemap.xml">
 
-  <!-- ⭐ VERIFICHE MOTORI -->
+  <!-- ⭐ VERIFICHE MOTORI & INDEXNOW -->
   <meta name="google-site-verification" content="Ezo8uFhQT8ufUXUtlJxJ3CXbqJl_ep2v4vSLKBphbR8">
   <meta name="yandex-verification" content="a7f6e10820111245">
   <meta name="baidu-site-verification" content="INSERISCI_CODICE_BAIDU">
+  <meta name="indexnow" content="https://anonlab.it/indexnow.txt">
+  <meta name="msvalidate.01" content="ACC9FA4070110C6475B017AD990B7256"/>
 
-  <!-- ⭐ PERFORMANCE -->
-  <link rel="preload" href="/css/main.css" as="style">
-  <link rel="preload" href="/css/custom.css" as="style">
-  <link rel="preload" as="image" href="/img/eyes.png" fetchpriority="high">
-  <link rel="dns-prefetch" href="//anonlab.it">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com&display=swap">
+  <!-- ⭐ 1. PRECONNECT & DNS-PREFETCH (CONNESSIONI ESTERNE ANTICIPATE) -->
+  <link rel="preconnect" href="https://cdn.iubenda.com" crossorigin>
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://api.open-meteo.com">
+  <link rel="preconnect" href="https://angelonline.altervista.org">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-  <!-- ⭐ FAVICON -->
+  <!-- ⭐ 2. PRELOAD DELLE RISORSE CRITICHE (AVVIO IMMEDIATO) -->
+  <link rel="preload" href="/partials/sidebar.html" as="fetch" crossorigin>
+  <link rel="preload" as="image" href="/img/eyes.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/img/calc-neon.png">
+
+  <!-- ⭐ 3. FAVICON -->
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <link rel="apple-touch-icon" href="/img/favicon.png">
 
-  <!-- ⭐ OPEN GRAPH -->
+  <!-- ⭐ 4. OPEN GRAPH & TWITTER -->
   <meta property="og:title" content="AnonLab — Cybersecurity, SOC e Threat Intelligence">
   <meta property="og:description" content="Analisi tecniche, threat intelligence, vulnerabilità e strumenti per la sicurezza informatica.">
   <meta property="og:image" content="https://anonlab.it/img/eyes.png">
@@ -49,21 +51,27 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AnonLab">
   <meta property="og:locale" content="it_IT">
-
-  <!-- ⭐ TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AnonLab — Cybersecurity, SOC e Threat Intelligence">
   <meta name="twitter:description" content="Analisi tecniche, threat intelligence, vulnerabilità e strumenti per la sicurezza informatica.">
   <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
 
-  <!-- ⭐ INDEXNOW -->
-  <meta name="indexnow" content="https://anonlab.it/indexnow.txt">
-  <meta name="msvalidate.01" content="ACC9FA4070110C6475B017AD990B7256"/>
-	
-    <!-- Altri meta tag, CSS e font -->
-    <link rel="stylesheet" href="/css/main.css">
+  <!-- ⭐ 5. CSS (UNICO CARICAMENTO, NIENTE DUPLICATI) -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
 
-  <!-- ⭐ JSON-LD -->
+  <!-- ⭐ FIX SYSTEM STATUS GRID -->
+  <style>
+    #system-status-grid {
+        display: block !important;
+        width: 100% !important;
+        min-height: 250px !important;
+        padding: 20px !important;
+        overflow: visible !important;
+    }
+  </style>
+
+  <!-- ⭐ 6. JSON-LD DATI STRUTTURATI -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -87,7 +95,6 @@
   }
   </script>
 
-  <!-- ⭐ BREADCRUMB -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -103,72 +110,51 @@
   }
   </script>
 
-	<script>
+  <!-- ⭐ 7. SERVICE WORKER -->
+  <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('Service Worker registrato con successo'))
+                .then(reg => console.log('Service Worker registrato'))
                 .catch(err => console.error('Errore registrazione SW:', err));
         });
     }
-</script>
-	
-  <!-- ⭐ CSS -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
+  </script>
 
-  <!-- ⭐ FIX SYSTEM STATUS GRID -->
-  <style>
-    #system-status-grid {
-        display: block !important;
-        width: 100% !important;
-        min-height: 250px !important;
-        padding: 20px !important;
-        overflow: visible !important;
-    }
-  </style>
-
-	<!-- ⭐ GOOGLE ADSENSE -->
+  <!-- ⭐ 8. GOOGLE ADSENSE (ASYNC) -->
   <meta name="google-adsense-account" content="ca-pub-1655066977213725">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
 
-  <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
-<script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-<script>
-(_iub=self._iub||[]).csConfiguration={
-	cookiePolicyId: 12413505,
-	siteId: 4661380,
-	localConsentDomain: 'anonlab.it',
-	timeoutLoadConfiguration: 30000,
-	lang: 'it',
-	enableTcf: true,
-	tcfVersion: 2,
-	tcfPurposes: {
-		 "2": "consent_only",
-		 "3": "consent_only",
-		 "4": "consent_only",
-		 "5": "consent_only",
-		 "6": "consent_only",
-		 "7": "consent_only",
-		 "8": "consent_only",
-		 "9": "consent_only",
-		"10": "consent_only"
-	},
-	invalidateConsentWithoutLog: true,
-	googleAdditionalConsentMode: true,
-	consentOnContinuedBrowsing: false,
-	banner: {
-		position: "bottom",
-		acceptButtonDisplay: true,
-		customizeButtonDisplay: true,
-		closeButtonDisplay: true,
-		closeButtonRejects: true,
-		fontSizeBody: "14px",
-	},
-}
-</script>
-<script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
+  <!-- ⭐ 9. IUBENDA COOKIE BANNER (NON PIÙ BLOCCANTE) -->
+  <script async src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+  <script>
+  (_iub=self._iub||[]).csConfiguration={
+    cookiePolicyId: 12413505,
+    siteId: 4661380,
+    localConsentDomain: 'anonlab.it',
+    timeoutLoadConfiguration: 30000,
+    lang: 'it',
+    enableTcf: true,
+    tcfVersion: 2,
+    tcfPurposes: {
+      "2": "consent_only", "3": "consent_only", "4": "consent_only",
+      "5": "consent_only", "6": "consent_only", "7": "consent_only",
+      "8": "consent_only", "9": "consent_only", "10": "consent_only"
+    },
+    invalidateConsentWithoutLog: true,
+    googleAdditionalConsentMode: true,
+    consentOnContinuedBrowsing: false,
+    banner: {
+      position: "bottom",
+      acceptButtonDisplay: true,
+      customizeButtonDisplay: true,
+      closeButtonDisplay: true,
+      closeButtonRejects: true,
+      fontSizeBody: "14px",
+    },
+  };
+  </script>
+  <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 </head>
 
 <body class="dark-mode">
