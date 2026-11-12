@@ -6,7 +6,7 @@
    HERO — STILE NEON DEFINITIVO DI PRODUZIONE
 ============================ */
 .hero-big {
-    background-image: url('/img/hero-big.png') !important;
+    background-image: url('/img/hero-bg.png') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
