@@ -363,7 +363,7 @@ h3 {
   text-align: center;
   padding: 60px 20px;
   min-height: 420px; /* ⭐ Stabilità anti-CLS: previene il ridimensionamento */
-  background-image: url("/img/hero-bg.png");
+  background-image: url("/img/hero-bg.webp"); /* ✅ FIX: Convertita in WebP per eliminare 2.5MB */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -426,6 +426,7 @@ h3 {
   transform: translateX(-85%);
   width: 32%;
   max-width: 260px;
+  height: auto; /* ✅ FIX: mantiene la proporzione perfetta evitando distorsioni */
   filter: drop-shadow(0 0 12px rgba(0, 234, 255, 0.18));
   z-index: 6;
   mask-image: radial-gradient(circle, black 50%, transparent 100%);
