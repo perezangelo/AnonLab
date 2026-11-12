@@ -288,7 +288,7 @@
     </div>
   </div>
 
-  <!-- DASH ADMIN IMAGE BUTTON + HERO4 (ORA SALE ACCANTO ALLE NEWS) -->
+  <!-- DASH ADMIN IMAGE BUTTON + HERO4 -->
   <div style="
       display: flex;
       flex-direction: column;
@@ -296,11 +296,13 @@
       gap: 12px;
       min-width: 150px;
   ">
-      <!-- Immagine Hero4 -->
-      <img src="/img/Hero4.png"
+      <!-- Immagine Hero4: WebP + Lazy loading -->
+      <img src="/img/Hero4.webp"
            alt="Hero4 Visual Cyber Graphic"
            width="150"
            height="80"
+           loading="lazy"
+           decoding="async"
            style="
               width: 150px;
               height: auto;
@@ -309,12 +311,14 @@
               display: block;
            ">
 
-      <!-- Accesso amministratore OIP -->
+      <!-- Accesso amministratore OIP: WebP + Lazy loading -->
       <a href="https://anonlab.it/login.html" style="display:inline-block;">
-          <img src="/img/OIP.png"
+          <img src="/img/OIP.webp"
                alt="Admin Access"
                width="150"
                height="80"
+               loading="lazy"
+               decoding="async"
                style="
                   width: 150px;
                   height: auto;
@@ -343,12 +347,14 @@
   flex-wrap: wrap;
 ">
 
-  <!-- IMMAGINE SOTTO IL MENU (A SINISTRA) -->
+  <!-- IMMAGINE AI-SOC: WebP + Lazy loading -->
   <div>
-    <img src="img/ai-soc.jpg"
+    <img src="/img/ai-soc.webp"
          alt="AI SOC"
          width="295"
          height="171"
+         loading="lazy"
+         decoding="async"
          style="
            width: 220px;
            height: auto;
@@ -359,7 +365,7 @@
          ">
   </div>
 
-  <!-- GOOGLE SEARCH + NEWSLETTER (A DESTRA, SENZA MARGINE NEGATIVO — 320PX GARANTITI) -->
+  <!-- GOOGLE SEARCH + NEWSLETTER -->
   <div style="
       display: flex;
       flex-direction: column;
@@ -377,12 +383,14 @@
           gap: 15px;
           width: 100%;
       ">
-          <img src="/img/gears.png"
+          <img src="/img/gears.webp"
                alt=""
                aria-hidden="true"
                class="box-title-icon"
                width="32"
                height="32"
+               loading="lazy"
+               decoding="async"
                style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form action="https://www.google.com/search" method="GET"
@@ -436,12 +444,14 @@
           gap: 15px;
           width: 100%;
       ">
-          <img src="/img/newsletter.png"
+          <img src="/img/newsletter.webp"
                alt=""
                aria-hidden="true"
                class="box-title-icon"
                width="32"
                height="32"
+               loading="lazy"
+               decoding="async"
                style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form onsubmit="return sendNewsletter(event)"
