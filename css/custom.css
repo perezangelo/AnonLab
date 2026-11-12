@@ -1257,3 +1257,139 @@ details input {
         max-width: 100% !important;
     }
 }
+
+<!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
+<style>
+@media (max-width: 480px) {
+  .google-wrapper {
+    max-width: 260px !important; /* allinea tutto alla colonna */
+  }
+  .google-wrapper input {
+    padding: 10px !important;
+    font-size: 0.95rem !important;
+  }
+  .google-wrapper button {
+    padding: 10px 14px !important;
+  }
+}
+</style>
+
+      <style>
+@media (max-width: 480px) {
+  .ai-soc-img {
+    width: 200px !important;
+    margin-top: 10px !important;
+  }
+}
+
+        /* WRAPPER */
+.anon-slider-wrapper {
+  margin: 40px 0 25px 0;
+  position: relative;
+}
+
+/* SLIDER ORIZZONTALE */
+.anon-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.anon-slide {
+  flex: 0 0 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 14px #ff7b00;
+  cursor: pointer;
+}
+
+.anon-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* DIDASCALIA */
+.anon-caption {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ff7b00;
+  text-shadow: 0 0 10px #ff7b00;
+  font-weight: bold;
+}
+
+/* PULSANTE PLAY/PAUSA */
+.anon-slider-controls {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.anon-slider-btn {
+  background: #111;
+  border: 1px solid #ff7b00;
+  color: #ff7b00;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  box-shadow: 0 0 10px #ff7b00;
+}
+
+.anon-slider-btn:hover {
+  background: #ff7b00;
+  color: #111;
+}
+
+/* FULLSCREEN MODAL */
+.anon-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10,10,10,0.95);
+}
+
+.anon-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 20px #ff7b00;
+}
+
+.anon-modal-caption {
+  margin: 20px auto;
+  text-align: center;
+  color: #ffbb55;
+  font-size: 1.2rem;
+}
+
+.anon-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #ff7b00;
+  font-size: 40px;
+  cursor: pointer;
+  text-shadow: 0 0 10px #ff7b00;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .anon-slide {
+    flex: 0 0 260px;
+  }
+  .anon-slide img {
+    height: 160px;
+  }
+}
+      </style>
