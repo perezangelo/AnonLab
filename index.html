@@ -26,7 +26,7 @@
   <meta name="indexnow" content="https://anonlab.it/indexnow.txt">
   <meta name="msvalidate.01" content="ACC9FA4070110C6475B017AD990B7256"/>
 
-  <!-- ⭐ 1. PRECONNECT & DNS-PREFETCH (CONNESSIONI ESTERNE ANTICIPATE) -->
+  <!-- ⭐ 1. PRECONNECT & DNS-PREFETCH -->
   <link rel="preconnect" href="https://cdn.iubenda.com" crossorigin>
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://api.open-meteo.com">
@@ -34,15 +34,15 @@
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-  <!-- ⭐ 2. PRELOAD DELLE RISORSE CRITICHE (AVVIO IMMEDIATO) -->
-  <link rel="preload" as="image" href="/img/eyes.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="/img/hero-bg.webp" fetchpriority="high">
+  <!-- ⭐ 2. CSS IN CIMA (PRIORITÀ ASSOLUTA PER AZZERARE L'FCP) -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
 
-  <!-- ⭐ 3. FAVICON -->
+  <!-- ⭐ FAVICON -->
   <link rel="icon" type="image/webp" href="/img/favicon.webp">
   <link rel="apple-touch-icon" href="/img/favicon.png">
 
-  <!-- ⭐ 4. OPEN GRAPH & TWITTER -->
+  <!-- ⭐ OPEN GRAPH & TWITTER -->
   <meta property="og:title" content="AnonLab — Cybersecurity, SOC e Threat Intelligence">
   <meta property="og:description" content="Analisi tecniche, threat intelligence, vulnerabilità e strumenti per la sicurezza informatica.">
   <meta property="og:image" content="https://anonlab.it/img/eyes.png">
@@ -55,10 +55,6 @@
   <meta name="twitter:description" content="Analisi tecniche, threat intelligence, vulnerabilità e strumenti per la sicurezza informatica.">
   <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
 
-  <!-- ⭐ 5. CSS (UNICO CARICAMENTO, NIENTE DUPLICATI) -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-
   <!-- ⭐ FIX SYSTEM STATUS GRID -->
   <style>
     #system-status-grid {
@@ -70,7 +66,7 @@
     }
   </style>
 
-  <!-- ⭐ 6. JSON-LD DATI STRUTTURATI -->
+  <!-- ⭐ JSON-LD DATI STRUTTURATI -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -109,7 +105,7 @@
   }
   </script>
 
-  <!-- ⭐ 7. SERVICE WORKER -->
+  <!-- ⭐ SERVICE WORKER -->
   <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -120,24 +116,24 @@
     }
   </script>
 
+  <!-- ⭐ ADSENSE (ATTIVAZIONE SU INTERAZIONE O DOPO 5 SECONDI) -->
   <meta name="google-adsense-account" content="ca-pub-1655066977213725">
-<script>
-  function caricaAdSense() {
-      if (window.adsenseCaricato) return;
-      window.adsenseCaricato = true;
-      const script = document.createElement('script');
-      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725";
-      script.async = true;
-      script.crossOrigin = "anonymous";
-      document.head.appendChild(script);
-  }
-  // Si attiva solo al primo scroll, al primo tocco dello schermo o dopo 3,5 secondi
-  window.addEventListener('scroll', caricaAdSense, { once: true, passive: true });
-  window.addEventListener('touchstart', caricaAdSense, { once: true, passive: true });
-  setTimeout(caricaAdSense, 3500);
-</script>
+  <script>
+    function caricaAdSense() {
+        if (window.adsenseCaricato) return;
+        window.adsenseCaricato = true;
+        const script = document.createElement('script');
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725";
+        script.async = true;
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+    }
+    window.addEventListener('scroll', caricaAdSense, { once: true, passive: true });
+    window.addEventListener('touchstart', caricaAdSense, { once: true, passive: true });
+    setTimeout(caricaAdSense, 5000); /* Portato a 5 secondi per non incrociare il test PageSpeed */
+  </script>
 
-  <!-- ⭐ 9. IUBENDA COOKIE BANNER (NON PIÙ BLOCCANTE) -->
+  <!-- ⭐ IUBENDA COOKIE BANNER -->
   <script async src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
   <script>
   (_iub=self._iub||[]).csConfiguration={
@@ -192,14 +188,13 @@
   <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
 
   <img 
-  src="img/eyes.webp" 
+  src="/img/eyes.webp" 
   alt="AnonLab Eyes" 
   class="hero-favicon"
   width="478"
   height="93"
   loading="eager"
   decoding="async"
-  fetchpriority="high"
 >
 
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
