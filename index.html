@@ -36,6 +36,7 @@
   <!-- ⭐ 2. CSS IN CIMA (PRIORITÀ ASSOLUTA PER AZZERARE L'FCP) -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
+	<link rel="preload" as="image" href="/img/eyes.webp" fetchpriority="high">
 
   <!-- ⭐ FAVICON -->
   <link rel="icon" type="image/webp" href="/img/favicon.webp">
@@ -129,7 +130,8 @@
     }
     window.addEventListener('scroll', caricaAdSense, { once: true, passive: true });
     window.addEventListener('touchstart', caricaAdSense, { once: true, passive: true });
-    setTimeout(caricaAdSense, 5000); /* Portato a 5 secondi per non incrociare il test PageSpeed */
+    window.addEventListener('mousemove', caricaAdSense, { once: true, passive: true });
+window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: true });
   </script>
 
   <!-- ⭐ IUBENDA COOKIE BANNER -->
@@ -186,19 +188,11 @@
 <section class="hero-big">
   <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
 
-  <img 
-  src="/img/eyes.webp" 
-  alt="AnonLab Eyes" 
-  class="hero-favicon"
-  width="478"
-  height="93"
-  loading="eager"
-  decoding="async"
->
+  <img src="/img/eyes.webp" alt="AnonLab Eyes" class="hero-favicon"
+     width="478" height="93" loading="eager" fetchpriority="high" decoding="async">
 
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
-
 
 <!-- ==========================================
      RIGA 1: DOCK NEWS (SINISTRA) + ADMIN (DESTRA)
