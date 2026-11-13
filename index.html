@@ -22,10 +22,11 @@
   <!-- ⭐ VERIFICHE MOTORI & INDEXNOW -->
   <meta name="google-site-verification" content="Ezo8uFhQT8ufUXUtlJxJ3CXbqJl_ep2v4vSLKBphbR8">
   <meta name="yandex-verification" content="a7f6e10820111245">
+  <meta name="baidu-site-verification" content="INSERISCI_CODICE_BAIDU">
   <meta name="indexnow" content="https://anonlab.it/indexnow.txt">
   <meta name="msvalidate.01" content="ACC9FA4070110C6475B017AD990B7256"/>
 
-  <!-- ⭐ 1. PRECONNECT & DNS-PREFETCH -->
+  <!-- ⭐ 1. PRECONNECT & DNS-PREFETCH (CONNESSIONI ESTERNE ANTICIPATE) -->
   <link rel="preconnect" href="https://cdn.iubenda.com" crossorigin>
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://api.open-meteo.com">
@@ -33,19 +34,18 @@
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-  <!-- ⭐ 2. CSS IN CIMA (PRIORITÀ ASSOLUTA PER AZZERARE L'FCP) -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
-	<link rel="preload" as="image" href="/img/eyes.webp" fetchpriority="high">
+  <!-- ⭐ 2. PRELOAD DELLE RISORSE CRITICHE (AVVIO IMMEDIATO) -->
+  <link rel="preload" as="image" href="/img/eyes.png">
+  <link rel="preload" as="image" href="/img/hero-bg.png" fetchpriority="high">
 
-  <!-- ⭐ FAVICON -->
+  <!-- ⭐ 3. FAVICON -->
   <link rel="icon" type="image/webp" href="/img/favicon.webp">
   <link rel="apple-touch-icon" href="/img/favicon.png">
 
-  <!-- ⭐ OPEN GRAPH & TWITTER -->
+  <!-- ⭐ 4. OPEN GRAPH & TWITTER -->
   <meta property="og:title" content="AnonLab — Cybersecurity, SOC e Threat Intelligence">
   <meta property="og:description" content="Analisi tecniche, threat intelligence, vulnerabilità e strumenti per la sicurezza informatica.">
-  <meta property="og:image" content="https://anonlab.it/img/eyes.webp">
+  <meta property="og:image" content="https://anonlab.it/img/eyes.png">
   <meta property="og:url" content="https://anonlab.it/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AnonLab">
@@ -53,7 +53,11 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AnonLab — Cybersecurity, SOC e Threat Intelligence">
   <meta name="twitter:description" content="Analisi tecniche, threat intelligence, vulnerabilità e strumenti per la sicurezza informatica.">
-  <meta name="twitter:image" content="https://anonlab.it/img/eyes.webp">
+  <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
+
+  <!-- ⭐ 5. CSS (UNICO CARICAMENTO, NIENTE DUPLICATI) -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
 
   <!-- ⭐ FIX SYSTEM STATUS GRID -->
   <style>
@@ -66,7 +70,7 @@
     }
   </style>
 
-  <!-- ⭐ JSON-LD DATI STRUTTURATI -->
+  <!-- ⭐ 6. JSON-LD DATI STRUTTURATI -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -105,7 +109,7 @@
   }
   </script>
 
-  <!-- ⭐ SERVICE WORKER -->
+  <!-- ⭐ 7. SERVICE WORKER -->
   <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -116,25 +120,24 @@
     }
   </script>
 
-  <!-- ⭐ ADSENSE (ATTIVAZIONE SU INTERAZIONE O DOPO 5 SECONDI) -->
   <meta name="google-adsense-account" content="ca-pub-1655066977213725">
-  <script>
-    function caricaAdSense() {
-        if (window.adsenseCaricato) return;
-        window.adsenseCaricato = true;
-        const script = document.createElement('script');
-        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725";
-        script.async = true;
-        script.crossOrigin = "anonymous";
-        document.head.appendChild(script);
-    }
-    window.addEventListener('scroll', caricaAdSense, { once: true, passive: true });
-    window.addEventListener('touchstart', caricaAdSense, { once: true, passive: true });
-    window.addEventListener('mousemove', caricaAdSense, { once: true, passive: true });
-window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: true });
-  </script>
+<script>
+  function caricaAdSense() {
+      if (window.adsenseCaricato) return;
+      window.adsenseCaricato = true;
+      const script = document.createElement('script');
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725";
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      document.head.appendChild(script);
+  }
+  // Si attiva solo al primo scroll, al primo tocco dello schermo o dopo 3,5 secondi
+  window.addEventListener('scroll', caricaAdSense, { once: true, passive: true });
+  window.addEventListener('touchstart', caricaAdSense, { once: true, passive: true });
+  setTimeout(caricaAdSense, 3500);
+</script>
 
-  <!-- ⭐ IUBENDA COOKIE BANNER -->
+  <!-- ⭐ 9. IUBENDA COOKIE BANNER (NON PIÙ BLOCCANTE) -->
   <script async src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
   <script>
   (_iub=self._iub||[]).csConfiguration={
@@ -178,7 +181,7 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
   <div id="ticker"></div>
 
   <!-- ⭐ TICKER JS (UNO SOLO, percorso corretto) -->
-  <script src="/js/ticker.js" defer></script>
+  <script src="/js/ticker.js"></script>
 
   <main class="page">
     
@@ -188,11 +191,18 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
 <section class="hero-big">
   <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
 
-  <img src="/img/eyes.webp" alt="AnonLab Eyes" class="hero-favicon"
-     width="478" height="93" loading="eager" fetchpriority="high" decoding="async">
+  <img 
+    src="img/eyes.png" 
+    alt="AnonLab Eyes" 
+    class="hero-favicon"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  >
 
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
+
 
 <!-- ==========================================
      RIGA 1: DOCK NEWS (SINISTRA) + ADMIN (DESTRA)
@@ -281,7 +291,7 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
     </div>
   </div>
 
-  <!-- DASH ADMIN IMAGE BUTTON + HERO4 -->
+  <!-- DASH ADMIN IMAGE BUTTON + HERO4 (ORA SALE ACCANTO ALLE NEWS) -->
   <div style="
       display: flex;
       flex-direction: column;
@@ -289,13 +299,11 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
       gap: 12px;
       min-width: 150px;
   ">
-      <!-- Immagine Hero4: WebP + Lazy loading -->
-      <img src="/img/Hero4.webp"
+      <!-- Immagine Hero4 -->
+      <img src="/img/Hero4.png"
            alt="Hero4 Visual Cyber Graphic"
            width="150"
            height="80"
-           loading="lazy"
-           decoding="async"
            style="
               width: 150px;
               height: auto;
@@ -304,14 +312,12 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
               display: block;
            ">
 
-      <!-- Accesso amministratore OIP: WebP + Lazy loading -->
+      <!-- Accesso amministratore OIP -->
       <a href="https://anonlab.it/login.html" style="display:inline-block;">
-          <img src="/img/OIP.webp"
+          <img src="/img/OIP.png"
                alt="Admin Access"
                width="150"
                height="80"
-               loading="lazy"
-               decoding="async"
                style="
                   width: 150px;
                   height: auto;
@@ -340,14 +346,12 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
   flex-wrap: wrap;
 ">
 
-  <!-- IMMAGINE AI-SOC: WebP + Lazy loading -->
+  <!-- IMMAGINE SOTTO IL MENU (A SINISTRA) -->
   <div>
-    <img src="/img/ai-soc.webp"
+    <img src="img/ai-soc.jpg"
          alt="AI SOC"
          width="295"
          height="171"
-         loading="lazy"
-         decoding="async"
          style="
            width: 220px;
            height: auto;
@@ -358,7 +362,7 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
          ">
   </div>
 
-  <!-- GOOGLE SEARCH + NEWSLETTER -->
+  <!-- GOOGLE SEARCH + NEWSLETTER (A DESTRA, SENZA MARGINE NEGATIVO — 320PX GARANTITI) -->
   <div style="
       display: flex;
       flex-direction: column;
@@ -376,14 +380,12 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
           gap: 15px;
           width: 100%;
       ">
-          <img src="/img/gears.webp"
+          <img src="/img/gears.png"
                alt=""
                aria-hidden="true"
                class="box-title-icon"
                width="32"
                height="32"
-               loading="lazy"
-               decoding="async"
                style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form action="https://www.google.com/search" method="GET"
@@ -437,14 +439,12 @@ window.addEventListener('load', () => setTimeout(caricaAdSense, 8000), { once: t
           gap: 15px;
           width: 100%;
       ">
-          <img src="/img/newsletter.webp"
+          <img src="/img/newsletter.png"
                alt=""
                aria-hidden="true"
                class="box-title-icon"
                width="32"
                height="32"
-               loading="lazy"
-               decoding="async"
                style="filter:drop-shadow(0 0 10px #00eaff);">
 
           <form onsubmit="return sendNewsletter(event)"
@@ -1317,6 +1317,142 @@ async function sendNewsletter(e) {
     }
 }
 </script>
+      
+<!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
+<style>
+@media (max-width: 480px) {
+  .google-wrapper {
+    max-width: 260px !important; /* allinea tutto alla colonna */
+  }
+  .google-wrapper input {
+    padding: 10px !important;
+    font-size: 0.95rem !important;
+  }
+  .google-wrapper button {
+    padding: 10px 14px !important;
+  }
+}
+</style>
+
+      <style>
+@media (max-width: 480px) {
+  .ai-soc-img {
+    width: 200px !important;
+    margin-top: 10px !important;
+  }
+}
+
+        /* WRAPPER */
+.anon-slider-wrapper {
+  margin: 40px 0 25px 0;
+  position: relative;
+}
+
+/* SLIDER ORIZZONTALE */
+.anon-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.anon-slide {
+  flex: 0 0 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 14px #ff7b00;
+  cursor: pointer;
+}
+
+.anon-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* DIDASCALIA */
+.anon-caption {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ff7b00;
+  text-shadow: 0 0 10px #ff7b00;
+  font-weight: bold;
+}
+
+/* PULSANTE PLAY/PAUSA */
+.anon-slider-controls {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.anon-slider-btn {
+  background: #111;
+  border: 1px solid #ff7b00;
+  color: #ff7b00;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  box-shadow: 0 0 10px #ff7b00;
+}
+
+.anon-slider-btn:hover {
+  background: #ff7b00;
+  color: #111;
+}
+
+/* FULLSCREEN MODAL */
+.anon-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10,10,10,0.95);
+}
+
+.anon-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border: 2px solid #ff7b00;
+  box-shadow: 0 0 20px #ff7b00;
+}
+
+.anon-modal-caption {
+  margin: 20px auto;
+  text-align: center;
+  color: #ffbb55;
+  font-size: 1.2rem;
+}
+
+.anon-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #ff7b00;
+  font-size: 40px;
+  cursor: pointer;
+  text-shadow: 0 0 10px #ff7b00;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .anon-slide {
+    flex: 0 0 260px;
+  }
+  .anon-slide img {
+    height: 160px;
+  }
+}
+      </style>
      
       <div style="margin-top:60px;"></div>
 
@@ -1479,15 +1615,15 @@ async function sendNewsletter(e) {
 
 <!-- Immagine Anonymous sopra Cyber Threat Level -->
 <div style="width:100%; margin:0 0 16px 0;">
-  <img
-    src="/img/anonymous.webp"
-    alt="Logo e icona di Anonymous per la sezione Threat Intelligence"
-    width="420"
-    height="150"
-    style="width:100%; height:auto; aspect-ratio:14/5; border-radius:10px;"
-    loading="lazy"
-    decoding="async"
-  >
+    <img
+  src="/img/anonymous.png"
+  alt="Logo e icona di Anonymous per la sezione Threat Intelligence"
+  width="420"
+  height="150"
+  style="width:100%; height:auto; aspect-ratio:14/5; border-radius:10px;"
+  loading="lazy"
+  decoding="async"
+>
 </div>
 
 <!-- SLIDER STORICO ANONYMOUS -->
@@ -1496,102 +1632,47 @@ async function sendNewsletter(e) {
   <div class="anon-slider" id="anonSlider">
 
     <div class="anon-slide" data-caption="Operazione Chanology – 2008">
-      <img src="/img/chanology.webp" 
-           alt="Operazione Chanology contro Scientology del 2008"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/chanology.jpg" alt="Operazione Chanology contro Scientology del 2008">
     </div>
 
     <div class="anon-slide" data-caption="Operazione Payback – 2010">
-      <img src="/img/payback.webp" 
-           alt="Operazione Payback di Anonymous nel 2010"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/payback.jpg" alt="Operazione Payback di Anonymous nel 2010">
     </div>
 
     <div class="anon-slide" data-caption="Primavera Araba – 2011">
-      <img src="/img/arab-spring.webp" 
-           alt="Coinvolgimento di Anonymous nella Primavera Araba del 2011"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/arab-spring.jpg" alt="Coinvolgimento di Anonymous nella Primavera Araba del 2011">
     </div>
 
     <div class="anon-slide" data-caption="Caso Megaupload – 2012">
-      <img src="/img/megaupload.webp" 
-           alt="Proteste e attacchi di Anonymous per il caso Megaupload nel 2012"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/megaupload.jpg" alt="Proteste e attacchi di Anonymous per il caso Megaupload nel 2012">
     </div>
 
     <div class="anon-slide" data-caption="Londra, Manifestazione di Anonymous: scontri nella notte con la polizia – 2014">
-      <img src="/img/revolution-londra-anonymous.webp" 
-           alt="Manifestazione di Anonymous a Londra con scontri notturni con la polizia nel 2014"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/revolution-londra-anonymous.jpg" alt="Manifestazione di Anonymous a Londra con scontri notturni con la polizia nel 2014">
     </div>
 
     <div class="anon-slide" data-caption="Operazione Paris – 2015">
-      <img src="/img/paris.webp" 
-           alt="Operazione Paris di Anonymous nel 2015"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/paris.jpg" alt="Operazione Paris di Anonymous nel 2015">
     </div>
 
     <div class="anon-slide" data-caption="Attacco hacker in Italia di Anonymous – 2018">
-      <img src="/img/anonymous-attacco-hacker-italia.webp" 
-           alt="Attacco hacker in Italia rivendicato da Anonymous nel 2018"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/anonymous-attacco-hacker-italia.jpg" alt="Attacco hacker in Italia rivendicato da Anonymous nel 2018">
     </div>
 
     <div class="anon-slide" data-caption="Proteste Globali – 2020">
-      <img src="/img/protests.webp" 
-           alt="Proteste globali supportate dal movimento Anonymous nel 2020"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/protests.jpg" alt="Proteste globali supportate dal movimento Anonymous nel 2020">
     </div>
 
     <div class="anon-slide" data-caption="Proteste Globali – 2020 (Variante)">
-      <img src="/img/protests2.webp" 
-           alt="Altra fase delle proteste globali del 2020"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/protests2.jpg" alt="Altra fase delle proteste globali del 2020">
     </div>
 
     <div class="anon-slide" data-caption="Conflitto Russia–Ucraina – 2022">
-      <img src="/img/ukraine.webp" 
-           alt="Azioni di Anonymous nel conflitto Russia Ucraina del 2022"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/ukraine.jpg" alt="Azioni di Anonymous nel conflitto Russia Ucraina del 2022">
     </div>
 
     <div class="anon-slide" data-caption="Conflitto Russia–Ucraina – 2022 (Variante)">
-      <img src="/img/ukraine2.webp" 
-           alt="Azioni digitali di Anonymous nel conflitto Russia Ucraina"
-           width="380"
-           height="220"
-           loading="lazy"
-           decoding="async">
+      <img src="/img/ukraine2.jpg" alt="Azioni digitali di Anonymous nel conflitto Russia Ucraina">
     </div>
 
   </div>
@@ -1741,7 +1822,7 @@ function renderList(list) {
 loadCVE();
 </script>
 
-<script>
+  <script>
 const slider = document.getElementById("anonSlider");
 const slides = document.querySelectorAll(".anon-slide");
 const caption = document.getElementById("anonCaption");
