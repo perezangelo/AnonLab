@@ -1,5 +1,25 @@
 [
   {
+    "title": "FAA Ground Stop Issued Due to \u2018Extraordinary Circumstances\u2019",
+    "link": "https://www.securityweek.com/faa-ground-stop-issued-due-to-extraordinary-circumstances/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/FAA_Cyberattack-Ground-Stop.jpg"
+  },
+  {
+    "title": "Trezor confirms crypto-stealing implants in three wallets, releases fix",
+    "link": "https://www.bleepingcomputer.com/news/cryptocurrency/trezor-confirms-crypto-stealing-implants-in-three-wallets-releases-fix/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/Trezor.jpg"
+  },
+  {
+    "title": "German military drone operations disrupted by cyberattack",
+    "link": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/13/quantumsystems.jpg"
+  },
+  {
+    "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RCE",
+    "link": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj8XOS7IKEt2ZhrwwdlDSpQ5hAyI46wHZpPkTQ3_hA6yUtMQpzaM50fm2v9x0O7NCt5z9vdrTsYM3iPOmu9fmmMTQDViu-rQjCfSxfCQhwZQazr4ZYayvEn5MQfUdTBVODtAay6RIaTqJGUj-HVzbtMqNPdNFiQHExhO9sitJX0GrvTx_EhWmslA-87ds/s1600/postgresql.jpg"
+  },
+  {
     "title": "Check Point gateways hacked via PHP2Shell to deploy VMware ESXi wiper",
     "link": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/PHP.jpg"
@@ -53,6 +73,11 @@
     "title": "SilentAir Hackers Intercept Calls, SMS From Inside Mobile Networks",
     "link": "https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/12/telecoms-communications.jpeg"
+  },
+  {
+    "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/11/13/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+    "image": ""
   },
   {
     "title": "When an AI Agent Goes Wrong, Can You Stop It?",
@@ -115,11 +140,6 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Check-Point-Software.jpg"
   },
   {
-    "title": "Hackers Exploit New N-central Zero-Day Hours After PoC Publication",
-    "link": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/vulnerability-software-bug.webp"
-  },
-  {
     "title": "Hackers Exploit N-central Flaws to Infect 21 Servers, Including 19 Running Hotfix 2",
     "link": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA4jxlXpPBPhD5o3IHy80Fn7fSHUtcqH3iXQlU-jDUL5C3zJcf1_Zb-GAYxuW6P6q647p9JAT_opImlj-v-USDNhZ_z83mYC3ISKtN72pe_3XLwf5EyMRuK4OdXCFnYxGMhOAvN_i4UFqk5vJLriRnkbRRwILuT5JUpExx9Tm74sXSCQ0g7jjsOzWV1cqk/s1600/nable-hacks.jpg"
@@ -128,25 +148,5 @@
     "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
     "link": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect-headpic.jpg"
-  },
-  {
-    "title": "Getting Past the Post-Quantum Cryptography Discovery Phase",
-    "link": "https://www.darkreading.com/cybersecurity-operations/getting-past-post-quantum-cryptography-discovery",
-    "image": ""
-  },
-  {
-    "title": "Hackers compromise 4,800 GitHub accounts to steal cloud credentials",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/github.jpg"
-  },
-  {
-    "title": "Cyber Experts Weigh In: How to Fight Artex &amp; AntiFox",
-    "link": "https://www.darkreading.com/cybersecurity-operations/cyber-experts-fight-artex-antifox",
-    "image": ""
-  },
-  {
-    "title": "Massive Microsoft 365 outage disrupts Outlook, Teams, Copilot worldwide",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/07/25/Microsoft-365.jpg"
   }
 ]
