@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-126207",
-    "summary": "Loofah: CSS url() sanitization bypass via escaped parentheses",
-    "severity": "MODERATE",
-    "published": "2026-11-12T21:05:41Z",
-    "ghsa": "GHSA-m3x9-938q-5767"
+    "id": "CVE-2026-100397",
+    "summary": "Rucio: Unauthenticated administrator impersonation through SSH challenge tokens",
+    "severity": "CRITICAL",
+    "published": "2026-11-13T01:09:54Z",
+    "ghsa": "GHSA-x585-4vv8-2mh2"
   },
   {
-    "id": "CVE-2026-126205",
-    "summary": "Loofah: Regular expression denial of service in the SVG local-reference check",
-    "severity": "MODERATE",
-    "published": "2026-11-12T21:00:42Z",
-    "ghsa": "GHSA-mf2j-8f84-cc9q"
-  },
-  {
-    "id": "CVE-2026-126206",
-    "summary": "Loofah allowed_uri? treats data:text&sol;html as safe text/plain",
-    "severity": "MODERATE",
-    "published": "2026-11-12T20:56:30Z",
-    "ghsa": "GHSA-jcff-cj73-4w4f"
-  },
-  {
-    "id": "CVE-2026-126203",
-    "summary": "Loofah: Mutation XSS in the HTML5 scrubbers through unescaped attribute values",
-    "severity": "MODERATE",
-    "published": "2026-11-12T20:52:09Z",
-    "ghsa": "GHSA-h6v6-rg66-fqj4"
-  },
-  {
-    "id": "CVE-2026-125323",
-    "summary": "pgEdge Control Plane generates pg_hba.conf with trust authentication for local and loopback connections",
+    "id": "CVE-2026-126190",
+    "summary": "Soup Sieve: Polynomial-time denial of service in the descendant combinator",
     "severity": "HIGH",
-    "published": "2026-11-12T20:46:03Z",
-    "ghsa": "GHSA-vq9p-w6wv-cr25"
+    "published": "2026-11-13T00:49:46Z",
+    "ghsa": "GHSA-mmhr-3c5m-f64f"
   },
   {
-    "id": "CVE-2026-125327",
-    "summary": "pgEdge RAG Server unbounded corpus read allows resource exhaustion from unauthenticated requests",
-    "severity": "HIGH",
-    "published": "2026-11-12T20:37:38Z",
-    "ghsa": "GHSA-5qg5-rgp6-j5m5"
-  },
-  {
-    "id": "CVE-2026-125326",
-    "summary": "pgEdge RAG Server discloses part of the configured provider credential through API error messages",
+    "id": "CVE-2026-126192",
+    "summary": "Soup Sieve: General sibling combinator inside :has() matches untrusted HTML in quadratic time",
     "severity": "MODERATE",
-    "published": "2026-11-12T20:29:32Z",
-    "ghsa": "GHSA-68g8-gh8f-7rhg"
+    "published": "2026-11-13T00:45:18Z",
+    "ghsa": "GHSA-4j63-6c4x-wfg4"
   },
   {
-    "id": "CVE-2026-125325",
-    "summary": "pgEdge RAG Server shared keyword index leaked results between concurrent unauthenticated requests",
-    "severity": "MODERATE",
-    "published": "2026-11-12T19:42:07Z",
-    "ghsa": "GHSA-w437-9mwm-j6vq"
+    "id": "CVE-2026-122006",
+    "summary": "Active Storage: Possible arbitrary file write and read in image analysis",
+    "severity": "CRITICAL",
+    "published": "2026-11-12T23:46:51Z",
+    "ghsa": "GHSA-f3w6-w445-fwh9"
   },
   {
-    "id": "CVE-2026-125328",
-    "summary": "pgEdge Go LLM Library discloses provider API key fragments in error messages",
+    "id": "CVE-2026-126072",
+    "summary": "Action Pack: Possible DoS vulnerability in Action Controller Live streaming",
     "severity": "MODERATE",
-    "published": "2026-11-12T19:32:36Z",
-    "ghsa": "GHSA-8835-xmqj-354h"
+    "published": "2026-11-12T23:45:24Z",
+    "ghsa": "GHSA-rwvh-fw6r-pwvp"
   },
   {
-    "id": "GHSA-7m8x-x364-m26j",
-    "summary": "Signal K Server: Buffered logs exposed to unauthenticated WebSocket clients",
+    "id": "CVE-2026-126077",
+    "summary": "Action Pack: Possible sensitive session information leak in Active Storage proxy mode",
     "severity": "MODERATE",
-    "published": "2026-11-12T19:14:00Z",
-    "ghsa": "GHSA-7m8x-x364-m26j"
+    "published": "2026-11-12T23:44:39Z",
+    "ghsa": "GHSA-x6mj-8jx9-qhqv"
+  },
+  {
+    "id": "CVE-2026-126078",
+    "summary": "Action View: Possible XSS vulnerability in highlight helper",
+    "severity": "MODERATE",
+    "published": "2026-11-12T23:41:50Z",
+    "ghsa": "GHSA-v6rj-xm57-3p59"
+  },
+  {
+    "id": "CVE-2026-126070",
+    "summary": "Action View: Possible XSS vulnerability in strip_tags",
+    "severity": "MODERATE",
+    "published": "2026-11-12T23:39:41Z",
+    "ghsa": "GHSA-rq8q-p985-fjq7"
+  },
+  {
+    "id": "CVE-2026-126079",
+    "summary": "Action View: Possible XSS vulnerability in text helpers",
+    "severity": "MODERATE",
+    "published": "2026-11-12T23:38:57Z",
+    "ghsa": "GHSA-2p2f-4rq4-gjwc"
+  },
+  {
+    "id": "CVE-2026-126084",
+    "summary": "Active Storage: Unsigned Content-Type in GCS direct uploads with cache_control",
+    "severity": "MODERATE",
+    "published": "2026-11-12T23:37:55Z",
+    "ghsa": "GHSA-3w93-6hmw-whh4"
   }
 ]
