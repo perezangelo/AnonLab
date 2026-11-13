@@ -1,5 +1,120 @@
 [
   {
+    "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect-headpic.jpg"
+  },
+  {
+    "title": "Hackers compromise 4,800 GitHub accounts to steal cloud credentials",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/github.jpg"
+  },
+  {
+    "title": "Cyber Experts Weigh In: How to Fight Artex &amp; AntiFox",
+    "link": "https://www.darkreading.com/cybersecurity-operations/cyber-experts-fight-artex-antifox",
+    "image": ""
+  },
+  {
+    "title": "Microsoft 365 Outage Disrupts Outlook, Exchange Online and Teams",
+    "link": "https://www.securityweek.com/microsoft-365-outage-disrupts-outlook-exchange-online-and-teams/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/06/Microsoft-DDoS-Attack.jpg"
+  },
+  {
+    "title": "Massive Microsoft 365 outage disrupts Outlook, Teams, Copilot worldwide",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/07/25/Microsoft-365.jpg"
+  },
+  {
+    "title": "Extortion Group Luna Moth Flits Into Law Firms a Second Time",
+    "link": "https://www.darkreading.com/data-privacy/extortion-luna-moth-law-firms-second-time",
+    "image": ""
+  },
+  {
+    "title": "New N-able \"4EverAble2Shell\" zero-day exploited hours after PoC released",
+    "link": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/08/18/N-able.jpg"
+  },
+  {
+    "title": "Apache HTTP Server patches critical HTTP/2 remote code execution flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/apache-http-server-patches-critical-http-2-remote-code-execution-flaw/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/12/Apache.jpg"
+  },
+  {
+    "title": "Webinar: See How Identity Blind Spots Put Your SOC at Risk and How to Close Them",
+    "link": "https://thehackernews.com/2026/11/your-soc-sees-alert-but-does-it-know.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj765JyAl658UR5d1raKFLJmZpxXuof0-wBCobeJwnWjWZROTa4wtMyPvTTjBr4-ccE0cmKpIyGT1BetlqUPkPS_omcKVWz7RcCv6sUl2h6KxXrem_X26kzrp7kwq8bSezUsYMa6h2JNh-rPglsuNnRzt6i3IdzBjkLFNBNy5-Y0jId2B6Zhyir_jdm8O4/s1600/sails.jpg"
+  },
+  {
+    "title": "ThreatsDay: 59 Linux Kernel Bugs, Falcon Spyware, GSocket Backdoors + 17 More Stories",
+    "link": "https://thehackernews.com/2026/11/threatsday-59-linux-kernel-bugs-falcon.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpHFMwpmKB3Mn6eMpEHMAX_8gqnyi4xwTCuYj7NTrCcTMWAsSZtaUsHYUa1kvi3jQf92A5pR_Qz7kzgTarHmo6q6YsXVeVSJEkkx0JkioCXa6GbKJzG9eZz0dkotf9QEpdcRMy94hoYhGfIoEk7pPOFUSgTY5ciU7_wkSOJc7kgXcS1GS3qGC-Ql7kMrks/s1600/thd.jpg"
+  },
+  {
+    "title": "New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Access",
+    "link": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-9BW-gpid0fJ4GJSsWoqjYl5qF_EdYchTcxeNjFfMV-MCcvSRTs-rAmiHKNX3M2dr66bJcfUelNR5CR9g-JLKPkMrROsqrM6hf563hIMklj5v08uYDtEp7pdYPcs5Y5TEGxgTWTHDG_Q-L8Tbq12yo57xp0GOlYk8g05nU3peuA_kedIXtggnakiiCGM/s1600/signdrop.jpg"
+  },
+  {
+    "title": "Critical Red Hat Quay Flaw Lets Attackers Read and Overwrite All Private Container Images in a Registry",
+    "link": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtLHm05FB2LmoHZMLAD5nDmfo_G2tdIqO4URdUwukuooBCVwIJhKC2rUDbDNtsGB8_lwium1MEUD1CxYcix4WMVpCoS58DJivMBSmb9LcIGswQu0nKUNE_sbfH8EsgFfhPrKEgEY7MJHWKyhFqX61ne-AOFKnTNuqIkWez1bec-kq-3Cz8BFbPLrgiV8k/s1600/redhat.jpg"
+  },
+  {
+    "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+    "link": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/12/0_Windows-headpic.jpg"
+  },
+  {
+    "title": "Citrix Patches 12 NetScaler and Secure Access Client Flaws, Including Authentication Bypass",
+    "link": "https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDDv_B4B-cVtvwKyLiGQsL804yGC7_xHF7y3yD5_C284fRXBVRAn5Ashy2apgJr-jaoBHRa3ujgXv1jskM53EvP_pFt41CTazYqFT-tQdcukNBeOTzVIpZXVDsdgtup4MJOEdNNZP9SP0FAdIpG1Cnfgo0YgBXzmI_boLV4qSAsVrmYn5wA3GxnPuj21JO/s1600/citrix.jpg"
+  },
+  {
+    "title": "Apache Patches Critical HTTP Server RCE Found by Anthropic, Google",
+    "link": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Apache-exploit-scaled-e1724835583910.jpeg"
+  },
+  {
+    "title": "186 Fake AI Domains Redirect Users to ClickFix Lures, Browser Malware, and Search Hijackers",
+    "link": "https://thehackernews.com/2026/11/186-fake-ai-domains-redirect-users-to.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirJnc36Fxj4oKOmKhcPvspB_xQpv3VgpXjYnu29SOv8NbVJHeaGNKT26851QIPQbHozxeF5vmq5otdRbJBKEaN9557MtuxLwp5fxX-pQVDVKwvZJtPR9ayT2Njx83svW7TVsVkVpFUOt5JHqhdSkSI7uV0d4dxlf5pWAmHISttTHWjURyOpuuy0CzVCSmK/s1600/lauce.jpg"
+  },
+  {
+    "title": "Police dismantle Gootloader, CastleRAT, StealC malware infrastructure",
+    "link": "https://www.bleepingcomputer.com/news/security/police-dismantles-gootloader-castlerat-stealc-malware-infrastructure/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/12/Operation-Endgame.jpg"
+  },
+  {
+    "title": "Your Endpoint Management Platform Could Be Your Biggest Security Risk",
+    "link": "https://www.bleepingcomputer.com/news/security/your-endpoint-management-platform-could-be-your-biggest-security-risk/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/11/11/action1-security-alert.jpg"
+  },
+  {
+    "title": "Apify rotates API tokens, prompts 2FA resets after breach",
+    "link": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/12/Apify.jpg"
+  },
+  {
+    "title": "Chrome, Firefox Updates Patch Over 180 Vulnerabilities",
+    "link": "https://www.securityweek.com/chrome-firefox-updates-patch-180-vulnerabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Chrome-Firefox.jpeg"
+  },
+  {
+    "title": "Attacker Targets 60,000 GitHub Repositories in Credential Theft Campaign",
+    "link": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
+  },
+  {
+    "title": "Daylight Lands $80 Million for AI-Powered Security Operations",
+    "link": "https://www.securityweek.com/daylight-lands-80-million-for-ai-powered-security-operations/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/funding-investment-market-3.jpeg"
+  },
+  {
+    "title": "SCKit Malware Turns ScreenConnect Support Sessions Into Potential MSP Attack Paths",
+    "link": "https://thehackernews.com/2026/11/sckit-malware-targets-screenconnect.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4r5n0I6Rd7yb3jS6hfXTyM5foZU5uEiCD1I2Kgth1qgf_pzohrD9jPeDesEopB6Gjo0VaQZF2XesdqU6W32eFADzI3_xhBF4026h6uGqn6eExdfS_A29SvYA3cdIJkhWmPG-k15_DdsGGcqFfWS-E3cgyKkdEQ3Sxa9gayFkkMXggVJpkeH7DoLNLZxm9/s1600/screen.jpg"
+  },
+  {
     "title": "Microsoft: Recent Windows updates cause SQL Server performance issues",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-recent-windows-updates-cause-sql-server-performance-issues/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/Windows_headpic.jpg"
@@ -10,143 +125,28 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikEkIc_eg4_tE5XE6CQrLFl74Gk0QwxcqaGXBnDAlitVIbzreq8faf57QtAqFh8rEn7HgTJzvGUZl2yNBhWVKOKo9KqnJHfduQfoT_HqUTlKhE-FzshzDrpIskiMQ3_Lz2hImNMbt9VdCj0O725_WyZsDXDB91phFceXh6Y_qzHgv1nJPMNjv8a7AU52c/s1600/amd.jpg"
   },
   {
-    "title": "Webinar: See How Identity Blind Spots Put Your SOC at Risk and How to Close Them",
-    "link": "https://thehackernews.com/2026/11/your-soc-sees-alert-but-does-it-know.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj765JyAl658UR5d1raKFLJmZpxXuof0-wBCobeJwnWjWZROTa4wtMyPvTTjBr4-ccE0cmKpIyGT1BetlqUPkPS_omcKVWz7RcCv6sUl2h6KxXrem_X26kzrp7kwq8bSezUsYMa6h2JNh-rPglsuNnRzt6i3IdzBjkLFNBNy5-Y0jId2B6Zhyir_jdm8O4/s1600/sails.jpg"
+    "title": "Siemens Desigo, Gridscale",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-02",
+    "image": ""
+  },
+  {
+    "title": "Siemens RUGGEDCOM APE1808",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-05",
+    "image": ""
+  },
+  {
+    "title": "Siemens Building Automation and Energy Products",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-01",
+    "image": ""
+  },
+  {
+    "title": "Siemens Industrial Edge Management",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-03",
+    "image": ""
   },
   {
     "title": "New N-central Exploits Work Against Patched Servers, Enable Root RCE and Windows SYSTEM Access",
     "link": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhR4KdRS0v77uQIdhC0i5aopa8XIAZIRnTzVCVqto7dEdfUH2QyWgrAy1EKu-hARXS4pxNGQQEFroRHOtwSq_9Q8b92tmgw_97JMJoBfC72sl8pOcUYM9nU6YCJht4yD7ALWfERwhUwLsN8wo9t8YnKyIWzHhEAux5ox5WV4wvxe6l1cUmf58P1md2Ekziy/s1600/nable.jpg"
-  },
-  {
-    "title": "Calendar Invites and Live Proxies: Inside a Google Session Hijacking Campaign",
-    "link": "https://thehackernews.com/2026/11/calendar-invites-and-live-proxies.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf8YVgw9hIWEYN0_qgaD6MVIZad0fOCu_J5Z4Cn2CDuMzcV7HOQ9Xt4E08l1nOo7uMjAyYqYP-bUy5zHisRW8cfeSVmJcCKYgCTI2y1MpRUwsM1I2cs0MsuoAy7VSGLyTPzonhKITzWPU1hTADZnFt5VTZhlt4eJohVas2tzhl47AOV3Cp53LC_uhlpVY/s1600/mt.jpg"
-  },
-  {
-    "title": "PTC Patches Critical Windchill and FlexPLM Flaw That Could Enable Remote Code Execution",
-    "link": "https://thehackernews.com/2026/11/ptc-patches-critical-windchill-and.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi01pvi78xYUtyxbtWQ4L5ddMr1yT2-WBSbAnp3wKXa-bpagXqtyQdxPqA43I1NxJGNLk4He30PS-GYUcd1sOaErtMAtNWL-qQUGfD0Y7wSxAzeYJXRf2lA5yFuznu8m2zRgf2llXMiR3w1H6YOOte5qs_DvRxcv0aPeOxWeIDybl1n58VlpuZPUJ0icWDL/s1600/ptc-flaw.jpg"
-  },
-  {
-    "title": "Notion Customer Data Compromised in Fireworks AI Hack",
-    "link": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
-  },
-  {
-    "title": "Inside an AI Attack Against a US Retailer",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/inside-ai-attack-us-retailer",
-    "image": ""
-  },
-  {
-    "title": "Hackers Deploy Malware in Fresh ScreenConnect Campaign",
-    "link": "https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/02/ConnectWise.jpeg"
-  },
-  {
-    "title": "Microsoft confirms Windows security updates installation issues",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-kb5132061-installation-issues-0x80070306-0x800f0989-0x800f0993-errors/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/12/Windows-11.jpg"
-  },
-  {
-    "title": "Hackers Target N-central Zero-Days as N-able Rushes Patches",
-    "link": "https://www.securityweek.com/hackers-target-n-central-zero-days-as-n-able-rushes-patches/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
-  },
-  {
-    "title": "Hackers plant GSocket on Linux servers for persistent access",
-    "link": "https://www.bleepingcomputer.com/news/security/hackers-plant-gsocket-on-linux-servers-for-persistent-access/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2024/03/05/hand.jpg"
-  },
-  {
-    "title": "Critical Pre-Auth MongoDB Flaw (CVE-2026-118383) Can Crash Lagging Servers on Failover",
-    "link": "https://thehackernews.com/2026/11/critical-pre-auth-mongodb-flaw-cve-2026.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6RJLDSM13MwenwxG4xnZ-Td2_zmnya-Y39FLHlNk-7P3hZ5w1qGjG3XFqT-4gaeZIxSepWWNM53bKTIkZBNA-X_tVKsrgWbw8u81mjLzL6dXvTtvKfKeT-FkwSz4CsdMoHNza2NRFy0PJzzmaMROCr3D7e6AKT5UR3Lh4zFb_1w9HMmXXKKvATVWHU-E/s1600/mongo-poc.gif"
-  },
-  {
-    "title": "Critical Red Hat Quay Vulnerability Could Expose Private Container Images",
-    "link": "https://www.securityweek.com/critical-red-hat-quay-vulnerability-could-expose-private-container-images/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Red-Hat.jpeg"
-  },
-  {
-    "title": "Maersk Confirms Data Theft Amid $5 Million Extortion Attempt",
-    "link": "https://www.securityweek.com/maersk-confirms-data-theft-amid-5-million-extortion-attempt/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Maersk.jpeg"
-  },
-  {
-    "title": "Node.js Fixes 16 Flaws, Including HTTP/2 Bugs That Crash Servers and Leak Other Connections' Data",
-    "link": "https://thehackernews.com/2026/11/nodejs-fixes-16-flaws-including-http2.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD-9bYYTxb5WmvOmftwsTAe5hDcHyjm12YlQj320OhT6WqICBOe0D6nQf-PPslE-I0c0r8xvZdTAXfyPwGQxHWRiQ5HSIPEZGEiNrE15ygDNZCRzzVvGugdRlIq6IARQf38iJG-MN-uo7MvdXXcA0wXIGDm0-olouPSw_SbBm2-2CYGHb4uHgtREv2ycI/s1600/nodeks.jpg"
-  },
-  {
-    "title": "Attacker Used 4,837 Hijacked GitHub Accounts to Run a CI Secret Stealer in 1,806+ Repositories",
-    "link": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1-4OiOkGLcK3fAr2HdhALOfc_BqR21440TsjUIuCNzv4YL0lWRC3lvUjE1vu2RdVfjunxi80gMQyGpjvUdWzMRtthW8_-hFOJ79YhFzJrNGgoKDPYXm2OaWOsN8kgBELqOPs5s9QKL4qzQzu_3NEEqHygpfQzKYxDRIQeFgMHj24oyPyaslUemke-loU/s1600/github.jpg"
-  },
-  {
-    "title": "Critical Apache HTTP/2 Flaw Could Let Unauthenticated Attackers Execute Code Remotely",
-    "link": "https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLpi_uN6PmG2Gn1agNMsOrsCp324eH-utKkDl_SPe32ggjcWFPjxZSyeA1KvAtvI9SQ4VAN_zssvdJLJ59IXE8_-MatPOyFXY-FcwtL7HtfKyW3MtsKwglIe2X62WBOcUkPMv-klM1h8T2EBMWFOWyPG89bfbAHS5byyfXATXN_lUUJWmUGWChekyWxTQ/s1600/apache-http.jpg"
-  },
-  {
-    "title": "ScreenConnect Attacks Target at Least 288 Endpoints Across 48 Organizations With Rogue Clients",
-    "link": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEfz7InYm8UO-p35K6B4j009BxA-MO7DdZ2x1d-xhyphenhyphenPxNnVs848IlgAGelmuW-sPbEZbE8-L9_KWEYNH_M5HaTMy14MFd87A7YkqHAzDKaamKOdpZKR9owL3nK3gbqAngvWa6A4NC1KK1l0ie9FK731LfKPI0lguiGQ1b71sHIZj2kR2H3I-GJjSPY4kJU/s1600/screenconnect-hack.jpg"
-  },
-  {
-    "title": "Chinese AI Project Scouts Spies in Taiwan Chip Industry",
-    "link": "https://www.darkreading.com/threat-intelligence/chinese-ai-project-scouts-spies-taiwan-chip-industry",
-    "image": ""
-  },
-  {
-    "title": "Japan Pushes Emergency Funding for Cybersecurity as AI-Assisted Breaches Rise",
-    "link": "https://www.darkreading.com/cybersecurity-operations/japan-emergency-funding-cybersecurity-ai-assisted-breaches",
-    "image": ""
-  },
-  {
-    "title": "Baker Tilly notifies clients of data breach at third-party provider",
-    "link": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/bakertilly.jpg"
-  },
-  {
-    "title": "Active ScreenConnect attacks breach MSPs, impact dozens of organizations",
-    "link": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect.jpg"
-  },
-  {
-    "title": "Attackers Say 'Hello' to a Different Scale of Cloud Attack",
-    "link": "https://www.darkreading.com/cloud-security/attackers-hello-scale-cloud-attack",
-    "image": ""
-  },
-  {
-    "title": "eMudhra revokes 8 more CA certificates after private key mishap",
-    "link": "https://www.bleepingcomputer.com/news/security/emudhra-revokes-8-more-ca-certificates-after-private-key-mishap/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/certificate.jpg"
-  },
-  {
-    "title": "AI Raises the Stakes for Cyber Resilience",
-    "link": "https://www.darkreading.com/cyber-risk/ai-raises-stakes-cyber-resilience",
-    "image": ""
-  },
-  {
-    "title": "Notion says Fireworks breach exposed customer AI chat transcripts",
-    "link": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/Notion.jpg"
-  },
-  {
-    "title": "N-able Takes N-central Platform Offline After Discovery of 33 Flaws",
-    "link": "https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws",
-    "image": ""
-  },
-  {
-    "title": "Today: CISO Forum Virtual Summit 2026 Day 2 \u2013 Join Cybersecurity Leaders Online",
-    "link": "https://www.securityweek.com/today-ciso-forum-virtual-summit-2026-join-global-cybersecurity-leaders/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/CISO-Virtual-Conference.jpg"
-  },
-  {
-    "title": "Maersk confirms data breach as WhiteArmor ransomware demands $5 million",
-    "link": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/maersk.jpg"
   }
 ]
