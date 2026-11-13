@@ -1,5 +1,54 @@
 [
   {
+    "id": "CVE-2026-128070",
+    "summary": "Nuxt dev server serves files from a parent directory with a stray lockfile or workspace file",
+    "severity": "MODERATE",
+    "published": "2026-11-13T18:11:49Z",
+    "ghsa": "GHSA-mjrq-cffv-q4qc"
+  },
+  {
+    "id": "CVE-2026-128069",
+    "summary": "rails-html-sanitizer: Possible XSS via shared scrubber state in concurrent calls",
+    "severity": "MODERATE",
+    "published": "2026-11-13T18:09:16Z",
+    "ghsa": "GHSA-h7wh-q2qr-458c"
+  },
+  {
+    "id": "CVE-2026-128079",
+    "summary": "envd: Host file disclosure through requirements path traversal and TOCTOU",
+    "severity": "MODERATE",
+    "published": "2026-11-13T18:05:15Z",
+    "ghsa": "GHSA-jv6m-48w5-5rpr"
+  },
+  {
+    "id": "CVE-2026-128068",
+    "summary": "rails-html-sanitizer: Possible regular expression denial of service with certain configurations",
+    "severity": "MODERATE",
+    "published": "2026-11-13T17:54:38Z",
+    "ghsa": "GHSA-cpgf-5mjf-73p7"
+  },
+  {
+    "id": "CVE-2026-126360",
+    "summary": "OpenTelemetry Python API: Denial of service through quadratic-time traceparent parsing",
+    "severity": "MODERATE",
+    "published": "2026-11-13T16:43:18Z",
+    "ghsa": "GHSA-mf5v-w3w3-f6cg"
+  },
+  {
+    "id": "CVE-2026-126191",
+    "summary": "Soup Sieve: Exponential ReDoS in selector compilation via \\9-run in CSS_ESCAPES/IDENTIFIER",
+    "severity": "HIGH",
+    "published": "2026-11-13T16:39:43Z",
+    "ghsa": "GHSA-6655-6qjp-jx7x"
+  },
+  {
+    "id": "CVE-2026-126193",
+    "summary": "Soup Sieve: Uncontrolled recursion in CSS parser lets nested pseudo-class selectors exhaust the Python call stack",
+    "severity": "MODERATE",
+    "published": "2026-11-13T16:34:59Z",
+    "ghsa": "GHSA-7g44-g9rc-x53w"
+  },
+  {
     "id": "CVE-2026-100397",
     "summary": "Rucio: Unauthenticated administrator impersonation through SSH challenge tokens",
     "severity": "CRITICAL",
@@ -19,54 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-11-13T00:45:18Z",
     "ghsa": "GHSA-4j63-6c4x-wfg4"
-  },
-  {
-    "id": "CVE-2026-122006",
-    "summary": "Active Storage: Possible arbitrary file write and read in image analysis",
-    "severity": "CRITICAL",
-    "published": "2026-11-12T23:46:51Z",
-    "ghsa": "GHSA-f3w6-w445-fwh9"
-  },
-  {
-    "id": "CVE-2026-126072",
-    "summary": "Action Pack: Possible DoS vulnerability in Action Controller Live streaming",
-    "severity": "MODERATE",
-    "published": "2026-11-12T23:45:24Z",
-    "ghsa": "GHSA-rwvh-fw6r-pwvp"
-  },
-  {
-    "id": "CVE-2026-126077",
-    "summary": "Action Pack: Possible sensitive session information leak in Active Storage proxy mode",
-    "severity": "MODERATE",
-    "published": "2026-11-12T23:44:39Z",
-    "ghsa": "GHSA-x6mj-8jx9-qhqv"
-  },
-  {
-    "id": "CVE-2026-126078",
-    "summary": "Action View: Possible XSS vulnerability in highlight helper",
-    "severity": "MODERATE",
-    "published": "2026-11-12T23:41:50Z",
-    "ghsa": "GHSA-v6rj-xm57-3p59"
-  },
-  {
-    "id": "CVE-2026-126070",
-    "summary": "Action View: Possible XSS vulnerability in strip_tags",
-    "severity": "MODERATE",
-    "published": "2026-11-12T23:39:41Z",
-    "ghsa": "GHSA-rq8q-p985-fjq7"
-  },
-  {
-    "id": "CVE-2026-126079",
-    "summary": "Action View: Possible XSS vulnerability in text helpers",
-    "severity": "MODERATE",
-    "published": "2026-11-12T23:38:57Z",
-    "ghsa": "GHSA-2p2f-4rq4-gjwc"
-  },
-  {
-    "id": "CVE-2026-126084",
-    "summary": "Active Storage: Unsigned Content-Type in GCS direct uploads with cache_control",
-    "severity": "MODERATE",
-    "published": "2026-11-12T23:37:55Z",
-    "ghsa": "GHSA-3w93-6hmw-whh4"
   }
 ]
