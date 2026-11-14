@@ -33,6 +33,9 @@
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
+		<!-- ⭐ PRELOAD ASSET LCP -->
+<link rel="preload" as="image" href="/img/eyes.webp" fetchpriority="high">
+
   <!-- ⭐ 2. CSS IN CIMA (PRIORITÀ ASSOLUTA PER AZZERARE L'FCP) -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
@@ -102,17 +105,6 @@
       }
     ]
   }
-  </script>
-
-  <!-- ⭐ SERVICE WORKER -->
-  <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('Service Worker registrato'))
-                .catch(err => console.error('Errore registrazione SW:', err));
-        });
-    }
   </script>
 
   <!-- ⭐ ADSENSE (ATTIVAZIONE SU INTERAZIONE O DOPO 5 SECONDI) -->
@@ -193,6 +185,7 @@
   width="478"
   height="93"
   loading="eager"
+  fetchpriority="high"
   decoding="async"
 >
 
@@ -518,16 +511,22 @@
 
         <div style="text-align:center;">
 
-            <img
-                src="https://angelonline.altervista.org/cyber-assistant/img/anonbot.png"
-                alt="AnonBot"
-                style="
-                    width:280px;
-                    max-width:100%;
-                    border-radius:12px;
-                    margin-bottom:10px;
-                "
-            >
+            <!-- PRIMA: mancavano width e height espliciti -->
+<img
+    src="https://angelonline.altervista.org/cyber-assistant/img/anonbot.png"
+    alt="AnonBot"
+    width="280"
+    height="183"
+    loading="lazy"
+    decoding="async"
+    style="
+        width:280px;
+        max-width:100%;
+        height:auto;
+        border-radius:12px;
+        margin-bottom:10px;
+    "
+>
 
             <div style="
                 color:#00eaff;
@@ -676,8 +675,8 @@
 
 </div>
 
-<script src="https://angelonline.altervista.org/js/marked.min.js"></script>
-<script src="https://angelonline.altervista.org/js/purify.min.js"></script>
+<script src="https://angelonline.altervista.org/js/marked.min.js" defer></script>
+<script src="https://angelonline.altervista.org/js/purify.min.js" defer></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
