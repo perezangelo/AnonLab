@@ -256,13 +256,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (sidebarEl) {
         sidebarEl.innerHTML = await partialsCache.sidebar;
 
-        // Inizializza i widget subito e UNA SOLA VOLTA (senza polling waitForSidebar)
+        // Inizializza i widget subito e UNA SOLA VOLTA
         requestAnimationFrame(() => {
             loadMeteo();
             initOroscopo();
             if (typeof initVisitCounter === "function") initVisitCounter();
             if (typeof initRadio === "function") initRadio();
             if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+            
+            // ⭐ Aggiunte qui per completare la sidebar:
+            if (typeof initCalculator === "function") initCalculator();
+            if (typeof initSessionTimer === "function") initSessionTimer();
         });
     }
 
