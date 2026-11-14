@@ -2837,34 +2837,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div id="sidebar" class="sidebar"></div>
 
-<!-- 1. PRIMA CARICHIAMO GLI SCRIPT CHE CONTENGONO LE FUNZIONI -->
-	  <script src="/js/ui.js"></script>
-	  <script src="/js/home-news.js"></script>
+<!-- 1. SCRIPT -->
+<script src="/js/ui.js"></script>
+<script src="/js/home-news.js"></script>
 
-<!-- 2. POI INIETTIAMO LA SIDEBAR ED ESEGUIAMO LE INIZIALIZZAZIONI -->
+<!-- 2. INIEZIONE SIDEBAR IN BACKGROUND (Non blocca la Hero!) -->
 <script>
-fetch("/partials/sidebar.html")
-.then(response => response.text())
-.then(data => {
-    document.getElementById("sidebar").innerHTML = data;
+window.addEventListener('load', () => {
+    fetch("/partials/sidebar.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("sidebar").innerHTML = data;
 
-    // Inizializza i widget
-    if (typeof initCalculator === "function") initCalculator();
-    if (typeof initRadio === "function") initRadio();
-    if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-    if (typeof initOroscopo === "function") initOroscopo();
-    if (typeof initVisitCounter === "function") initVisitCounter();
+        // Inizializza i widget solo quando la sidebar è pronta
+        if (typeof initCalculator === "function") initCalculator();
+        if (typeof initRadio === "function") initRadio();
+        if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+        if (typeof initOroscopo === "function") initOroscopo();
+        if (typeof initVisitCounter === "function") initVisitCounter();
 
-    // ⭐ FORZA L'AVVIO DEL TIMER DELLA SESSIONE
-    if (typeof initSessionTimer === "function") {
-        initSessionTimer();
-    }
+        // Avvio del timer della sessione
+        if (typeof initSessionTimer === "function") {
+            initSessionTimer();
+        }
 
-    console.log("Sidebar e Contatori pronti!");
-})
-.catch(err => console.error("Errore sidebar:", err));
+        console.log("Sidebar e Contatori pronti!");
+    })
+    .catch(err => console.error("Errore sidebar:", err));
+});
 </script>
-
 </main>
 
 <div id="footer"></div>
