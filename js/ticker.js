@@ -49,7 +49,7 @@ function buildTickerTrain() {
 
         const img = item.image && item.image.trim() !== ""
             ? item.image
-            : "https://api.dicebear.com/9.x/bottts/svg?seed=" + idx;
+            : "https://picsum.photos/40/40?random=" + idx;
 
         // Pulizia del titolo per evitare che eventuali virgolette rompano l'HTML
         const cleanTitle = String(item.title || "Notizia cyber").replace(/"/g, '&quot;');
@@ -115,3 +115,4 @@ function startContinuousScroll() {
 
     tickerFrame = requestAnimationFrame(step);
 }
+
