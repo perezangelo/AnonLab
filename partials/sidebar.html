@@ -754,7 +754,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
      
 <!-- OROSCOPO -->
-<div class="sidebar-box" id="oroscopo-box" style="padding:14px; display:flex; flex-direction:column; gap:12px; text-align:center;">
+<div class="sidebar-box" id="oroscopo-box" style="padding:16px; display:flex; flex-direction:column; gap:14px; text-align:center;">
     <h3 style="margin:0; padding:0; font-size:18px; line-height:1.2; text-align:center;">
         Oroscopo — Segno zodiacale
     </h3>
@@ -765,9 +765,10 @@ document.addEventListener("DOMContentLoaded", () => {
          width="70" height="70"
          style="width:70px; height:70px; margin:0 auto; filter:drop-shadow(0 0 6px #00eaff);">
 
+    <!-- Select Segno -->
     <label for="oroscopo-select" class="visually-hidden">Segno zodiacale</label>
     <select id="oroscopo-select"
-            style="width:100%; padding:6px 8px; background:#0a0a0a; color:#fff; border:1px solid #00eaff; border-radius:4px; outline:none; font-size:14px; box-sizing:border-box;">
+            style="width:100%; min-height:44px; padding:10px 12px; background:#0a0a0a; color:#fff; border:1px solid #00eaff; border-radius:6px; outline:none; font-size:14px; box-sizing:border-box; cursor:pointer;">
         <option value="ariete">Ariete</option>
         <option value="toro">Toro</option>
         <option value="gemelli">Gemelli</option>
@@ -782,25 +783,53 @@ document.addEventListener("DOMContentLoaded", () => {
         <option value="pesci">Pesci</option>
     </select>
 
-    <p id="oroscopo-text" style="margin:0; font-size:14px; line-height:1.35;">
+    <p id="oroscopo-text" style="margin:0; font-size:14px; line-height:1.4;">
        Caricamento oroscopo...
     </p>
 
+    <!-- Link con Touch Target a norma (min-height 44px) -->
     <a id="oroscopo-link" href="#" target="_blank"
-       style="color:#ff7b00; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; margin-top:4px;">
+       style="color:#ff7b00; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:6px 12px; border-radius:6px; transition:background 0.2s;">
        Leggi l'oroscopo selezionato →
     </a>
 
-    <div style="margin-top:12px; padding:10px; border:1px solid #00eaff55; border-radius:6px; background:#000; text-align:left; font-size:14px; color:#0ff;">
-        <input type="email" id="oroscopo-email" placeholder="La tua email"
-               style="width:100%; padding:6px; background:#0a0a0a; border:1px solid #00eaff; color:#0ff; border-radius:4px;">
-        <button onclick="iscriviOroscopo()" style="width:100%; padding:8px; margin-top:10px; background:#00eaff; color:#000; font-weight:700; border:none; border-radius:4px; cursor:pointer; box-shadow:0 0 8px #00eaff;">
+    <!-- Box Iscrizione -->
+    <div style="margin-top:6px; padding:14px; border:1px solid #00eaff55; border-radius:8px; background:#000; text-align:left; font-size:14px; color:#0ff;">
+        
+        <label for="oroscopo-email" class="visually-hidden">La tua email per l'oroscopo</label>
+        <input type="email" id="oroscopo-email" placeholder="La tua email" autocomplete="email"
+               style="width:100%; min-height:44px; padding:10px 12px; background:#0a0a0a; border:1px solid #00eaff; color:#0ff; border-radius:6px; box-sizing:border-box;">
+
+        <button onclick="iscriviOroscopo()" 
+                type="button"
+                style="width:100%; min-height:44px; margin-top:12px; background:#00eaff; color:#000; font-weight:700; border:none; border-radius:6px; cursor:pointer; box-shadow:0 0 10px #00eaff88;">
             Iscriviti
         </button>
-        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-top:10px;">
-            <input type="checkbox" id="oroscopo-optin" style="accent-color:#00eaff; width:16px; height:16px;">
-            <span>Seleziona per ricevere l'oroscopo giornaliero</span>
+
+        <!-- Checkbox Conforme Touch Target 48px -->
+        <label for="oroscopo-optin" style="
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+            min-height: 48px;
+            padding: 4px 0;
+            width: 100%;
+            user-select: none;
+        ">
+            <input type="checkbox" id="oroscopo-optin" style="
+                accent-color: #00eaff;
+                width: 20px;
+                height: 20px;
+                flex-shrink: 0;
+                cursor: pointer;
+            ">
+            <span style="font-size: 13px; line-height: 1.35; color: #b3f7ff;">
+                Seleziona per ricevere l'oroscopo giornaliero
+            </span>
         </label>
+
     </div>
 </div>
 
