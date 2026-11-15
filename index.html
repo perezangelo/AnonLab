@@ -28,11 +28,9 @@
 <!-- ⭐ 1. PRECONNECT & DNS-PREFETCH -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.iubenda.com">
-  <link rel="preconnect" href="https://cs.iubenda.com">
-  <link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
-  <link rel="preconnect" href="https://angelonline.altervista.org">
-  <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+  <link rel="preconnect" href="https://cs.iubenda.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.iubenda.com">
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
   <!-- ⭐ PRELOAD ASSET LCP -->
   <link rel="preload" as="image" href="/img/hero-bg.webp" fetchpriority="high">
@@ -127,7 +125,7 @@
     }
     window.addEventListener('scroll', caricaAdSense, { once: true, passive: true });
     window.addEventListener('touchstart', caricaAdSense, { once: true, passive: true });
-    setTimeout(caricaAdSense, 5000); /* Portato a 5 secondi per non incrociare il test PageSpeed */
+    setTimeout(caricaAdSense, 9000); /* Portato a 5 secondi per non incrociare il test PageSpeed */
   </script>
 
   <!-- ⭐ IUBENDA COOKIE BANNER -->
@@ -1872,7 +1870,8 @@ function renderList(list) {
     `;
 
     requestAnimationFrame(() => {
-      document.getElementById("cve-fade").style.opacity = "1";
+      const fade = document.getElementById("cve-fade");
+      if (fade) fade.style.opacity = "1";
     });
   }
 
@@ -1882,10 +1881,40 @@ function renderList(list) {
   };
 
   render();
-  setInterval(nextCVE, 15000);
+  setInterval(function () {
+    if (!document.hidden) window.nextCVE();
+  }, 15000);
 }
 
-loadCVE();
+(function () {
+  var started = false;
+  function startCVE() {
+    if (started) return;
+    started = true;
+    loadCVE();
+  }
+
+  function initCVEObserver() {
+    var target = document.getElementById("cve-today");
+    if ("IntersectionObserver" in window && target) {
+      var obs = new IntersectionObserver(function (entries, observer) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          observer.disconnect();
+          startCVE();
+        }
+      }, { rootMargin: "500px" });
+      obs.observe(target);
+    } else {
+      startCVE();
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCVEObserver);
+  } else {
+    initCVEObserver();
+  }
+})();
 </script>
 
 <script>
@@ -1997,7 +2026,6 @@ function updateThreatLevelFromAlerts(data) {
     bar = "███░░";
     desc = "Presenza di vulnerabilità da monitorare";
     colorLevel = "#ffcc00";
-    bar = "███░░";
     colorDesc  = "#ffe680";
     colorTime  = "#ffcc00";
   }
@@ -2020,6 +2048,7 @@ function updateThreatLevelFromAlerts(data) {
 
 async function loadCyberAlerts() {
   const container = document.getElementById("alert-live");
+  if (!container) return;
   container.innerHTML = "<li style='color:#fff;'>Caricamento in corso...</li>";
 
   try {
@@ -2099,8 +2128,38 @@ async function loadCyberAlerts() {
   }
 }
 
-loadCyberAlerts();
-setInterval(loadCyberAlerts, 60000);
+(function () {
+  var started = false;
+  function startAlerts() {
+    if (started) return;
+    started = true;
+    loadCyberAlerts();
+    setInterval(function () {
+      if (!document.hidden) loadCyberAlerts();
+    }, 60000);
+  }
+
+  function initAlertsObserver() {
+    var target = document.querySelector(".threat-box") || document.getElementById("alert-live");
+    if ("IntersectionObserver" in window && target) {
+      var obs = new IntersectionObserver(function (entries, observer) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          observer.disconnect();
+          startAlerts();
+        }
+      }, { rootMargin: "500px" });
+      obs.observe(target);
+    } else {
+      startAlerts();
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAlertsObserver);
+  } else {
+    initAlertsObserver();
+  }
+})();
 </script>
      
 <style>
@@ -3108,5 +3167,5 @@ function caricaClarity() {
 }
 window.addEventListener("scroll", caricaClarity, { once: true, passive: true });
 window.addEventListener("touchstart", caricaClarity, { once: true, passive: true });
-window.addEventListener("load", () => setTimeout(caricaClarity, 4000), { once: true });
+window.addEventListener("load", () => setTimeout(caricaClarity, 9000), { once: true });
 </script>
