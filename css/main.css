@@ -2,8 +2,6 @@
    SEZIONE 1 — VARIABILI GLOBALI + RESET + BASE
 ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-
 :root {
   --bg-main: #000;
   --bg-elevated: #0d0d0d;
