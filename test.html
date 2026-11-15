@@ -1,17 +1,10 @@
-<!-- BLOCCO METEO ITALIA (CARICAMENTO ON-CLICK) -->
 <div class="sidebar-box" aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff; margin-bottom:10px;">
         Meteo Italia – 7 Giorni
     </h3>
-
-    <div id="bmeteo-container">
-        <button type="button"
-                onclick="this.parentElement.innerHTML='<iframe src=&quot;https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e&quot; sandbox=&quot;allow-scripts allow-same-origin allow-popups&quot; width=&quot;100%&quot; height=&quot;340&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; title=&quot;Previsioni meteo 7 giorni&quot;></iframe>'"
-                style="width:100%; padding:10px; background:#081017; color:#00eaff; border:1px solid #00eaff; border-radius:6px; font-weight:bold; cursor:pointer; margin-bottom:10px;">
-            🌦️ Mostra Widget Meteo 7 Giorni
-        </button>
+    <div id="bmeteo-container" style="min-height:340px; display:flex; align-items:center; justify-content:center; color:#88c9d6; font-size:13px;">
+        Muovi o scorri per caricare il meteo...
     </div>
-
     <a href="https://www.3bmeteo.com/meteo/italia"
        target="_blank"
        rel="noopener noreferrer nofollow"
