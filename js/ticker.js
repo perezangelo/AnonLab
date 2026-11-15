@@ -1,11 +1,21 @@
 /* ============================================================
-   TICKER — VERSIONE "TRENO DI NEWS" (OTTIMIZZATA & VELOCE)
+   TICKER — VERSIONE "TRENO DI NEWS" (ZERO FORCED REFLOW)
 ============================================================ */
 
 let tickerNews = [];
-let pos = 0;
-let speed = 1.4;          // velocità scorrimento
-let tickerFrame = null;
+
+function optimizeTickerImage(rawImg) {
+    if (!rawImg) return "";
+    if (/blogger\.googleusercontent\.com|bp\.blogspot\.com/i.test(rawImg)) {
+        return rawImg
+            .replace(/\/s\d+(?:-[^/]+)?\//i, "/s80-rw/")
+            .replace(/=s\d+(?:-[^&]+)?$/i, "=s80-rw");
+    }
+    if (/^https?:\/\/(www\.)?anonlab\.it\//i.test(rawImg) || rawImg.startsWith("/")) {
+        return rawImg;
+    }
+    return https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=40&h=40&fit=cover&output=webp;
+}
 
 /* ============================================================
    CARICAMENTO NEWS
@@ -22,7 +32,7 @@ async function loadTickerNews() {
 
         buildTickerTrain();
     } catch (e) {
-        console.error("Errore ticker:", e);
+        console.warn("Errore ticker:", e);
         tickerNews = [{ title: "Errore nel caricamento delle news", link: "#", image: "" }];
         buildTickerTrain();
     }
@@ -38,6 +48,18 @@ function buildTickerTrain() {
     const wrapper = el.parentElement;
     if (wrapper) wrapper.style.overflow = "hidden";
 
+    if (!document.getElementById("anonlab-ticker-keyframes")) {
+        const style = document.createElement("style");
+        style.id = "anonlab-ticker-keyframes";
+        style.textContent = `
+            @keyframes anonlabTickerScroll {
+                0%   { transform: translate3d(0, 0, 0); }
+                100% { transform: translate3d(-50%, 0, 0); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     const colors = ["#00ffff", "#ff00ff", "#ff8800", "#00ff88", "#ff4444"];
     const icons = ["◆", "◉", "✦", "❯"];
 
@@ -47,12 +69,26 @@ function buildTickerTrain() {
         const neon = colors[idx % colors.length];
         const icon = icons[idx % icons.length];
 
-        const img = item.image && item.image.trim() !== ""
-            ? item.image
-            : "https://picsum.photos/40/40?random=" + idx;
+        const rawImg = item.image && item.image.trim() !== "" ? item.image.trim() : "";
+        const img = optimizeTickerImage(rawImg);
 
-        // Pulizia del titolo per evitare che eventuali virgolette rompano l'HTML
-        const cleanTitle = String(item.title || "Notizia cyber").replace(/"/g, '&quot;');
+        const cleanTitle = String(item.title || "Notizia cyber")
+            .replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+        const imgTag = img
+            ? `<img src="${img}"
+                    width="20"
+                    height="20"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    onerror="this.style.display='none'"
+                    style="width:20px;height:20px;object-fit:cover;border-radius:4px;margin-right:6px;flex-shrink:0;">`
+            : "";
 
         html += `
             <a href="${item.link || "#"}" style="
@@ -66,53 +102,25 @@ function buildTickerTrain() {
                 margin-right:40px;
                 text-shadow:0 0 8px ${neon};
             ">
-                <img src="${img}" 
-                     width="20" 
-                     height="20"
-                     alt=""
-                     aria-hidden="true"
-                     loading="lazy"
-                     decoding="async"
-                     style="width:20px;height:20px;object-fit:cover;border-radius:4px;margin-right:6px;flex-shrink:0;">
+                ${imgTag}
                 <span style="margin-right:6px;">${icon}</span>
                 <span>${cleanTitle}</span>
             </a>
         `;
     });
 
-    // Duplico il contenuto per avere un loop continuo
     el.innerHTML = html + html;
-
     el.style.display = "inline-block";
     el.style.whiteSpace = "nowrap";
-    el.style.transform = "translateX(0px)";
+    el.style.willChange = "transform";
 
-    pos = 0;
+    // Durata proporzionale al numero di caratteri (nessuna lettura di scrollWidth -> zero reflow!)
+    const totalChars = tickerNews.reduce((sum, item) => sum + String(item.title || "").length + 14, 0);
+    const durationSec = Math.max(25, Math.round((totalChars * 8.5) / 80));
 
-    if (tickerFrame) cancelAnimationFrame(tickerFrame);
-    startContinuousScroll();
-}
-
-/* ============================================================
-   SCORRIMENTO CONTINUO SENZA FORCED REFLOW
-============================================================ */
-function startContinuousScroll() {
-    const el = document.getElementById("ticker-text");
-    if (!el) return;
-
-    const contentWidth = el.scrollWidth;
-
-    function step() {
-        pos -= speed;
-
-        if (pos <= -contentWidth / 2) {
-            pos += contentWidth / 2;
-        }
-
-        el.style.transform = `translateX(${pos}px)`;
-        tickerFrame = requestAnimationFrame(step);
-    }
-
-    tickerFrame = requestAnimationFrame(step);
+    el.style.animation = "none";
+    requestAnimationFrame(() => {
+        el.style.animation = anonlabTickerScroll ${durationSec}s linear infinite;
+    });
 }
 
