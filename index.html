@@ -2495,7 +2495,7 @@ if ('serviceWorker' in navigator) {
      <script src="js/ai-trends.js" defer></script>
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
+    <img src="/img/OIP2.png" class="box-title-icon" alt="OIP" width="46" height="46" loading="lazy" decoding="async">
     <h2>Strumenti Cyber</h2>
     <a href="/tools.html" style="color:#ff7b00; font-weight:bold;">
        Vai alla pagina Tools →
@@ -2556,8 +2556,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <div style="display:flex;align-items:center;gap:15px;margin-bottom:10px;">
     <img src="${tool.icon}" alt="${tool.name}" 
      class="box-title-icon"
+     width="46"
+     height="46"
+     loading="lazy"
+     decoding="async"
      style="filter:drop-shadow(0 0 10px #00eaff);">
-    <strong style="color:#00eaff;">
 ${tool.name}
 </strong>
   </div>
@@ -2591,7 +2594,7 @@ ${tool.name}
 
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3">
+    <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3" width="46" height="46" loading="lazy" decoding="async">
     <h2>System Status</h2>
   </div>
 
@@ -2624,16 +2627,22 @@ aria-label="Stato dei sistemi e dei servizi">
 </div>
 </section>
 
-<script src="https://angelonline.altervista.org/js/system-status-new.js?v=1002"></script>
+<script src="https://angelonline.altervista.org/js/system-status-new.js?v=1002" defer></script>
 <script>
-initSystemStatus();
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof initSystemStatus === "function") initSystemStatus();
+});
 </script>
 		
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/threat-1.webp"
          class="box-title-icon"
-         alt="Radar Cyber">
+         alt="Radar Cyber"
+         width="46"
+         height="46"
+         loading="lazy"
+         decoding="async">
     <h2>Cyber Threat Monitor</h2>
   </div>
 
@@ -2786,11 +2795,11 @@ initSystemStatus();
 </section>
 
 <!-- 1. THREAT MONITOR (Lascia solo il file JS, senza il blocco script sotto) -->
-<script src="/js/threat-monitor.js"></script>
+<script src="/js/threat-monitor.js" defer></script>
      
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/threat-2.webp" class="box-title-icon" alt="Digital Shield">
+    <img src="/img/threat-2.webp" class="box-title-icon" alt="Digital Shield" width="46" height="46" loading="lazy" decoding="async">
     <h2>Hacker Activity Intelligence</h2>
     <a href="/cyber.html"
        style="color:#ff7b00; text-decoration:none;"
@@ -2810,15 +2819,15 @@ initSystemStatus();
 </section>
 
 <!-- 2. HACKER ACTIVITY (Anche qui: solo il file JS, senza il secondo script inline) -->
-<script src="/js/hacker-activity.js"></script>
-
+<script src="/js/hacker-activity.js" defer></script>
          </section> <!-- /main-column -->
 
 <div id="sidebar" class="sidebar"></div>
 
 <!-- 1. SCRIPT -->
-<script src="/js/ui.js"></script>
-<script src="/js/home-news.js"></script>
+<!-- 1. SCRIPT -->
+<script src="/js/ui.js" defer></script>
+<script src="/js/home-news.js" defer></script>
 	  
 </main>
 
@@ -2868,9 +2877,9 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <!-- ALTRI SCRIPT DEL SITO -->
-<script src="https://angelonline.altervista.org/js/news.js"></script>
-<script src="https://angelonline.altervista.org/js/main.js"></script>
-
+<!-- ALTRI SCRIPT DEL SITO -->
+<script src="https://angelonline.altervista.org/js/news.js" defer></script>
+<script src="https://angelonline.altervista.org/js/main.js" defer></script>
 </div> <!-- /#app GPU WRAPPER -->
 
 <!-- CALCOLATRICE -->
@@ -3013,10 +3022,17 @@ if (document.readyState === "loading") {
 }
 </script>
 
-<script type="text/javascript">
+<script>
+function caricaClarity() {
+    if (window.clarityCaricato) return;
+    window.clarityCaricato = true;
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
+}
+window.addEventListener("scroll", caricaClarity, { once: true, passive: true });
+window.addEventListener("touchstart", caricaClarity, { once: true, passive: true });
+window.addEventListener("load", () => setTimeout(caricaClarity, 4000), { once: true });
 </script>
