@@ -6,41 +6,63 @@
 const HACKER_API_URL =
     "https://angelonline.altervista.org/backend/hacker-activity.php";
 
-/* --- Anti-cache AlterVista --- */
-function fetchHackerActivity() {
+/* --- Anti-cache AlterVista con timeout sicuro --- */
+async function fetchHackerActivity() {
     const url = HACKER_API_URL + "?ts=" + Date.now();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
 
-    return fetch(url, {
-        method: "GET",
-        headers: { "Accept": "text/html" }
-    })
-    .then(r => {
+    try {
+        const r = await fetch(url, {
+            method: "GET",
+            headers: { "Accept": "text/html" },
+            signal: controller.signal
+        });
         if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.text();
-    });
+        return await r.text();
+    } finally {
+        clearTimeout(timeoutId);
+    }
 }
 
 function initHackerActivity() {
     const box = document.getElementById("hacker-activity");
     if (!box) return;
 
+    let started = false;
+
     function update() {
+        if (document.hidden) return;
         fetchHackerActivity()
             .then(html => {
                 box.innerHTML = html;
             })
-            .catch(err => {
-                box.innerHTML =
-                    "<p style='color:#ff7b00;'>Errore caricamento dati CTI</p>";
-                console.error("Hacker Activity error:", err);
+            .catch(() => {
+                if (!box.innerHTML.trim()) {
+                    box.innerHTML =
+                        "<p style='color:#ff7b00;'>Dati CTI temporaneamente non disponibili</p>";
+                }
             });
     }
 
-    /* --- Primo caricamento --- */
-    update();
+    function startWidget() {
+        if (started) return;
+        started = true;
+        update();
+        setInterval(update, 30000);
+    }
 
-    /* --- Auto-refresh ogni 30 secondi --- */
-    setInterval(update, 30000);
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            if (entries.some(e => e.isIntersecting)) {
+                obs.disconnect();
+                startWidget();
+            }
+        }, { rootMargin: "500px" });
+        observer.observe(box);
+    } else {
+        startWidget();
+    }
 }
 
 /* --- Avvio widget --- */
