@@ -256,6 +256,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sidebarEl = document.getElementById("sidebar");
     if (sidebarEl) {
         sidebarEl.innerHTML = await partialsCache.sidebar;
+       const bmeteoBox = document.getElementById("bmeteo-container");
+if (bmeteoBox) {
+    let bmeteoLoaded = false;
+    const load3BMeteo = () => {
+        if (bmeteoLoaded) return;
+        bmeteoLoaded = true;
+        bmeteoBox.innerHTML = '<iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e" sandbox="allow-scripts allow-same-origin allow-popups" width="100%" height="340" frameborder="0" scrolling="no" title="Previsioni meteo 7 giorni"></iframe>';
+    };
+    ["wheel", "touchstart", "mousemove", "keydown"].forEach(ev => {
+        window.addEventListener(ev, load3BMeteo, { once: true, passive: true });
+    });
+}
 
         const initSidebarWidgets = () => {
             loadMeteo();
