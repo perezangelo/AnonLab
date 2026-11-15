@@ -1811,7 +1811,7 @@ async function sendNewsletter(e) {
 <!-- VULNERABILITÀ DEL GIORNO (VERSIONE ULTRA) -->
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/cyber-grid.webp" class="box-title-icon" alt="Cyber Grid">
+    <img src="/img/cyber-grid.webp" class="box-title-icon" alt="Cyber Grid" width="46" height="46" loading="lazy" decoding="async">
     <h2>Vulnerabilità del Giorno</h2>
   </div>
 
@@ -1934,7 +1934,7 @@ modal.onclick = () => modal.style.display = "none";
 <!-- CYBER ALERT LIVE -->
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/cyber-circuit.webp" class="box-title-icon" alt="Cyber Circuit">
+    <img src="/img/cyber-circuit.webp" class="box-title-icon" alt="Cyber Circuit" width="46" height="46" loading="lazy" decoding="async">
     <h2>Cyber Alert Live</h2>
 
     <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" 
@@ -2368,7 +2368,7 @@ loadSocTV();
 
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity">
+    <img src="/img/Cybersecurity.png" class="box-title-icon" alt="Cybersecurity" width="46" height="46" loading="lazy" decoding="async">
     <h2>Tech Radar</h2>
     <a href="https://www.enisa.europa.eu/enisa-nis360-2026" 
        target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
@@ -2483,7 +2483,7 @@ if ('serviceWorker' in navigator) {
 
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp">
+    <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp" width="46" height="46" loading="lazy" decoding="async">
     <h2>AI Trends</h2>
     <a href="https://www.wired.com/category/security" 
        target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
@@ -2492,16 +2492,7 @@ if ('serviceWorker' in navigator) {
   </div>
   <div id="ai-trends"></div>
 </section>
-     <script src="js/ai-trends.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof initAITrends === "function") {
-        initAITrends();
-    }
-});
-</script>
-
+     <script src="js/ai-trends.js" defer></script>
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/OIP2.png" class="box-title-icon" alt="OIP">
