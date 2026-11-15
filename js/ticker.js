@@ -120,7 +120,7 @@ function buildTickerTrain() {
 
     el.style.animation = "none";
     requestAnimationFrame(() => {
-        el.style.animation = anonlabTickerScroll ${durationSec}s linear infinite;
+        el.style.animation = "anonlabTickerScroll " + durationSec + "s linear infinite";
     });
 }
 
