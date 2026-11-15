@@ -237,11 +237,12 @@ const partialsCache = {
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", async () => {
-    
-    // 1. Inietta Header
+
+    // 1. Inietta Header e avvia subito il timer di sessione nell'header
     const headerEl = document.getElementById("header");
     if (headerEl) {
         headerEl.innerHTML = await partialsCache.header;
+        if (typeof initSessionTimer === "function") initSessionTimer();
     }
 
     // 2. Inietta Ticker
@@ -251,29 +252,47 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (typeof loadTickerNews === "function") loadTickerNews();
     }
 
-    // 3. Inietta Sidebar (Già pronta in cache!)
+    // 3. Inietta Sidebar
     const sidebarEl = document.getElementById("sidebar");
     if (sidebarEl) {
         sidebarEl.innerHTML = await partialsCache.sidebar;
 
-        // Inizializza i widget subito e UNA SOLA VOLTA
-        requestAnimationFrame(() => {
+        const initSidebarWidgets = () => {
             loadMeteo();
             initOroscopo();
-            if (typeof initVisitCounter === "function") initVisitCounter();
             if (typeof initRadio === "function") initRadio();
             if (typeof initYouTubePlayer === "function") initYouTubePlayer();
-            
-            // ⭐ Aggiunte qui per completare la sidebar:
             if (typeof initCalculator === "function") initCalculator();
-            if (typeof initSessionTimer === "function") initSessionTimer();
-        });
+        };
+
+        // Su Desktop la sidebar è visibile subito (parte istantaneamente);
+        // su Mobile è in fondo alla pagina (aspetta lo scroll senza rubare banda all'LCP!)
+        if ("IntersectionObserver" in window) {
+            const sbObs = new IntersectionObserver((entries, obs) => {
+                if (entries.some(e => e.isIntersecting)) {
+                    obs.disconnect();
+                    initSidebarWidgets();
+                }
+            }, { rootMargin: "400px" });
+            sbObs.observe(sidebarEl);
+        } else {
+            initSidebarWidgets();
+        }
     }
 
     // 4. Inietta Footer
     const footerEl = document.getElementById("footer");
     if (footerEl) {
         footerEl.innerHTML = await partialsCache.footer;
+    }
+
+    // 5. Contatore visite: parte dopo il completamento del caricamento per non interferire con l'LCP
+    if (typeof initVisitCounter === "function") {
+        if (document.readyState === "complete") {
+            setTimeout(initVisitCounter, 1500);
+        } else {
+            window.addEventListener("load", () => setTimeout(initVisitCounter, 1500), { once: true });
+        }
     }
 });
 
@@ -345,7 +364,7 @@ function anonlabPage() {
 
 function anonlabDevice() {
     var touch = (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) || navigator.maxTouchPoints > 1;
-    var w = (window.screen && window.screen.width) ? Math.min(window.innerWidth, window.screen.width) : window.innerWidth;
+    var w = (window.screen && window.screen.width) ? window.screen.width : 1024;
     if (touch) {
         if (w < 768) return "mobile";
         if (w < 1200) return "tablet";
@@ -430,7 +449,7 @@ function updateCounterUI(data) {
     if (list) {
         var pages = data.pages || {};
         var nomi = Object.keys(pages).sort(function (a, b) { return pages[b] - pages[a]; });
-        list.innerHTML = "";
+        var frag = document.createDocumentFragment();
         nomi.forEach(function (nome) {
             var li = document.createElement("li");
             li.style.cssText = "display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed rgba(255,255,255,.06);";
@@ -445,8 +464,10 @@ function updateCounterUI(data) {
 
             li.appendChild(etichetta);
             li.appendChild(conteggio);
-            list.appendChild(li);
+            frag.appendChild(li);
         });
+        list.innerHTML = "";
+        list.appendChild(frag);
     }
 
     var ora = new Date().getHours();
