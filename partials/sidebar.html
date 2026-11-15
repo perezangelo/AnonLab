@@ -664,60 +664,21 @@
 </div>
 
 <!-- BLOCCO METEO PROTETTO DA DATA-NOSNIPPET -->
-<div class="sidebar-box" 
-     data-nosnippet 
-     aria-label="Meteo Italia – 7 Giorni" 
-     style="margin-top:20px;">
-
+<div class="sidebar-box" aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff; margin-bottom:10px;">
         Meteo Italia – 7 Giorni
     </h3>
-
-    <!-- Widget 3BMeteo con caricamento lazy -->
-    <iframe 
-        src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
-        sandbox="allow-scripts allow-same-origin allow-popups"
-        width="100%" 
-        height="340" 
-        frameborder="0" 
-        scrolling="no"
-        loading="lazy"
-        title="Previsioni meteo 7 giorni">
-    </iframe>
-
+    <div id="bmeteo-container" style="min-height:340px; display:flex; align-items:center; justify-content:center; color:#88c9d6; font-size:13px;">
+        Muovi o scorri per caricare il meteo...
+    </div>
     <a href="https://www.3bmeteo.com/meteo/italia"
        target="_blank"
-       rel="noopener noreferrer"
+       rel="noopener noreferrer nofollow"
        style="color:#00eaff; text-decoration:none; font-size:13px;">
        Previsioni complete →
     </a>
 </div>
-       
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const ua = navigator.userAgent.toLowerCase();
-    
-    // Lista delle firme tipiche dei crawler e bot dei motori di ricerca
-    const isBot = /bot|crawl|spider|slurp|curl|wget|python|googlebot|bingbot|ia_archiver|semrush|ahrefs/i.test(ua);
-
-    // Se NON è un bot, inseriamo l'iframe dinamicamente nel DOM
-    if (!isBot) {
-        const placeholder = document.getElementById("meteo-placeholder");
-        if (placeholder) placeholder.remove();
-
-        const meteoBox = document.getElementById("meteo-box");
-        if (meteoBox) {
-            meteoBox.innerHTML = `
-                <iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e"
-                    sandbox="allow-scripts allow-same-origin allow-popups"
-                    width="100%" height="340" frameborder="0" scrolling="no"
-                    title="Previsioni meteo 7 giorni"></iframe>
-            `;
-        }
-    }
-});
-</script>
-
+     
 <!-- CALCOLATRICE (SINTASSI HTML CORRETTA) -->
 <div class="sidebar-box" aria-label="Calcolatrice"
      style="border:1px solid #00eaff55; box-shadow:0 0 12px #00eaffaa; border-radius:8px; padding: 12px;">
