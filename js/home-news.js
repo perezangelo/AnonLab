@@ -1,10 +1,6 @@
 /* ============================
    ANONLAB — HOME NEWS
-   Versione 1009 (Ottimizzata Accessibilità A11y)
-   - The Hacker News
-   - HackRead
-   - DarkReading
-   - Proxy PHP AlterVista
+   Versione 1011 (Immagini WebP ottimizzate + Lazy Load)
 ============================ */
 
 const HOME_NEWS_VERSION = "1010";
@@ -44,9 +40,27 @@ function safeUrl(value, fallback = "#") {
     return fallback;
 }
 
-// ⭐ NORMALIZZAZIONE UNIVERSALE (Legge sia il tuo JSON che i Feed RSS)
+function optimizeNewsImageUrl(url) {
+    if (!url || url === HOME_NEWS_DEFAULT_IMAGE) return HOME_NEWS_DEFAULT_IMAGE;
+
+    // 1. Immagini Blogger/Google: ridimensiona nativamente in WebP (480px)
+    if (/blogger\.googleusercontent\.com|bp\.blogspot\.com/i.test(url)) {
+        return url
+            .replace(/\/s\d+(?:-[^/]+)?\//i, "/s480-rw/")
+            .replace(/=s\d+(?:-[^&]+)?$/i, "=s480-rw");
+    }
+
+    // 2. Immagini locali anonlab.it: lasciale invariate
+    if (/^https?:\/\/(www\.)?anonlab\.it\//i.test(url)) {
+        return url;
+    }
+
+    // 3. Altre immagini esterne RSS: ottimizza a 480x308 WebP
+    return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&h=308&fit=cover&output=webp`;
+}
+
+// ⭐ NORMALIZZAZIONE UNIVERSALE
 function normalizeItem(item = {}) {
-    // 1. Categoria: gestisce sia array che stringa singola "category"
     let cat = "News";
     if (Array.isArray(item.categories) && item.categories.length > 0) {
         cat = item.categories[0];
@@ -54,7 +68,6 @@ function normalizeItem(item = {}) {
         cat = item.category;
     }
 
-    // 2. Immagine: aggiunta la compatibilità con "img"
     const imageValue =
         item.img ||
         item.image ||
@@ -64,7 +77,6 @@ function normalizeItem(item = {}) {
         item.enclosureUrl ||
         "";
 
-    // 3. Descrizione: aggiunta la compatibilità con "excerpt"
     const descValue =
         item.excerpt ||
         item.description ||
@@ -72,7 +84,6 @@ function normalizeItem(item = {}) {
         item.content ||
         "";
 
-    // 4. Data / Tempo: gestisce sia timestamp che "2 ore fa"
     const dateValue =
         item.time ||
         item.pubDate ||
@@ -81,11 +92,14 @@ function normalizeItem(item = {}) {
         item.date ||
         "";
 
+    const originalImage = safeUrl(imageValue, HOME_NEWS_DEFAULT_IMAGE);
+
     return {
         title: String(item.title || "Notizia senza titolo").trim(),
         description: String(descValue).trim(),
         link: safeUrl(item.link || item.url || "", "#"),
-        image: safeUrl(imageValue, HOME_NEWS_DEFAULT_IMAGE),
+        image: optimizeNewsImageUrl(originalImage),
+        fallbackImage: originalImage,
         pubDate: String(dateValue).trim(),
         category: String(cat).trim(),
         source: String(item.source || "Feed Cyber").trim()
@@ -136,10 +150,10 @@ function renderNews(container, rawItems) {
         const description = escapeHtml(getExcerpt(item.description));
         const category = escapeHtml(item.category);
         const image = escapeHtml(item.image);
+        const fallbackImage = escapeHtml(item.fallbackImage);
         const link = escapeHtml(item.link);
         const source = escapeHtml(item.source);
 
-        // Se è una data leggibile (es: "2 ore fa") la mostra così com'è, altrimenti formatta la data ISO
         let displayDate = item.pubDate;
         const ts = getTimestamp(item);
         if (ts > 0) {
@@ -152,6 +166,7 @@ function renderNews(container, rawItems) {
             <article class="news-card" id="news-${index + 1}">
                 <img
                     src="${image}"
+                    data-fallback="${fallbackImage}"
                     class="news-thumb"
                     width="140"
                     height="90"
@@ -159,7 +174,7 @@ function renderNews(container, rawItems) {
                     loading="lazy"
                     decoding="async"
                     style="aspect-ratio: 140/90; object-fit: cover;"
-                    onerror="this.onerror=null;this.src='${HOME_NEWS_DEFAULT_IMAGE}';"
+                    onerror="if(this.dataset.fallback && this.src !== this.dataset.fallback){this.src=this.dataset.fallback;}else{this.onerror=null;this.src='${HOME_NEWS_DEFAULT_IMAGE}';}"
                 >
 
                 <div class="news-content">
@@ -172,7 +187,6 @@ function renderNews(container, rawItems) {
 
                     <p class="news-excerpt">${description}</p>
 
-                    <!-- Touch target conforme (min-height 44px e padding) -->
                     <a
                         href="${link}"
                         class="news-link"
@@ -194,7 +208,7 @@ function renderNews(container, rawItems) {
 function renderError(container, message) {
     container.innerHTML = `
         <article class="news-card">
-            <img src="${HOME_NEWS_DEFAULT_IMAGE}" class="news-thumb" width="140" height="90" alt="News AnonLab">
+            <img src="${HOME_NEWS_DEFAULT_IMAGE}" class="news-thumb" width="140" height="90" alt="News AnonLab" loading="lazy" decoding="async">
             <div class="news-content">
                 <h3 class="news-title">News temporaneamente non disponibili</h3>
                 <p class="news-excerpt">${escapeHtml(message)}</p>
@@ -204,23 +218,30 @@ function renderError(container, message) {
 }
 
 async function fetchNewsFromProxy() {
-    const response = await fetch(HOME_NEWS_ENDPOINT, {
-        method: "GET",
-        mode: "cors",
-        credentials: "omit",
-        cache: "no-store",
-        headers: { Accept: "application/json" }
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
 
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    try {
+        const response = await fetch(HOME_NEWS_ENDPOINT, {
+            method: "GET",
+            mode: "cors",
+            credentials: "omit",
+            cache: "no-store",
+            headers: { Accept: "application/json" },
+            signal: controller.signal
+        });
 
-    const data = await response.json();
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-    // ⭐ Accetta sia un array diretto [...] sia la risposta avvolta { success: true, items: [...] }
-    if (Array.isArray(data)) return data;
-    if (data && Array.isArray(data.items)) return data.items;
+        const data = await response.json();
 
-    throw new Error("Formato JSON non riconosciuto");
+        if (Array.isArray(data)) return data;
+        if (data && Array.isArray(data.items)) return data.items;
+
+        throw new Error("Formato JSON non riconosciuto");
+    } finally {
+        clearTimeout(timeoutId);
+    }
 }
 
 async function loadHomeNews() {
@@ -236,4 +257,19 @@ async function loadHomeNews() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadHomeNews);
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("home-news");
+    if (!container) return;
+
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            if (entries.some(e => e.isIntersecting)) {
+                obs.disconnect();
+                loadHomeNews();
+            }
+        }, { rootMargin: "500px" });
+        observer.observe(container);
+    } else {
+        loadHomeNews();
+    }
+});
