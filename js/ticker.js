@@ -14,7 +14,7 @@ function optimizeTickerImage(rawImg) {
     if (/^https?:\/\/(www\.)?anonlab\.it\//i.test(rawImg) || rawImg.startsWith("/")) {
         return rawImg;
     }
-    return https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=40&h=40&fit=cover&output=webp;
+return `https://wsrv.nl/?url=${encodeURIComponent(rawImg)}&w=40&h=40&fit=cover&output=webp`;
 }
 
 /* ============================================================
