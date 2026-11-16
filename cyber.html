@@ -285,19 +285,53 @@ fetch("/partials/ticker.html")
 </div>
 
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
-  <h3 style="color:#00eaff;">Global Threat Heatmap</h3>
-  <p style="color:#ccc;margin-bottom:15px;">Intensità delle minacce per area geografica (aggiornamento live).</p>
 
-  <!-- LINK ESTERNO CLICCABILE -->
+  <!-- INTESTAZIONE CON TITOLO A SINISTRA E GLOBO 3D A DESTRA -->
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:18px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:220px;">
+      <h3 style="color:#00eaff; margin:0 0 6px 0;">Global Threat Heatmap</h3>
+      <p style="color:#ccc; margin:0; font-size:14px; line-height:1.5;">
+        Intensità delle minacce per area geografica (aggiornamento live).
+      </p>
+    </div>
+
+    <!-- MINI GLOBO 3D CYBER ANIMATO -->
+    <div class="mini-globe-wrap" aria-hidden="true" style="position:relative; width:68px; height:68px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+      <svg viewBox="0 0 100 100" width="68" height="68" style="filter:drop-shadow(0 0 10px rgba(0,234,255,0.55));">
+        <defs>
+          <radialGradient id="globeGlow" cx="35%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#00eaff" stop-opacity="0.35"/>
+            <stop offset="65%" stop-color="#003b5c" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#000814" stop-opacity="0.9"/>
+          </radialGradient>
+        </defs>
+        <!-- Sfera 3D -->
+        <circle cx="50" cy="50" r="40" fill="url(#globeGlow)" stroke="#00eaff" stroke-width="1.8"/>
+        <!-- Paralleli -->
+        <ellipse cx="50" cy="50" rx="40" ry="14" fill="none" stroke="#00eaff" stroke-opacity="0.45" stroke-width="1"/>
+        <ellipse cx="50" cy="33" rx="34" ry="9" fill="none" stroke="#00eaff" stroke-opacity="0.35" stroke-width="0.9"/>
+        <ellipse cx="50" cy="67" rx="34" ry="9" fill="none" stroke="#00eaff" stroke-opacity="0.35" stroke-width="0.9"/>
+        <!-- Meridiani -->
+        <ellipse class="globe-meridian" cx="50" cy="50" rx="18" ry="40" fill="none" stroke="#00eaff" stroke-opacity="0.6" stroke-width="1.1"/>
+        <line x1="50" y1="10" x2="50" y2="90" stroke="#00eaff" stroke-opacity="0.45" stroke-width="1"/>
+        <!-- Orbita satellite / minacce -->
+        <ellipse cx="50" cy="50" rx="47" ry="15" transform="rotate(-22 50 50)" fill="none" stroke="#00ffaa" stroke-opacity="0.55" stroke-width="1" stroke-dasharray="4 3"/>
+        <circle cx="88" cy="34" r="2.6" fill="#ff4444"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- MAPPA PIATTA IN EVIDENZA + PUNTI REALI -->
   <a href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="display:block;position:relative;text-decoration:none;">
-    <div class="heatmap-wrapper" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
-      <div class="heatmap-stage" style="position:relative;width:100%;">
+    <div class="heatmap-wrapper" style="position:relative;width:100%;aspect-ratio:2 / 1;background:#020b16;border:1px solid #00eaff44;border-radius:6px;overflow:hidden;cursor:pointer;">
+      <div class="heatmap-stage" style="position:relative;width:100%;height:100%;">
+        <!-- Usa qui una mappa del mondo PIATTA equirettangolare (2:1) -->
         <img
           id="heatmap-base-img"
-          src="/img/world-map-dark.png"
+          src="/img/world-map-flat.png"
           class="heatmap-img"
-          alt="Mappa del mondo utilizzata come base per la heatmap delle minacce informatiche di AnonLab"
-          style="width:100%;display:block;"
+          alt="Planisfero piatto utilizzato come base per la heatmap delle minacce informatiche di AnonLab"
+          style="width:100%;height:100%;object-fit:fill;display:block;filter:brightness(1.15) contrast(1.12);"
         >
         <canvas
           id="heatmap-canvas"
@@ -308,13 +342,19 @@ fetch("/partials/ticker.html")
   </a>
 
   <style>
-    /* Scala insieme mappa + punti canvas così restano allineati */
     .heatmap-wrapper .heatmap-stage {
       transition: transform 0.5s ease;
       transform-origin: center center;
     }
     .heatmap-wrapper:hover .heatmap-stage {
-      transform: scale(1.05);
+      transform: scale(1.04);
+    }
+    .mini-globe-wrap svg {
+      animation: globeFloat 5s ease-in-out infinite;
+    }
+    @keyframes globeFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
     }
   </style>
 
@@ -364,10 +404,8 @@ fetch("/partials/ticker.html")
     function renderFrame(now) {
       if (canvas.width > 0 && canvas.height > 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(0,0,0,0.18)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        const radius = Math.max(12, Math.min(28, canvas.width * 0.042));
+        const radius = Math.max(10, Math.min(24, canvas.width * 0.036));
 
         lastPoints.forEach(p => {
           const px = Number(p.x);
@@ -377,22 +415,24 @@ fetch("/partials/ticker.html")
 
           const x = px * canvas.width;
           const y = py * canvas.height;
-          const pulse = 0.3 + 0.7 * Math.abs(Math.sin(now / 900 + x + y));
-          const intensity = Math.max(0, Math.min(baseIntensity * pulse * 0.55, 0.75));
+          const pulse = 0.35 + 0.65 * Math.abs(Math.sin(now / 900 + x + y));
+          const intensity = Math.max(0, Math.min(baseIntensity * pulse * 0.55, 0.78));
 
           const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-          gradient.addColorStop(0, `rgba(255,0,0,${intensity})`);
-          gradient.addColorStop(0.4, `rgba(255,140,0,${intensity * 0.7})`);
+          gradient.addColorStop(0, `rgba(255,40,40,${intensity})`);
+          gradient.addColorStop(0.45, `rgba(255,140,0,${intensity * 0.65})`);
           gradient.addColorStop(1, "rgba(255,0,0,0)");
 
           ctx.fillStyle = gradient;
           ctx.beginPath();
           ctx.arc(x, y, radius, 0, Math.PI * 2);
           ctx.fill();
-			ctx.fillStyle = `rgba(255, 90, 90, ${Math.min(1, intensity + 0.25)})`;
-ctx.beginPath();
-ctx.arc(x, y, 2, 0, Math.PI * 2);
-ctx.fill();
+
+          // Punto centrale nitido sopra la nazione
+          ctx.fillStyle = `rgba(255,95,95,${Math.min(1, intensity + 0.3)})`;
+          ctx.beginPath();
+          ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+          ctx.fill();
         });
       }
 
