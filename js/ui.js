@@ -127,6 +127,204 @@ async function loadMeteo() {
     }
 }
 
+/* === SIDEBAR TELEMETRIA VARESE (IN `/js/ui.js`) === */
+(() => {
+  const VARESE_LAT = 45.8206;
+  const VARESE_LON = 8.8251;
+  const CACHE_KEY  = "anonlab_varese_telemetry_v2";
+  const CACHE_TTL  = 10 * 60 * 1000;
+
+  let telemetryBooted = false;
+  let lastBoundBtn = null;
+
+  function windCompass(deg) {
+    const dirs = ["N", "NE", "E", "SE", "S", "SO", "O", "NO"];
+    return dirs[Math.round((Number(deg) || 0) / 45) % 8];
+  }
+
+  function setGaugeNeedle(id, value, min, max) {
+    const el = document.getElementById(id);
+    if (!el || !Number.isFinite(value)) return;
+    const ratio = Math.max(0, Math.min(1, (value - min) / (max - min)));
+    const angle = -90 + ratio * 180;
+    el.setAttribute("transform", `rotate(${angle.toFixed(1)} 60 62)`);
+  }
+
+  function updateClockAndNet() {
+    const timeEl = document.getElementById("anon-clock-time");
+    if (!timeEl) return;
+
+    const now = new Date();
+    timeEl.textContent = now.toLocaleTimeString("it-IT", {
+      timeZone: "Europe/Rome",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+
+    const dateEl = document.getElementById("anon-clock-date");
+    if (dateEl) {
+      dateEl.textContent = now.toLocaleDateString("it-IT", {
+        timeZone: "Europe/Rome",
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+      });
+    }
+
+    const utcEl = document.getElementById("anon-clock-utc");
+    if (utcEl) {
+      const hh = String(now.getUTCHours()).padStart(2, "0");
+      const mm = String(now.getUTCMinutes()).padStart(2, "0");
+      const ss = String(now.getUTCSeconds()).padStart(2, "0");
+      utcEl.textContent = `${hh}:${mm}:${ss} UTC`;
+    }
+
+    const netEl = document.getElementById("anon-net-speed");
+    if (netEl) {
+      const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (conn && Number.isFinite(conn.downlink)) {
+        netEl.textContent = `${conn.downlink} Mbps`;
+      } else {
+        netEl.textContent = navigator.onLine ? "Online" : "Offline";
+      }
+    }
+
+    // Collega il pulsante Live se la sidebar è stata appena iniettata
+    const btn = document.getElementById("anon-refresh-btn");
+    if (btn && btn !== lastBoundBtn) {
+      lastBoundBtn = btn;
+      btn.addEventListener("click", () => fetchVareseAll(true));
+    }
+
+    if (!telemetryBooted) {
+      telemetryBooted = true;
+      fetchVareseAll(false);
+      setInterval(() => fetchVareseAll(true), CACHE_TTL);
+    }
+  }
+
+  function renderData(wx, aq) {
+    const setTxt = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+
+    if (wx) {
+      const hum      = Number(wx.relative_humidity_2m);
+      const rain     = Number(wx.precipitation);
+      const pressure = Number(wx.pressure_msl);
+      const wind     = Number(wx.wind_speed_10m);
+      const gusts    = Number(wx.wind_gusts_10m);
+      const windDir  = Number(wx.wind_direction_10m);
+
+      setTxt("anon-hum", Number.isFinite(hum) ? `${Math.round(hum)}%` : "--%");
+      setTxt("anon-rain", Number.isFinite(rain) ? `${rain.toFixed(1)} mm` : "-- mm");
+
+      if (Number.isFinite(pressure)) {
+        setTxt("anon-baro-val", `${Math.round(pressure)} hPa`);
+        setGaugeNeedle("anon-baro-needle", pressure, 960, 1050);
+
+        let trend = "Stabile", col = "#00eaff";
+        if (pressure >= 1020) { trend = "Alta Pressione"; col = "#00ff99"; }
+        else if (pressure <= 1005) { trend = "Bassa Pressione"; col = "#ff4a4a"; }
+        const tEl = document.getElementById("anon-baro-trend");
+        if (tEl) { tEl.textContent = trend; tEl.style.color = col; }
+      }
+
+      if (Number.isFinite(wind)) {
+        setTxt("anon-wind-val", `${Math.round(wind)} km/h`);
+        setGaugeNeedle("anon-wind-needle", wind, 0, 100);
+        setTxt("anon-wind-dir", `Dir: ${windCompass(windDir)} (${Math.round(windDir)}°)`);
+      }
+
+      setTxt("anon-wind-gusts", Number.isFinite(gusts) ? `${Math.round(gusts)} km/h` : "-- km/h");
+    }
+
+    if (aq) {
+      const aqi  = Number(aq.european_aqi);
+      const pm25 = Number(aq.pm2_5);
+      const pm10 = Number(aq.pm10);
+      const uv   = Number(aq.uv_index);
+
+      if (Number.isFinite(aqi)) {
+        let lbl = "Ottima", col = "#00ff99";
+        if (aqi > 80)      { lbl = "Molto scarsa"; col = "#ff4a4a"; }
+        else if (aqi > 60) { lbl = "Scarsa";       col = "#ff7b00"; }
+        else if (aqi > 40) { lbl = "Discreta";     col = "#ffcc00"; }
+        else if (aqi > 20) { lbl = "Buona";        col = "#00eaff"; }
+
+        const valEl = document.getElementById("anon-aqi-val");
+        const lblEl = document.getElementById("anon-aqi-label");
+        if (valEl) { valEl.textContent = Math.round(aqi); valEl.style.color = col; }
+        if (lblEl) { lblEl.textContent = lbl; lblEl.style.color = col; }
+      }
+
+      setTxt("anon-pm25", Number.isFinite(pm25) ? `${pm25.toFixed(1)} µg/m³` : "--");
+      setTxt("anon-pm10", Number.isFinite(pm10) ? `${pm10.toFixed(1)} µg/m³` : "--");
+      setTxt("anon-uv",   Number.isFinite(uv)   ? uv.toFixed(1) : "--");
+    }
+  }
+
+  async function fetchVareseAll(force = false) {
+    const btn = document.getElementById("anon-refresh-btn");
+    try {
+      if (!force) {
+        try {
+          const raw = sessionStorage.getItem(CACHE_KEY);
+          if (raw) {
+            const c = JSON.parse(raw);
+            if (c && (Date.now() - c.ts) < CACHE_TTL) {
+              renderData(c.wx, c.aq);
+              return;
+            }
+          }
+        } catch (_) {}
+      }
+
+      if (btn) btn.textContent = "⏳ Sync";
+
+      const wxUrl = `https://api.open-meteo.com/v1/forecast?latitude=${VARESE_LAT}&longitude=${VARESE_LON}&current=relative_humidity_2m,precipitation,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=Europe%2FRome`;
+      const aqUrl = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${VARESE_LAT}&longitude=${VARESE_LON}&current=european_aqi,pm2_5,pm10,uv_index&timezone=Europe%2FRome`;
+
+      const [wxRes, aqRes] = await Promise.allSettled([
+        fetch(wxUrl, { cache: "no-store" }).then(r => r.ok ? r.json() : null),
+        fetch(aqUrl, { cache: "no-store" }).then(r => r.ok ? r.json() : null)
+      ]);
+
+      const wx = wxRes.status === "fulfilled" ? wxRes.value?.current : null;
+      const aq = aqRes.status === "fulfilled" ? aqRes.value?.current : null;
+
+      renderData(wx, aq);
+
+      try {
+        if (wx || aq) {
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), wx, aq }));
+        }
+      } catch (_) {}
+
+      if (btn) btn.textContent = "🔄 Live";
+    } catch (_) {
+      if (btn) btn.textContent = "🔄 Riprova";
+    }
+  }
+
+  // Avvio immediato + osservazione del DOM appena #sidebar viene iniettato
+  updateClockAndNet();
+  setInterval(updateClockAndNet, 1000);
+
+  if (typeof MutationObserver !== "undefined" && document.documentElement) {
+    const obs = new MutationObserver(() => {
+      if (document.getElementById("anon-clock-time")) {
+        updateClockAndNet();
+        obs.disconnect();
+      }
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+  }
+})();
+
 /* ============================================================
 OROSCOPO — VERSIONE DEFINITIVA SKY TG24
 ============================================================ */
