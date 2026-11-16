@@ -286,58 +286,100 @@ fetch("/partials/ticker.html")
 
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
 
-  <!-- INTESTAZIONE CON TITOLO A SINISTRA E GLOBO 3D A DESTRA -->
+  <!-- INTESTAZIONE CON TITOLO A SINISTRA E IL TUO GLOBO 3D ORIGINALE A DESTRA -->
   <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:18px; flex-wrap:wrap;">
     <div style="flex:1; min-width:220px;">
-      <h3 style="color:#00eaff; margin:0 0 6px 0;">Global Threat Heatmap</h3>
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap;">
+        <h3 style="color:#00eaff; margin:0;">Global Threat Heatmap</h3>
+        <span style="font-size:11px; color:#00ff99; border:1px solid #00ff9955; background:rgba(0,255,153,0.08); padding:2px 7px; border-radius:4px; font-family:monospace;">● LIVE FEED</span>
+      </div>
       <p style="color:#ccc; margin:0; font-size:14px; line-height:1.5;">
-        Intensità delle minacce per area geografica (aggiornamento live).
+        Intensità delle minacce Botnet C2 per area geografica (passa il mouse sui punti per i dettagli).
       </p>
     </div>
 
-    <!-- MINI GLOBO 3D CYBER ANIMATO -->
-    <div class="mini-globe-wrap" aria-hidden="true" style="position:relative; width:68px; height:68px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-      <svg viewBox="0 0 100 100" width="68" height="68" style="filter:drop-shadow(0 0 10px rgba(0,234,255,0.55));">
-        <defs>
-          <radialGradient id="globeGlow" cx="35%" cy="35%" r="65%">
-            <stop offset="0%" stop-color="#00eaff" stop-opacity="0.35"/>
-            <stop offset="65%" stop-color="#003b5c" stop-opacity="0.25"/>
-            <stop offset="100%" stop-color="#000814" stop-opacity="0.9"/>
-          </radialGradient>
-        </defs>
-        <!-- Sfera 3D -->
-        <circle cx="50" cy="50" r="40" fill="url(#globeGlow)" stroke="#00eaff" stroke-width="1.8"/>
-        <!-- Paralleli -->
-        <ellipse cx="50" cy="50" rx="40" ry="14" fill="none" stroke="#00eaff" stroke-opacity="0.45" stroke-width="1"/>
-        <ellipse cx="50" cy="33" rx="34" ry="9" fill="none" stroke="#00eaff" stroke-opacity="0.35" stroke-width="0.9"/>
-        <ellipse cx="50" cy="67" rx="34" ry="9" fill="none" stroke="#00eaff" stroke-opacity="0.35" stroke-width="0.9"/>
-        <!-- Meridiani -->
-        <ellipse cx="50" cy="50" rx="18" ry="40" fill="none" stroke="#00eaff" stroke-opacity="0.6" stroke-width="1.1"/>
-        <line x1="50" y1="10" x2="50" y2="90" stroke="#00eaff" stroke-opacity="0.45" stroke-width="1"/>
-        <!-- Orbita satellite / minacce -->
-        <ellipse cx="50" cy="50" rx="47" ry="15" transform="rotate(-22 50 50)" fill="none" stroke="#00ffaa" stroke-opacity="0.55" stroke-width="1" stroke-dasharray="4 3"/>
-        <circle cx="88" cy="34" r="2.6" fill="#ff4444"/>
-      </svg>
+    <!-- IL TUO GLOBO 3D ORIGINALE INQUADRATO IN ALTO A DESTRA -->
+    <div class="mini-globe-wrap" aria-hidden="true" style="position:relative; width:86px; height:86px; flex-shrink:0; border-radius:50%; overflow:hidden; border:1.5px solid #00eaffaa; box-shadow:0 0 14px rgba(0,234,255,0.45), inset 0 0 12px rgba(0,234,255,0.25); background:#020b16;">
+      <img
+        src="/img/world-map-dark.png"
+        alt="Globo 3D Threat Intelligence"
+        style="width:100%; height:100%; object-fit:cover; object-position:center center; transform:scale(1.45); display:block;"
+      >
     </div>
   </div>
 
-  <!-- MAPPA PIATTA IN EVIDENZA + PUNTI REALI -->
-  <a href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="display:block;position:relative;text-decoration:none;">
-    <div class="heatmap-wrapper" style="position:relative;width:100%;background:#020b16;border:1px solid #00eaff44;border-radius:6px;overflow:hidden;cursor:pointer;">
-      <div class="heatmap-stage" style="position:relative;width:100%;">
-        <img
-          id="heatmap-base-img"
-          src="/img/world-map-flat.webp"
-          alt="Planisfero piatto utilizzato come base per la heatmap delle minacce informatiche di AnonLab"
-          style="width:100%;height:auto;display:block;filter:brightness(1.15) contrast(1.12);"
-        >
-        <canvas
-          id="heatmap-canvas"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
-        </canvas>
-      </div>
+  <!-- MAPPA PIATTA + PUNTI REALI + TOOLTIP INTERATTIVO -->
+  <div class="heatmap-wrapper" style="position:relative;width:100%;background:#020b16;border:1px solid #00eaff44;border-radius:6px;overflow:hidden;">
+    <div class="heatmap-stage" style="position:relative;width:100%;">
+      <img
+        id="heatmap-base-img"
+        src="/img/world-map-flat.webp"
+        alt="Planisfero piatto utilizzato come base per la heatmap delle minacce informatiche di AnonLab"
+        style="width:100%;height:auto;display:block;filter:brightness(1.15) contrast(1.12);"
+      >
+      <canvas
+        id="heatmap-canvas"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:crosshair;">
+      </canvas>
     </div>
-  </a>
+
+    <!-- TOOLTIP FLOTTANTE -->
+    <div id="heatmap-tooltip" style="
+      display:none;
+      position:absolute;
+      z-index:5;
+      pointer-events:none;
+      background:rgba(2, 11, 22, 0.94);
+      border:1px solid #00eaff;
+      box-shadow:0 0 10px rgba(0,234,255,0.35);
+      border-radius:5px;
+      padding:7px 10px;
+      font-family:monospace;
+      font-size:12px;
+      color:#e2e8f0;
+      line-height:1.45;
+      white-space:nowrap;">
+    </div>
+  </div>
+
+  <!-- BARRA LEGENDA & TELEMETRIA RAPIDA -->
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-top:12px; padding:10px 12px; background:#030c18; border:1px solid #00eaff2a; border-radius:6px; font-family:monospace; font-size:12px;">
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; color:#b0c4d8;">
+      <span style="display:inline-flex; align-items:center; gap:5px;">
+        <span style="width:9px;height:9px;border-radius:50%;background:#ff2828;box-shadow:0 0 6px #ff2828;display:inline-block;"></span> Critica (&ge;80%)
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:5px;">
+        <span style="width:9px;height:9px;border-radius:50%;background:#ff8c00;box-shadow:0 0 6px #ff8c00;display:inline-block;"></span> Media (50–79%)
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:5px;">
+        <span style="width:9px;height:9px;border-radius:50%;background:#00eaff;box-shadow:0 0 6px #00eaff;display:inline-block;"></span> Monitorata
+      </span>
+    </div>
+    <div style="color:#7fdfff;">
+      Nodi attivi: <strong id="hm-count" style="color:#00ff99;">--</strong> |
+      Sync: <span id="hm-sync" style="color:#ccc;">--:--:--</span>
+    </div>
+  </div>
+
+  <!-- DETTAGLIO OPERATIVO NODI & COMMENTO SOC -->
+  <div style="margin-top:12px; padding:14px; background:#030a14; border:1px solid #12263a; border-left:3px solid #00eaff; border-radius:6px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+      <strong style="color:#00eaff; font-size:13px; font-family:monospace;">📡 TELEMETRIA NODI C2 (FEODOTRACKER)</strong>
+      <a href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="color:#ff7b00; font-size:12px; font-family:monospace; text-decoration:underline;">
+        Esplora esposizioni su Shodan ↗
+      </a>
+    </div>
+
+    <!-- LISTA COMPATTA DEI NODI RILEVATI -->
+    <div id="hm-nodes-list" style="display:flex; flex-direction:column; gap:6px; font-family:monospace; font-size:12px; color:#ccc; margin-bottom:10px;">
+      <span>Caricamento indicatori C2 in corso...</span>
+    </div>
+
+    <!-- COMMENTO TECNICO DINAMICO -->
+    <p id="hm-soc-note" style="margin:0; font-size:12px; color:#8ca3b8; line-height:1.5; border-top:1px dashed #173047; padding-top:8px;">
+      Analisi del feed in corso...
+    </p>
+  </div>
 
   <style>
     .heatmap-wrapper .heatmap-stage {
@@ -345,9 +387,9 @@ fetch("/partials/ticker.html")
       transform-origin: center center;
     }
     .heatmap-wrapper:hover .heatmap-stage {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
-    .mini-globe-wrap svg {
+    .mini-globe-wrap {
       animation: globeFloat 5s ease-in-out infinite;
     }
     @keyframes globeFloat {
@@ -360,12 +402,27 @@ fetch("/partials/ticker.html")
   (() => {
     const canvas = document.getElementById("heatmap-canvas");
     const img = document.getElementById("heatmap-base-img");
+    const tooltip = document.getElementById("heatmap-tooltip");
+    const countEl = document.getElementById("hm-count");
+    const syncEl = document.getElementById("hm-sync");
+    const nodesListEl = document.getElementById("hm-nodes-list");
+    const socNoteEl = document.getElementById("hm-soc-note");
     if (!canvas || !img) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let lastPoints = [];
+    let hoveredPoint = null;
+
+    function esc(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
 
     function resizeCanvas() {
       const w = img.clientWidth || canvas.offsetWidth;
@@ -386,6 +443,47 @@ fetch("/partials/ticker.html")
       new ResizeObserver(resizeCanvas).observe(img);
     }
 
+    function updateTelemetryPanel(points) {
+      if (countEl) countEl.textContent = points.length;
+      if (syncEl) syncEl.textContent = new Date().toLocaleTimeString("it-IT");
+
+      if (!nodesListEl || !socNoteEl) return;
+
+      if (!points.length) {
+        nodesListEl.innerHTML = `<span style="color:#8ca3b8;">Nessun nodo C2 attivo segnalato dal feed in questo momento.</span>`;
+        socNoteEl.textContent = "Stato feed: nessun server Command & Control attivo registrato nella finestra corrente di FeodoTracker.";
+        return;
+      }
+
+      const topNodes = points.slice(0, 5);
+      const countries = [...new Set(points.map(p => p.country).filter(Boolean))];
+      const families = [...new Set(points.map(p => p.malware).filter(Boolean))];
+
+      nodesListEl.innerHTML = topNodes.map(p => {
+        const pct = Math.round((Number(p.intensity) || 0) * 100);
+        const col = pct >= 80 ? "#ff4a4a" : pct >= 50 ? "#ffaa00" : "#00eaff";
+        const shodanUrl = "https://www.shodan.io/host/" + encodeURIComponent(p.ip || "");
+        return `
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; padding:5px 8px; background:#061220; border:1px solid #0e2439; border-radius:4px; flex-wrap:wrap;">
+            <span>
+              <strong style="color:#00eaff;">[${esc(p.country || "N/D")}]</strong>
+              <a href="${shodanUrl}" target="_blank" rel="noopener noreferrer" style="color:#fff; text-decoration:underline; margin-left:4px;">${esc(p.ip)}</a>
+            </span>
+            <span>
+              <span style="color:#94a3b8; margin-right:8px;">${esc(p.malware || "C2")}</span>
+              <strong style="color:${col};">${pct}%</strong>
+            </span>
+          </div>
+        `;
+      }).join("");
+
+      socNoteEl.innerHTML = `
+        Aree interessate: <strong style="color:#fff;">${esc(countries.join(", ") || "N/D")}</strong> —
+        Famiglie osservate: <strong style="color:#ffaa00;">${esc(families.join(", ") || "N/D")}</strong>.
+        <span style="color:#6c879e;">(Un numero contenuto di nodi riflette i recenti takedown delle botnet monitorate da abuse.ch; clicca su un IP per ispezionarlo su Shodan).</span>
+      `;
+    }
+
     async function loadHeatmap() {
       try {
         const res = await fetch("https://angelonline.altervista.org/soc/heatmap_data.php?ts=" + Date.now(), {
@@ -394,10 +492,61 @@ fetch("/partials/ticker.html")
         if (!res.ok) throw new Error("HTTP " + res.status);
         const points = await res.json();
         lastPoints = Array.isArray(points) ? points : [];
+        updateTelemetryPanel(lastPoints);
       } catch (e) {
         console.error("Errore Heatmap:", e);
+        if (socNoteEl) socNoteEl.textContent = "Errore temporaneo nel recupero dei dati live da FeodoTracker.";
       }
     }
+
+    canvas.addEventListener("mousemove", (e) => {
+      if (!tooltip || !canvas.width || !canvas.height || !lastPoints.length) return;
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+
+      let closest = null;
+      let minDist = 20;
+
+      lastPoints.forEach(p => {
+        const px = Number(p.x) * rect.width;
+        const py = Number(p.y) * rect.height;
+        const d = Math.hypot(mx - px, my - py);
+        if (d < minDist) {
+          minDist = d;
+          closest = p;
+        }
+      });
+
+      hoveredPoint = closest;
+
+      if (closest) {
+        const pct = Math.round((Number(closest.intensity) || 0) * 100);
+        tooltip.style.display = "block";
+        tooltip.innerHTML = `
+          <div style="color:#00eaff;font-weight:bold;">${esc(closest.ip)} (${esc(closest.country || "N/D")})</div>
+          <div>Malware: <strong style="color:#ffaa00;">${esc(closest.malware || "C2")}</strong></div>
+          <div>Rischio: <strong style="color:#ff4a4a;">${pct}%</strong></div>
+        `;
+        const left = Math.min(rect.width - 170, Math.max(8, mx + 12));
+        const top = Math.max(8, my - 58);
+        tooltip.style.left = left + "px";
+        tooltip.style.top = top + "px";
+      } else {
+        tooltip.style.display = "none";
+      }
+    });
+
+    canvas.addEventListener("mouseleave", () => {
+      hoveredPoint = null;
+      if (tooltip) tooltip.style.display = "none";
+    });
+
+    canvas.addEventListener("click", () => {
+      if (hoveredPoint && hoveredPoint.ip) {
+        window.open("https://www.shodan.io/host/" + encodeURIComponent(hoveredPoint.ip), "_blank", "noopener,noreferrer");
+      }
+    });
 
     function renderFrame(now) {
       if (canvas.width > 0 && canvas.height > 0) {
@@ -413,23 +562,32 @@ fetch("/partials/ticker.html")
 
           const x = px * canvas.width;
           const y = py * canvas.height;
+          const isHovered = hoveredPoint === p;
           const pulse = 0.35 + 0.65 * Math.abs(Math.sin(now / 900 + x + y));
-          const intensity = Math.max(0, Math.min(baseIntensity * pulse * 0.55, 0.78));
+          const intensity = Math.max(0, Math.min(baseIntensity * pulse * (isHovered ? 0.85 : 0.55), 0.9));
+          const r = isHovered ? radius * 1.25 : radius;
 
-          const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+          const gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
           gradient.addColorStop(0, `rgba(255,40,40,${intensity})`);
           gradient.addColorStop(0.45, `rgba(255,140,0,${intensity * 0.65})`);
           gradient.addColorStop(1, "rgba(255,0,0,0)");
 
           ctx.fillStyle = gradient;
           ctx.beginPath();
-          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.arc(x, y, r, 0, Math.PI * 2);
           ctx.fill();
 
-          // Punto centrale nitido sopra la nazione
+          if (isHovered) {
+            ctx.strokeStyle = "#00eaff";
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(x, y, 6, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+
           ctx.fillStyle = `rgba(255,95,95,${Math.min(1, intensity + 0.3)})`;
           ctx.beginPath();
-          ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+          ctx.arc(x, y, isHovered ? 3.2 : 2.2, 0, Math.PI * 2);
           ctx.fill();
         });
       }
