@@ -663,6 +663,92 @@
 
 </div>
 
+     <!-- WIDGET COCKPIT SIDEBAR: OROLOGIO + METEO + BAROMETRO + TACHIMETRO -->
+<div id="anon-cockpit-widget" style="background:#0a0f14; border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33, 0 0 20px #00eaff1a inset; border-radius:8px; padding:16px; margin-bottom:20px; font-family:monospace; color:#e2e8f0; box-sizing:border-box;">
+
+  <!-- HEADER + PULSANTE POSIZIONE -->
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px;">
+    <span style="color:#00eaff; font-size:12px; font-weight:bold; letter-spacing:1px; text-transform:uppercase;">
+      🛰️ Cyber Telemetry
+    </span>
+    <button type="button" id="anon-gps-btn" title="Aggiorna con la tua posizione GPS" style="background:#061420; color:#00ff99; border:1px solid #00ff9955; border-radius:4px; padding:2px 7px; font-size:11px; font-family:monospace; cursor:pointer;">
+      📍 GPS
+    </button>
+  </div>
+
+  <!-- 1) OROLOGIO + DATA + UTC -->
+  <div style="padding-bottom:12px; border-bottom:1px dashed #1e3a4c; margin-bottom:12px;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline;">
+      <div id="anon-clock-time" style="font-size:27px; font-weight:bold; color:#fff; letter-spacing:2px; text-shadow:0 0 10px rgba(0,234,255,0.45);">
+        --:--:--
+      </div>
+      <span style="color:#00ff99; font-size:11px;">● LIVE</span>
+    </div>
+    <div id="anon-clock-date" style="font-size:11px; color:#94a3b8; margin-top:3px; text-transform:capitalize;">
+      Caricamento data...
+    </div>
+    <div style="display:flex; justify-content:space-between; font-size:11px; margin-top:6px;">
+      <span style="color:#7fdfff;">Zulu Time:</span>
+      <strong id="anon-clock-utc" style="color:#ffaa00;">--:--:-- UTC</strong>
+    </div>
+  </div>
+
+  <!-- 2) TEMPERATURA ESTERNA & CONDIZIONI -->
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px;">
+    <div>
+      <div id="anon-meteo-city" style="font-size:11px; color:#7fdfff; margin-bottom:2px;">Italia (Roma)</div>
+      <div id="anon-meteo-temp" style="font-size:26px; font-weight:bold; color:#00eaff; line-height:1.1;">--.-°C</div>
+      <div id="anon-meteo-desc" style="font-size:11px; color:#ccc; margin-top:3px;">Caricamento meteo...</div>
+    </div>
+    <div style="text-align:right; font-size:11px; color:#94a3b8; line-height:1.6;">
+      <div>Percepita: <strong id="anon-meteo-feels" style="color:#fff;">--°</strong></div>
+      <div>Umidità: <strong id="anon-meteo-hum" style="color:#00ff99;">--%</strong></div>
+      <div>Nuvole: <strong id="anon-meteo-clouds" style="color:#ccc;">--%</strong></div>
+    </div>
+  </div>
+
+  <!-- 3) BAROMETRO (hPa) & TACHIMETRO VENTO (km/h) -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+
+    <!-- BAROMETRO -->
+    <div style="background:#050b12; border:1px solid #132a3e; border-radius:6px; padding:8px 6px; text-align:center;">
+      <div style="font-size:10px; color:#7fdfff; text-transform:uppercase; margin-bottom:4px;">Barometro</div>
+      <svg viewBox="0 0 120 74" width="100%" style="max-width:120px; display:block; margin:0 auto;">
+        <path d="M 14 62 A 46 46 0 0 1 106 62" fill="none" stroke="#1a2f42" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 14 62 A 46 46 0 0 1 40 21" fill="none" stroke="#ff4a4a" stroke-width="4" stroke-opacity="0.7"/>
+        <path d="M 40 21 A 46 46 0 0 1 80 21" fill="none" stroke="#00eaff" stroke-width="4" stroke-opacity="0.7"/>
+        <path d="M 80 21 A 46 46 0 0 1 106 62" fill="none" stroke="#00ff99" stroke-width="4" stroke-opacity="0.7"/>
+        <line id="anon-baro-needle" x1="60" y1="62" x2="60" y2="20" stroke="#ffaa00" stroke-width="2.5" stroke-linecap="round" transform="rotate(0 60 62)"/>
+        <circle cx="60" cy="62" r="4" fill="#ffaa00"/>
+      </svg>
+      <div id="anon-baro-val" style="font-size:13px; font-weight:bold; color:#fff; margin-top:2px;">---- hPa</div>
+      <div id="anon-baro-trend" style="font-size:10px; color:#ffaa00;">--</div>
+    </div>
+
+    <!-- TACHIMETRO VENTO -->
+    <div style="background:#050b12; border:1px solid #132a3e; border-radius:6px; padding:8px 6px; text-align:center;">
+      <div style="font-size:10px; color:#7fdfff; text-transform:uppercase; margin-bottom:4px;">Tachimetro</div>
+      <svg viewBox="0 0 120 74" width="100%" style="max-width:120px; display:block; margin:0 auto;">
+        <path d="M 14 62 A 46 46 0 0 1 106 62" fill="none" stroke="#1a2f42" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 14 62 A 46 46 0 0 1 60 16" fill="none" stroke="#00ff99" stroke-width="4" stroke-opacity="0.7"/>
+        <path d="M 60 16 A 46 46 0 0 1 92 29" fill="none" stroke="#ffaa00" stroke-width="4" stroke-opacity="0.7"/>
+        <path d="M 92 29 A 46 46 0 0 1 106 62" fill="none" stroke="#ff4a4a" stroke-width="4" stroke-opacity="0.8"/>
+        <line id="anon-wind-needle" x1="60" y1="62" x2="60" y2="20" stroke="#00eaff" stroke-width="2.5" stroke-linecap="round" transform="rotate(-90 60 62)"/>
+        <circle cx="60" cy="62" r="4" fill="#00eaff"/>
+      </svg>
+      <div id="anon-wind-val" style="font-size:13px; font-weight:bold; color:#fff; margin-top:2px;">-- km/h</div>
+      <div id="anon-wind-dir" style="font-size:10px; color:#00eaff;">Vento --</div>
+    </div>
+
+  </div>
+
+  <!-- 4) DETTAGLI EXTRA (RAFFICHE + RETE) -->
+  <div style="display:flex; justify-content:space-between; font-size:11px; color:#94a3b8; background:#050b12; border:1px solid #132a3e; border-radius:4px; padding:6px 8px;">
+    <span>Raffiche: <strong id="anon-wind-gusts" style="color:#fff;">-- km/h</strong></span>
+    <span>Rete: <strong id="anon-net-speed" style="color:#00ff99;">Online</strong></span>
+  </div>
+</div>
+
 <!-- BLOCCO METEO PROTETTO DA DATA-NOSNIPPET -->
 <div class="sidebar-box" aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff; margin-bottom:10px;">
