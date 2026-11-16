@@ -143,10 +143,12 @@ function initSessionTimer() {
     }
 }
 
-/* === SIDEBAR COCKPIT: OROLOGIO + BAROMETRO + TACHIMETRO + METEO === */
+/* === SIDEBAR COCKPIT VARESE: OROLOGIO + BAROMETRO + TACHIMETRO + METEO === */
 (() => {
-  const CACHE_KEY = "anonlab_cockpit_meteo_v1";
-  const LOC_KEY   = "anonlab_cockpit_loc_v1";
+  const VARESE_LAT = 45.8206;
+  const VARESE_LON = 8.8251;
+  const VARESE_CITY = "Varese (VA) — 382m";
+  const CACHE_KEY = "anonlab_cockpit_varese_v1";
   const CACHE_TTL = 10 * 60 * 1000; // 10 minuti
 
   let telemetryBooted = false;
@@ -179,6 +181,7 @@ function initSessionTimer() {
 
     const now = new Date();
     timeEl.textContent = now.toLocaleTimeString("it-IT", {
+      timeZone: "Europe/Rome",
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit"
@@ -187,6 +190,7 @@ function initSessionTimer() {
     const dateEl = document.getElementById("anon-clock-date");
     if (dateEl) {
       dateEl.textContent = now.toLocaleDateString("it-IT", {
+        timeZone: "Europe/Rome",
         weekday: "long",
         day: "2-digit",
         month: "long",
@@ -214,11 +218,11 @@ function initSessionTimer() {
 
     if (!telemetryBooted) {
       telemetryBooted = true;
-      initSidebarTelemetry();
+      initVareseTelemetry();
     }
   }
 
-  function renderMeteo(city, cur) {
+  function renderMeteo(cur) {
     if (!cur) return;
     const setTxt = (id, val) => {
       const el = document.getElementById(id);
@@ -234,14 +238,14 @@ function initSessionTimer() {
     const gusts    = Number(cur.wind_gusts_10m);
     const windDir  = Number(cur.wind_direction_10m);
 
-    setTxt("anon-meteo-city", city || "Italia");
+    setTxt("anon-meteo-city", VARESE_CITY);
     setTxt("anon-meteo-temp", Number.isFinite(temp) ? `${temp.toFixed(1)}°C` : "--.-°C");
     setTxt("anon-meteo-desc", wmoLabels[cur.weather_code] || "Condizioni attive");
     setTxt("anon-meteo-feels", Number.isFinite(feels) ? `${Math.round(feels)}°C` : "--");
     setTxt("anon-meteo-hum", Number.isFinite(hum) ? `${Math.round(hum)}%` : "--%");
     setTxt("anon-meteo-clouds", Number.isFinite(clouds) ? `${Math.round(clouds)}%` : "--%");
 
-    // Barometro (scala 960 - 1050 hPa)
+    // Barometro (960 - 1050 hPa)
     if (Number.isFinite(pressure)) {
       setTxt("anon-baro-val", `${Math.round(pressure)} hPa`);
       setGaugeNeedle("anon-baro-needle", pressure, 960, 1050);
@@ -262,7 +266,7 @@ function initSessionTimer() {
       }
     }
 
-    // Tachimetro Vento (scala 0 - 100 km/h)
+    // Tachimetro Vento (0 - 100 km/h)
     if (Number.isFinite(wind)) {
       setTxt("anon-wind-val", `${Math.round(wind)} km/h`);
       setGaugeNeedle("anon-wind-needle", wind, 0, 100);
@@ -272,75 +276,52 @@ function initSessionTimer() {
     setTxt("anon-wind-gusts", Number.isFinite(gusts) ? `${Math.round(gusts)} km/h` : "-- km/h");
   }
 
-  async function fetchMeteo(lat, lon, city, forceRefresh = false) {
+  async function fetchVareseMeteo(forceRefresh = false) {
+    const refreshBtn = document.getElementById("anon-refresh-btn");
     try {
       if (!forceRefresh) {
         const raw = sessionStorage.getItem(CACHE_KEY);
         if (raw) {
           const cached = JSON.parse(raw);
-          if (cached && (Date.now() - cached.ts) < CACHE_TTL && cached.lat === lat && cached.lon === lon) {
-            renderMeteo(cached.city, cached.current);
+          if (cached && (Date.now() - cached.ts) < CACHE_TTL) {
+            renderMeteo(cached.current);
             return;
           }
         }
       }
 
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
-        `&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cloud_cover` +
-        `&timezone=auto`;
+      if (refreshBtn) refreshBtn.textContent = "⏳ Sync";
 
-      const res = await fetch(url);
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${VARESE_LAT}&longitude=${VARESE_LON}` +
+        `&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cloud_cover` +
+        `&timezone=Europe%2FRome`;
+
+      const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
 
       if (data && data.current) {
         sessionStorage.setItem(CACHE_KEY, JSON.stringify({
           ts: Date.now(),
-          lat,
-          lon,
-          city,
           current: data.current
         }));
-        renderMeteo(city, data.current);
+        renderMeteo(data.current);
       }
+      if (refreshBtn) refreshBtn.textContent = "🔄 Live";
     } catch (e) {
       const descEl = document.getElementById("anon-meteo-desc");
       if (descEl) descEl.textContent = "Dati meteo non disponibili";
+      if (refreshBtn) refreshBtn.textContent = "🔄 Riprova";
     }
   }
 
-  function initSidebarTelemetry() {
-    let savedLoc = { lat: 41.9028, lon: 12.4964, city: "Italia (Roma)" };
-    try {
-      const stored = localStorage.getItem(LOC_KEY);
-      if (stored) savedLoc = JSON.parse(stored);
-    } catch (_) {}
+  function initVareseTelemetry() {
+    fetchVareseMeteo(false);
+    setInterval(() => fetchVareseMeteo(true), CACHE_TTL);
 
-    fetchMeteo(savedLoc.lat, savedLoc.lon, savedLoc.city);
-
-    const gpsBtn = document.getElementById("anon-gps-btn");
-    if (gpsBtn) {
-      gpsBtn.addEventListener("click", () => {
-        if (!navigator.geolocation) {
-          gpsBtn.textContent = "No GPS";
-          return;
-        }
-        gpsBtn.textContent = "⏳...";
-        navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            const lat = Number(pos.coords.latitude.toFixed(3));
-            const lon = Number(pos.coords.longitude.toFixed(3));
-            const loc = { lat, lon, city: `Zona Locale (${lat}, ${lon})` };
-            try { localStorage.setItem(LOC_KEY, JSON.stringify(loc)); } catch (_) {}
-            gpsBtn.textContent = "📍 OK";
-            fetchMeteo(lat, lon, loc.city, true);
-          },
-          () => {
-            gpsBtn.textContent = "📍 Negato";
-          },
-          { timeout: 6000 }
-        );
-      });
+    const refreshBtn = document.getElementById("anon-refresh-btn");
+    if (refreshBtn) {
+      refreshBtn.addEventListener("click", () => fetchVareseMeteo(true));
     }
   }
 
