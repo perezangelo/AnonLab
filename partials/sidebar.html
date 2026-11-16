@@ -663,16 +663,16 @@
 
 </div>
 
-     <!-- WIDGET COCKPIT SIDEBAR: OROLOGIO + METEO + BAROMETRO + TACHIMETRO -->
+    <!-- WIDGET COCKPIT SIDEBAR: OROLOGIO + TELEMETRIA VARESE -->
 <div id="anon-cockpit-widget" style="background:#0a0f14; border:1px solid #00eaff55; box-shadow:0 0 12px #00eaff33, 0 0 20px #00eaff1a inset; border-radius:8px; padding:16px; margin-bottom:20px; font-family:monospace; color:#e2e8f0; box-sizing:border-box;">
 
-  <!-- HEADER + PULSANTE POSIZIONE -->
+  <!-- HEADER + PULSANTE AGGIORNA -->
   <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px;">
     <span style="color:#00eaff; font-size:12px; font-weight:bold; letter-spacing:1px; text-transform:uppercase;">
-      🛰️ Cyber Telemetry
+      🛰️ Telemetry — Varese
     </span>
-    <button type="button" id="anon-gps-btn" title="Aggiorna con la tua posizione GPS" style="background:#061420; color:#00ff99; border:1px solid #00ff9955; border-radius:4px; padding:2px 7px; font-size:11px; font-family:monospace; cursor:pointer;">
-      📍 GPS
+    <button type="button" id="anon-refresh-btn" title="Aggiorna dati meteo di Varese" style="background:#061420; color:#00ff99; border:1px solid #00ff9955; border-radius:4px; padding:2px 7px; font-size:11px; font-family:monospace; cursor:pointer;">
+      🔄 Live
     </button>
   </div>
 
@@ -693,10 +693,10 @@
     </div>
   </div>
 
-  <!-- 2) TEMPERATURA ESTERNA & CONDIZIONI -->
+  <!-- 2) TEMPERATURA ESTERNA & CONDIZIONI VARESE -->
   <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px;">
     <div>
-      <div id="anon-meteo-city" style="font-size:11px; color:#7fdfff; margin-bottom:2px;">Italia (Roma)</div>
+      <div id="anon-meteo-city" style="font-size:11px; color:#7fdfff; margin-bottom:2px;">Varese (VA) — 382m</div>
       <div id="anon-meteo-temp" style="font-size:26px; font-weight:bold; color:#00eaff; line-height:1.1;">--.-°C</div>
       <div id="anon-meteo-desc" style="font-size:11px; color:#ccc; margin-top:3px;">Caricamento meteo...</div>
     </div>
@@ -748,7 +748,7 @@
     <span>Rete: <strong id="anon-net-speed" style="color:#00ff99;">Online</strong></span>
   </div>
 </div>
-
+     
 <!-- BLOCCO METEO PROTETTO DA DATA-NOSNIPPET -->
 <div class="sidebar-box" aria-label="Meteo Italia – 7 Giorni" style="margin-top:20px;">
     <h3 style="color:#00eaff; text-shadow:0 0 6px #00eaff; margin-bottom:10px;">
