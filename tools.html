@@ -2076,6 +2076,197 @@ function calculateEntropy() {
     `;
 }
 </script>
+
+            <!-- 29. SECURITY ADVICE & HARDENING WIDGET -->
+<div class="widget-large tools-box" id="securityadvice" aria-label="Security Advice Widget">
+    <div class="box-title-row">
+        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="M9 12l2 2 4-4"></path>
+        </svg>
+        <h3>Security Advice &amp; Hardening Widget</h3>
+    </div>
+
+    <!-- LEGENDA TECNICA -->
+    <div style="background:rgba(0, 255, 136, 0.03); border:1px solid rgba(0, 255, 136, 0.18); border-left:3px solid #00ff88; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+        <strong style="color:#00ff88; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: IGIENE DIGITALE &amp; RIDUZIONE DELLA SUPERFICIE D'ATTACCO</strong>
+        <p style="margin:0 0 6px 0;">
+            <strong>📌 Cos'è:</strong> Un assistente operativo interattivo che raccoglie contromisure pratiche di <em>Hardening</em> e <em>OPSEC</em>, abbinato a un controllo rapido della propria postura di sicurezza.
+        </p>
+        <p style="margin:0;">
+            <strong>🛡️ Come usarlo:</strong> Sfoglia i consigli operativi oppure spunta nella checklist le difese già attive per calcolare il tuo punteggio di protezione in tempo reale.
+        </p>
+    </div>
+
+    <!-- CONSIGLIO OPERATIVO DINAMICO -->
+    <div id="secAdviceCard" aria-live="polite" style="
+        background:#000; color:#00eaff; padding:15px; margin-bottom:12px;
+        border:1px solid #00eaff; border-radius:6px; line-height:1.55;">
+    </div>
+
+    <button type="button" onclick="nextSecAdvice()" style="
+        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:18px;">
+        🛡️ Prossimo Consiglio di Sicurezza
+    </button>
+
+    <!-- CHECKLIST HARDENING -->
+    <div style="background:#000; border:1px solid #00eaff; border-radius:6px; padding:15px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; gap:8px; flex-wrap:wrap;">
+            <span style="color:#ccc; font-size:0.85rem;">Postura di Sicurezza:</span>
+            <strong id="secScoreLabel" style="color:#ff4444; font-size:0.95rem;">0% — CRITICO</strong>
+        </div>
+
+        <div style="width:100%; height:10px; background:#111; border:1px solid #00eaff55; border-radius:999px; overflow:hidden; margin-bottom:12px;">
+            <div id="secScoreBar" style="height:100%; width:0%; background:#ff4444; transition:width 0.3s ease, background 0.3s ease;"></div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:8px; font-size:0.83rem; color:#d7e7f5; line-height:1.4;">
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="sec-advice-check" onchange="updateSecScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Password uniche (&ge; 14 caratteri) gestite tramite Password Manager.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="sec-advice-check" onchange="updateSecScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Autenticazione 2FA attiva con app TOTP o chiave hardware (no SMS).</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="sec-advice-check" onchange="updateSecScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Sistema operativo, browser e router sempre aggiornati.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="sec-advice-check" onchange="updateSecScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Backup 3-2-1 attivo con almeno una copia offline/immutabile testata.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="sec-advice-check" onchange="updateSecScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>DNS cifrati (DoH/DoT) e protezione email SPF/DMARC verificata sui propri domini.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="sec-advice-check" onchange="updateSecScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Controllo degli URL abbreviati e cifratura completa del disco attiva sui dispositivi.</span>
+            </label>
+        </div>
+
+        <button type="button" onclick="resetSecChecks()" style="
+            width:100%; padding:10px; margin-top:12px; background:#111; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
+            Azzera Checklist
+        </button>
+    </div>
+</div>
+
+<script>
+const secAdviceList = [
+    {
+        cat: "Autenticazione",
+        sev: "ALTA PRIORITÀ",
+        title: "Elimina il riutilizzo delle password e usa 2FA TOTP o Passkey",
+        desc: "Le credenziali rubate in vecchi data breach vengono testate automaticamente su email, banche e pannelli cloud. Usa password lunghe e uniche per ogni servizio.",
+        linkText: "Verifica la robustezza in Password Entropy →",
+        linkHref: "#entropycalculator"
+    },
+    {
+        cat: "Anti-Phishing",
+        sev: "OPERATIVA",
+        title: "Ispeziona sempre gli short-URL prima di aprirli",
+        desc: "Link abbreviati come bit.ly o t.co nascondono il dominio reale di atterraggio. Controlla la destinazione effettiva prima di inserire dati o credenziali.",
+        linkText: "Usa URL Expander →",
+        linkHref: "#urlexpander"
+    },
+    {
+        cat: "Email Security",
+        sev: "DOMINI & AZIENDE",
+        title: "Verifica che SPF e DMARC blocchino lo spoofing",
+        desc: "Un dominio senza record DMARC con policy p=quarantine o p=reject permette ai cybercriminali di inviare email false fingendosi la tua azienda.",
+        linkText: "Analizza SPF & DMARC ora →",
+        linkHref: "#emailsecurity"
+    },
+    {
+        cat: "Perimetro Rete",
+        sev: "HARDENING",
+        title: "Riduci le porte esposte pubblicamente",
+        desc: "Servizi come RDP (3389), SSH (22) o database esposti senza VPN sono costantemente scansionati da botnet. Esponi solo lo stretto necessario.",
+        linkText: "Controlla con Port Scanner →",
+        linkHref: "#portscanner"
+    },
+    {
+        cat: "Threat Intel",
+        sev: "SOC / REPORT",
+        title: "Sanitizza (Defang) sempre gli IoC prima di condividerli",
+        desc: "Quando invii URL o IP malevoli in chat o email, usa il formato hxxp[://] e [.] per evitare clic accidentali da parte dei colleghi.",
+        linkText: "Apri IoC Defanger →",
+        linkHref: "#iocdefang"
+    },
+    {
+        cat: "Resilienza",
+        sev: "CRITICA",
+        title: "Mantieni almeno un backup offline contro i ransomware",
+        desc: "I ransomware cifrano anche unità di rete e cartelle sincronizzate. Solo una copia disconnessa o immutabile garantisce il ripristino sicuro.",
+        linkText: "Approfondisci su Cybersecurity Basics →",
+        linkHref: "/cybersecurity-basics.html"
+    }
+];
+
+let lastSecAdviceIdx = -1;
+
+function nextSecAdvice() {
+    let idx;
+    do {
+        idx = Math.floor(Math.random() * secAdviceList.length);
+    } while (idx === lastSecAdviceIdx && secAdviceList.length > 1);
+    lastSecAdviceIdx = idx;
+
+    const item = secAdviceList[idx];
+    const box = document.getElementById("secAdviceCard");
+    box.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; gap:8px; flex-wrap:wrap;">
+            <span style="color:#00ff88; font-size:0.78rem; font-weight:bold;">[${item.cat}]</span>
+            <span style="color:#ff7b00; font-size:0.74rem; border:1px solid #ff7b00; padding:2px 6px; border-radius:4px;">${item.sev}</span>
+        </div>
+        <h4 style="color:#00eaff; margin:0 0 6px 0; font-size:0.98rem;">${item.title}</h4>
+        <p style="color:#d7e7f5; font-size:0.86rem; margin:0 0 8px 0;">${item.desc}</p>
+        <a href="${item.linkHref}" style="color:#00ff88; font-size:0.84rem; font-weight:bold; text-decoration:underline;">${item.linkText}</a>
+    `;
+}
+
+function updateSecScore() {
+    const checks = document.querySelectorAll(".sec-advice-check");
+    const done = Array.from(checks).filter(c => c.checked).length;
+    const pct = Math.round((done / checks.length) * 100);
+
+    const bar = document.getElementById("secScoreBar");
+    const label = document.getElementById("secScoreLabel");
+
+    bar.style.width = pct + "%";
+
+    if (pct < 40) {
+        bar.style.background = "#ff4444";
+        label.style.color = "#ff4444";
+        label.innerText = pct + "% — CRITICO";
+    } else if (pct < 75) {
+        bar.style.background = "#ffcc00";
+        label.style.color = "#ffcc00";
+        label.innerText = pct + "% — INTERMEDIO";
+    } else if (pct < 100) {
+        bar.style.background = "#00eaff";
+        label.style.color = "#00eaff";
+        label.innerText = pct + "% — ROBUSTO";
+    } else {
+        bar.style.background = "#00ff88";
+        label.style.color = "#00ff88";
+        label.innerText = "100% — HARDENED";
+    }
+}
+
+function resetSecChecks() {
+    document.querySelectorAll(".sec-advice-check").forEach(c => c.checked = false);
+    updateSecScore();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    nextSecAdvice();
+    updateSecScore();
+});
+</script>
         </section>
 
         <!-- SIDEBAR -->
