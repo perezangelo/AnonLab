@@ -289,105 +289,117 @@ fetch("/partials/ticker.html")
   <p style="color:#ccc;margin-bottom:15px;">Intensità delle minacce per area geografica (aggiornamento live).</p>
 
   <!-- LINK ESTERNO CLICCABILE -->
-  <a href="https://www.shodan.io" target="_blank" style="display:block;position:relative;text-decoration:none;">
-	  
-<!-- WRAPPER ANIMATO -->
-<div class="heatmap-wrapper" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
-
-    <img
-        src="/img/world-map-dark.png"
-        class="heatmap-img"
-        alt="Mappa del mondo utilizzata come base per la heatmap delle minacce informatiche di AnonLab"
-        style="width:100%;display:block;"
-    >
-
-    <canvas
-        id="heatmap-canvas"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;">
-    </canvas>
-
-</div>
-
+  <a href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="display:block;position:relative;text-decoration:none;">
+    <div class="heatmap-wrapper" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
+      <div class="heatmap-stage" style="position:relative;width:100%;">
+        <img
+          id="heatmap-base-img"
+          src="/img/world-map-dark.png"
+          class="heatmap-img"
+          alt="Mappa del mondo utilizzata come base per la heatmap delle minacce informatiche di AnonLab"
+          style="width:100%;display:block;"
+        >
+        <canvas
+          id="heatmap-canvas"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
+        </canvas>
+      </div>
+    </div>
   </a>
 
   <style>
-    /* Effetto movimento al passaggio del mouse */
-    .heatmap-wrapper .heatmap-img {
-        transition: transform 0.5s ease;
+    /* Scala insieme mappa + punti canvas così restano allineati */
+    .heatmap-wrapper .heatmap-stage {
+      transition: transform 0.5s ease;
+      transform-origin: center center;
     }
-    .heatmap-wrapper:hover .heatmap-img {
-        transform: scale(1.05);
+    .heatmap-wrapper:hover .heatmap-stage {
+      transform: scale(1.05);
     }
   </style>
 
   <script>
-/* GLOBAL THREAT HEATMAP — Premium Frontend (senza geo-API) */
-
-function startHeatmap() {
+  (() => {
     const canvas = document.getElementById("heatmap-canvas");
-    if (!canvas) return setTimeout(startHeatmap, 200);
+    const img = document.getElementById("heatmap-base-img");
+    if (!canvas || !img) return;
 
-    const ctx = canvas.getContext("2d", { willReadFrequently: true });
-
-    function resizeCanvas() {
-        canvas.width  = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-    }
-
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     let lastPoints = [];
-    let lastUpdate = 0;
+
+    function resizeCanvas() {
+      const w = img.clientWidth || canvas.offsetWidth;
+      const h = img.clientHeight || canvas.offsetHeight;
+      if (!w || !h) return;
+      canvas.width = w;
+      canvas.height = h;
+    }
+
+    if (img.complete) {
+      resizeCanvas();
+    } else {
+      img.addEventListener("load", resizeCanvas);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(resizeCanvas).observe(img);
+    }
 
     async function loadHeatmap() {
-        try {
-            const res    = await fetch("https://angelonline.altervista.org/soc/heatmap_data.php?ts=" + Date.now());
-            const points = await res.json();
-
-            lastPoints = points || [];
-            lastUpdate = performance.now();
-        } catch (e) {
-            console.error("Errore Heatmap:", e);
-        }
+      try {
+        const res = await fetch("https://angelonline.altervista.org/soc/heatmap_data.php?ts=" + Date.now(), {
+          cache: "no-store"
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const points = await res.json();
+        lastPoints = Array.isArray(points) ? points : [];
+      } catch (e) {
+        console.error("Errore Heatmap:", e);
+      }
     }
 
     function renderFrame(now) {
+      if (canvas.width > 0 && canvas.height > 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "rgba(0,0,0,0.18)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+        const radius = Math.max(20, Math.min(70, canvas.width * 0.08));
+
         lastPoints.forEach(p => {
-            const x = p.x * canvas.width;
-            const y = p.y * canvas.height;
+          const px = Number(p.x);
+          const py = Number(p.y);
+          const baseIntensity = Number(p.intensity);
+          if (!Number.isFinite(px) || !Number.isFinite(py) || !Number.isFinite(baseIntensity)) return;
 
-            const baseIntensity = p.intensity;
-            const pulse = 0.3 + 0.7 * Math.abs(Math.sin(now / 900 + x + y));
-            const intensity = Math.min(baseIntensity * pulse, 1.0);
+          const x = px * canvas.width;
+          const y = py * canvas.height;
+          const pulse = 0.3 + 0.7 * Math.abs(Math.sin(now / 900 + x + y));
+          const intensity = Math.max(0, Math.min(baseIntensity * pulse, 1.0));
 
-            const radius = 70;
+          const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+          gradient.addColorStop(0, `rgba(255,0,0,${intensity})`);
+          gradient.addColorStop(0.4, `rgba(255,140,0,${intensity * 0.7})`);
+          gradient.addColorStop(1, "rgba(255,0,0,0)");
 
-            const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-            gradient.addColorStop(0, `rgba(255,0,0,${intensity})`);
-            gradient.addColorStop(0.4, `rgba(255,140,0,${intensity * 0.7})`);
-            gradient.addColorStop(1, "rgba(255,0,0,0)");
-
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            ctx.arc(x, y, radius, 0, Math.PI * 2);
-            ctx.fill();
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fill();
         });
+      }
 
-        requestAnimationFrame(renderFrame);
+      requestAnimationFrame(renderFrame);
     }
 
     loadHeatmap();
     setInterval(loadHeatmap, 15000);
     requestAnimationFrame(renderFrame);
-}
-
-startHeatmap();
-</script>
+  })();
+  </script>
 </div>
 
 <div class="cyber-box" style="background:#000814;border:1px solid #ff0044aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #ff0044aa;">
