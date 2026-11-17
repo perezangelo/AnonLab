@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-128076",
-    "summary": "Nuxt: Colliding island props can share one `/__nuxt_island` path (incomplete fix for CVE-2026-46342)",
-    "severity": "LOW",
-    "published": "2026-11-16T15:02:22Z",
-    "ghsa": "GHSA-hf59-9xwc-2g4p"
-  },
-  {
-    "id": "CVE-2026-128075",
-    "summary": "Nuxt exposes the message and data of unhandled errors thrown during server rendering",
+    "id": "CVE-2026-129237",
+    "summary": "qbee-agent: Docker Compose build context Zip Slip writes outside context directory",
     "severity": "MODERATE",
-    "published": "2026-11-16T15:01:26Z",
-    "ghsa": "GHSA-96x6-fvhx-49hg"
+    "published": "2026-11-16T22:35:40Z",
+    "ghsa": "GHSA-vx32-xf7g-9ghr"
   },
   {
-    "id": "CVE-2026-128074",
-    "summary": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
+    "id": "CVE-2026-91115",
+    "summary": "Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter",
+    "severity": "HIGH",
+    "published": "2026-11-16T22:35:12Z",
+    "ghsa": "GHSA-c94f-87xg-65wf"
+  },
+  {
+    "id": "CVE-2026-91113",
+    "summary": "Silverstripe Framework: User-controlled ClassName allows unauthorized record type change",
     "severity": "MODERATE",
-    "published": "2026-11-16T15:00:41Z",
-    "ghsa": "GHSA-r9jc-w898-3fv6"
+    "published": "2026-11-16T22:34:59Z",
+    "ghsa": "GHSA-4qv2-g5vp-wjjw"
   },
   {
-    "id": "CVE-2026-128072",
-    "summary": "@nuxt/webpack-builder and @nuxt/rspack-builder dev server serves built source to DNS rebinding pages",
-    "severity": "LOW",
-    "published": "2026-11-16T15:00:09Z",
-    "ghsa": "GHSA-x2wv-5868-p7v2"
-  },
-  {
-    "id": "CVE-2026-128071",
-    "summary": "Nuxt: Incomplete fix for GHSA-6gq8-jgmh-3ffp: an encoded slash (`%2F`) in the request path bypasses route rules on catch-all page routes",
+    "id": "CVE-2026-91112",
+    "summary": "Silverstripe Framework: CMS_ACCESS_SecurityAdmin privilege escalation",
     "severity": "MODERATE",
-    "published": "2026-11-16T14:59:45Z",
-    "ghsa": "GHSA-f3x9-2chm-73c8"
+    "published": "2026-11-16T22:30:42Z",
+    "ghsa": "GHSA-rg72-5958-c65m"
   },
   {
-    "id": "CVE-2026-128118",
-    "summary": "SvelteKit: Build-time server-only module import guard could fail, resulting in server secrets being statically replaced in client bundle",
-    "severity": "HIGH",
-    "published": "2026-11-16T14:59:00Z",
-    "ghsa": "GHSA-m9j8-jcmv-hp69"
-  },
-  {
-    "id": "CVE-2026-128120",
-    "summary": "SvelteKit: DoS while parsing form data from a remote functions `form`",
-    "severity": "HIGH",
-    "published": "2026-11-16T14:57:35Z",
-    "ghsa": "GHSA-3r8g-jcqq-3p5j"
-  },
-  {
-    "id": "CVE-2026-128124",
-    "summary": "AIOHTTP: Event loop stall in add_domain() wildcard matching",
-    "severity": "HIGH",
-    "published": "2026-11-16T14:56:35Z",
-    "ghsa": "GHSA-jm3w-gw2p-xjfj"
-  },
-  {
-    "id": "CVE-2026-128125",
-    "summary": "AIOHTTP: Unbounded cookie storage in client CookieJar",
+    "id": "CVE-2026-88989",
+    "summary": "Silverstripe Framework: Auth bypass GridFieldDetailForm",
     "severity": "MODERATE",
-    "published": "2026-11-16T14:55:06Z",
-    "ghsa": "GHSA-5pv8-vvhc-h7jv"
+    "published": "2026-11-16T22:29:59Z",
+    "ghsa": "GHSA-3qh3-54qg-gpq3"
   },
   {
-    "id": "CVE-2026-128126",
-    "summary": "AIOHTTP: Too many URL-encoded form fields block the event loop",
-    "severity": "HIGH",
-    "published": "2026-11-16T14:54:10Z",
-    "ghsa": "GHSA-xgw8-8ccx-rmqh"
+    "id": "CVE-2026-88988",
+    "summary": "Silverstripe Framework: XSS via SVG data URI",
+    "severity": "MODERATE",
+    "published": "2026-11-16T22:27:46Z",
+    "ghsa": "GHSA-xwg4-8hqh-79jq"
+  },
+  {
+    "id": "CVE-2026-88987",
+    "summary": "Silverstripe Framework: XSS via XHTML data URI",
+    "severity": "MODERATE",
+    "published": "2026-11-16T22:27:37Z",
+    "ghsa": "GHSA-qqrg-8jpm-8mph"
+  },
+  {
+    "id": "CVE-2026-129239",
+    "summary": "Directus: Share update allows reassigning user_created and role",
+    "severity": "MODERATE",
+    "published": "2026-11-16T22:25:53Z",
+    "ghsa": "GHSA-7h45-q5jx-7r87"
+  },
+  {
+    "id": "CVE-2026-129301",
+    "summary": "mail-parser: One hostile attachment aborts `write_attachments()` and silently drops the rest of the batch",
+    "severity": "MODERATE",
+    "published": "2026-11-16T22:22:13Z",
+    "ghsa": "GHSA-8cgq-x343-p74c"
+  },
+  {
+    "id": "CVE-2026-129300",
+    "summary": "mail-parser: Uncaught `OverflowError` / `OSError` on an out-of-range `Received` date",
+    "severity": "MODERATE",
+    "published": "2026-11-16T22:20:32Z",
+    "ghsa": "GHSA-xhrq-2mqv-q8wx"
   }
 ]
