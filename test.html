@@ -214,98 +214,46 @@ async function executePassiveDns() {
     const box = document.getElementById('dnsOutputBox');
     const badge = document.getElementById('dnsStatusBadge');
 
-    if (!target) {
-        box.innerText = "⚠️ Inserisci un dominio valido (es. cloudflare.com, target-defense.org).";
-        return;
-    }
+    if (!target) return;
 
-    updateOsintHubLinks(target);
-
-    badge.innerText = "Interrogazione DoH in corso...";
+    badge.innerText = "Interrogazione PHP Backend...";
     badge.style.color = "#00eaff";
-    box.innerText = `[+] Inizializzazione query passive DoH per: ${target}\n[+] Nessun pacchetto inviato all'infrastruttura del target.\n\n`;
-
-    const recordTypes = ["A", "MX", "TXT"];
-    let consolidated = "";
+    box.innerText = `[+] Contatto il motore di telemetria su Altervista...\n`;
 
     try {
-        for (const type of recordTypes) {
-            const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(target)}&type=${type}`, {
-                headers: { 'Accept': 'application/dns-json' }
-            });
+        // Chiamata al tuo script PHP sullo stesso server
+        const resp = await fetch(`recon_api.php?domain=${encodeURIComponent(target)}`);
+        const data = await resp.json();
 
-            if (!resp.ok) continue;
-            const data = await resp.json();
-
-            consolidated += `--- RECORD [${type}] ---\n`;
-            if (data.Answer && data.Answer.length > 0) {
-                data.Answer.forEach(ans => {
-                    consolidated += `  • ${ans.name} (TTL: ${ans.TTL}s) -> ${ans.data}\n`;
-                });
-            } else {
-                consolidated += `  (Nessun record ${type} restituito)\n`;
-            }
-            consolidated += "\n";
+        if (data.error) {
+            box.innerText = `⚠️ Errore: ${data.error}`;
+            return;
         }
 
-        // Check rapido DMARC
-        try {
-            const dmarcResp = await fetch(`https://cloudflare-dns.com/dns-query?name=_dmarc.${encodeURIComponent(target)}&type=TXT`, {
-                headers: { 'Accept': 'application/dns-json' }
-            });
-            const dmarcData = await dmarcResp.json();
-            consolidated += `--- RECORD [DMARC PASSIVO] ---\n`;
-            if (dmarcData.Answer && dmarcData.Answer.length > 0) {
-                dmarcData.Answer.forEach(ans => consolidated += `  • ${ans.data}\n`);
-            } else {
-                consolidated += `  ⚠️ Nessun record DMARC rilevato su _dmarc.${target}\n`;
-            }
-        } catch(e) {}
+        let output = `--- RISULTATI RECON BACKEND (${data.timestamp}) ---\n`;
+        output += `Target: ${data.target}\n\n`;
 
-        box.innerText = consolidated;
-        badge.innerText = "Audit Passivo Completato";
+        if (data.dns_soa) {
+            output += `[DNS Master Zone / SOA]:\n`;
+            output += `  • Primary NameServer: ${data.dns_soa.mname}\n`;
+            output += `  • Admin Contact: ${data.dns_soa.rname}\n`;
+            output += `  • Serial: ${data.dns_soa.serial}\n\n`;
+        }
+
+        output += `[Sottodomini Rilevati Passivamente (crt.sh Logs)]:\n`;
+        if (data.subdomains && data.subdomains.length > 0) {
+            data.subdomains.forEach(s => output += `  ✓ ${s}\n`);
+        } else {
+            output += `  Nessun sottodominio storico estratto o limite API raggiunto.\n`;
+        }
+
+        box.innerText = output;
+        badge.innerText = "Dati Backend Ricevuti";
         badge.style.color = "#00ff88";
 
     } catch (err) {
-        box.innerText += `\n❌ Errore durante la risoluzione DoH: ${err.message}`;
-        badge.innerText = "Errore Connessione DoH";
+        box.innerText = `❌ Errore di connessione al backend PHP: ${err.message}\n(Verifica che le connessioni Server-to-Server siano abilitate su Altervista)`;
+        badge.innerText = "Errore Connessione";
         badge.style.color = "#ff4444";
     }
 }
-
-// Checklist Audit Scorecard
-function updateAuditScore() {
-    const checks = document.querySelectorAll(".audit-check");
-    const done = Array.from(checks).filter(c => c.checked).length;
-    const pct = Math.round((done / checks.length) * 100);
-
-    const bar = document.getElementById("auditScoreBar");
-    const label = document.getElementById("auditScoreLabel");
-
-    bar.style.width = pct + "%";
-
-    if (pct === 0) {
-        bar.style.background = "#ff4444";
-        label.style.color = "#ff4444";
-        label.innerText = "0% — SUPERFICIE CRITICA";
-    } else if (pct < 60) {
-        bar.style.background = "#ff7b00";
-        label.style.color = "#ff7b00";
-        label.innerText = pct + "% — ESPOSIZIONE RILEVATA";
-    } else if (pct < 100) {
-        bar.style.background = "#00eaff";
-        label.style.color = "#00eaff";
-        label.innerText = pct + "% — DIFESA BUONA";
-    } else {
-        bar.style.background = "#00ff88";
-        label.style.color = "#00ff88";
-        label.innerText = "100% — PERIMETRO BLINDATO";
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    const defaultTarget = "github.com";
-    document.getElementById("reconTargetInput").value = defaultTarget;
-    updateOsintHubLinks(defaultTarget);
-});
-</script>
