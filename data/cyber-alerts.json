@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-119351",
+    "summary": "Next.js: Cache leak across root param values in nested 'use cache' functions via delayed inner stream metadata",
+    "severity": "MODERATE",
+    "published": "2026-11-17T16:13:26Z",
+    "ghsa": "GHSA-vc7v-qv4w-wrv8"
+  },
+  {
     "id": "CVE-2026-129237",
     "summary": "qbee-agent: Docker Compose build context Zip Slip writes outside context directory",
     "severity": "MODERATE",
@@ -61,12 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-11-16T22:22:13Z",
     "ghsa": "GHSA-8cgq-x343-p74c"
-  },
-  {
-    "id": "CVE-2026-129300",
-    "summary": "mail-parser: Uncaught `OverflowError` / `OSError` on an out-of-range `Received` date",
-    "severity": "MODERATE",
-    "published": "2026-11-16T22:20:32Z",
-    "ghsa": "GHSA-xhrq-2mqv-q8wx"
   }
 ]
