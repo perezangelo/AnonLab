@@ -2094,13 +2094,13 @@ function calculateEntropy() {
     <!-- LEGENDA OPERATIVA -->
     <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.2); border-left:3px solid #00eaff; border-radius:6px; padding:10px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.45; color:#b0b8c4;">
         <strong style="color:#00eaff; font-size:0.84rem; display:block; margin-bottom:4px;">🛡️ PASSIVE RECONNAISSANCE &amp; EXPOSURE AUDITING</strong>
-        Analisi della superficie esposta tramite telemetrie DNS pubbliche, Certificate Transparency e motori terzi, <em>senza inviare pacchetti o richieste dirette ai server target</em>.
+        Analisi della superficie esposta tramite telemetrie DNS pubbliche, Certificate Transparency e motori terzi, senza inviare pacchetti invasivi al target.
     </div>
 
     <!-- TARGET INPUT BAR -->
     <div style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.4); border-radius:6px; padding:12px; margin-bottom:14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
         <span style="color:#00ff88; font-family:monospace; font-weight:bold;">TARGET:&gt;</span>
-        <input type="text" id="reconTargetInput" placeholder="es. target-defense.org" style="
+        <input type="text" id="reconTargetInput" placeholder="es. anonlab.it" style="
             flex:1; min-width:200px; background:#000; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.5); padding:8px 10px; border-radius:4px; font-family:monospace; font-size:0.9rem; outline:none;" 
             onkeydown="if(event.key==='Enter') executePassiveDns();">
         <button type="button" onclick="executePassiveDns()" style="
@@ -2112,7 +2112,7 @@ function calculateEntropy() {
     <!-- TAB NAVIGATION -->
     <div style="display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; border-bottom:1px solid rgba(0, 234, 255, 0.2); padding-bottom:8px;">
         <button type="button" class="recon-tab-btn active" onclick="switchReconTab('tab-dns', this)" style="background:#00eaff; color:#000; border:none; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
-            📡 Passive DNS (DoH)
+            📡 Passive Audit (PHP)
         </button>
         <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-osint', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
             🛰️ OSINT Hub
@@ -2125,44 +2125,44 @@ function calculateEntropy() {
         </button>
     </div>
 
-    <!-- TAB 1: PASSIVE DOH LOOKUP -->
+    <!-- TAB 1: PASSIVE BACKEND AUDIT REPORT -->
     <div id="tab-dns" class="recon-tab-content" style="background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px; min-height:180px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="color:#00ff88; font-size:0.8rem; font-weight:bold;">LIVE PASSIVE DNS QUERY (Cloudflare REST DoH)</span>
+            <span style="color:#00ff88; font-size:0.8rem; font-weight:bold;">LIVE TELEMETRY (defensive-audit.php)</span>
             <span id="dnsStatusBadge" style="font-size:0.75rem; color:#888;">In attesa di target...</span>
         </div>
-        <div id="dnsOutputBox" style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.2); border-radius:4px; padding:10px; font-family:monospace; font-size:0.82rem; color:#d7e7f5; min-height:110px; max-height:220px; overflow-y:auto; white-space:pre-wrap;">
-Inserisci un dominio sopra e clicca "Analizza Target" per estrarre passivamente i record A, MX e TXT (SPF, verifiche cloud e DMARC).
+        <div id="dnsOutputBox" style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.2); border-radius:4px; padding:10px; font-family:monospace; font-size:0.82rem; color:#d7e7f5; min-height:110px; max-height:260px; overflow-y:auto; white-space:pre-wrap;">
+Inserisci un dominio sopra e clicca "Analizza Target" per avviare l'audit.
         </div>
     </div>
 
-    <!-- TAB 2: OSINT & EXPOSURE INTEL HUB -->
+    <!-- TAB 2: OSINT HUB -->
     <div id="tab-osint" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
-        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Consulta le telemetrie passive indicizzate dai database pubblici mondiali per il dominio corrente:</p>
+        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Consulta le telemetrie passive indicizzate sui registri mondiali per il dominio:</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:10px;">
             <a id="linkCrtSh" href="https://crt.sh" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,255,136,0.3); color:#00ff88; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
                 📜 <strong>crt.sh Logs</strong><br><span style="color:#8899aa; font-size:0.75rem;">Mappatura sottodomini da Certificati SSL/TLS</span>
             </a>
             <a id="linkShodan" href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
-                🔭 <strong>Shodan Recon</strong><br><span style="color:#8899aa; font-size:0.75rem;">Banner e porte storiche già scansionate</span>
+                🔭 <strong>Shodan Recon</strong><br><span style="color:#8899aa; font-size:0.75rem;">Banner e porte storiche (Ricerca libera)</span>
             </a>
             <a id="linkWayback" href="https://web.archive.org" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(255,123,0,0.3); color:#ff7b00; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
-                🕰️ <strong>Wayback Endpoints</strong><br><span style="color:#8899aa; font-size:0.75rem;">Endpoint API e vecchi file archiviati</span>
+                🕰️ <strong>Wayback Endpoints</strong><br><span style="color:#8899aa; font-size:0.75rem;">Endpoint API e file archiviati nel tempo</span>
             </a>
             <a id="linkVT" href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
-                🦠 <strong>VirusTotal Passive</strong><br><span style="color:#8899aa; font-size:0.75rem;">Reputazione IP, WHOIS e comunicazioni IoC</span>
+                🦠 <strong>VirusTotal Passive</strong><br><span style="color:#8899aa; font-size:0.75rem;">Reputazione IP, WHOIS e relazioni</span>
             </a>
         </div>
     </div>
 
-    <!-- TAB 3: DEFENSIVE GOOGLE DORKS GENERATOR -->
+    <!-- TAB 3: EXPOSURE DORKS -->
     <div id="tab-dorks" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
-        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Genera query Google Dorking per verificare leak accidentali del target sui motori di ricerca:</p>
+        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Genera query Google Dorking per verificare leak accidentali del target:</p>
         <div style="display:flex; flex-direction:column; gap:8px;">
             <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
                 <div>
                     <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">File di Configurazione &amp; .env:</span>
-                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:env OR filetype:yaml OR filetype:ini "DB_PASSWORD"</span>
+                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:env OR filetype:yaml "DB_PASSWORD"</span>
                 </div>
                 <button type="button" onclick="launchDork('config')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
             </div>
@@ -2170,14 +2170,14 @@ Inserisci un dominio sopra e clicca "Analizza Target" per estrarre passivamente 
             <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
                 <div>
                     <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Backup &amp; Dump Database:</span>
-                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:sql OR filetype:tar OR filetype:bak OR filetype:dump</span>
+                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:sql OR filetype:bak OR filetype:dump</span>
                 </div>
                 <button type="button" onclick="launchDork('backup')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
             </div>
 
             <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
                 <div>
-                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Directory Listing &amp; Log Esposti:</span>
+                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Directory Listing &amp; Logs:</span>
                     <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">intitle:"index of /" OR filetype:log "error"</span>
                 </div>
                 <button type="button" onclick="launchDork('logs')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
@@ -2185,7 +2185,7 @@ Inserisci un dominio sopra e clicca "Analizza Target" per estrarre passivamente 
 
             <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
                 <div>
-                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Pannelli Login &amp; Staging esposti:</span>
+                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Pannelli Login &amp; Staging:</span>
                     <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">inurl:admin OR inurl:login OR inurl:staging</span>
                 </div>
                 <button type="button" onclick="launchDork('portals')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
@@ -2193,7 +2193,7 @@ Inserisci un dominio sopra e clicca "Analizza Target" per estrarre passivamente 
         </div>
     </div>
 
-    <!-- TAB 4: DEFENSIVE POSTURE AUDIT CHECKLIST -->
+    <!-- TAB 4: DEFENSIVE POSTURE AUDIT -->
     <div id="tab-audit" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
             <span style="color:#ccc; font-size:0.85rem;">Indice di Robustezza Perimetrale:</span>
@@ -2207,29 +2207,28 @@ Inserisci un dominio sopra e clicca "Analizza Target" per estrarre passivamente 
         <div style="display:flex; flex-direction:column; gap:7px; font-size:0.82rem; color:#d7e7f5;">
             <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
                 <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Nessun IP sorgente origin esposto (Origin Shield / WAF Cloud attivo).</span>
+                <span>Risoluzione DNS attiva e Record A raggiungibili.</span>
             </label>
             <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
                 <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>SPF restrittivo (<code>-all</code>) e policy DMARC presente (<code>p=reject</code> o <code>quarantine</code>).</span>
+                <span>Protezione SPF attiva e Record DMARC presente.</span>
             </label>
             <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
                 <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Header difensivi attivi (HSTS preload, CSP rigida, X-Frame-Options DENY).</span>
+                <span>Almeno 3 Header OWASP configurati (HSTS, CSP, nosniff, ecc.).</span>
             </label>
             <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
                 <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Zero porte di gestione (22, 3389, 445, database) visibili via Shodan / Censys.</span>
+                <span>Certificato SSL/TLS valido e non in scadenza immediata.</span>
             </label>
             <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
                 <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Nessuna directory listing o repository <code>.git</code> accessibile pubblicamente.</span>
+                <span>Trasparenza certificati (CT Logs) attiva sui sottodomini.</span>
             </label>
         </div>
     </div>
 </div>
 
-<!-- JAVASCRIPT COMPLETO E PRIVO DI ERRORI DI SINTASSI -->
 <script>
 // 1. Pulizia Hostname
 function cleanTargetHost(raw) {
@@ -2258,7 +2257,7 @@ function switchReconTab(tabId, btn) {
     }
 }
 
-// 3. Link OSINT Dinamici
+// 3. Link OSINT Dinamici (con Shodan a ricerca libera senza login)
 function updateOsintHubLinks(target) {
     if (!target) return;
     const t = encodeURIComponent(target);
@@ -2346,7 +2345,7 @@ function autoUpdateAuditChecklist(data, headersCount) {
     }
 }
 
-// 7. FUNZIONE PRINCIPALE ASINCRONA (Async/Await garantito)
+// 7. Funzione Principale Asincrona
 async function executePassiveDns() {
     const inputEl = document.getElementById('reconTargetInput');
     const raw = inputEl ? inputEl.value : "";
@@ -2369,9 +2368,11 @@ async function executePassiveDns() {
         box.innerText = `[+] Inizializzazione audit passivo...\n[+] Target: ${target}\n`;
     }
 
-    // TENTATIVO 1: Backend PHP (defensive-audit.php)
+    // TENTATIVO 1: Backend PHP su AngelOnline
     try {
-        const response = await fetch(`https://angelonline.altervista.org/backend/defensive-audit.php?domain=${encodeURIComponent(target)}`, {
+        const backendEndpoint = "https://angelonline.altervista.org/backend/defensive-audit.php";
+        
+        const response = await fetch(`${backendEndpoint}?domain=${encodeURIComponent(target)}`, {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         });
@@ -2422,13 +2423,13 @@ async function executePassiveDns() {
         autoUpdateAuditChecklist(d, headersPresent);
 
     } catch (phpErr) {
-        // TENTATIVO 2: Se PHP fallisce o dà 405, scatta il Fallback DoH diretto via Cloudflare
+        // TENTATIVO 2: Fallback DoH diretto se PHP non risponde
         if (badge) {
             badge.innerText = "Fallback DoH Attivo";
             badge.style.color = "#ffbb00";
         }
         if (box) {
-            box.innerText = `[i] Backend PHP non disponibile (${phpErr.message}).\n[+] Attivazione automatica Fallback DoH diretto (Client-Side RFC 8484)...\n\n`;
+            box.innerText = `[i] Backend PHP non disponibile (${phpErr.message}).\n[+] Attivazione automatica Fallback DoH diretto (RFC 8484)...\n\n`;
         }
 
         try {
@@ -2454,7 +2455,6 @@ async function executePassiveDns() {
                 }
             }
 
-            // DMARC Check passivo
             try {
                 const dmarcResp = await fetch(`https://cloudflare-dns.com/dns-query?name=_dmarc.${encodeURIComponent(target)}&type=TXT`, {
                     headers: { 'Accept': 'application/dns-json' }
@@ -2474,7 +2474,6 @@ async function executePassiveDns() {
                 badge.style.color = "#00ff88";
             }
 
-            // Aggiorna i check base disponibili dal DoH
             const checks = document.querySelectorAll('.audit-check');
             if (checks.length >= 2) {
                 checks[0].checked = hasA;
