@@ -292,7 +292,7 @@ async function executePassiveDns() {
 
     // TENTATIVO 1: Backend PHP (defensive-audit.php)
     try {
-        const response = await fetch(`defensive-audit.php?domain=${encodeURIComponent(target)}`, {
+        const response = await fetch(`https://angelonline.altervista.org/backend/defensive-audit.php?domain=${encodeURIComponent(target)}`, {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         });
