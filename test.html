@@ -189,7 +189,7 @@ function updateOsintHubLinks(target) {
     const vt = document.getElementById('linkVT');
 
     if (crt) crt.href = `https://crt.sh/?q=%25.${t}`;
-    if (shodan) shodan.href = `https://www.shodan.io/search?query=hostname%3A"${t}"`;
+    if (shodan) shodan.href = `https://www.shodan.io/search?query=${t}`;
     if (wayback) wayback.href = `https://web.archive.org/web/*/${t}/*`;
     if (vt) vt.href = `https://www.virustotal.com/gui/domain/${t}`;
 }
