@@ -150,16 +150,18 @@ Inserisci un dominio sopra e clicca "Analizza Target" per estrarre passivamente 
     </div>
 </div>
 
+<!-- JAVASCRIPT COMPLETO E PRIVO DI ERRORI DI SINTASSI -->
 <script>
-// Pulizia input e parsing del dominio
+// 1. Pulizia Hostname
 function cleanTargetHost(raw) {
+    if (!raw) return "";
     let host = raw.trim().toLowerCase();
-    host = host.replace(/^(https?:\/\/)/, '').replace(/^(ftp:\/\/)/, '');
+    host = host.replace(/^(https?:\/\/)/i, '').replace(/^(ftp:\/\/)/i, '');
     host = host.split('/')[0].split(':')[0];
     return host;
 }
 
-// Switch tra schede
+// 2. Navigazione Tab
 function switchReconTab(tabId, btn) {
     document.querySelectorAll('.recon-tab-content').forEach(c => c.style.display = 'none');
     document.querySelectorAll('.recon-tab-btn').forEach(b => {
@@ -168,24 +170,34 @@ function switchReconTab(tabId, btn) {
         b.style.border = '1px solid rgba(0, 234, 255, 0.3)';
     });
     
-    document.getElementById(tabId).style.display = 'block';
-    btn.style.background = '#00eaff';
-    btn.style.color = '#000';
-    btn.style.border = 'none';
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) targetTab.style.display = 'block';
+    if (btn) {
+        btn.style.background = '#00eaff';
+        btn.style.color = '#000';
+        btn.style.border = 'none';
+    }
 }
 
-// Aggiornamento link OSINT
+// 3. Link OSINT Dinamici
 function updateOsintHubLinks(target) {
+    if (!target) return;
     const t = encodeURIComponent(target);
-    document.getElementById('linkCrtSh').href = `https://crt.sh/?q=%25.${t}`;
-    document.getElementById('linkShodan').href = `https://www.shodan.io/search?query=hostname%3A"${t}"`;
-    document.getElementById('linkWayback').href = `https://web.archive.org/web/*/${t}/*`;
-    document.getElementById('linkVT').href = `https://www.virustotal.com/gui/domain/${t}`;
+    const crt = document.getElementById('linkCrtSh');
+    const shodan = document.getElementById('linkShodan');
+    const wayback = document.getElementById('linkWayback');
+    const vt = document.getElementById('linkVT');
+
+    if (crt) crt.href = `https://crt.sh/?q=%25.${t}`;
+    if (shodan) shodan.href = `https://www.shodan.io/search?query=hostname%3A"${t}"`;
+    if (wayback) wayback.href = `https://web.archive.org/web/*/${t}/*`;
+    if (vt) vt.href = `https://www.virustotal.com/gui/domain/${t}`;
 }
 
-// Generatore Dork difensivi
+// 4. Query Google Dorks
 function launchDork(type) {
-    const raw = document.getElementById('reconTargetInput').value;
+    const inputEl = document.getElementById('reconTargetInput');
+    const raw = inputEl ? inputEl.value : "";
     const target = cleanTargetHost(raw) || "example.com";
     let query = `site:${target} `;
 
@@ -207,90 +219,17 @@ function launchDork(type) {
     window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
 }
 
-// Interrogazione Passive DNS via DoH REST API (Cloudflare)
-async function executePassiveDns() {
-    const raw = document.getElementById('reconTargetInput').value;
-    const target = cleanTargetHost(raw);
-    const box = document.getElementById('dnsOutputBox');
-    const badge = document.getElementById('dnsStatusBadge');
-
-    if (!target) return;
-
-    badge.innerText = "Interrogazione PHP Backend...";
-    badge.style.color = "#00eaff";
-    box.innerText = `[+] Contatto il motore di telemetria su Altervista...\n`;
-
-    try {
-        // Chiamata al tuo script PHP sullo stesso server
-        const resp = await fetch(`recon_api.php?domain=${encodeURIComponent(target)}`);
-        const data = await resp.json();
-
-        if (data.error) {
-            box.innerText = `⚠️ Errore: ${data.error}`;
-            return;
-        }
-
-        let output = `--- RISULTATI RECON BACKEND (${data.timestamp}) ---\n`;
-        output += `Target: ${data.target}\n\n`;
-
-        if (data.dns_soa) {
-            output += `[DNS Master Zone / SOA]:\n`;
-            output += `  • Primary NameServer: ${data.dns_soa.mname}\n`;
-            output += `  • Admin Contact: ${data.dns_soa.rname}\n`;
-            output += `  • Serial: ${data.dns_soa.serial}\n\n`;
-        }
-
-        output += `[Sottodomini Rilevati Passivamente (crt.sh Logs)]:\n`;
-        if (data.subdomains && data.subdomains.length > 0) {
-            data.subdomains.forEach(s => output += `  ✓ ${s}\n`);
-        } else {
-            output += `  Nessun sottodominio storico estratto o limite API raggiunto.\n`;
-        }
-
-        box.innerText = output;
-        badge.innerText = "Dati Backend Ricevuti";
-        badge.style.color = "#00ff88";
-
-    } catch (err) {
-        box.innerText = `❌ Errore di connessione al backend PHP: ${err.message}\n(Verifica che le connessioni Server-to-Server siano abilitate su Altervista)`;
-        badge.innerText = "Errore Connessione";
-        badge.style.color = "#ff4444";
-    }
-}
-
-        // Check rapido DMARC
-        try {
-            const dmarcResp = await fetch(`https://cloudflare-dns.com/dns-query?name=_dmarc.${encodeURIComponent(target)}&type=TXT`, {
-                headers: { 'Accept': 'application/dns-json' }
-            });
-            const dmarcData = await dmarcResp.json();
-            consolidated += `--- RECORD [DMARC PASSIVO] ---\n`;
-            if (dmarcData.Answer && dmarcData.Answer.length > 0) {
-                dmarcData.Answer.forEach(ans => consolidated += `  • ${ans.data}\n`);
-            } else {
-                consolidated += `  ⚠️ Nessun record DMARC rilevato su _dmarc.${target}\n`;
-            }
-        } catch(e) {}
-
-        box.innerText = consolidated;
-        badge.innerText = "Audit Passivo Completato";
-        badge.style.color = "#00ff88";
-
-    } catch (err) {
-        box.innerText += `\n❌ Errore durante la risoluzione DoH: ${err.message}`;
-        badge.innerText = "Errore Connessione DoH";
-        badge.style.color = "#ff4444";
-    }
-}
-
-// Checklist Audit Scorecard
+// 5. Punteggio Audit Checklist
 function updateAuditScore() {
     const checks = document.querySelectorAll(".audit-check");
+    if (!checks.length) return;
     const done = Array.from(checks).filter(c => c.checked).length;
     const pct = Math.round((done / checks.length) * 100);
 
     const bar = document.getElementById("auditScoreBar");
     const label = document.getElementById("auditScoreLabel");
+
+    if (!bar || !label) return;
 
     bar.style.width = pct + "%";
 
@@ -313,9 +252,173 @@ function updateAuditScore() {
     }
 }
 
+// 6. Spunta automatica post-audit
+function autoUpdateAuditChecklist(data, headersCount) {
+    const checks = document.querySelectorAll('.audit-check');
+    if (checks.length >= 5) {
+        checks[0].checked = Boolean(data && data.dns_email && data.dns_email.a && data.dns_email.a.length > 0);
+        checks[1].checked = Boolean(data && data.dns_email && 
+                             (String(data.dns_email.spf).includes('-all') || String(data.dns_email.spf).includes('~all')) && 
+                             !String(data.dns_email.dmarc).includes('Assente'));
+        checks[2].checked = (headersCount >= 3);
+        checks[3].checked = Boolean(data && data.ssl_info && data.ssl_info.days_left > 0);
+        checks[4].checked = Boolean(data && data.subdomains_ct && data.subdomains_ct.length > 0);
+        updateAuditScore();
+    }
+}
+
+// 7. FUNZIONE PRINCIPALE ASINCRONA (Async/Await garantito)
+async function executePassiveDns() {
+    const inputEl = document.getElementById('reconTargetInput');
+    const raw = inputEl ? inputEl.value : "";
+    const target = cleanTargetHost(raw);
+    const box = document.getElementById('dnsOutputBox');
+    const badge = document.getElementById('dnsStatusBadge');
+
+    if (!target) {
+        if (box) box.innerText = "⚠️ Inserisci un dominio valido (es. anonlab.it).";
+        return;
+    }
+
+    updateOsintHubLinks(target);
+
+    if (badge) {
+        badge.innerText = "Audit in corso...";
+        badge.style.color = "#00eaff";
+    }
+    if (box) {
+        box.innerText = `[+] Inizializzazione audit passivo...\n[+] Target: ${target}\n`;
+    }
+
+    // TENTATIVO 1: Backend PHP (defensive-audit.php)
+    try {
+        const response = await fetch(`defensive-audit.php?domain=${encodeURIComponent(target)}`, {
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const res = await response.json();
+        if (res.status !== "success") {
+            throw new Error(res.message || "Risposta non valida dal backend");
+        }
+
+        const d = res.data;
+        if (badge) {
+            badge.innerText = d.cached ? "Completato (Cache)" : "Audit Completato (PHP)";
+            badge.style.color = "#00ff88";
+        }
+
+        let report = `=== [DNS & PERIMETRO EMAIL (Backend PHP)] ===\n`;
+        report += `• Indirizzi IP (A) : ${d.dns_email.a && d.dns_email.a.length ? d.dns_email.a.join(', ') : 'Nessuno'}\n`;
+        report += `• Mail Servers (MX): ${d.dns_email.mx && d.dns_email.mx.length ? d.dns_email.mx.join(' | ') : 'Nessuno'}\n`;
+        report += `• Record SPF       : ${d.dns_email.spf}\n`;
+        report += `• Policy DMARC     : ${d.dns_email.dmarc}\n\n`;
+
+        if (d.ssl_info) {
+            report += `=== [CERTIFICATO SSL/TLS] ===\n`;
+            report += `• Autorità (Issuer): ${d.ssl_info.issuer}\n`;
+            report += `• Scadenza         : ${d.ssl_info.valid_to} (${d.ssl_info.days_left} giorni rimanenti)\n\n`;
+        }
+
+        report += `=== [INTESTAZIONI OWASP] ===\n`;
+        let headersPresent = 0;
+        if (d.owasp_headers && Array.isArray(d.owasp_headers)) {
+            d.owasp_headers.forEach(h => {
+                const icon = h.present ? "✅" : "❌";
+                if (h.present) headersPresent++;
+                report += `${icon} ${h.header}: ${h.present ? h.value : 'ASSENTE'}\n`;
+            });
+        }
+
+        if (d.subdomains_ct && d.subdomains_ct.length > 0) {
+            report += `\n=== [SOTTODOMINI DA CT-LOGS (${d.subdomains_ct.length})] ===\n`;
+            d.subdomains_ct.forEach(sub => report += `  ↳ ${sub}\n`);
+        }
+
+        if (box) box.innerText = report;
+        autoUpdateAuditChecklist(d, headersPresent);
+
+    } catch (phpErr) {
+        // TENTATIVO 2: Se PHP fallisce o dà 405, scatta il Fallback DoH diretto via Cloudflare
+        if (badge) {
+            badge.innerText = "Fallback DoH Attivo";
+            badge.style.color = "#ffbb00";
+        }
+        if (box) {
+            box.innerText = `[i] Backend PHP non disponibile (${phpErr.message}).\n[+] Attivazione automatica Fallback DoH diretto (Client-Side RFC 8484)...\n\n`;
+        }
+
+        try {
+            const types = ['A', 'MX', 'TXT'];
+            let dohReport = `=== [RISOLUZIONE PASSIVA DoH (Cloudflare)] ===\n`;
+            let hasA = false;
+            let hasSPF = false;
+
+            for (const t of types) {
+                const cfResp = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(target)}&type=${t}`, {
+                    headers: { 'Accept': 'application/dns-json' }
+                });
+                const cfData = await cfResp.json();
+                dohReport += `\n-- RECORD [${t}] --\n`;
+                if (cfData.Answer && cfData.Answer.length > 0) {
+                    cfData.Answer.forEach(ans => {
+                        dohReport += `  • ${ans.name} (TTL: ${ans.TTL}s) -> ${ans.data}\n`;
+                        if (t === 'A') hasA = true;
+                        if (t === 'TXT' && String(ans.data).includes('v=spf1')) hasSPF = true;
+                    });
+                } else {
+                    dohReport += `  (Nessun record ${t})\n`;
+                }
+            }
+
+            // DMARC Check passivo
+            try {
+                const dmarcResp = await fetch(`https://cloudflare-dns.com/dns-query?name=_dmarc.${encodeURIComponent(target)}&type=TXT`, {
+                    headers: { 'Accept': 'application/dns-json' }
+                });
+                const dmarcData = await dmarcResp.json();
+                dohReport += `\n-- RECORD [DMARC] --\n`;
+                if (dmarcData.Answer && dmarcData.Answer.length > 0) {
+                    dmarcData.Answer.forEach(ans => dohReport += `  • ${ans.data}\n`);
+                } else {
+                    dohReport += `  ⚠️ Nessun record DMARC rilevato.\n`;
+                }
+            } catch(e) {}
+
+            if (box) box.innerText += dohReport;
+            if (badge) {
+                badge.innerText = "Audit DoH Completato";
+                badge.style.color = "#00ff88";
+            }
+
+            // Aggiorna i check base disponibili dal DoH
+            const checks = document.querySelectorAll('.audit-check');
+            if (checks.length >= 2) {
+                checks[0].checked = hasA;
+                checks[1].checked = hasSPF;
+                updateAuditScore();
+            }
+
+        } catch (dohErr) {
+            if (box) box.innerText += `\n❌ Errore anche su DoH: ${dohErr.message}`;
+            if (badge) {
+                badge.innerText = "Errore Connessione";
+                badge.style.color = "#ff4444";
+            }
+        }
+    }
+}
+
+// 8. Inizializzazione al caricamento
 document.addEventListener("DOMContentLoaded", function () {
-    const defaultTarget = "github.com";
-    document.getElementById("reconTargetInput").value = defaultTarget;
+    const defaultTarget = "anonlab.it";
+    const inputEl = document.getElementById("reconTargetInput");
+    if (inputEl) inputEl.value = defaultTarget;
     updateOsintHubLinks(defaultTarget);
+    updateAuditScore();
 });
 </script>
