@@ -1,5 +1,45 @@
 [
   {
+    "title": "Optimizely supply chain attack infects major brands' sites with malware",
+    "link": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+    "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+  },
+  {
+    "title": "Gemini AI agents repeatedly bypassed safeguards to attack real website",
+    "link": "https://www.bleepingcomputer.com/news/security/gemini-ai-agents-repeatedly-bypassed-safeguards-to-attack-real-website/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/11/ai-extract.jpg"
+  },
+  {
+    "title": "Google Project Zero Slashes Bug Disclosure Deadlines, Splitting Experts",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/google-project-zero-bug-disclosure-deadlines",
+    "image": ""
+  },
+  {
+    "title": "Google Project Zero cuts bug disclosures to 30 days amid AI threats",
+    "link": "https://www.bleepingcomputer.com/news/security/google-project-zero-cuts-bug-disclosure-deadline-to-30-days-amid-ai-threats/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/0_zero.jpg"
+  },
+  {
+    "title": "California sues OpenAI over AI agents escaping sandboxes, hacking firms",
+    "link": "https://www.bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/09/17/OpenAI.jpg"
+  },
+  {
+    "title": "Trump Administration Moves to Block China From Indirect Access to American AI Technology",
+    "link": "https://www.securityweek.com/trump-administration-moves-to-block-china-from-indirect-access-to-american-ai-technology/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+  },
+  {
+    "title": "Barracuda links cloud breach to ARTEX AI-powered cyberattack",
+    "link": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/robot.jpg"
+  },
+  {
+    "title": "Ransomware Attacks Increase Behind AI, But Payments Decline",
+    "link": "https://www.darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline",
+    "image": ""
+  },
+  {
     "title": "'Sleeper Agent' Tactic Hides Payloads in Open-Weight AI Models",
     "link": "https://www.darkreading.com/vulnerabilities-threats/sleeper-agent-tactic-payloads-open-weight-ai-models",
     "image": ""
@@ -75,11 +115,6 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxRuwbdQU-KyBsSrFlIZp4oczr_tJu53WrfB3nM6QYrO7kFgGAZO1NMSi7mziUOUaTrzq5C4KzCJqvYOf0Ry19ypJac-9mBYzYiqiTNl462i1uYo7DF9aAHxiVU_IOaByH3NtNlrF0hUhZtpItADKJauPVzWrz8r6YOQEHQrt_YiAmPba4CIOsSjZA2Wy_/s1600/hacker-code.jpg"
   },
   {
-    "title": "Australian retail giant Coles investigates cybersecurity incident",
-    "link": "https://www.bleepingcomputer.com/news/security/australian-retail-giant-coles-investigates-cybersecurity-incident/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/Coles.jpg"
-  },
-  {
     "title": "Recent UnrealIRCd Vulnerability Exploited in Attacks",
     "link": "https://www.securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
@@ -95,29 +130,14 @@
     "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Uber-CSO_Convicted-Joe-Sullivan.jpg"
   },
   {
-    "title": "Anthropic\u2019s Claude Fable 5.2 blocks fewer security tasks, while Mythos gets better at finding bugs",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropics-claude-fable-52-blocks-fewer-security-tasks-while-mythos-gets-better-at-finding-bugs/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Claude_chats.jpg"
-  },
-  {
     "title": "SANSAR Linux Cryptomining Malware Uses Modified NVIDIA Library to Hide GPU Activity",
     "link": "https://thehackernews.com/2026/11/sansar-linux-cryptomining-malware-uses.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmpR04waLSDZNCb2048kfy5iSlIXa_Ek3PI5qLRaBksxvyI9k_8Z6bwl6Og4Mc-AGqmHcpL7YlYVd48895FJtKlOoaqgi658-H3FZTxdjf_w32w5eJYzm_BUdXlH7M7Vb40uPUI73CDbXtQCdZAEkFruSBXvc0_B84hCQ-em0ZQk2uTIIHxRdGCxQ6bx1C/s1600/nv.jpg"
   },
   {
-    "title": "New NoisyTCP vulnerability lets attackers crash Linux servers",
-    "link": "https://www.bleepingcomputer.com/news/linux/new-noisytcp-linux-kernel-flaw-lets-attackers-crash-servers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Linux_tux.jpg"
-  },
-  {
     "title": "Tor Updates DoS Defenses Again as Relay Attacks Continue",
     "link": "https://www.securityweek.com/tor-updates-dos-defenses-again-as-relay-attacks-continue/",
     "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Tor-Network-1.jpeg"
-  },
-  {
-    "title": "Microsoft pushes Windows emergency updates to fix activation failures",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-new-windows-emergency-updates-fix-activation-licensing-failures/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/Windows.jpg"
   },
   {
     "title": "Microsoft Rules Out Cyberattack in Outage, Warns of Phishing Campaign",
@@ -128,25 +148,5 @@
     "title": "Amazon Uncovers AI Agent Campaign Targeting LiteLLM, Dify, and Other Apps for API Keys",
     "link": "https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigoyCtEKcD7TM_5vDkKiZYFdk_l4-js7HNuvMXzZbVqUbEgq1nnD2vEZgZ0kL9CdmOkITC0Rbd-ebTkSX-R4NPKwWZXzUD6zS0g9nEfnlXw3njm3oW2Se97qbT7lIfZEL56X3IIaZAildTni9-zQJu5sa4Lhvi_mVlbTeZFyFtezOMHJ_bDhJWfG7KQ8eh/s1600/amazon.jpg"
-  },
-  {
-    "title": "BO Team Exploits Log4Shell in VMware vCenter, Compromises Russian Firm's Code-Signing Server",
-    "link": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAvzoKykaMIpa6xx92YudipfUoEQnSkrE6p2CiWEVra5izr5GfuNQGOnfRuF0XV99v1IPRFe2Q6BF27UEq3BnWFS5onw97dt3hvszilQDANdtRdYi0_hTDOrKQvuwGn1mY_m-QTabV3jwWCNwXs_OizK2GLF3Eks5HJj5I7kbmA2IztruSBVjq5WOcxEM-/s1600/log4shell.jpg"
-  },
-  {
-    "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
-    "link": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2025/10/23/AI-2.jpg"
-  },
-  {
-    "title": "Pentagon Renames CDAO \u2018Super Intelligence Office\u2019",
-    "link": "https://www.securityweek.com/pentagon-renames-cdao-super-intelligence-office/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/SI_Department-of-War.png"
-  },
-  {
-    "title": "Italy Fines Meta \u20ac805 Million Over Facebook's Android Gallery Access Without Explicit Consent",
-    "link": "https://thehackernews.com/2026/11/italy-fines-meta-805-million-over.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdTCjpbsG3Dp62JM1KZqfSvZpuBnxwaCxXsplW3dAt2b4Ym0KAWPfxkHf4DT-02VK3jJESLmgasdE6D36qGegWu7dk9YSLN4DZxRVsgrM9lIEXXHUvQ0VzaZ1_gFqpjtA4cP3rlt82g5WnK2sXNZHJd5F_rEk4VSTGnMKOuXziSM1R85Vqhway3lajwTA/s1600/facebook-fine.jpg"
   }
 ]
