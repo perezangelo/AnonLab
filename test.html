@@ -1,162 +1,311 @@
-<!-- DEFENSIVE SECURITY & PASSIVE OSINT AUDIT WIDGET -->
-<div class="widget-large tools-box" id="defensiveaudit" aria-label="Defensive Domain Audit Widget">
-    <div class="box-title-row">
-        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            <circle cx="12" cy="11" r="3"></circle>
+<!-- 29. DEFENSIVE AUDIT & PASSIVE RECON CENTER -->
+<div class="widget-large tools-box" id="defensiverecon" aria-label="Defensive Audit and Passive Recon Center">
+    <div class="box-title-row" style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; border-radius:6px; width:22px; height:22px; box-sizing:content-box;">
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+            <path d="M12 6v6l4 2"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
         </svg>
-        <h3>Defensive Domain Audit &amp; Passive OSINT</h3>
+        <h3 style="margin:0; color:#00eaff;">Defensive Audit &amp; Passive Recon Center</h3>
     </div>
 
     <!-- LEGENDA OPERATIVA -->
-    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.18); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">🛡️ ANALISI PASSIVA &amp; CONFORMITÀ OWASP</strong>
-        <p style="margin:0;">
-            Verifica in modo esclusivamente passivo i record DNS pubblici (SPF/DMARC), le intestazioni di sicurezza HTTP raccomandate da OWASP, la scadenza del certificato TLS e i sottodomini registrati nei log pubblici di <em>Certificate Transparency</em>.
-        </p>
+    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.2); border-left:3px solid #00eaff; border-radius:6px; padding:10px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.45; color:#b0b8c4;">
+        <strong style="color:#00eaff; font-size:0.84rem; display:block; margin-bottom:4px;">🛡️ PASSIVE RECONNAISSANCE &amp; EXPOSURE AUDITING</strong>
+        Analisi della superficie esposta tramite telemetrie DNS pubbliche, Certificate Transparency e motori terzi, <em>senza inviare pacchetti o richieste dirette ai server target</em>.
     </div>
 
-    <!-- BARRA DI RICERCA DOMINIO -->
-    <div style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;">
-        <input type="text" id="auditDomainInput" placeholder="Inserisci dominio (es. anonlab.it)" value="anonlab.it" style="
-            flex:1; min-width:210px; padding:10px 12px; background:#0a0f14; border:1px solid #00eaff; border-radius:4px; color:#e0faff; font-size:0.85rem; font-family:monospace;">
-        <button type="button" id="auditRunBtn" onclick="executeDefensiveAudit()" style="
-            padding:10px 18px; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:4px; cursor:pointer; font-size:0.85rem; white-space:nowrap;">
-            Analizza Configurazione
+    <!-- TARGET INPUT BAR -->
+    <div style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.4); border-radius:6px; padding:12px; margin-bottom:14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+        <span style="color:#00ff88; font-family:monospace; font-weight:bold;">TARGET:&gt;</span>
+        <input type="text" id="reconTargetInput" placeholder="es. target-defense.org" style="
+            flex:1; min-width:200px; background:#000; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.5); padding:8px 10px; border-radius:4px; font-family:monospace; font-size:0.9rem; outline:none;" 
+            onkeydown="if(event.key==='Enter') executePassiveDns();">
+        <button type="button" onclick="executePassiveDns()" style="
+            background:#00eaff; color:#000; font-weight:bold; border:none; padding:8px 14px; border-radius:4px; cursor:pointer; font-size:0.85rem;">
+            Analizza Target
         </button>
     </div>
 
-    <!-- CONTENITORE RISULTATI -->
-    <div id="auditOutputContainer" style="display:none; background:#03070b; border:1px solid #0f2a3a; border-radius:6px; padding:15px;">
-        
-        <!-- TABS DI NAVIGAZIONE -->
-        <div style="display:flex; gap:6px; margin-bottom:14px; flex-wrap:wrap; border-bottom:1px solid #0f2a3a; padding-bottom:10px;">
-            <button type="button" class="audit-tab-btn" onclick="switchAuditTab('owasp')" id="tab-owasp" style="padding:6px 12px; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:4px; cursor:pointer; font-size:0.78rem;">OWASP Headers</button>
-            <button type="button" class="audit-tab-btn" onclick="switchAuditTab('dns')" id="tab-dns" style="padding:6px 12px; background:#111; color:#00eaff; border:1px solid #00eaff55; font-weight:bold; border-radius:4px; cursor:pointer; font-size:0.78rem;">DNS &amp; Email (SPF/DMARC)</button>
-            <button type="button" class="audit-tab-btn" onclick="switchAuditTab('ssl')" id="tab-ssl" style="padding:6px 12px; background:#111; color:#00eaff; border:1px solid #00eaff55; font-weight:bold; border-radius:4px; cursor:pointer; font-size:0.78rem;">SSL/TLS &amp; CT Logs</button>
+    <!-- TAB NAVIGATION -->
+    <div style="display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; border-bottom:1px solid rgba(0, 234, 255, 0.2); padding-bottom:8px;">
+        <button type="button" class="recon-tab-btn active" onclick="switchReconTab('tab-dns', this)" style="background:#00eaff; color:#000; border:none; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+            📡 Passive DNS (DoH)
+        </button>
+        <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-osint', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+            🛰️ OSINT Hub
+        </button>
+        <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-dorks', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+            🎯 Exposure Dorks
+        </button>
+        <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-audit', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+            📋 Audit Postura
+        </button>
+    </div>
+
+    <!-- TAB 1: PASSIVE DOH LOOKUP -->
+    <div id="tab-dns" class="recon-tab-content" style="background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px; min-height:180px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="color:#00ff88; font-size:0.8rem; font-weight:bold;">LIVE PASSIVE DNS QUERY (Cloudflare REST DoH)</span>
+            <span id="dnsStatusBadge" style="font-size:0.75rem; color:#888;">In attesa di target...</span>
+        </div>
+        <div id="dnsOutputBox" style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.2); border-radius:4px; padding:10px; font-family:monospace; font-size:0.82rem; color:#d7e7f5; min-height:110px; max-height:220px; overflow-y:auto; white-space:pre-wrap;">
+Inserisci un dominio sopra e clicca "Analizza Target" per estrarre passivamente i record A, MX e TXT (SPF, verifiche cloud e DMARC).
+        </div>
+    </div>
+
+    <!-- TAB 2: OSINT & EXPOSURE INTEL HUB -->
+    <div id="tab-osint" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
+        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Consulta le telemetrie passive indicizzate dai database pubblici mondiali per il dominio corrente:</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:10px;">
+            <a id="linkCrtSh" href="https://crt.sh" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,255,136,0.3); color:#00ff88; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                📜 <strong>crt.sh Logs</strong><br><span style="color:#8899aa; font-size:0.75rem;">Mappatura sottodomini da Certificati SSL/TLS</span>
+            </a>
+            <a id="linkShodan" href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                🔭 <strong>Shodan Recon</strong><br><span style="color:#8899aa; font-size:0.75rem;">Banner e porte storiche già scansionate</span>
+            </a>
+            <a id="linkWayback" href="https://web.archive.org" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(255,123,0,0.3); color:#ff7b00; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                🕰️ <strong>Wayback Endpoints</strong><br><span style="color:#8899aa; font-size:0.75rem;">Endpoint API e vecchi file archiviati</span>
+            </a>
+            <a id="linkVT" href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                🦠 <strong>VirusTotal Passive</strong><br><span style="color:#8899aa; font-size:0.75rem;">Reputazione IP, WHOIS e comunicazioni IoC</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- TAB 3: DEFENSIVE GOOGLE DORKS GENERATOR -->
+    <div id="tab-dorks" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
+        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Genera query Google Dorking per verificare leak accidentali del target sui motori di ricerca:</p>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                <div>
+                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">File di Configurazione &amp; .env:</span>
+                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:env OR filetype:yaml OR filetype:ini "DB_PASSWORD"</span>
+                </div>
+                <button type="button" onclick="launchDork('config')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                <div>
+                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Backup &amp; Dump Database:</span>
+                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:sql OR filetype:tar OR filetype:bak OR filetype:dump</span>
+                </div>
+                <button type="button" onclick="launchDork('backup')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                <div>
+                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Directory Listing &amp; Log Esposti:</span>
+                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">intitle:"index of /" OR filetype:log "error"</span>
+                </div>
+                <button type="button" onclick="launchDork('logs')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                <div>
+                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Pannelli Login &amp; Staging esposti:</span>
+                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">inurl:admin OR inurl:login OR inurl:staging</span>
+                </div>
+                <button type="button" onclick="launchDork('portals')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 4: DEFENSIVE POSTURE AUDIT CHECKLIST -->
+    <div id="tab-audit" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="color:#ccc; font-size:0.85rem;">Indice di Robustezza Perimetrale:</span>
+            <strong id="auditScoreLabel" style="color:#ff4444; font-size:0.95rem;">0% — SUPERFICIE CRITICA</strong>
         </div>
 
-        <!-- PANNELLI CONTENUTO -->
-        <div id="auditTabContent" style="font-size:0.83rem; color:#d7e7f5; line-height:1.5;"></div>
+        <div style="width:100%; height:9px; background:#111; border:1px solid rgba(0,234,255,0.3); border-radius:999px; overflow:hidden; margin-bottom:12px;">
+            <div id="auditScoreBar" style="height:100%; width:0%; background:#ff4444; transition:width 0.3s ease, background 0.3s ease;"></div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:7px; font-size:0.82rem; color:#d7e7f5;">
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Nessun IP sorgente origin esposto (Origin Shield / WAF Cloud attivo).</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>SPF restrittivo (<code>-all</code>) e policy DMARC presente (<code>p=reject</code> o <code>quarantine</code>).</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Header difensivi attivi (HSTS preload, CSP rigida, X-Frame-Options DENY).</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Zero porte di gestione (22, 3389, 445, database) visibili via Shodan / Censys.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                <span>Nessuna directory listing o repository <code>.git</code> accessibile pubblicamente.</span>
+            </label>
+        </div>
     </div>
 </div>
 
 <script>
-let currentAuditData = null;
+// Pulizia input e parsing del dominio
+function cleanTargetHost(raw) {
+    let host = raw.trim().toLowerCase();
+    host = host.replace(/^(https?:\/\/)/, '').replace(/^(ftp:\/\/)/, '');
+    host = host.split('/')[0].split(':')[0];
+    return host;
+}
 
-async function executeDefensiveAudit() {
-    const domain = document.getElementById("auditDomainInput").value.trim();
-    const btn = document.getElementById("auditRunBtn");
-    const container = document.getElementById("auditOutputContainer");
-    const content = document.getElementById("auditTabContent");
+// Switch tra schede
+function switchReconTab(tabId, btn) {
+    document.querySelectorAll('.recon-tab-content').forEach(c => c.style.display = 'none');
+    document.querySelectorAll('.recon-tab-btn').forEach(b => {
+        b.style.background = '#091624';
+        b.style.color = '#00eaff';
+        b.style.border = '1px solid rgba(0, 234, 255, 0.3)';
+    });
+    
+    document.getElementById(tabId).style.display = 'block';
+    btn.style.background = '#00eaff';
+    btn.style.color = '#000';
+    btn.style.border = 'none';
+}
 
-    if (!domain) return;
+// Aggiornamento link OSINT
+function updateOsintHubLinks(target) {
+    const t = encodeURIComponent(target);
+    document.getElementById('linkCrtSh').href = `https://crt.sh/?q=%25.${t}`;
+    document.getElementById('linkShodan').href = `https://www.shodan.io/search?query=hostname%3A"${t}"`;
+    document.getElementById('linkWayback').href = `https://web.archive.org/web/*/${t}/*`;
+    document.getElementById('linkVT').href = `https://www.virustotal.com/gui/domain/${t}`;
+}
 
-    btn.disabled = true;
-    btn.innerText = "Analisi in corso...";
-    container.style.display = "block";
-    content.innerHTML = `<span style="color:#00eaff; font-family:monospace;">[i] Interrogazione record pubblici e intestazioni OWASP per <strong>${domain}</strong>...</span>`;
+// Generatore Dork difensivi
+function launchDork(type) {
+    const raw = document.getElementById('reconTargetInput').value;
+    const target = cleanTargetHost(raw) || "example.com";
+    let query = `site:${target} `;
+
+    switch(type) {
+        case 'config':
+            query += `(filetype:env OR filetype:yaml OR filetype:ini OR filetype:conf) ("DB_PASSWORD" OR "api_key" OR "secret")`;
+            break;
+        case 'backup':
+            query += `(filetype:sql OR filetype:tar OR filetype:bak OR filetype:dump OR filetype:zip)`;
+            break;
+        case 'logs':
+            query += `(intitle:"index of /" OR filetype:log) ("error" OR "root" OR "debug")`;
+            break;
+        case 'portals':
+            query += `(inurl:admin OR inurl:login OR inurl:staging OR inurl:cpanel)`;
+            break;
+    }
+
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
+}
+
+// Interrogazione Passive DNS via DoH REST API (Cloudflare)
+async function executePassiveDns() {
+    const raw = document.getElementById('reconTargetInput').value;
+    const target = cleanTargetHost(raw);
+    const box = document.getElementById('dnsOutputBox');
+    const badge = document.getElementById('dnsStatusBadge');
+
+    if (!target) {
+        box.innerText = "⚠️ Inserisci un dominio valido (es. cloudflare.com, target-defense.org).";
+        return;
+    }
+
+    updateOsintHubLinks(target);
+
+    badge.innerText = "Interrogazione DoH in corso...";
+    badge.style.color = "#00eaff";
+    box.innerText = `[+] Inizializzazione query passive DoH per: ${target}\n[+] Nessun pacchetto inviato all'infrastruttura del target.\n\n`;
+
+    const recordTypes = ["A", "MX", "TXT"];
+    let consolidated = "";
 
     try {
-        const res = await fetch("https://angelonline.altervista.org/backend/defensive-audit.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "domain=" + encodeURIComponent(domain)
-        });
-        const json = await res.json();
+        for (const type of recordTypes) {
+            const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(target)}&type=${type}`, {
+                headers: { 'Accept': 'application/dns-json' }
+            });
 
-        if (json.status === "success") {
-            currentAuditData = json.data;
-            switchAuditTab('owasp');
-        } else {
-            content.innerHTML = `<span style="color:#ff4444;">[!] ${json.message}</span>`;
+            if (!resp.ok) continue;
+            const data = await resp.json();
+
+            consolidated += `--- RECORD [${type}] ---\n`;
+            if (data.Answer && data.Answer.length > 0) {
+                data.Answer.forEach(ans => {
+                    consolidated += `  • ${ans.name} (TTL: ${ans.TTL}s) -> ${ans.data}\n`;
+                });
+            } else {
+                consolidated += `  (Nessun record ${type} restituito)\n`;
+            }
+            consolidated += "\n";
         }
-    } catch (e) {
-        content.innerHTML = `<span style="color:#ff4444;">[!] Errore di connessione all'API di audit: ${e.message}</span>`;
-    } finally {
-        btn.disabled = false;
-        btn.innerText = "Analizza Configurazione";
+
+        // Check rapido DMARC
+        try {
+            const dmarcResp = await fetch(`https://cloudflare-dns.com/dns-query?name=_dmarc.${encodeURIComponent(target)}&type=TXT`, {
+                headers: { 'Accept': 'application/dns-json' }
+            });
+            const dmarcData = await dmarcResp.json();
+            consolidated += `--- RECORD [DMARC PASSIVO] ---\n`;
+            if (dmarcData.Answer && dmarcData.Answer.length > 0) {
+                dmarcData.Answer.forEach(ans => consolidated += `  • ${ans.data}\n`);
+            } else {
+                consolidated += `  ⚠️ Nessun record DMARC rilevato su _dmarc.${target}\n`;
+            }
+        } catch(e) {}
+
+        box.innerText = consolidated;
+        badge.innerText = "Audit Passivo Completato";
+        badge.style.color = "#00ff88";
+
+    } catch (err) {
+        box.innerText += `\n❌ Errore durante la risoluzione DoH: ${err.message}`;
+        badge.innerText = "Errore Connessione DoH";
+        badge.style.color = "#ff4444";
     }
 }
 
-function switchAuditTab(tabName) {
-    if (!currentAuditData) return;
+// Checklist Audit Scorecard
+function updateAuditScore() {
+    const checks = document.querySelectorAll(".audit-check");
+    const done = Array.from(checks).filter(c => c.checked).length;
+    const pct = Math.round((done / checks.length) * 100);
 
-    ['owasp', 'dns', 'ssl'].forEach(t => {
-        const b = document.getElementById(`tab-${t}`);
-        if (t === tabName) {
-            b.style.background = "#00eaff";
-            b.style.color = "#000";
-            b.style.border = "none";
-        } else {
-            b.style.background = "#111";
-            b.style.color = "#00eaff";
-            b.style.border = "1px solid #00eaff55";
-        }
-    });
+    const bar = document.getElementById("auditScoreBar");
+    const label = document.getElementById("auditScoreLabel");
 
-    const box = document.getElementById("auditTabContent");
-    const d = currentAuditData;
+    bar.style.width = pct + "%";
 
-    if (tabName === 'owasp') {
-        let html = `<div style="margin-bottom:8px; color:#8b8b95; font-size:0.78rem;">Controllo intestazioni HTTP difensive (Standard OWASP Secure Headers):</div>`;
-        d.owasp_headers.forEach(h => {
-            const badge = h.present 
-                ? `<span style="color:#00ff88; font-weight:bold;">✔ PRESENTE</span>` 
-                : `<span style="color:#ff7b00; font-weight:bold;">⚠ MANCANTE</span>`;
-            html += `
-                <div style="padding:8px; border-bottom:1px solid #0f2a3a; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;">
-                    <div>
-                        <strong style="color:#00eaff;">${h.header}</strong>
-                        <div style="font-family:monospace; font-size:0.75rem; color:#9aa5b1; word-break:break-all; margin-top:2px;">${h.value}</div>
-                    </div>
-                    <div>${badge}</div>
-                </div>`;
-        });
-        box.innerHTML = html;
-    } 
-    else if (tabName === 'dns') {
-        const aRecs = d.dns_email.a.length ? d.dns_email.a.join(", ") : "Nessun record A rilevato";
-        const mxRecs = d.dns_email.mx.length ? d.dns_email.mx.join("<br>") : "Nessun record MX configurato";
-        const spfColor = d.dns_email.spf !== "Assente" ? "#00ff88" : "#ff4444";
-        const dmarcColor = d.dns_email.dmarc !== "Assente" ? "#00ff88" : "#ff4444";
-
-        box.innerHTML = `
-            <div style="margin-bottom:10px;">
-                <strong style="color:#00eaff;">Indirizzi IPv4 (Record A):</strong>
-                <div style="font-family:monospace; color:#e0faff; margin-top:3px;">${aRecs}</div>
-            </div>
-            <div style="margin-bottom:10px;">
-                <strong style="color:#00eaff;">Mail Server (Record MX):</strong>
-                <div style="font-family:monospace; color:#e0faff; margin-top:3px;">${mxRecs}</div>
-            </div>
-            <div style="margin-bottom:10px; padding:8px; background:#071019; border-left:3px solid ${spfColor};">
-                <strong style="color:${spfColor};">Policy SPF (Anti-Spoofing):</strong>
-                <div style="font-family:monospace; font-size:0.76rem; margin-top:3px; word-break:break-all;">${d.dns_email.spf}</div>
-            </div>
-            <div style="padding:8px; background:#071019; border-left:3px solid ${dmarcColor};">
-                <strong style="color:${dmarcColor};">Policy DMARC (_dmarc):</strong>
-                <div style="font-family:monospace; font-size:0.76rem; margin-top:3px; word-break:break-all;">${d.dns_email.dmarc}</div>
-            </div>
-        `;
-    } 
-    else if (tabName === 'ssl') {
-        let sslHtml = d.ssl_info 
-            ? `<div style="padding:10px; background:#071019; border:1px solid #00ff8844; border-radius:4px; margin-bottom:12px;">
-                <strong style="color:#00ff88;">🔒 Certificato TLS Rilevato</strong><br>
-                <span style="font-size:0.8rem;">Emittente: <strong>${d.ssl_info.issuer}</strong> | Scadenza: <strong>${d.ssl_info.valid_to}</strong> (${d.ssl_info.days_left} giorni rimanenti)</span>
-               </div>`
-            : `<div style="color:#ff7b00; margin-bottom:12px;">Nessun certificato TLS pubblico rilevato sulla porta 443.</div>`;
-
-        let ctHtml = `<strong style="color:#00eaff;">Sottodomini nei Log Pubblici (Certificate Transparency - crt.sh):</strong>`;
-        if (d.subdomains_ct.length > 0) {
-            ctHtml += `<div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;">` + 
-                d.subdomains_ct.map(s => `<span style="background:#0a1929; border:1px solid #00eaff44; padding:3px 8px; border-radius:4px; font-family:monospace; font-size:0.75rem;">${s}</span>`).join("") +
-                `</div>`;
-        } else {
-            ctHtml += `<div style="color:#8b8b95; font-size:0.8rem; margin-top:4px;">Nessun sottodominio storico trovato nei log CT o timeout di crt.sh.</div>`;
-        }
-        box.innerHTML = sslHtml + ctHtml;
+    if (pct === 0) {
+        bar.style.background = "#ff4444";
+        label.style.color = "#ff4444";
+        label.innerText = "0% — SUPERFICIE CRITICA";
+    } else if (pct < 60) {
+        bar.style.background = "#ff7b00";
+        label.style.color = "#ff7b00";
+        label.innerText = pct + "% — ESPOSIZIONE RILEVATA";
+    } else if (pct < 100) {
+        bar.style.background = "#00eaff";
+        label.style.color = "#00eaff";
+        label.innerText = pct + "% — DIFESA BUONA";
+    } else {
+        bar.style.background = "#00ff88";
+        label.style.color = "#00ff88";
+        label.innerText = "100% — PERIMETRO BLINDATO";
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const defaultTarget = "github.com";
+    document.getElementById("reconTargetInput").value = defaultTarget;
+    updateOsintHubLinks(defaultTarget);
+});
 </script>
