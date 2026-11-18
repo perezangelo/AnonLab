@@ -3258,7 +3258,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const strong = document.createElement("strong");
         strong.textContent = `${item.title || "News"}: `;
 
-        // Se usi il PHP aggiornato che restituisce anche item.link, rendi sicuro il collegamento
         if (typeof item.link === "string" && /^https?:\/\//i.test(item.link)) {
           const a = document.createElement("a");
           a.href = item.link;
@@ -3280,7 +3279,6 @@ document.addEventListener("DOMContentLoaded", () => {
       list.replaceChildren(fragment);
     } catch (err) {
       console.error("Errore Trending Topics:", err);
-      // Mostra il messaggio di errore solo se non ci sono già notizie visibili
       if (list.textContent.includes("Caricamento")) {
         const li = document.createElement("li");
         li.textContent = "Impossibile caricare i trending topics";
@@ -3291,7 +3289,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Caricamento iniziale + aggiornamento ogni 5 minuti
   loadTrending(true);
   setInterval(() => loadTrending(false), 5 * 60 * 1000);
 });
