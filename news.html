@@ -122,13 +122,16 @@ fetch("/partials/ticker.html")
 
       <!-- CONTENITORE NEWS DINAMICHE -->
       <div id="news-container"></div>
-      <!-- SEZIONI STATICHE AVANZATE -->
-     <section class="news-section">
+
+<!-- SEZIONI STATICHE AVANZATE -->
+<section class="news-section">
   <h2 class="news-title">Trending Topics</h2>
   <ul id="trending-list" class="news-list">
     <li>Caricamento...</li>
   </ul>
 </section>
+
+<script src="/js/trending.js" defer></script>
       
     <section class="news-section">
     <h2 class="news-title">Cyber Timeline</h2>
@@ -3221,34 +3224,77 @@ window.open(
 </script>
 
   <script>
-function startTrendingTopics() {
-    const list = document.getElementById("trending-list");
-    if (!list) return setTimeout(startTrendingTopics, 200);
+document.addEventListener("DOMContentLoaded", () => {
+  const list = document.getElementById("trending-list");
+  if (!list) return;
 
-    async function loadTrending() {
-        try {
-            const res = await fetch("https://angelonline.altervista.org/newsops/trendingtopics.php?t=" + Date.now())
-            const data = await res.json();
+  const ENDPOINT = "https://angelonline.altervista.org/newsops/trendingtopics.php";
+  let isLoading = false;
 
-            list.innerHTML = "";
+  async function loadTrending(force = false) {
+    if (isLoading || (!force && document.hidden)) return;
+    isLoading = true;
 
-            data.forEach(item => {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong>${item.title}:</strong> ${item.desc}`;
-                list.appendChild(li);
-            });
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "GET",
+        headers: { "Accept": "application/json" }
+      });
 
-        } catch (e) {
-            console.error("Errore Trending Topics:", e);
-            list.innerHTML = "<li>Impossibile caricare i trending topics</li>";
+      if (!res.ok) {
+        throw new Error(`Errore HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      if (!Array.isArray(data) || data.length === 0) {
+        throw new Error("Nessun dato valido ricevuto");
+      }
+
+      const fragment = document.createDocumentFragment();
+
+      data.forEach(item => {
+        const li = document.createElement("li");
+
+        const strong = document.createElement("strong");
+        strong.textContent = `${item.title || "News"}: `;
+
+        // Se usi il PHP aggiornato che restituisce anche item.link, rendi sicuro il collegamento
+        if (typeof item.link === "string" && /^https?:\/\//i.test(item.link)) {
+          const a = document.createElement("a");
+          a.href = item.link;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.appendChild(strong);
+          li.appendChild(a);
+        } else {
+          li.appendChild(strong);
         }
+
+        if (item.desc) {
+          li.appendChild(document.createTextNode(item.desc));
+        }
+
+        fragment.appendChild(li);
+      });
+
+      list.replaceChildren(fragment);
+    } catch (err) {
+      console.error("Errore Trending Topics:", err);
+      // Mostra il messaggio di errore solo se non ci sono già notizie visibili
+      if (list.textContent.includes("Caricamento")) {
+        const li = document.createElement("li");
+        li.textContent = "Impossibile caricare i trending topics";
+        list.replaceChildren(li);
+      }
+    } finally {
+      isLoading = false;
     }
+  }
 
-    loadTrending();
-    setInterval(loadTrending, 30000);
-}
-
-startTrendingTopics();
+  // Caricamento iniziale + aggiornamento ogni 5 minuti
+  loadTrending(true);
+  setInterval(() => loadTrending(false), 5 * 60 * 1000);
+});
 </script>
 
 	<script type="text/javascript">
