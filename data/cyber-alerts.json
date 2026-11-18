@@ -1,5 +1,26 @@
 [
   {
+    "id": "CVE-2026-130001",
+    "summary": "Mustache for Ruby: RCE using built-in method access",
+    "severity": "CRITICAL",
+    "published": "2026-11-18T16:28:29Z",
+    "ghsa": "GHSA-5hrj-7fc3-cmx9"
+  },
+  {
+    "id": "CVE-2026-63496",
+    "summary": "augment-virShell allows Command Injection in `grep()` via Unsanitized `searchPattern`",
+    "severity": "HIGH",
+    "published": "2026-11-18T16:15:52Z",
+    "ghsa": "GHSA-xvcc-vqjv-phqh"
+  },
+  {
+    "id": "CVE-2026-61618",
+    "summary": "snark-verifier accepts non-canonical KZG accumulator limb encodings",
+    "severity": "MODERATE",
+    "published": "2026-11-18T16:13:34Z",
+    "ghsa": "GHSA-265x-v3qf-ff6p"
+  },
+  {
     "id": "CVE-2026-119793",
     "summary": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
     "severity": "HIGH",
@@ -47,26 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-11-17T20:47:22Z",
     "ghsa": "GHSA-pr4x-6fj4-gm4h"
-  },
-  {
-    "id": "CVE-2026-14265",
-    "summary": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
-    "severity": "HIGH",
-    "published": "2026-11-17T20:39:21Z",
-    "ghsa": "GHSA-c5q4-97jw-jggh"
-  },
-  {
-    "id": "CVE-2026-63634",
-    "summary": "pympp allows excessive sponsored transaction fees through padded calldata",
-    "severity": "MODERATE",
-    "published": "2026-11-17T20:04:56Z",
-    "ghsa": "GHSA-v858-xh7w-8jr5"
-  },
-  {
-    "id": "CVE-2026-53998",
-    "summary": "Phoenix: Format String Injection in applyChatTemplate",
-    "severity": "CRITICAL",
-    "published": "2026-11-17T20:02:29Z",
-    "ghsa": "GHSA-gfv3-m769-5xm3"
   }
 ]
