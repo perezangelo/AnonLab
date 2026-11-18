@@ -738,7 +738,7 @@ function initUpdateNotification() {
                 Nuovo aggiornamento rilasciato
             </p>
             <p style="margin: 0 0 10px 0; color: #ccc; font-size: 0.78rem; line-height: 1.4;">
-                Abbiamo rinnovato la <strong>Sidebar</strong> e aggiornato le sezioni in<strong>Tools</strong> e <strong>cyber</strong>.
+                Abbiamo rinnovato la <strong>Sidebar</strong> e aggiornato le sezioni in<strong>Tools</strong>, <strong>news</strong> e <strong>cyber</strong>.
             </p>
             <a href="/tools.html" style="display: inline-block; color: #030712; background: #00eaff; text-decoration: none; font-size: 0.75rem; font-weight: bold; padding: 6px 12px; border-radius: 4px; transition: opacity 0.2s;">
                 Scopri le novità →
