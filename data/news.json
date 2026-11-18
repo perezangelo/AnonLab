@@ -1,5 +1,35 @@
 [
   {
+    "title": "Critical Java4Shell flaw allows RCE attacks on major Java applications",
+    "link": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/java4shell-header.jpg"
+  },
+  {
+    "title": "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
+    "link": "https://www.darkreading.com/cyber-risk/optimizely-malware-attacks-third-party-vendor-risks",
+    "image": ""
+  },
+  {
+    "title": "Cloud keys leaked in Docker Hub images are stolen within seconds",
+    "link": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/Docker.jpg"
+  },
+  {
+    "title": "'TheMailer' Phishing Kit Puts AI in the Driver's Seat",
+    "link": "https://www.darkreading.com/perimeter/themailer-phishing-kit-ai-drivers-seat",
+    "image": ""
+  },
+  {
+    "title": "Japan takes Fugaku supercomputer offlline after cyberattack",
+    "link": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
+  },
+  {
+    "title": "Researchers Claim Two RCE Exploits That Bypass Telegram\u2019s New Android Defenses",
+    "link": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpVlnQrxQ-QDawosxNpQdcPtITzUQKuYeqUtOk0gctwRhi-8P9Qi_9L72cSwkHRdGNS94HaIDHEkqeb0NTPw3mIZyFstN3ZM1FlUoMweKPNz4iTkAkxlxFSNdE92DAFlfLMFe0gTXWE78eOHROSbISVMgdmFOeVhm0SS2-1wXrNxPGknTVMGroQ0pRqYg/s1600/telegram-rce.jpg"
+  },
+  {
     "title": "Apple reports outages affecting iCloud Mail, AppleCare and more",
     "link": "https://www.bleepingcomputer.com/news/apple/apple-reports-outages-affecting-icloud-mail-applecare-and-more/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/Apple-red.jpg"
@@ -95,6 +125,16 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoRknesoqi26EwwYMrgBhBudDMiej0sO7-228OvrBIj2ivaPcOUo7GJgoIHAd9fI_VFlK4su0xn1L_BqUgFsldNJgAkQwE4wAvAZzUao-wHUHSoq8NQUo_UdyILYYFoshEgONLhibaGHRQ_cKFVo0Psl1kehyphenhyphenNjlCrkECk16huiU6WecKlpBr0YDN3nus/s1600/iphone-recording.jpg"
   },
   {
+    "title": "Siemens ROS#",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-06",
+    "image": ""
+  },
+  {
+    "title": "Dorsett Controls InfoScan",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-01",
+    "image": ""
+  },
+  {
     "title": "Siemens Mendix Studio Pro",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-05",
     "image": ""
@@ -105,48 +145,8 @@
     "image": ""
   },
   {
-    "title": "Siemens meta-iot2050",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-11",
+    "title": "Critical Java Vulnerability Requires Immediate Patching",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching",
     "image": ""
-  },
-  {
-    "title": "Siemens SIMATIC WinCC",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-09",
-    "image": ""
-  },
-  {
-    "title": "Siemens RUGGEDCOM APE1808",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-07",
-    "image": ""
-  },
-  {
-    "title": "Dorsett Controls InfoScan",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-01",
-    "image": ""
-  },
-  {
-    "title": "Siemens Industrial Software Products",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-04",
-    "image": ""
-  },
-  {
-    "title": "Siemens Industrial Automation Software Products",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-03",
-    "image": ""
-  },
-  {
-    "title": "Siemens SIMATIC",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-08",
-    "image": ""
-  },
-  {
-    "title": "Siemens ROS#",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-06",
-    "image": ""
-  },
-  {
-    "title": "California Sues OpenAI, Seeking Court-Ordered Changes After the Hugging Face Hack",
-    "link": "https://www.securityweek.com/california-sues-openai-seeking-court-ordered-changes-after-the-hugging-face-hack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/06/OpenAI.jpeg"
   }
 ]
