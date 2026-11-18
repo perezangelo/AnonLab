@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-119351",
-    "summary": "Next.js: Cache leak across root param values in nested 'use cache' functions via delayed inner stream metadata",
-    "severity": "MODERATE",
-    "published": "2026-11-17T16:13:26Z",
-    "ghsa": "GHSA-vc7v-qv4w-wrv8"
-  },
-  {
-    "id": "CVE-2026-129237",
-    "summary": "qbee-agent: Docker Compose build context Zip Slip writes outside context directory",
-    "severity": "MODERATE",
-    "published": "2026-11-16T22:35:40Z",
-    "ghsa": "GHSA-vx32-xf7g-9ghr"
-  },
-  {
-    "id": "CVE-2026-91115",
-    "summary": "Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter",
+    "id": "CVE-2026-119793",
+    "summary": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
     "severity": "HIGH",
-    "published": "2026-11-16T22:35:12Z",
-    "ghsa": "GHSA-c94f-87xg-65wf"
+    "published": "2026-11-17T21:06:20Z",
+    "ghsa": "GHSA-x2vm-cf3p-m2w8"
   },
   {
-    "id": "CVE-2026-91113",
-    "summary": "Silverstripe Framework: User-controlled ClassName allows unauthorized record type change",
-    "severity": "MODERATE",
-    "published": "2026-11-16T22:34:59Z",
-    "ghsa": "GHSA-4qv2-g5vp-wjjw"
+    "id": "CVE-2026-110789",
+    "summary": "libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node event loop pre-auth",
+    "severity": "HIGH",
+    "published": "2026-11-17T21:05:08Z",
+    "ghsa": "GHSA-rvfr-cqwq-rc4j"
   },
   {
-    "id": "CVE-2026-91112",
-    "summary": "Silverstripe Framework: CMS_ACCESS_SecurityAdmin privilege escalation",
-    "severity": "MODERATE",
-    "published": "2026-11-16T22:30:42Z",
-    "ghsa": "GHSA-rg72-5958-c65m"
+    "id": "CVE-2026-110782",
+    "summary": "SAML2: Incomplete fix of CVE-2026-49283: unsigned embedded Response bypasses HTTP-Artifact signature verification (no embedded-Issuer binding)",
+    "severity": "HIGH",
+    "published": "2026-11-17T21:00:58Z",
+    "ghsa": "GHSA-r7hw-jx6r-756g"
   },
   {
-    "id": "CVE-2026-88989",
-    "summary": "Silverstripe Framework: Auth bypass GridFieldDetailForm",
+    "id": "CVE-2026-69241",
+    "summary": "Filament Curator: Stored XSS via unsanitized SVG upload served inline",
     "severity": "MODERATE",
-    "published": "2026-11-16T22:29:59Z",
-    "ghsa": "GHSA-3qh3-54qg-gpq3"
+    "published": "2026-11-17T20:54:26Z",
+    "ghsa": "GHSA-8vm9-f75m-5h2m"
   },
   {
-    "id": "CVE-2026-88988",
-    "summary": "Silverstripe Framework: XSS via SVG data URI",
+    "id": "CVE-2026-63389",
+    "summary": "Filament Curator: Cross-tenant media metadata disclosure via Curator picker search",
     "severity": "MODERATE",
-    "published": "2026-11-16T22:27:46Z",
-    "ghsa": "GHSA-xwg4-8hqh-79jq"
+    "published": "2026-11-17T20:49:28Z",
+    "ghsa": "GHSA-828w-6qgx-3rcf"
   },
   {
-    "id": "CVE-2026-88987",
-    "summary": "Silverstripe Framework: XSS via XHTML data URI",
-    "severity": "MODERATE",
-    "published": "2026-11-16T22:27:37Z",
-    "ghsa": "GHSA-qqrg-8jpm-8mph"
+    "id": "CVE-2026-62336",
+    "summary": "qbee-agent: Local Privilege Escalation and Arbitrary File Tampering via Symlink Following in createFile helper",
+    "severity": "HIGH",
+    "published": "2026-11-17T20:48:02Z",
+    "ghsa": "GHSA-xhv5-8fpq-g7hf"
   },
   {
-    "id": "CVE-2026-129239",
-    "summary": "Directus: Share update allows reassigning user_created and role",
+    "id": "CVE-2026-63672",
+    "summary": "EGroupware: User-Controlled Identity Provider Selection in SAML Authentication",
     "severity": "MODERATE",
-    "published": "2026-11-16T22:25:53Z",
-    "ghsa": "GHSA-7h45-q5jx-7r87"
+    "published": "2026-11-17T20:47:22Z",
+    "ghsa": "GHSA-pr4x-6fj4-gm4h"
   },
   {
-    "id": "CVE-2026-129301",
-    "summary": "mail-parser: One hostile attachment aborts `write_attachments()` and silently drops the rest of the batch",
+    "id": "CVE-2026-14265",
+    "summary": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
+    "severity": "HIGH",
+    "published": "2026-11-17T20:39:21Z",
+    "ghsa": "GHSA-c5q4-97jw-jggh"
+  },
+  {
+    "id": "CVE-2026-63634",
+    "summary": "pympp allows excessive sponsored transaction fees through padded calldata",
     "severity": "MODERATE",
-    "published": "2026-11-16T22:22:13Z",
-    "ghsa": "GHSA-8cgq-x343-p74c"
+    "published": "2026-11-17T20:04:56Z",
+    "ghsa": "GHSA-v858-xh7w-8jr5"
+  },
+  {
+    "id": "CVE-2026-53998",
+    "summary": "Phoenix: Format String Injection in applyChatTemplate",
+    "severity": "CRITICAL",
+    "published": "2026-11-17T20:02:29Z",
+    "ghsa": "GHSA-gfv3-m769-5xm3"
   }
 ]
