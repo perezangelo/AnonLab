@@ -1623,8 +1623,9 @@ async function loadThreatDistribution() {
         const total = data.reduce((sum, item) => sum + item.attacks, 0);
 
         data.forEach(item => {
-    if (!mapping[item.type]) return;
-    const ids = mapping[item.type];
+    const key = item.category || item.type;
+    if (!mapping[key]) return;
+    const ids = mapping[key];
     const pct = total > 0 ? Math.round((item.attacks / total) * 100) : 0;
 
     document.getElementById(ids.bar).style.height = Math.max(10, pct * 2) + "px";
