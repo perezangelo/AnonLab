@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-63412",
-    "summary": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-    "severity": "CRITICAL",
-    "published": "2026-11-19T16:18:45Z",
-    "ghsa": "GHSA-q8v2-3j4h-xg2p"
-  },
-  {
-    "id": "CVE-2026-63413",
-    "summary": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-    "severity": "CRITICAL",
-    "published": "2026-11-19T16:12:22Z",
-    "ghsa": "GHSA-x9xr-53qx-9qcf"
-  },
-  {
-    "id": "CVE-2026-63411",
-    "summary": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-    "severity": "CRITICAL",
-    "published": "2026-11-19T16:12:11Z",
-    "ghsa": "GHSA-xwcw-j52r-34x4"
-  },
-  {
-    "id": "CVE-2026-75518",
-    "summary": "DOMShell: domshell_eval classified as read-tier can execute side-effecting JavaScript without --allow-write",
+    "id": "CVE-2026-128137",
+    "summary": "NLTK corpus-reader view methods bypass the scoped root sandbox via intermediate-directory symlinks",
     "severity": "MODERATE",
-    "published": "2026-11-19T16:10:53Z",
-    "ghsa": "GHSA-vg83-hcp4-5qcc"
+    "published": "2026-11-19T23:56:30Z",
+    "ghsa": "GHSA-g58v-j9g9-5gfg"
   },
   {
-    "id": "CVE-2026-69139",
-    "summary": "djangocms-moderation: Moderation comments disclosed to non-participant staff via the admin changelist",
-    "severity": "MODERATE",
-    "published": "2026-11-19T16:09:30Z",
-    "ghsa": "GHSA-pj7p-238h-76pv"
+    "id": "CVE-2026-128138",
+    "summary": "NLTK incomplete fix: additional JVM/JAR sandbox bypass through unvalidated launcher tokens in java() command arguments",
+    "severity": "CRITICAL",
+    "published": "2026-11-19T23:55:54Z",
+    "ghsa": "GHSA-x8q7-6c7m-52gw"
   },
   {
-    "id": "CVE-2026-71535",
-    "summary": "Mareforma: Unsigned Claims Can Be Promoted to REPLICATED via Missing Signature Enforcement in Convergence Path",
+    "id": "CVE-2026-128139",
+    "summary": "NLTK: XMLCorpusView comment and CDATA parsing permits quadratic CPU denial of service",
     "severity": "HIGH",
-    "published": "2026-11-19T16:07:36Z",
-    "ghsa": "GHSA-8776-qf3h-26r3"
+    "published": "2026-11-19T23:54:59Z",
+    "ghsa": "GHSA-j8g8-j4j7-8j54"
   },
   {
-    "id": "CVE-2026-71534",
-    "summary": "Mareforma: transparency_logged trusts the unsigned rekor block",
+    "id": "CVE-2026-128140",
+    "summary": "NLTK: Downloader cyclic collection indices cause an infinite closure walk",
     "severity": "MODERATE",
-    "published": "2026-11-19T16:05:07Z",
-    "ghsa": "GHSA-xfq4-8hf9-5h43"
+    "published": "2026-11-19T23:54:33Z",
+    "ghsa": "GHSA-pcm8-fqjx-rvx8"
   },
   {
-    "id": "CVE-2026-71500",
-    "summary": "Mareforma: invalidated claims still promote to REPLICATED",
+    "id": "CVE-2026-129221",
+    "summary": "NLTK: ARFF_Formatter Injects Weka ARFF Schema Directives via Attacker-Controlled Class Labels",
     "severity": "MODERATE",
-    "published": "2026-11-19T16:04:43Z",
-    "ghsa": "GHSA-rgg9-956j-3378"
+    "published": "2026-11-19T23:54:17Z",
+    "ghsa": "GHSA-9ffx-rrgx-mhgx"
   },
   {
-    "id": "CVE-2026-71536",
-    "summary": "Mareforma: verify_bundle never checks a per-claim signature",
+    "id": "CVE-2026-129222",
+    "summary": "Natural Language Toolkit (NLTK): Uncontrolled recursion (crash DoS) in DependencyGraph.tree()/triples()",
     "severity": "HIGH",
-    "published": "2026-11-19T16:03:39Z",
-    "ghsa": "GHSA-hxh5-gp44-rc6p"
+    "published": "2026-11-19T23:53:41Z",
+    "ghsa": "GHSA-rh8m-wqhc-qmrf"
   },
   {
-    "id": "CVE-2026-71533",
-    "summary": "Mareforma: search_claims skips verify-on-read, serving forged rows",
+    "id": "CVE-2026-129223",
+    "summary": "Natural Language Toolkit (NLTK): Uncontrolled recursion (crash DoS) in Synset.tree()/acyclic_tree() via WordNet relation traversal",
+    "severity": "HIGH",
+    "published": "2026-11-19T23:53:18Z",
+    "ghsa": "GHSA-8846-p9w9-5frf"
+  },
+  {
+    "id": "CVE-2026-129224",
+    "summary": "NLTK: Uncontrolled recursion in CCG lexicon parser causes denial of service via deeply nested category input",
     "severity": "MODERATE",
-    "published": "2026-11-19T16:00:52Z",
-    "ghsa": "GHSA-m29v-3g7g-9c63"
+    "published": "2026-11-19T23:52:54Z",
+    "ghsa": "GHSA-3h95-x772-4765"
+  },
+  {
+    "id": "CVE-2026-129225",
+    "summary": "NLTK: Uncontrolled recursion in DependencyGraph traversal causes denial of service via deep dependency chains",
+    "severity": "MODERATE",
+    "published": "2026-11-19T23:52:20Z",
+    "ghsa": "GHSA-xfcv-m889-fmqg"
+  },
+  {
+    "id": "CVE-2026-129226",
+    "summary": "NLTK: Uncontrolled recursion in semantic-logic type parser causes denial of service via nested type strings",
+    "severity": "MODERATE",
+    "published": "2026-11-19T23:51:48Z",
+    "ghsa": "GHSA-w3pv-xfw4-ghr7"
   }
 ]
