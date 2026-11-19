@@ -14,7 +14,6 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
-  <script src="/js/chart.min.js"></script>
 
   <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
@@ -1777,7 +1776,9 @@ async function checkReputation() {
 
   <canvas id="ioc-chart" height="120"></canvas>
 </div>
-		  
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
 async function loadIOCTimeline() {
   const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
