@@ -23,7 +23,7 @@
 (_iub=self._iub||[]).csConfiguration={
 	cookiePolicyId: 12413505,
 	siteId: 4661380,
-	localConsentDomain: 'anonklab.it',
+	localConsentDomain: 'anonlab.it',
 	timeoutLoadConfiguration: 30000,
 	lang: 'it',
 	enableTcf: true,
@@ -1778,8 +1778,6 @@ async function checkReputation() {
   <canvas id="ioc-chart" height="120"></canvas>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
 async function loadIOCTimeline() {
   const res = await fetch("https://angelonline.altervista.org/soc/threat-surface.php");
@@ -2579,11 +2577,11 @@ function renderGlobalNodes(nodes) {
   <div id="footer"></div>
 
   <!-- SCRIPT (ordine corretto) -->
-  <script src="/js/main.js"></script>
-  <script src="/js/ui.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@3.9.0"></script>
-  <script src="/js/dashboard.js"></script>
+  <!-- SOSTITUISCI CON QUESTO: -->
+<script src="/js/main.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/chartjs-chart-geo.min.js"></script>
+<script src="/js/dashboard.js"></script>
 
   <!-- BACK TO TOP BUTTON -->
   <button id="backToTop">↑</button>
