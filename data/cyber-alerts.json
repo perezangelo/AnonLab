@@ -1,5 +1,19 @@
 [
   {
+    "id": "CVE-2026-76088",
+    "summary": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
+    "severity": "HIGH",
+    "published": "2026-11-19T00:53:49Z",
+    "ghsa": "GHSA-cvx8-9ff6-54xq"
+  },
+  {
+    "id": "CVE-2026-73504",
+    "summary": "cassandra-jdbc-wrapper: Authentication Token Exposed in Logs",
+    "severity": "MODERATE",
+    "published": "2026-11-19T00:50:28Z",
+    "ghsa": "GHSA-jc42-994r-vvwp"
+  },
+  {
     "id": "CVE-2026-63129",
     "summary": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
     "severity": "HIGH",
@@ -54,19 +68,5 @@
     "severity": "HIGH",
     "published": "2026-11-18T21:16:44Z",
     "ghsa": "GHSA-wq26-3j2m-4hvv"
-  },
-  {
-    "id": "CVE-2026-71481",
-    "summary": "ALTCHA PHP: verifySolution bypasses HMAC signature check when challenge signature is absent",
-    "severity": "HIGH",
-    "published": "2026-11-18T20:48:18Z",
-    "ghsa": "GHSA-82w8-65qw-gch6"
-  },
-  {
-    "id": "CVE-2026-71425",
-    "summary": "Outstatic: Authenticated GitHub REST proxy can send OAuth token to non-GitHub origins",
-    "severity": "MODERATE",
-    "published": "2026-11-18T20:43:43Z",
-    "ghsa": "GHSA-7jvc-9xq8-frff"
   }
 ]
