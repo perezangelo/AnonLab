@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-76088",
-    "summary": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
-    "severity": "HIGH",
-    "published": "2026-11-19T00:53:49Z",
-    "ghsa": "GHSA-cvx8-9ff6-54xq"
-  },
-  {
-    "id": "CVE-2026-73504",
-    "summary": "cassandra-jdbc-wrapper: Authentication Token Exposed in Logs",
-    "severity": "MODERATE",
-    "published": "2026-11-19T00:50:28Z",
-    "ghsa": "GHSA-jc42-994r-vvwp"
-  },
-  {
-    "id": "CVE-2026-63129",
-    "summary": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
-    "severity": "HIGH",
-    "published": "2026-11-19T00:46:38Z",
-    "ghsa": "GHSA-2m9m-6cr5-9x25"
-  },
-  {
-    "id": "CVE-2026-75521",
-    "summary": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster superuser access",
+    "id": "CVE-2026-63412",
+    "summary": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
     "severity": "CRITICAL",
-    "published": "2026-11-19T00:45:46Z",
-    "ghsa": "GHSA-8fh7-7q4q-cq52"
+    "published": "2026-11-19T16:18:45Z",
+    "ghsa": "GHSA-q8v2-3j4h-xg2p"
   },
   {
-    "id": "CVE-2026-75506",
-    "summary": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
+    "id": "CVE-2026-63413",
+    "summary": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+    "severity": "CRITICAL",
+    "published": "2026-11-19T16:12:22Z",
+    "ghsa": "GHSA-x9xr-53qx-9qcf"
+  },
+  {
+    "id": "CVE-2026-63411",
+    "summary": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+    "severity": "CRITICAL",
+    "published": "2026-11-19T16:12:11Z",
+    "ghsa": "GHSA-xwcw-j52r-34x4"
+  },
+  {
+    "id": "CVE-2026-75518",
+    "summary": "DOMShell: domshell_eval classified as read-tier can execute side-effecting JavaScript without --allow-write",
     "severity": "MODERATE",
-    "published": "2026-11-18T21:55:09Z",
-    "ghsa": "GHSA-vc6p-m6vx-6cwq"
+    "published": "2026-11-19T16:10:53Z",
+    "ghsa": "GHSA-vg83-hcp4-5qcc"
   },
   {
-    "id": "CVE-2026-69131",
-    "summary": "django-filer: Missing per-object authorization on `discard` and `edit_redirect` version transitions",
+    "id": "CVE-2026-69139",
+    "summary": "djangocms-moderation: Moderation comments disclosed to non-participant staff via the admin changelist",
     "severity": "MODERATE",
-    "published": "2026-11-18T21:20:42Z",
-    "ghsa": "GHSA-vf85-8ff2-3r9w"
+    "published": "2026-11-19T16:09:30Z",
+    "ghsa": "GHSA-pj7p-238h-76pv"
   },
   {
-    "id": "CVE-2026-69138",
-    "summary": "djangocms-versioning: Authorization Bypass Through User-Controlled Key and Missing Authorization",
+    "id": "CVE-2026-71535",
+    "summary": "Mareforma: Unsigned Claims Can Be Promoted to REPLICATED via Missing Signature Enforcement in Convergence Path",
+    "severity": "HIGH",
+    "published": "2026-11-19T16:07:36Z",
+    "ghsa": "GHSA-8776-qf3h-26r3"
+  },
+  {
+    "id": "CVE-2026-71534",
+    "summary": "Mareforma: transparency_logged trusts the unsigned rekor block",
     "severity": "MODERATE",
-    "published": "2026-11-18T21:19:04Z",
-    "ghsa": "GHSA-5g9x-qwh5-33x4"
+    "published": "2026-11-19T16:05:07Z",
+    "ghsa": "GHSA-xfq4-8hf9-5h43"
   },
   {
-    "id": "CVE-2026-68903",
-    "summary": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
-    "severity": "HIGH",
-    "published": "2026-11-18T21:18:02Z",
-    "ghsa": "GHSA-jw3m-8q7m-f35r"
+    "id": "CVE-2026-71500",
+    "summary": "Mareforma: invalidated claims still promote to REPLICATED",
+    "severity": "MODERATE",
+    "published": "2026-11-19T16:04:43Z",
+    "ghsa": "GHSA-rgg9-956j-3378"
   },
   {
-    "id": "CVE-2026-73864",
-    "summary": "install-artifact-from-github loads downloaded native artifacts without integrity verification",
+    "id": "CVE-2026-71536",
+    "summary": "Mareforma: verify_bundle never checks a per-claim signature",
     "severity": "HIGH",
-    "published": "2026-11-18T21:17:37Z",
-    "ghsa": "GHSA-88q3-gch3-5396"
+    "published": "2026-11-19T16:03:39Z",
+    "ghsa": "GHSA-hxh5-gp44-rc6p"
   },
   {
-    "id": "CVE-2026-71861",
-    "summary": "Chainguard SDK: AWS SigV4 token replay in auth/aws.VerifyToken — Chainguard-Audience/Chainguard-Identity binding headers not required in SignedHeaders",
-    "severity": "HIGH",
-    "published": "2026-11-18T21:16:44Z",
-    "ghsa": "GHSA-wq26-3j2m-4hvv"
+    "id": "CVE-2026-71533",
+    "summary": "Mareforma: search_claims skips verify-on-read, serving forged rows",
+    "severity": "MODERATE",
+    "published": "2026-11-19T16:00:52Z",
+    "ghsa": "GHSA-m29v-3g7g-9c63"
   }
 ]
