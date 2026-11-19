@@ -1,5 +1,55 @@
 [
   {
+    "title": "Qwen Incidents Show Self-Hosted AI Models Need Stronger Steering",
+    "link": "https://www.darkreading.com/cyber-risk/qwen-incidents-self-hosted-ai-models-stronger-steering",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdca0689384b67fb8/6aff731dfef3359545395d0a/old-ship-steering-wheel-DmitriiElj-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+  },
+  {
+    "title": "Hackers steal data of 1.6 million SBC Medical Group customers",
+    "link": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/08/22/healthcare-cyber.jpg"
+  },
+  {
+    "title": "ASUS warns of critical hard-coded key flaw in Control Center Express",
+    "link": "https://www.bleepingcomputer.com/news/security/asus-warns-of-critical-hard-coded-key-flaw-in-control-center-express/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2025/11/26/Asus.jpg"
+  },
+  {
+    "title": "Second Norwegian Energy Company Breached in Two Days",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/second-norwegian-energy-company-breached",
+    "image": ""
+  },
+  {
+    "title": "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
+    "link": "https://www.darkreading.com/application-security/critical-php-flaws-code-execution-panic-php2shell",
+    "image": ""
+  },
+  {
+    "title": "Navigating Vulnerability Hysteria in the AI Era",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/navigating-vulnerability-hysteria-ai-era",
+    "image": ""
+  },
+  {
+    "title": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
+    "link": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
+  },
+  {
+    "title": "ThreatsDay: GPT-6.2 Jailbreak Flaws, BubbleLoader PNG Malware, $500M Ransom Demands + 17 More Stories",
+    "link": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgTqUIWPjGeycl6xafh8Hx8n2UN3UCUgjhTpxUul68DHi7Y_IoHVYBvjDd5DpFg15sKI767hVEq-8CbGhK69JNusMh0OBBXfVMwJlZiKT2gNnTPAL9DyvTY85SB68WkvBxFCMF2_rNS9rUgYkQN8sKssDMBS8gO6YpMudQohf_JWnPztX_h8TdbSX6Vtfi/s1600/td.jpg"
+  },
+  {
+    "title": "Transport for London breach exposes 265,000 Oyster card users' data",
+    "link": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/transportforlondon.jpg"
+  },
+  {
+    "title": "phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution",
+    "link": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEEFyvreIQgAheXoKRJxLcNgyzFh0rlydmiMfaOBIlmM7zGPc_71mCSG6zWGlpFcRQg59gVUw6NbpmFiNKIcDB3AqVA5eKpjYExWhMu-uBD_W5xu1wiYRtX5MklAgxeuHOBJOI8H9LmaIoXv7IrvFMVHvVhor06lj_ljcIDjIDAPYJ8w01X-BTA51EpOU/s1600/php-after-shell.jpg"
+  },
+  {
     "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
     "link": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/php-logo-cyber.jpg"
@@ -98,55 +148,5 @@
     "title": "Splunk Patches Nearly 140 Flaws Across Three Core Products",
     "link": "https://www.securityweek.com/splunk-patches-nearly-140-flaws-across-three-core-products/",
     "image": "https://www.securityweek.com/wp-content/uploads/2025/03/Splunk.jpeg"
-  },
-  {
-    "title": "Microsoft confirms app installation, launch issues after hotpatch",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-app-installation-launch-issues-after-hotpatch/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/Windows-11_headpic.jpg"
-  },
-  {
-    "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
-    "link": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Nginx.jpeg"
-  },
-  {
-    "title": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
-    "link": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1600/n-able-hacked.jpg"
-  },
-  {
-    "title": "NVIDIA investigating Gentlemen ransomware breach claims",
-    "link": "https://www.bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/NVIDIA_logo.jpg"
-  },
-  {
-    "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
-    "link": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Java4Shell.jpg"
-  },
-  {
-    "title": "Ruby Releases Fixes for 7 Regex and String Flaws, Warns 5 Have Proof-of-Concept RCE",
-    "link": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7rmcgZ7yffFsn_7SX4iQcfMhw1dgsxPFXXh6TUunbQ9VaxZh8O5-AFT2V3q0PE7Wx0rW9nLKuB73eluixYuM9N38Dvq_Gjs1nNOXVk3e71jjfhHoP7W97eeuc5AivI3CQNxIrwSaPR9IGV0f2NZ7900Ihtkdgiw1ZivTvgVrXWH2CrX2X5MZGjos6-bs/s1600/ruby.jpg"
-  },
-  {
-    "title": "Researcher Demonstrates Database RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
-    "link": "https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDE1pOkFxdtUcDqLptfhjaBnnEyzz2JfxUJICSOrW3vpcNlygN1XleKCdkv9CA3Zp901yQ884tOkPX9TmSYx5tpevenJw1CmW4oktkn2creXnB5-dvbiJB3crcILx4Kb8b6eVhiKjh-RRZTGnvWskqROJOjF3yaWFVK17fmh-tdT7WMas7MbdK-JsCBmw/s1600/database-rce.jpg"
-  },
-  {
-    "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
-    "link": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJc2bWATWnk5-O72K0n3cYlHuhhox3nVPELPst8c1bui3mTiwBZFUjAUSem14OyqLB6CTECCs9fc-iyng9KmY3jelZ2cqrHg4FKvP2qOZui8piIbYTZy9WdZD0NqiY4fXcLud5GYzmNEXR6DRNuQpjkFzfPvW4fIcDtwaFg4SM9xW-eG09WxFuEcmuKx7U/s1600/cisa.jpg"
-  },
-  {
-    "title": "Africa Retakes Top Spot as Most Attacked Region, Led by Nigeria Surge",
-    "link": "https://www.darkreading.com/threat-intelligence/africa-top-spot-most-attacked-region-nigeria-surge",
-    "image": ""
-  },
-  {
-    "title": "PHP Readies Critical Security Updates to Patch Another RCE Flaw",
-    "link": "https://www.securityweek.com/php-readies-critical-security-updates-to-patch-another-rce-flaw/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PHP.jpeg"
   }
 ]
