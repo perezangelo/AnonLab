@@ -930,11 +930,11 @@ fetch("/partials/ticker.html")
   </div>
 
         <script>
-        /* ============================================================
-           MALWARE ACTIVITY MONITOR — Versione Reale Altervista
-        ============================================================ */
+/* ============================================================
+   MALWARE ACTIVITY MONITOR — Versione Reale Altervista
+============================================================ */
 
-        function startMalwareMonitor() {
+function startMalwareMonitor() {
     const ctx = document.getElementById("malwareChart");
 
     if (!ctx || typeof Chart === "undefined") {
@@ -955,17 +955,6 @@ fetch("/partials/ticker.html")
 
             window.malwareChartInstance = new Chart(ctx, {
                 type: "doughnut",
-options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: "65%", // Crea il foro centrale moderno
-    plugins: {
-        legend: {
-            position: "right", // Mette la legenda a destra, più leggibile
-            labels: { color: "#fff", boxWidth: 12, padding: 10 }
-        }
-    }
-}
                 data: {
                     labels: data.labels,
                     datasets: [{
@@ -976,21 +965,29 @@ options: {
                             "#00eaffaa",
                             "#7a00ffaa",
                             "#00ff99aa"
-                        ]
+                        ],
+                        borderWidth: 1,
+                        borderColor: "#030712"
                     }]
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false,   // ⭐ FIX 1: impedisce l’esplosione
+                    maintainAspectRatio: false,
+                    cutout: "65%", // Crea il foro centrale a ciambella
                     plugins: {
                         legend: {
-                            labels: { color: "#fff" }
+                            position: "right", // Legenda ordinata a destra
+                            labels: {
+                                color: "#fff",
+                                boxWidth: 12,
+                                padding: 10
+                            }
                         }
                     }
                 }
             });
 
-            // ⭐ FIX 2: ricalcolo dimensioni dopo il render
+            // Ricalcolo dimensioni dopo il render
             setTimeout(() => {
                 if (window.malwareChartInstance) {
                     window.malwareChartInstance.resize();
@@ -1007,8 +1004,8 @@ options: {
 }
 
 startMalwareMonitor();
-        </script>
-      </div>
+</script>
+	  </div>
 
       <div class="cyber-box" style="
           background:#000814;
