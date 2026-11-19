@@ -1092,11 +1092,16 @@ setInterval(loadSIEM, 10000);
     box-shadow:0 0 12px #ff0044aa;
 ">
   <h3 style="color:#ff0044;">Malware Distribution</h3>
-  <canvas id="malwarePie" style="width:100%;height:300px;"></canvas>
+  <div style="position:relative; width:100%; height:300px;">
+    <canvas id="malwarePie"></canvas>
+  </div>
 </div>
 
-	<script>
+<script>
 async function loadMalwarePie() {
+    const canvas = document.getElementById("malwarePie");
+    if (!canvas || typeof Chart === "undefined") return;
+
     try {
         const res = await fetch("https://angelonline.altervista.org/soc/c2-malware-pie.php");
         const data = await res.json();
@@ -1104,22 +1109,40 @@ async function loadMalwarePie() {
         const labels = Object.keys(data);
         const values = Object.values(data);
 
-        const ctx = document.getElementById("malwarePie").getContext("2d");
+        // Se il feed FeodoTracker è momentaneamente vuoto, non rompere il grafico
+        if (labels.length === 0) return;
 
-        if (window.malwarePieChart) window.malwarePieChart.destroy();
+        // Aggiorna in modo fluido senza distruggere il grafico
+        if (window.malwarePieChart) {
+            window.malwarePieChart.data.labels = labels;
+            window.malwarePieChart.data.datasets[0].data = values;
+            window.malwarePieChart.update();
+            return;
+        }
 
+        const ctx = canvas.getContext("2d");
         window.malwarePieChart = new Chart(ctx, {
             type: "pie",
             data: {
                 labels: labels,
                 datasets: [{
                     data: values,
-                    backgroundColor: ["#ff0044","#ffaa00","#00eaff","#7a00ff","#00ff99"]
+                    backgroundColor: [
+                        "#ff0044", "#ffaa00", "#00eaff",
+                        "#7a00ff", "#00ff99", "#ff55aa"
+                    ],
+                    borderColor: "#000814",
+                    borderWidth: 2
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
-                    legend: { labels: { color: "#fff" } }
+                    legend: {
+                        position: "bottom",
+                        labels: { color: "#fff" }
+                    }
                 }
             }
         });
