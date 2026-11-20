@@ -150,8 +150,16 @@
       fontSizeBody: "14px",
     },
   };
-  </script>
-  <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
+  <script>
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      var s = document.createElement("script");
+      s.src = "https://cdn.iubenda.com/cs/iubenda_cs.js";
+      s.async = true;
+      document.head.appendChild(s);
+    }, 800);
+  }, { once: true });
+</script>
 </head>
 
 <body class="dark-mode">
@@ -176,15 +184,12 @@
 <section class="hero-big">
   <h1 data-text="ANONLAB" style="font-size:1.8rem;">ANONLAB</h1>
 
-  <img 
-  src="/img/eyes.webp" 
-  alt="AnonLab Eyes" 
-  class="hero-favicon"
-  width="478"
-  height="93"
-  loading="eager"
-  decoding="sync"
->
+  <img src="/img/hero-bg.webp"
+     alt=""
+     aria-hidden="true"
+     fetchpriority="high"
+     decoding="sync"
+     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:12px;z-index:1;pointer-events:none;">
 
   <p class="hero-sub">Cybersecurity • Tecnologia • Cultura Digitale</p>
 </section>
