@@ -311,18 +311,13 @@ async function loadMeteo() {
   }
 
   // Avvio immediato + osservazione del DOM appena #sidebar viene iniettato
-  updateClockAndNet();
-  setInterval(updateClockAndNet, 1000);
-
-  if (typeof MutationObserver !== "undefined" && document.documentElement) {
-    const obs = new MutationObserver(() => {
-      if (document.getElementById("anon-clock-time")) {
-        updateClockAndNet();
-        obs.disconnect();
-      }
-    });
-    obs.observe(document.documentElement, { childList: true, subtree: true });
-  }
+  window.initVareseTelemetry = function () {
+    updateClockAndNet();
+    if (!window.__vareseClockStarted) {
+      window.__vareseClockStarted = true;
+      setInterval(updateClockAndNet, 1000);
+    }
+  };
 })();
 
 /* ============================================================
@@ -470,6 +465,7 @@ if (bmeteoBox) {
         const initSidebarWidgets = () => {
             loadMeteo();
             initOroscopo();
+            if (typeof window.initVareseTelemetry === "function") window.initVareseTelemetry();
             if (typeof initRadio === "function") initRadio();
             if (typeof initYouTubePlayer === "function") initYouTubePlayer();
             if (typeof initCalculator === "function") initCalculator();
