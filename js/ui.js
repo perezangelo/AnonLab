@@ -455,7 +455,7 @@ if (bmeteoBox) {
     const load3BMeteo = () => {
         if (bmeteoLoaded) return;
         bmeteoLoaded = true;
-        bmeteoBox.innerHTML = '<iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e" sandbox="allow-scripts allow-same-origin allow-popups" width="100%" height="420" frameborder="0" scrolling="no" style="display:block;border:0;" title="Previsioni meteo 7 giorni"></iframe>';
+        bmeteoBox.innerHTML = '<iframe src="https://www.3bmeteo.com/moduli_esterni/italia_7_giorni/ffffff/1461a1/5e5e5e" sandbox="allow-scripts allow-same-origin allow-popups" width="100%" height="415" frameborder="0" scrolling="no" style="display:block;border:0;" title="Previsioni meteo 7 giorni"></iframe>';
     };
     ["wheel", "touchstart", "mousemove", "keydown"].forEach(ev => {
         window.addEventListener(ev, load3BMeteo, { once: true, passive: true });
