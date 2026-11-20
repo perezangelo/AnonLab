@@ -1258,11 +1258,10 @@ details input {
     }
 }
 
-<!-- 🔥 MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli -->
-
+/* MEDIA QUERY MOBILE: restringe Google Search SOLO su schermi piccoli */
 @media (max-width: 480px) {
   .google-wrapper {
-    max-width: 260px !important; /* allinea tutto alla colonna */
+    max-width: 260px !important;
   }
   .google-wrapper input {
     padding: 10px !important;
@@ -1271,11 +1270,6 @@ details input {
   .google-wrapper button {
     padding: 10px 14px !important;
   }
-}
-</style>
-
-      <style>
-@media (max-width: 480px) {
   .ai-soc-img {
     width: 200px !important;
     margin-top: 10px !important;
