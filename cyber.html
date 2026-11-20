@@ -76,7 +76,6 @@
 
   <div id="ticker" aria-label="Ticker informazioni"></div>
 
-  <!-- SCRIPT TICKER -->
   <script src="/js/ticker.js"></script>
   <script>
   window.escHtml = window.escHtml || function (str) {
@@ -96,7 +95,9 @@
     .then(html => {
       const el = document.getElementById("ticker");
       if (el) el.innerHTML = html;
-      if (typeof initTicker === "function") initTicker();
+      if (typeof loadTickerNews === "function") {
+        loadTickerNews();
+      }
     })
     .catch(err => console.error("Errore caricamento ticker:", err));
   </script>
