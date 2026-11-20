@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-114516",
-    "summary": "Etherpad: Pre-auth arbitrary file read",
-    "severity": "CRITICAL",
-    "published": "2026-11-20T00:23:45Z",
-    "ghsa": "GHSA-mc8w-wjhw-45x5"
-  },
-  {
-    "id": "CVE-2026-103033",
-    "summary": "ALTCHA: Nil-map panic (pre-verification DoS) in v1 parseServerSignature on malformed VerificationData",
+    "id": "CVE-2026-35376",
+    "summary": "chcon: recursive relabel not anchored to traversal dirfd (TOCTOU)",
     "severity": "MODERATE",
-    "published": "2026-11-20T00:21:19Z",
-    "ghsa": "GHSA-gfwj-45pc-w6r5"
+    "published": "2026-11-20T16:39:34Z",
+    "ghsa": "GHSA-9rv8-9hvg-92mq"
   },
   {
-    "id": "CVE-2026-103025",
-    "summary": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
+    "id": "CVE-2026-35377",
+    "summary": " uu_env incorrectly rejects backslashes within single-quoted strings accepted by GNU env",
+    "severity": "LOW",
+    "published": "2026-11-20T16:36:31Z",
+    "ghsa": "GHSA-xhrc-7f76-vh96"
+  },
+  {
+    "id": "CVE-2026-35374",
+    "summary": "split: TOCTOU output-open allows truncating a swapped file",
+    "severity": "MODERATE",
+    "published": "2026-11-20T16:33:27Z",
+    "ghsa": "GHSA-fjjq-8hw5-cf9f"
+  },
+  {
+    "id": "CVE-2026-104773",
+    "summary": "CKAN: Session Fixation in Registration View",
+    "severity": "MODERATE",
+    "published": "2026-11-20T16:25:26Z",
+    "ghsa": "GHSA-6499-jgj4-2wpf"
+  },
+  {
+    "id": "CVE-2026-69133",
+    "summary": "netty-incubator-codec-ohttp: OHTTP codecs retain consumed outer cumulation buffers after completed exchanges",
+    "severity": "MODERATE",
+    "published": "2026-11-20T16:22:09Z",
+    "ghsa": "GHSA-cg26-4c6j-2x8h"
+  },
+  {
+    "id": "CVE-2026-105803",
+    "summary": "Git LFS may execute arbitrary commands via crafted Git LFS configurations",
     "severity": "HIGH",
-    "published": "2026-11-20T00:20:52Z",
-    "ghsa": "GHSA-7hvw-3c2q-45qg"
+    "published": "2026-11-20T14:59:40Z",
+    "ghsa": "GHSA-x72p-hmqp-46hw"
   },
   {
-    "id": "CVE-2026-102945",
-    "summary": "Aether Project amf: panic on an unrecovered NGAP goroutine",
-    "severity": "MODERATE",
-    "published": "2026-11-20T00:20:38Z",
-    "ghsa": "GHSA-v6w5-38cf-pcv8"
-  },
-  {
-    "id": "CVE-2026-63012",
-    "summary": "baserCMS administrative API authorization bypass through session fallback",
-    "severity": "MODERATE",
-    "published": "2026-11-20T00:18:35Z",
-    "ghsa": "GHSA-wgvx-x5g3-9v29"
-  },
-  {
-    "id": "CVE-2026-62955",
-    "summary": "baserCMS: Path Traversal Bypass via realpath() in BcThemeFileService (CVE-2026-30940 Patch Bypass)",
+    "id": "CVE-2026-105802",
+    "summary": "Git LFS may execute arbitrary commands via crafted Git configurations",
     "severity": "HIGH",
-    "published": "2026-11-20T00:17:47Z",
-    "ghsa": "GHSA-2pj4-v76f-wjvx"
+    "published": "2026-11-20T14:58:53Z",
+    "ghsa": "GHSA-xrgv-7vx6-5vx6"
   },
   {
-    "id": "CVE-2026-77382",
-    "summary": "falcon-rust: Discrete-Gaussian sampler runs at 2^-33 precision, far below Falcon's requirement (reference KAT vectors no longer pass)",
+    "id": "CVE-2026-104885",
+    "summary": "OpenRemote: Cross-realm MQTT session disconnect without authorization",
     "severity": "MODERATE",
-    "published": "2026-11-20T00:17:04Z",
-    "ghsa": "GHSA-25rm-9wvm-m38v"
+    "published": "2026-11-20T14:56:58Z",
+    "ghsa": "GHSA-3h6w-xcw3-9xjj"
   },
   {
-    "id": "CVE-2026-77378",
-    "summary": "Bolt ListFormatHelper SQL injection",
-    "severity": "MODERATE",
-    "published": "2026-11-20T00:15:55Z",
-    "ghsa": "GHSA-r7h9-qx4h-77j5"
+    "id": "CVE-2026-103026",
+    "summary": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
+    "severity": "HIGH",
+    "published": "2026-11-20T14:56:03Z",
+    "ghsa": "GHSA-prhx-9q2h-ph2x"
   },
   {
-    "id": "CVE-2026-77380",
-    "summary": "Bolt: Prevent SSRF due to unchecked followed redirects",
+    "id": "CVE-2026-115565",
+    "summary": "storyblok-backup: Stored path traversal via unsanitized Storyblok component names in backup output",
     "severity": "MODERATE",
-    "published": "2026-11-20T00:15:44Z",
-    "ghsa": "GHSA-3xjf-9q55-vxw4"
-  },
-  {
-    "id": "CVE-2026-77379",
-    "summary": "Bolt: Information disclosure through unfiltered public relation API endpoint",
-    "severity": "MODERATE",
-    "published": "2026-11-20T00:15:23Z",
-    "ghsa": "GHSA-6358-jg5p-hmjj"
+    "published": "2026-11-20T14:55:18Z",
+    "ghsa": "GHSA-vcx7-pfrh-mcfg"
   }
 ]
