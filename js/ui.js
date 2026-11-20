@@ -479,7 +479,7 @@ if (bmeteoBox) {
                     obs.disconnect();
                     initSidebarWidgets();
                 }
-            }, { rootMargin: "400px" });
+            }, { rootMargin: "50px" });
             sbObs.observe(sidebarEl);
         } else {
             initSidebarWidgets();
