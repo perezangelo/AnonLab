@@ -2529,68 +2529,95 @@ document.addEventListener("DOMContentLoaded", () => {
   const toolsBox = document.getElementById("tools");
   if (!toolsBox) return;
 
-  // Layout a card affiancate (grid responsive)
   toolsBox.style.display = "grid";
   toolsBox.style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
   toolsBox.style.gap = "20px";
 
-  fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/refs/heads/main/data/tools.json?ts=" + Date.now())
-    .then(r => r.json())
-    .then(data => {
+  const esc = (s) => String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 
-      toolsBox.innerHTML = "";
+  let loaded = false;
+  function startTools() {
+    if (loaded) return;
+    loaded = true;
 
-      data.forEach(tool => {
-        const card = document.createElement("div");
+    fetch("https://raw.githubusercontent.com/perezangelo/AnonLab/refs/heads/main/data/tools.json?ts=" + Date.now())
+      .then(r => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(data => {
+        if (!Array.isArray(data)) return;
+        toolsBox.innerHTML = "";
 
-        card.style.background = "#0d0d0d";
-        card.style.border = "1px solid #1a1a1a";
-        card.style.borderRadius = "10px";
-        card.style.padding = "15px";
-        card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
-        card.style.transition = "transform .2s ease, box-shadow .2s ease";
-        card.style.color = "#ffffff";
+        data.forEach(tool => {
+          const card = document.createElement("div");
 
-        card.innerHTML = `
-  <div style="display:flex;align-items:center;gap:15px;margin-bottom:10px;">
-    <img src="${tool.icon}" alt="${tool.name}" 
-     class="box-title-icon"
-     width="46"
-     height="46"
-     loading="lazy"
-     decoding="async"
-     style="filter:drop-shadow(0 0 10px #00eaff);">
-${tool.name}
-</strong>
-  </div>
-
-  <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
-    ${tool.desc}
-  </p>
-
-  <a href="https://anonlab.it/tools.html#${tool.id}" target="_blank"
-     style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
-    Apri Tool →
-  </a>
-`;
-
-        // Hover animato
-        card.onmouseenter = () => {
-          card.style.transform = "translateY(-4px)";
-          card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
-        };
-        card.onmouseleave = () => {
-          card.style.transform = "translateY(0)";
+          card.style.background = "#0d0d0d";
+          card.style.border = "1px solid #1a1a1a";
+          card.style.borderRadius = "10px";
+          card.style.padding = "15px";
           card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
-        };
+          card.style.transition = "transform .2s ease, box-shadow .2s ease";
+          card.style.color = "#ffffff";
 
-        toolsBox.appendChild(card);
-      });
-    })
-    .catch(err => console.error("Tools error:", err));
+          card.innerHTML = `
+            <div style="display:flex;align-items:center;gap:15px;margin-bottom:10px;">
+              <img src="${esc(tool.icon)}" alt="${esc(tool.name)}"
+                   class="box-title-icon"
+                   width="46"
+                   height="46"
+                   loading="lazy"
+                   decoding="async"
+                   style="filter:drop-shadow(0 0 10px #00eaff);">
+              <strong>${esc(tool.name)}</strong>
+            </div>
+
+            <p style="color:#ccc;margin:0 0 10px 0;font-size:0.9rem;">
+              ${esc(tool.desc)}
+            </p>
+
+            <a href="https://anonlab.it/tools.html#${encodeURIComponent(tool.id || "")}"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color:#00eaff;text-decoration:underline;font-size:0.9rem;">
+              Apri Tool →
+            </a>
+          `;
+
+          card.onmouseenter = () => {
+            card.style.transform = "translateY(-4px)";
+            card.style.boxShadow = "0 0 18px rgba(0,255,255,0.15)";
+          };
+          card.onmouseleave = () => {
+            card.style.transform = "translateY(0)";
+            card.style.boxShadow = "0 0 12px rgba(0,255,255,0.08)";
+          };
+
+          toolsBox.appendChild(card);
+        });
+      })
+      .catch(err => console.error("Tools error:", err));
+  }
+
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entries, observer) => {
+      if (entries.some(e => e.isIntersecting)) {
+        observer.disconnect();
+        startTools();
+      }
+    }, { rootMargin: "500px" });
+    obs.observe(toolsBox);
+  } else {
+    startTools();
+  }
 });
 </script>
-
+		
 <section class="widget-large">
   <div class="box-title-row">
     <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3" width="46" height="46" loading="lazy" decoding="async">
