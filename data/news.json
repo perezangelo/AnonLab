@@ -1,8 +1,13 @@
 [
   {
+    "title": "VMware patches vCenter zero-day exploited in attacks since September",
+    "link": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
+  },
+  {
     "title": "Qwen Incidents Show Self-Hosted AI Models Need Stronger Steering",
     "link": "https://www.darkreading.com/cyber-risk/qwen-incidents-self-hosted-ai-models-stronger-steering",
-    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/bltdca0689384b67fb8/6aff731dfef3359545395d0a/old-ship-steering-wheel-DmitriiElj-shutterstock.jpg?disable=upscale&width=1200&height=630&fit=crop"
+    "image": ""
   },
   {
     "title": "Hackers steal data of 1.6 million SBC Medical Group customers",
@@ -65,7 +70,7 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjD2D26Hu7r43uUrdDxmsmmbBe2oMxd-L3_DIVLqAPyDrOnSmdvXfkIq1_lNmWqr49gbrIZ0NeTmA2OYgyWgdUjRf_RTRfflyXn3Vgujkb9tiByOPfej1OqEszpQf2FeozeSqmK5L7aSj28GLwzKmzehIp9zJyeJqgRvbVOW91_pVEMhs3KY9_oXjwf5BE/s1600/php-flawss.jpg"
   },
   {
-    "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+    "title": "Critical VMware vCenter Zero-Day Flaw Lets Network Attackers Bypass Authentication",
     "link": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1600/vmware.jpg"
   },
@@ -143,10 +148,5 @@
     "title": "Microsoft tests new Edge Lockdown Mode that disables GPU APIs",
     "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-tests-new-edge-lockdown-mode-that-disables-gpu-apis/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/Microsoft_Edge.jpg"
-  },
-  {
-    "title": "Splunk Patches Nearly 140 Flaws Across Three Core Products",
-    "link": "https://www.securityweek.com/splunk-patches-nearly-140-flaws-across-three-core-products/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/03/Splunk.jpeg"
   }
 ]
