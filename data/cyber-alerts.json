@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-128137",
-    "summary": "NLTK corpus-reader view methods bypass the scoped root sandbox via intermediate-directory symlinks",
-    "severity": "MODERATE",
-    "published": "2026-11-19T23:56:30Z",
-    "ghsa": "GHSA-g58v-j9g9-5gfg"
-  },
-  {
-    "id": "CVE-2026-128138",
-    "summary": "NLTK incomplete fix: additional JVM/JAR sandbox bypass through unvalidated launcher tokens in java() command arguments",
+    "id": "CVE-2026-114516",
+    "summary": "Etherpad: Pre-auth arbitrary file read",
     "severity": "CRITICAL",
-    "published": "2026-11-19T23:55:54Z",
-    "ghsa": "GHSA-x8q7-6c7m-52gw"
+    "published": "2026-11-20T00:23:45Z",
+    "ghsa": "GHSA-mc8w-wjhw-45x5"
   },
   {
-    "id": "CVE-2026-128139",
-    "summary": "NLTK: XMLCorpusView comment and CDATA parsing permits quadratic CPU denial of service",
+    "id": "CVE-2026-103033",
+    "summary": "ALTCHA: Nil-map panic (pre-verification DoS) in v1 parseServerSignature on malformed VerificationData",
+    "severity": "MODERATE",
+    "published": "2026-11-20T00:21:19Z",
+    "ghsa": "GHSA-gfwj-45pc-w6r5"
+  },
+  {
+    "id": "CVE-2026-103025",
+    "summary": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
     "severity": "HIGH",
-    "published": "2026-11-19T23:54:59Z",
-    "ghsa": "GHSA-j8g8-j4j7-8j54"
+    "published": "2026-11-20T00:20:52Z",
+    "ghsa": "GHSA-7hvw-3c2q-45qg"
   },
   {
-    "id": "CVE-2026-128140",
-    "summary": "NLTK: Downloader cyclic collection indices cause an infinite closure walk",
+    "id": "CVE-2026-102945",
+    "summary": "Aether Project amf: panic on an unrecovered NGAP goroutine",
     "severity": "MODERATE",
-    "published": "2026-11-19T23:54:33Z",
-    "ghsa": "GHSA-pcm8-fqjx-rvx8"
+    "published": "2026-11-20T00:20:38Z",
+    "ghsa": "GHSA-v6w5-38cf-pcv8"
   },
   {
-    "id": "CVE-2026-129221",
-    "summary": "NLTK: ARFF_Formatter Injects Weka ARFF Schema Directives via Attacker-Controlled Class Labels",
+    "id": "CVE-2026-63012",
+    "summary": "baserCMS administrative API authorization bypass through session fallback",
     "severity": "MODERATE",
-    "published": "2026-11-19T23:54:17Z",
-    "ghsa": "GHSA-9ffx-rrgx-mhgx"
+    "published": "2026-11-20T00:18:35Z",
+    "ghsa": "GHSA-wgvx-x5g3-9v29"
   },
   {
-    "id": "CVE-2026-129222",
-    "summary": "Natural Language Toolkit (NLTK): Uncontrolled recursion (crash DoS) in DependencyGraph.tree()/triples()",
+    "id": "CVE-2026-62955",
+    "summary": "baserCMS: Path Traversal Bypass via realpath() in BcThemeFileService (CVE-2026-30940 Patch Bypass)",
     "severity": "HIGH",
-    "published": "2026-11-19T23:53:41Z",
-    "ghsa": "GHSA-rh8m-wqhc-qmrf"
+    "published": "2026-11-20T00:17:47Z",
+    "ghsa": "GHSA-2pj4-v76f-wjvx"
   },
   {
-    "id": "CVE-2026-129223",
-    "summary": "Natural Language Toolkit (NLTK): Uncontrolled recursion (crash DoS) in Synset.tree()/acyclic_tree() via WordNet relation traversal",
-    "severity": "HIGH",
-    "published": "2026-11-19T23:53:18Z",
-    "ghsa": "GHSA-8846-p9w9-5frf"
-  },
-  {
-    "id": "CVE-2026-129224",
-    "summary": "NLTK: Uncontrolled recursion in CCG lexicon parser causes denial of service via deeply nested category input",
+    "id": "CVE-2026-77382",
+    "summary": "falcon-rust: Discrete-Gaussian sampler runs at 2^-33 precision, far below Falcon's requirement (reference KAT vectors no longer pass)",
     "severity": "MODERATE",
-    "published": "2026-11-19T23:52:54Z",
-    "ghsa": "GHSA-3h95-x772-4765"
+    "published": "2026-11-20T00:17:04Z",
+    "ghsa": "GHSA-25rm-9wvm-m38v"
   },
   {
-    "id": "CVE-2026-129225",
-    "summary": "NLTK: Uncontrolled recursion in DependencyGraph traversal causes denial of service via deep dependency chains",
+    "id": "CVE-2026-77378",
+    "summary": "Bolt ListFormatHelper SQL injection",
     "severity": "MODERATE",
-    "published": "2026-11-19T23:52:20Z",
-    "ghsa": "GHSA-xfcv-m889-fmqg"
+    "published": "2026-11-20T00:15:55Z",
+    "ghsa": "GHSA-r7h9-qx4h-77j5"
   },
   {
-    "id": "CVE-2026-129226",
-    "summary": "NLTK: Uncontrolled recursion in semantic-logic type parser causes denial of service via nested type strings",
+    "id": "CVE-2026-77380",
+    "summary": "Bolt: Prevent SSRF due to unchecked followed redirects",
     "severity": "MODERATE",
-    "published": "2026-11-19T23:51:48Z",
-    "ghsa": "GHSA-w3pv-xfw4-ghr7"
+    "published": "2026-11-20T00:15:44Z",
+    "ghsa": "GHSA-3xjf-9q55-vxw4"
+  },
+  {
+    "id": "CVE-2026-77379",
+    "summary": "Bolt: Information disclosure through unfiltered public relation API endpoint",
+    "severity": "MODERATE",
+    "published": "2026-11-20T00:15:23Z",
+    "ghsa": "GHSA-6358-jg5p-hmjj"
   }
 ]
