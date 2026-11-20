@@ -1,189 +1,196 @@
-function startRansomTracker() {
-    const container = document.getElementById("ransom-tracker-container");
-    const box = document.getElementById("ransom-tracker");
+<?php
+$allowedOrigins = ["https://anonlab.it", "https://www.anonlab.it"];
+$origin = $_SERVER["HTTP_ORIGIN"] ?? "";
+if (in_array($origin, $allowedOrigins, true)) {
+    header("Access-Control-Allow-Origin: " . $origin);
+} else {
+    header("Access-Control-Allow-Origin: https://anonlab.it");
+}
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json; charset=utf-8");
 
-    if (!box || !container) {
-        return setTimeout(startRansomTracker, 200);
+$cacheFile = __DIR__ . "/cache_ransomindex.json";
+$cacheTtl  = 1800; // 30 minuti
+
+// Se in futuro Ransomware.live richiede API-PRO (api-pro.ransomware.live),
+// puoi inserire qui la tua chiave gratuita da my.ransomware.live:
+$apiKey = ""; // es. "la-tua-api-key"
+
+function getURL($url, $apiKey = "") {
+    if (!function_exists("curl_init")) {
+        return false;
     }
 
-    container.style.maxHeight = "300px";
-    container.style.overflowY = "auto";
-    container.style.paddingRight = "6px";
+    $headers = [
+        "Accept: application/json",
+        "User-Agent: AnonLab-NewsOps/1.0 (+https://anonlab.it)"
+    ];
+    if ($apiKey !== "") {
+        $headers[] = "X-API-KEY: " . $apiKey;
+    }
 
-    async function loadRansom() {
-        try {
-            const url = "https://angelonline.altervista.org/newsops/ransomindex.php?t=" + Date.now();
-            console.log("RansomTracker: fetch", url);
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_CONNECTTIMEOUT => 6,
+        CURLOPT_TIMEOUT        => 12,
+        CURLOPT_HTTPHEADER     => $headers
+    ]);
 
-            const res = await fetch(url);
+    $out  = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 
-            if (!res.ok) {
-                throw new Error("HTTP " + res.status);
-            }
+    if ($out === false || $code < 200 || $code >= 300) {
+        return false;
+    }
 
-            const data = await res.json();
-            console.log("RansomTracker: data", data);
+    return $out;
+}
 
-            if (!Array.isArray(data)) {
-                throw new Error("Formato JSON non valido");
-            }
+// 1) Cache valida
+if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < $cacheTtl) {
+    $cached = @file_get_contents($cacheFile);
+    if ($cached) {
+        echo $cached;
+        exit;
+    }
+}
 
-            box.innerHTML = "";
+// 2) Chiamata live (prima v2/pro, poi fallback v1)
+$groupsRaw = false;
+if ($apiKey !== "") {
+    $groupsRaw = getURL("https://api-pro.ransomware.live/groups", $apiKey);
+}
+if (!$groupsRaw) {
+    $groupsRaw = getURL("https://api.ransomware.live/v2/groups");
+}
+if (!$groupsRaw) {
+    $groupsRaw = getURL("https://api.ransomware.live/v1/groups");
+}
 
-            data.forEach(item => {
-                const [group, desc, status, date, leak, icon] = item;
+$groups = $groupsRaw ? json_decode($groupsRaw, true) : null;
 
-                const safeGroup = group || "";
-                const safeDesc = desc || "";
-                const safeStatus = status || "";
-                const safeDate = date || "";
-                const safeLeak = leak || "";
-                const safeIcon = icon || "";
+// Se l'API fallisce o restituisce 429/errore, usa la cache scaduta prima di dare errore
+if (!is_array($groups) || empty($groups)) {
+    if (file_exists($cacheFile)) {
+        $stale = @file_get_contents($cacheFile);
+        if ($stale) {
+            echo $stale;
+            exit;
+        }
+    }
+    echo json_encode([
+        ["Nessun dato", "API temporaneamente non raggiungibile", "Unknown", "N/A", "", ""]
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    exit;
+}
 
-                const shortDesc = safeDesc.length > 70 ? safeDesc.substring(0, 70) + "..." : safeDesc;
+$parsed = [];
 
-                const badgeColor =
-                    safeStatus.toLowerCase() === "active" ? "#ff0033" :
-                    safeStatus.toLowerCase() === "inactive" ? "#555" :
-                    "#0066ff";
+foreach ($groups as $g) {
+    if (!is_array($g)) continue;
 
-                const iconHTML = safeIcon ? 
-  `<img src="${safeIcon}" 
-        alt="${safeGroup || 'Icona gruppo ransomware'}"
-        style="width:24px;height:24px;margin-right:6px;border-radius:4px;">` 
-  : ...
-                const leakHTML = safeLeak
-                    ? `<a href="${safeLeak}" target="_blank" style="color:#0ff;font-size:12px;">Leak Site</a>`
-                    : `<span style="color:#555;font-size:12px;">No Leak Site</span>`;
+    $group = trim((string)($g["name"] ?? "Unknown"));
+    if ($group === "") $group = "Unknown";
 
-                const itemDiv = document.createElement("div");
-                itemDiv.className = "ransom-item";
-                itemDiv.style = `
-                    background:#111;
-                    border:1px solid #333;
-                    padding:10px;
-                    margin-bottom:10px;
-                    border-radius:6px;
-                    font-size:14px;
-                    cursor:pointer;
-                `;
+    // Descrizione: prova description, poi meta
+    $desc = trim((string)($g["description"] ?? ""));
+    if ($desc === "" || strcasecmp($desc, "No description available") === 0) {
+        $meta = trim((string)($g["meta"] ?? ""));
+        $desc = ($meta !== "") ? $meta : "Nessuna descrizione disponibile nel feed.";
+    }
 
-                itemDiv.dataset.group = safeGroup;
-                itemDiv.dataset.desc = safeDesc;
-                itemDiv.dataset.status = safeStatus;
-                itemDiv.dataset.date = safeDate;
-                itemDiv.dataset.leak = safeLeak;
-                itemDiv.dataset.icon = safeIcon;
+    // Stato reale e Leak Site calcolati da locations[]
+    $locations = (isset($g["locations"]) && is_array($g["locations"])) ? $g["locations"] : [];
+    $hasOnline = false;
+    $bestLeak  = "";
+    $latestLocDate = "";
 
-                itemDiv.onclick = () => showRansomPopup(itemDiv.dataset);
+    foreach ($locations as $loc) {
+        if (!is_array($loc)) continue;
 
-                itemDiv.innerHTML = `
-                    <div style="display:flex;align-items:center;margin-bottom:6px;">
-                        ${iconHTML}
-                        <div style="
-                            background:${badgeColor};
-                            color:#fff;
-                            padding:2px 6px;
-                            border-radius:4px;
-                            font-size:12px;
-                            width:max-content;
-                        ">
-                            ${safeGroup}
-                        </div>
-                    </div>
+        $avail = !empty($loc["available"]);
+        if ($avail) {
+            $hasOnline = true;
+        }
 
-                    <div>${shortDesc}</div>
+        // Ricava URL completo (preferendo slug o aggiungendo http:// a fqdn)
+        $candidateUrl = "";
+        if (!empty($loc["slug"]) && preg_match('#^https?://#i', $loc["slug"])) {
+            $candidateUrl = $loc["slug"];
+        } elseif (!empty($loc["fqdn"])) {
+            $candidateUrl = "http://" . ltrim($loc["fqdn"], "/");
+        }
 
-                    <div style="margin-top:6px;font-size:11px;color:#888;">
-                        Status: ${safeStatus} — Added: ${safeDate}
-                    </div>
+        // Preferisci la location attiva se presente
+        if ($candidateUrl !== "" && ($bestLeak === "" || $avail)) {
+            $bestLeak = $candidateUrl;
+        }
 
-                    <div style="margin-top:4px;">
-                        ${leakHTML}
-                    </div>
-                `;
-
-                box.appendChild(itemDiv);
-            });
-
-            if (!box.innerHTML.trim()) {
-                box.innerHTML = "<div style='color:#888;'>Nessun gruppo ransomware disponibile</div>";
-            }
-
-        } catch (e) {
-            console.error("Errore Ransomware Tracker:", e);
-            box.innerHTML = "<div style='color:#888;'>Impossibile caricare i gruppi ransomware</div>";
+        $locUpdated = substr((string)($loc["updated"] ?? $loc["lastscrape"] ?? ""), 0, 10);
+        if ($locUpdated !== "" && strcmp($locUpdated, $latestLocDate) > 0) {
+            $latestLocDate = $locUpdated;
         }
     }
 
-    loadRansom();
+    if (!empty($g["status"]) && strcasecmp($g["status"], "Unknown") !== 0) {
+        $status = $g["status"];
+    } elseif ($hasOnline) {
+        $status = "Active";
+    } elseif (!empty($locations)) {
+        $status = "Inactive";
+    } else {
+        $status = "Unknown";
+    }
+
+    // Data: added / added_date oppure ultima data di locations
+    $rawDate = (string)($g["added"] ?? $g["added_date"] ?? "");
+    $date = $rawDate !== "" ? substr($rawDate, 0, 10) : ($latestLocDate !== "" ? $latestLocDate : "N/D");
+
+    // Se non c'è leak site onion, usa almeno la scheda pubblica ransomware.live se presente
+    if ($bestLeak === "" && !empty($g["url"]) && preg_match('#^https?://#i', $g["url"])) {
+        $bestLeak = $g["url"];
+    }
+
+    // Icona valida solo se URL http/https
+    $icon = "";
+    if (!empty($g["logo"]) && preg_match('#^https?://#i', $g["logo"])) {
+        $icon = $g["logo"];
+    }
+
+    $parsed[] = [
+        "row"      => [$group, $desc, $status, $date, $bestLeak, $icon],
+        "isActive" => ($status === "Active") ? 1 : 0,
+        "hasDesc"  => ($desc !== "Nessuna descrizione disponibile nel feed.") ? 1 : 0,
+        "sortDate" => ($date !== "N/D") ? $date : "0000-00-00"
+    ];
 }
 
-startRansomTracker();
+// Ordina: prima i gruppi Active, poi data più recente, poi chi ha descrizione
+usort($parsed, function ($a, $b) {
+    if ($a["isActive"] !== $b["isActive"]) {
+        return $b["isActive"] <=> $a["isActive"];
+    }
+    $cmpDate = strcmp($b["sortDate"], $a["sortDate"]);
+    if ($cmpDate !== 0) {
+        return $cmpDate;
+    }
+    return $b["hasDesc"] <=> $a["hasDesc"];
+});
 
-function showRansomPopup(data) {
-    const popup = document.createElement("div");
-    popup.style = `
-        position:fixed;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        background:#000;
-        border:1px solid #0ff;
-        padding:20px;
-        border-radius:10px;
-        color:#0ff;
-        width:320px;
-        z-index:9999;
-        font-family:monospace;
-    `;
+// Limita ai primi 50 gruppi più rilevanti per mantenere veloce il DOM
+$final = array_map(function ($entry) {
+    return $entry["row"];
+}, array_slice($parsed, 0, 50));
 
-    const group = data.group || "";
-    const desc = data.desc || "";
-    const status = data.status || "";
-    const date = data.date || "";
-    const leak = data.leak || "";
-    const icon = data.icon || "";
-
-    const iconBlock = icon ? 
-  `<img src="${icon}" 
-        alt="${group || 'Icona gruppo ransomware'}"
-        style="width:32px;height:32px;margin-bottom:10px;border-radius:4px;">` 
-  : "";
-
-    popup.innerHTML = `
-        <div style="display:flex;flex-direction:column;align-items:flex-start;">
-            <div style="font-size:18px;margin-bottom:10px;">${group}</div>
-
-            ${iconBlock}
-
-            <div style="font-size:12px;color:#ccc;margin-bottom:10px;">
-                ${desc}
-            </div>
-
-            <div style="font-size:12px;margin-bottom:10px;">
-                Status: ${status}<br>
-                Added: ${date}
-            </div>
-
-            <div style="margin-bottom:10px;">
-                ${leak ? `<a href="${leak}" target="_blank" style="color:#0ff;">Leak Site</a>` : "No Leak Site"}
-            </div>
-
-            <button style="
-                background:#0ff;
-                color:#000;
-                border:none;
-                padding:6px 10px;
-                cursor:pointer;
-                border-radius:4px;
-                align-self:flex-end;
-            ">Close</button>
-        </div>
-    `;
-
-    const btn = popup.querySelector("button");
-    btn.onclick = () => popup.remove();
-
-    document.body.appendChild(popup);
+$jsonOut = json_encode($final, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+if ($jsonOut !== false) {
+    @file_put_contents($cacheFile, $jsonOut, LOCK_EX);
+    echo $jsonOut;
+} else {
+    echo json_encode([]);
 }
