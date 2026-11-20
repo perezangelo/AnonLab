@@ -845,103 +845,166 @@
 
 </div>
 		
-<!-- ANONBOT WELCOME CARD -->
-
+<!-- ANONBOT WELCOME CARD & CYBER ASSISTANT -->
 <div style="width:100%;margin-top:15px;margin-bottom:20px;">
 
-    <div style="
-        width:100%;
-        padding:15px;
-        background:#0a0f14;
-        border:1px solid #0f2a3a;
-        border-radius:6px;
-        box-sizing:border-box;
-    ">
+    <!-- STILI SCOPED PER CHAT, MARKDOWN E SCROLLBAR -->
+    <style>
+        .anonbot-chat-container {
+            width: 100%;
+            padding: 15px;
+            background: #0a0f14;
+            border: 1px solid #0f2a3a;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .anonbot-history {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 480px;
+            overflow-y: auto;
+            margin-top: 15px;
+            padding-right: 5px;
+            scroll-behavior: smooth;
+        }
+        .anonbot-history::-webkit-scrollbar {
+            width: 6px;
+        }
+        .anonbot-history::-webkit-scrollbar-track {
+            background: #060b10;
+        }
+        .anonbot-history::-webkit-scrollbar-thumb {
+            background: #00eaff44;
+            border-radius: 3px;
+        }
+        .anonbot-msg-user {
+            align-self: flex-end;
+            background: #0d2230;
+            color: #00eaff;
+            border: 1px solid #00eaff44;
+            border-radius: 8px 8px 0 8px;
+            padding: 10px 14px;
+            max-width: 85%;
+            word-break: break-word;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        .anonbot-msg-bot {
+            align-self: flex-start;
+            background: #101820;
+            color: #cfefff;
+            border: 1px solid #0f2a3a;
+            border-radius: 8px 8px 8px 0;
+            padding: 12px 16px;
+            max-width: 90%;
+            word-break: break-word;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        /* Markdown & Code per Cybersecurity */
+        .anonbot-markdown pre {
+            background: #050b11;
+            border: 1px solid #00eaff33;
+            border-radius: 5px;
+            padding: 12px;
+            overflow-x: auto;
+            color: #5af2ff;
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            font-size: 0.88rem;
+            margin: 8px 0;
+        }
+        .anonbot-markdown code {
+            font-family: Consolas, Monaco, monospace;
+            background: #05141f;
+            color: #00eaff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.88rem;
+        }
+        .anonbot-markdown table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 0.88rem;
+        }
+        .anonbot-markdown th, .anonbot-markdown td {
+            border: 1px solid #00eaff33;
+            padding: 6px 10px;
+            text-align: left;
+        }
+        .anonbot-markdown th {
+            background: #0b1a24;
+            color: #00eaff;
+        }
+        .anonbot-markdown a {
+            color: #00eaff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .anonbot-markdown ul, .anonbot-markdown ol {
+            padding-left: 20px;
+            margin: 6px 0;
+        }
+    </style>
 
-        <!-- AVATAR -->
+    <div class="anonbot-chat-container">
 
+        <!-- AVATAR & PRESENTAZIONE -->
         <div style="text-align:center;">
+            <img
+                src="https://angelonline.altervista.org/cyber-assistant/img/anonbot.webp"
+                alt="AnonBot"
+                width="280"
+                height="183"
+                loading="lazy"
+                decoding="async"
+                style="
+                    width:280px;
+                    max-width:100%;
+                    height:auto;
+                    border-radius:12px;
+                    margin-bottom:10px;
+                "
+            >
 
-            <!-- PRIMA: mancavano width e height espliciti -->
-<img
-    src="https://angelonline.altervista.org/cyber-assistant/img/anonbot.webp"
-    alt="AnonBot"
-    width="280"
-    height="183"
-    loading="lazy"
-    decoding="async"
-    style="
-        width:280px;
-        max-width:100%;
-        height:auto;
-        border-radius:12px;
-        margin-bottom:10px;
-    "
->
+            <div style="color:#00eaff;font-size:1.3rem;font-weight:bold;">AnonBot</div>
+            <div style="color:#9defff;margin-bottom:15px;font-size:0.95rem;">AI Cyber Intelligence Assistant</div>
 
-            <div style="
-                color:#00eaff;
-                font-size:1.3rem;
-                font-weight:bold;
-            ">
-                AnonBot
-            </div>
-
-            <div style="
-                color:#9defff;
-                margin-bottom:15px;
-            ">
-                AI Cyber Intelligence Assistant
-            </div>
-
-            <div style="
-                color:#e5e7eb;
-                line-height:1.6;
-                margin-bottom:15px;
-            ">
-                👋 <strong>Ciao, sono AnonBot.</strong>
-
-                <br><br>
-
-                Sono l'assistente AI ufficiale di AnonLab.
-
-                <br><br>
-
-                Posso aiutarti con Cybersecurity,
-                Threat Intelligence, OSINT,
-                Vulnerabilità, Malware Analysis,
-                Digital Forensics e con i contenuti
-                pubblicati su AnonLab.
-
-                <br><br>
-
+            <div style="color:#e5e7eb;line-height:1.6;margin-bottom:15px;">
+                👋 <strong>Ciao, sono AnonBot.</strong><br><br>
+                Sono l'assistente AI ufficiale di AnonLab.<br><br>
+                Posso aiutarti con Cybersecurity, Threat Intelligence, OSINT,
+                Vulnerabilità, Malware Analysis, Digital Forensics e con i contenuti pubblicati su AnonLab.<br><br>
                 <strong>Come posso aiutarti oggi?</strong>
             </div>
-
         </div>
 
-        <!-- PULSANTE -->
-
+        <!-- PULSANTE APERTURA CHAT -->
         <button
             id="open-chat"
             type="button"
+            aria-expanded="false"
+            aria-controls="anonbot-chat"
             style="
                 width:100%;
                 margin-top:10px;
-                padding:10px;
+                padding:12px;
                 border:none;
                 border-radius:6px;
                 background:#00eaff;
                 color:#000;
                 font-weight:bold;
                 cursor:pointer;
-                box-shadow:0 0 10px #00eaff55;
+                box-shadow:0 0 12px #00eaff55;
+                font-size:1rem;
+                transition: background 0.2s;
             ">
             🚀 Avvia Cyber Assistant
         </button>
 
-        <!-- CHAT -->
-
+        <!-- AREA CHAT -->
         <div id="anonbot-chat"
              style="
                 display:none;
@@ -952,72 +1015,73 @@
                 padding:12px;
              ">
 
-            <div style="
-                color:#00eaff;
-                font-weight:bold;
-                margin-bottom:10px;
-            ">
-                🤖 AnonBot Cyber Assistant
+            <!-- HEADER CHAT & CONTROLLI -->
+            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #00eaff22;padding-bottom:8px;">
+                <div style="color:#00eaff;font-weight:bold;font-size:1.05rem;">
+                    🤖 AnonBot Cyber Assistant
+                </div>
+                <div style="display:flex;gap:8px;">
+                    <button id="anonbot-reset-btn" type="button" title="Azzera la chat e inizia un nuovo argomento"
+                            style="background:#0b1923;color:#00eaff;border:1px solid #00eaff44;border-radius:4px;padding:4px 8px;font-size:0.8rem;cursor:pointer;">
+                        🔄 Nuova chat
+                    </button>
+                    <button id="anonbot-logout-btn" type="button" title="Esci da AnonBot"
+                            style="background:#1a0e10;color:#ff5e5e;border:1px solid #ff5e5e44;border-radius:4px;padding:4px 8px;font-size:0.8rem;cursor:pointer;">
+                        ⏻ Esci
+                    </button>
+                </div>
             </div>
 
-            <div style="
-                font-size:0.9rem;
-                margin-bottom:12px;
-                color:#cfefff;
-            ">
-                💡 Esempi:
-
-                <br>Cos'è una CVE?
-                <br>Cosa fa AnonLab?
-                <br>Analizza CVE-2026-1234
-                <br>Spiegami una Sigma Rule
-                <br>Converti una query Splunk in KQL
+            <!-- SUGGERIMENTI INIZIALI -->
+            <div id="anonbot-suggestions" style="font-size:0.85rem;margin:10px 0;color:#cfefff;background:#050d13;padding:8px 12px;border-radius:4px;border-left:3px solid #00eaff;">
+                💡 <strong>Esempi veloci:</strong> Cos'è una CVE? • Analizza CVE-2026-1234 • Converti query Splunk in KQL • Regola Sigma per Brute Force
             </div>
 
-            <textarea
-                id="anonbot-input"
-                placeholder="Scrivi la tua domanda..."
-                style="
-                    width:100%;
-                    min-height:100px;
-                    background:#101820;
-                    border:1px solid #00eaff44;
-                    color:#fff;
-                    border-radius:4px;
-                    padding:10px;
-                    box-sizing:border-box;
-                    resize:vertical;
-                "
-            ></textarea>
+            <!-- LOG STORICO MESSAGGI (A SCORRIMENTO) -->
+            <div id="anonbot-messages" class="anonbot-history" aria-live="polite"></div>
 
-            <button
-                id="anonbot-send"
-                type="button"
-                style="
-                    width:100%;
-                    margin-top:10px;
-                    padding:10px;
-                    background:#00eaff;
-                    border:none;
-                    border-radius:4px;
-                    color:#000;
-                    font-weight:bold;
-                    cursor:pointer;
-                ">
-                INVIA
-            </button>
+            <!-- INDICATORE STATO DI CARICAMENTO -->
+            <div id="anonbot-status" style="display:none;margin-top:8px;font-size:0.85rem;color:#00eaff;font-style:italic;">
+                🛰 AnonBot sta analizzando la richiesta...
+            </div>
 
-            <div
-                id="anonbot-response"
-                style="
-                    margin-top:15px;
-                    padding:10px;
-                    background:#111827;
-                    border-radius:4px;
-                    color:#e5e7eb;
-                    white-space:pre-wrap;
-                    display:none;
-                ">
+            <!-- FORM DI INVIO -->
+            <div style="margin-top:12px;">
+                <textarea
+                    id="anonbot-input"
+                    aria-label="Messaggio per AnonBot"
+                    placeholder="Scrivi qui la tua richiesta tecnica (Shift + Invio per andare a capo)..."
+                    style="
+                        width:100%;
+                        min-height:85px;
+                        background:#101820;
+                        border:1px solid #00eaff44;
+                        color:#fff;
+                        border-radius:4px;
+                        padding:10px;
+                        box-sizing:border-box;
+                        resize:vertical;
+                        font-family:inherit;
+                    "
+                ></textarea>
+
+                <button
+                    id="anonbot-send"
+                    type="button"
+                    style="
+                        width:100%;
+                        margin-top:8px;
+                        padding:10px;
+                        background:#00eaff;
+                        border:none;
+                        border-radius:4px;
+                        color:#000;
+                        font-weight:bold;
+                        cursor:pointer;
+                        transition: opacity 0.2s;
+                    ">
+                    INVIA RICHIESTA
+                </button>
             </div>
 
         </div>
@@ -1026,282 +1090,117 @@
 
 </div>
 
+<!-- SCRIPT LOGICA ANONBOT -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
-    // =========================================
-    // ANONBOT CYBER ASSISTANT — ANONLAB
-    // Timeout inattività: 15 minuti
-    // =========================================
-
-    const API_URL =
-        "https://angelonline.altervista.org/cyber-assistant/api/assistant.php";
-
-    const TIMEOUT_MS = 15 * 60 * 1000;
+    const API_URL = "https://angelonline.altervista.org/cyber-assistant/api/assistant.php";
+    const TIMEOUT_MS = 15 * 60 * 1000; // 15 Minuti
 
     const toggleBtn = document.getElementById("open-chat");
     const chat = document.getElementById("anonbot-chat");
     const sendBtn = document.getElementById("anonbot-send");
     const input = document.getElementById("anonbot-input");
-    const responseDiv = document.getElementById("anonbot-response");
+    const msgContainer = document.getElementById("anonbot-messages");
+    const statusDiv = document.getElementById("anonbot-status");
+    const suggestions = document.getElementById("anonbot-suggestions");
+    const resetBtn = document.getElementById("anonbot-reset-btn");
+    const logoutBtn = document.getElementById("anonbot-logout-btn");
 
-    if (!toggleBtn || !chat || !sendBtn || !input || !responseDiv) {
-        console.error("AnonBot: elementi HTML mancanti.", {
-            toggleBtn: !!toggleBtn,
-            chat: !!chat,
-            sendBtn: !!sendBtn,
-            input: !!input,
-            responseDiv: !!responseDiv
-        });
-        return;
-    }
+    if (!toggleBtn || !chat || !sendBtn || !input || !msgContainer) return;
 
     let sessionExpired = false;
     let inactivityTimer = null;
     let requestInProgress = false;
 
-    // =========================================
-    // PROTEZIONE HTML
-    // =========================================
+    // Caricamento asincrono sicuro con Promises (previene race conditions)
+    function loadScript(src) {
+        return new Promise((resolve, reject) => {
+            const existing = document.querySelector(`script[src="${src}"]`);
+            if (existing) {
+                if (existing.dataset.loaded === "true") return resolve();
+                existing.addEventListener("load", () => resolve());
+                existing.addEventListener("error", reject);
+                return;
+            }
+            const s = document.createElement("script");
+            s.src = src;
+            s.async = true;
+            s.onload = () => {
+                s.dataset.loaded = "true";
+                resolve();
+            };
+            s.onerror = reject;
+            document.head.appendChild(s);
+        });
+    }
+
+    async function ensureLibraries() {
+        try {
+            await Promise.all([
+                loadScript("https://angelonline.altervista.org/js/marked.min.js"),
+                loadScript("https://angelonline.altervista.org/js/purify.min.js")
+            ]);
+        } catch (e) {
+            console.error("AnonBot: Errore caricamento parser Markdown.", e);
+        }
+    }
 
     function escapeHTML(value) {
         return String(value).replace(/[&<>"']/g, char => ({
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
+            "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
         })[char]);
     }
 
-    // =========================================
-    // LINK ASSISTENZA ANONLAB
-    // =========================================
+    function scrollToBottom() {
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+    }
 
     function contactOptionsHTML() {
-        const linkStyle = [
-            "color:#00eaff",
-            "text-decoration:none",
-            "font-weight:bold",
-            "font-size:0.9rem"
-        ].join(";");
-
-        const itemStyle = [
-            "display:flex",
-            "align-items:center",
-            "gap:9px",
-            "margin:5px 0",
-            "min-height:30px"
-        ].join(";");
-
-        const iconStyle = [
-            "width:30px",
-            "flex:0 0 30px",
-            "text-align:center",
-            "font-size:22px"
-        ].join(";");
-
         return `
-            <div style="
-                margin-top:10px;
-                padding:10px;
-                background:#081017;
-                border:1px solid #00eaff33;
-                border-radius:6px;
-                color:#cfefff;
-                line-height:1.5;
-                box-sizing:border-box;
-            ">
-                <div style="
-                    color:#9defff;
-                    font-weight:bold;
-                    margin-bottom:5px;
-                ">◈ ASSISTENZA ANONLAB</div>
-
-                <div style="font-size:0.85rem;margin-bottom:8px;">
-                    Hai bisogno di ulteriore assistenza?
-                    Contatta direttamente il team AnonLab.
+            <div style="margin-top:10px;padding:10px;background:#081017;border:1px solid #00eaff33;border-radius:6px;color:#cfefff;line-height:1.5;font-size:0.85rem;">
+                <div style="color:#9defff;font-weight:bold;margin-bottom:6px;">◈ ASSISTENZA DIRETTA ANONLAB</div>
+                <div style="margin-bottom:8px;">Per questa richiesta è consigliato il contatto diretto con il nostro team:</div>
+                <div style="display:flex;align-items:center;gap:8px;margin:4px 0;">
+                    <span>✉️</span>
+                    <a style="color:#00eaff;font-weight:bold;text-decoration:none;" href="mailto:info@anonlab.it?subject=Richiesta%20AnonBot">Email AnonLab</a>
                 </div>
-
-                <div style="${itemStyle}">
-                    <span style="${iconStyle}">✉️</span>
-                    <a style="${linkStyle}"
-                       href="mailto:info@anonlab.it?subject=Richiesta%20ad%20AnonBot">
-                        Email AnonLab
-                    </a>
-                </div>
-
-                <div style="${itemStyle}">
-                    <span style="${iconStyle}">📩</span>
-                    <a style="${linkStyle}"
-                       href="https://anonlab.it/contatti.html"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Richiedi informazioni
-                    </a>
-                </div>
-
-                <div style="${itemStyle}">
-                    <span style="${iconStyle}">❓</span>
-                    <a style="${linkStyle}"
-                       href="https://anonlab.it/about.html"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        FAQ &amp; Domande
-                    </a>
+                <div style="display:flex;align-items:center;gap:8px;margin:4px 0;">
+                    <span>📩</span>
+                    <a style="color:#00eaff;font-weight:bold;text-decoration:none;" href="https://anonlab.it/contatti.html" target="_blank" rel="noopener noreferrer">Modulo Contatti</a>
                 </div>
             </div>
         `;
     }
 
-    // =========================================
-    // MESSAGGI
-    // =========================================
+    function appendMessage(role, text, needsHuman = false) {
+        const div = document.createElement("div");
 
-    function showMessage(message, color = "#cfefff") {
-        responseDiv.style.display = "block";
-        responseDiv.innerHTML = `
-            <div style="
-                color:${color};
-                line-height:1.6;
-                overflow-wrap:anywhere;
-            ">${escapeHTML(message)}</div>
-        `;
-    }
-
-    function showError(message, includeContacts = true) {
-        responseDiv.style.display = "block";
-        responseDiv.innerHTML = `
-            <div style="
-                color:#cfefff;
-                padding:8px 0;
-                line-height:1.6;
-                overflow-wrap:anywhere;
-            ">${escapeHTML(message)}</div>
-            ${includeContacts ? contactOptionsHTML() : ""}
-        `;
-    }
-
-    // =========================================
-    // ASSISTENZA UMANA
-    // =========================================
-
-    function needsHumanAssistance(answer) {
-        const patterns = [
-            /non dispongo di informazioni sufficienti/i,
-            /non ho informazioni sufficienti/i,
-            /non so rispondere/i,
-            /non sono in grado di rispondere/i,
-            /non posso confermare con certezza/i,
-            /non posso fornire una risposta affidabile/i,
-            /non ho abbastanza informazioni/i,
-            /non dispongo di un database aggiornato/i,
-            /non dispongo di dati aggiornati/i,
-            /non conosco (?:il prezzo|i prezzi|le tariffe|il costo)/i,
-            /non sono disponibili (?:informazioni|dati|prezzi|tariffe)/i,
-            /non posso fornire (?:un preventivo|un prezzo|una tariffa)/i,
-            /preventivo personalizzato/i,
-            /tariffe orarie specifiche/i,
-            /prezzo esatto/i,
-            /costi specifici/i,
-            /contattare direttamente (?:l'azienda|il team|anonlab)/i,
-            /contattare direttamente/i,
-            /richiedere un preventivo/i,
-            /modulo di contatto/i,
-            /canali di supporto indicati/i,
-            /e-mail indicat[ao] sul sito/i
-        ];
-
-        return patterns.some(pattern => pattern.test(answer));
-    }
-
-    // =========================================
-    // RISPOSTA MARKDOWN — CORREZIONE
-    // =========================================
-
-    function showAnswer(answer) {
-        responseDiv.style.display = "block";
-
-        const markdown = String(answer ?? "");
-
-        // Corregge alcuni marcatori Markdown escapati.
-        // Non rimuove indiscriminatamente tutti i backslash.
-        const normalized = markdown
-            .replace(/\\\*\\\*/g, "**")
-            .replace(/\\`/g, "`")
-            .replace(/\\+(\r?\n)/g, "$1");
-
-        // Verifica che le librerie siano state caricate.
-        if (
-            typeof marked === "undefined" ||
-            typeof DOMPurify === "undefined"
-        ) {
-            console.error(
-                "AnonBot: librerie Marked o DOMPurify non caricate."
-            );
-
-            // Ripiego sicuro: mostra il testo senza interpretare HTML.
-            responseDiv.innerHTML = `
-                <div style="
-                    color:#cfefff;
-                    line-height:1.7;
-                    overflow-wrap:anywhere;
-                    white-space:pre-wrap;
-                ">${escapeHTML(normalized)}</div>
-            `;
+        if (role === "user") {
+            div.className = "anonbot-msg-user";
+            div.textContent = text;
         } else {
-            // Converte Markdown in HTML e sanifica il risultato.
-            const html = DOMPurify.sanitize(
-                marked.parse(normalized, {
-                    breaks: true,
-                    gfm: true
-                })
-            );
+            div.className = "anonbot-msg-bot";
 
-            responseDiv.innerHTML = `
-                <div class="anonbot-markdown" style="
-                    color:#cfefff;
-                    line-height:1.7;
-                    overflow-wrap:anywhere;
-                ">${html}</div>
-            `;
+            // Se marked è disponibile ed è stato caricato, parsiamo Markdown + Purify
+            if (typeof marked !== "undefined" && typeof DOMPurify !== "undefined") {
+                const parsed = DOMPurify.sanitize(marked.parse(String(text), { breaks: true, gfm: true }));
+                div.innerHTML = `<div class="anonbot-markdown">${parsed}</div>`;
+            } else {
+                div.innerHTML = `<div style="white-space:pre-wrap;">${escapeHTML(text)}</div>`;
+            }
+
+            if (needsHuman) {
+                div.insertAdjacentHTML("beforeend", contactOptionsHTML());
+            }
         }
 
-        // Applica lo stile cyber AnonLab ai link della risposta Markdown,
-        // senza aggiungere o modificare alcun foglio CSS.
-        responseDiv.querySelectorAll(".anonbot-markdown a").forEach(link => {
-            link.style.color = "#00eaff";
-            link.style.textDecoration = "none";
-            link.style.fontWeight = "600";
-            link.style.transition = "color 0.2s ease, text-shadow 0.2s ease";
-
-            link.addEventListener("mouseenter", () => {
-                link.style.color = "#ffffff";
-                link.style.textDecoration = "underline";
-                link.style.textShadow = "0 0 5px #00eaff, 0 0 12px rgba(0, 234, 255, 0.75)";
-            });
-
-            link.addEventListener("mouseleave", () => {
-                link.style.color = "#00eaff";
-                link.style.textDecoration = "none";
-                link.style.textShadow = "0 0 5px rgba(0, 234, 255, 0.35)";
-            });
-        });
-
-        // Mantiene la funzionalità di assistenza umana.
-        if (needsHumanAssistance(markdown)) {
-            responseDiv.insertAdjacentHTML(
-                "beforeend",
-                contactOptionsHTML()
-            );
-        }
+        msgContainer.appendChild(div);
+        scrollToBottom();
     }
 
-    // =========================================
-    // BLOCCO E TIMER DI INATTIVITÀ
-    // =========================================
-
+    // Inattività & Lock
     function clearInactivityTimer() {
         if (inactivityTimer !== null) {
             clearTimeout(inactivityTimer);
@@ -1309,215 +1208,109 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function lockAnonBot(message) {
-        sessionExpired = true;
-        clearInactivityTimer();
-
-        input.disabled = true;
-        sendBtn.disabled = true;
-
-        const oldButton = document.getElementById(
-            "anonbot-reactivate"
-        );
-
-        showMessage(message, "#00eaff");
-
-        const reactivateBtn = document.createElement("button");
-        reactivateBtn.id = "anonbot-reactivate";
-        reactivateBtn.type = "button";
-        reactivateBtn.textContent = "🔓 Riattiva AnonBot";
-
-        reactivateBtn.style.cssText = [
-            "margin-top:12px",
-            "padding:10px 14px",
-            "background:#06131b",
-            "color:#00eaff",
-            "border:1px solid #00eaff",
-            "border-radius:6px",
-            "cursor:pointer"
-        ].join(";");
-
-        if (oldButton) oldButton.remove();
-
-        responseDiv.appendChild(reactivateBtn);
-
-        reactivateBtn.addEventListener("click", reactivateAnonBot);
-    }
-
     function resetInactivityTimer() {
         if (sessionExpired) return;
-
         clearInactivityTimer();
-
         inactivityTimer = setTimeout(() => {
-            lockAnonBot(
-                "🔒 AnonBot è stato bloccato dopo 15 minuti di inattività."
-            );
-
-            // Il server deve implementare questa azione.
+            lockAnonBot("🔒 AnonBot è stato bloccato dopo 15 minuti di inattività.");
             logoutAnonBot(false);
         }, TIMEOUT_MS);
     }
 
-    // =========================================
-    // LOGOUT ANONBOT
-    // Richiede supporto PHP per action=logout
-    // =========================================
-
-    async function logoutAnonBot(showMessageAfter = true) {
+    function lockAnonBot(message) {
+        sessionExpired = true;
         clearInactivityTimer();
+        input.disabled = true;
+        sendBtn.disabled = true;
 
-        try {
-            const res = await fetch(API_URL, {
-                method: "POST",
-                credentials: "include",
-                headers: {
-                    "Content-Type":
-                        "application/x-www-form-urlencoded;charset=UTF-8"
-                },
-                body: new URLSearchParams({
-                    action: "logout"
-                }).toString()
-            });
+        appendMessage("bot", message);
 
-            if (!res.ok) {
-                console.error("AnonBot logout HTTP:", res.status);
-            }
-        } catch (error) {
-            console.error("AnonBot logout:", error);
-        }
+        const reactivateBtn = document.createElement("button");
+        reactivateBtn.type = "button";
+        reactivateBtn.textContent = "🔓 Riattiva Sessione";
+        reactivateBtn.style.cssText = "margin-top:10px;padding:8px 12px;background:#081822;color:#00eaff;border:1px solid #00eaff;border-radius:4px;cursor:pointer;";
+        reactivateBtn.onclick = reactivateAnonBot;
 
-        if (showMessageAfter) {
-            lockAnonBot("🔒 Hai terminato la sessione di AnonBot.");
-        }
+        msgContainer.appendChild(reactivateBtn);
+        scrollToBottom();
     }
 
-    // =========================================
-    // RIATTIVAZIONE ANONBOT
-    // Richiede supporto PHP per action=reactivate
-    // =========================================
-
     async function reactivateAnonBot() {
-        if (requestInProgress) return;
-
-        const btn = document.getElementById("anonbot-reactivate");
-
-        if (btn) {
-            btn.disabled = true;
-            btn.textContent = "Verifica in corso...";
-        }
+        const btn = this;
+        if (btn) btn.disabled = true;
 
         try {
             const res = await fetch(API_URL, {
                 method: "POST",
                 credentials: "include",
-                headers: {
-                    "Content-Type":
-                        "application/x-www-form-urlencoded;charset=UTF-8"
-                },
-                body: new URLSearchParams({
-                    action: "reactivate"
-                }).toString()
+                headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+                body: "action=reactivate"
             });
-
             const data = await res.json();
 
-            if (!res.ok || data.success !== true) {
-                if (data.authenticated === false) {
-                    showMessage(
-                        "🔐 Devi accedere ad AnonLab per utilizzare AnonBot.",
-                        "#00eaff"
-                    );
-                } else {
-                    showMessage(
-                        data.result ||
-                        "Impossibile riattivare AnonBot.",
-                        "#ff7373"
-                    );
-                }
-
+            if (data.success) {
+                sessionExpired = false;
+                input.disabled = false;
+                sendBtn.disabled = false;
+                if (btn) btn.remove();
+                appendMessage("bot", "🟢 Sessione riattivata. Puoi continuare a chattare.");
+                resetInactivityTimer();
+                input.focus();
+            } else {
+                appendMessage("bot", "🔐 Devi accedere ad AnonLab per utilizzare AnonBot.");
                 if (btn) btn.disabled = false;
-                return;
             }
-
-            sessionExpired = false;
-            input.disabled = false;
-            sendBtn.disabled = false;
-
-            if (btn) btn.remove();
-
-            showMessage(
-                "🟢 AnonBot riattivato. Puoi fare una nuova domanda."
-            );
-
-            resetInactivityTimer();
-            input.focus();
-
-        } catch (error) {
-            console.error("AnonBot riattivazione:", error);
-
-            showMessage(
-                "❌ Errore di connessione durante la riattivazione.",
-                "#ff7373"
-            );
-
+        } catch (e) {
+            appendMessage("bot", "❌ Errore di rete durante la riattivazione.");
             if (btn) btn.disabled = false;
         }
     }
 
-    // =========================================
-    // PULSANTE LOGOUT
-    // =========================================
+    async function logoutAnonBot(notify = true) {
+        clearInactivityTimer();
+        try {
+            await fetch(API_URL, {
+                method: "POST",
+                credentials: "include",
+                headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+                body: "action=logout"
+            });
+        } catch (e) { console.error(e); }
 
-    const logoutBtn = document.createElement("button");
-    logoutBtn.type = "button";
-    logoutBtn.id = "anonbot-logout";
-    logoutBtn.textContent = "⏻ Esci da AnonBot";
-
-    logoutBtn.style.cssText = [
-        "margin:8px 0",
-        "padding:8px 12px",
-        "background:#081017",
-        "color:#00eaff",
-        "border:1px solid #00eaff55",
-        "border-radius:6px",
-        "cursor:pointer"
-    ].join(";");
-
-    chat.appendChild(logoutBtn);
-
-    logoutBtn.addEventListener("click", () => {
-        lockAnonBot("🔒 Hai terminato la sessione di AnonBot.");
-        logoutAnonBot(false);
-    });
-
-    // =========================================
-    // APERTURA E CHIUSURA CHAT
-    // =========================================
-
-    function loadScriptOnce(src) {
-        if (document.querySelector(`script[src="${src}"]`)) return;
-        const s = document.createElement("script");
-        s.src = src;
-        s.async = true;
-        document.head.appendChild(s);
+        if (notify) lockAnonBot("🔒 Hai terminato la sessione di AnonBot.");
     }
 
+    async function resetChat() {
+        if (requestInProgress) return;
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                credentials: "include",
+                headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+                body: "query=reset"
+            });
+            const data = await res.json();
+            if (data.success) {
+                msgContainer.innerHTML = "";
+                appendMessage("bot", "🧹 Cronologia azzerata. Iniziamo una nuova sessione!");
+            }
+        } catch (e) {
+            appendMessage("bot", "⚠️ Impossibile azzerare la sessione.");
+        }
+    }
+
+    // Toggle apertura chat
     function setChatOpen(open) {
         chat.style.display = open ? "block" : "none";
-
-        toggleBtn.textContent = open
-            ? "❌ Chiudi Assistente"
-            : "🚀 Avvia Cyber Assistant";
-
+        toggleBtn.textContent = open ? "❌ Chiudi Assistente" : "🚀 Avvia Cyber Assistant";
         toggleBtn.setAttribute("aria-expanded", String(open));
 
         if (open) {
-            loadScriptOnce("https://angelonline.altervista.org/js/marked.min.js");
-            loadScriptOnce("https://angelonline.altervista.org/js/purify.min.js");
-            if (!sessionExpired) {
-                input.focus({ preventScroll: true });
-            }
+            ensureLibraries();
+            resetInactivityTimer(); // Avvia il timer subito all'apertura
+            if (!sessionExpired) input.focus({ preventScroll: true });
+        } else {
+            clearInactivityTimer();
         }
     }
 
@@ -1526,159 +1319,137 @@ document.addEventListener("DOMContentLoaded", () => {
         setChatOpen(!isVisible);
     });
 
-    // =========================================
-    // CHIAMATA API
-    // =========================================
+    resetBtn.addEventListener("click", resetChat);
+    logoutBtn.addEventListener("click", () => logoutAnonBot(true));
 
+    // Invio Richiesta
     async function analyze() {
-        if (sessionExpired) {
-            showMessage(
-                "🔒 Sessione scaduta. Riattiva AnonBot per continuare.",
-                "#00eaff"
-            );
-            return;
-        }
-
+        if (sessionExpired) return;
         if (requestInProgress) return;
 
         const query = input.value.trim();
-
         if (!query) {
-            showMessage("⚠️ Inserisci una richiesta.", "#00eaff");
             input.focus();
             return;
         }
 
+        // Pulisce subito l'input per evitare cancellazioni involontarie se l'utente continua a scrivere
+        input.value = "";
+        appendMessage("user", query);
+
+        if (suggestions) suggestions.style.display = "none"; // Nasconde gli esempi dopo il primo invio
+        statusDiv.style.display = "block";
         requestInProgress = true;
         sendBtn.disabled = true;
+        input.disabled = true;
 
-        showMessage("🛰 Analisi in corso...", "#00eaff");
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 50000); // 50s Timeout di sicurezza
 
         try {
             const res = await fetch(API_URL, {
                 method: "POST",
                 credentials: "include",
-                headers: {
-                    "Content-Type":
-                        "application/x-www-form-urlencoded;charset=UTF-8"
-                },
+                signal: controller.signal,
+                headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
                 body: new URLSearchParams({ query }).toString()
             });
 
-            const rawText = await res.text();
+            clearTimeout(timeoutId);
+            const data = await res.json();
 
-            console.log("AnonBot HTTP:", res.status);
-
-            let data;
-
-            try {
-                data = JSON.parse(rawText);
-            } catch (parseError) {
-                console.error("AnonBot: risposta non JSON.", rawText);
-
-                showError(
-                    res.status >= 500
-                        ? "⚠️ Il servizio AnonBot ha riscontrato un errore sul server. Riprova più tardi."
-                        : "⚠️ Il server ha restituito una risposta non valida."
-                );
-                return;
-            }
-
-            console.log("AnonBot response:", data);
-
-            if (data.session_expired === true) {
-                lockAnonBot(
-                    "🔒 Sessione AnonBot scaduta. Riattiva la chat per continuare."
-                );
+            if (data.session_expired) {
+                lockAnonBot("🔒 Sessione AnonBot scaduta. Riattiva per continuare.");
                 return;
             }
 
             if (res.status === 401 || data.authenticated === false) {
-                lockAnonBot(
-                    "🔐 Per utilizzare AnonBot devi accedere o registrarti."
-                );
+                lockAnonBot("🔐 Per usare AnonBot devi effettuare l'accesso.");
                 return;
             }
 
             if (!res.ok || data.success === false) {
-                showError(
-                    data.result ||
-                    "⚠️ AnonBot non è riuscito a completare la richiesta. Riprova tra poco."
-                );
+                appendMessage("bot", data.result || "⚠️ AnonBot ha riscontrato un errore temporaneo.");
                 return;
             }
 
-            const answer = data.result || data.message || "";
-
-            if (typeof answer !== "string" || !answer.trim()) {
-                showError(
-                    "⚠️ AnonBot non ha restituito una risposta valida."
-                );
-                return;
-            }
-
-            showAnswer(answer);
-            input.value = "";
-
-            // Il timer riparte dopo una risposta valida.
+            // Sfrutta nativamente il flag calcolato dal PHP
+            appendMessage("bot", data.result, Boolean(data.needs_human));
             resetInactivityTimer();
 
         } catch (error) {
-            console.error("AnonBot Error:", error);
-
-            showError(
-                "❌ Impossibile contattare il servizio AnonBot. Controlla la connessione e riprova."
-            );
-
+            console.error("AnonBot error:", error);
+            if (error.name === "AbortError") {
+                appendMessage("bot", "⚠️ La richiesta ha impiegato troppo tempo. Riprova tra poco.");
+            } else {
+                appendMessage("bot", "❌ Errore di connessione con il servizio AnonBot.");
+            }
         } finally {
             requestInProgress = false;
-
+            statusDiv.style.display = "none";
             if (!sessionExpired) {
                 sendBtn.disabled = false;
+                input.disabled = false;
+                input.focus();
             }
         }
     }
 
-    // =========================================
-    // INVIO DOMANDA
-    // =========================================
-
     sendBtn.addEventListener("click", analyze);
-
-    input.addEventListener("keydown", event => {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
+    input.addEventListener("keydown", e => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
             analyze();
         }
     });
 
-    // L'attività sul campo mantiene attiva la chat.
     input.addEventListener("input", resetInactivityTimer);
-
-    console.log("AnonBot Cyber Assistant inizializzato.");
 });
 </script>
-		
+
+<!-- SCRIPT NEWSLETTER OTTIMIZZATO -->
 <script>
 async function sendNewsletter(e) {
     e.preventDefault();
 
-    const email = document.getElementById("newsletterEmail").value;
+    const input = document.getElementById("newsletterEmail");
+    const email = input ? input.value.trim() : "";
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
 
-    const res = await fetch("https://angelonline.altervista.org/backend/newsletter_add.php", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    mode: "cors",
-    credentials: "omit",
-    body: "email=" + encodeURIComponent(email)
-});
+    if (!email || !email.includes("@")) {
+        alert("Inserisci un indirizzo email valido.");
+        return;
+    }
 
-    const data = await res.json();
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.6";
+    }
 
-    if (data.status === "success") {
-        window.location.href = "https://anonlab.it/grazie.html";
-    } else {
-        alert(data.message);
+    try {
+        const res = await fetch("https://angelonline.altervista.org/backend/newsletter_add.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            mode: "cors",
+            credentials: "omit",
+            body: "email=" + encodeURIComponent(email)
+        });
+
+        const data = await res.json();
+
+        if (data.status === "success") {
+            window.location.href = "https://anonlab.it/grazie.html";
+        } else {
+            alert(data.message || "Errore durante l'iscrizione.");
+            if (submitBtn) submitBtn.disabled = false;
+        }
+    } catch (err) {
+        console.error("Newsletter error:", err);
+        alert("Errore di rete. Riprova più tardi.");
+        if (submitBtn) submitBtn.disabled = false;
+    } finally {
+        if (submitBtn) submitBtn.style.opacity = "1";
     }
 }
 </script>
