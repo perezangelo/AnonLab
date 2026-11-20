@@ -1,196 +1,242 @@
-<?php
-$allowedOrigins = ["https://anonlab.it", "https://www.anonlab.it"];
-$origin = $_SERVER["HTTP_ORIGIN"] ?? "";
-if (in_array($origin, $allowedOrigins, true)) {
-    header("Access-Control-Allow-Origin: " . $origin);
-} else {
-    header("Access-Control-Allow-Origin: https://anonlab.it");
-}
-header("Access-Control-Allow-Methods: GET");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json; charset=utf-8");
+(() => {
+    if (window.__ransomTrackerLoaded) return;
+    window.__ransomTrackerLoaded = true;
 
-$cacheFile = __DIR__ . "/cache_ransomindex.json";
-$cacheTtl  = 1800; // 30 minuti
-
-// Se in futuro Ransomware.live richiede API-PRO (api-pro.ransomware.live),
-// puoi inserire qui la tua chiave gratuita da my.ransomware.live:
-$apiKey = ""; // es. "la-tua-api-key"
-
-function getURL($url, $apiKey = "") {
-    if (!function_exists("curl_init")) {
-        return false;
+    function escRansomHtml(str) {
+        return String(str ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
     }
 
-    $headers = [
-        "Accept: application/json",
-        "User-Agent: AnonLab-NewsOps/1.0 (+https://anonlab.it)"
-    ];
-    if ($apiKey !== "") {
-        $headers[] = "X-API-KEY: " . $apiKey;
+    function safeHttpUrl(url) {
+        const val = String(url ?? "").trim();
+        return /^https?:\/\//i.test(val) ? val : "";
     }
 
-    $ch = curl_init($url);
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_SSL_VERIFYPEER => true,
-        CURLOPT_CONNECTTIMEOUT => 6,
-        CURLOPT_TIMEOUT        => 12,
-        CURLOPT_HTTPHEADER     => $headers
-    ]);
+    function showRansomPopup(data) {
+        document.querySelectorAll(".ransom-popup-overlay").forEach(el => el.remove());
 
-    $out  = curl_exec($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+        const overlay = document.createElement("div");
+        overlay.className = "ransom-popup-overlay";
+        overlay.style.cssText = `
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,0.65);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            z-index:9999;
+            padding:16px;
+        `;
 
-    if ($out === false || $code < 200 || $code >= 300) {
-        return false;
+        const popup = document.createElement("div");
+        popup.style.cssText = `
+            background:#000;
+            border:1px solid #0ff;
+            box-shadow:0 0 18px rgba(0,255,255,0.35);
+            padding:20px;
+            border-radius:10px;
+            color:#0ff;
+            width:100%;
+            max-width:340px;
+            font-family:monospace;
+        `;
+
+        const group  = String(data.group || "Unknown");
+        const desc   = String(data.desc || "Nessuna descrizione disponibile nel feed.");
+        const status = String(data.status || "Unknown");
+        const date   = String(data.date || "N/D");
+        const leak   = safeHttpUrl(data.leak);
+        const icon   = safeHttpUrl(data.icon);
+
+        const iconBlock = icon
+            ? `<img src="${escRansomHtml(icon)}"
+                    alt="${escRansomHtml(group || "Icona gruppo ransomware")}"
+                    onerror="this.style.display='none'"
+                    style="width:32px;height:32px;margin-bottom:10px;border-radius:4px;object-fit:contain;background:rgba(255,255,255,0.08);">`
+            : "";
+
+        popup.innerHTML = `
+            <div style="display:flex;flex-direction:column;align-items:flex-start;">
+                <div style="font-size:18px;margin-bottom:10px;font-weight:bold;">${escRansomHtml(group)}</div>
+
+                ${iconBlock}
+
+                <div style="font-size:12px;color:#ccc;margin-bottom:12px;line-height:1.5;max-height:180px;overflow-y:auto;">
+                    ${escRansomHtml(desc)}
+                </div>
+
+                <div style="font-size:12px;margin-bottom:10px;">
+                    Status: ${escRansomHtml(status)}<br>
+                    Added: ${escRansomHtml(date)}
+                </div>
+
+                <div style="margin-bottom:12px;">
+                    ${leak
+                        ? `<a href="${escRansomHtml(leak)}" target="_blank" rel="noopener noreferrer" style="color:#0ff;">Leak Site</a>`
+                        : `<span style="color:#666;">No Leak Site</span>`}
+                </div>
+
+                <button type="button" style="
+                    background:#0ff;
+                    color:#000;
+                    border:none;
+                    padding:6px 12px;
+                    cursor:pointer;
+                    border-radius:4px;
+                    font-weight:bold;
+                    align-self:flex-end;
+                ">Close</button>
+            </div>
+        `;
+
+        const onKeyDown = (e) => {
+            if (e.key === "Escape") closePopup();
+        };
+
+        const closePopup = () => {
+            document.removeEventListener("keydown", onKeyDown);
+            overlay.remove();
+        };
+
+        popup.querySelector("button").addEventListener("click", closePopup);
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) closePopup();
+        });
+        document.addEventListener("keydown", onKeyDown);
+
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
     }
 
-    return $out;
-}
+    function startRansomTracker() {
+        const container = document.getElementById("ransom-tracker-container");
+        const box = document.getElementById("ransom-tracker");
 
-// 1) Cache valida
-if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < $cacheTtl) {
-    $cached = @file_get_contents($cacheFile);
-    if ($cached) {
-        echo $cached;
-        exit;
-    }
-}
-
-// 2) Chiamata live (prima v2/pro, poi fallback v1)
-$groupsRaw = false;
-if ($apiKey !== "") {
-    $groupsRaw = getURL("https://api-pro.ransomware.live/groups", $apiKey);
-}
-if (!$groupsRaw) {
-    $groupsRaw = getURL("https://api.ransomware.live/v2/groups");
-}
-if (!$groupsRaw) {
-    $groupsRaw = getURL("https://api.ransomware.live/v1/groups");
-}
-
-$groups = $groupsRaw ? json_decode($groupsRaw, true) : null;
-
-// Se l'API fallisce o restituisce 429/errore, usa la cache scaduta prima di dare errore
-if (!is_array($groups) || empty($groups)) {
-    if (file_exists($cacheFile)) {
-        $stale = @file_get_contents($cacheFile);
-        if ($stale) {
-            echo $stale;
-            exit;
-        }
-    }
-    echo json_encode([
-        ["Nessun dato", "API temporaneamente non raggiungibile", "Unknown", "N/A", "", ""]
-    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    exit;
-}
-
-$parsed = [];
-
-foreach ($groups as $g) {
-    if (!is_array($g)) continue;
-
-    $group = trim((string)($g["name"] ?? "Unknown"));
-    if ($group === "") $group = "Unknown";
-
-    // Descrizione: prova description, poi meta
-    $desc = trim((string)($g["description"] ?? ""));
-    if ($desc === "" || strcasecmp($desc, "No description available") === 0) {
-        $meta = trim((string)($g["meta"] ?? ""));
-        $desc = ($meta !== "") ? $meta : "Nessuna descrizione disponibile nel feed.";
-    }
-
-    // Stato reale e Leak Site calcolati da locations[]
-    $locations = (isset($g["locations"]) && is_array($g["locations"])) ? $g["locations"] : [];
-    $hasOnline = false;
-    $bestLeak  = "";
-    $latestLocDate = "";
-
-    foreach ($locations as $loc) {
-        if (!is_array($loc)) continue;
-
-        $avail = !empty($loc["available"]);
-        if ($avail) {
-            $hasOnline = true;
-        }
-
-        // Ricava URL completo (preferendo slug o aggiungendo http:// a fqdn)
-        $candidateUrl = "";
-        if (!empty($loc["slug"]) && preg_match('#^https?://#i', $loc["slug"])) {
-            $candidateUrl = $loc["slug"];
-        } elseif (!empty($loc["fqdn"])) {
-            $candidateUrl = "http://" . ltrim($loc["fqdn"], "/");
+        if (!box || !container) {
+            return setTimeout(startRansomTracker, 200);
         }
 
-        // Preferisci la location attiva se presente
-        if ($candidateUrl !== "" && ($bestLeak === "" || $avail)) {
-            $bestLeak = $candidateUrl;
+        container.style.maxHeight = "300px";
+        container.style.overflowY = "auto";
+        container.style.paddingRight = "6px";
+
+        async function loadRansom() {
+            try {
+                const url = "https://angelonline.altervista.org/newsops/ransomindex.php?t=" + Date.now();
+                const res = await fetch(url, { cache: "no-store" });
+
+                if (!res.ok) {
+                    throw new Error("HTTP " + res.status);
+                }
+
+                const data = await res.json();
+                if (!Array.isArray(data)) {
+                    throw new Error("Formato JSON non valido");
+                }
+
+                box.innerHTML = "";
+
+                data.forEach(item => {
+                    if (!Array.isArray(item)) return;
+                    const [group, desc, status, date, leak, icon] = item;
+
+                    const safeGroup  = String(group || "Unknown");
+                    const safeDesc   = String(desc || "Nessuna descrizione disponibile nel feed.");
+                    const safeStatus = String(status || "Unknown");
+                    const safeDate   = String(date || "N/D");
+                    const safeLeak   = safeHttpUrl(leak);
+                    const safeIcon   = safeHttpUrl(icon);
+
+                    const shortDesc = safeDesc.length > 90 ? safeDesc.substring(0, 90) + "..." : safeDesc;
+
+                    const badgeColor =
+                        safeStatus.toLowerCase() === "active"   ? "#ff0033" :
+                        safeStatus.toLowerCase() === "inactive" ? "#555"    :
+                        "#0066ff";
+
+                    const iconHTML = safeIcon
+                        ? `<img src="${escRansomHtml(safeIcon)}"
+                                alt="${escRansomHtml(safeGroup || "Icona gruppo ransomware")}"
+                                onerror="this.style.display='none'"
+                                style="width:24px;height:24px;margin-right:6px;border-radius:4px;object-fit:contain;background:rgba(255,255,255,0.08);">`
+                        : "";
+
+                    const leakHTML = safeLeak
+                        ? `<a href="${escRansomHtml(safeLeak)}" target="_blank" rel="noopener noreferrer" style="color:#0ff;font-size:12px;">Leak Site</a>`
+                        : `<span style="color:#555;font-size:12px;">No Leak Site</span>`;
+
+                    const itemDiv = document.createElement("div");
+                    itemDiv.className = "ransom-item";
+                    itemDiv.style.cssText = `
+                        background:#111;
+                        border:1px solid #333;
+                        padding:10px;
+                        margin-bottom:10px;
+                        border-radius:6px;
+                        font-size:14px;
+                        cursor:pointer;
+                    `;
+
+                    itemDiv.dataset.group  = safeGroup;
+                    itemDiv.dataset.desc   = safeDesc;
+                    itemDiv.dataset.status = safeStatus;
+                    itemDiv.dataset.date   = safeDate;
+                    itemDiv.dataset.leak   = safeLeak;
+                    itemDiv.dataset.icon   = safeIcon;
+
+                    itemDiv.addEventListener("click", (e) => {
+                        if (e.target.closest("a")) return;
+                        showRansomPopup(itemDiv.dataset);
+                    });
+
+                    itemDiv.innerHTML = `
+                        <div style="display:flex;align-items:center;margin-bottom:6px;">
+                            ${iconHTML}
+                            <div style="
+                                background:${badgeColor};
+                                color:#fff;
+                                padding:2px 6px;
+                                border-radius:4px;
+                                font-size:12px;
+                                width:max-content;
+                            ">
+                                ${escRansomHtml(safeGroup)}
+                            </div>
+                        </div>
+
+                        <div style="color:#e0e0e0;">${escRansomHtml(shortDesc)}</div>
+
+                        <div style="margin-top:6px;font-size:11px;color:#888;">
+                            Status: ${escRansomHtml(safeStatus)} — Added: ${escRansomHtml(safeDate)}
+                        </div>
+
+                        <div style="margin-top:4px;">
+                            ${leakHTML}
+                        </div>
+                    `;
+
+                    box.appendChild(itemDiv);
+                });
+
+                if (!box.children.length) {
+                    box.innerHTML = "<div style='color:#888;'>Nessun gruppo ransomware disponibile</div>";
+                }
+            } catch (e) {
+                console.error("Errore Ransomware Tracker:", e);
+                box.innerHTML = "<div style='color:#888;'>Impossibile caricare i gruppi ransomware</div>";
+            }
         }
 
-        $locUpdated = substr((string)($loc["updated"] ?? $loc["lastscrape"] ?? ""), 0, 10);
-        if ($locUpdated !== "" && strcmp($locUpdated, $latestLocDate) > 0) {
-            $latestLocDate = $locUpdated;
-        }
+        loadRansom();
     }
 
-    if (!empty($g["status"]) && strcasecmp($g["status"], "Unknown") !== 0) {
-        $status = $g["status"];
-    } elseif ($hasOnline) {
-        $status = "Active";
-    } elseif (!empty($locations)) {
-        $status = "Inactive";
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startRansomTracker);
     } else {
-        $status = "Unknown";
+        startRansomTracker();
     }
-
-    // Data: added / added_date oppure ultima data di locations
-    $rawDate = (string)($g["added"] ?? $g["added_date"] ?? "");
-    $date = $rawDate !== "" ? substr($rawDate, 0, 10) : ($latestLocDate !== "" ? $latestLocDate : "N/D");
-
-    // Se non c'è leak site onion, usa almeno la scheda pubblica ransomware.live se presente
-    if ($bestLeak === "" && !empty($g["url"]) && preg_match('#^https?://#i', $g["url"])) {
-        $bestLeak = $g["url"];
-    }
-
-    // Icona valida solo se URL http/https
-    $icon = "";
-    if (!empty($g["logo"]) && preg_match('#^https?://#i', $g["logo"])) {
-        $icon = $g["logo"];
-    }
-
-    $parsed[] = [
-        "row"      => [$group, $desc, $status, $date, $bestLeak, $icon],
-        "isActive" => ($status === "Active") ? 1 : 0,
-        "hasDesc"  => ($desc !== "Nessuna descrizione disponibile nel feed.") ? 1 : 0,
-        "sortDate" => ($date !== "N/D") ? $date : "0000-00-00"
-    ];
-}
-
-// Ordina: prima i gruppi Active, poi data più recente, poi chi ha descrizione
-usort($parsed, function ($a, $b) {
-    if ($a["isActive"] !== $b["isActive"]) {
-        return $b["isActive"] <=> $a["isActive"];
-    }
-    $cmpDate = strcmp($b["sortDate"], $a["sortDate"]);
-    if ($cmpDate !== 0) {
-        return $cmpDate;
-    }
-    return $b["hasDesc"] <=> $a["hasDesc"];
-});
-
-// Limita ai primi 50 gruppi più rilevanti per mantenere veloce il DOM
-$final = array_map(function ($entry) {
-    return $entry["row"];
-}, array_slice($parsed, 0, 50));
-
-$jsonOut = json_encode($final, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-if ($jsonOut !== false) {
-    @file_put_contents($cacheFile, $jsonOut, LOCK_EX);
-    echo $jsonOut;
-} else {
-    echo json_encode([]);
-}
+})();
