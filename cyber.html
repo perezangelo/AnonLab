@@ -75,20 +75,32 @@
   <div id="header"></div>
 
   <div id="ticker" aria-label="Ticker informazioni"></div>
-<!-- CARICAMENTO TICKER -->
-<script>
-fetch("/partials/ticker.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("ticker").innerHTML = html;
 
-      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
-      if (typeof initTicker === "function") {
-          initTicker();
-      }
-  });
-</script>
+  <!-- SCRIPT TICKER -->
+  <script src="/js/ticker.js"></script>
+  <script>
+  window.escHtml = window.escHtml || function (str) {
+    return String(str ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  };
 
+  fetch("/partials/ticker.html")
+    .then(r => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.text();
+    })
+    .then(html => {
+      const el = document.getElementById("ticker");
+      if (el) el.innerHTML = html;
+      if (typeof initTicker === "function") initTicker();
+    })
+    .catch(err => console.error("Errore caricamento ticker:", err));
+  </script>
+	
 <!-- SCRIPT TICKER -->
 <script src="/js/ticker.js"></script>
 
