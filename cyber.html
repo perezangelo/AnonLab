@@ -198,22 +198,28 @@
 	  
   </div>     
 <div class="cyber-box" style="background:#000814;border:1px solid #00eaffaa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00eaffaa;">
-  <h3 style="color:#00eaff;">MITRE ATT&CK Techniques</h3>
+  <h3 style="color:#00eaff;">MITRE ATT&amp;CK Techniques</h3>
   <p style="color:#ccc;margin-bottom:15px;">Tecniche più utilizzate dagli attaccanti nelle ultime campagne osservate.</p>
 
   <ul id="mitre-list" style="color:#fff;line-height:1.8;">
-    <li>Loading...</li>
+    <li>Caricamento...</li>
   </ul>
 
   <script>
   fetch("https://angelonline.altervista.org/api/techniques-feed.php")
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(list => {
-        const box = document.getElementById("mitre-list");
-        box.innerHTML = "";
-        list.slice(0,5).forEach(t => {
-            box.innerHTML += `<li><strong>${t.id}</strong> — ${t.desc}</li>`;
-        });
+      const box = document.getElementById("mitre-list");
+      if (!Array.isArray(list) || !list.length) {
+        box.innerHTML = "<li>Nessuna tecnica disponibile.</li>";
+        return;
+      }
+      box.innerHTML = list.slice(0, 5).map(t =>
+        `<li><strong>${escHtml(t.id)}</strong> — ${escHtml(t.desc)}</li>`
+      ).join("");
+    })
+    .catch(() => {
+      document.getElementById("mitre-list").innerHTML = "<li style='color:#f66;'>Errore nel caricamento tecniche MITRE.</li>";
     });
   </script>
 </div>
@@ -223,18 +229,24 @@
   <p style="color:#ccc;margin-bottom:15px;">Attori malevoli più attivi nelle ultime settimane.</p>
 
   <ul id="actors-list" style="color:#fff;line-height:1.8;">
-    <li>Loading...</li>
+    <li>Caricamento...</li>
   </ul>
 
   <script>
   fetch("https://angelonline.altervista.org/api/actors-feed.php")
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(list => {
-        const box = document.getElementById("actors-list");
-        box.innerHTML = "";
-        list.slice(0,5).forEach(a => {
-            box.innerHTML += `<li><strong>${a.malware}</strong> — attività da IP ${a.ip}</li>`;
-        });
+      const box = document.getElementById("actors-list");
+      if (!Array.isArray(list) || !list.length) {
+        box.innerHTML = "<li>Nessun threat actor rilevato.</li>";
+        return;
+      }
+      box.innerHTML = list.slice(0, 5).map(a =>
+        `<li><strong>${escHtml(a.malware)}</strong> — attività da IP ${escHtml(a.ip)}</li>`
+      ).join("");
+    })
+    .catch(() => {
+      document.getElementById("actors-list").innerHTML = "<li style='color:#f66;'>Errore nel caricamento Threat Actors.</li>";
     });
   </script>
 </div>
@@ -248,30 +260,34 @@
     <li><strong>Delivery</strong> — invio vettore d’attacco</li>
     <li><strong>Exploitation</strong> — sfruttamento vulnerabilità</li>
     <li><strong>Installation</strong> — installazione malware</li>
-    <li><strong>Command & Control</strong> — comunicazione con server C2</li>
+    <li><strong>Command &amp; Control</strong> — comunicazione con server C2</li>
     <li><strong>Actions on Objectives</strong> — esfiltrazione/distruzione</li>
   </ol>
 </div>
+
 <div class="cyber-box" style="background:#000814;border:1px solid #00ff99aa;padding:25px;margin-top:40px;border-radius:8px;box-shadow:0 0 12px #00ff99aa;">
   <h3 style="color:#00ff99;">Weekly Threat Trends</h3>
   <p style="color:#ccc;margin-bottom:15px;">Andamento delle principali categorie di minacce nell’ultima settimana.</p>
 
   <ul id="trends-list" style="color:#fff;line-height:1.8;">
-    <li>Loading...</li>
+    <li>Caricamento...</li>
   </ul>
 
   <script>
   fetch("https://angelonline.altervista.org/api/trends-feed.php")
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(t => {
-        const box = document.getElementById("trends-list");
-        box.innerHTML = `
-          <li><strong>Ransomware:</strong> ${t.ransomware}</li>
-          <li><strong>Phishing:</strong> ${t.phishing}</li>
-          <li><strong>DDoS:</strong> ${t.ddos}</li>
-          <li><strong>Supply Chain:</strong> ${t.supply}</li>
-          <li><strong>Zero‑day:</strong> ${t.zeroday}</li>
-        `;
+      const box = document.getElementById("trends-list");
+      box.innerHTML = `
+        <li><strong>Ransomware:</strong> ${escHtml(t.ransomware ?? "N/D")}</li>
+        <li><strong>Phishing:</strong> ${escHtml(t.phishing ?? "N/D")}</li>
+        <li><strong>DDoS:</strong> ${escHtml(t.ddos ?? "N/D")}</li>
+        <li><strong>Supply Chain:</strong> ${escHtml(t.supply ?? "N/D")}</li>
+        <li><strong>Zero‑day:</strong> ${escHtml(t.zeroday ?? "N/D")}</li>
+      `;
+    })
+    .catch(() => {
+      document.getElementById("trends-list").innerHTML = "<li style='color:#f66;'>Errore nel caricamento dei trend settimanali.</li>";
     });
   </script>
 </div>
@@ -281,18 +297,24 @@
   <p style="color:#ccc;margin-bottom:15px;">Vulnerabilità zero‑day attualmente sfruttate attivamente.</p>
 
   <ul id="zeroday-list" style="color:#fff;line-height:1.8;">
-    <li>Loading...</li>
+    <li>Caricamento...</li>
   </ul>
 
   <script>
   fetch("https://angelonline.altervista.org/api/zeroday-feed.php")
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(list => {
-        const box = document.getElementById("zeroday-list");
-        box.innerHTML = "";
-        list.slice(0,3).forEach(v => {
-            box.innerHTML += `<li><strong>${v.cveID}</strong> — ${v.shortDescription}</li>`;
-        });
+      const box = document.getElementById("zeroday-list");
+      if (!Array.isArray(list) || !list.length) {
+        box.innerHTML = "<li>Nessuno zero-day segnalato.</li>";
+        return;
+      }
+      box.innerHTML = list.slice(0, 3).map(v =>
+        `<li><strong>${escHtml(v.cveID)}</strong> — ${escHtml(v.shortDescription)}</li>`
+      ).join("");
+    })
+    .catch(() => {
+      document.getElementById("zeroday-list").innerHTML = "<li style='color:#f66;'>Errore nel caricamento Zero-Day Monitor.</li>";
     });
   </script>
 </div>
@@ -657,51 +679,52 @@ setInterval(loadMalwareActivity, 60000);
   <p style="color:#ccc;margin-bottom:15px;">Monitoraggio del traffico in uscita per individuare possibili esfiltrazioni.</p>
 
   <table id="exfilTable" style="width:100%;color:#fff;border-collapse:collapse;">
-    <tr style="background:#111;">
-      <th style="padding:10px;">Host</th>
-      <th style="padding:10px;">Traffico uscente</th>
-      <th style="padding:10px;">Stato</th>
-    </tr>
+    <thead>
+      <tr style="background:#111;">
+        <th style="padding:10px;text-align:left;">Host</th>
+        <th style="padding:10px;text-align:left;">Traffico uscente</th>
+        <th style="padding:10px;text-align:left;">Stato</th>
+      </tr>
+    </thead>
+    <tbody id="exfilBody">
+      <tr><td colspan="3" style="padding:10px;color:#ccc;">Caricamento...</td></tr>
+    </tbody>
   </table>
 </div>
 
 <script>
 async function loadExfil() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/data_exfiltration.php");
-        const data = await res.json();
+  const tbody = document.getElementById("exfilBody");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/data_exfiltration.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
 
-        const table = document.getElementById("exfilTable");
-
-        // Reset mantenendo l'header
-        table.innerHTML = `
-        <tr style="background:#111;">
-          <th style="padding:10px;">Host</th>
-          <th style="padding:10px;">Traffico uscente</th>
-          <th style="padding:10px;">Stato</th>
-        </tr>`;
-
-        data.forEach(row => {
-            const host = row[0];
-            const traffic = row[1];
-            const status = row[2];
-
-            const color =
-                status === "Anomalo" ? "#ffaa00" :
-                status === "Sospetto" ? "#ff0044" :
-                "#00ff99";
-
-            table.innerHTML += `
-            <tr>
-              <td style="padding:10px;">${host}</td>
-              <td style="padding:10px;">${traffic}</td>
-              <td style="padding:10px;color:${color};">${status}</td>
-            </tr>`;
-        });
-
-    } catch (e) {
-        console.error("Exfiltration error:", e);
+    if (!Array.isArray(data) || !data.length) {
+      tbody.innerHTML = `<tr><td colspan="3" style="padding:10px;color:#888;">Nessun flusso anomalo rilevato.</td></tr>`;
+      return;
     }
+
+    tbody.innerHTML = data.map(row => {
+      const host = escHtml(row[0]);
+      const traffic = escHtml(row[1]);
+      const status = String(row[2] ?? "");
+      const color =
+        status === "Anomalo" ? "#ffaa00" :
+        status === "Sospetto" ? "#ff0044" :
+        "#00ff99";
+
+      return `
+        <tr>
+          <td style="padding:10px;">${host}</td>
+          <td style="padding:10px;">${traffic}</td>
+          <td style="padding:10px;color:${color};">${escHtml(status)}</td>
+        </tr>`;
+    }).join("");
+  } catch (e) {
+    console.error("Exfiltration error:", e);
+    tbody.innerHTML = `<tr><td colspan="3" style="padding:10px;color:#f66;">Errore nel caricamento dati exfiltration.</td></tr>`;
+  }
 }
 
 loadExfil();
@@ -904,51 +927,76 @@ setInterval(loadSupplyRisk, 60000);
   </ul>
 </div>
 
-	<script>
-	async function loadIncidentTimeline() {
+<script>
+async function loadIncidentTimeline() {
   const el = document.getElementById("incident-timeline");
-
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/incidents.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/incidents.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
+
+    if (!data.items || !data.items.length) {
+      el.innerHTML = `<li>Nessun evento recente nella timeline.</li>`;
+      return;
+    }
 
     el.innerHTML = data.items.map(i => `
       <li>
-        <strong style="color:#00eaff;">${i.time}</strong> — ${i.event}
+        <strong style="color:#00eaff;">${escHtml(i.time)}</strong> — ${escHtml(i.event)}
       </li>
     `).join("");
-
   } catch (e) {
-    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento.</li>`;
+    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento timeline.</li>`;
   }
 }
 
-		loadIncidentTimeline();
+loadIncidentTimeline();
+setInterval(loadIncidentTimeline, 60000);
 </script>
 
-<ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;"></ul>
+<div class="cyber-box" style="
+    background:#000814;
+    border:1px solid #ff0044aa;
+    padding:25px;
+    margin-top:30px;
+    border-radius:8px;
+    box-shadow:0 0 12px #ff0044aa;
+">
+  <h3 style="color:#ff0044;">SIEM Live Alerts</h3>
+  <p style="color:#999; font-size:13px; margin-top:6px; margin-bottom:12px;">
+    Segnalazioni e correlazioni di sicurezza in tempo reale dal SIEM.
+  </p>
+  <ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;margin:0;">
+    <li style="color:#ccc;">Caricamento alert SIEM...</li>
+  </ul>
+</div>
 
 <script>
 async function loadSIEM() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/siem-alerts.php");
-        const data = await res.json();
+  const box = document.getElementById("siemList");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/siem-alerts.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
 
-        const box = document.getElementById("siemList");
-        box.innerHTML = "";
-
-        data.forEach(a => {
-            box.innerHTML += `<li><strong>[${a.sev}]</strong> ${a.msg}</li>`;
-        });
-
-    } catch (e) {
-        console.error("SIEM error:", e);
+    if (!Array.isArray(data) || !data.length) {
+      box.innerHTML = `<li style="color:#888;">Nessun alert attivo.</li>`;
+      return;
     }
+
+    box.innerHTML = data.map(a =>
+      `<li><strong style="color:#ffaa00;">[${escHtml(a.sev)}]</strong> ${escHtml(a.msg)}</li>`
+    ).join("");
+  } catch (e) {
+    console.error("SIEM error:", e);
+    box.innerHTML = `<li style="color:#f66;">Errore nel caricamento alert SIEM.</li>`;
+  }
 }
 
 loadSIEM();
 setInterval(loadSIEM, 10000);
 </script>
+	
         </section>
         <!-- CARDS -->
 <div class="cyber-card">
@@ -960,8 +1008,7 @@ setInterval(loadSIEM, 10000);
     <h4 style="color:#ff7b00;">Mappa globale degli attacchi</h4>
 	  
 <div id="tiMapBox" class="map-frame">
-     <canvas id="AttackMapCanvas" width="100%" height="100%" style="width:100%;height:300px;"></canvas>
-
+     <canvas id="AttackMapCanvas" style="display:block;width:100%;height:300px;"></canvas>
 
 <script>
 (() => {
@@ -1286,27 +1333,30 @@ setInterval(loadStatusStats, 60000);
 
 <script>
 async function loadRansomTrends() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/ransomware-trends.php");
-        const d = await res.json();
+  const el = document.getElementById("ransomList");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/ransomware-trends.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const d = await res.json();
 
-        document.getElementById("ransomList").innerHTML = `
-            <li><strong>Target:</strong> ${d.targets}</li>
-            <li><strong>Tattiche:</strong> ${d.tactics}</li>
-            <li><strong>Accesso iniziale:</strong> ${d.initial}</li>
-            <li><strong>Monetizzazione:</strong> ${d.monet}</li>
-            <li><strong>KEV attivi:</strong> ${d.kev_count}</li>
-        `;
-    } catch (e) {
-        console.error("Ransom Trends error:", e);
-    }
+    el.innerHTML = `
+      <li><strong>Target:</strong> ${escHtml(d.targets ?? "N/D")}</li>
+      <li><strong>Tattiche:</strong> ${escHtml(d.tactics ?? "N/D")}</li>
+      <li><strong>Accesso iniziale:</strong> ${escHtml(d.initial ?? "N/D")}</li>
+      <li><strong>Monetizzazione:</strong> ${escHtml(d.monet ?? "N/D")}</li>
+      <li><strong>KEV attivi:</strong> ${escHtml(d.kev_count ?? "N/D")}</li>
+    `;
+  } catch (e) {
+    console.error("Ransom Trends error:", e);
+    el.innerHTML = `<li style="color:#f66;">Dati ransomware temporaneamente non disponibili.</li>`;
+  }
 }
 
 loadRansomTrends();
 setInterval(loadRansomTrends, 30000);
 </script>
 
-          <!-- Hacker Activity Heatmap -->
+<!-- Hacker Activity Heatmap -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 style="color:#ff7b00;">Hacker Activity Heatmap</h4>
   <ul id="heatmapList" style="color:#ccc; line-height:1.7;">
@@ -1316,27 +1366,30 @@ setInterval(loadRansomTrends, 30000);
 
 <script>
 async function loadHeatmap() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/hacker-heatmap.php");
-        const d = await res.json();
+  const el = document.getElementById("heatmapList");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/hacker-heatmap.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const d = await res.json();
 
-        document.getElementById("heatmapList").innerHTML = `
-            <li><strong>Europa:</strong> ${d["Europa"]} attività</li>
-            <li><strong>Nord America:</strong> ${d["Nord America"]} attività</li>
-            <li><strong>Asia:</strong> ${d["Asia"]} attività</li>
-            <li><strong>Sud America:</strong> ${d["Sud America"]} attività</li>
-            <li><strong>Africa:</strong> ${d["Africa"]} attività</li>
-        `;
-    } catch (e) {
-        console.error("Heatmap error:", e);
-    }
+    el.innerHTML = `
+      <li><strong>Europa:</strong> ${escHtml(d["Europa"] ?? 0)} attività</li>
+      <li><strong>Nord America:</strong> ${escHtml(d["Nord America"] ?? 0)} attività</li>
+      <li><strong>Asia:</strong> ${escHtml(d["Asia"] ?? 0)} attività</li>
+      <li><strong>Sud America:</strong> ${escHtml(d["Sud America"] ?? 0)} attività</li>
+      <li><strong>Africa:</strong> ${escHtml(d["Africa"] ?? 0)} attività</li>
+    `;
+  } catch (e) {
+    console.error("Heatmap error:", e);
+    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento attività geografiche.</li>`;
+  }
 }
 
 loadHeatmap();
 setInterval(loadHeatmap, 30000);
 </script>
 
-          <!-- Timeline attacchi recenti -->
+<!-- Timeline attacchi recenti -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 style="color:#ff7b00;">Timeline attacchi recenti</h4>
   <ul id="timelineList" style="color:#ccc; line-height:1.7;">
@@ -1346,25 +1399,30 @@ setInterval(loadHeatmap, 30000);
 
 <script>
 async function loadTimeline() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/attack-timeline.php");
-        const d = await res.json();
+  const el = document.getElementById("timelineList");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/attack-timeline.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const d = await res.json();
 
-        let html = "";
-        d.forEach(ev => {
-            html += `<li><span class="time-tag">${ev.date}</span> ${ev.desc} (CVE: ${ev.cve})</li>`;
-        });
-
-        document.getElementById("timelineList").innerHTML = html;
-
-    } catch (e) {
-        console.error("Timeline error:", e);
+    if (!Array.isArray(d) || !d.length) {
+      el.innerHTML = `<li>Nessun attacco recente segnalato.</li>`;
+      return;
     }
+
+    el.innerHTML = d.map(ev =>
+      `<li><span class="time-tag">${escHtml(ev.date)}</span> ${escHtml(ev.desc)} (CVE: ${escHtml(ev.cve)})</li>`
+    ).join("");
+  } catch (e) {
+    console.error("Timeline error:", e);
+    el.innerHTML = `<li style="color:#f66;">Errore nel caricamento timeline attacchi.</li>`;
+  }
 }
 
 loadTimeline();
 setInterval(loadTimeline, 60000);
 </script>
+	
           <!-- 🔥 CONTENUTI DEL TUO BLOCCO 3 -->
 
           <div class="ti-section">
@@ -1444,7 +1502,7 @@ setInterval(loadTimeline, 60000);
             </ul>
           </div>
 
-         <div class="ti-section" style="margin-top:25px;">
+        <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Threat Distribution</h4>
 
   <div id="threatBars" style="
@@ -1458,14 +1516,7 @@ setInterval(loadTimeline, 60000);
 
     <!-- RANSOMWARE -->
     <div style="display:flex; flex-direction:column; align-items:center; width:120px; min-width:110px;">
-      <div id="bar-ransomware" style="
-          width:100%;
-          height:10px;
-          background:#ff0044;
-          border-radius:6px;
-          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
-          box-shadow:0 0 14px rgba(255,0,68,0.55);
-      "></div>
+      <div id="bar-ransomware" style="width:100%;height:10px;background:#ff0044;border-radius:6px;transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;box-shadow:0 0 14px rgba(255,0,68,0.55);"></div>
       <span style="margin-top:10px; color:#ccc; font-size:13px;">Ransomware</span>
       <span id="pct-ransomware" style="margin-top:4px; color:#ff0044; font-weight:bold; font-size:14px;">0%</span>
       <span id="trend-ransomware" style="margin-top:2px; font-size:12px; color:#ff0044;">–</span>
@@ -1473,14 +1524,7 @@ setInterval(loadTimeline, 60000);
 
     <!-- PHISHING -->
     <div style="display:flex; flex-direction:column; align-items:center; width:120px; min-width:110px;">
-      <div id="bar-phishing" style="
-          width:100%;
-          height:10px;
-          background:#ff7b00;
-          border-radius:6px;
-          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
-          box-shadow:0 0 14px rgba(255,123,0,0.55);
-      "></div>
+      <div id="bar-phishing" style="width:100%;height:10px;background:#ff7b00;border-radius:6px;transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;box-shadow:0 0 14px rgba(255,123,0,0.55);"></div>
       <span style="margin-top:10px; color:#ccc; font-size:13px;">Phishing</span>
       <span id="pct-phishing" style="margin-top:4px; color:#ff7b00; font-weight:bold; font-size:14px;">0%</span>
       <span id="trend-phishing" style="margin-top:2px; font-size:12px; color:#ff7b00;">–</span>
@@ -1488,14 +1532,7 @@ setInterval(loadTimeline, 60000);
 
     <!-- EXPLOIT -->
     <div style="display:flex; flex-direction:column; align-items:center; width:120px; min-width:110px;">
-      <div id="bar-exploit" style="
-          width:100%;
-          height:10px;
-          background:#ffaa00;
-          border-radius:6px;
-          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
-          box-shadow:0 0 14px rgba(255,170,0,0.55);
-      "></div>
+      <div id="bar-exploit" style="width:100%;height:10px;background:#ffaa00;border-radius:6px;transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;box-shadow:0 0 14px rgba(255,170,0,0.55);"></div>
       <span style="margin-top:10px; color:#ccc; font-size:13px;">Exploit</span>
       <span id="pct-exploit" style="margin-top:4px; color:#ffaa00; font-weight:bold; font-size:14px;">0%</span>
       <span id="trend-exploit" style="margin-top:2px; font-size:12px; color:#ffaa00;">–</span>
@@ -1503,14 +1540,7 @@ setInterval(loadTimeline, 60000);
 
     <!-- VULNERABILITÀ -->
     <div style="display:flex; flex-direction:column; align-items:center; width:120px; min-width:110px;">
-      <div id="bar-vulns" style="
-          width:100%;
-          height:10px;
-          background:#00eaff;
-          border-radius:6px;
-          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
-          box-shadow:0 0 14px rgba(0,234,255,0.55);
-      "></div>
+      <div id="bar-vulns" style="width:100%;height:10px;background:#00eaff;border-radius:6px;transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;box-shadow:0 0 14px rgba(0,234,255,0.55);"></div>
       <span style="margin-top:10px; color:#ccc; font-size:13px;">Vulnerabilità</span>
       <span id="pct-vulns" style="margin-top:4px; color:#00eaff; font-weight:bold; font-size:14px;">0%</span>
       <span id="trend-vulns" style="margin-top:2px; font-size:12px; color:#00eaff;">–</span>
@@ -1518,179 +1548,149 @@ setInterval(loadTimeline, 60000);
 
     <!-- BOTNET -->
     <div style="display:flex; flex-direction:column; align-items:center; width:120px; min-width:110px;">
-      <div id="bar-botnet" style="
-          width:100%;
-          height:10px;
-          background:#00ff99;
-          border-radius:6px;
-          transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;
-          box-shadow:0 0 14px rgba(0,255,153,0.55);
-      "></div>
+      <div id="bar-botnet" style="width:100%;height:10px;background:#00ff99;border-radius:6px;transition:height 1s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.6s ease;box-shadow:0 0 14px rgba(0,255,153,0.55);"></div>
       <span style="margin-top:10px; color:#ccc; font-size:13px;">Botnet</span>
       <span id="pct-botnet" style="margin-top:4px; color:#00ff99; font-weight:bold; font-size:14px;">0%</span>
       <span id="trend-botnet" style="margin-top:2px; font-size:12px; color:#00ff99;">–</span>
     </div>
-
-	              <p style="
-    color:#ccc;
-    margin-top:12px;
-    font-size:14px;
-    line-height:1.6;
-    text-shadow:0 0 6px #000;
-">
-  Distribuzione delle principali categorie di minacce rilevate questa settimana.
-</p>
   </div>
 
+  <p style="color:#ccc;margin-top:14px;font-size:14px;line-height:1.6;text-shadow:0 0 6px #000;text-align:center;">
+    Distribuzione delle principali categorie di minacce rilevate questa settimana.
+  </p>
+</div> <!-- ✅ Chiusura corretta di Threat Distribution -->
+
 <script>
-	
-// =========================
 // 1) TI NEWS (CISA)
-// =========================
 async function loadTiNews() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/api/cisa.php");
-        const data = await res.json();
+  const el = document.getElementById("tiNews");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/api/cisa.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
 
-        if (!data.alerts || !Array.isArray(data.alerts)) {
-            document.getElementById("tiNews").innerHTML =
-                "<li>Nessun alert disponibile</li>";
-            return;
-        }
-
-        document.getElementById("tiNews").innerHTML =
-            data.alerts.slice(0, 3).map(a =>
-                `<li><strong>${a.source}:</strong> ${a.title}</li>`
-            ).join("");
-    } catch (e) {
-        document.getElementById("tiNews").innerHTML =
-            "<li>Errore nel caricamento del feed TI</li>";
+    if (!data.alerts || !Array.isArray(data.alerts) || !data.alerts.length) {
+      el.innerHTML = "<li>Nessun alert disponibile</li>";
+      return;
     }
+
+    el.innerHTML = data.alerts.slice(0, 3).map(a =>
+      `<li><strong>${escHtml(a.source)}:</strong> ${escHtml(a.title)}</li>`
+    ).join("");
+  } catch (e) {
+    el.innerHTML = "<li style='color:#f66;'>Errore nel caricamento del feed TI</li>";
+  }
 }
 
-// =========================
 // 2) IOC (URLhaus + ThreatFox)
-// =========================
 async function loadIoC() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/api/ioc.php");
-        const data = await res.json();
+  const el = document.getElementById("iocList");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/api/ioc.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
 
-        document.getElementById("iocList").innerHTML =
-            data.map(i =>
-                `<li><strong>${i.type}:</strong> ${i.ioc} <em>(${i.source})</em></li>`
-            ).join("");
-    } catch (e) {
-        document.getElementById("iocList").innerHTML =
-            "<li>Errore nel caricamento degli IoC</li>";
+    if (!Array.isArray(data) || !data.length) {
+      el.innerHTML = "<li>Nessun IoC disponibile</li>";
+      return;
     }
+
+    el.innerHTML = data.map(i =>
+      `<li><strong>${escHtml(i.type)}:</strong> ${escHtml(i.ioc)} <em>(${escHtml(i.source)})</em></li>`
+    ).join("");
+  } catch (e) {
+    el.innerHTML = "<li style='color:#f66;'>Errore nel caricamento degli IoC</li>";
+  }
 }
 
-// =========================
 // 3) MITRE ATT&CK
-// =========================
 async function loadMitre() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/api/mitre.php");
-        const data = await res.json();
+  const el = document.getElementById("mitreList");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/api/mitre.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
 
-        document.getElementById("mitreList").innerHTML =
-            data.map(t =>
-                `<li><strong>${t.id}:</strong> ${t.name}</li>`
-            ).join("");
-    } catch (e) {
-        document.getElementById("mitreList").innerHTML =
-            "<li>Errore nel caricamento del feed MITRE</li>";
+    if (!Array.isArray(data) || !data.length) {
+      el.innerHTML = "<li>Nessuna tecnica disponibile</li>";
+      return;
     }
+
+    el.innerHTML = data.map(t =>
+      `<li><strong>${escHtml(t.id)}:</strong> ${escHtml(t.name)}</li>`
+    ).join("");
+  } catch (e) {
+    el.innerHTML = "<li style='color:#f66;'>Errore nel caricamento del feed MITRE</li>";
+  }
 }
-	
-// =========================
+
 // 4) THREAT LEVEL
-// =========================
 async function loadThreatLevel() {
-    const text = document.getElementById("thLevelText");
-    const fill = document.getElementById("thLevelFill");
+  const text = document.getElementById("thLevelText");
+  const fill = document.getElementById("thLevelFill");
+  if (!text || !fill) return;
 
-    if (!text || !fill) {
-        console.error("Elementi Threat Level non trovati");
-        return;
-    }
+  try {
+    const res = await fetch("https://angelonline.altervista.org/api/threat_level.php", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const level = Math.max(0, Math.min(100, Number(data.level) || 0));
 
-    try {
-        const res = await fetch(
-            "https://angelonline.altervista.org/api/threat_level.php"
-        );
-
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status}`);
-        }
-
-        const data = await res.json();
-        const level = Math.max(
-            0,
-            Math.min(100, Number(data.level) || 0)
-        );
-
-        fill.style.width = `${level}%`;
-        text.innerText = `${data.status} — ${level}%`;
-
-    } catch (e) {
-        console.error("Errore nel caricamento del Threat Level:", e);
-        text.innerText = "Errore nel caricamento del Threat Level";
-    }
+    fill.style.width = `${level}%`;
+    text.textContent = `${data.status ?? "N/D"} — ${level}%`;
+  } catch (e) {
+    console.error("Errore nel caricamento del Threat Level:", e);
+    text.textContent = "Errore nel caricamento del Threat Level";
+  }
 }
 
-// =========================
 // 5) THREAT DISTRIBUTION
-// =========================
 async function loadThreatDistribution() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/api/threat-distribution.php");
-        const data = await res.json();
+  try {
+    const res = await fetch("https://angelonline.altervista.org/api/threat-distribution.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    if (!Array.isArray(data)) return;
 
-        const mapping = {
-            ransomware: { bar: "bar-ransomware", pct: "pct-ransomware", trend: "trend-ransomware" },
-            phishing:   { bar: "bar-phishing", pct: "pct-phishing", trend: "trend-phishing" },
-            exploit:    { bar: "bar-exploit", pct: "pct-exploit", trend: "trend-exploit" },
-            vulns:      { bar: "bar-vulns", pct: "pct-vulns", trend: "trend-vulns" },
-            botnet:     { bar: "bar-botnet", pct: "pct-botnet", trend: "trend-botnet" }
-        };
+    const mapping = {
+      ransomware: { bar: "bar-ransomware", pct: "pct-ransomware", trend: "trend-ransomware" },
+      phishing:   { bar: "bar-phishing",   pct: "pct-phishing",   trend: "trend-phishing" },
+      exploit:    { bar: "bar-exploit",    pct: "pct-exploit",    trend: "trend-exploit" },
+      vulns:      { bar: "bar-vulns",      pct: "pct-vulns",      trend: "trend-vulns" },
+      botnet:     { bar: "bar-botnet",     pct: "pct-botnet",     trend: "trend-botnet" }
+    };
 
-        const total = data.reduce((sum, item) => sum + item.attacks, 0);
+    const total = data.reduce((sum, item) => sum + (Number(item.attacks) || 0), 0);
 
-        data.forEach(item => {
-    const key = item.category || item.type;
-    if (!mapping[key]) return;
-    const ids = mapping[key];
-    const pct = total > 0 ? Math.round((item.attacks / total) * 100) : 0;
+    data.forEach(item => {
+      const key = item.category || item.type;
+      const ids = mapping[key];
+      if (!ids) return;
+      const attacks = Number(item.attacks) || 0;
+      const pct = total > 0 ? Math.round((attacks / total) * 100) : 0;
 
-    document.getElementById(ids.bar).style.height = Math.max(10, pct * 2) + "px";
-    document.getElementById(ids.pct).innerText = pct + "%";
-    document.getElementById(ids.trend).innerText = pct > 20 ? "↑" : "→";
-});
-
-    } catch (e) {
-        console.error("Threat Distribution Error:", e);
-    }
+      document.getElementById(ids.bar).style.height = Math.max(10, pct * 2) + "px";
+      document.getElementById(ids.pct).textContent = pct + "%";
+      document.getElementById(ids.trend).textContent = pct > 20 ? "↑" : "→";
+    });
+  } catch (e) {
+    console.error("Threat Distribution Error:", e);
+  }
 }
 
-// =========================
-// AVVIO AUTOMATICO
-// =========================
 loadTiNews();
 loadIoC();
 loadMitre();
 loadThreatLevel();
 loadThreatDistribution();
 
-// Aggiornamento ogni 60 secondi
 setInterval(loadTiNews, 60000);
 setInterval(loadIoC, 60000);
 setInterval(loadMitre, 60000);
 setInterval(loadThreatLevel, 60000);
 setInterval(loadThreatDistribution, 60000);
 </script>
-
+	
 <!-- ========================= -->
 <!-- CONTENITORI RICHIESTI DAGLI SCRIPT -->
 <!-- ========================= -->
@@ -1816,41 +1816,22 @@ setInterval(loadThreatDistribution, 60000);
 <!-- ========================= -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
-  // ATTACK MAP
-  if (typeof loadAttackMap === "function") {
-    loadAttackMap();
-  }
-
-  // NOTE DI INTELLIGENCE
   loadIntelNotes();
-
-  // SEZIONI TI (AlterVista)
   loadCyberSections();
-
-  // AWARENESS TIPS
   loadAwarenessTips();
-
-  // CHECKLIST OPERATIVA
   loadOpsChecklist();
-
-  // DISTRIBUZIONE MINACCE
-  if (typeof loadThreatDistribution === "function") {
-    loadThreatDistribution();
-    setInterval(loadThreatDistribution, 60000);
-  }
-
 });
 </script>
 
 <!-- ========================= -->
 <!-- SCRIPT DINAMICO (VERCEL + ALTERVISTA) -->
 <!-- ========================= -->
-			 <script>
+<script>
 async function loadIntelNotes() {
   const container = document.getElementById("intel-notes");
   try {
-    const res = await fetch("https://angelonline.altervista.org/api/cisa.php");
+    const res = await fetch("https://angelonline.altervista.org/api/cisa.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
 
     if (!data.alerts || !data.alerts.length) {
@@ -1860,7 +1841,7 @@ async function loadIntelNotes() {
 
     container.innerHTML = data.alerts.slice(0, 3).map(a => `
       <p style="color:#ccc; line-height:1.7;">
-        <strong style="color:#00eaff;">${a.title}</strong><br>${a.summary}
+        <strong style="color:#00eaff;">${escHtml(a.title)}</strong><br>${escHtml(a.summary)}
       </p>
     `).join("");
   } catch (e) {
@@ -1873,7 +1854,8 @@ async function loadCyberSections() {
   const difesaEl   = document.getElementById("sec-difesa");
   const culturaEl  = document.getElementById("sec-cultura");
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/ti-news.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/ti-news.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
     renderList(attacchiEl, data.attacchi, "Nessun dato sugli attacchi.");
     renderList(difesaEl,   data.difesa,   "Nessun dato sulla difesa.");
@@ -1888,7 +1870,8 @@ async function loadCyberSections() {
 async function loadAwarenessTips() {
   const listEl = document.getElementById("awareness-tips");
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/awareness.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/awareness.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
     renderList(listEl, data.tips, "Nessun suggerimento disponibile al momento.");
   } catch (e) {
@@ -1899,7 +1882,8 @@ async function loadAwarenessTips() {
 async function loadOpsChecklist() {
   const listEl = document.getElementById("ops-checklist");
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/checklist.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/checklist.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
     renderList(listEl, data.ops, "Nessuna voce operativa disponibile al momento.");
   } catch (e) {
@@ -1909,10 +1893,10 @@ async function loadOpsChecklist() {
 
 function renderList(el, arr, emptyMsg) {
   if (!arr || !arr.length) {
-    el.innerHTML = `<li>${emptyMsg}</li>`;
+    el.innerHTML = `<li>${escHtml(emptyMsg)}</li>`;
     return;
   }
-  el.innerHTML = arr.map(item => `<li>${item}</li>`).join("");
+  el.innerHTML = arr.map(item => `<li>${escHtml(item)}</li>`).join("");
 }
 </script>
 </div>
@@ -2104,27 +2088,26 @@ setInterval(loadHeatIndex, 30000);
 ">
     <h3 style="color:#ffaa00;">Cyber Operations Dashboard</h3>
 
-    <div style="display:flex; gap:20px; margin-top:15px;">
+    <div style="display:flex; gap:20px; margin-top:15px; flex-wrap:wrap;">
 
-        <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+        <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Incidenti attivi</h4>
             <p id="opsIncidenti" style="color:#ccc; font-size:22px; margin-top:10px;">--</p>
         </div>
 
-        <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+        <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Minacce critiche</h4>
             <p id="opsCritiche" style="color:#ccc; font-size:22px; margin-top:10px;">--</p>
         </div>
 
-        <div style="flex:1; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
+        <div style="flex:1; min-width:180px; background:#111; padding:15px; border-radius:6px; box-shadow:0 0 10px #ffaa00aa;">
             <h4 style="color:#ffaa00;">Zero‑day attivi</h4>
             <p id="zeroDayValue" style="color:#ccc; font-size:22px; margin-top:10px;">--</p>
             <p id="zeroDayUpdate" style="color:#666; font-size:12px; margin-top:5px;">Aggiornamento: --</p>
         </div>
 
     </div>
-</div>
-
+	
 <script>
 async function loadZeroDay() {
     try {
@@ -2193,7 +2176,7 @@ setInterval(loadOpsDashboard, 60000);
             <p id="spotlight-desc" style="margin: 0; color: #85929E; font-size: 0.85rem; line-height: 1.4;">-</p>
         </div>
         <button onclick="rotateSpotlight()" style="background: transparent; color: #45f3ff; border: 1px solid #45f3ff; padding: 6px 12px; font-family: monospace; font-size: 0.75rem; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='#45f3ff'; this.style.color='#0b0c10';" onmouseout="this.style.background='transparent'; this.style.color='#45f3ff';">
-            🎲 ROTA TERMINE
+           🎲 RUOTA TERMINE
         </button>
     </div>
 
@@ -2468,85 +2451,88 @@ async function loadThreatMap() {
 loadThreatMap();
 </script>
 
-  <script>
+ <script>
 function loadTISummary() {
-    fetch("https://angelonline.altervista.org/cyberops/tisummary.php")
-        .then(r => r.json())
-        .then(data => {
-            const box = document.getElementById("tiSummaryBox");
-            box.innerHTML = "";
-
-            for (const key in data) {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong>${key}:</strong> ${data[key]}`;
-                box.appendChild(li);
-            }
-        })
-        .catch(() => {
-            document.getElementById("tiSummaryBox").innerHTML =
-                "<li>Errore caricamento dati</li>";
-        });
+  const box = document.getElementById("tiSummaryBox");
+  fetch("https://angelonline.altervista.org/cyberops/tisummary.php", { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(data => {
+      const items = Object.entries(data).map(([key, val]) =>
+        `<li><strong>${escHtml(key)}:</strong> ${escHtml(val)}</li>`
+      ).join("");
+      box.innerHTML = items || "<li>Nessun dato disponibile</li>";
+    })
+    .catch(() => {
+      box.innerHTML = "<li style='color:#f66;'>Errore caricamento dati</li>";
+    });
 }
 
 loadTISummary();
 setInterval(loadTISummary, 30000);
 </script>
 
-	<script>
+<script>
 async function loadIncidentResponse() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/soc/incident-response.php");
-        const data = await res.json();
+  const table = document.getElementById("irTable");
+  const header = `
+    <thead>
+      <tr style="background:#002233;">
+        <th style="padding:10px;text-align:left;">ID</th>
+        <th style="padding:10px;text-align:left;">Tipo</th>
+        <th style="padding:10px;text-align:left;">Priorità</th>
+        <th style="padding:10px;text-align:left;">Stato</th>
+        <th style="padding:10px;text-align:left;">Aggiornato</th>
+      </tr>
+    </thead>`;
 
-        const table = document.getElementById("irTable");
+  try {
+    const res = await fetch("https://angelonline.altervista.org/soc/incident-response.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
 
-        table.innerHTML = `
-            <tr style="background:#002233;">
-              <th style="padding:10px;">ID</th>
-              <th style="padding:10px;">Tipo</th>
-              <th style="padding:10px;">Priorità</th>
-              <th style="padding:10px;">Stato</th>
-              <th style="padding:10px;">Aggiornato</th>
-            </tr>
-        `;
-
-        data.forEach(inc => {
-            table.innerHTML += `
-                <tr>
-                  <td style="padding:10px;">${inc.id}</td>
-                  <td style="padding:10px;">${inc.type}</td>
-                  <td style="padding:10px;color:${inc.priority === 'High' ? '#ff4444' : inc.priority === 'Medium' ? '#ffaa00' : '#00ff99'};">
-                    ${inc.priority}
-                  </td>
-                  <td style="padding:10px;">${inc.status}</td>
-                  <td style="padding:10px;">${inc.updated}</td>
-                </tr>
-            `;
-        });
-
-    } catch (e) {
-        document.getElementById("irTable").innerHTML =
-            "<tr><td colspan='5' style='padding:10px;color:#f66;'>Errore caricamento dati</td></tr>";
+    if (!Array.isArray(data) || !data.length) {
+      table.innerHTML = header + `<tbody><tr><td colspan="5" style="padding:10px;color:#888;">Nessun incidente attivo.</td></tr></tbody>`;
+      return;
     }
+
+    const rows = data.map(inc => {
+      const pColor = inc.priority === "High" ? "#ff4444" : inc.priority === "Medium" ? "#ffaa00" : "#00ff99";
+      return `
+        <tr>
+          <td style="padding:10px;">${escHtml(inc.id)}</td>
+          <td style="padding:10px;">${escHtml(inc.type)}</td>
+          <td style="padding:10px;color:${pColor};">${escHtml(inc.priority)}</td>
+          <td style="padding:10px;">${escHtml(inc.status)}</td>
+          <td style="padding:10px;">${escHtml(inc.updated)}</td>
+        </tr>`;
+    }).join("");
+
+    table.innerHTML = header + `<tbody>${rows}</tbody>`;
+  } catch (e) {
+    table.innerHTML = header + `<tbody><tr><td colspan="5" style="padding:10px;color:#f66;">Errore caricamento dati</td></tr></tbody>`;
+  }
 }
 
 loadIncidentResponse();
 setInterval(loadIncidentResponse, 60000);
 </script>
 
-	<script>
+<script>
 async function loadSocOpsStatus() {
   const el = document.getElementById("soc-ops-status");
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/soc-status.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/soc-status.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
 
-    el.innerHTML = data.status.map(s => `
-      <li>
-        <strong style="color:#00eaff;">${s.label}:</strong> ${s.value}
-      </li>
-    `).join("");
+    if (!data.status || !data.status.length) {
+      el.innerHTML = `<li>Stato SOC non disponibile.</li>`;
+      return;
+    }
 
+    el.innerHTML = data.status.map(s => `
+      <li><strong style="color:#00eaff;">${escHtml(s.label)}:</strong> ${escHtml(s.value)}</li>
+    `).join("");
   } catch (e) {
     el.innerHTML = `<li style="color:#f66;">Errore nel caricamento dello stato SOC.</li>`;
   }
@@ -2555,50 +2541,56 @@ async function loadSocOpsStatus() {
 loadSocOpsStatus();
 setInterval(loadSocOpsStatus, 60000);
 </script>
-	
-<script>
-	async function loadZeroDayWatchlist() {
-  const el = document.getElementById("zero-day-watchlist");
 
+<script>
+async function loadZeroDayWatchlist() {
+  const el = document.getElementById("zero-day-watchlist");
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/zeroday.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/zeroday.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
 
-    el.innerHTML = data.items.map(v => `
-      <li>
-        <strong style="color:#00eaff;">${v.cve}</strong> — ${v.desc}
-      </li>
-    `).join("");
+    if (!data.items || !data.items.length) {
+      el.innerHTML = `<li>Nessuna vulnerabilità in watchlist.</li>`;
+      return;
+    }
 
+    el.innerHTML = data.items.map(v => `
+      <li><strong style="color:#00eaff;">${escHtml(v.cve)}</strong> — ${escHtml(v.desc)}</li>
+    `).join("");
   } catch (e) {
     el.innerHTML = `<li style="color:#f66;">Errore nel caricamento.</li>`;
   }
 }
 
 loadZeroDayWatchlist();
-	</script>
-	
-<script>
-	async function loadTAActivity() {
-  const el = document.getElementById("ta-activity");
+setInterval(loadZeroDayWatchlist, 60000);
+</script>
 
+<script>
+async function loadTAActivity() {
+  const el = document.getElementById("ta-activity");
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/ta-activity.php");
+    const res = await fetch("https://angelonline.altervista.org/soc/ta-activity.php", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
 
-    el.innerHTML = data.items.map(t => `
-      <li>
-        <strong style="color:#00eaff;">${t.actor}</strong> — ${t.activity}
-      </li>
-    `).join("");
+    if (!data.items || !data.items.length) {
+      el.innerHTML = `<li>Nessuna attività recente rilevata.</li>`;
+      return;
+    }
 
+    el.innerHTML = data.items.map(t => `
+      <li><strong style="color:#00eaff;">${escHtml(t.actor)}</strong> — ${escHtml(t.activity)}</li>
+    `).join("");
   } catch (e) {
     el.innerHTML = `<li style="color:#f66;">Errore nel caricamento.</li>`;
   }
 }
 
-	loadTAActivity();
-	</script>
+loadTAActivity();
+setInterval(loadTAActivity, 60000);
+</script>
 
 	<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
