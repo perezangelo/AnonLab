@@ -1768,7 +1768,7 @@ function renderList(list) {
           observer.disconnect();
           startCVE();
         }
-      }, { rootMargin: "500px" });
+      }, { rootMargin: "50px" });
       obs.observe(target);
     } else {
       startCVE();
@@ -2013,7 +2013,7 @@ async function loadCyberAlerts() {
           observer.disconnect();
           startAlerts();
         }
-      }, { rootMargin: "500px" });
+      }, { rootMargin: "50px" });
       obs.observe(target);
     } else {
       startAlerts();
@@ -2328,7 +2328,7 @@ if ("IntersectionObserver" in window) {
         obs.disconnect();
         loadSocTV();
       }
-    }, { rootMargin: "500px" });
+    }, { rootMargin: "50px" });
     socObs.observe(socTvEl);
   }
 } else {
@@ -2459,7 +2459,7 @@ document.addEventListener("DOMContentLoaded", () => {
         obs.disconnect();
         startTechRadar();
       }
-    }, { rootMargin: "500px" });
+    }, { rootMargin: "50px" });
     radarObs.observe(radarBox);
   } else {
     startTechRadar();
@@ -2610,7 +2610,7 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.disconnect();
         startTools();
       }
-    }, { rootMargin: "500px" });
+    }, { rootMargin: "50px" });
     obs.observe(toolsBox);
   } else {
     startTools();
