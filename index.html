@@ -1141,6 +1141,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // APERTURA E CHIUSURA CHAT
     // =========================================
 
+    function loadScriptOnce(src) {
+        if (document.querySelector(`script[src="${src}"]`)) return;
+        const s = document.createElement("script");
+        s.src = src;
+        s.async = true;
+        document.head.appendChild(s);
+    }
+
     function setChatOpen(open) {
         chat.style.display = open ? "block" : "none";
 
@@ -1150,8 +1158,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         toggleBtn.setAttribute("aria-expanded", String(open));
 
-        if (open && !sessionExpired) {
-            input.focus({ preventScroll: true });
+        if (open) {
+            loadScriptOnce("https://angelonline.altervista.org/js/marked.min.js");
+            loadScriptOnce("https://angelonline.altervista.org/js/purify.min.js");
+            if (!sessionExpired) {
+                input.focus({ preventScroll: true });
+            }
         }
     }
 
