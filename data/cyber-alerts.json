@@ -1,72 +1,72 @@
 [
   {
-    "id": "CVE-2026-35376",
-    "summary": "chcon: recursive relabel not anchored to traversal dirfd (TOCTOU)",
-    "severity": "MODERATE",
-    "published": "2026-11-20T16:39:34Z",
-    "ghsa": "GHSA-9rv8-9hvg-92mq"
+    "id": "CVE-2026-122247",
+    "summary": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)",
+    "severity": "HIGH",
+    "published": "2026-11-20T23:50:01Z",
+    "ghsa": "GHSA-25qc-m4pw-2w8r"
   },
   {
-    "id": "CVE-2026-35377",
-    "summary": " uu_env incorrectly rejects backslashes within single-quoted strings accepted by GNU env",
+    "id": "CVE-2026-122244",
+    "summary": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in `jsonFormatter.format()` rendered through `{@html}` in the CSP-less Builder origin",
+    "severity": "HIGH",
+    "published": "2026-11-20T23:49:47Z",
+    "ghsa": "GHSA-r2q3-7m4h-63qg"
+  },
+  {
+    "id": "CVE-2026-132276",
+    "summary": "wcmatch: Polynomial-time ReDoS when matching untrusted names against multi-star patterns (default flags)",
+    "severity": "MODERATE",
+    "published": "2026-11-20T23:49:18Z",
+    "ghsa": "GHSA-53pm-wgxf-c6qf"
+  },
+  {
+    "id": "CVE-2026-132277",
+    "summary": "Inscriptis: Quadratic memory growth from sibling <table> elements in get_text()",
+    "severity": "MODERATE",
+    "published": "2026-11-20T23:48:51Z",
+    "ghsa": "GHSA-q87h-c5m7-659j"
+  },
+  {
+    "id": "CVE-2026-132275",
+    "summary": "svglib: Exponential resource consumption via nested <use> references in svg2rlg",
+    "severity": "HIGH",
+    "published": "2026-11-20T23:47:58Z",
+    "ghsa": "GHSA-555j-qj3j-c8jv"
+  },
+  {
+    "id": "CVE-2026-104884",
+    "summary": "contao/core-bundle: Cross-site scripting in the frontend search results",
+    "severity": "MODERATE",
+    "published": "2026-11-20T23:46:56Z",
+    "ghsa": "GHSA-h57j-5f5m-789v"
+  },
+  {
+    "id": "CVE-2026-104883",
+    "summary": "contao/core-bundle: Non-admin users can self-grant permissions that implicitly make them administrators",
+    "severity": "HIGH",
+    "published": "2026-11-20T23:45:41Z",
+    "ghsa": "GHSA-r9qp-pqx5-8369"
+  },
+  {
+    "id": "CVE-2026-104882",
+    "summary": "contao/core-bundle: Improper access control in the CSV import wizard",
+    "severity": "MODERATE",
+    "published": "2026-11-20T23:44:33Z",
+    "ghsa": "GHSA-23w9-4pg3-xwm3"
+  },
+  {
+    "id": "CVE-2026-104881",
+    "summary": "contao/newsletter-bundle: Contao newsletter custom actions bypass channel-scoped authorization",
+    "severity": "MODERATE",
+    "published": "2026-11-20T23:43:26Z",
+    "ghsa": "GHSA-3r9g-pfhv-3228"
+  },
+  {
+    "id": "CVE-2026-77331",
+    "summary": "memtomem-stm: Concurrent LTM recovery can duplicate reconnects or reuse a cancelled transport session",
     "severity": "LOW",
-    "published": "2026-11-20T16:36:31Z",
-    "ghsa": "GHSA-xhrc-7f76-vh96"
-  },
-  {
-    "id": "CVE-2026-35374",
-    "summary": "split: TOCTOU output-open allows truncating a swapped file",
-    "severity": "MODERATE",
-    "published": "2026-11-20T16:33:27Z",
-    "ghsa": "GHSA-fjjq-8hw5-cf9f"
-  },
-  {
-    "id": "CVE-2026-104773",
-    "summary": "CKAN: Session Fixation in Registration View",
-    "severity": "MODERATE",
-    "published": "2026-11-20T16:25:26Z",
-    "ghsa": "GHSA-6499-jgj4-2wpf"
-  },
-  {
-    "id": "CVE-2026-69133",
-    "summary": "netty-incubator-codec-ohttp: OHTTP codecs retain consumed outer cumulation buffers after completed exchanges",
-    "severity": "MODERATE",
-    "published": "2026-11-20T16:22:09Z",
-    "ghsa": "GHSA-cg26-4c6j-2x8h"
-  },
-  {
-    "id": "CVE-2026-105803",
-    "summary": "Git LFS may execute arbitrary commands via crafted Git LFS configurations",
-    "severity": "HIGH",
-    "published": "2026-11-20T14:59:40Z",
-    "ghsa": "GHSA-x72p-hmqp-46hw"
-  },
-  {
-    "id": "CVE-2026-105802",
-    "summary": "Git LFS may execute arbitrary commands via crafted Git configurations",
-    "severity": "HIGH",
-    "published": "2026-11-20T14:58:53Z",
-    "ghsa": "GHSA-xrgv-7vx6-5vx6"
-  },
-  {
-    "id": "CVE-2026-104885",
-    "summary": "OpenRemote: Cross-realm MQTT session disconnect without authorization",
-    "severity": "MODERATE",
-    "published": "2026-11-20T14:56:58Z",
-    "ghsa": "GHSA-3h6w-xcw3-9xjj"
-  },
-  {
-    "id": "CVE-2026-103026",
-    "summary": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
-    "severity": "HIGH",
-    "published": "2026-11-20T14:56:03Z",
-    "ghsa": "GHSA-prhx-9q2h-ph2x"
-  },
-  {
-    "id": "CVE-2026-115565",
-    "summary": "storyblok-backup: Stored path traversal via unsanitized Storyblok component names in backup output",
-    "severity": "MODERATE",
-    "published": "2026-11-20T14:55:18Z",
-    "ghsa": "GHSA-vcx7-pfrh-mcfg"
+    "published": "2026-11-20T23:38:15Z",
+    "ghsa": "GHSA-72jh-722p-rqr3"
   }
 ]
