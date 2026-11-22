@@ -690,14 +690,21 @@ function updateCounterUI(data) {
 
 function anonlabPulse() {
     var dot = document.getElementById("online-dot");
-    if (!dot) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    
+    // Se la sidebar non è ancora stata iniettata nel DOM, ritenta tra 300ms
+    if (!dot) {
+        setTimeout(anonlabPulse, 300);
+        return;
+    }
+
+    // Transizione fluida e morbida
+    dot.style.transition = "opacity 0.6s ease-in-out";
 
     var acceso = true;
     setInterval(function () {
         acceso = !acceso;
-        dot.style.opacity = acceso ? "1" : ".35";
-    }, 900);
+        dot.style.opacity = acceso ? "1" : "0.2";
+    }, 800);
 }
 
 function initUpdateNotification() {
