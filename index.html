@@ -1174,7 +1174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    function appendMessage(role, text, needsHuman = false) {
+function appendMessage(role, text, needsHuman = false) {
         const div = document.createElement("div");
 
         if (role === "user") {
@@ -1183,7 +1183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             div.className = "anonbot-msg-bot";
 
-            // Se marked è disponibile ed è stato caricato, parsiamo Markdown + Purify
+            // 1. Parsing Markdown sicuro con DOMPurify
             if (typeof marked !== "undefined" && typeof DOMPurify !== "undefined") {
                 const parsed = DOMPurify.sanitize(marked.parse(String(text), { breaks: true, gfm: true }));
                 div.innerHTML = `<div class="anonbot-markdown">${parsed}</div>`;
@@ -1191,6 +1191,80 @@ document.addEventListener("DOMContentLoaded", () => {
                 div.innerHTML = `<div style="white-space:pre-wrap;">${escapeHTML(text)}</div>`;
             }
 
+            // 2. Tasto "Copia Codice" su ogni blocco di codice generato
+            div.querySelectorAll('.anonbot-markdown pre').forEach(pre => {
+                pre.style.position = 'relative';
+
+                const copyCodeBtn = document.createElement('button');
+                copyCodeBtn.type = 'button';
+                copyCodeBtn.innerHTML = '📋 Copia';
+                copyCodeBtn.title = 'Copia codice negli appunti';
+                copyCodeBtn.style.cssText = `
+                    position: absolute;
+                    top: 6px;
+                    right: 8px;
+                    background: #0d2230;
+                    border: 1px solid #00eaff44;
+                    color: #00eaff;
+                    border-radius: 4px;
+                    padding: 3px 8px;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    z-index: 10;
+                `;
+
+                copyCodeBtn.onclick = async () => {
+                    const code = pre.querySelector('code')?.innerText || pre.innerText;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        copyCodeBtn.innerHTML = '✅ Copiato!';
+                        copyCodeBtn.style.borderColor = '#00ff99';
+                        copyCodeBtn.style.color = '#00ff99';
+                        setTimeout(() => {
+                            copyCodeBtn.innerHTML = '📋 Copia';
+                            copyCodeBtn.style.borderColor = '#00eaff44';
+                            copyCodeBtn.style.color = '#00eaff';
+                        }, 2000);
+                    } catch (e) {
+                        copyCodeBtn.innerHTML = '❌ Errore';
+                    }
+                };
+
+                pre.appendChild(copyCodeBtn);
+            });
+
+            // 3. Tasto "Copia Risposta Intera" in calce al messaggio del bot
+            const footerActions = document.createElement("div");
+            footerActions.style.cssText = "display:flex; justify-content:flex-end; margin-top:8px; border-top:1px solid #00eaff15; padding-top:6px;";
+
+            const copyMsgBtn = document.createElement("button");
+            copyMsgBtn.type = "button";
+            copyMsgBtn.innerHTML = "📋 Copia risposta";
+            copyMsgBtn.style.cssText = "background:transparent; border:none; color:#00eaff88; font-size:0.75rem; cursor:pointer; font-weight:600; padding:2px 6px; transition:color 0.2s;";
+            
+            copyMsgBtn.onmouseenter = () => copyMsgBtn.style.color = "#00eaff";
+            copyMsgBtn.onmouseleave = () => copyMsgBtn.style.color = "#00eaff88";
+
+            copyMsgBtn.onclick = async () => {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    copyMsgBtn.innerHTML = "✅ Copiato!";
+                    copyMsgBtn.style.color = "#00ff99";
+                    setTimeout(() => {
+                        copyMsgBtn.innerHTML = "📋 Copia risposta";
+                        copyMsgBtn.style.color = "#00eaff88";
+                    }, 2000);
+                } catch (e) {
+                    copyMsgBtn.innerHTML = "❌ Errore";
+                }
+            };
+
+            footerActions.appendChild(copyMsgBtn);
+            div.appendChild(footerActions);
+
+            // 4. Box opzioni di contatto (se richiesto dal backend)
             if (needsHuman) {
                 div.insertAdjacentHTML("beforeend", contactOptionsHTML());
             }
