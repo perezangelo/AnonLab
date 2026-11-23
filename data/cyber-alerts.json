@@ -1,5 +1,61 @@
 [
   {
+    "id": "CVE-2026-63476",
+    "summary": "isomorphic-git allows unbounded memory allocation from attacker-controlled delta target size (DoS)",
+    "severity": "MODERATE",
+    "published": "2026-11-23T21:07:02Z",
+    "ghsa": "GHSA-9x82-4j54-863h"
+  },
+  {
+    "id": "CVE-2026-77423",
+    "summary": "jline3 leads to ReDoS in Built-in Less Viewer Search",
+    "severity": "HIGH",
+    "published": "2026-11-23T21:02:03Z",
+    "ghsa": "GHSA-2v9w-34q6-wpqx"
+  },
+  {
+    "id": "CVE-2026-63410",
+    "summary": "secp256k1-native has a compiler-induced timing side channel in scalar multiplication",
+    "severity": "MODERATE",
+    "published": "2026-11-23T20:59:48Z",
+    "ghsa": "GHSA-vp2j-gqfm-r3cf"
+  },
+  {
+    "id": "CVE-2026-58262",
+    "summary": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
+    "severity": "HIGH",
+    "published": "2026-11-23T20:55:35Z",
+    "ghsa": "GHSA-f9h7-4mmq-vgcq"
+  },
+  {
+    "id": "CVE-2026-63402",
+    "summary": "i18next deepExtend recurses into inherited built-ins, allowing corruption of shared built-in objects (DoS)",
+    "severity": "MODERATE",
+    "published": "2026-11-23T20:53:00Z",
+    "ghsa": "GHSA-6jcc-5g8w-32mx"
+  },
+  {
+    "id": "CVE-2026-133469",
+    "summary": "Xen Orchestra: Empty-object login token",
+    "severity": "CRITICAL",
+    "published": "2026-11-23T17:29:29Z",
+    "ghsa": "GHSA-2r3w-c2vx-fv5g"
+  },
+  {
+    "id": "CVE-2026-22865",
+    "summary": "Gradle causes failure to disable repositories exposing builds to malicious artifacts",
+    "severity": "HIGH",
+    "published": "2026-11-23T15:41:57Z",
+    "ghsa": "GHSA-mqwm-5m85-gmcv"
+  },
+  {
+    "id": "CVE-2026-22816",
+    "summary": "Gradle causes Failure to disable repositories can expose builds to malicious artifacts",
+    "severity": "HIGH",
+    "published": "2026-11-23T15:33:34Z",
+    "ghsa": "GHSA-w78c-w6vf-rw82"
+  },
+  {
     "id": "CVE-2026-122247",
     "summary": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)",
     "severity": "HIGH",
@@ -12,61 +68,5 @@
     "severity": "HIGH",
     "published": "2026-11-20T23:49:47Z",
     "ghsa": "GHSA-r2q3-7m4h-63qg"
-  },
-  {
-    "id": "CVE-2026-132276",
-    "summary": "wcmatch: Polynomial-time ReDoS when matching untrusted names against multi-star patterns (default flags)",
-    "severity": "MODERATE",
-    "published": "2026-11-20T23:49:18Z",
-    "ghsa": "GHSA-53pm-wgxf-c6qf"
-  },
-  {
-    "id": "CVE-2026-132277",
-    "summary": "Inscriptis: Quadratic memory growth from sibling <table> elements in get_text()",
-    "severity": "MODERATE",
-    "published": "2026-11-20T23:48:51Z",
-    "ghsa": "GHSA-q87h-c5m7-659j"
-  },
-  {
-    "id": "CVE-2026-132275",
-    "summary": "svglib: Exponential resource consumption via nested <use> references in svg2rlg",
-    "severity": "HIGH",
-    "published": "2026-11-20T23:47:58Z",
-    "ghsa": "GHSA-555j-qj3j-c8jv"
-  },
-  {
-    "id": "CVE-2026-104884",
-    "summary": "contao/core-bundle: Cross-site scripting in the frontend search results",
-    "severity": "MODERATE",
-    "published": "2026-11-20T23:46:56Z",
-    "ghsa": "GHSA-h57j-5f5m-789v"
-  },
-  {
-    "id": "CVE-2026-104883",
-    "summary": "contao/core-bundle: Non-admin users can self-grant permissions that implicitly make them administrators",
-    "severity": "HIGH",
-    "published": "2026-11-20T23:45:41Z",
-    "ghsa": "GHSA-r9qp-pqx5-8369"
-  },
-  {
-    "id": "CVE-2026-104882",
-    "summary": "contao/core-bundle: Improper access control in the CSV import wizard",
-    "severity": "MODERATE",
-    "published": "2026-11-20T23:44:33Z",
-    "ghsa": "GHSA-23w9-4pg3-xwm3"
-  },
-  {
-    "id": "CVE-2026-104881",
-    "summary": "contao/newsletter-bundle: Contao newsletter custom actions bypass channel-scoped authorization",
-    "severity": "MODERATE",
-    "published": "2026-11-20T23:43:26Z",
-    "ghsa": "GHSA-3r9g-pfhv-3228"
-  },
-  {
-    "id": "CVE-2026-77331",
-    "summary": "memtomem-stm: Concurrent LTM recovery can duplicate reconnects or reuse a cancelled transport session",
-    "severity": "LOW",
-    "published": "2026-11-20T23:38:15Z",
-    "ghsa": "GHSA-72jh-722p-rqr3"
   }
 ]
