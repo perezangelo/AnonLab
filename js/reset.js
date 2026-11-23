@@ -3,11 +3,11 @@ document.getElementById("reset-password-form").addEventListener("submit", async 
 
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
-
     const status = document.getElementById("reset-status");
 
     if (!token) {
-        status.textContent = "Token mancante o non valido.";
+        status.textContent = "Token mancante o non valido. Controlla il link ricevuto via email.";
+        status.style.color = "#ff4d4d";
         return;
     }
 
@@ -16,30 +16,45 @@ document.getElementById("reset-password-form").addEventListener("submit", async 
 
     if (pass1 !== pass2) {
         status.textContent = "Le password non coincidono.";
+        status.style.color = "#ff4d4d";
         return;
     }
 
-    // HASH PASSWORD (SHA-256)
-    const encoder = new TextEncoder();
-    const data = encoder.encode(pass1);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const password_hash = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+    if (pass1.length < 8) {
+        status.textContent = "La password deve contenere almeno 8 caratteri.";
+        status.style.color = "#ff4d4d";
+        return;
+    }
 
-    // INVIO A GITHUB (SENZA TOKEN)
-    await fetch("https://api.github.com/repos/perezangelo/AnonLab/dispatches", {
-        method: "POST",
-        headers: {
-            "Accept": "application/vnd.github+json"
-        },
-        body: JSON.stringify({
-            event_type: "reset_password",
-            client_payload: {
-                token,
-                password_hash
-            }
-        })
-    });
+    status.textContent = "Aggiornamento in corso...";
+    status.style.color = "#7dfcff";
 
-    status.textContent = "Password aggiornata. Puoi chiudere questa pagina.";
+    try {
+        const response = await fetch("https://angelonline.altervista.org/backend/conferma-reset.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                token: token,
+                password: pass1
+            })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            status.textContent = "Password aggiornata con successo! Reindirizzamento al login...";
+            status.style.color = "#00ff88";
+            setTimeout(() => {
+                window.location.href = "/login.html";
+            }, 2500);
+        } else {
+            status.textContent = result.message || "Errore durante il reset.";
+            status.style.color = "#ff4d4d";
+        }
+    } catch (err) {
+        status.textContent = "Errore di connessione con il server Altervista. Riprova più tardi.";
+        status.style.color = "#ff4d4d";
+    }
 });
