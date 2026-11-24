@@ -5,72 +5,82 @@
   <title>Contatti AnonLab | Supporto Tecnico e Informazioni Cyber</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <meta name="description" content="Contatta AnonLab per supporto tecnico, informazioni sulla sicurezza informatica, assistenza dedicata e richieste professionali. Siamo disponibili per ogni esigenza cyber.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- SEO Ottimizzato per Google e Bing (<150 car.) -->
+  <meta name="description" content="Contatta AnonLab per supporto tecnico, informazioni sulla cybersecurity, collaborazioni editoriali e segnalazioni di vulnerabilità.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://anonlab.it/contatti.html">
 
   <!-- OpenGraph -->
-  <meta property="og:title" content="Contatti — AnonLab">
-  <meta property="og:description" content="Contatta AnonLab per informazioni, richieste, segnalazioni o collaborazioni.">
+  <meta property="og:title" content="Contatti AnonLab | Supporto Tecnico e Cyber Intelligence">
+  <meta property="og:description" content="Canali ufficiali per comunicazioni, segnalazioni di sicurezza e collaborazioni con il team di AnonLab.">
   <meta property="og:url" content="https://anonlab.it/contatti.html">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://anonlab.it/img/eyes.webp">
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contatti AnonLab | Supporto Tecnico">
+  <meta name="twitter:description" content="Canali ufficiali per comunicazioni e segnalazioni di sicurezza con AnonLab.">
+  <meta name="twitter:image" content="https://anonlab.it/img/eyes.webp">
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
 
-  <!-- JSON-LD -->
+  <!-- ⭐ JSON-LD DATI STRUTTURATI ARRICCHITI -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contatti",
+    "name": "Contatti AnonLab",
     "url": "https://anonlab.it/contatti.html",
-    "description": "Pagina di contatto ufficiale di AnonLab."
+    "description": "Pagina ufficiale di contatto, supporto tecnico e responsible disclosure di AnonLab.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "AnonLab",
+      "url": "https://anonlab.it/",
+      "email": "info@anonlab.it",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@anonlab.it",
+        "contactType": "technical support",
+        "availableLanguage": ["Italian", "English"]
+      }
+    }
   }
   </script>
 
   <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
-<script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-<script>
-(_iub=self._iub||[]).csConfiguration={
-	cookiePolicyId: 12413505,
-	siteId: 4661380,
-	localConsentDomain: 'anonlab.it',
-	timeoutLoadConfiguration: 30000,
-	lang: 'it',
-	enableTcf: true,
-	tcfVersion: 2,
-	tcfPurposes: {
-		 "2": "consent_only",
-		 "3": "consent_only",
-		 "4": "consent_only",
-		 "5": "consent_only",
-		 "6": "consent_only",
-		 "7": "consent_only",
-		 "8": "consent_only",
-		 "9": "consent_only",
-		"10": "consent_only"
-	},
-	invalidateConsentWithoutLog: true,
-	googleAdditionalConsentMode: true,
-	consentOnContinuedBrowsing: false,
-	banner: {
-		position: "bottom",
-		acceptButtonDisplay: true,
-		customizeButtonDisplay: true,
-		closeButtonDisplay: true,
-		closeButtonRejects: true,
-		fontSizeBody: "14px",
-	},
-}
-</script>
-<script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
+  <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
+  <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+  <script>
+  (_iub=self._iub||[]).csConfiguration={
+    cookiePolicyId: 12413505,
+    siteId: 4661380,
+    localConsentDomain: 'anonlab.it',
+    timeoutLoadConfiguration: 30000,
+    lang: 'it',
+    enableTcf: true,
+    tcfVersion: 2,
+    tcfPurposes: {
+      "2": "consent_only", "3": "consent_only", "4": "consent_only",
+      "5": "consent_only", "6": "consent_only", "7": "consent_only",
+      "8": "consent_only", "9": "consent_only", "10": "consent_only"
+    },
+    invalidateConsentWithoutLog: true,
+    googleAdditionalConsentMode: true,
+    consentOnContinuedBrowsing: false,
+    banner: {
+      position: "bottom",
+      acceptButtonDisplay: true,
+      customizeButtonDisplay: true,
+      closeButtonDisplay: true,
+      closeButtonRejects: true,
+      fontSizeBody: "14px",
+    },
+  };
+  </script>
+  <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 </head>
 
 <body>
@@ -80,111 +90,103 @@
 
   <!-- TICKER -->
   <div id="ticker" aria-label="Ticker informazioni"></div>
-  <!-- CARICAMENTO TICKER -->
-<script>
-fetch("/partials/ticker.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("ticker").innerHTML = html;
-
-      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
-      if (typeof initTicker === "function") {
-          initTicker();
-      }
-  });
-</script>
-
-<!-- SCRIPT TICKER -->
-<script src="/js/ticker.js"></script>
+  <script src="/js/ticker.js" defer></script>
 
   <main class="page">
     <section class="main-column">
 
-      <h1 class="page-title">Contatti</h1>
+      <h1 class="page-title">Contatti &amp; Canali Ufficiali AnonLab</h1>
 
-      <div class="contact-box">
-        <p>
-          Per comunicazioni, richieste o segnalazioni puoi utilizzare i seguenti canali:
+      <!-- CANALE PRINCIPALE -->
+      <div class="contact-box" style="background:#0d0d0d; border:1px solid rgba(0,234,255,0.3); border-radius:10px; padding:22px; margin-bottom:25px; box-shadow:0 0 16px rgba(0,234,255,0.1);">
+        <h2 style="color:#00eaff; margin-top:0; font-size:1.3rem;">Canale Principale</h2>
+        <p style="color:#e0e0e0; margin-bottom:12px;">
+          Per qualsiasi richiesta di supporto tecnico, informazioni sui progetti di monitoraggio o chiarimenti editoriali, il canale di riferimento è:
         </p>
-
-        <ul>
-         <li>Email: 
-  <strong>
-    <a href="mailto:info@anonlab.it"
-       style="color:#00aaff; text-decoration:none; font-weight:bold;"
-       onmouseover="this.style.color='#33cfff'"
-       onmouseout="this.style.color='#00aaff'">
-       info@anonlab.it
-    </a>
-  </strong>
-</li>
-        </ul>
-      </div>
-
-      <div class="contact-box">
-        <h2>Collaborazioni</h2>
-        <p>
-          Se desideri proporre articoli, analisi o progetti legati alla cybersecurity o alla tecnologia,
-          puoi contattarci via email.
+        <p style="font-size:1.1rem; margin:0;">
+          ✉️ Email: 
+          <strong>
+            <a href="mailto:info@anonlab.it"
+               style="color:#00eaff; text-decoration:none; font-weight:bold; text-shadow:0 0 8px rgba(0,234,255,0.4);"
+               onmouseover="this.style.color='#00ffcc'"
+               onmouseout="this.style.color='#00eaff'">
+               info@anonlab.it
+            </a>
+          </strong>
+        </p>
+        <p style="color:#8b8b95; font-size:0.85rem; margin-top:8px;">
+          Tempo medio di risposta: 24–48 ore lavorative.
         </p>
       </div>
 
-      <div class="contact-box">
-        <h2>Segnalazioni</h2>
-        <p>
-          Per segnalare vulnerabilità, problemi tecnici o contenuti non corretti, utilizza sempre l’indirizzo email ufficiale.
+      <!-- COLLABORAZIONI E CONTRIBUTI -->
+      <div class="contact-box" style="background:#0d0d0d; border:1px solid rgba(0,234,255,0.2); border-radius:10px; padding:20px; margin-bottom:20px;">
+        <h2 style="color:#00eaff; margin-top:0; font-size:1.2rem;">Collaborazioni &amp; Guest Post</h2>
+        <p style="color:#ccc; line-height:1.6; margin:0;">
+          Se sei un ricercatore indipendente, un analista SOC o un appassionato di OSINT e desideri proporre articoli, analisi tecniche, write-up o strumenti da integrare nel nostro osservatorio, invia una bozza o una sintesi via email con oggetto <code>[Collaborazione AnonLab]</code>.
+        </p>
+      </div>
+
+      <!-- VULNERABILITY DISCLOSURE -->
+      <div class="contact-box" style="background:#0d0d0d; border:1px solid rgba(255,123,0,0.3); border-radius:10px; padding:20px; margin-bottom:25px;">
+        <h2 style="color:#ff7b00; margin-top:0; font-size:1.2rem;">Segnalazioni di Sicurezza (Responsible Disclosure)</h2>
+        <p style="color:#ccc; line-height:1.6; margin:0;">
+          AnonLab adotta una politica di coordinamento responsabile delle vulnerabilità. Se riscontri un bug, una configurazione anomala o un problema di sicurezza sulla nostra infrastruttura o sui feed API, ti invitiamo a segnalarlo prontamente per consentirne la rapida risoluzione.
         </p>
       </div>
 
     </section>
 
     <!-- SIDEBAR -->
-    <div id="sidebar" aria-label="Barra laterale"></div>
+    <div id="sidebar" class="sidebar" aria-label="Barra laterale"></div>
 
   </main>
 
   <!-- FOOTER -->
   <div id="footer" aria-label="Piè di pagina"></div>
 
-  <!-- SCRIPT (ordine corretto) -->
-  <script src="/js/main.js"></script>
-  <script src="/js/ui.js"></script>
+  <!-- SCRIPT -->
+  <script src="/js/main.js" defer></script>
+  <script src="/js/ui.js" defer></script>
+
   <!-- BACK TO TOP BUTTON -->
-<button id="backToTop">↑</button>
+  <button id="backToTop" type="button" aria-label="Torna in alto">↑</button>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const backToTop = document.getElementById('backToTop');
-    if (!backToTop) return;
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const backToTop = document.getElementById('backToTop');
+      if (!backToTop) return;
 
-    backToTop.style.display = 'none';
+      backToTop.style.display = 'none';
 
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          backToTop.style.display = 'block';
+        } else {
+          backToTop.style.display = 'none';
+        }
+      }, { passive: true });
 
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
     });
-  });
-</script>
+  </script>
 
-	<script type="text/javascript">
+  <!-- CLARITY -->
+  <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
-</script>                 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>
+  </script>                 
+
+  <!-- ADSENSE -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
 
 </body>
 </html>
