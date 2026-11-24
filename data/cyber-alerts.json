@@ -1,5 +1,12 @@
 [
   {
+    "id": "CVE-2026-63492",
+    "summary": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
+    "severity": "HIGH",
+    "published": "2026-11-23T22:06:28Z",
+    "ghsa": "GHSA-j44m-77cc-p3cc"
+  },
+  {
     "id": "CVE-2026-63476",
     "summary": "isomorphic-git allows unbounded memory allocation from attacker-controlled delta target size (DoS)",
     "severity": "MODERATE",
@@ -61,12 +68,5 @@
     "severity": "HIGH",
     "published": "2026-11-20T23:50:01Z",
     "ghsa": "GHSA-25qc-m4pw-2w8r"
-  },
-  {
-    "id": "CVE-2026-122244",
-    "summary": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in `jsonFormatter.format()` rendered through `{@html}` in the CSP-less Builder origin",
-    "severity": "HIGH",
-    "published": "2026-11-20T23:49:47Z",
-    "ghsa": "GHSA-r2q3-7m4h-63qg"
   }
 ]
