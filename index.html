@@ -2681,19 +2681,19 @@ if ('serviceWorker' in navigator) {
 
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/OIP.webp.png" class="box-title-icon" alt="OIP.webp" width="46" height="46" loading="lazy" decoding="async">
+    <img src="/img/OIP.webp.png" class="box-title-icon" alt="Intelligenza Artificiale e Cybersecurity" width="46" height="46" loading="lazy" decoding="async">
     <h2>AI Trends</h2>
     <a href="https://www.wired.com/category/security" 
        target="_blank" rel="noopener noreferrer" style="color:#ff7b00;">
        Approfondisci AI & Security →
     </a>
   </div>
-  <div id="ai-trends"></div>
+  <div id="ai-trends" data-nosnippet></div>
 </section>
      <script src="js/ai-trends.js" defer></script>
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/OIP2.png" class="box-title-icon" alt="OIP" width="46" height="46" loading="lazy" decoding="async">
+    <img src="/img/OIP2.png" class="box-title-icon" alt="Strumenti e Tool di Sicurezza Informatica" width="46" height="46" loading="lazy" decoding="async">
     <h2>Strumenti Cyber</h2>
     <a href="/tools.html" style="color:#ff7b00; font-weight:bold;">
        Vai alla pagina Tools →
@@ -2819,7 +2819,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		
 <section class="widget-large">
   <div class="box-title-row">
-    <img src="/img/OIP3.png" class="box-title-icon" alt="OIP3" width="46" height="46" loading="lazy" decoding="async">
+    <img src="/img/OIP3.png" class="box-title-icon" alt="Monitoraggio Stato Sistemi SOC" width="46" height="46" loading="lazy" decoding="async">
     <h2>System Status</h2>
   </div>
 
@@ -2847,8 +2847,9 @@ e aiuta a identificare eventuali anomalie o interruzioni operative.
 </div>
  
 <div id="system-status-grid"
-aria-live="polite"
-aria-label="Stato dei sistemi e dei servizi">
+     data-nosnippet
+     aria-live="polite"
+     aria-label="Stato dei sistemi e dei servizi">
 </div>
 </section>
 
