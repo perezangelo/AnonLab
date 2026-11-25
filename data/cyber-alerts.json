@@ -1,6 +1,62 @@
 [
   {
-    "id": "CVE-2026-63492",
+    "id": "CVE-2026-64855",
+    "summary": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / authentication bypass)",
+    "severity": "HIGH",
+    "published": "2026-11-24T22:41:44Z",
+    "ghsa": "GHSA-859w-52fx-hcm6"
+  },
+  {
+    "id": "CVE-2026-59191",
+    "summary": "TwigView FileLoader may allow arbitrary file reads through user-controlled template paths",
+    "severity": "MODERATE",
+    "published": "2026-11-24T22:39:23Z",
+    "ghsa": "GHSA-hq9r-72jq-2pxp"
+  },
+  {
+    "id": "CVE-2026-59831",
+    "summary": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespaces",
+    "severity": "MODERATE",
+    "published": "2026-11-24T22:26:25Z",
+    "ghsa": "GHSA-8cg3-r6g9-fpg2"
+  },
+  {
+    "id": "GHSA-jp3c-6v3g-mpxv",
+    "summary": "github.com/insomniacslk/dhcp permits denial of service through a malformed IPv4 payload length",
+    "severity": "HIGH",
+    "published": "2026-11-24T21:13:37Z",
+    "ghsa": "GHSA-jp3c-6v3g-mpxv"
+  },
+  {
+    "id": "CVE-2026-59818",
+    "summary": "etcd: CRL enforcement bypass on gRPC listener when `--listen-client-http-urls` is configured",
+    "severity": "MODERATE",
+    "published": "2026-11-24T21:09:38Z",
+    "ghsa": "GHSA-3wh4-j44w-pg92"
+  },
+  {
+    "id": "CVE-2026-59726",
+    "summary": "ruflo MCP bridge allows unauthenticated remote code execution in default Docker Compose deployments",
+    "severity": "CRITICAL",
+    "published": "2026-11-24T21:01:10Z",
+    "ghsa": "GHSA-c4hm-4h84-2cf3"
+  },
+  {
+    "id": "CVE-2026-63305",
+    "summary": "AVideo API FFmpeg process permits OS command injection via notifyCode/callback",
+    "severity": "HIGH",
+    "published": "2026-11-24T20:53:28Z",
+    "ghsa": "GHSA-g9x9-q7qj-6mv5"
+  },
+  {
+    "id": "CVE-2026-59192",
+    "summary": "Cakephp twig-view unserialize Twig filter allows arbitrary object deserialization",
+    "severity": "MODERATE",
+    "published": "2026-11-24T17:42:51Z",
+    "ghsa": "GHSA-48qj-5wxh-m8hc"
+  },
+  {
+    "id": "CVE-2026-63304",
     "summary": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
     "severity": "HIGH",
     "published": "2026-11-23T22:06:28Z",
@@ -12,61 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-11-23T21:07:02Z",
     "ghsa": "GHSA-9x82-4j54-863h"
-  },
-  {
-    "id": "CVE-2026-77423",
-    "summary": "jline3 leads to ReDoS in Built-in Less Viewer Search",
-    "severity": "HIGH",
-    "published": "2026-11-23T21:02:03Z",
-    "ghsa": "GHSA-2v9w-34q6-wpqx"
-  },
-  {
-    "id": "CVE-2026-63410",
-    "summary": "secp256k1-native has a compiler-induced timing side channel in scalar multiplication",
-    "severity": "MODERATE",
-    "published": "2026-11-23T20:59:48Z",
-    "ghsa": "GHSA-vp2j-gqfm-r3cf"
-  },
-  {
-    "id": "CVE-2026-58262",
-    "summary": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
-    "severity": "HIGH",
-    "published": "2026-11-23T20:55:35Z",
-    "ghsa": "GHSA-f9h7-4mmq-vgcq"
-  },
-  {
-    "id": "CVE-2026-63402",
-    "summary": "i18next deepExtend recurses into inherited built-ins, allowing corruption of shared built-in objects (DoS)",
-    "severity": "MODERATE",
-    "published": "2026-11-23T20:53:00Z",
-    "ghsa": "GHSA-6jcc-5g8w-32mx"
-  },
-  {
-    "id": "CVE-2026-133469",
-    "summary": "Xen Orchestra: Empty-object login token",
-    "severity": "CRITICAL",
-    "published": "2026-11-23T17:29:29Z",
-    "ghsa": "GHSA-2r3w-c2vx-fv5g"
-  },
-  {
-    "id": "CVE-2026-22865",
-    "summary": "Gradle causes failure to disable repositories exposing builds to malicious artifacts",
-    "severity": "HIGH",
-    "published": "2026-11-23T15:41:57Z",
-    "ghsa": "GHSA-mqwm-5m85-gmcv"
-  },
-  {
-    "id": "CVE-2026-22816",
-    "summary": "Gradle causes Failure to disable repositories can expose builds to malicious artifacts",
-    "severity": "HIGH",
-    "published": "2026-11-23T15:33:34Z",
-    "ghsa": "GHSA-w78c-w6vf-rw82"
-  },
-  {
-    "id": "CVE-2026-122247",
-    "summary": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)",
-    "severity": "HIGH",
-    "published": "2026-11-20T23:50:01Z",
-    "ghsa": "GHSA-25qc-m4pw-2w8r"
   }
 ]
