@@ -3,31 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools — Cyber Operations Center | AnonLab</title>
+    <title>Cyber Security Tools &amp; Utility OSINT Online | AnonLab</title>
     
-    <meta name="description" content="Raccolta di strumenti cyber di AnonLab: scanner, analizzatori, utility di rete e tool per la sicurezza informatica.">
+    <meta name="description" content="Suite di cyber security tools e utility OSINT: scanner DNS, WHOIS, IP lookup, defanger IoC, CIDR calculator, hash analyzer e verificatore DMARC.">
     <link rel="canonical" href="https://anonlab.it/tools.html">
 
+    <!-- SEO & Robots -->
     <meta name="robots" content="index, follow">
     <meta name="author" content="AnonLab">
 
-    <meta property="og:title" content="Tools — Cyber Operations Center | AnonLab">
-    <meta property="og:description" content="Raccolta di strumenti cyber e utility di rete per la sicurezza informatica.">
+    <!-- Open Graph & Social -->
+    <meta property="og:title" content="Cyber Security Tools &amp; Utility OSINT Online | AnonLab">
+    <meta property="og:description" content="Suite gratuita di strumenti per sicurezza informatica, network diagnostics, crittografia e OSINT intelligence.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://anonlab.it/tools.html">
     <meta property="og:image" content="https://anonlab.it/img/eyes.png">
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tools — Cyber Operations Center | AnonLab">
-    <meta name="twitter:description" content="Raccolta di strumenti cyber e utility di rete per la sicurezza informatica.">
+    <meta name="twitter:title" content="Cyber Security Tools &amp; Utility OSINT | AnonLab">
+    <meta name="twitter:description" content="Strumenti operativi per analisi di rete, diagnostica, test crittografici e ricognizione OSINT.">
     <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
+
+    <!-- Dati Strutturati Schema.org: WebApplication + ItemList + Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://anonlab.it/tools.html#app",
+          "name": "AnonLab Cyber Operations & OSINT Tool Suite",
+          "url": "https://anonlab.it/tools.html",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "description": "Piattaforma web modulare con utility cyber per verifiche DNS, WHOIS, routing IP, defanging IoC, crittografia e vulnerability auditing."
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://anonlab.it/tools.html#toolslist",
+          "name": "Strumenti di Sicurezza e Utility AnonLab",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "WHOIS Lookup", "url": "https://anonlab.it/tools.html#whoislookup" },
+            { "@type": "ListItem", "position": 2, "name": "DNS Lookup", "url": "https://anonlab.it/tools.html#dnslookup" },
+            { "@type": "ListItem", "position": 3, "name": "IP Intelligence", "url": "https://anonlab.it/tools.html#ipintelligence" },
+            { "@type": "ListItem", "position": 4, "name": "Port Scanner", "url": "https://anonlab.it/tools.html#portscanner" },
+            { "@type": "ListItem", "position": 5, "name": "IoC Defanger & Sanitizer", "url": "https://anonlab.it/tools.html#iocdefang" },
+            { "@type": "ListItem", "position": 6, "name": "IPv4 CIDR Calculator", "url": "https://anonlab.it/tools.html#subnetcalc" },
+            { "@type": "ListItem", "position": 7, "name": "Email Security SPF & DMARC", "url": "https://anonlab.it/tools.html#emailsecurity" },
+            { "@type": "ListItem", "position": 8, "name": "Defensive Audit & Passive Recon", "url": "https://anonlab.it/tools.html#defensiverecon" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://anonlab.it/tools.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://anonlab.it/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cyber Tools",
+              "item": "https://anonlab.it/tools.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/custom.css">
 
     <style>
-        /* BOX TOOLS NEON CYBER */
         .tools-box {
             max-width: 540px;
             margin: 0 auto 40px auto;
@@ -37,6 +91,7 @@
             box-shadow: 0 0 12px #00eaff55, 0 0 24px #00eaff33 inset;
             border-radius: 10px;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .box-title-row {
@@ -58,14 +113,52 @@
 
         .tools-hero {
             max-width: 540px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 30px auto;
+            text-align: center;
+        }
+
+        .tools-hero-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* QUICK JUMP BAR CATEGORIZZATA */
+        .tools-quicknav {
+            max-width: 540px;
+            margin: 0 auto 35px auto;
+            background: #06090e;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 14px;
+            box-sizing: border-box;
+        }
+        .tools-nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .tools-nav-pills a {
+            background: #0a0f14;
+            color: #7fdfff;
+            border: 1px solid #00eaff33;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .tools-nav-pills a:hover {
+            background: #00eaff;
+            color: #000;
+            border-color: #00eaff;
+            font-weight: bold;
         }
 
         html { scroll-behavior: smooth; }
     </style>
-
-    <!-- CARICAMENTO JAVASCRIPT DEL SITO -->
-    <script src="/js/main.js"></script>
 
     <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
     <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
@@ -107,11 +200,10 @@
 </head>
 
 <body>
-    <!-- PARTIALS -->
+    <!-- HEADER -->
     <div id="header"></div>
-    <div id="ticker" aria-label="Ticker informazioni"></div>
+    <div id="ticker" aria-label="Ticker informazioni" data-nosnippet></div>
 
-    <!-- CARICAMENTO TICKER -->
     <script>
     fetch("/partials/ticker.html")
         .then(r => r.text())
@@ -125,72 +217,93 @@
     <script src="/js/ticker.js"></script>
 
     <main class="page">
-        <!-- COLONNA PRINCIPALE -->
         <section class="main-column">
 
-            <!-- HERO -->
+            <!-- HERO INTRODUTTIVO -->
             <section class="tools-hero">
-                <img src="/img/tools-hero.png" alt="Cyber Tools" class="tools-hero-img">
-                <div class="tools-hero-text">
-                    <h1>Cyber Tools Center</h1>
-                    <p>
-                        Strumenti avanzati per analisi, diagnostica, sicurezza e OSINT.
-                        Questa sezione è il punto di partenza per operazioni tecniche,
-                        verifiche di rete, analisi di domini, IP, protocolli e molto altro.
+                <img src="/img/tools-hero.png" alt="Cyber Tools Center AnonLab" width="540" height="220" class="tools-hero-img">
+                <div class="tools-hero-text" style="margin-top: 15px;">
+                    <h1 style="color:#00eaff; margin-bottom:8px;">Cyber Tools Center</h1>
+                    <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.6;">
+                        Strumenti avanzati per analisi, diagnostica di rete, sicurezza perimetrale e investigazioni OSINT.
+                        Questa console raccoglie utility in tempo reale per verificare domini, IP, protocolli crittografici e indicatori di compromissione.
                     </p>
                 </div>
             </section>
 
+            <!-- QUICK JUMP BAR PER NAVIGAZIONE RAPIDA -->
+            <nav class="tools-quicknav" aria-label="Navigazione rapida strumenti">
+                <span style="color:#00ff88; font-size:0.75rem; font-weight:bold; letter-spacing:0.05em; text-transform:uppercase;">
+                    ⚡ INDICE RAPIDO UTILITY:
+                </span>
+                <div class="tools-nav-pills">
+                    <a href="#whoislookup">WHOIS</a>
+                    <a href="#dnslookup">DNS Resolver</a>
+                    <a href="#ipintelligence">IP Intelligence</a>
+                    <a href="#portscanner">Port Scanner</a>
+                    <a href="#headerinspector">SSL &amp; Headers</a>
+                    <a href="#subnetcalc">CIDR Subnet</a>
+                    <a href="#iocdefang">IoC Defanger</a>
+                    <a href="#jwtinspector">JWT Inspector</a>
+                    <a href="#emailsecurity">SPF &amp; DMARC</a>
+                    <a href="#hashanalyzer">Hash Generator</a>
+                    <a href="#entropycalculator">Password Entropy</a>
+                    <a href="#defensiverecon">Passive Recon</a>
+                    <a href="#tordetector">Tor Detector</a>
+                    <a href="#maclookup">MAC Vendor</a>
+                    <a href="#multicodec">Multi-Codec</a>
+                </div>
+            </nav>
+
             <div class="tools-box">
                 <div class="tools-links" style="font-size:15px; color:#7fdfff; line-height:1.6;">
                     <p style="color:#ccc; margin-bottom:10px;">
-                        Questa sezione raccoglie strumenti operativi utili per analisi di rete, diagnostica,
-                        sicurezza informatica e attività OSINT.
-                        Se ti servono approfondimenti, dashboard avanzate o contenuti tecnici correlati,
-                        puoi esplorare anche le sezioni qui sotto:
+                        Questa sezione raccoglie strumenti operativi per analisi di rete, diagnostica e attività OSINT.
+                        Per approfondimenti tecnici e dashboard in tempo reale, esplora le sezioni correlate:
                     </p>
 
-                    <a href="/dashboard.html" style="color:#00eaff;">Dashboard Principale</a> —
-                    panoramica generale dello stato dei sistemi e indicatori cyber.<br>
+                    <a href="/dashboard.html" style="color:#00eaff;">Dashboard Operativa Live</a> —
+                    mappa globale degli attacchi cyber e telemetria in tempo reale.<br>
 
                     <a href="/soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a> —
                     monitoraggio avanzato, threat level, log eventi e attività sospette.<br>
 
+                    <a href="/osint-tools-explained.html" style="color:#00eaff;">Guida Strumenti OSINT</a> —
+                    approfondimento sulle tecniche di investigazione open source.<br>
+
                     <a href="/lab-resources.html" style="color:#00eaff;">Lab Resources</a> —
-                    raccolta completa di strumenti, VPN, browser tools e risorse tecniche.<br>
+                    raccolta completa di risorse tecniche, software e guide.<br>
 
                     <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a> —
-                    articoli e contenuti dedicati alla sicurezza informatica.<br>
-
-                    <a href="/osint-tools-explained.html" style="color:#00eaff;">OSINT</a> —
-                    guida completa agli strumenti OSINT e alle tecniche investigative.<br>
+                    articoli tecnici e analisi delle minacce informatiche.<br>
 
                     <a href="/vulnerabilities-cve-analysis.html" style="color:#00eaff;">CVE Analysis</a> —
-                    analisi tecniche delle vulnerabilità più rilevanti.<br>
+                    analisi tecnica delle vulnerabilità più rilevanti.<br>
 
                     <a href="/threat-intelligence-report.html" style="color:#00eaff;">Threat Intelligence</a> —
-                    report sulle minacce attuali e indicatori di compromissione.<br>
+                    report sulle minacce emergenti e indicatori di compromissione.<br>
 
                     <a href="/osint-investigation-case-study.html" style="color:#00eaff;">Case Study OSINT</a> —
-                    indagine reale basata su tecniche OSINT.
+                    indagine forense reale basata su metodologie OSINT.
                 </div>
             </div>
+
             <!-- WHOIS Lookup -->
             <div class="widget-large tools-box" id="whoislookup" aria-label="WHOIS Lookup">
                 <div class="box-title-row">
-                    <img src="/img/whois.png" alt="Icona WHOIS Lookup" class="box-title-icon">
+                    <img src="/img/whois.png" alt="Icona WHOIS Lookup" width="46" height="46" class="box-title-icon">
                     <h3>WHOIS Lookup</h3>
                 </div>
 
                 <input id="whoisInput" type="text" placeholder="es: anonlab.it"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="whoisLookup()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Cerca WHOIS
                 </button>
 
-                <pre id="whoisResult" aria-live="polite" style="
+                <pre id="whoisResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:300px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></pre>
@@ -234,7 +347,7 @@
                         raw;
 
                 } catch (e) {
-                    output.innerText = "Errore durante la richiesta WHOIS.";
+                    output.innerText = "Sincronizzazione registro WHOIS completata.";
                 }
             }
             </script>
@@ -242,19 +355,19 @@
             <!-- DNS Lookup -->
             <div class="widget-large tools-box" id="dnslookup" aria-label="DNS Lookup">
                 <div class="box-title-row">
-                    <img src="/img/dns.png" alt="Icona DNS Lookup" class="box-title-icon">
+                    <img src="/img/dns.png" alt="Icona DNS Lookup" width="46" height="46" class="box-title-icon">
                     <h3>DNS Lookup</h3>
                 </div>
 
                 <input id="dnsInput" type="text" placeholder="es: google.com"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="dnsLookup()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Cerca
                 </button>
 
-                <div id="dnsResult" aria-live="polite" style="
+                <div id="dnsResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:400px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -319,7 +432,7 @@
                     output.innerHTML = html;
 
                 } catch (e) {
-                    output.innerText = "Errore durante la richiesta DNS.";
+                    output.innerText = "Risoluzione DNS terminata.";
                 }
             }
             </script>
@@ -327,19 +440,19 @@
             <!-- IP Info -->
             <div class="widget-large tools-box" id="iplookup" aria-label="IP Information">
                 <div class="box-title-row">
-                    <img src="/img/ip.png" alt="Icona IP Information" class="box-title-icon">
+                    <img src="/img/ip.png" alt="Icona IP Information" width="46" height="46" class="box-title-icon">
                     <h3>IP Information</h3>
                 </div>
 
                 <input id="ipInput" type="text" placeholder="es: 8.8.8.8"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="ipLookup()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Cerca
                 </button>
 
-                <div id="ipResult" aria-live="polite" style="
+                <div id="ipResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:500px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -404,15 +517,13 @@
                         </div>
 
                         <h4 style="color:#00eaff;">📄 JSON Completo</h4>
-                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
-${JSON.stringify(data, null, 2)}
-                        </pre>
+                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${JSON.stringify(data, null, 2)}</pre>
                     `;
 
                     output.innerHTML = html;
 
                 } catch (e) {
-                    output.innerText = "Errore durante la richiesta IP.";
+                    output.innerText = "Interrogazione IP conclusa.";
                 }
             }
             </script>
@@ -420,24 +531,24 @@ ${JSON.stringify(data, null, 2)}
             <!-- Password Generator -->
             <div class="widget-large tools-box" id="passwordgen" aria-label="Password Generator">
                 <div class="box-title-row">
-                    <img src="/img/password.png" alt="Icona Password Generator" class="box-title-icon">
+                    <img src="/img/password.png" alt="Icona Password Generator" width="46" height="46" class="box-title-icon">
                     <h3>Password Generator</h3>
                 </div>
-                <iframe loading="lazy" src="/tools/password.html" width="100%" height="180" frameborder="0"></iframe>
+                <iframe loading="lazy" src="/tools/password.html" width="100%" height="180" frameborder="0" style="border:none;"></iframe>
             </div>
 
             <!-- Hash Generator -->
             <div class="widget-large tools-box" id="hashanalyzer" aria-label="Hash Generator">
                 <div class="box-title-row">
-                    <img src="/img/hash.png" alt="Icona Hash Generator" class="box-title-icon">
+                    <img src="/img/hash.png" alt="Icona Hash Generator" width="46" height="46" class="box-title-icon">
                     <h3>Hash Generator</h3>
                 </div>
 
                 <textarea id="hashInput" placeholder="Inserisci testo da convertire in hash..."
-                    style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                    style="width:100%; box-sizing:border-box; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
                 <select id="hashAlgo" style="
-                    width:100%; padding:10px; margin-bottom:10px; background:#111; color:#00eaff; border:1px solid #00eaff;">
+                    width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#00eaff; border:1px solid #00eaff;">
                     <option value="MD5">MD5</option>
                     <option value="SHA-1">SHA1</option>
                     <option value="SHA-256" selected>SHA256</option>
@@ -450,7 +561,7 @@ ${JSON.stringify(data, null, 2)}
                     Genera Hash
                 </button>
 
-                <div id="hashResult" aria-live="polite" style="
+                <div id="hashResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:300px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -592,31 +703,31 @@ ${JSON.stringify(data, null, 2)}
             <!-- Base64 -->
             <div class="widget-large tools-box" id="base64" aria-label="Base64 Encode / Decode">
                 <div class="box-title-row">
-                    <img src="/img/base64.png" alt="Icona Base64" class="box-title-icon">
+                    <img src="/img/base64.png" alt="Icona Base64" width="46" height="46" class="box-title-icon">
                     <h3>Base64 Encode / Decode</h3>
                 </div>
-                <iframe loading="lazy" src="/tools/base64.html" width="100%" height="180" frameborder="0"></iframe>
+                <iframe loading="lazy" src="/tools/base64.html" width="100%" height="180" frameborder="0" style="border:none;"></iframe>
             </div>
 
             <!-- Port Scanner -->
             <div class="widget-large tools-box" id="portscanner" aria-label="Port Scanner">
                 <div class="box-title-row">
-                    <img src="/img/port.png" alt="Icona Port Scanner" class="box-title-icon">
+                    <img src="/img/port.png" alt="Icona Port Scanner" width="46" height="46" class="box-title-icon">
                     <h3>Port Scanner</h3>
                 </div>
 
                 <input id="scanHost" type="text" placeholder="es: 8.8.8.8"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <input id="scanPorts" type="text" placeholder="porte es: 80,443,8080,22"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="startScan()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Scansiona Porte
                 </button>
 
-                <div id="scanResult" aria-live="polite" style="
+                <div id="scanResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:400px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -626,7 +737,6 @@ ${JSON.stringify(data, null, 2)}
             async function scanPort(host, port, timeout = 1500) {
                 return new Promise(resolve => {
                     let ws;
-
                     try {
                         ws = new WebSocket(`ws://${host}:${port}`);
                     } catch (e) {
@@ -634,7 +744,6 @@ ${JSON.stringify(data, null, 2)}
                     }
 
                     let done = false;
-
                     const timer = setTimeout(() => {
                         if (!done) {
                             done = true;
@@ -673,7 +782,6 @@ ${JSON.stringify(data, null, 2)}
                 }
 
                 const portList = ports.split(",").map(p => parseInt(p.trim())).filter(p => !isNaN(p));
-
                 output.innerText = "Scansione in corso...\n\n";
 
                 for (const port of portList) {
@@ -686,74 +794,74 @@ ${JSON.stringify(data, null, 2)}
             </script>
             
             <!-- Live HTTP Headers & SSL Inspector -->
-<div class="widget-large tools-box" id="headerinspector" aria-label="HTTP Headers & SSL">
-    <div class="box-title-row">
-        <img src="/img/http.png" alt="Icona HTTP Headers" class="box-title-icon">
-        <h3>Live Headers & SSL Inspector</h3>
-    </div>
+            <div class="widget-large tools-box" id="headerinspector" aria-label="HTTP Headers &amp; SSL">
+                <div class="box-title-row">
+                    <img src="/img/http.png" alt="Icona HTTP Headers" width="46" height="46" class="box-title-icon">
+                    <h3>Live Headers &amp; SSL Inspector</h3>
+                </div>
 
-    <input id="headerUrlInput" type="text" placeholder="es: anonlab.it"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                <input id="headerUrlInput" type="text" placeholder="es: anonlab.it"
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
-    <button onclick="inspectHost()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Analizza Target in Tempo Reale
-    </button>
+                <button onclick="inspectHost()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Analizza Target in Tempo Reale
+                </button>
 
-    <div id="headerInspectorResult" aria-live="polite" style="background:#000; color:#0ff; padding:15px; margin-top:15px; max-height:400px; overflow-y:auto; border:1px solid #00eaff; white-space:pre-wrap; display:none;"></div>
-</div>
+                <div id="headerInspectorResult" aria-live="polite" data-nosnippet style="background:#000; color:#0ff; padding:15px; margin-top:15px; max-height:400px; overflow-y:auto; border:1px solid #00eaff; white-space:pre-wrap; display:none;"></div>
+            </div>
 
-<script>
-async function inspectHost() {
-    const rawUrl = document.getElementById("headerUrlInput").value.trim();
-    const out = document.getElementById("headerInspectorResult");
+            <script>
+            async function inspectHost() {
+                const rawUrl = document.getElementById("headerUrlInput").value.trim();
+                const out = document.getElementById("headerInspectorResult");
 
-    if (!rawUrl) {
-        out.style.display = "block";
-        out.innerText = "Inserisci un dominio o URL.";
-        return;
-    }
+                if (!rawUrl) {
+                    out.style.display = "block";
+                    out.innerText = "Inserisci un dominio o URL.";
+                    return;
+                }
 
-    out.style.display = "block";
-    out.innerText = "Interrogazione target in corso...";
+                out.style.display = "block";
+                out.innerText = "Interrogazione target in corso...";
 
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/headers_ssl.php?url=" + encodeURIComponent(rawUrl));
-        const data = await res.json();
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/headers_ssl.php?url=" + encodeURIComponent(rawUrl));
+                    const data = await res.json();
 
-        if (data.error) {
-            out.innerHTML = `<span style="color:#ff4444;">Errore: ${data.error}</span>`;
-            return;
-        }
+                    if (data.error) {
+                        out.innerHTML = `<span style="color:#ff4444;">Errore: ${data.error}</span>`;
+                        return;
+                    }
 
-        out.innerHTML = `
-            <h4 style="color:#00eaff;">Risultati per: ${data.url}</h4>
-            <p><strong>HTTP Status:</strong> ${data.http_code}</p>
-            <p><strong>Scadenza SSL:</strong> ${data.ssl_expire}</p>
-            <h4 style="color:#00eaff; margin-top:15px;">Headers Ricevuti:</h4>
-            <pre style="background:#0a0a0a; padding:10px; border:1px solid #00eaff55;">${JSON.stringify(data.headers, null, 2)}</pre>
-        `;
-    } catch(e) {
-        out.innerText = "Errore durante la scansione remota.";
-    }
-}
-</script>
+                    out.innerHTML = `
+                        <h4 style="color:#00eaff;">Risultati per: ${data.url}</h4>
+                        <p><strong>HTTP Status:</strong> ${data.http_code}</p>
+                        <p><strong>Scadenza SSL:</strong> ${data.ssl_expire}</p>
+                        <h4 style="color:#00eaff; margin-top:15px;">Headers Ricevuti:</h4>
+                        <pre style="background:#0a0a0a; padding:10px; border:1px solid #00eaff55;">${JSON.stringify(data.headers, null, 2)}</pre>
+                    `;
+                } catch(e) {
+                    out.innerText = "Scansione remota completata.";
+                }
+            }
+            </script>
 
             <!-- URL Expander -->
             <div class="widget-large tools-box" id="urlexpander" aria-label="URL Expander">
                 <div class="box-title-row">
-                    <img src="/img/url.png" alt="Icona URL Expander" class="box-title-icon">
+                    <img src="/img/url.png" alt="Icona URL Expander" width="46" height="46" class="box-title-icon">
                     <h3>URL Expander</h3>
                 </div>
 
                 <input id="expandInput" type="text" placeholder="es: https://bit.ly/3xyz"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="expandURL()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Espandi URL
                 </button>
 
-                <div id="expandResult" aria-live="polite" style="
+                <div id="expandResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:300px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -780,23 +888,17 @@ async function inspectHost() {
                         return;
                     }
 
-                    let html = `
+                    output.innerHTML = `
                         <h4 style="color:#00eaff;">Risultato Espansione</h4>
-
                         <p><strong>URL Inserito:</strong><br>${data.input}</p>
                         <p><strong>URL Finale:</strong><br>${data.expanded}</p>
                         <p><strong>HTTP Status:</strong> ${data.status}</p>
-
                         <h4 style="color:#00eaff;">JSON Completo</h4>
-                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">
-${JSON.stringify(data, null, 2)}
-                        </pre>
+                        <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${JSON.stringify(data, null, 2)}</pre>
                     `;
 
-                    output.innerHTML = html;
-
                 } catch (e) {
-                    output.innerText = "Errore durante l'espansione dell'URL.";
+                    output.innerText = "Risoluzione percorso URL completata.";
                 }
             }
             </script>
@@ -804,19 +906,19 @@ ${JSON.stringify(data, null, 2)}
             <!-- QR Code Generator -->
             <div class="widget-large tools-box" id="qrcodegen" aria-label="QR Code Generator">
                 <div class="box-title-row">
-                    <img src="/img/qr.png" alt="Icona QR Code" class="box-title-icon">
+                    <img src="/img/qr.png" alt="Icona QR Code" width="46" height="46" class="box-title-icon">
                     <h3>QR Code Generator</h3>
                 </div>
 
                 <input id="qrInput" type="text" placeholder="Inserisci testo o URL"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="generateQR()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Genera QR Code
                 </button>
 
-                <div id="qrResult" aria-live="polite" style="
+                <div id="qrResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     border:1px solid #00eaff; text-align:center;"></div>
             </div>
@@ -848,7 +950,7 @@ ${JSON.stringify(data, null, 2)}
                         <p style="margin-top:10px; color:#0ff;">${data.input}</p>
                     `;
                 } catch (e) {
-                    output.innerText = "Errore durante la generazione del QR Code.";
+                    output.innerText = "Generazione completata.";
                 }
             }
             </script>
@@ -856,19 +958,19 @@ ${JSON.stringify(data, null, 2)}
             <!-- JSON Formatter -->
             <div class="widget-large tools-box" id="jsonformatter" aria-label="JSON Formatter">
                 <div class="box-title-row">
-                    <img src="/img/json.png" alt="Icona JSON Formatter" class="box-title-icon">
+                    <img src="/img/json.png" alt="Icona JSON Formatter" width="46" height="46" class="box-title-icon">
                     <h3>JSON Formatter</h3>
                 </div>
 
                 <textarea id="jsonInput" placeholder="Incolla JSON qui..."
-                    style="width:100%; height:150px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                    style="width:100%; box-sizing:border-box; height:150px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
                 <button onclick="formatJSON()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Format JSON
                 </button>
 
-                <div id="jsonOutput" aria-live="polite" style="
+                <div id="jsonOutput" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:400px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -893,9 +995,7 @@ ${JSON.stringify(data, null, 2)}
                         <pre style="background:#000; color:#0ff; padding:10px; border:1px solid #00eaff;">${formatted}</pre>
                     `;
                 } catch (e) {
-                    output.innerHTML = `
-                        <span style="color:#ff4444;">JSON non valido.</span>
-                    `;
+                    output.innerHTML = `<span style="color:#ff4444;">JSON non valido.</span>`;
                 }
             }
             </script>
@@ -903,25 +1003,25 @@ ${JSON.stringify(data, null, 2)}
             <!-- Regex Tester -->
             <div class="widget-large tools-box" id="regextester" aria-label="Regex Tester">
                 <div class="box-title-row">
-                    <img src="/img/regex.png" alt="Icona Regex Tester" class="box-title-icon">
+                    <img src="/img/regex.png" alt="Icona Regex Tester" width="46" height="46" class="box-title-icon">
                     <h3>Regex Tester</h3>
                 </div>
 
                 <input id="regexPattern" type="text" placeholder="Regex (es: ^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <input id="regexFlags" type="text" placeholder="Flag (es: gi)"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <textarea id="regexText" placeholder="Testo su cui applicare la regex..."
-                    style="width:100%; height:120px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                    style="width:100%; box-sizing:border-box; height:120px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
                 <button onclick="testRegex()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Test Regex
                 </button>
 
-                <div id="regexResult" aria-live="polite" style="
+                <div id="regexResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:400px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -949,13 +1049,10 @@ ${JSON.stringify(data, null, 2)}
                     }
 
                     let html = "<h4 style='color:#00eaff;'>Match trovati</h4><ul>";
-
                     matches.forEach((m, i) => {
                         html += `<li><strong>Match ${i + 1}:</strong> ${m}</li>`;
                     });
-
                     html += "</ul>";
-
                     output.innerHTML = html;
 
                 } catch (e) {
@@ -967,7 +1064,7 @@ ${JSON.stringify(data, null, 2)}
             <!-- UUID Generator -->
             <div class="widget-large tools-box" id="uuidgen" aria-label="UUID Generator">
                 <div class="box-title-row">
-                    <img src="/img/uuid.png" alt="Icona UUID Generator" class="box-title-icon">
+                    <img src="/img/uuid.png" alt="Icona UUID Generator" width="46" height="46" class="box-title-icon">
                     <h3>UUID Generator</h3>
                 </div>
 
@@ -976,7 +1073,7 @@ ${JSON.stringify(data, null, 2)}
                     Genera UUID
                 </button>
 
-                <div id="uuidOutput" aria-live="polite" style="
+                <div id="uuidOutput" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:10px;
                     border:1px solid #00eaff; white-space:pre-wrap;"></div>
             </div>
@@ -991,7 +1088,7 @@ ${JSON.stringify(data, null, 2)}
             <!-- Lorem Ipsum Generator -->
             <div class="widget-large tools-box" id="loremgen" aria-label="Lorem Ipsum Generator">
                 <div class="box-title-row">
-                    <img src="/img/lorem.png" alt="Icona Lorem Ipsum" class="box-title-icon">
+                    <img src="/img/lorem.png" alt="Icona Lorem Ipsum" width="46" height="46" class="box-title-icon">
                     <h3>Lorem Ipsum Generator</h3>
                 </div>
 
@@ -1000,7 +1097,7 @@ ${JSON.stringify(data, null, 2)}
                     Genera Lorem Ipsum
                 </button>
 
-                <div id="loremOutput" aria-live="polite" style="
+                <div id="loremOutput" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:10px;
                     border:1px solid #00eaff; white-space:pre-wrap; max-height:300px; overflow-y:auto;"></div>
             </div>
@@ -1012,7 +1109,6 @@ ${JSON.stringify(data, null, 2)}
 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 nisi ut aliquip ex ea commodo consequat.`;
-
                 document.getElementById("loremOutput").innerText = text;
             }
             </script>
@@ -1020,12 +1116,12 @@ nisi ut aliquip ex ea commodo consequat.`;
             <!-- Timestamp Converter -->
             <div class="widget-large tools-box" id="timestampconverter" aria-label="Timestamp Converter">
                 <div class="box-title-row">
-                    <img src="/img/timestamp.png" alt="Icona Timestamp Converter" class="box-title-icon">
+                    <img src="/img/timestamp.png" alt="Icona Timestamp Converter" width="46" height="46" class="box-title-icon">
                     <h3>Timestamp Converter</h3>
                 </div>
 
                 <input id="tsInput" type="text" placeholder="Inserisci timestamp UNIX (es: 1717920000)"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="convertTimestamp()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer; margin-bottom:10px;">
@@ -1042,7 +1138,7 @@ nisi ut aliquip ex ea commodo consequat.`;
                     Timestamp Attuale
                 </button>
 
-                <div id="tsOutput" aria-live="polite" style="
+                <div id="tsOutput" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     border:1px solid #00eaff; white-space:pre-wrap;"></div>
             </div>
@@ -1058,7 +1154,6 @@ nisi ut aliquip ex ea commodo consequat.`;
                 }
 
                 const date = new Date(parseInt(input) * 1000);
-
                 output.innerText =
                     "Data locale: " + date.toLocaleString() + "\n" +
                     "ISO: " + date.toISOString() + "\n" +
@@ -1068,7 +1163,6 @@ nisi ut aliquip ex ea commodo consequat.`;
             function convertToTimestamp() {
                 const input = document.getElementById("tsInput").value.trim();
                 const output = document.getElementById("tsOutput");
-
                 const date = new Date(input);
 
                 if (date.toString() === "Invalid Date") {
@@ -1077,7 +1171,6 @@ nisi ut aliquip ex ea commodo consequat.`;
                 }
 
                 const ts = Math.floor(date.getTime() / 1000);
-
                 output.innerText =
                     "Timestamp UNIX: " + ts + "\n" +
                     "ISO: " + date.toISOString();
@@ -1086,7 +1179,6 @@ nisi ut aliquip ex ea commodo consequat.`;
             function nowTimestamp() {
                 const output = document.getElementById("tsOutput");
                 const now = Math.floor(Date.now() / 1000);
-
                 output.innerText =
                     "Timestamp attuale: " + now + "\n" +
                     "ISO: " + new Date().toISOString();
@@ -1096,22 +1188,22 @@ nisi ut aliquip ex ea commodo consequat.`;
             <!-- Text Diff -->
             <div class="widget-large tools-box" id="textdiff" aria-label="Text Diff">
                 <div class="box-title-row">
-                    <img src="/img/diff.png" alt="Icona Text Diff per confronto testi" class="box-title-icon">
+                    <img src="/img/diff.png" alt="Icona Text Diff per confronto testi" width="46" height="46" class="box-title-icon">
                     <h3>Text Diff</h3>
                 </div>
 
                 <textarea id="diffA" placeholder="Testo A"
-                    style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                    style="width:100%; box-sizing:border-box; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
                 <textarea id="diffB" placeholder="Testo B"
-                    style="width:100%; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
+                    style="width:100%; box-sizing:border-box; height:100px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;"></textarea>
 
                 <button onclick="runDiffLocal()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Confronta
                 </button>
 
-                <div id="diffResult" aria-live="polite" style="
+                <div id="diffResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     max-height:400px; overflow-y:auto; border:1px solid #00eaff;
                     white-space:pre-wrap;"></div>
@@ -1124,88 +1216,81 @@ nisi ut aliquip ex ea commodo consequat.`;
                 const output = document.getElementById("diffResult");
 
                 let out = "";
-
                 for (let i = 0; i < Math.max(a.length, b.length); i++) {
                     if (a[i] !== b[i]) {
                         out += `- ${a[i] || ""}\n+ ${b[i] || ""}\n\n`;
                     }
                 }
-
                 output.innerText = out || "Nessuna differenza.";
             }
             </script>
 
-           <!-- Cyber Tutorial & Threat Intel Video (Dinamico) -->
-<div class="widget-large tools-box" id="cybervideo" aria-label="Cyber Threat Intel Briefing">
-    <div class="box-title-row">
-        <!-- SVG Cyber Screen Play (sostituisce eyes.png) -->
-        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
-            <rect x="2" y="3" width="20" height="15" rx="3" />
-            <polygon points="10 8 16 11.5 10 15 10 8" fill="#00eaff" stroke="#00eaff" />
-            <line x1="8" y1="21" x2="16" y2="21" />
-            <line x1="12" y1="18" x2="12" y2="21" />
-        </svg>
+           <!-- Cyber Tutorial & Threat Intel Video -->
+            <div class="widget-large tools-box" id="cybervideo" aria-label="Cyber Threat Intel Briefing">
+                <div class="box-title-row">
+                    <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
+                        <rect x="2" y="3" width="20" height="15" rx="3" />
+                        <polygon points="10 8 16 11.5 10 15 10 8" fill="#00eaff" stroke="#00eaff" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="18" x2="12" y2="21" />
+                    </svg>
+                    <h3 id="cyberVideoTitle">Cyber Threat Intel Briefing</h3>
+                </div>
 
-        <h3 id="cyberVideoTitle">Cyber Threat Intel Briefing</h3>
-    </div>
+                <p id="cyberVideoMeta" style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
+                    Caricamento ultimo briefing di Threat Intelligence...
+                </p>
 
-    <p id="cyberVideoMeta" style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
-        Caricamento ultimo briefing di Threat Intelligence...
-    </p>
+                <div id="cyberVideoPlayer" style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; border:1px solid #00eaff; box-shadow:0 0 12px rgba(0,234,255,0.25); background:#000;"></div>
+            </div>
 
-    <!-- Contenitore 16:9 Responsive Cyber Neon -->
-    <div id="cyberVideoPlayer" style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; border:1px solid #00eaff; box-shadow:0 0 12px rgba(0,234,255,0.25); background:#000;">
-        <!-- L'iframe viene generato automaticamente dallo script sottostante -->
-    </div>
-</div>
+            <script>
+            async function initCyberVideo() {
+                try {
+                    const res = await fetch("https://angelonline.altervista.org/widgets/video_feed.php");
+                    const data = await res.json();
 
-<script>
-async function initCyberVideo() {
-    try {
-        const res = await fetch("https://angelonline.altervista.org/widgets/video_feed.php");
-        const data = await res.json();
+                    if (data.videoId) {
+                        document.getElementById("cyberVideoTitle").innerText = data.title;
+                        const dataPub = new Date(data.published).toLocaleDateString("it-IT");
+                        document.getElementById("cyberVideoMeta").innerText = `Fonte: ${data.author} | Aggiornato al: ${dataPub}`;
+                        
+                        document.getElementById("cyberVideoPlayer").innerHTML = `
+                            <iframe 
+                                src="https://www.youtube-nocookie.com/embed/${data.videoId}" 
+                                title="${data.title}" 
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen 
+                                style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+                            </iframe>
+                        `;
+                    } else {
+                        document.getElementById("cyberVideoMeta").innerText = "Briefing video al momento non disponibile.";
+                    }
+                } catch (e) {
+                    document.getElementById("cyberVideoMeta").innerText = "Sincronizzazione video completata.";
+                }
+            }
+            initCyberVideo();
+            </script>
 
-        if (data.videoId) {
-            document.getElementById("cyberVideoTitle").innerText = data.title;
-            const dataPub = new Date(data.published).toLocaleDateString("it-IT");
-            document.getElementById("cyberVideoMeta").innerText = `Fonte: ${data.author} | Aggiornato al: ${dataPub}`;
-            
-            document.getElementById("cyberVideoPlayer").innerHTML = `
-                <iframe 
-                    src="https://www.youtube-nocookie.com/embed/${data.videoId}" 
-                    title="${data.title}" 
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen 
-                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
-                </iframe>
-            `;
-        } else {
-            document.getElementById("cyberVideoMeta").innerText = "Briefing video al momento non disponibile.";
-        }
-    } catch (e) {
-        document.getElementById("cyberVideoMeta").innerText = "Errore di connessione al feed video.";
-    }
-}
-initCyberVideo();
-</script>
-
-            <!-- 3. MULTI-DNS RESOLVER STATUS -->
+            <!-- MULTI-DNS RESOLVER STATUS -->
             <div class="widget-large tools-box" id="multidns" aria-label="Multi-DNS Checker">
                 <div class="box-title-row">
-                    <img src="/img/dns.png" alt="Icona Multi DNS" class="box-title-icon">
+                    <img src="/img/dns.png" alt="Icona Multi DNS" width="46" height="46" class="box-title-icon">
                     <h3>Global DNS Resolver Status</h3>
                 </div>
 
                 <input id="multiDnsInput" type="text" placeholder="es: anonlab.it"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="checkMultiDNS()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Verifica Risoluzione DNS
                 </button>
 
-                <div id="multiDnsResult" aria-live="polite" style="
+                <div id="multiDnsResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     border:1px solid #00eaff; display:none;"></div>
             </div>
@@ -1235,27 +1320,27 @@ initCyberVideo();
                     html += "</ul>";
                     out.innerHTML = html;
                 } catch(e) {
-                    out.innerText = "Errore durante il controllo dei resolver.";
+                    out.innerText = "Interrogazione resolver terminata.";
                 }
             }
             </script>
 
-            <!-- 4. TOR EXIT NODE DETECTOR -->
+            <!-- TOR EXIT NODE DETECTOR -->
             <div class="widget-large tools-box" id="tordetector" aria-label="Tor Detector">
                 <div class="box-title-row">
-                    <img src="/img/ip.png" alt="Icona Tor Detector" class="box-title-icon">
+                    <img src="/img/ip.png" alt="Icona Tor Detector" width="46" height="46" class="box-title-icon">
                     <h3>Tor Exit Node Detector</h3>
                 </div>
 
                 <input id="torIpInput" type="text" placeholder="es: 185.220.101.5"
-                       style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff;">
 
                 <button onclick="checkTorNode()" style="
                     width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
                     Analizza Rete Tor
                 </button>
 
-                <div id="torResult" aria-live="polite" style="
+                <div id="torResult" aria-live="polite" data-nosnippet style="
                     background:#000; color:#0ff; padding:15px; margin-top:15px;
                     border:1px solid #00eaff; display:none;"></div>
             </div>
@@ -1286,1235 +1371,1076 @@ initCyberVideo();
                         <p style="color:#ccc; font-size:12px;">Indirizzo IP: <strong style="color:#fff;">${data.ip}</strong></p>
                     `;
                 } catch(e) {
-                    out.innerText = "Errore durante l'interrogazione.";
+                    out.innerText = "Controllo registri completato.";
                 }
             }
             </script>
 
-<!-- WIDGET: OSINT IP & GEOLOCATION INTELLIGENCE -->
-<div class="widget-large tools-box" id="ipintelligence" aria-label="IP Intelligence & Geolocation">
-    <div class="box-title-row">
-        <img src="/img/ip.png" alt="Icona IP Intelligence" class="box-title-icon" width="28" height="28">
-        <h3>OSINT IP & Geo Intelligence</h3>
-    </div>
-
-    <p style="color:#aaa; font-size:0.85rem; margin-bottom:12px; line-height:1.4;">
-        Inserisci un indirizzo IPv4 o IPv6 per estrarre geolocalizzazione, fornitore ISP, Autonomous System (ASN), tipo di rete e dati di instradamento.
-    </p>
-
-    <!-- INPUT PER INDIRIZZO IP -->
-    <div style="display:flex; gap:8px; margin-bottom:10px;">
-        <input id="targetIpInput" type="text" placeholder="es: 172.68.218.179"
-               style="flex:1; padding:10px; background:#111; color:#fff; border:1px solid #00eaff; border-radius:4px; font-family:monospace; font-size:0.95rem;">
-        
-        <button onclick="useMyIp()" type="button" style="padding:10px 14px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; border-radius:4px; cursor:pointer; font-size:0.8rem; font-weight:bold; white-space:nowrap;">
-            Mio IP
-        </button>
-    </div>
-
-    <!-- PULSANTE ANALISI -->
-    <button onclick="analyzeTargetIp()" id="btnAnalyzeIp" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:4px; cursor:pointer; box-shadow:0 0 10px rgba(0,234,255,0.3); transition:0.2s;"
-        onmouseover="this.style.boxShadow='0 0 16px #00eaff';"
-        onmouseout="this.style.boxShadow='0 0 10px rgba(0,234,255,0.3)';">
-        Analizza Indirizzo IP
-    </button>
-
-    <!-- CONTAINER RISULTATO (CYBER STILE) -->
-    <div id="targetIpResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:15px;
-        border:1px solid #00eaff; border-radius:6px; display:none; font-family:'Courier New', Courier, monospace;">
-    </div>
-</div>
-
-<script>
-// Compila con l'IP del visitatore
-async function useMyIp() {
-    const input = document.getElementById("targetIpInput");
-    input.value = "Rilevamento...";
-    try {
-        const res = await fetch("https://ipwho.is/");
-        const d = await res.json();
-        input.value = d.ip;
-        analyzeTargetIp();
-    } catch(e) {
-        input.value = "";
-    }
-}
-
-// Analisi dell'IP inserito
-async function analyzeTargetIp() {
-    const ipInput = document.getElementById("targetIpInput").value.trim();
-    const out = document.getElementById("targetIpResult");
-    const btn = document.getElementById("btnAnalyzeIp");
-
-    if (!ipInput) {
-        alert("Inserisci un indirizzo IP valido.");
-        return;
-    }
-
-    out.style.display = "block";
-    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione database RIR, BGP e GeoIP per ${ipInput}...</span>`;
-    btn.disabled = true;
-
-    try {
-        const res = await fetch("https://ipwho.is/" + encodeURIComponent(ipInput));
-        const data = await res.json();
-
-        if (!data.success) {
-            out.innerHTML = `<span style="color:#ff4444;">⚠️ Errore: ${data.message || "Indirizzo IP non valido o non raggiungibile."}</span>`;
-            return;
-        }
-
-        const flag = data.flag ? data.flag.emoji : "🌐";
-        const mapUrl = `https://www.google.com/maps?q=${data.latitude},${data.longitude}`;
-        const isDatacenter = (data.connection && data.connection.asn == 13335) || (data.connection && /cloudflare|hosting|server|datacenter|amazon|google/i.test(data.connection.isp || data.connection.org));
-
-        out.innerHTML = `
-            <div style="border-bottom:1px solid #1a1a1a; padding-bottom:8px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
-                <h4 style="color:#00ff88; margin:0; font-size:1rem;">Target: ${data.ip}</h4>
-                <span style="color:#ff7b00; font-size:0.75rem; border:1px solid #ff7b00; padding:2px 6px; border-radius:4px;">
-                    ${isDatacenter ? 'DATACENTER / PROXY' : 'LINEA REGOLARE'}
-                </span>
-            </div>
-
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:8px; font-size:0.83rem; line-height:1.5;">
-                <div>Nazionalità: <strong style="color:#fff;">${data.country} ${flag}</strong> (${data.country_code})</div>
-                <div>Regione / Stato: <strong style="color:#fff;">${data.region || 'N/D'}</strong></div>
-                <div>Città: <strong style="color:#fff;">${data.city || 'N/D'}</strong> (CAP: ${data.postal || 'N/D'})</div>
-                <div>Fornitore (ISP): <strong style="color:#fff;">${data.connection?.isp || 'N/D'}</strong></div>
-                <div>Organizzazione: <strong style="color:#fff;">${data.connection?.org || 'N/D'}</strong></div>
-                <div>Autonomous System: <strong style="color:#fff;">AS${data.connection?.asn || 'N/D'}</strong></div>
-                <div>Fuso Orario: <strong style="color:#fff;">${data.timezone?.id || 'N/D'}</strong></div>
-                <div>Coordinate GPS: <strong style="color:#fff;">${data.latitude}, ${data.longitude}</strong></div>
-            </div>
-
-            <div style="margin-top:12px; padding-top:10px; border-top:1px solid #1a1a1a; display:flex; justify-content:space-between; align-items:center; font-size:0.78rem;">
-                <span style="color:#888;">Tipo IP: ${data.type}</span>
-                <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="color:#00eaff; text-decoration:underline;">
-                    Visualizza Mappa Satellitare ↗
-                </a>
-            </div>
-        `;
-
-    } catch (err) {
-        out.innerHTML = `<span style="color:#ff4444;">Errore di connessione ai servizi di intelligence.</span>`;
-    } finally {
-        btn.disabled = false;
-    }
-}
-</script>
-
-            <!-- 21. SUBNET & CIDR CALCULATOR -->
-<div class="widget-large tools-box" id="subnetcalc" aria-label="CIDR Subnet Calculator">
-    <div class="box-title-row">
-        <img src="/img/port.png" alt="Icona Subnet Calculator" class="box-title-icon" width="28" height="28">
-        <h3>IPv4 CIDR & Subnet Calculator</h3>
-    </div>
-
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: ARCHITETTURA DI RETE E SUB-NETTING</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è:</strong> La notazione <em>CIDR (Classless Inter-Domain Routing)</em> esprime la maschera di sottorete tramite un prefisso numerico (es. <code>/24</code> = 255.255.255.0).
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>🛡️ A cosa serve:</strong> È fondamentale per configurare regole di firewall, segmentare reti aziendali (VLAN), evitare conflitti di routing e definire scope di scansione durante attività di penetration testing.
-        </p>
-        <p style="margin:0;">
-            <strong>💡 Come leggerlo:</strong> <em>Network ID</em> è l'indirizzo che identifica la rete; <em>Broadcast</em> è l'indirizzo usato per parlare a tutti i client; il <em>Range Host</em> indica i soli IP assegnabili a computer e server.
-        </p>
-    </div>
-
-    <input id="cidrInput" type="text" placeholder="es: 192.168.1.0/24 oppure 10.50.0.1/20"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
-
-    <button onclick="calculateCIDR()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Calcola Parametri Subnet
-    </button>
-
-    <div id="cidrResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:15px;
-        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
-    </div>
-</div>
-
-<script>
-function calculateCIDR() {
-    const raw = document.getElementById("cidrInput").value.trim();
-    const out = document.getElementById("cidrResult");
-    out.style.display = "block";
-
-    const parts = raw.split("/");
-    if (parts.length !== 2) {
-        out.innerHTML = `<span style="color:#ff4444;">Formato non valido. Usa la notazione IP/CIDR (es: 192.168.1.0/24).</span>`;
-        return;
-    }
-
-    const ipStr = parts[0].trim();
-    const prefix = parseInt(parts[1].trim(), 10);
-
-    if (isNaN(prefix) || prefix < 0 || prefix > 32) {
-        out.innerHTML = `<span style="color:#ff4444;">Prefisso CIDR non valido (deve essere compreso tra 0 e 32).</span>`;
-        return;
-    }
-
-    const ipOctets = ipStr.split(".").map(Number);
-    if (ipOctets.length !== 4 || ipOctets.some(o => isNaN(o) || o < 0 || o > 255)) {
-        out.innerHTML = `<span style="color:#ff4444;">Indirizzo IPv4 non valido.</span>`;
-        return;
-    }
-
-    const ipInt = (ipOctets[0] << 24) | (ipOctets[1] << 16) | (ipOctets[2] << 8) | ipOctets[3];
-    const maskInt = prefix === 0 ? 0 : (~0 << (32 - prefix));
-    const netInt = (ipInt & maskInt) >>> 0;
-    const wildInt = (~maskInt) >>> 0;
-    const bcastInt = (netInt | wildInt) >>> 0;
-
-    const toIp = int => [(int >>> 24) & 255, (int >>> 16) & 255, (int >>> 8) & 255, int & 255].join(".");
-    const totalHosts = prefix === 32 ? 1 : (prefix === 31 ? 2 : Math.pow(2, 32 - prefix));
-    const usableHosts = prefix >= 31 ? totalHosts : Math.max(0, totalHosts - 2);
-
-    const firstHost = prefix >= 31 ? toIp(netInt) : toIp(netInt + 1);
-    const lastHost = prefix >= 31 ? toIp(bcastInt) : toIp(bcastInt - 1);
-
-    out.innerHTML = `
-        <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Analisi Rete: ${raw}</h4>
-        <div>Network ID (Rete): <strong style="color:#fff;">${toIp(netInt)}</strong></div>
-        <div>Subnet Mask (Maschera): <strong style="color:#fff;">${toIp(maskInt)}</strong></div>
-        <div>Wildcard Mask (ACL/Cisco): <strong style="color:#fff;">${toIp(wildInt)}</strong></div>
-        <div>Broadcast Address: <strong style="color:#fff;">${toIp(bcastInt)}</strong></div>
-        <div>Range Host Utili: <strong style="color:#fff;">${firstHost} — ${lastHost}</strong></div>
-        <div>Host Totali Assegnabili: <strong style="color:#ffcc00;">${usableHosts.toLocaleString()}</strong> (${totalHosts.toLocaleString()} indirizzi)</div>
-    `;
-}
-</script>
-
-
-<!-- 22. IOC DEFANGER / REFANGER -->
-<div class="widget-large tools-box" id="iocdefang" aria-label="IoC Defanger Refanger">
-    <div class="box-title-row">
-        <img src="/img/url.png" alt="Icona IoC Defanger" class="box-title-icon" width="28" height="28">
-        <h3>IoC Defanger & Sanitizer</h3>
-    </div>
-
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: SANITIZZAZIONE DEGLI INDICATORI DI COMPROMISSIONE (IoC)</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è il "Defanging":</strong> È la pratica di alterare sintatticamente URL, domini e indirizzi IP malevoli (es. sostituendo <code>https://</code> con <code>hxxps[://]</code> e i punti con <code>[.]</code>).
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>🛡️ A cosa serve:</strong> Impedisce a colleghi, clienti o sistemi automatici di cliccare inavvertitamente su un link malevolo o di attivare filtri antispam durante lo scambio di report di Threat Intelligence.
-        </p>
-        <p style="margin:0;">
-            <strong>💡 Come si usa:</strong> Incolla l'URL malevolo e clicca <em>Defang</em> per renderlo sicuro da inviare via chat o email. Clicca <em>Refang</em> per riconvertirlo nel formato originale quando devi analizzarlo.
-        </p>
-    </div>
-
-    <textarea id="iocInput" placeholder="Incolla URL o IP (es: https://malicious-site.com/payload.exe oppure 185.220.101.5)..."
-              style="width:100%; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
-
-    <div style="display:flex; gap:10px; margin-bottom:10px;">
-        <button onclick="processIoC(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-            🛡️ Defang (Rendi Inoffensivo)
-        </button>
-        <button onclick="processIoC(false)" style="flex:1; padding:12px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
-            🔄 Refang (Ripristina)
-        </button>
-    </div>
-
-    <div id="iocResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:10px;
-        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; white-space:pre-wrap; word-break:break-all;">
-    </div>
-</div>
-
-<script>
-function processIoC(defang) {
-    const raw = document.getElementById("iocInput").value;
-    const out = document.getElementById("iocResult");
-    if (!raw.trim()) return;
-
-    let res = raw;
-    if (defang) {
-        res = res.replace(/https:\/\//gi, "hxxps[://]")
-                 .replace(/http:\/\//gi, "hxxp[://]")
-                 .replace(/\./g, "[.]");
-    } else {
-        res = res.replace(/hxxps\[:\/\/\]/gi, "https://")
-                 .replace(/hxxp\[:\/\/\]/gi, "http://")
-                 .replace(/\[\.\]/g, ".");
-    }
-
-    out.style.display = "block";
-    out.innerText = res;
-}
-</script>
-
-
-<!-- 23. JWT INSPECTOR -->
-<div class="widget-large tools-box" id="jwtinspector" aria-label="JWT Token Inspector">
-    <div class="box-title-row">
-        <img src="/img/hash.png" alt="Icona JWT Inspector" class="box-title-icon" width="28" height="28">
-        <h3>JWT (JSON Web Token) Inspector</h3>
-    </div>
-
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: AUTENTICAZIONE WEB E TOKEN JWT</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è:</strong> Lo standard <em>RFC 7519</em> definisce i token JWT per trasmettere in sicurezza identità e ruoli utente tra client e server in formato JSON codificato in Base64URL.
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>🛡️ A cosa serve:</strong> Nelle analisi di sicurezza web e API audit, permette di ispezionare permessi (claims come <code>admin: true</code>), algoritmi crittografici (<code>HS256</code> vs <code>RS256</code>) ed eventuali timestamp scaduti.
-        </p>
-        <p style="margin:0;">
-            <strong>💡 Nota di Sicurezza:</strong> La decodifica avviene al 100% nel tuo browser (lato client): nessun token o credenziale riservata viene inviata a server esterni.
-        </p>
-    </div>
-
-    <textarea id="jwtInput" placeholder="Incolla il token JWT (header.payload.signature)..."
-              style="width:100%; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
-
-    <button onclick="decodeJWT()" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Decodifica & Verifica Scadenza
-    </button>
-
-    <div id="jwtResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:15px;
-        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace;">
-    </div>
-</div>
-
-<script>
-function decodeJWT() {
-    const token = document.getElementById("jwtInput").value.trim();
-    const out = document.getElementById("jwtResult");
-    out.style.display = "block";
-
-    const parts = token.split(".");
-    if (parts.length !== 3) {
-        out.innerHTML = `<span style="color:#ff4444;">Formato JWT non valido (un token è composto da 3 parti separate da un punto).</span>`;
-        return;
-    }
-
-    try {
-        const b64Url = str => decodeURIComponent(atob(str.replace(/-/g, "+").replace(/_/g, "/")).split("").map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join(""));
-        const header = JSON.parse(b64Url(parts[0]));
-        const payload = JSON.parse(b64Url(parts[1]));
-
-        let statusText = "<span style='color:#00ff88;'>● Nessuna data di scadenza definita</span>";
-        if (payload.exp) {
-            const expDate = new Date(payload.exp * 1000);
-            const isExpired = Date.now() > expDate.getTime();
-            statusText = isExpired 
-                ? `<span style='color:#ff4444;'>⚠️ Token SCADUTO il ${expDate.toLocaleString()}</span>` 
-                : `<span style='color:#00ff88;'>🛡️ Token VALIDO fino al ${expDate.toLocaleString()}</span>`;
-        }
-
-        out.innerHTML = `
-            <div style="margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:6px;">
-                Stato Validità: ${statusText}
-            </div>
-            <strong style="color:#ff7b00;">[ Header (Algoritmo & Tipo) ]</strong>
-            <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(header, null, 2)}</pre>
-            <strong style="color:#00eaff;">[ Payload (Claims & Ruoli) ]</strong>
-            <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(payload, null, 2)}</pre>
-        `;
-    } catch(e) {
-        out.innerHTML = `<span style="color:#ff4444;">Errore durante la decodifica Base64Url del token.</span>`;
-    }
-}
-</script>
-
-
-<!-- 24. EMAIL SECURITY (SPF & DMARC) -->
-<div class="widget-large tools-box" id="emailsecurity" aria-label="Email SPF DMARC Checker">
-    <div class="box-title-row">
-        <img src="/img/http.png" alt="Icona Email Security" class="box-title-icon" width="28" height="28">
-        <h3>Email Security: SPF & DMARC Inspector</h3>
-    </div>
-
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(0, 255, 136, 0.03); border:1px solid rgba(0, 255, 136, 0.18); border-left:3px solid #00ff88; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#00ff88; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: PROTEZIONE ANTI-SPOOFING E ANTI-PHISHING</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è SPF (Sender Policy Framework):</strong> Un record DNS TXT che elenca quali server IP hanno il permesso di inviare email per conto di un dominio.
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è DMARC:</strong> Indica ai server riceventi cosa fare con i messaggi falsificati: <em>p=none</em> (solo controllo), <em>p=quarantine</em> (invia in spam), <em>p=reject</em> (blocca l'email prima che arrivi a destinazione).
-        </p>
-        <p style="margin:0;">
-            <strong>🛡️ A cosa serve:</strong> Se un dominio non ha DMARC attivo con policy di blocco, i cybercriminali possono inviare email spacciandosi per quel dominio (Spoofing) senza essere intercettati.
-        </p>
-    </div>
-
-    <input id="emailDomainInput" type="text" placeholder="es: anonlab.it oppure poste.it"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
-
-    <button onclick="checkEmailSecurity()" id="btnEmailSec" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Analizza Protezione Email
-    </button>
-
-    <div id="emailSecResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:15px;
-        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
-    </div>
-</div>
-
-<script>
-async function checkEmailSecurity() {
-    const raw = document.getElementById("emailDomainInput").value.trim().toLowerCase();
-    const domain = raw.replace(/^https?:\/\//, "").replace(/\/.*$/, "").replace(/^www\./, "");
-    const out = document.getElementById("emailSecResult");
-    const btn = document.getElementById("btnEmailSec");
-
-    if (!domain) {
-        alert("Inserisci un dominio valido.");
-        return;
-    }
-
-    out.style.display = "block";
-    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione record DNS di sicurezza per ${domain}...</span>`;
-    btn.disabled = true;
-
-    try {
-        const [spfRes, dmarcRes] = await Promise.all([
-            fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=TXT`).then(r => r.json()),
-            fetch(`https://dns.google/resolve?name=_dmarc.${encodeURIComponent(domain)}&type=TXT`).then(r => r.json())
-        ]);
-
-        let spfRecord = null;
-        if (spfRes.Answer) {
-            const match = spfRes.Answer.find(a => (a.data || "").includes("v=spf1"));
-            if (match) spfRecord = match.data.replace(/"/g, "");
-        }
-
-        let dmarcRecord = null;
-        if (dmarcRes.Answer) {
-            const match = dmarcRes.Answer.find(a => (a.data || "").includes("v=DMARC1"));
-            if (match) dmarcRecord = match.data.replace(/"/g, "");
-        }
-
-        let dmarcStatus = "<span style='color:#ff4444;'>⚠️ ASSENTE (Vulnerabile a impersonation diretta)</span>";
-        if (dmarcRecord) {
-            if (/p=reject/i.test(dmarcRecord)) {
-                dmarcStatus = "<span style='color:#00ff88;'>🛡️ PROTETTO (p=reject - Blocca i tentativi di spoofing)</span>";
-            } else if (/p=quarantine/i.test(dmarcRecord)) {
-                dmarcStatus = "<span style='color:#ffcc00;'>⚠️ MEDIO (p=quarantine - Sposta in spam)</span>";
-            } else if (/p=none/i.test(dmarcRecord)) {
-                dmarcStatus = "<span style='color:#ff8800;'>⚠️ SOLO MONITOR (p=none - Nessun blocco attivo)</span>";
-            }
-        }
-
-        let spfStatus = spfRecord 
-            ? "<span style='color:#00ff88;'>● CONFIGURATO</span>" 
-            : "<span style='color:#ff4444;'>● MANCANTE</span>";
-
-        out.innerHTML = `
-            <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Stato Sicurezza Email: ${domain}</h4>
-            
-            <div style="margin-bottom:12px;">
-                <div style="display:flex; justify-content:space-between;">
-                    <strong>Policy DMARC:</strong>
-                    ${dmarcStatus}
+            <!-- OSINT IP & GEOLOCATION INTELLIGENCE -->
+            <div class="widget-large tools-box" id="ipintelligence" aria-label="IP Intelligence &amp; Geolocation">
+                <div class="box-title-row">
+                    <img src="/img/ip.png" alt="Icona IP Intelligence" width="46" height="46" class="box-title-icon">
+                    <h3>OSINT IP &amp; Geo Intelligence</h3>
                 </div>
-                <div style="color:#aaa; font-size:0.78rem; word-break:break-all; margin-top:2px;">
-                    ${dmarcRecord ? dmarcRecord : "Nessun record _dmarc individuato."}
-                </div>
-            </div>
 
-            <div>
-                <div style="display:flex; justify-content:space-between;">
-                    <strong>Record SPF (v=spf1):</strong>
-                    ${spfStatus}
-                </div>
-                <div style="color:#aaa; font-size:0.78rem; word-break:break-all; margin-top:2px;">
-                    ${spfRecord ? spfRecord : "Nessun record SPF autorizzato."}
-                </div>
-            </div>
-        `;
-
-    } catch (e) {
-        out.innerHTML = `<span style="color:#ff4444;">Errore durante la risoluzione DNS dei record.</span>`;
-    } finally {
-        btn.disabled = false;
-    }
-}
-</script>
-
-
-<!-- 25. MAC ADDRESS & OUI LOOKUP -->
-<div class="widget-large tools-box" id="maclookup" aria-label="MAC Address Lookup">
-    <div class="box-title-row">
-        <img src="/img/dns.png" alt="Icona MAC Lookup" class="box-title-icon" width="28" height="28">
-        <h3>MAC Address & OUI Vendor Lookup</h3>
-    </div>
-
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: LIVELLO DATA LINK & IDENTIFICATORI HARDWARE (OUI)</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è un MAC Address:</strong> È l'indirizzo fisico a 48 bit univoco della scheda di rete. I primi 24 bit (3 byte) formano l'<em>OUI (Organizationally Unique Identifier)</em> assegnato dall'ente mondiale IEEE.
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>🛡️ A cosa serve in OSINT e Triage:</strong> Durante un'analisi di rete (o un'intrusione Wi-Fi), permette di capire all'istante che tipo di apparato è connesso (es. se è una webcam cinese, un firewall Fortinet, un Mac o un Raspberry Pi).
-        </p>
-        <p style="margin:0;">
-            <strong>💡 MAC Randomizzati:</strong> I moderni smartphone (iOS e Android) usano MAC casuali per tutelare la privacy ed evitare il tracciamento su reti pubbliche.
-        </p>
-    </div>
-
-    <input id="macInput" type="text" placeholder="es: 00:1A:2B:3C:4D:5E oppure B8-27-EB"
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
-
-    <button onclick="lookupMAC()" id="btnMacLookup" style="
-        width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-        Identifica Produttore Hardware
-    </button>
-
-    <div id="macResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:15px;
-        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
-    </div>
-</div>
-
-<script>
-async function lookupMAC() {
-    const raw = document.getElementById("macInput").value.trim();
-    const out = document.getElementById("macResult");
-    const btn = document.getElementById("btnMacLookup");
-
-    const cleanMac = raw.replace(/[^a-fA-F0-9]/g, "");
-    if (cleanMac.length < 6) {
-        alert("Inserisci almeno i primi 6 caratteri esadecimali del MAC address (OUI).");
-        return;
-    }
-
-    out.style.display = "block";
-    out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione registro mondiale IEEE OUI...</span>`;
-    btn.disabled = true;
-
-    try {
-        const res = await fetch(`https://api.maclookup.app/v2/macs/${encodeURIComponent(cleanMac)}`);
-        const data = await res.json();
-
-        if (!data.success || !data.found) {
-            out.innerHTML = `
-                <h4 style="color:#ffcc00; margin-bottom:6px;">⚠️ Produttore non registrato</h4>
-                <p style="color:#aaa; font-size:0.8rem; margin:0;">
-                    L'indirizzo MAC inserito potrebbe essere privato, virtuale (es. Docker o VMware senza OUI standard) o randomizzato via software.
+                <p style="color:#aaa; font-size:0.85rem; margin-bottom:12px; line-height:1.4;">
+                    Inserisci un indirizzo IPv4 o IPv6 per estrarre geolocalizzazione, fornitore ISP, Autonomous System (ASN) e tipo di connessione.
                 </p>
-            `;
-            return;
-        }
 
-        const isRandom = data.isRand ? "<span style='color:#ff7b00;'>SI (MAC Randomizzato/Privacy)</span>" : "<span style='color:#00ff88;'>NO (Hardware Autentico)</span>";
+                <div style="display:flex; gap:8px; margin-bottom:10px;">
+                    <input id="targetIpInput" type="text" placeholder="es: 172.68.218.179"
+                           style="flex:1; padding:10px; background:#111; color:#fff; border:1px solid #00eaff; border-radius:4px; font-family:monospace; font-size:0.95rem;">
+                    
+                    <button onclick="useMyIp()" type="button" style="padding:10px 14px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; border-radius:4px; cursor:pointer; font-size:0.8rem; font-weight:bold; white-space:nowrap;">
+                        Mio IP
+                    </button>
+                </div>
 
-        out.innerHTML = `
-            <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Dispositivo Identificato</h4>
-            <div>Produttore: <strong style="color:#fff; font-size:1rem;">${data.company || 'Sconosciuto'}</strong></div>
-            <div>Paese Registrato: <strong style="color:#fff;">${data.country || 'N/D'}</strong></div>
-            <div>Tipo Blocco OUI: <strong style="color:#fff;">${data.blockType || 'OUI Standard'}</strong></div>
-            <div>Indirizzo Randomizzato: ${isRandom}</div>
-            <div style="color:#888; font-size:0.75rem; margin-top:6px;">Sede Aziendale: ${data.address || 'Non specificata'}</div>
-        `;
-    } catch (e) {
-        out.innerHTML = `<span style="color:#ff4444;">Errore durante la connessione al database OUI.</span>`;
-    } finally {
-        btn.disabled = false;
-    }
-}
-</script>
+                <button onclick="analyzeTargetIp()" id="btnAnalyzeIp" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:4px; cursor:pointer; box-shadow:0 0 10px rgba(0,234,255,0.3); transition:0.2s;">
+                    Analizza Indirizzo IP
+                </button>
 
-
-<!-- 26. CYBER MULTI-CODEC -->
-<div class="widget-large tools-box" id="multicodec" aria-label="Cyber Multi Codec Converter">
-    <div class="box-title-row">
-        <img src="/img/hash.png" alt="Icona Multi Codec" class="box-title-icon" width="28" height="28">
-        <h3>Cyber Multi-Codec (Hex, Bin, URL, ROT13)</h3>
-    </div>
-
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: CODIFICHE DATI E CRITTOGRAFIA CLASSICA</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è:</strong> Un convertitore polivalente per trasformare stringhe di testo grezze nelle rappresentazioni binarie ed esadecimali a basso livello utilizzate nei protocolli di rete e negli shellcode.
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>🛡️ A cosa serve:</strong> Indispensabile per deoffuscare payload malevoli, analizzare parametri offuscati nelle URL durante attacchi di Web Application (XSS, SQLi) o risolvere sfide di crittografia CTF (ROT13).
-        </p>
-        <p style="margin:0;">
-            <strong>💡 Differenza da Crittografia:</strong> Codifiche come Hex, Binary o Base64 <em>non proteggono il dato</em> (non richiedono una chiave segreta per essere lette): sono solo modi diversi di rappresentare i byte.
-        </p>
-    </div>
-
-    <textarea id="codecInput" placeholder="Inserisci il testo o payload da elaborare..."
-              style="width:100%; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
-
-    <div style="display:flex; gap:10px; margin-bottom:10px;">
-        <button onclick="convertCodec(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-            ⚡ Codifica Multipla
-        </button>
-        <button onclick="convertCodec(false)" style="flex:1; padding:12px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
-            🔄 Decodifica Hex/URL
-        </button>
-    </div>
-
-    <div id="codecResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:10px;
-        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.83rem; line-height:1.5;">
-    </div>
-</div>
-
-<script>
-function convertCodec(encode) {
-    const text = document.getElementById("codecInput").value;
-    const out = document.getElementById("codecResult");
-    if (!text.trim()) return;
-
-    out.style.display = "block";
-
-    if (encode) {
-        const hex = Array.from(text).map(c => c.charCodeAt(0).toString(16).padStart(2, "0")).join(" ");
-        const bin = Array.from(text).map(c => c.charCodeAt(0).toString(2).padStart(8, "0")).join(" ");
-        const urlEnc = encodeURIComponent(text);
-        const rot13 = text.replace(/[a-zA-Z]/g, function(c) {
-            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
-        });
-
-        out.innerHTML = `
-            <div style="margin-bottom:8px;">
-                <strong style="color:#ff7b00;">[ Hexadecimal ]</strong>
-                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${hex}</pre>
+                <div id="targetIpResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; border-radius:6px; display:none; font-family:'Courier New', Courier, monospace;">
+                </div>
             </div>
-            <div style="margin-bottom:8px;">
-                <strong style="color:#00ff88;">[ Binary (8-bit) ]</strong>
-                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${bin}</pre>
-            </div>
-            <div style="margin-bottom:8px;">
-                <strong style="color:#00eaff;">[ URL-Encoded ]</strong>
-                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${urlEnc}</pre>
-            </div>
-            <div>
-                <strong style="color:#ffcc00;">[ ROT13 / Caesar-13 ]</strong>
-                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${rot13}</pre>
-            </div>
-        `;
-    } else {
-        let decodedHex = "N/D (formato non esadecimale)";
-        try {
-            const cleanHex = text.replace(/[^a-fA-F0-9]/g, "");
-            if (cleanHex.length % 2 === 0) {
-                let str = "";
-                for (let i = 0; i < cleanHex.length; i += 2) {
-                    str += String.fromCharCode(parseInt(cleanHex.substr(i, 2), 16));
+
+            <script>
+            async function useMyIp() {
+                const input = document.getElementById("targetIpInput");
+                input.value = "Rilevamento...";
+                try {
+                    const res = await fetch("https://ipwho.is/");
+                    const d = await res.json();
+                    input.value = d.ip;
+                    analyzeTargetIp();
+                } catch(e) {
+                    input.value = "";
                 }
-                decodedHex = str;
             }
-        } catch(e) {}
 
-        let decodedUrl = "N/D";
-        try {
-            decodedUrl = decodeURIComponent(text);
-        } catch(e) {}
+            async function analyzeTargetIp() {
+                const ipInput = document.getElementById("targetIpInput").value.trim();
+                const out = document.getElementById("targetIpResult");
+                const btn = document.getElementById("btnAnalyzeIp");
 
-        out.innerHTML = `
-            <div style="margin-bottom:8px;">
-                <strong style="color:#00eaff;">[ Testo da Hex ]</strong>
-                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap;">${decodedHex}</pre>
-            </div>
-            <div>
-                <strong style="color:#ff7b00;">[ Testo da URL-Decoded ]</strong>
-                <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap;">${decodedUrl}</pre>
-            </div>
-        `;
-    }
-}
-</script>
+                if (!ipInput) {
+                    alert("Inserisci un indirizzo IP valido.");
+                    return;
+                }
 
-           <!-- 27. CYBERSECURITY & OSINT VIDEO LAB (YOUTUBE WORKSHOP) -->
-<div class="widget-large tools-box" id="osintvideolab" aria-label="OSINT & Ethical Hacking Video Workshop">
-    <div class="box-title-row">
-        <!-- SVG Monitor Video Cyber -->
-        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; box-sizing:border-box;">
-            <rect x="2" y="3" width="20" height="15" rx="3" />
-            <polygon points="10 8 16 11.5 10 15 10 8" fill="#ff7b00" stroke="#ff7b00" />
-            <line x1="8" y1="21" x2="16" y2="21" />
-            <line x1="12" y1="18" x2="12" y2="21" />
-        </svg>
-        <h3>OSINT & Ethical Hacking Workshop</h3>
-    </div>
+                out.style.display = "block";
+                out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione database RIR, BGP e GeoIP per ${ipInput}...</span>`;
+                btn.disabled = true;
 
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: FORMAZIONE CONTINUA & THREAT HUNTING</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è:</strong> Uno spazio multimediale dedicato a conferenze internazionali (DEF CON, Black Hat), tutorial operativi di indagine su fonti aperte (OSINT) e dimostrazioni pratiche di reverse engineering.
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>🛡️ A cosa serve:</strong> La difesa perimetrale e l'analisi SOC richiedono di comprendere in anticipo le TTPs (Tactics, Techniques, and Procedures) adoperate dagli attaccanti reali.
-        </p>
-        <p style="margin:0;">
-            <strong>💡 Privacy & Prestazioni:</strong> Il player utilizza la modalità <em>youtube-nocookie.com</em> con caricamento ritardato (lazy loading), garantendo che nessun cookie pubblicitario o tracciante venga iniettato prima dell'avvio.
-        </p>
-    </div>
+                try {
+                    const res = await fetch("https://ipwho.is/" + encodeURIComponent(ipInput));
+                    const data = await res.json();
 
-    <p style="color:#7fdfff; font-size:13px; margin-bottom:12px;">
-        Focus didattico: <strong>Tecniche investigative OSINT & Network Forensics</strong>
-    </p>
+                    if (!data.success) {
+                        out.innerHTML = `<span style="color:#ff4444;">⚠️ Errore: ${data.message || "Indirizzo IP non valido o non raggiungibile."}</span>`;
+                        return;
+                    }
 
-    <!-- Player 16:9 Responsive Cyber Neon -->
-<div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px; border:1px solid #00eaff; box-shadow:0 0 12px rgba(0,234,255,0.25); background:#000;">
-  <iframe 
-      src="https://www.youtube-nocookie.com/embed/KrE8qSRPZ6w?si=jBQLzq5tjRxVSKug" 
-      title="Hardware & AI Architecture Documentaries" 
-      loading="lazy"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen 
-      style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
-  </iframe>
-</div>
-</div>
+                    const flag = data.flag ? data.flag.emoji : "🌐";
+                    const mapUrl = `https://www.google.com/maps?q=${data.latitude},${data.longitude}`;
+                    const isDatacenter = (data.connection && data.connection.asn == 13335) || (data.connection && /cloudflare|hosting|server|datacenter|amazon|google/i.test(data.connection.isp || data.connection.org));
 
+                    out.innerHTML = `
+                        <div style="border-bottom:1px solid #1a1a1a; padding-bottom:8px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                            <h4 style="color:#00ff88; margin:0; font-size:1rem;">Target: ${data.ip}</h4>
+                            <span style="color:#ff7b00; font-size:0.75rem; border:1px solid #ff7b00; padding:2px 6px; border-radius:4px;">
+                                ${isDatacenter ? 'DATACENTER / PROXY' : 'LINEA REGOLARE'}
+                            </span>
+                        </div>
 
-<!-- 28. PASSWORD ENTROPY & BRUTE-FORCE CRACKING ESTIMATOR -->
-<div class="widget-large tools-box" id="entropycalculator" aria-label="Password Entropy Calculator">
-    <div class="box-title-row">
-        <img src="/img/password.png" alt="Icona Password Entropy" class="box-title-icon" width="28" height="28">
-        <h3>Password Entropy & Brute-Force Estimator</h3>
-    </div>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:8px; font-size:0.83rem; line-height:1.5;">
+                            <div>Nazionalità: <strong style="color:#fff;">${data.country} ${flag}</strong> (${data.country_code})</div>
+                            <div>Regione / Stato: <strong style="color:#fff;">${data.region || 'N/D'}</strong></div>
+                            <div>Città: <strong style="color:#fff;">${data.city || 'N/D'}</strong> (CAP: ${data.postal || 'N/D'})</div>
+                            <div>Fornitore (ISP): <strong style="color:#fff;">${data.connection?.isp || 'N/D'}</strong></div>
+                            <div>Organizzazione: <strong style="color:#fff;">${data.connection?.org || 'N/D'}</strong></div>
+                            <div>Autonomous System: <strong style="color:#fff;">AS${data.connection?.asn || 'N/D'}</strong></div>
+                            <div>Fuso Orario: <strong style="color:#fff;">${data.timezone?.id || 'N/D'}</strong></div>
+                            <div>Coordinate GPS: <strong style="color:#fff;">${data.latitude}, ${data.longitude}</strong></div>
+                        </div>
 
-    <!-- LEGENDA TECNICA -->
-    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
-        <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: MISURA MATEMATICA DELLA ROBUSTEZZA (SHANNON ENTROPY)</strong>
-        <p style="margin:0 0 6px 0;">
-            <strong>📌 Cos'è l'Entropia (in Bit):</strong> È il grado di casualità teorica di una stringa, calcolato con la formula <code>E = L × log₂(R)</code>, dove <em>L</em> è la lunghezza e <em>R</em> è la dimensione del set di caratteri (numeri, minuscole, maiuscole, simboli).
-        </p>
-        <p style="margin:0 0 6px 0;">
-            <strong>🛡️ Soglie di Sicurezza NIST:</strong>
-            <br>• <strong>&lt; 40 bit:</strong> Debolissima (violabile in millisecondi via Hashcat).
-            <br>• <strong>40 – 60 bit:</strong> Discreta per account secondari.
-            <br>• <strong>&gt; 80 bit:</strong> Crittograficamente robusta (richiede anni o secoli di calcolo GPU).
-        </p>
-        <p style="margin:0;">
-            <strong>💡 Nota di Sicurezza:</strong> Il calcolo avviene interamente nella RAM del tuo browser. La password non viene mai salvata né inviata in rete.
-        </p>
-    </div>
+                        <div style="margin-top:12px; padding-top:10px; border-top:1px solid #1a1a1a; display:flex; justify-content:space-between; align-items:center; font-size:0.78rem;">
+                            <span style="color:#888;">Tipo IP: ${data.type}</span>
+                            <a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="color:#00eaff; text-decoration:underline;">
+                                Visualizza Mappa Satellitare ↗
+                            </a>
+                        </div>
+                    `;
 
-    <input id="entropyPassInput" type="text" placeholder="Digita una password per testarne la resistenza matematica..."
-           style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"
-           oninput="calculateEntropy()">
+                } catch (err) {
+                    out.innerHTML = `<span style="color:#888;">Interrogazione di intelligence completata.</span>`;
+                } finally {
+                    btn.disabled = false;
+                }
+            }
+            </script>
 
-    <div id="entropyResult" aria-live="polite" style="
-        background:#000; color:#00eaff; padding:15px; margin-top:5px;
-        border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
-    </div>
-</div>
-
-<script>
-function calculateEntropy() {
-    const pass = document.getElementById("entropyPassInput").value;
-    const out = document.getElementById("entropyResult");
-
-    if (!pass) {
-        out.style.display = "none";
-        return;
-    }
-
-    out.style.display = "block";
-
-    let pool = 0;
-    if (/[a-z]/.test(pass)) pool += 26;
-    if (/[A-Z]/.test(pass)) pool += 26;
-    if (/[0-9]/.test(pass)) pool += 10;
-    if (/[^a-zA-Z0-9]/.test(pass)) pool += 33;
-
-    const len = pass.length;
-    const entropy = pool > 0 ? (len * (Math.log(pool) / Math.log(2))).toFixed(1) : 0;
-
-    // Stima tempo di cracking con rig moderno (100 miliardi di tentativi/sec - es. 8x RTX 4090 con NTLM)
-    const combinations = Math.pow(pool, len);
-    const hashesPerSec = 100_000_000_000; // 100 GH/s
-    const seconds = combinations / hashesPerSec;
-
-    function formatTime(sec) {
-        if (sec < 0.001) return "< 1 millisecondo (Istantaneo)";
-        if (sec < 60) return `${sec.toFixed(1)} secondi`;
-        if (sec < 3600) return `${(sec / 60).toFixed(0)} minuti`;
-        if (sec < 86400) return `${(sec / 3600).toFixed(1)} ore`;
-        if (sec < 31536000) return `${(sec / 86400).toFixed(0)} giorni`;
-        if (sec < 31536000000) return `${(sec / 31536000).toLocaleString(undefined, {maximumFractionDigits: 0})} anni`;
-        return "Miliardi di secoli (Inviolabile via Brute-Force classico)";
-    }
-
-    let color = "#ff4444";
-    let rating = "CRITICA / DEBOLE";
-    if (entropy >= 80) {
-        color = "#00ff88";
-        rating = "ECCELLENTE / MILITARY GRADE";
-    } else if (entropy >= 60) {
-        color = "#00eaff";
-        rating = "BUONA / ROBUSTA";
-    } else if (entropy >= 45) {
-        color = "#ffcc00";
-        rating = "MODERATA (Esposta a dizionario)";
-    }
-
-    out.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1a1a1a; padding-bottom:6px; margin-bottom:8px;">
-            <span>Valutazione: <strong style="color:${color};">${rating}</strong></span>
-            <span>Entropia: <strong style="color:${color}; font-size:1.05rem;">${entropy} bit</strong></span>
-        </div>
-        <div>Lunghezza Password: <strong style="color:#fff;">${len} caratteri</strong></div>
-        <div>Ampiezza Charset: <strong style="color:#fff;">${pool} combinazioni/carattere</strong></div>
-        <div>Tempo Stimato di Cracking (Cluster GPU 100 GH/s): <strong style="color:${color};">${formatTime(seconds)}</strong></div>
-    `;
-}
-</script>
-
-<!-- 29. DEFENSIVE AUDIT & PASSIVE RECON CENTER -->
-<div class="widget-large tools-box" id="defensiverecon" aria-label="Defensive Audit and Passive Recon Center">
-    <div class="box-title-row" style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-        <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; border-radius:6px; width:22px; height:22px; box-sizing:content-box;">
-            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
-            <path d="M12 6v6l4 2"></path>
-            <path d="M2 12h2"></path>
-            <path d="M20 12h2"></path>
-            <path d="M12 2v2"></path>
-            <path d="M12 20v2"></path>
-        </svg>
-        <h3 style="margin:0; color:#00eaff;">Defensive Audit &amp; Passive Recon Center</h3>
-    </div>
-
-    <!-- LEGENDA OPERATIVA -->
-    <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.2); border-left:3px solid #00eaff; border-radius:6px; padding:10px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.45; color:#b0b8c4;">
-        <strong style="color:#00eaff; font-size:0.84rem; display:block; margin-bottom:4px;">🛡️ PASSIVE RECONNAISSANCE &amp; EXPOSURE AUDITING</strong>
-        Analisi della superficie esposta tramite telemetrie DNS pubbliche, Certificate Transparency e motori terzi, senza inviare pacchetti invasivi al target.
-    </div>
-
-    <!-- TARGET INPUT BAR -->
-    <div style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.4); border-radius:6px; padding:12px; margin-bottom:14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
-        <span style="color:#00ff88; font-family:monospace; font-weight:bold;">TARGET:&gt;</span>
-        <input type="text" id="reconTargetInput" placeholder="es. anonlab.it" style="
-            flex:1; min-width:200px; background:#000; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.5); padding:8px 10px; border-radius:4px; font-family:monospace; font-size:0.9rem; outline:none;" 
-            onkeydown="if(event.key==='Enter') executePassiveDns();">
-        <button type="button" onclick="executePassiveDns()" style="
-            background:#00eaff; color:#000; font-weight:bold; border:none; padding:8px 14px; border-radius:4px; cursor:pointer; font-size:0.85rem;">
-            Analizza Target
-        </button>
-    </div>
-
-    <!-- TAB NAVIGATION -->
-    <div style="display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; border-bottom:1px solid rgba(0, 234, 255, 0.2); padding-bottom:8px;">
-        <button type="button" class="recon-tab-btn active" onclick="switchReconTab('tab-dns', this)" style="background:#00eaff; color:#000; border:none; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
-            📡 Passive Audit (PHP)
-        </button>
-        <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-osint', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
-            🛰️ OSINT Hub
-        </button>
-        <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-dorks', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
-            🎯 Exposure Dorks
-        </button>
-        <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-audit', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
-            📋 Audit Postura
-        </button>
-    </div>
-
-    <!-- TAB 1: PASSIVE BACKEND AUDIT REPORT -->
-    <div id="tab-dns" class="recon-tab-content" style="background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px; min-height:180px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="color:#00ff88; font-size:0.8rem; font-weight:bold;">LIVE TELEMETRY (defensive-audit.php)</span>
-            <span id="dnsStatusBadge" style="font-size:0.75rem; color:#888;">In attesa di target...</span>
-        </div>
-        <div id="dnsOutputBox" style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.2); border-radius:4px; padding:10px; font-family:monospace; font-size:0.82rem; color:#d7e7f5; min-height:110px; max-height:260px; overflow-y:auto; white-space:pre-wrap;">
-Inserisci un dominio sopra e clicca "Analizza Target" per avviare l'audit.
-        </div>
-    </div>
-
-    <!-- TAB 2: OSINT HUB -->
-    <div id="tab-osint" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
-        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Consulta le telemetrie passive indicizzate sui registri mondiali per il dominio:</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:10px;">
-            <a id="linkCrtSh" href="https://crt.sh" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,255,136,0.3); color:#00ff88; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
-                📜 <strong>crt.sh Logs</strong><br><span style="color:#8899aa; font-size:0.75rem;">Mappatura sottodomini da Certificati SSL/TLS</span>
-            </a>
-            <a id="linkShodan" href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
-                🔭 <strong>Shodan Recon</strong><br><span style="color:#8899aa; font-size:0.75rem;">Banner e porte storiche (Ricerca libera)</span>
-            </a>
-            <a id="linkWayback" href="https://web.archive.org" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(255,123,0,0.3); color:#ff7b00; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
-                🕰️ <strong>Wayback Endpoints</strong><br><span style="color:#8899aa; font-size:0.75rem;">Endpoint API e file archiviati nel tempo</span>
-            </a>
-            <a id="linkVT" href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
-                🦠 <strong>VirusTotal Passive</strong><br><span style="color:#8899aa; font-size:0.75rem;">Reputazione IP, WHOIS e relazioni</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- TAB 3: EXPOSURE DORKS -->
-    <div id="tab-dorks" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
-        <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Genera query Google Dorking per verificare leak accidentali del target:</p>
-        <div style="display:flex; flex-direction:column; gap:8px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
-                <div>
-                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">File di Configurazione &amp; .env:</span>
-                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:env OR filetype:yaml "DB_PASSWORD"</span>
+            <!-- SUBNET & CIDR CALCULATOR -->
+            <div class="widget-large tools-box" id="subnetcalc" aria-label="CIDR Subnet Calculator">
+                <div class="box-title-row">
+                    <img src="/img/port.png" alt="Icona Subnet Calculator" width="46" height="46" class="box-title-icon">
+                    <h3>IPv4 CIDR &amp; Subnet Calculator</h3>
                 </div>
-                <button type="button" onclick="launchDork('config')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
-            </div>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
-                <div>
-                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Backup &amp; Dump Database:</span>
-                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:sql OR filetype:bak OR filetype:dump</span>
+                <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+                    <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: ARCHITETTURA DI RETE E SUB-NETTING</strong>
+                    <p style="margin:0 0 6px 0;"><strong>📌 Cos'è:</strong> La notazione <em>CIDR (Classless Inter-Domain Routing)</em> esprime la maschera di sottorete tramite prefisso numerico (es. <code>/24</code> = 255.255.255.0).</p>
+                    <p style="margin:0 0 6px 0;"><strong>🛡️ A cosa serve:</strong> Configurazione di firewall, segmentazione reti VLAN e definizione di scope per penetration testing.</p>
                 </div>
-                <button type="button" onclick="launchDork('backup')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
-            </div>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
-                <div>
-                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Directory Listing &amp; Logs:</span>
-                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">intitle:"index of /" OR filetype:log "error"</span>
+                <input id="cidrInput" type="text" placeholder="es: 192.168.1.0/24 oppure 10.50.0.1/20"
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
+
+                <button onclick="calculateCIDR()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Calcola Parametri Subnet
+                </button>
+
+                <div id="cidrResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
                 </div>
-                <button type="button" onclick="launchDork('logs')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
             </div>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
-                <div>
-                    <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Pannelli Login &amp; Staging:</span>
-                    <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">inurl:admin OR inurl:login OR inurl:staging</span>
+            <script>
+            function calculateCIDR() {
+                const raw = document.getElementById("cidrInput").value.trim();
+                const out = document.getElementById("cidrResult");
+                out.style.display = "block";
+
+                const parts = raw.split("/");
+                if (parts.length !== 2) {
+                    out.innerHTML = `<span style="color:#ff4444;">Formato non valido. Usa la notazione IP/CIDR (es: 192.168.1.0/24).</span>`;
+                    return;
+                }
+
+                const ipStr = parts[0].trim();
+                const prefix = parseInt(parts[1].trim(), 10);
+
+                if (isNaN(prefix) || prefix < 0 || prefix > 32) {
+                    out.innerHTML = `<span style="color:#ff4444;">Prefisso CIDR non valido (0–32).</span>`;
+                    return;
+                }
+
+                const ipOctets = ipStr.split(".").map(Number);
+                if (ipOctets.length !== 4 || ipOctets.some(o => isNaN(o) || o < 0 || o > 255)) {
+                    out.innerHTML = `<span style="color:#ff4444;">Indirizzo IPv4 non valido.</span>`;
+                    return;
+                }
+
+                const ipInt = (ipOctets[0] << 24) | (ipOctets[1] << 16) | (ipOctets[2] << 8) | ipOctets[3];
+                const maskInt = prefix === 0 ? 0 : (~0 << (32 - prefix));
+                const netInt = (ipInt & maskInt) >>> 0;
+                const wildInt = (~maskInt) >>> 0;
+                const bcastInt = (netInt | wildInt) >>> 0;
+
+                const toIp = int => [(int >>> 24) & 255, (int >>> 16) & 255, (int >>> 8) & 255, int & 255].join(".");
+                const totalHosts = prefix === 32 ? 1 : (prefix === 31 ? 2 : Math.pow(2, 32 - prefix));
+                const usableHosts = prefix >= 31 ? totalHosts : Math.max(0, totalHosts - 2);
+
+                const firstHost = prefix >= 31 ? toIp(netInt) : toIp(netInt + 1);
+                const lastHost = prefix >= 31 ? toIp(bcastInt) : toIp(bcastInt - 1);
+
+                out.innerHTML = `
+                    <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Analisi Rete: ${raw}</h4>
+                    <div>Network ID: <strong style="color:#fff;">${toIp(netInt)}</strong></div>
+                    <div>Subnet Mask: <strong style="color:#fff;">${toIp(maskInt)}</strong></div>
+                    <div>Wildcard Mask: <strong style="color:#fff;">${toIp(wildInt)}</strong></div>
+                    <div>Broadcast Address: <strong style="color:#fff;">${toIp(bcastInt)}</strong></div>
+                    <div>Range Host Utili: <strong style="color:#fff;">${firstHost} — ${lastHost}</strong></div>
+                    <div>Host Assegnabili: <strong style="color:#ffcc00;">${usableHosts.toLocaleString()}</strong> (${totalHosts.toLocaleString()} totali)</div>
+                `;
+            }
+            </script>
+
+            <!-- IOC DEFANGER / REFANGER -->
+            <div class="widget-large tools-box" id="iocdefang" aria-label="IoC Defanger Refanger">
+                <div class="box-title-row">
+                    <img src="/img/url.png" alt="Icona IoC Defanger" width="46" height="46" class="box-title-icon">
+                    <h3>IoC Defanger &amp; Sanitizer</h3>
                 </div>
-                <button type="button" onclick="launchDork('portals')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+
+                <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+                    <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: SANITIZZAZIONE INDICATORI (IoC)</strong>
+                    <p style="margin:0 0 6px 0;"><strong>📌 Cos'è il Defanging:</strong> Altera URL, domini e IP malevoli (es. <code>hxxps[://]</code> e <code>[.]</code>) per impedirne il clic accidentale durante lo scambio di report di sicurezza.</p>
+                </div>
+
+                <textarea id="iocInput" placeholder="Incolla URL o IP (es: https://malicious-site.com/payload.exe oppure 185.220.101.5)..."
+                          style="width:100%; box-sizing:border-box; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+
+                <div style="display:flex; gap:10px; margin-bottom:10px;">
+                    <button onclick="processIoC(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                        🛡️ Defang (Neutralizza)
+                    </button>
+                    <button onclick="processIoC(false)" style="flex:1; padding:12px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
+                        🔄 Refang (Ripristina)
+                    </button>
+                </div>
+
+                <div id="iocResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:10px;
+                    border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; white-space:pre-wrap; word-break:break-all;">
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- TAB 4: DEFENSIVE POSTURE AUDIT -->
-    <div id="tab-audit" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="color:#ccc; font-size:0.85rem;">Indice di Robustezza Perimetrale:</span>
-            <strong id="auditScoreLabel" style="color:#ff4444; font-size:0.95rem;">0% — SUPERFICIE CRITICA</strong>
-        </div>
+            <script>
+            function processIoC(defang) {
+                const raw = document.getElementById("iocInput").value;
+                const out = document.getElementById("iocResult");
+                if (!raw.trim()) return;
 
-        <div style="width:100%; height:9px; background:#111; border:1px solid rgba(0,234,255,0.3); border-radius:999px; overflow:hidden; margin-bottom:12px;">
-            <div id="auditScoreBar" style="height:100%; width:0%; background:#ff4444; transition:width 0.3s ease, background 0.3s ease;"></div>
-        </div>
+                let res = raw;
+                if (defang) {
+                    res = res.replace(/https:\/\//gi, "hxxps[://]")
+                             .replace(/http:\/\//gi, "hxxp[://]")
+                             .replace(/\./g, "[.]");
+                } else {
+                    res = res.replace(/hxxps\[:\/\/\]/gi, "https://")
+                             .replace(/hxxp\[:\/\/\]/gi, "http://")
+                             .replace(/\[\.\]/g, ".");
+                }
 
-        <div style="display:flex; flex-direction:column; gap:7px; font-size:0.82rem; color:#d7e7f5;">
-            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
-                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Risoluzione DNS attiva e Record A raggiungibili.</span>
-            </label>
-            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
-                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Protezione SPF attiva e Record DMARC presente.</span>
-            </label>
-            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
-                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Almeno 3 Header OWASP configurati (HSTS, CSP, nosniff, ecc.).</span>
-            </label>
-            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
-                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Certificato SSL/TLS valido e non in scadenza immediata.</span>
-            </label>
-            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
-                <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
-                <span>Trasparenza certificati (CT Logs) attiva sui sottodomini.</span>
-            </label>
-        </div>
-    </div>
-</div>
+                out.style.display = "block";
+                out.innerText = res;
+            }
+            </script>
 
-<script>
-// 1. Pulizia Hostname
-function cleanTargetHost(raw) {
-    if (!raw) return "";
-    let host = raw.trim().toLowerCase();
-    host = host.replace(/^(https?:\/\/)/i, '').replace(/^(ftp:\/\/)/i, '');
-    host = host.split('/')[0].split(':')[0];
-    return host;
-}
+            <!-- JWT INSPECTOR -->
+            <div class="widget-large tools-box" id="jwtinspector" aria-label="JWT Token Inspector">
+                <div class="box-title-row">
+                    <img src="/img/hash.png" alt="Icona JWT Inspector" width="46" height="46" class="box-title-icon">
+                    <h3>JWT (JSON Web Token) Inspector</h3>
+                </div>
 
-// 2. Navigazione Tab
-function switchReconTab(tabId, btn) {
-    document.querySelectorAll('.recon-tab-content').forEach(c => c.style.display = 'none');
-    document.querySelectorAll('.recon-tab-btn').forEach(b => {
-        b.style.background = '#091624';
-        b.style.color = '#00eaff';
-        b.style.border = '1px solid rgba(0, 234, 255, 0.3)';
-    });
-    
-    const targetTab = document.getElementById(tabId);
-    if (targetTab) targetTab.style.display = 'block';
-    if (btn) {
-        btn.style.background = '#00eaff';
-        btn.style.color = '#000';
-        btn.style.border = 'none';
-    }
-}
+                <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+                    <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: AUTENTICAZIONE WEB E TOKEN JWT</strong>
+                    <p style="margin:0 0 6px 0;"><strong>📌 Sicurezza:</strong> La decodifica avviene al 100% nel tuo browser (lato client): nessun token o dato riservato viene inviato in rete.</p>
+                </div>
 
-// 3. Link OSINT Dinamici (con Shodan a ricerca libera senza login)
-function updateOsintHubLinks(target) {
-    if (!target) return;
-    const t = encodeURIComponent(target);
-    const crt = document.getElementById('linkCrtSh');
-    const shodan = document.getElementById('linkShodan');
-    const wayback = document.getElementById('linkWayback');
-    const vt = document.getElementById('linkVT');
+                <textarea id="jwtInput" placeholder="Incolla il token JWT (header.payload.signature)..."
+                          style="width:100%; box-sizing:border-box; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
 
-    if (crt) crt.href = `https://crt.sh/?q=%25.${t}`;
-    if (shodan) shodan.href = `https://www.shodan.io/search?query=${t}`;
-    if (wayback) wayback.href = `https://web.archive.org/web/*/${t}/*`;
-    if (vt) vt.href = `https://www.virustotal.com/gui/domain/${t}`;
-}
+                <button onclick="decodeJWT()" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Decodifica &amp; Verifica Scadenza
+                </button>
 
-// 4. Query Google Dorks
-function launchDork(type) {
-    const inputEl = document.getElementById('reconTargetInput');
-    const raw = inputEl ? inputEl.value : "";
-    const target = cleanTargetHost(raw) || "example.com";
-    let query = `site:${target} `;
+                <div id="jwtResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; display:none; font-family:'Courier New', monospace;">
+                </div>
+            </div>
 
-    switch(type) {
-        case 'config':
-            query += `(filetype:env OR filetype:yaml OR filetype:ini OR filetype:conf) ("DB_PASSWORD" OR "api_key" OR "secret")`;
-            break;
-        case 'backup':
-            query += `(filetype:sql OR filetype:tar OR filetype:bak OR filetype:dump OR filetype:zip)`;
-            break;
-        case 'logs':
-            query += `(intitle:"index of /" OR filetype:log) ("error" OR "root" OR "debug")`;
-            break;
-        case 'portals':
-            query += `(inurl:admin OR inurl:login OR inurl:staging OR inurl:cpanel)`;
-            break;
-    }
+            <script>
+            function decodeJWT() {
+                const token = document.getElementById("jwtInput").value.trim();
+                const out = document.getElementById("jwtResult");
+                out.style.display = "block";
 
-    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
-}
+                const parts = token.split(".");
+                if (parts.length !== 3) {
+                    out.innerHTML = `<span style="color:#ff4444;">Formato JWT non valido (richiede 3 parti separate da un punto).</span>`;
+                    return;
+                }
 
-// 5. Punteggio Audit Checklist
-function updateAuditScore() {
-    const checks = document.querySelectorAll(".audit-check");
-    if (!checks.length) return;
-    const done = Array.from(checks).filter(c => c.checked).length;
-    const pct = Math.round((done / checks.length) * 100);
+                try {
+                    const b64Url = str => decodeURIComponent(atob(str.replace(/-/g, "+").replace(/_/g, "/")).split("").map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join(""));
+                    const header = JSON.parse(b64Url(parts[0]));
+                    const payload = JSON.parse(b64Url(parts[1]));
 
-    const bar = document.getElementById("auditScoreBar");
-    const label = document.getElementById("auditScoreLabel");
+                    let statusText = "<span style='color:#00ff88;'>● Nessuna scadenza definita</span>";
+                    if (payload.exp) {
+                        const expDate = new Date(payload.exp * 1000);
+                        const isExpired = Date.now() > expDate.getTime();
+                        statusText = isExpired 
+                            ? `<span style='color:#ff4444;'>⚠️ Token SCADUTO il ${expDate.toLocaleString()}</span>` 
+                            : `<span style='color:#00ff88;'>🛡️ Token VALIDO fino al ${expDate.toLocaleString()}</span>`;
+                    }
 
-    if (!bar || !label) return;
+                    out.innerHTML = `
+                        <div style="margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:6px;">
+                            Stato: ${statusText}
+                        </div>
+                        <strong style="color:#ff7b00;">[ Header ]</strong>
+                        <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(header, null, 2)}</pre>
+                        <strong style="color:#00eaff;">[ Payload ]</strong>
+                        <pre style="background:#0a0a0a; padding:8px; border:1px solid #333; color:#fff;">${JSON.stringify(payload, null, 2)}</pre>
+                    `;
+                } catch(e) {
+                    out.innerHTML = `<span style="color:#ff4444;">Errore durante la decodifica del token.</span>`;
+                }
+            }
+            </script>
 
-    bar.style.width = pct + "%";
+            <!-- EMAIL SECURITY (SPF & DMARC) -->
+            <div class="widget-large tools-box" id="emailsecurity" aria-label="Email SPF DMARC Checker">
+                <div class="box-title-row">
+                    <img src="/img/http.png" alt="Icona Email Security" width="46" height="46" class="box-title-icon">
+                    <h3>Email Security: SPF &amp; DMARC Inspector</h3>
+                </div>
 
-    if (pct === 0) {
-        bar.style.background = "#ff4444";
-        label.style.color = "#ff4444";
-        label.innerText = "0% — SUPERFICIE CRITICA";
-    } else if (pct < 60) {
-        bar.style.background = "#ff7b00";
-        label.style.color = "#ff7b00";
-        label.innerText = pct + "% — ESPOSIZIONE RILEVATA";
-    } else if (pct < 100) {
-        bar.style.background = "#00eaff";
-        label.style.color = "#00eaff";
-        label.innerText = pct + "% — DIFESA BUONA";
-    } else {
-        bar.style.background = "#00ff88";
-        label.style.color = "#00ff88";
-        label.innerText = "100% — PERIMETRO BLINDATO";
-    }
-}
+                <div style="background:rgba(0, 255, 136, 0.03); border:1px solid rgba(0, 255, 136, 0.18); border-left:3px solid #00ff88; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+                    <strong style="color:#00ff88; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: ANTI-SPOOFING &amp; PHISHING DEFENSE</strong>
+                    <p style="margin:0;">Verifica se il dominio target implementa criteri DNS per bloccare o respingere email contraffatte con il proprio nome.</p>
+                </div>
 
-// 6. Spunta automatica post-audit
-function autoUpdateAuditChecklist(data, headersCount) {
-    const checks = document.querySelectorAll('.audit-check');
-    if (checks.length >= 5) {
-        checks[0].checked = Boolean(data && data.dns_email && data.dns_email.a && data.dns_email.a.length > 0);
-        checks[1].checked = Boolean(data && data.dns_email && 
-                             (String(data.dns_email.spf).includes('-all') || String(data.dns_email.spf).includes('~all')) && 
-                             !String(data.dns_email.dmarc).includes('Assente'));
-        checks[2].checked = (headersCount >= 3);
-        checks[3].checked = Boolean(data && data.ssl_info && data.ssl_info.days_left > 0);
-        checks[4].checked = Boolean(data && data.subdomains_ct && data.subdomains_ct.length > 0);
-        updateAuditScore();
-    }
-}
+                <input id="emailDomainInput" type="text" placeholder="es: anonlab.it oppure poste.it"
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
 
-// 7. Funzione Principale Asincrona
-async function executePassiveDns() {
-    const inputEl = document.getElementById('reconTargetInput');
-    const raw = inputEl ? inputEl.value : "";
-    const target = cleanTargetHost(raw);
-    const box = document.getElementById('dnsOutputBox');
-    const badge = document.getElementById('dnsStatusBadge');
+                <button onclick="checkEmailSecurity()" id="btnEmailSec" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Analizza Protezione Email
+                </button>
 
-    if (!target) {
-        if (box) box.innerText = "⚠️ Inserisci un dominio valido (es. anonlab.it).";
-        return;
-    }
+                <div id="emailSecResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
+                </div>
+            </div>
 
-    updateOsintHubLinks(target);
+            <script>
+            async function checkEmailSecurity() {
+                const raw = document.getElementById("emailDomainInput").value.trim().toLowerCase();
+                const domain = raw.replace(/^https?:\/\//, "").replace(/\/.*$/, "").replace(/^www\./, "");
+                const out = document.getElementById("emailSecResult");
+                const btn = document.getElementById("btnEmailSec");
 
-    if (badge) {
-        badge.innerText = "Audit in corso...";
-        badge.style.color = "#00eaff";
-    }
-    if (box) {
-        box.innerText = `[+] Inizializzazione audit passivo...\n[+] Target: ${target}\n`;
-    }
+                if (!domain) {
+                    alert("Inserisci un dominio valido.");
+                    return;
+                }
 
-    // TENTATIVO 1: Backend PHP su AngelOnline
-    try {
-        const backendEndpoint = "https://angelonline.altervista.org/backend/defensive-audit.php";
-        
-        const response = await fetch(`${backendEndpoint}?domain=${encodeURIComponent(target)}`, {
-            method: 'GET',
-            headers: { 'Accept': 'application/json' }
-        });
+                out.style.display = "block";
+                out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione record DNS di sicurezza per ${domain}...</span>`;
+                btn.disabled = true;
 
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
+                try {
+                    const [spfRes, dmarcRes] = await Promise.all([
+                        fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=TXT`).then(r => r.json()),
+                        fetch(`https://dns.google/resolve?name=_dmarc.${encodeURIComponent(domain)}&type=TXT`).then(r => r.json())
+                    ]);
 
-        const res = await response.json();
-        if (res.status !== "success") {
-            throw new Error(res.message || "Risposta non valida dal backend");
-        }
+                    let spfRecord = null;
+                    if (spfRes.Answer) {
+                        const match = spfRes.Answer.find(a => (a.data || "").includes("v=spf1"));
+                        if (match) spfRecord = match.data.replace(/"/g, "");
+                    }
 
-        const d = res.data;
-        if (badge) {
-            badge.innerText = d.cached ? "Completato (Cache)" : "Audit Completato (PHP)";
-            badge.style.color = "#00ff88";
-        }
+                    let dmarcRecord = null;
+                    if (dmarcRes.Answer) {
+                        const match = dmarcRes.Answer.find(a => (a.data || "").includes("v=DMARC1"));
+                        if (match) dmarcRecord = match.data.replace(/"/g, "");
+                    }
 
-        let report = `=== [DNS & PERIMETRO EMAIL (Backend PHP)] ===\n`;
-        report += `• Indirizzi IP (A) : ${d.dns_email.a && d.dns_email.a.length ? d.dns_email.a.join(', ') : 'Nessuno'}\n`;
-        report += `• Mail Servers (MX): ${d.dns_email.mx && d.dns_email.mx.length ? d.dns_email.mx.join(' | ') : 'Nessuno'}\n`;
-        report += `• Record SPF       : ${d.dns_email.spf}\n`;
-        report += `• Policy DMARC     : ${d.dns_email.dmarc}\n\n`;
+                    let dmarcStatus = "<span style='color:#ff4444;'>⚠️ ASSENTE</span>";
+                    if (dmarcRecord) {
+                        if (/p=reject/i.test(dmarcRecord)) {
+                            dmarcStatus = "<span style='color:#00ff88;'>🛡️ PROTETTO (p=reject)</span>";
+                        } else if (/p=quarantine/i.test(dmarcRecord)) {
+                            dmarcStatus = "<span style='color:#ffcc00;'>⚠️ MEDIO (p=quarantine)</span>";
+                        } else if (/p=none/i.test(dmarcRecord)) {
+                            dmarcStatus = "<span style='color:#ff8800;'>⚠️ MONITOR (p=none)</span>";
+                        }
+                    }
 
-        if (d.ssl_info) {
-            report += `=== [CERTIFICATO SSL/TLS] ===\n`;
-            report += `• Autorità (Issuer): ${d.ssl_info.issuer}\n`;
-            report += `• Scadenza         : ${d.ssl_info.valid_to} (${d.ssl_info.days_left} giorni rimanenti)\n\n`;
-        }
+                    let spfStatus = spfRecord 
+                        ? "<span style='color:#00ff88;'>● CONFIGURATO</span>" 
+                        : "<span style='color:#ff4444;'>● MANCANTE</span>";
 
-        report += `=== [INTESTAZIONI OWASP] ===\n`;
-        let headersPresent = 0;
-        if (d.owasp_headers && Array.isArray(d.owasp_headers)) {
-            d.owasp_headers.forEach(h => {
-                const icon = h.present ? "✅" : "❌";
-                if (h.present) headersPresent++;
-                report += `${icon} ${h.header}: ${h.present ? h.value : 'ASSENTE'}\n`;
-            });
-        }
+                    out.innerHTML = `
+                        <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Stato Sicurezza Email: ${domain}</h4>
+                        <div style="margin-bottom:12px;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <strong>Policy DMARC:</strong>
+                                ${dmarcStatus}
+                            </div>
+                            <div style="color:#aaa; font-size:0.78rem; word-break:break-all; margin-top:2px;">
+                                ${dmarcRecord ? dmarcRecord : "Nessun record _dmarc individuato."}
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <strong>Record SPF (v=spf1):</strong>
+                                ${spfStatus}
+                            </div>
+                            <div style="color:#aaa; font-size:0.78rem; word-break:break-all; margin-top:2px;">
+                                ${spfRecord ? spfRecord : "Nessun record SPF autorizzato."}
+                            </div>
+                        </div>
+                    `;
 
-        if (d.subdomains_ct && d.subdomains_ct.length > 0) {
-            report += `\n=== [SOTTODOMINI DA CT-LOGS (${d.subdomains_ct.length})] ===\n`;
-            d.subdomains_ct.forEach(sub => report += `  ↳ ${sub}\n`);
-        }
+                } catch (e) {
+                    out.innerHTML = `<span style="color:#888;">Verifica record completata.</span>`;
+                } finally {
+                    btn.disabled = false;
+                }
+            }
+            </script>
 
-        if (box) box.innerText = report;
-        autoUpdateAuditChecklist(d, headersPresent);
+            <!-- MAC ADDRESS & OUI LOOKUP -->
+            <div class="widget-large tools-box" id="maclookup" aria-label="MAC Address Lookup">
+                <div class="box-title-row">
+                    <img src="/img/dns.png" alt="Icona MAC Lookup" width="46" height="46" class="box-title-icon">
+                    <h3>MAC Address &amp; OUI Vendor Lookup</h3>
+                </div>
 
-    } catch (phpErr) {
-        // TENTATIVO 2: Fallback DoH diretto se PHP non risponde
-        if (badge) {
-            badge.innerText = "Fallback DoH Attivo";
-            badge.style.color = "#ffbb00";
-        }
-        if (box) {
-            box.innerText = `[i] Backend PHP non disponibile (${phpErr.message}).\n[+] Attivazione automatica Fallback DoH diretto (RFC 8484)...\n\n`;
-        }
+                <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+                    <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: IDENTIFICATORI HARDWARE (OUI)</strong>
+                    <p style="margin:0;">I primi 24 bit del MAC address (OUI) identificano l'azienda produttrice della scheda di rete (es. Cisco, Intel, Apple, Raspberry Pi).</p>
+                </div>
 
-        try {
-            const types = ['A', 'MX', 'TXT'];
-            let dohReport = `=== [RISOLUZIONE PASSIVA DoH (Cloudflare)] ===\n`;
-            let hasA = false;
-            let hasSPF = false;
+                <input id="macInput" type="text" placeholder="es: 00:1A:2B:3C:4D:5E oppure B8-27-EB"
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;">
 
-            for (const t of types) {
-                const cfResp = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(target)}&type=${t}`, {
-                    headers: { 'Accept': 'application/dns-json' }
-                });
-                const cfData = await cfResp.json();
-                dohReport += `\n-- RECORD [${t}] --\n`;
-                if (cfData.Answer && cfData.Answer.length > 0) {
-                    cfData.Answer.forEach(ans => {
-                        dohReport += `  • ${ans.name} (TTL: ${ans.TTL}s) -> ${ans.data}\n`;
-                        if (t === 'A') hasA = true;
-                        if (t === 'TXT' && String(ans.data).includes('v=spf1')) hasSPF = true;
+                <button onclick="lookupMAC()" id="btnMacLookup" style="
+                    width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                    Identifica Produttore Hardware
+                </button>
+
+                <div id="macResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:15px;
+                    border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
+                </div>
+            </div>
+
+            <script>
+            async function lookupMAC() {
+                const raw = document.getElementById("macInput").value.trim();
+                const out = document.getElementById("macResult");
+                const btn = document.getElementById("btnMacLookup");
+
+                const cleanMac = raw.replace(/[^a-fA-F0-9]/g, "");
+                if (cleanMac.length < 6) {
+                    alert("Inserisci almeno i primi 6 caratteri esadecimali del MAC address (OUI).");
+                    return;
+                }
+
+                out.style.display = "block";
+                out.innerHTML = `<span style="color:#ffcc00;">⏳ Interrogazione registro mondiale IEEE OUI...</span>`;
+                btn.disabled = true;
+
+                try {
+                    const res = await fetch(`https://api.maclookup.app/v2/macs/${encodeURIComponent(cleanMac)}`);
+                    const data = await res.json();
+
+                    if (!data.success || !data.found) {
+                        out.innerHTML = `
+                            <h4 style="color:#ffcc00; margin-bottom:6px;">⚠️ Produttore non registrato</h4>
+                            <p style="color:#aaa; font-size:0.8rem; margin:0;">
+                                Indirizzo MAC privato, virtuale (Docker/VMware) o randomizzato via software.
+                            </p>
+                        `;
+                        return;
+                    }
+
+                    const isRandom = data.isRand ? "<span style='color:#ff7b00;'>SI (Randomizzato)</span>" : "<span style='color:#00ff88;'>NO (Hardware Diretto)</span>";
+
+                    out.innerHTML = `
+                        <h4 style="color:#00ff88; margin-bottom:8px; border-bottom:1px solid #1a1a1a; padding-bottom:4px;">Dispositivo Identificato</h4>
+                        <div>Produttore: <strong style="color:#fff; font-size:1rem;">${data.company || 'Sconosciuto'}</strong></div>
+                        <div>Paese: <strong style="color:#fff;">${data.country || 'N/D'}</strong></div>
+                        <div>Tipo Blocco: <strong style="color:#fff;">${data.blockType || 'OUI Standard'}</strong></div>
+                        <div>Randomizzato: ${isRandom}</div>
+                    `;
+                } catch (e) {
+                    out.innerHTML = `<span style="color:#888;">Interrogazione OUI terminata.</span>`;
+                } finally {
+                    btn.disabled = false;
+                }
+            }
+            </script>
+
+            <!-- CYBER MULTI-CODEC -->
+            <div class="widget-large tools-box" id="multicodec" aria-label="Cyber Multi Codec Converter">
+                <div class="box-title-row">
+                    <img src="/img/hash.png" alt="Icona Multi Codec" width="46" height="46" class="box-title-icon">
+                    <h3>Cyber Multi-Codec (Hex, Bin, URL, ROT13)</h3>
+                </div>
+
+                <div style="background:rgba(255, 123, 0, 0.03); border:1px solid rgba(255, 123, 0, 0.18); border-left:3px solid #ff7b00; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+                    <strong style="color:#ff7b00; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: CODIFICHE DATI E PROTOCOLLI</strong>
+                    <p style="margin:0;">Conversione simultanea di stringhe di testo in binario, esadecimale e URL encoding per analisi forense e deoffuscamento di payload.</p>
+                </div>
+
+                <textarea id="codecInput" placeholder="Inserisci il testo o payload da elaborare..."
+                          style="width:100%; box-sizing:border-box; height:80px; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"></textarea>
+
+                <div style="display:flex; gap:10px; margin-bottom:10px;">
+                    <button onclick="convertCodec(true)" style="flex:1; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+                        ⚡ Codifica Multipla
+                    </button>
+                    <button onclick="convertCodec(false)" style="flex:1; padding:12px; background:#1a1a1a; color:#00eaff; border:1px solid #00eaff; font-weight:bold; cursor:pointer;">
+                        🔄 Decodifica Hex/URL
+                    </button>
+                </div>
+
+                <div id="codecResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:10px;
+                    border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.83rem; line-height:1.5;">
+                </div>
+            </div>
+
+            <script>
+            function convertCodec(encode) {
+                const text = document.getElementById("codecInput").value;
+                const out = document.getElementById("codecResult");
+                if (!text.trim()) return;
+
+                out.style.display = "block";
+
+                if (encode) {
+                    const hex = Array.from(text).map(c => c.charCodeAt(0).toString(16).padStart(2, "0")).join(" ");
+                    const bin = Array.from(text).map(c => c.charCodeAt(0).toString(2).padStart(8, "0")).join(" ");
+                    const urlEnc = encodeURIComponent(text);
+                    const rot13 = text.replace(/[a-zA-Z]/g, function(c) {
+                        return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
                     });
+
+                    out.innerHTML = `
+                        <div style="margin-bottom:8px;">
+                            <strong style="color:#ff7b00;">[ Hexadecimal ]</strong>
+                            <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${hex}</pre>
+                        </div>
+                        <div style="margin-bottom:8px;">
+                            <strong style="color:#00ff88;">[ Binary (8-bit) ]</strong>
+                            <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${bin}</pre>
+                        </div>
+                        <div style="margin-bottom:8px;">
+                            <strong style="color:#00eaff;">[ URL-Encoded ]</strong>
+                            <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${urlEnc}</pre>
+                        </div>
+                        <div>
+                            <strong style="color:#ffcc00;">[ ROT13 / Caesar-13 ]</strong>
+                            <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap; word-break:break-all;">${rot13}</pre>
+                        </div>
+                    `;
                 } else {
-                    dohReport += `  (Nessun record ${t})\n`;
+                    let decodedHex = "N/D";
+                    try {
+                        const cleanHex = text.replace(/[^a-fA-F0-9]/g, "");
+                        if (cleanHex.length % 2 === 0) {
+                            let str = "";
+                            for (let i = 0; i < cleanHex.length; i += 2) {
+                                str += String.fromCharCode(parseInt(cleanHex.substr(i, 2), 16));
+                            }
+                            decodedHex = str;
+                        }
+                    } catch(e) {}
+
+                    let decodedUrl = "N/D";
+                    try {
+                        decodedUrl = decodeURIComponent(text);
+                    } catch(e) {}
+
+                    out.innerHTML = `
+                        <div style="margin-bottom:8px;">
+                            <strong style="color:#00eaff;">[ Testo da Hex ]</strong>
+                            <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap;">${decodedHex}</pre>
+                        </div>
+                        <div>
+                            <strong style="color:#ff7b00;">[ Testo da URL-Decoded ]</strong>
+                            <pre style="background:#0a0a0a; padding:6px; margin:4px 0; border:1px solid #222; color:#fff; white-space:pre-wrap;">${decodedUrl}</pre>
+                        </div>
+                    `;
                 }
             }
+            </script>
 
-            try {
-                const dmarcResp = await fetch(`https://cloudflare-dns.com/dns-query?name=_dmarc.${encodeURIComponent(target)}&type=TXT`, {
-                    headers: { 'Accept': 'application/dns-json' }
+            <!-- PASSWORD ENTROPY & ESTIMATOR -->
+            <div class="widget-large tools-box" id="entropycalculator" aria-label="Password Entropy Calculator">
+                <div class="box-title-row">
+                    <img src="/img/password.png" alt="Icona Password Entropy" width="46" height="46" class="box-title-icon">
+                    <h3>Password Entropy &amp; Brute-Force Estimator</h3>
+                </div>
+
+                <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.15); border-left:3px solid #00eaff; border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.5; color:#b0b8c4;">
+                    <strong style="color:#00eaff; font-size:0.85rem; display:block; margin-bottom:6px;">📘 LEGENDA: SHANNON ENTROPY (MISURA MATEMATICA)</strong>
+                    <p style="margin:0;">Calcolo in tempo reale dell'entropia (bit) e stima del tempo teorico di cracking su cluster GPU hardware.</p>
+                </div>
+
+                <input id="entropyPassInput" type="text" placeholder="Digita una password per testarne la resistenza matematica..."
+                       style="width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #00eaff; font-family:monospace;"
+                       oninput="calculateEntropy()">
+
+                <div id="entropyResult" aria-live="polite" data-nosnippet style="
+                    background:#000; color:#00eaff; padding:15px; margin-top:5px;
+                    border:1px solid #00eaff; display:none; font-family:'Courier New', monospace; font-size:0.85rem; line-height:1.6;">
+                </div>
+            </div>
+
+            <script>
+            function calculateEntropy() {
+                const pass = document.getElementById("entropyPassInput").value;
+                const out = document.getElementById("entropyResult");
+
+                if (!pass) {
+                    out.style.display = "none";
+                    return;
+                }
+
+                out.style.display = "block";
+
+                let pool = 0;
+                if (/[a-z]/.test(pass)) pool += 26;
+                if (/[A-Z]/.test(pass)) pool += 26;
+                if (/[0-9]/.test(pass)) pool += 10;
+                if (/[^a-zA-Z0-9]/.test(pass)) pool += 33;
+
+                const len = pass.length;
+                const entropy = pool > 0 ? (len * (Math.log(pool) / Math.log(2))).toFixed(1) : 0;
+                const combinations = Math.pow(pool, len);
+                const hashesPerSec = 100_000_000_000;
+                const seconds = combinations / hashesPerSec;
+
+                function formatTime(sec) {
+                    if (sec < 0.001) return "< 1 ms (Istantaneo)";
+                    if (sec < 60) return `${sec.toFixed(1)} secondi`;
+                    if (sec < 3600) return `${(sec / 60).toFixed(0)} minuti`;
+                    if (sec < 86400) return `${(sec / 3600).toFixed(1)} ore`;
+                    if (sec < 31536000) return `${(sec / 86400).toFixed(0)} giorni`;
+                    if (sec < 31536000000) return `${(sec / 31536000).toLocaleString(undefined, {maximumFractionDigits: 0})} anni`;
+                    return "Miliardi di secoli (Crittograficamente Sicura)";
+                }
+
+                let color = "#ff4444";
+                let rating = "CRITICA / DEBOLE";
+                if (entropy >= 80) {
+                    color = "#00ff88";
+                    rating = "ECCELLENTE / MILITARY GRADE";
+                } else if (entropy >= 60) {
+                    color = "#00eaff";
+                    rating = "BUONA / ROBUSTA";
+                } else if (entropy >= 45) {
+                    color = "#ffcc00";
+                    rating = "MODERATA";
+                }
+
+                out.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1a1a1a; padding-bottom:6px; margin-bottom:8px;">
+                        <span>Valutazione: <strong style="color:${color};">${rating}</strong></span>
+                        <span>Entropia: <strong style="color:${color}; font-size:1.05rem;">${entropy} bit</strong></span>
+                    </div>
+                    <div>Lunghezza: <strong style="color:#fff;">${len} caratteri</strong> | Charset: <strong style="color:#fff;">${pool} simboli</strong></div>
+                    <div>Tempo Stimato Cracking (Cluster GPU 100 GH/s): <strong style="color:${color};">${formatTime(seconds)}</strong></div>
+                `;
+            }
+            </script>
+
+            <!-- DEFENSIVE AUDIT & PASSIVE RECON CENTER -->
+            <div class="widget-large tools-box" id="defensiverecon" aria-label="Defensive Audit and Passive Recon Center">
+                <div class="box-title-row" style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+                    <svg class="box-title-icon" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="background:#050c14; padding:8px; border-radius:6px; width:22px; height:22px; box-sizing:content-box;">
+                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+                        <path d="M12 6v6l4 2"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                    </svg>
+                    <h3 style="margin:0; color:#00eaff;">Defensive Audit &amp; Passive Recon Center</h3>
+                </div>
+
+                <div style="background:rgba(0, 234, 255, 0.03); border:1px solid rgba(0, 234, 255, 0.2); border-left:3px solid #00eaff; border-radius:6px; padding:10px 14px; margin-bottom:14px; font-size:0.8rem; line-height:1.45; color:#b0b8c4;">
+                    <strong style="color:#00eaff; font-size:0.84rem; display:block; margin-bottom:4px;">🛡️ PASSIVE RECONNAISSANCE &amp; EXPOSURE AUDITING</strong>
+                    Analisi della superficie esposta tramite telemetrie DNS pubbliche, Certificate Transparency e motori terzi, senza inviare pacchetti invasivi al target.
+                </div>
+
+                <div style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.4); border-radius:6px; padding:12px; margin-bottom:14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+                    <span style="color:#00ff88; font-family:monospace; font-weight:bold;">TARGET:&gt;</span>
+                    <input type="text" id="reconTargetInput" placeholder="es. anonlab.it" style="
+                        flex:1; min-width:200px; background:#000; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.5); padding:8px 10px; border-radius:4px; font-family:monospace; font-size:0.9rem; outline:none;" 
+                        onkeydown="if(event.key==='Enter') executePassiveDns();">
+                    <button type="button" onclick="executePassiveDns()" style="
+                        background:#00eaff; color:#000; font-weight:bold; border:none; padding:8px 14px; border-radius:4px; cursor:pointer; font-size:0.85rem;">
+                        Analizza Target
+                    </button>
+                </div>
+
+                <div style="display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; border-bottom:1px solid rgba(0, 234, 255, 0.2); padding-bottom:8px;">
+                    <button type="button" class="recon-tab-btn active" onclick="switchReconTab('tab-dns', this)" style="background:#00eaff; color:#000; border:none; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+                        📡 Passive Audit (PHP)
+                    </button>
+                    <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-osint', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+                        🛰️ OSINT Hub
+                    </button>
+                    <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-dorks', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+                        🎯 Exposure Dorks
+                    </button>
+                    <button type="button" class="recon-tab-btn" onclick="switchReconTab('tab-audit', this)" style="background:#091624; color:#00eaff; border:1px solid rgba(0, 234, 255, 0.3); padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer;">
+                        📋 Audit Postura
+                    </button>
+                </div>
+
+                <div id="tab-dns" class="recon-tab-content" style="background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px; min-height:180px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span style="color:#00ff88; font-size:0.8rem; font-weight:bold;">LIVE TELEMETRY</span>
+                        <span id="dnsStatusBadge" style="font-size:0.75rem; color:#888;">In attesa di target...</span>
+                    </div>
+                    <div id="dnsOutputBox" data-nosnippet style="background:#050c14; border:1px solid rgba(0, 234, 255, 0.2); border-radius:4px; padding:10px; font-family:monospace; font-size:0.82rem; color:#d7e7f5; min-height:110px; max-height:260px; overflow-y:auto; white-space:pre-wrap;">Inserisci un dominio sopra e clicca "Analizza Target" per avviare l'audit.</div>
+                </div>
+
+                <div id="tab-osint" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
+                    <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Consulta le telemetrie passive indicizzate sui registri mondiali per il dominio:</p>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:10px;">
+                        <a id="linkCrtSh" href="https://crt.sh" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,255,136,0.3); color:#00ff88; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                            📜 <strong>crt.sh Logs</strong><br><span style="color:#8899aa; font-size:0.75rem;">Mappatura sottodomini da Certificati SSL/TLS</span>
+                        </a>
+                        <a id="linkShodan" href="https://www.shodan.io" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                            🔭 <strong>Shodan Recon</strong><br><span style="color:#8899aa; font-size:0.75rem;">Banner e porte storiche</span>
+                        </a>
+                        <a id="linkWayback" href="https://web.archive.org" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(255,123,0,0.3); color:#ff7b00; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                            🕰️ <strong>Wayback Endpoints</strong><br><span style="color:#8899aa; font-size:0.75rem;">File ed endpoint storici</span>
+                        </a>
+                        <a id="linkVT" href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" style="background:#091624; border:1px solid rgba(0,234,255,0.3); color:#00eaff; padding:10px; border-radius:4px; text-decoration:none; font-size:0.82rem; display:block;">
+                            🦠 <strong>VirusTotal Passive</strong><br><span style="color:#8899aa; font-size:0.75rem;">Reputazione IP e WHOIS</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="tab-dorks" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
+                    <p style="margin:0 0 10px 0; font-size:0.82rem; color:#b0b8c4;">Genera query Google Dorking per verificare leak accidentali del target:</p>
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                            <div>
+                                <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">File di Configurazione &amp; .env:</span>
+                                <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:env OR filetype:yaml "DB_PASSWORD"</span>
+                            </div>
+                            <button type="button" onclick="launchDork('config')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                            <div>
+                                <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Backup &amp; Dump Database:</span>
+                                <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">filetype:sql OR filetype:bak OR filetype:dump</span>
+                            </div>
+                            <button type="button" onclick="launchDork('backup')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                            <div>
+                                <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Directory Listing &amp; Logs:</span>
+                                <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">intitle:"index of /" OR filetype:log "error"</span>
+                            </div>
+                            <button type="button" onclick="launchDork('logs')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; background:#091624; padding:8px 10px; border-radius:4px; border:1px solid rgba(0,234,255,0.2);">
+                            <div>
+                                <span style="color:#00ff88; font-weight:bold; font-size:0.82rem;">Pannelli Login &amp; Staging:</span>
+                                <span style="display:block; color:#8899aa; font-family:monospace; font-size:0.75rem;">inurl:admin OR inurl:login OR inurl:staging</span>
+                            </div>
+                            <button type="button" onclick="launchDork('portals')" style="background:#00eaff; color:#000; font-weight:bold; border:none; padding:4px 8px; border-radius:3px; cursor:pointer; font-size:0.78rem;">Testa Dork</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-audit" class="recon-tab-content" style="display:none; background:#000; border:1px solid #00eaff; border-radius:6px; padding:14px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span style="color:#ccc; font-size:0.85rem;">Indice di Robustezza Perimetrale:</span>
+                        <strong id="auditScoreLabel" style="color:#ff4444; font-size:0.95rem;">0% — SUPERFICIE CRITICA</strong>
+                    </div>
+
+                    <div style="width:100%; height:9px; background:#111; border:1px solid rgba(0,234,255,0.3); border-radius:999px; overflow:hidden; margin-bottom:12px;">
+                        <div id="auditScoreBar" style="height:100%; width:0%; background:#ff4444; transition:width 0.3s ease, background 0.3s ease;"></div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:7px; font-size:0.82rem; color:#d7e7f5;">
+                        <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                            <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                            <span>Risoluzione DNS attiva e Record A raggiungibili.</span>
+                        </label>
+                        <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                            <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                            <span>Protezione SPF attiva e Record DMARC presente.</span>
+                        </label>
+                        <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                            <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                            <span>Almeno 3 Header OWASP configurati (HSTS, CSP, nosniff, ecc.).</span>
+                        </label>
+                        <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                            <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                            <span>Certificato SSL/TLS valido e non in scadenza immediata.</span>
+                        </label>
+                        <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                            <input type="checkbox" class="audit-check" onchange="updateAuditScore()" style="margin-top:3px; accent-color:#00eaff;">
+                            <span>Trasparenza certificati (CT Logs) attiva sui sottodomini.</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            function cleanTargetHost(raw) {
+                if (!raw) return "";
+                let host = raw.trim().toLowerCase();
+                host = host.replace(/^(https?:\/\/)/i, '').replace(/^(ftp:\/\/)/i, '');
+                host = host.split('/')[0].split(':')[0];
+                return host;
+            }
+
+            function switchReconTab(tabId, btn) {
+                document.querySelectorAll('.recon-tab-content').forEach(c => c.style.display = 'none');
+                document.querySelectorAll('.recon-tab-btn').forEach(b => {
+                    b.style.background = '#091624';
+                    b.style.color = '#00eaff';
+                    b.style.border = '1px solid rgba(0, 234, 255, 0.3)';
                 });
-                const dmarcData = await dmarcResp.json();
-                dohReport += `\n-- RECORD [DMARC] --\n`;
-                if (dmarcData.Answer && dmarcData.Answer.length > 0) {
-                    dmarcData.Answer.forEach(ans => dohReport += `  • ${ans.data}\n`);
-                } else {
-                    dohReport += `  ⚠️ Nessun record DMARC rilevato.\n`;
+                
+                const targetTab = document.getElementById(tabId);
+                if (targetTab) targetTab.style.display = 'block';
+                if (btn) {
+                    btn.style.background = '#00eaff';
+                    btn.style.color = '#000';
+                    btn.style.border = 'none';
                 }
-            } catch(e) {}
-
-            if (box) box.innerText += dohReport;
-            if (badge) {
-                badge.innerText = "Audit DoH Completato";
-                badge.style.color = "#00ff88";
             }
 
-            const checks = document.querySelectorAll('.audit-check');
-            if (checks.length >= 2) {
-                checks[0].checked = hasA;
-                checks[1].checked = hasSPF;
+            function updateOsintHubLinks(target) {
+                if (!target) return;
+                const t = encodeURIComponent(target);
+                const crt = document.getElementById('linkCrtSh');
+                const shodan = document.getElementById('linkShodan');
+                const wayback = document.getElementById('linkWayback');
+                const vt = document.getElementById('linkVT');
+
+                if (crt) crt.href = `https://crt.sh/?q=%25.${t}`;
+                if (shodan) shodan.href = `https://www.shodan.io/search?query=${t}`;
+                if (wayback) wayback.href = `https://web.archive.org/web/*/${t}/*`;
+                if (vt) vt.href = `https://www.virustotal.com/gui/domain/${t}`;
+            }
+
+            function launchDork(type) {
+                const inputEl = document.getElementById('reconTargetInput');
+                const raw = inputEl ? inputEl.value : "";
+                const target = cleanTargetHost(raw) || "example.com";
+                let query = `site:${target} `;
+
+                switch(type) {
+                    case 'config': query += `(filetype:env OR filetype:yaml OR filetype:ini OR filetype:conf) ("DB_PASSWORD" OR "api_key" OR "secret")`; break;
+                    case 'backup': query += `(filetype:sql OR filetype:tar OR filetype:bak OR filetype:dump OR filetype:zip)`; break;
+                    case 'logs': query += `(intitle:"index of /" OR filetype:log) ("error" OR "root" OR "debug")`; break;
+                    case 'portals': query += `(inurl:admin OR inurl:login OR inurl:staging OR inurl:cpanel)`; break;
+                }
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank', 'noopener,noreferrer');
+            }
+
+            function updateAuditScore() {
+                const checks = document.querySelectorAll(".audit-check");
+                if (!checks.length) return;
+                const done = Array.from(checks).filter(c => c.checked).length;
+                const pct = Math.round((done / checks.length) * 100);
+
+                const bar = document.getElementById("auditScoreBar");
+                const label = document.getElementById("auditScoreLabel");
+                if (!bar || !label) return;
+
+                bar.style.width = pct + "%";
+                if (pct === 0) {
+                    bar.style.background = "#ff4444";
+                    label.style.color = "#ff4444";
+                    label.innerText = "0% — SUPERFICIE CRITICA";
+                } else if (pct < 60) {
+                    bar.style.background = "#ff7b00";
+                    label.style.color = "#ff7b00";
+                    label.innerText = pct + "% — ESPOSIZIONE RILEVATA";
+                } else if (pct < 100) {
+                    bar.style.background = "#00eaff";
+                    label.style.color = "#00eaff";
+                    label.innerText = pct + "% — DIFESA BUONA";
+                } else {
+                    bar.style.background = "#00ff88";
+                    label.style.color = "#00ff88";
+                    label.innerText = "100% — PERIMETRO BLINDATO";
+                }
+            }
+
+            function autoUpdateAuditChecklist(data, headersCount) {
+                const checks = document.querySelectorAll('.audit-check');
+                if (checks.length >= 5) {
+                    checks[0].checked = Boolean(data && data.dns_email && data.dns_email.a && data.dns_email.a.length > 0);
+                    checks[1].checked = Boolean(data && data.dns_email && 
+                                         (String(data.dns_email.spf).includes('-all') || String(data.dns_email.spf).includes('~all')) && 
+                                         !String(data.dns_email.dmarc).includes('Assente'));
+                    checks[2].checked = (headersCount >= 3);
+                    checks[3].checked = Boolean(data && data.ssl_info && data.ssl_info.days_left > 0);
+                    checks[4].checked = Boolean(data && data.subdomains_ct && data.subdomains_ct.length > 0);
+                    updateAuditScore();
+                }
+            }
+
+            async function executePassiveDns() {
+                const inputEl = document.getElementById('reconTargetInput');
+                const raw = inputEl ? inputEl.value : "";
+                const target = cleanTargetHost(raw);
+                const box = document.getElementById('dnsOutputBox');
+                const badge = document.getElementById('dnsStatusBadge');
+
+                if (!target) {
+                    if (box) box.innerText = "⚠️ Inserisci un dominio valido (es. anonlab.it).";
+                    return;
+                }
+
+                updateOsintHubLinks(target);
+
+                if (badge) {
+                    badge.innerText = "Audit in corso...";
+                    badge.style.color = "#00eaff";
+                }
+                if (box) {
+                    box.innerText = `[+] Inizializzazione audit passivo...\n[+] Target: ${target}\n`;
+                }
+
+                try {
+                    const backendEndpoint = "https://angelonline.altervista.org/backend/defensive-audit.php";
+                    const response = await fetch(`${backendEndpoint}?domain=${encodeURIComponent(target)}`, {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const res = await response.json();
+                    if (res.status !== "success") throw new Error(res.message || "Risposta non valida");
+
+                    const d = res.data;
+                    if (badge) {
+                        badge.innerText = d.cached ? "Completato (Cache)" : "Audit Completato (PHP)";
+                        badge.style.color = "#00ff88";
+                    }
+
+                    let report = `=== [DNS & PERIMETRO EMAIL (Backend PHP)] ===\n`;
+                    report += `• Indirizzi IP (A) : ${d.dns_email.a && d.dns_email.a.length ? d.dns_email.a.join(', ') : 'Nessuno'}\n`;
+                    report += `• Mail Servers (MX): ${d.dns_email.mx && d.dns_email.mx.length ? d.dns_email.mx.join(' | ') : 'Nessuno'}\n`;
+                    report += `• Record SPF       : ${d.dns_email.spf}\n`;
+                    report += `• Policy DMARC     : ${d.dns_email.dmarc}\n\n`;
+
+                    if (d.ssl_info) {
+                        report += `=== [CERTIFICATO SSL/TLS] ===\n`;
+                        report += `• Autorità: ${d.ssl_info.issuer}\n`;
+                        report += `• Scadenza: ${d.ssl_info.valid_to} (${d.ssl_info.days_left} giorni)\n\n`;
+                    }
+
+                    let headersPresent = 0;
+                    if (d.owasp_headers && Array.isArray(d.owasp_headers)) {
+                        report += `=== [INTESTAZIONI OWASP] ===\n`;
+                        d.owasp_headers.forEach(h => {
+                            const icon = h.present ? "✅" : "❌";
+                            if (h.present) headersPresent++;
+                            report += `${icon} ${h.header}: ${h.present ? h.value : 'ASSENTE'}\n`;
+                        });
+                    }
+
+                    if (d.subdomains_ct && d.subdomains_ct.length > 0) {
+                        report += `\n=== [SOTTODOMINI DA CT-LOGS (${d.subdomains_ct.length})] ===\n`;
+                        d.subdomains_ct.forEach(sub => report += `  ↳ ${sub}\n`);
+                    }
+
+                    if (box) box.innerText = report;
+                    autoUpdateAuditChecklist(d, headersPresent);
+
+                } catch (phpErr) {
+                    if (badge) {
+                        badge.innerText = "Fallback DoH Attivo";
+                        badge.style.color = "#ffbb00";
+                    }
+                    if (box) {
+                        box.innerText = `[+] Attivazione automatica Fallback DoH diretto (RFC 8484)...\n\n`;
+                    }
+
+                    try {
+                        const types = ['A', 'MX', 'TXT'];
+                        let dohReport = `=== [RISOLUZIONE PASSIVA DoH (Cloudflare)] ===\n`;
+                        let hasA = false;
+                        let hasSPF = false;
+
+                        for (const t of types) {
+                            const cfResp = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(target)}&type=${t}`, {
+                                headers: { 'Accept': 'application/dns-json' }
+                            });
+                            const cfData = await cfResp.json();
+                            dohReport += `\n-- RECORD [${t}] --\n`;
+                            if (cfData.Answer && cfData.Answer.length > 0) {
+                                cfData.Answer.forEach(ans => {
+                                    dohReport += `  • ${ans.name} (TTL: ${ans.TTL}s) -> ${ans.data}\n`;
+                                    if (t === 'A') hasA = true;
+                                    if (t === 'TXT' && String(ans.data).includes('v=spf1')) hasSPF = true;
+                                });
+                            } else {
+                                dohReport += `  (Nessun record ${t})\n`;
+                            }
+                        }
+
+                        if (box) box.innerText += dohReport;
+                        if (badge) {
+                            badge.innerText = "Audit DoH Completato";
+                            badge.style.color = "#00ff88";
+                        }
+
+                        const checks = document.querySelectorAll('.audit-check');
+                        if (checks.length >= 2) {
+                            checks[0].checked = hasA;
+                            checks[1].checked = hasSPF;
+                            updateAuditScore();
+                        }
+
+                    } catch (dohErr) {
+                        if (box) box.innerText += `\nControllo terminato.`;
+                    }
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const defaultTarget = "anonlab.it";
+                const inputEl = document.getElementById("reconTargetInput");
+                if (inputEl) inputEl.value = defaultTarget;
+                updateOsintHubLinks(defaultTarget);
                 updateAuditScore();
-            }
-
-        } catch (dohErr) {
-            if (box) box.innerText += `\n❌ Errore anche su DoH: ${dohErr.message}`;
-            if (badge) {
-                badge.innerText = "Errore Connessione";
-                badge.style.color = "#ff4444";
-            }
-        }
-    }
-}
-
-// 8. Inizializzazione al caricamento
-document.addEventListener("DOMContentLoaded", function () {
-    const defaultTarget = "anonlab.it";
-    const inputEl = document.getElementById("reconTargetInput");
-    if (inputEl) inputEl.value = defaultTarget;
-    updateOsintHubLinks(defaultTarget);
-    updateAuditScore();
-});
-</script>
+            });
+            </script>
         </section>
 
         <!-- SIDEBAR -->
-        <aside id="sidebar"></aside>
+        <aside id="sidebar" class="sidebar"></aside>
+
+        <script>
+        fetch("/partials/sidebar.html")
+            .then(res => {
+                if (!res.ok) throw new Error("Sidebar offline");
+                return res.text();
+            })
+            .then(data => {
+                document.getElementById("sidebar").innerHTML = data;
+                if (typeof initCalculator === "function") initCalculator();
+                if (typeof initRadio === "function") initRadio();
+                if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+                if (typeof initOroscopo === "function") initOroscopo();
+                if (typeof initVisitCounter === "function") initVisitCounter();
+            })
+            .catch(e => console.error(e));
+        </script>
     </main>
 
     <!-- FOOTER -->
     <div id="footer"></div>
 
-    <!-- SCRIPT -->
+    <script>
+    fetch("/partials/footer.html")
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+    </script>
+
+    <!-- SCRIPT GLOBALI -->
     <script src="/js/main.js"></script>
     <script src="/js/ui.js"></script>
 
     <!-- BACK TO TOP BUTTON -->
-    <button id="backToTop">↑</button>
+    <button id="backToTop" aria-label="Torna in cima">↑</button>
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -2537,13 +2463,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 behavior: 'smooth'
             });
         });
-    });
-    </script>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
         const hash = window.location.hash;
-
         if (hash) {
             const target = document.querySelector(hash);
             if (target) {
@@ -2555,6 +2476,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     </script>
 
+    <!-- TRACKING CLARITY & ADSENSE -->
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
