@@ -1,5 +1,40 @@
 [
   {
+    "title": "An Unclassified CIA System Was Breached in a Cyberattack, AP Source Says",
+    "link": "https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/CIA_Hacked.jpg"
+  },
+  {
+    "title": "Satellites Have a Ground-Level Cybersecurity Problem",
+    "link": "https://www.darkreading.com/cyber-risk/satellites-ground-level-cybersecurity-problem",
+    "image": ""
+  },
+  {
+    "title": "Webworm APT Slithers Into Networks With Customized SoftEther VPN",
+    "link": "https://www.darkreading.com/perimeter/webworm-slithers-customized-softether-vpn",
+    "image": ""
+  },
+  {
+    "title": "Rackspace shuts down Spot cloud platform after security breach",
+    "link": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
+  },
+  {
+    "title": "'God Mode' Flaws Could Wreak Border-Control Havoc",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/god-mode-flaws-wreak-border-control-havoc",
+    "image": ""
+  },
+  {
+    "title": "New Inception extortion gang launches large-scale vishing campaign",
+    "link": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/inception.jpg"
+  },
+  {
+    "title": "Turnitin discloses cyberattack affecting customer-facing systems",
+    "link": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/turnitin.jpg"
+  },
+  {
     "title": "Radware discloses breach exposing customer cloud access keys",
     "link": "https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/",
     "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/Radware.jpg"
@@ -55,11 +90,6 @@
     "image": "https://www.bleepstatic.com/content/hl-images/2024/03/15/mcdonalds-sign.jpg"
   },
   {
-    "title": "New Shirudo tool uses AI to shield unpatched Linux systems from exploits",
-    "link": "https://www.bleepingcomputer.com/news/security/new-shirudo-tool-uses-ai-to-shield-unpatched-linux-systems-from-exploits/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/Linux-shield.jpg"
-  },
-  {
     "title": "Anthropic Expands Enterprise Safeguards for Detecting AI Misuse",
     "link": "https://www.securityweek.com/anthropic-expands-enterprise-safeguards-for-detecting-ai-misuse/",
     "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Anthropic-Claude.jpeg"
@@ -95,13 +125,18 @@
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifgNbpx-KISiy12Rp8KNb5ElWQADJtyC7fLFuLFCc7WzbOjCP5CmU2dPyuwhq5kRSQP5lOuwwFhvZovILCzeMgaSes8APbVabNVpJB71EC56WrojqqLU-tjIr2MFDPK8fMHnu-dx35G-p6btlQb1xU16c8IPrY4cs0k8t1pufSHgp74Y5HtqiAVk4A1QI/s1600/2027.jpg"
   },
   {
-    "title": "Schneider Electric EcoStruxure Power Build Rapsody software",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-02",
+    "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
     "image": ""
   },
   {
     "title": "Danfoss AK-SM 8xxA Series",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-03",
+    "image": ""
+  },
+  {
+    "title": "Schneider Electric EcoStruxure Power Build Rapsody software",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-02",
     "image": ""
   },
   {
@@ -113,40 +148,5 @@
     "title": "1.5 Million Impacted by Data Breach at South Korean Electric Company KEPCO",
     "link": "https://www.securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco/",
     "image": "https://www.securityweek.com/wp-content/uploads/2023/05/COSMICENERGY-OT-Malware.jpg"
-  },
-  {
-    "title": "Microsoft Fixes Azure API Management Classic Flaw as Actor Targets Customer Secrets",
-    "link": "https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSM2FAnf9UEb3Do4v-r8AEBpoI8byXOrHgng-eRjEyudSf0hiKMpymmDiK_NLTxYuzXdtrWvMrBzY9qmLqDo31r3JOpVefOQxLE77gdkoOAYMkCK__-Bc-AJoWg-8nEOEVjcY6SswkzLbCfYl6kK9clg6xXw3xginWqIwnMxBUaS6wgPKVVwXZNhZA5G85/s1600/azure-ms.jpg"
-  },
-  {
-    "title": "Elecbrakes Bluetooth Vulnerabilities Expose Trailers to Forced Braking",
-    "link": "https://www.securityweek.com/elecbrakes-bluetooth-vulnerabilities-expose-trailers-to-forced-braking/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/truck-cargo-freight-hacking-transportation.jpeg"
-  },
-  {
-    "title": "Peninsula Energy Halts Trading After Cyber Incident Hits US Uranium Mine",
-    "link": "https://www.securityweek.com/peninsula-energy-halts-trading-after-cyber-incident-hits-us-uranium-mine/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/mining.jpeg"
-  },
-  {
-    "title": "WHMCS SQL Injection Could Expose Customer Data and Admin Password Hashes without Login",
-    "link": "https://thehackernews.com/2026/11/whmcs-sql-injection-flaw-could-expose.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK7wXAof6nH7PDC5-3qxXZJgJvZODTjQcrWFOjO8jeb9yGkK6bUkzm27MzMy5n0S_Xywsj0npu_F0FmQ4JcKxPXNEoezLrpKoSStaYK4Ww46QUuzySTeQnnzcIXs_NADunlqeyuMIl5Wm5PKWc3c0JyNmYPxfbInIWx2tfosieI_QS_e4PX-JILlLH-1U/s1600/hosting.jpg"
-  },
-  {
-    "title": "OpenAI and Cisco Unveil AI-Assisted Linux Security Tool to Block Exploits Before Patching",
-    "link": "https://thehackernews.com/2026/11/openai-and-cisco-unveil-ai-assisted.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKBknwzOcmsT5P3Gnyn8-WGRNbttWLAtmWlHkVuS900lrH1Q7Wj_kBCJiASbBvhNUKWEsO8Xt5VKKokGA-M17y8Pj4EtH6564yafSWGebOVgMuTwxUUB5fV4oProNTbg8MeEhcaiy95WbMi6og3q0uSM4SxLCyzVwV3FbCfiSXrVoJtQUrYpJfyeW1AUFm/s1600/openai-linux.jpg"
-  },
-  {
-    "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
-    "link": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrPCPwSotVSX8IYSgpSrVceRAIYqba8YSZSlNwD5RjetEhPG6vLRhk_NKkatjg1h-fulZJDm4CucsLvQrEtCO6v0NtuJGo3nZD3mXSHyKpgPrUZMpq7YNpheStYC_AqyMWRfWIFiK9bcHJNAw6pwK9JqirhO8JESKdmsI5Pl8UgtsVsRivmMmMenQ01ClW/s1600/cisa-kev.jpg"
-  },
-  {
-    "title": "Industrial Serial Gateways Broadcast That They're Insecure",
-    "link": "https://www.darkreading.com/ics-ot-security/industrial-serial-gateways-broadcast-insecure",
-    "image": ""
   }
 ]
