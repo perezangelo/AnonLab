@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Strumenti OSINT e Intelligence Digitale | AnonLab</title>
+<title>Strumenti OSINT: Guida, Framework e Tecniche di Ricerca | AnonLab</title>
 
-<meta name="description" content="Scopri gli strumenti OSINT e le tecniche di raccolta e verifica dei dati pubblici per investigazioni digitali, ricerca online e attività di cyber intelligence.">
+<meta name="description" content="Guida completa ai migliori strumenti OSINT, framework di investigazione e tecniche di intelligence su fonti aperte per analisi cyber e threat hunting.">
 <link rel="canonical" href="https://anonlab.it/osint-tools-explained.html">
 
 <!-- SEO -->
@@ -14,16 +14,16 @@
 <meta name="author" content="AnonLab">
 
 <!-- Open Graph -->
-<meta property="og:title" content="OSINT Tools Explained — Raccolta e Analisi delle Informazioni">
-<meta property="og:description" content="Guida completa agli strumenti OSINT moderni e alle tecniche di intelligence digitale.">
+<meta property="og:title" content="Strumenti OSINT: Guida, Framework e Tecniche di Ricerca | AnonLab">
+<meta property="og:description" content="Guida completa agli strumenti OSINT moderni, framework di raccolta dati e tecniche di intelligence digitale.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://anonlab.it/osint-tools-explained.html">
 <meta property="og:image" content="https://anonlab.it/img/eyes.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="OSINT Tools Explained — Raccolta e Analisi delle Informazioni">
-<meta name="twitter:description" content="Strumenti OSINT, tecniche di raccolta dati e investigazioni digitali.">
+<meta name="twitter:title" content="Strumenti OSINT: Guida, Framework e Tecniche | AnonLab">
+<meta name="twitter:description" content="Strumenti OSINT, tecniche di raccolta dati, dorking e investigazioni digitali.">
 <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
 
 <!-- Google AdSense -->
@@ -54,9 +54,98 @@ a { color:#00eaff; }
     border:1px solid #00eaff33;
     margin-bottom:40px;
 }
+.osint-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+.osint-table th, .osint-table td {
+    padding: 12px 14px;
+    border: 1px solid #1e293b;
+    text-align: left;
+}
+.osint-table th {
+    background: #030712;
+    color: #00eaff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+.osint-table tr:hover {
+    background: #0b1320;
+}
+/* Stile Mini-Tool OSINT Interattivo */
+.osint-toolkit-widget {
+    background: #090e17;
+    border: 1px solid #00eaff55;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+    box-shadow: 0 4px 20px rgba(0, 234, 255, 0.15);
+}
+.osint-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+.osint-tab-btn {
+    background: #030712;
+    color: #94a3b8;
+    border: 1px solid #1e293b;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 0.8rem;
+}
+.osint-tab-btn.active {
+    background: rgba(0, 234, 255, 0.15);
+    color: #00eaff;
+    border-color: #00eaff;
+    font-weight: bold;
+}
+.osint-input-field {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    background: #030712;
+    border: 1px solid #1e293b;
+    color: #00eaff;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+.osint-btn {
+    background: #00eaff;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.osint-output-box {
+    margin-top: 12px;
+    padding: 12px;
+    background: #020617;
+    border: 1px dashed #00eaff44;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.82rem;
+    color: #38bdf8;
+    word-break: break-all;
+    min-height: 24px;
+}
 </style>
 
-  <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
+<!-- CMP Iubenda -->
+<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
 <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
 <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
 <script>
@@ -77,7 +166,7 @@ a { color:#00eaff; }
 		 "7": "consent_only",
 		 "8": "consent_only",
 		 "9": "consent_only",
-		"10": "consent_only"
+		 "10": "consent_only"
 	},
 	invalidateConsentWithoutLog: true,
 	googleAdditionalConsentMode: true,
@@ -94,56 +183,104 @@ a { color:#00eaff; }
 </script>
 <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 
-	<script type="application/ld+json">
+<!-- Dati Strutturati Avanzati: TechArticle + FAQPage + BreadcrumbList -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "OSINT Tools Explained — Raccolta e Analisi delle Informazioni",
-  "description": "Guida completa agli strumenti OSINT moderni e alle tecniche di intelligence digitale.",
-  "author": {
-    "@type": "Organization",
-    "name": "AnonLab"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://anonlab.it/osint-tools-explained.html"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "AnonLab"
-  }
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://anonlab.it/osint-tools-explained.html#article",
+      "headline": "Strumenti OSINT: Guida, Framework e Tecniche di Ricerca",
+      "description": "Guida completa ai migliori strumenti OSINT, framework di investigazione e tecniche di intelligence su fonti aperte per analisi cyber e threat hunting.",
+      "image": "https://anonlab.it/img/eyes.png",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Organization",
+        "name": "AnonLab",
+        "url": "https://anonlab.it/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AnonLab",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://anonlab.it/img/eyes.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://anonlab.it/osint-tools-explained.html"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://anonlab.it/osint-tools-explained.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://anonlab.it/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Strumenti OSINT",
+          "item": "https://anonlab.it/osint-tools-explained.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://anonlab.it/osint-tools-explained.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Cos’è un OSINT tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un OSINT tool è uno strumento software progettato per automatizzare o facilitare la raccolta, il filtraggio e l'analisi di dati provenienti da fonti pubblicamente accessibili (open data, motori di ricerca, registri DNS, social media e registri pubblici)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali sono i migliori OSINT tools nel 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tra i principali strumenti OSINT spiccano Shodan per l'analisi di dispositivi connessi, Maltego per la link analysis relazionale, SpiderFoot per l'automazione delle scansioni di perimetro, theHarvester per la ricognizione di email e sottodomini, e OSINT Framework per la catalogazione delle fonti."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si usa un OSINT tool per analizzare un dominio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'analisi OSINT di un dominio parte dall'interrogazione dei record WHOIS e DNS storici, prosegue con l'enumerazione dei sottodomini, la scansione passiva delle porte e certificati SSL esposti e la correlazione con eventuali violazioni nei data breach."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
-
-<!-- CARICAMENTO JAVASCRIPT DEL SITO -->
-<script src="/js/main.js"></script>
 
 </head>
 
 <body>
 
-	<div id="header"></div>
+  <div id="header"></div>
 
   <div id="ticker" aria-label="Ticker informazioni"></div>
-
-  <!-- Il file deve essere caricato prima dell'inizializzazione -->
   <script src="/js/ticker.js"></script>
-
   <script>
     fetch("/partials/ticker.html")
       .then(response => {
-        if (!response.ok) {
-          throw new Error("Ticker non caricato");
-        }
+        if (!response.ok) throw new Error("Ticker non caricato");
         return response.text();
       })
       .then(html => {
         document.getElementById("ticker").innerHTML = html;
-
-        /*
-         * ticker.js attualmente non contiene initTicker().
-         * La funzione disponibile è loadTickerNews().
-         */
         if (typeof loadTickerNews === "function") {
           loadTickerNews();
         }
@@ -156,34 +293,158 @@ a { color:#00eaff; }
   <main class="page">
     <section class="main-column">
 
-<h1>OSINT Tools Explained — Raccolta e Analisi delle Informazioni</h1>
+<h1>Strumenti OSINT e Tecniche di Intelligence Digitale</h1>
 
 <div class="section">
 <p>
-L’OSINT (Open Source Intelligence) è la disciplina che si occupa della raccolta e analisi di informazioni provenienti da fonti pubbliche.  
-Nel 2026 l’OSINT è diventato uno dei pilastri fondamentali per investigatori digitali, analisti SOC, ricercatori di cybersecurity, giornalisti investigativi e forze dell’ordine.
+L’<strong>OSINT (Open Source Intelligence)</strong> è la disciplina che si occupa della raccolta, correlazione e analisi di informazioni provenienti esclusivamente da fonti pubbliche e legali.  
+Nel 2026 l’OSINT costituisce uno dei pilastri fondamentali per investigatori digitali, analisti SOC, ricercatori di cybersecurity, giornalisti d'inchiesta ed esperti di incident response.
 </p>
 <div class="section" style="margin-top:25px;">
   <h4 style="color:#00eaff;">Pagine correlate</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
     <li>➡️ <a href="/cybersecurity-basics.html">Cybersecurity Basics</a> — Concetti fondamentali della sicurezza informatica</li>
-    <li>➡️ <a href="/soc-dashboard.html">AnonLab SOC Dashboard</a> — Widget, API e struttura della dashboard SOC</li>
+    <li>➡️ <a href="/soc-dashboard.html">AnonLab SOC Dashboard</a> — Monitoraggio minacce e architettura SOC</li>
+    <li>➡️ <a href="/dashboard.html">Dashboard Operativa Live</a> — Mappa interattiva degli attacchi hacker in tempo reale</li>
   </ul>
 </div>
 <p>
-Questa pagina offre una panoramica completa e aggiornata sugli strumenti OSINT più utilizzati, sulle tecniche di raccolta dati e sulle metodologie di analisi.  
-È progettata per essere una risorsa di valore sia per professionisti che per utenti che vogliono comprendere il funzionamento dell’intelligence moderna.
+Questa guida offre una panoramica tecnica e pratica sui migliori strumenti OSINT, sui framework di ricognizione passiva e sulle metodologie di analisi del footprinting digitale.
 </p>
 
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Fonti OSINT autorevoli</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🔍 <a href="https://www.bellingcat.com" target="_blank" style="color:#00eaff;">Bellingcat OSINT Investigations</a></li>
-    <li>🔍 <a href="https://www.occrp.org/en" target="_blank" style="color:#00eaff;">OCCRP — Organized Crime & Corruption Reporting Project</a></li>
-    <li>🔍 <a href="https://www.first.org" target="_blank" style="color:#00eaff;">FIRST — Incident Response Community</a></li>
+    <li>🔍 <a href="https://www.bellingcat.com" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Bellingcat OSINT Investigations</a></li>
+    <li>🔍 <a href="https://www.occrp.org/en" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">OCCRP — Organized Crime &amp; Corruption Reporting Project</a></li>
+    <li>🔍 <a href="https://www.first.org" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">FIRST — Incident Response Community</a></li>
   </ul>
 </div>
 </div>
+
+<!-- ============================================================
+     ⭐ NUOVO WIDGET CLIENT-SIDE: ANONLAB OSINT QUICK-INVESTIGATOR
+     ============================================================ -->
+<div class="osint-toolkit-widget" data-nosnippet>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+    <h3 style="margin: 0; color: #00eaff; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">
+      🛠️ AnonLab OSINT Quick-Utility (Client-Side)
+    </h3>
+    <span style="font-family: monospace; font-size: 0.7rem; color: #34d399; background: #030712; padding: 2px 6px; border: 1px solid #1e293b; border-radius: 3px;">LIVE UTILITY</span>
+  </div>
+  
+  <p style="font-size: 0.78rem; color: #94a3b8; margin: 0 0 14px 0;">
+    Strumento operativo per analisti: neutralizza/ripristina indicatori pericolosi (Defang/Refang), identifica algoritmi hash o genera query di Google Dorking per ricognizione passiva.
+  </p>
+
+  <div class="osint-tabs">
+    <button class="osint-tab-btn active" onclick="switchOsintTab('defang')">Defanger / Refanger</button>
+    <button class="osint-tab-btn" onclick="switchOsintTab('hash')">Hash Identifier</button>
+    <button class="osint-tab-btn" onclick="switchOsintTab('dork')">Google Dork Builder</button>
+  </div>
+
+  <!-- TAB 1: DEFANG / REFANG -->
+  <div id="tab-defang" class="osint-tab-content">
+    <input type="text" id="defang-input" class="osint-input-field" placeholder="Es. https://malicious-domain.com/evil o 192.168.1[.]1">
+    <div style="display: flex; gap: 8px;">
+      <button class="osint-btn" onclick="runDefang(true)">Defang (Neutralizza)</button>
+      <button class="osint-btn" style="background: #38bdf8;" onclick="runDefang(false)">Refang (Ripristina)</button>
+    </div>
+    <div id="defang-output" class="osint-output-box">Output: in attesa di input...</div>
+  </div>
+
+  <!-- TAB 2: HASH IDENTIFIER -->
+  <div id="tab-hash" class="osint-tab-content" style="display: none;">
+    <input type="text" id="hash-input" class="osint-input-field" placeholder="Incolla qui una stringa hash (es. 5d41402abc4b2a76b9719d911017c592)...">
+    <button class="osint-btn" onclick="runHashIdentifier()">Analizza Algoritmo Hash</button>
+    <div id="hash-output" class="osint-output-box">Output: in attesa di hash...</div>
+  </div>
+
+  <!-- TAB 3: DORK BUILDER -->
+  <div id="tab-dork" class="osint-tab-content" style="display: none;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+      <input type="text" id="dork-target" class="osint-input-field" style="margin-bottom:0;" placeholder="Target (es. target.com)">
+      <select id="dork-type" class="osint-input-field" style="margin-bottom:0;">
+        <option value="filetype:pdf">Documenti PDF sensibili</option>
+        <option value="filetype:xls OR filetype:xlsx">Fogli Excel / Dati interni</option>
+        <option value="intitle:&quot;index of&quot;">Directory Listing esposte</option>
+        <option value="inurl:admin OR inurl:login">Pannelli di login e amministrazione</option>
+        <option value="filetype:env OR filetype:log OR filetype:sql">Credenziali, Log e Dump SQL</option>
+      </select>
+    </div>
+    <button class="osint-btn" onclick="runDorkBuilder()">Genera Query Dork &amp; Apri Ricerca</button>
+    <div id="dork-output" class="osint-output-box">Output: seleziona i parametri...</div>
+  </div>
+</div>
+
+<script>
+function switchOsintTab(tab) {
+  document.querySelectorAll('.osint-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-defang').style.display = 'none';
+  document.getElementById('tab-hash').style.display = 'none';
+  document.getElementById('tab-dork').style.display = 'none';
+
+  if (tab === 'defang') {
+    document.querySelectorAll('.osint-tab-btn')[0].classList.add('active');
+    document.getElementById('tab-defang').style.display = 'block';
+  } else if (tab === 'hash') {
+    document.querySelectorAll('.osint-tab-btn')[1].classList.add('active');
+    document.getElementById('tab-hash').style.display = 'block';
+  } else if (tab === 'dork') {
+    document.querySelectorAll('.osint-tab-btn')[2].classList.add('active');
+    document.getElementById('tab-dork').style.display = 'block';
+  }
+}
+
+function runDefang(isDefang) {
+  let val = document.getElementById('defang-input').value.trim();
+  const out = document.getElementById('defang-output');
+  if (!val) { out.textContent = 'Inserisci un URL o un IP.'; return; }
+
+  if (isDefang) {
+    let defanged = val.replace(/http/gi, 'hxxp').replace(/\./g, '[.]').replace(/:\/\//g, '[://]');
+    out.textContent = defanged;
+  } else {
+    let refanged = val.replace(/hxxp/gi, 'http').replace(/\[\.\]/g, '.').replace(/\[:\/\/\]/g, '://');
+    out.textContent = refanged;
+  }
+}
+
+function runHashIdentifier() {
+  const h = document.getElementById('hash-input').value.trim();
+  const out = document.getElementById('hash-output');
+  if (!h) { out.textContent = 'Inserisci un hash valido.'; return; }
+
+  const len = h.length;
+  const isHex = /^[0-9a-fA-F]+$/.test(h);
+
+  if (!isHex) {
+    out.textContent = 'Formato non esadecimale. Potrebbe trattarsi di una stringa Base64 o codificata.';
+    return;
+  }
+
+  if (len === 32) out.textContent = `Lunghezza 32 caratteri (128-bit) → Probabile: MD5, NTLM o MD4`;
+  else if (len === 40) out.textContent = `Lunghezza 40 caratteri (160-bit) → Probabile: SHA-1 o RIPEMD-160`;
+  else if (len === 64) out.textContent = `Lunghezza 64 caratteri (256-bit) → Probabile: SHA-256 o BLAKE2s`;
+  else if (len === 128) out.textContent = `Lunghezza 128 caratteri (512-bit) → Probabile: SHA-512 o Whirlpool`;
+  else out.textContent = `Lunghezza ${len} caratteri hex. Algoritmo non comune o stringa frammentata.`;
+}
+
+function runDorkBuilder() {
+  const target = document.getElementById('dork-target').value.trim();
+  const type = document.getElementById('dork-type').value;
+  const out = document.getElementById('dork-output');
+
+  let query = type;
+  if (target) query = `site:${target} ${type}`;
+
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  out.innerHTML = `Query generata: <code style="color:#00eaff;">${query}</code><br><br>
+    <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" style="color:#34d399; font-weight:bold;">
+      ↗ Esegui ricerca su Google in una nuova scheda
+    </a>`;
+}
+</script>
 
 <!-- Annuncio AdSense -->
 <ins class="adsbygoogle"
@@ -196,27 +457,26 @@ Questa pagina offre una panoramica completa e aggiornata sugli strumenti OSINT p
 <div class="section">
 <h2>Cos’è l’OSINT</h2>
 <p>
-L’OSINT consiste nell’analisi di informazioni disponibili pubblicamente, senza violare alcuna legge o sistema protetto.
+L’OSINT consiste nell’analisi metodica di informazioni reperibili pubblicamente, senza ricorrere a intrusioni o alla violazione di sistemi protetti.
 </p>
 
 <ul>
-<li>siti web</li>
-<li>motori di ricerca</li>
-<li>social network</li>
-<li>database pubblici</li>
-<li>registri ufficiali</li>
-<li>forum e community</li>
-<li>dark web (solo fonti pubbliche e legali)</li>
+<li>Siti web e archivi storici digitali (Wayback Machine)</li>
+<li>Motori di ricerca generalisti e specializzati su dispositivi IoT</li>
+<li>Social network e piattaforme di messaggistica aperta</li>
+<li>Database pubblici e registri camerali ufficiali</li>
+<li>Repository di codice sorgente (GitHub, GitLab, Pastebin)</li>
+<li>Dark web (directory e motori indicizzati legalmente accessibili)</li>
 </ul>
 
-<p>L’obiettivo è trasformare dati grezzi in informazioni utili, contestualizzate e verificabili.</p>
+<p>L’obiettivo cardine dell'intelligence è trasformare dati grezzi dispersi in informazioni strutturate, contestualizzate e utilizzabili a livello tattico o strategico.</p>
 
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Fonti OSINT istituzionali</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📚 <a href="https://www.europol.europa.eu/activities-services/europol-innovation-lab" target="_blank" style="color:#00eaff;">Europol Innovation Lab</a></li>
-    <li>📚 <a href="https://www.interpol.int/How-we-work/Innovation" target="_blank" style="color:#00eaff;">INTERPOL Digital Innovation</a></li>
-    <li>📚 <a href="https://www.nato.int/cps/en/natohq/topics_78170.htm" target="_blank" style="color:#00eaff;">NATO Cyber Defence</a></li>
+    <li>📚 <a href="https://www.europol.europa.eu/activities-services/europol-innovation-lab" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Europol Innovation Lab</a></li>
+    <li>📚 <a href="https://www.interpol.int/How-we-work/Innovation" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">INTERPOL Digital Innovation</a></li>
+    <li>📚 <a href="https://www.nato.int/cps/en/natohq/topics_78170.htm" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">NATO Cyber Defence</a></li>
   </ul>
 </div>
 </div>
@@ -224,24 +484,23 @@ L’OSINT consiste nell’analisi di informazioni disponibili pubblicamente, sen
 <div class="section">
 <h2>Perché l’OSINT è fondamentale oggi</h2>
 
-<p>La quantità di dati disponibili online è cresciuta in modo esponenziale.</p>
+<p>Nel contesto cyber attuale, la mole di dati generata costantemente in rete cresce a tassi esponenziali:</p>
 
 <ul>
-<li>milioni di post social</li>
-<li>nuovi domini</li>
-<li>nuovi leak</li>
-<li>nuovi IOC</li>
-<li>nuovi report</li>
+<li>Esposizione involontaria di credenziali aziendali e file di configurazione</li>
+<li>Registrazione continua di nuovi domini usati per campagne di phishing</li>
+<li>Pubblicazione immediata di nuovi IOC (Indicator of Compromise) e sample malevoli</li>
+<li>Tracciamento di gruppi criminali Ransomware-as-a-Service sui canali pubblici</li>
 </ul>
 
-<p>L’OSINT permette di identificare minacce emergenti e ricostruire attività sospette.</p>
+<p>L’applicazione metodica delle tecniche OSINT consente di anticipare gli attacchi, individuare i vettori d'ingresso prima che vengano sfruttati e condurre indagini forensi accurate.</p>
 
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Fonti di intelligence</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🛰️ <a href="https://www.fireeye.com/blog/threat-research.html" target="_blank" style="color:#00eaff;">FireEye Threat Research</a></li>
-    <li>🛰️ <a href="https://www.kroll.com/en/insights/publications/cyber-risk" target="_blank" style="color:#00eaff;">Kroll Cyber Risk Reports</a></li>
-    <li>🛰️ <a href="https://www.unit42.paloaltonetworks.com" target="_blank" style="color:#00eaff;">Unit42 Threat Intelligence</a></li>
+    <li>🛰️ <a href="https://www.fireeye.com/blog/threat-research.html" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">FireEye / Mandiant Threat Research</a></li>
+    <li>🛰️ <a href="https://www.kroll.com/en/insights/publications/cyber-risk" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Kroll Cyber Risk Reports</a></li>
+    <li>🛰️ <a href="https://www.unit42.paloaltonetworks.com" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">Unit42 Threat Intelligence</a></li>
   </ul>
 </div>
 </div>
@@ -255,111 +514,69 @@ L’OSINT consiste nell’analisi di informazioni disponibili pubblicamente, sen
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <div class="section">
-<h2>Strumenti OSINT fondamentali</h2>
+<h2>Strumenti OSINT fondamentali e Categorie</h2>
 <div class="section" style="margin-top:25px;">
-  <h4 style="color:#00eaff;">Approfondimenti OSINT</h4>
+  <h4 style="color:#00eaff;">Approfondimenti correlati</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🔗 <a href="/osint-investigation-case-study.html">OSINT Case Study</a> — Indagine OSINT reale con correlazione dati</li>
+    <li>🔗 <a href="/osint-investigation-case-study.html">OSINT Case Study</a> — Esempio pratico di correlazione dati in un'indagine reale</li>
   </ul>
 </div>
-<h3>1. Motori di ricerca avanzati</h3>
-<p>
-Google, Bing e DuckDuckGo sono strumenti OSINT potentissimi se utilizzati con operatori avanzati:
-</p>
 
+<h3>1. Motori di ricerca avanzati e Google Dorking</h3>
+<p>
+Google, Bing e DuckDuckGo permettono un'efficace ricognizione passiva tramite operatori di ricerca avanzati:
+</p>
 <ul>
-<li><code>site:</code> per filtrare domini</li>
-<li><code>filetype:</code> per trovare documenti specifici</li>
-<li><code>intitle:</code> per cercare parole nei titoli</li>
-<li><code>inurl:</code> per analizzare URL</li>
+<li><code>site:</code> — limita l'indagine a un dominio specifico o a un TLD</li>
+<li><code>filetype:</code> — individua formati specifici esposti (PDF, XLS, ENV, SQL)</li>
+<li><code>intitle:</code> — estrae parole chiave nei tag del titolo</li>
+<li><code>inurl:</code> — individua parametri e stringhe nel percorso dell'URL</li>
 </ul>
 
-<h3>2. WHOIS e DNS Intelligence</h3>
+<h3>2. WHOIS, DNS e Network Intelligence</h3>
 <p>
-Strumenti come:
+Strumenti indispensabili per mappare le infrastrutture avversarie:
 </p>
-
 <ul>
-<li>WhoisXML</li>
-<li>ViewDNS</li>
-<li>DNSDumpster</li>
-<li>SecurityTrails</li>
+<li><strong>WhoisXML &amp; ViewDNS</strong> — cronologia delle registrazioni di dominio</li>
+<li><strong>DNSDumpster</strong> — mappatura dei record A, MX, NS e sottodomini</li>
+<li><strong>SecurityTrails &amp; Censys</strong> — rilevamento rapido di IP storici e certificati SSL</li>
 </ul>
 
+<h3>3. SOCMINT — Social Media Intelligence</h3>
 <p>
-permettono di analizzare domini, IP, sottodomini e infrastrutture correlate.
+Piattaforme per l'analisi di profili pubblici, username riutilizzati e correlazioni su forum e chat:
 </p>
-
-<h3>3. Social Media OSINT</h3>
-<p>
-I social network sono una miniera di informazioni.  
-Strumenti utili includono:
-</p>
-
 <ul>
-<li>SocialScan</li>
-<li>TweetDeck (ricerca avanzata)</li>
-<li>Meta OSINT tools</li>
-<li>Telegram OSINT bots</li>
+<li>SocialScan e WhatsMyName (verifica riutilizzo username su centinaia di servizi)</li>
+<li>TweetDeck &amp; X Advanced Search (cronologia e geolocalizzazione tweet)</li>
+<li>Telegram OSINT bots (monitoraggio gruppi broadcast di leak e cybercrime)</li>
 </ul>
 
-<h3>4. Data Breach Intelligence</h3>
+<h3>4. Data Breach &amp; Credential Intelligence</h3>
 <p>
-Per analizzare credenziali compromesse e leak:
+Per analizzare se un dominio o un account è stato compromesso in data breach passati:
 </p>
-
 <ul>
-<li>HaveIBeenPwned</li>
-<li>DeHashed</li>
-<li>LeakCheck</li>
-<li>Intelligence X</li>
+<li>HaveIBeenPwned (verifica hash e account compromessi)</li>
+<li>DeHashed &amp; LeakCheck (ricerca correlata su breach storici)</li>
+<li>Intelligence X (motore di archiviazione dati leakati e paste esposti)</li>
 </ul>
 
-<h3>5. File Metadata Analysis</h3>
+<h3>5. File &amp; Metadata Analysis</h3>
 <p>
-Strumenti per estrarre metadati da documenti:
+Estrazione di coordinate GPS, software autore e timestamp memorizzati nei file:
 </p>
-
 <ul>
-<li>ExifTool</li>
-<li>FOCA</li>
-<li>Metadata2Go</li>
+<li>ExifTool (standard industriale per l'analisi metadati multimediali)</li>
+<li>FOCA (estrazione automatica di metadati da documenti indicizzati)</li>
 </ul>
 
-<h3>6. Dark Web OSINT</h3>
+<h3>6. OSINT Framework</h3>
 <p>
-Solo fonti pubbliche e legali:
+Il punto di riferimento globale per la catalogazione gerarchica delle fonti open source:
 </p>
-
-<ul>
-<li>Ahmia</li>
-<li>OnionSearch</li>
-<li>Tor directory indexes</li>
-</ul>
-
-<h3>7. OSINT Framework</h3>
-	<h2>Tipologie di strumenti OSINT</h2>
-
-<h3>Domain & Network Intelligence</h3>
-<p>Strumenti che permettono di analizzare domini, IP, DNS, ASN, porte aperte e infrastrutture correlate.</p>
-
-<h3>SOCMINT — Social Media Intelligence</h3>
-<p>Analisi di profili, post, relazioni, geolocalizzazioni e attività sospette sui social network.</p>
-
-<h3>GEOINT — Geospatial Intelligence</h3>
-<p>Intelligence basata su mappe, coordinate, immagini satellitari e dati geolocalizzati.</p>
-
-<h3>Metadata & File Intelligence</h3>
-<p>Estrazione di informazioni nascoste da documenti, PDF, immagini e file multimediali.</p>
-
-<h3>Dark Web Reconnaissance</h3>
-<p>Raccolta di informazioni da fonti pubbliche del dark web, directory e motori di ricerca onion.</p>
-
-<p>
-Una delle risorse più complete per categorizzare strumenti OSINT:
-</p>
-
-<p><a href="https://osintframework.com" target="_blank">https://osintframework.com</a></p>
+<p><a href="https://osintframework.com" target="_blank" rel="noopener noreferrer">https://osintframework.com</a></p>
 </div>
 
 <!-- Annuncio AdSense -->
@@ -372,511 +589,266 @@ Una delle risorse più complete per categorizzare strumenti OSINT:
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <div class="section" style="margin-top:40px;">
-  <h2>Glossario e Strumenti OSINT</h2>
+  <h2>Tabella Comparativa Strumenti OSINT</h2>
 
   <p style="margin-bottom:20px;">
-    Una raccolta dei principali concetti e strumenti utilizzati nell’Open Source Intelligence,
-    organizzati in modo chiaro per facilitare consultazione e studio.
+    Confronto sintetico tra i principali strumenti di intelligence open source impiegati da team SOC e investigatori digitali:
   </p>
 
-  <!-- TABELLA STRUMENTI -->
-  <h3 style="margin-top:25px;">Confronto strumenti OSINT</h3>
-  <table>
+  <table class="osint-table">
     <thead>
       <tr>
         <th>Tool</th>
-        <th>Funzione</th>
-        <th>Livello</th>
-        <th>Gratis/Premium</th>
+        <th>Funzione Primaria</th>
+        <th>Livello Tecnico</th>
+        <th>Modello</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Whois</td><td>Analisi dominio</td><td>Base</td><td>Gratis</td></tr>
-      <tr><td>Shodan</td><td>Scansione dispositivi</td><td>Avanzato</td><td>Premium</td></tr>
-      <tr><td>Maltego</td><td>Link analysis</td><td>Avanzato</td><td>Premium</td></tr>
-      <tr><td>SpiderFoot</td><td>Automazione OSINT</td><td>Avanzato</td><td>Gratis/Premium</td></tr>
-      <tr><td>FOCA</td><td>Metadata extraction</td><td>Intermedio</td><td>Gratis</td></tr>
+      <tr><td><strong>Whois / ViewDNS</strong></td><td>Analisi registrar e DNS storici</td><td>Base</td><td>Gratuito</td></tr>
+      <tr><td><strong>Shodan</strong></td><td>Scansione dispositivi IoT e server esposti</td><td>Avanzato</td><td>Freemium / API</td></tr>
+      <tr><td><strong>Maltego</strong></td><td>Link analysis e visualizzazione relazionale dei nodi</td><td>Avanzato</td><td>Community / Commerciale</td></tr>
+      <tr><td><strong>SpiderFoot</strong></td><td>Automazione della ricognizione passiva OSINT</td><td>Avanzato</td><td>Open Source / Cloud</td></tr>
+      <tr><td><strong>FOCA</strong></td><td>Estrazione automatica metadati su file e web</td><td>Intermedio</td><td>Open Source</td></tr>
+      <tr><td><strong>theHarvester</strong></td><td>Raccolta email, sottodomini, host e dipendenti</td><td>Intermedio</td><td>Open Source</td></tr>
     </tbody>
   </table>
 
-  <!-- GLOSSARIO -->
-  <h3 style="margin-top:30px;">Glossario OSINT</h3>
+  <h3 style="margin-top:30px;">Glossario Rapido OSINT</h3>
   <ul style="line-height:1.8;">
-    <li><strong>Footprinting</strong> — raccolta preliminare di informazioni su un target.</li>
-    <li><strong>Pivoting</strong> — collegare un dato ad altri elementi correlati.</li>
-    <li><strong>Link Analysis</strong> — analisi delle relazioni tra entità.</li>
-    <li><strong>Metadata Extraction</strong> — estrazione di informazioni nascoste nei file.</li>
-    <li><strong>SOCMINT</strong> — intelligence basata sui social media.</li>
-    <li><strong>GEOINT</strong> — intelligence basata su mappe e geolocalizzazione.</li>
+    <li><strong>Footprinting:</strong> raccolta preliminare sistematica di informazioni sul target.</li>
+    <li><strong>Pivoting:</strong> tecnica che utilizza un singolo dato noto (es. un'email o un indirizzo IP) per rintracciare ulteriori nodi correlati.</li>
+    <li><strong>Link Analysis:</strong> rappresentazione visiva dei legami e delle interazioni tra entità distinte.</li>
+    <li><strong>Metadata Extraction:</strong> recupero dei metadati EXIF, XMP o autore incorporati nei file.</li>
+    <li><strong>GEOINT:</strong> intelligence geospaziale basata su immagini satellitari, ombre, coordinate e riferimenti topografici.</li>
   </ul>
 </div>
 
 <div class="section">
-<h2>Metodologie OSINT moderne</h2>
-	<div class="section" style="margin-top:25px;">
-  <h4 style="color:#00eaff;">Threat Intelligence</h4>
+<h2>Metodologia di Investigazione OSINT</h2>
+<div class="section" style="margin-top:25px;">
+  <h4 style="color:#00eaff;">Threat Intelligence Integrata</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🛡️ <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità & CVE Analysis</a> — Analisi delle vulnerabilità più critiche</li>
-    <li>🛡️ <a href="/threat-intelligence-report.html">Threat Intelligence Report</a> — Trend globali e minacce emergenti</li>
+    <li>🛡️ <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità &amp; CVE Analysis</a> — Analisi delle vulnerabilità più sfruttate</li>
+    <li>🛡️ <a href="/threat-intelligence-report.html">Threat Intelligence Report</a> — Trend globali e indicatori di compromissione</li>
   </ul>
 </div>
 
-<h3>Raccolta</h3>
-<p>Identificazione delle fonti e estrazione dei dati.</p>
+<h3>1. Raccolta Passiva (Scoping)</h3>
+<p>Identificazione delle fonti e raccolta dati senza toccare direttamente i server del bersaglio, per evitare di allertare firewall e sistemi SIEM.</p>
 
-<h3>Analisi</h3>
-<p>Correlazione, filtraggio e contestualizzazione.</p>
+<h3>2. Filtraggio e Normalizzazione</h3>
+<p>Pulizia dei dati raccolti, eliminazione dei falsi positivi e strutturazione in schemi comparabili.</p>
 
-<h3>Verifica</h3>
-<p>Ogni informazione deve essere verificata tramite fonti indipendenti.</p>
+<h3>3. Verifica e Correlazione Incrociata</h3>
+<p>Nessun dato viene assunto come veritiero senza la conferma di almeno due fonti distinte e indipendenti.</p>
 
-<h3>Reporting</h3>
-<p>Creazione di report chiari e tecnici.</p>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Fonti metodologiche</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📘 <a href="https://www.missingkids.org/footer/AMBERAlert" target="_blank" style="color:#00eaff;">OSINT for Missing Persons (NCMEC)</a></li>
-    <li>📘 <a href="https://www.icij.org" target="_blank" style="color:#00eaff;">ICIJ — Investigative Journalism</a></li>
-    <li>📘 <a href="https://www.pewresearch.org/internet" target="_blank" style="color:#00eaff;">Pew Research — Digital Behavior Studies</a></li>
-  </ul>
-</div>
+<h3>4. Reporting e Condivisione IoC</h3>
+<p>Elaborazione di report di sicurezza con timeline chiara, indicatori validati e indicazioni operative per la mitigazione.</p>
 </div>
 
-		<h2>Esempi di analisi OSINT</h2>
+<div class="section">
+<h2>Esempi di Comandi OSINT da Terminale</h2>
 
-<h3>Analisi dominio</h3>
-<pre>
+<h3>Analisi di un Dominio</h3>
+<pre style="background:#030712; border:1px solid #1e293b; padding:12px; border-radius:6px; color:#38bdf8;">
 whois anonlab.it
-nslookup anonlab.it
+dig anonlab.it ANY +noall +answer
 curl -I https://anonlab.it
 </pre>
 
-<h3>Analisi IP</h3>
-<pre>
+<h3>Analisi di un Host su Shodan CLI</h3>
+<pre style="background:#030712; border:1px solid #1e293b; padding:12px; border-radius:6px; color:#38bdf8;">
 shodan host 8.8.8.8
 </pre>
 
-<h3>Analisi metadati</h3>
-<pre>
-exiftool immagine.jpg
+<h3>Estrazione Metadati con ExifTool</h3>
+<pre style="background:#030712; border:1px solid #1e293b; padding:12px; border-radius:6px; color:#38bdf8;">
+exiftool -all= target_immagine.jpg  # Rimuove i metadati
+exiftool target_immagine.jpg       # Legge tutti i campi EXIF
 </pre>
+</div>
 
 <div class="section">
-<h2>Best practice OSINT</h2>
+<h2>Best Practice di Sicurezza Operativa (OPSEC)</h2>
 
 <ul>
-<li>Utilizza fonti affidabili</li>
-<li>Evita informazioni non verificabili</li>
-<li>Proteggi la tua identità digitale</li>
-<li>Documenta ogni passaggio</li>
-<li>Usa VPN e browser sicuri</li>
-<li>Non lasciare tracce</li>
+<li><strong>Isolamento dell'ambiente:</strong> Conduci le indagini sempre all'interno di macchine virtuali dedicate (es. CSI Linux o Kali Linux).</li>
+<li><strong>Anonimato perimetrale:</strong> Utilizza connessioni VPN affidabili, server proxy multipli e la rete Tor quando opportuno.</li>
+<li><strong>Sock Puppet account:</strong> Mai utilizzare profili personali per investigazioni su social network o forum.</li>
+<li><strong>Verifica dell'integrità:</strong> Archivia pagine web tramite Wayback Machine o Archive.today per certificarne lo stato nel tempo.</li>
 </ul>
-
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Risorse OSINT etiche</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🔐 <a href="https://www.privacyguides.org" target="_blank" style="color:#00eaff;">Privacy Guides</a></li>
-    <li>🔐 <a href="https://www.torproject.org" target="_blank" style="color:#00eaff;">Tor Project</a></li>
-  </ul>
-</div>
 </div>
 
-		<h2>FAQ OSINT</h2>
+<!-- FAQ SECTION CONTESTUALIZZATA SCHEMA.ORG -->
+<div class="section">
+  <h2>Domande Frequenti sugli Strumenti OSINT (FAQ)</h2>
 
-<h3>Cos’è un OSINT tool?</h3>
-<p>Uno strumento che permette di raccogliere informazioni da fonti pubbliche e open data.</p>
+  <h3>Cos’è un OSINT tool?</h3>
+  <p>Uno strumento software progettato per automatizzare o facilitare la raccolta, il filtraggio e l'analisi di dati provenienti da fonti pubblicamente accessibili come open data, registri DNS, archivi di dominio e social media.</p>
 
-<h3>Quali sono i migliori OSINT tools del 2026?</h3>
-<p>Shodan, Maltego, SpiderFoot, FOCA, TheHarvester.</p>
+  <h3>Quali sono i migliori OSINT tools del 2026?</h3>
+  <p>I capisaldi del settore includono Shodan, Maltego, SpiderFoot, theHarvester, FOCA e i repository catalogati su OSINT Framework.</p>
 
-<h3>Come si usa un OSINT tool per analizzare un dominio?</h3>
-<p>Si parte da whois, DNS, IP, porte aperte, servizi esposti e correlazioni con altri domini.</p>
+  <h3>Come si usa un OSINT tool per analizzare un dominio?</h3>
+  <p>L'analisi comincia con l'interrogazione dei record WHOIS e DNS, procede con l'individuazione di certificati SSL emessi, sottodomini esposti e infine verifica l'eventuale presenza di credenziali aziendali all'interno di data breach pubblici.</p>
+</div>
 
 <div class="section">
+  <h2 style="color:#00eaff;">Risorse Multimediali e Video Guide</h2>
+  <p>Video e approfondimenti per sviluppare competenze operative nelle tecniche di indagine OSINT:</p>
 
-	<div class="section" style="margin-top:25px;">
-  <h2 style="color:#00eaff;">Risorse Utili: Video, Guide e Strumenti</h2>
-
-  <p>
-    Una selezione di contenuti multimediali, guide PDF e strumenti operativi per migliorare
-    le tue capacità OSINT e la tua sicurezza digitale.
-  </p>
-
- <!-- ============================================================
-     VIDEO CORRELATI // OSINT & CYBERSECURITY (AUTO-SYNC FEED)
-     ============================================================ -->
-<div class="soc-videos-container" style="margin-top: 35px;">
-
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #0f2a3a; padding-bottom:8px; margin-bottom:20px;">
-        <h3 style="color:#00eaff; margin:0; font-size:1.1rem; text-transform:uppercase; letter-spacing:0.04em;">
-            Video Correlati // Ultime Uscite Canali Ufficiali
-        </h3>
-        <span style="font-family:ui-monospace, monospace; font-size:0.70rem; color:#34d399; background:#030712; padding:3px 8px; border-radius:4px; border:1px solid #1e293b;">
-            ● AUTO-UPDATING FEED
-        </span>
-    </div>
-
+  <!-- FEED VIDEO CORRELATI -->
+  <div class="soc-videos-container" style="margin-top: 25px;">
     <ul style="list-style:none; padding-left:0; line-height:1.7; margin:0; display:flex; flex-direction:column; gap:24px;">
-
-        <!-- VIDEO 1: CORSIX (AUTO-SYNC FEED ULTIME USCITE OSINT) -->
         <li>
             <div style="border:1px solid #0f2a3a; border-radius:10px; padding:18px; background:#0a0f14; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <h4 style="color:#00eaff; margin:0; font-size:1.02rem;">
-                        CorsiX // OSINT, Ethical Hacking &amp; Kali Linux
-                    </h4>
-                    <span style="font-family:ui-monospace, monospace; font-size:0.68rem; color:#38bdf8;">LATEST UPLOAD</span>
+                    <h4 style="color:#00eaff; margin:0; font-size:1.02rem;">CorsiX // OSINT, Ethical Hacking &amp; Kali Linux</h4>
+                    <span style="font-family:monospace; font-size:0.68rem; color:#38bdf8;">TUTORIAL VIDEO</span>
                 </div>
-
                 <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#020617; border:1px solid #1e293b;">
-                    <!-- Per CorsiX: riproduce il video tutorial OSINT Framework o l'ultimo upload -->
                     <iframe
                         src="https://www.youtube-nocookie.com/embed/dA6RlplWaqQ?cc_load_policy=1&amp;cc_lang_pref=it&amp;hl=it"
-                        title="CorsiX Latest Video (Sottotitoli in italiano)"
+                        title="CorsiX Tutorial OSINT (Sottotitoli in italiano)"
                         loading="lazy"
                         style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
-
                 <p style="color:#ccc; font-size:0.82rem; margin:12px 0 10px 0; line-height:1.5;">
-                    Feed ufficiale di CorsiX: guide pratiche all'OSINT Framework, ricognizione passiva, automazione su Kali Linux e tecniche per tracciare credenziali compromesse ed esposizioni nei data breach.
+                    Tutorial pratico all'OSINT Framework: ricognizione passiva, automazione su Kali Linux e tecniche per tracciare credenziali compromesse.
                 </p>
-
                 <div style="border-top:1px dashed #0f2a3a; padding-top:8px; font-size:0.75rem;">
-                    <span style="color:#64748b;">Canale ufficiale:</span>
-                    <a href="https://www.youtube.com/@CorsixETH" target="_blank" rel="noopener noreferrer"
-                        style="color:#38bdf8; text-decoration:none; font-weight:600; margin-left:6px;">
-                        Visita canale su YouTube ↗
+                    <a href="https://www.youtube.com/@CorsixETH" target="_blank" rel="noopener noreferrer" style="color:#38bdf8; text-decoration:none; font-weight:600;">
+                        Visita canale CorsiX su YouTube ↗
                     </a>
                 </div>
-
             </div>
         </li>
 
-        <!-- VIDEO 2: COMPUTERPHILE (AUTO-SYNC FEED ULTIMA USCITA CANALE) -->
         <li>
             <div style="border:1px solid #0f2a3a; border-radius:10px; padding:18px; background:#0a0f14; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <h4 style="color:#00eaff; margin:0; font-size:1.02rem;">
-                        Computerphile // Computer Science, Crittografia &amp; Security
-                    </h4>
-                    <span style="font-family:ui-monospace, monospace; font-size:0.68rem; color:#38bdf8;">LATEST UPLOAD</span>
+                    <h4 style="color:#00eaff; margin:0; font-size:1.02rem;">Computerphile // Crittografia e Struttura Dati</h4>
+                    <span style="font-family:monospace; font-size:0.68rem; color:#38bdf8;">ACCADEMICO</span>
                 </div>
-
                 <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#020617; border:1px solid #1e293b;">
-                    <!-- Feed dinamico ufficiale Computerphile (list=UU9-y-6csu5WGm29I7JiwpnA) -->
                     <iframe
                         src="https://www.youtube-nocookie.com/embed/videoseries?list=UU9-y-6csu5WGm29I7JiwpnA&amp;cc_load_policy=1&amp;cc_lang_pref=it&amp;hl=it"
-                        title="Computerphile Latest Video (Sottotitoli in italiano)"
+                        title="Computerphile Latest Video"
                         loading="lazy"
                         style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
-
                 <p style="color:#ccc; font-size:0.82rem; margin:12px 0 10px 0; line-height:1.5;">
-                    Ultimi video pubblicati dal canale Computerphile: approfondimenti accademici e tecnici su algoritmi crittografici, hashing, vulnerabilità software e funzionamento interno delle architetture di sicurezza.
+                    Approfondimenti accademici su crittografia, algoritmi di hashing e funzionamento dei protocolli di rete.
                 </p>
-
                 <div style="border-top:1px dashed #0f2a3a; padding-top:8px; font-size:0.75rem;">
-                    <span style="color:#64748b;">Canale ufficiale:</span>
-                    <a href="https://www.youtube.com/@Computerphile" target="_blank" rel="noopener noreferrer"
-                        style="color:#38bdf8; text-decoration:none; font-weight:600; margin-left:6px;">
-                        Visita canale su YouTube ↗
+                    <a href="https://www.youtube.com/@Computerphile" target="_blank" rel="noopener noreferrer" style="color:#38bdf8; text-decoration:none; font-weight:600;">
+                        Visita canale Computerphile su YouTube ↗
                     </a>
                 </div>
-
             </div>
         </li>
-
-        <!-- VIDEO 3: HEIMDAL SECURITY (AUTO-SYNC FEED ULTIMA USCITA CANALE) -->
-        <li>
-            <div style="border:1px solid #0f2a3a; border-radius:10px; padding:18px; background:#0a0f14; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <h4 style="color:#00eaff; margin:0; font-size:1.02rem;">
-                        Heimdal Security // Threat Hunting &amp; Incident Response
-                    </h4>
-                    <span style="font-family:ui-monospace, monospace; font-size:0.68rem; color:#38bdf8;">LATEST UPLOAD</span>
-                </div>
-
-                <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#020617; border:1px solid #1e293b;">
-                    <!-- Feed dinamico ufficiale Heimdal (list=UU-m6oi7a-8LffTk64J3tq-w) -->
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/videoseries?list=UU-m6oi7a-8LffTk64J3tq-w&amp;cc_load_policy=1&amp;cc_lang_pref=it&amp;hl=it"
-                        title="Heimdal Security Latest Video (Sottotitoli in italiano)"
-                        loading="lazy"
-                        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <p style="color:#ccc; font-size:0.82rem; margin:12px 0 10px 0; line-height:1.5;">
-                    Ultimi video pubblicati da Heimdal Security: analisi operative su Threat Hunting proattivo, metodologie di Incident Response, contenimento di minacce avanzate e protezione degli endpoint aziendali.
-                </p>
-
-                <div style="border-top:1px dashed #0f2a3a; padding-top:8px; font-size:0.75rem;">
-                    <span style="color:#64748b;">Canale ufficiale:</span>
-                    <a href="https://www.youtube.com/@Heimdalcompany" target="_blank" rel="noopener noreferrer"
-                        style="color:#38bdf8; text-decoration:none; font-weight:600; margin-left:6px;">
-                        Visita canale su YouTube ↗
-                    </a>
-                </div>
-
-            </div>
-        </li>
-
     </ul>
-
+  </div>
 </div>
 
-  <!-- PDF SCARICABILI -->
-  <h3 style="margin-top:20px;">Guide PDF da scaricare</h3>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📄 <a href="/docs/osint-guide.pdf" download>Guida OSINT — Tecniche e strumenti</a></li>
-    <li>📄 <a href="/docs/cybersecurity-basics.pdf" download>Cybersecurity Basics — Concetti fondamentali</a></li>
-    <li>📄 <a href="/docs/threat-intel-cheatsheet.pdf" download>Threat Intelligence Cheat Sheet</a></li>
-  </ul>
-
-  <!-- TOOL E WIDGET -->
-  <h3 style="margin-top:20px;">Strumenti e Widget Operativi</h3>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🛠️ <a href="/tools.html#iplookup">IP Lookup Tool</a></li>
-    <li>🛠️ <a href="/tools.html#dnslookup">DNS Checker</a></li>
-    <li>🛠️ <a href="/tools.html#hashanalyzer">Hash Analyzer</a></li>
-    <li>🛠️ <a href="/tools.html#portscanner">Port Scanner</a></li>
-    <li>🛡️ <a href="/tools.html#securityadvice">Security Advice Widget</a></li>
-  </ul>
-
-  <!-- CONSIGLI DI DIFESA -->
-<h3 style="margin-top:20px;">Difesa Digitale</h3>
-<p>
-Strumenti, guide e risorse affidabili per proteggere la propria identità digitale,
-verificare compromissioni e analizzare contenuti sospetti.
-</p>
-
-<ul style="list-style:none; padding-left:0; line-height:1.7;">
-
-  <!-- IDENTITÀ DIGITALE -->
-  <li>🔐 <a href="https://www.privacyguides.org" target="_blank">Proteggere la propria identità digitale</a>  
-      — guida completa su password, browser sicuri, VPN e privacy online.</li>
-
-  <!-- ACCOUNT COMPROMESSI -->
-  <li>🔐 <a href="https://haveibeenpwned.com" target="_blank">Verificare se un account è compromesso</a>  
-      — controlla se email o password sono presenti in data breach.</li>
-
-  <!-- ANALISI LINK SOSPETTI -->
-  <li>🔐 <a href="https://www.virustotal.com" target="_blank">Analizzare un link sospetto</a>  
-      — scanner multi-engine per URL, file e domini.</li>
-
-  <!-- PHISHING -->
-  <li>🔐 <a href="https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks" target="_blank">
-      Riconoscere un attacco phishing (CISA)</a>  
-      — linee guida ufficiali per identificare email fraudolente.</li>
-
-</ul>
-		<!-- TOOL INTERNI -->
-<h3 style="margin-top:20px;">Strumenti operativi AnonLab</h3>
-<ul style="list-style:none; padding-left:0; line-height:1.7;">
-  <li>🛠️ <a href="/tools.html#iplookup">IP Lookup Tool</a></li>
-  <li>🛠️ <a href="/tools.html#dnslookup">DNS Checker</a></li>
-  <li>🛠️ <a href="/tools.html#hashanalyzer">Hash Analyzer</a></li>
-  <li>🛠️ <a href="/tools.html#portscanner">Port Scanner</a></li>
-  <li>🛡️ <a href="/tools.html#securityadvice">Security Advice Widget</a></li>
-</ul>
-</div>
-
-	<!-- LINK INTERNI -->
-<nav class="anonlab-explorer" aria-label="Esplora altre sezioni AnonLab" style="margin-top: 25px;">
+<!-- LINK INTERNI SEMANTICI -->
+<nav class="anonlab-explorer" aria-label="Esplora sezioni correlate AnonLab" style="margin-top: 25px;">
   <h4 style="color: #00eaff; margin-bottom: 12px; font-size: 1.1rem; font-weight: 600;">
-    Esplora altre sezioni AnonLab
+    Esplora altre sezioni di AnonLab
   </h4>
   <ul style="list-style: none; padding-left: 0; margin: 0; line-height: 1.8;">
-    <li style="margin-bottom: 8px;">
-      <span role="img" aria-label="Libro">📘</span> 
-      <a href="/cybersecurity-basics.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Cybersecurity Basics</a>
-    </li>
-    <li style="margin-bottom: 8px;">
-      <span role="img" aria-label="Libro">📘</span> 
-      <a href="/osint-tools-explained.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">OSINT Tools Explained</a>
-    </li>
-    <li style="margin-bottom: 8px;">
-      <span role="img" aria-label="Libro">📘</span> 
-      <a href="/osint-investigation-case-study.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">OSINT Case Study</a>
-    </li>
-	  <li style="margin-bottom: 8px;">
-      <span role="img" aria-label="Libro">📘</span> 
-      <a href="/soc-dashboard.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">AnonLab SOC Dashboard</a>
-    </li>
-    <li style="margin-bottom: 8px;">
-      <span role="img" aria-label="Libro">📘</span> 
-      <a href="/threat-intelligence-report.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Threat Intelligence Report</a>
-    </li>
-	  <li style="margin-bottom: 8px;">
-      <span role="img" aria-label="Libro">📘</span> 
-      <a href="/vulnerabilities-cve-analysis.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Vulnerabilità & CVE Analysis</a>
-    </li>
+    <li style="margin-bottom: 8px;">📘 <a href="/tools.html">AnonLab Utility &amp; Security Tools</a></li>
+    <li style="margin-bottom: 8px;">📘 <a href="/cybersecurity-basics.html">Cybersecurity Basics</a></li>
+    <li style="margin-bottom: 8px;">📘 <a href="/osint-investigation-case-study.html">OSINT Investigation Case Study</a></li>
+    <li style="margin-bottom: 8px;">📘 <a href="/soc-dashboard.html">AnonLab SOC Architecture</a></li>
+    <li style="margin-bottom: 8px;">📘 <a href="/threat-intelligence-report.html">Threat Intelligence Report</a></li>
+    <li style="margin-bottom: 8px;">📘 <a href="/vulnerabilities-cve-analysis.html">Vulnerabilità &amp; CVE Analysis</a></li>
   </ul>
 </nav>
 
-<h2>Conclusione</h2>
-<p>
-L’OSINT è una disciplina potente e in continua evoluzione.  
-Questa pagina offre una panoramica completa e aggiornata degli strumenti e delle tecniche più utilizzate nel 2026.
-</p>
+    </section>
 
-<div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
-  <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti finali</h4>
-  <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📚 <a href="https://www.osintcurio.us" target="_blank" style="color:#00eaff;">OSINTCurio.us — OSINT Experts</a></li>
-    <li>📚 <a href="https://www.secjuice.com" target="_blank" style="color:#00eaff;">SecJuice — OSINT & Cyber Articles</a></li>
-  </ul>
-</div>
-</div>
-	</section>
-
-	  <script src="/js/main.js"></script>
-<script src="/js/ui.js"></script>
-
-	  <div id="sidebar" class="sidebar"></div>
-
+    <!-- SIDEBAR -->
+    <div id="sidebar" class="sidebar"></div>
     <script>
-fetch("/partials/sidebar.html")
-  .then(response => {
-      if (!response.ok) {
-          throw new Error("Errore caricamento sidebar: " + response.status);
+    fetch("/partials/sidebar.html")
+      .then(response => {
+          if (!response.ok) throw new Error("Errore sidebar: " + response.status);
+          return response.text();
+      })
+      .then(data => {
+          document.getElementById("sidebar").innerHTML = data;
+          if (typeof initCalculator === "function") initCalculator();
+          if (typeof initRadio === "function") initRadio();
+          if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+          if (typeof initOroscopo === "function") initOroscopo();
+          if (typeof initVisitCounter === "function") initVisitCounter();
+      })
+      .catch(error => console.error("Errore sidebar:", error));
+    </script>
+  </main>
+
+  <!-- ⭐ FOOTER (UNIFICATO) -->
+  <div id="footer"></div>
+  <script>
+  fetch("/partials/footer.html")
+    .then(r => r.text())
+    .then(html => {
+        document.getElementById("footer").innerHTML = html;
+    });
+  </script>
+
+  <!-- ⭐ BACK TO TOP (UNIFICATO E OTTIMIZZATO) -->
+  <button id="backToTop" aria-label="Torna in cima">↑</button>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const backToTop = document.getElementById("backToTop");
+    if (!backToTop) return;
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      backToTop.style.display = scrollTop > 200 ? "block" : "none";
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    function adjustBackToTopPosition() {
+      const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
+      if (iubendaLogo) {
+        const rect = iubendaLogo.getBoundingClientRect();
+        const offset = window.innerHeight - rect.top + 10;
+        backToTop.style.bottom = offset + "px";
+      } else {
+        backToTop.style.bottom = "80px";
       }
-      return response.text();
-  })
-  .then(data => {
-      document.getElementById("sidebar").innerHTML = data;
-
-      if (typeof initCalculator === "function") {
-          initCalculator();
-      }
-
-      if (typeof initRadio === "function") {
-          initRadio();
-      }
-
-      if (typeof initYouTubePlayer === "function") {
-          initYouTubePlayer();
-      }
-
-      if (typeof initOroscopo === "function") {
-          initOroscopo();
-      }
-
-      if (typeof initVisitCounter === "function") {
-          initVisitCounter();
-      }
-  })
-  .catch(error => {
-      console.error("Errore sidebar:", error);
-  });
-</script>
-	  
-    <!-- /main-column -->
-
-		<!-- ⭐ FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch("/partials/footer.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("footer").innerHTML = html;
-  });
-</script>
-	<!-- ⭐ BACK TO TOP -->
-<button id="backToTop">↑</button>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const backToTop = document.getElementById("backToTop");
-  if (!backToTop) return;
-
-  window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    backToTop.style.display = scrollTop > 50 ? "block" : "none";
-  });
-
-  backToTop.addEventListener("click", () => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-    document.body.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
-</script>
-
-	<!-- ⭐ FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch("/partials/footer.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("footer").innerHTML = html;
-  });
-</script>
-	<!-- ⭐ BACK TO TOP -->
-<button id="backToTop">↑</button>
-
-<!-- SCRIPT BACK TO TOP -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const backToTop = document.getElementById("backToTop");
-  if (!backToTop) return;
-
-  // Mostra / nasconde il pulsante
-  window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    backToTop.style.display = scrollTop > 50 ? "block" : "none";
-  });
-
-  // Scrolla davvero la pagina
-  backToTop.addEventListener("click", () => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-    document.body.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  // ⭐ Posiziona il pulsante sopra il badge Iubenda
-  function adjustBackToTopPosition() {
-    const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
-
-    if (iubendaLogo) {
-      const rect = iubendaLogo.getBoundingClientRect();
-      const offset = window.innerHeight - rect.top + 10; // 10px sopra il logo
-      backToTop.style.bottom = offset + "px";
-    } else {
-      backToTop.style.bottom = "80px"; // fallback sicuro
     }
-  }
+    adjustBackToTopPosition();
+    setInterval(adjustBackToTopPosition, 1000);
+  });
+  </script>
 
-  // Controllo iniziale
-  adjustBackToTopPosition();
+  <!-- SCRIPT GLOBALI -->
+  <script src="/js/main.js"></script>
+  <script src="/js/ui.js"></script>
 
-  // Il CMP appare dopo → serve un controllo ripetuto
-  setInterval(adjustBackToTopPosition, 800);
-});
-</script>
-
-	  <script type="text/javascript">
+  <!-- TRACKING CLARITY & ADSENSE -->
+  <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
-</script> 
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>
+  </script> 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
 
 </body>
 </html>
