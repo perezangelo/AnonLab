@@ -634,16 +634,42 @@ setInterval(() => {
   <h3 style="color:#ffaa00;">Calcolatore Velocità Internet</h3>
 
   <p style="color:#ccc; margin-bottom:15px;">
-    Converti tra Mbps e MB/s per capire la reale velocità di download.
+    Converti tra Kbps, Mbps, Gbps e Byte al secondo per capire la reale velocità di download.
   </p>
 
-  <input id="netVal" type="number" placeholder="Valore" 
-         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+  <!-- step="any" permette di inserire decimali come 1.5 o 2.5 -->
+  <input id="netVal" type="number" step="any" min="0" placeholder="Valore (es. 1.0)" 
+         style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00; box-sizing:border-box;">
 
-  <select id="netType" style="width:100%; padding:10px; margin-bottom:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
-    <option value="mbps">Mbps → MB/s</option>
-    <option value="mbs">MB/s → Mbps</option>
-  </select>
+  <div style="display:flex; gap:10px; margin-bottom:10px;">
+    <select id="netFrom" style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+      <optgroup label="Velocità linea (Bit)">
+        <option value="kbps">Kbps</option>
+        <option value="mbps" selected>Mbps</option>
+        <option value="gbps">Gbps</option>
+      </optgroup>
+      <optgroup label="Download reale (Byte)">
+        <option value="kbs">KB/s</option>
+        <option value="mbs">MB/s</option>
+        <option value="gbs">GB/s</option>
+      </optgroup>
+    </select>
+
+    <span style="color:#ffaa00; align-self:center; font-weight:bold;">→</span>
+
+    <select id="netTo" style="width:100%; padding:10px; background:#111; color:#fff; border:1px solid #ffaa00;">
+      <optgroup label="Velocità linea (Bit)">
+        <option value="kbps">Kbps</option>
+        <option value="mbps">Mbps</option>
+        <option value="gbps">Gbps</option>
+      </optgroup>
+      <optgroup label="Download reale (Byte)">
+        <option value="kbs">KB/s</option>
+        <option value="mbs" selected>MB/s</option>
+        <option value="gbs">GB/s</option>
+      </optgroup>
+    </select>
+  </div>
 
   <button onclick="calcNet()" style="
       width:100%; padding:12px; background:#ffaa00; color:#000; font-weight:bold; border:none; cursor:pointer;
@@ -653,22 +679,36 @@ setInterval(() => {
 
   <script>
     function calcNet() {
-      let v = parseFloat(document.getElementById('netVal').value);
-      let t = document.getElementById('netType').value;
+      const v = parseFloat(document.getElementById('netVal').value);
+      const from = document.getElementById('netFrom').value;
+      const to = document.getElementById('netTo').value;
+      const resEl = document.getElementById('netResult');
 
-      if (!v) {
-        document.getElementById('netResult').innerText = "Inserisci un valore valido.";
+      if (isNaN(v) || v < 0) {
+        resEl.innerText = "Inserisci un valore valido.";
         return;
       }
 
-      if (t === "mbps") {
-        document.getElementById('netResult').innerText = (v / 8).toFixed(2) + " MB/s";
-      } else {
-        document.getElementById('netResult').innerText = (v * 8).toFixed(2) + " Mbps";
-      }
+      // Fattore di conversione rispetto a 1 bit al secondo (bps)
+      const units = {
+        kbps: { factor: 1e3, label: "Kbps" },
+        mbps: { factor: 1e6, label: "Mbps" },
+        gbps: { factor: 1e9, label: "Gbps" },
+        kbs:  { factor: 8e3, label: "KB/s" },
+        mbs:  { factor: 8e6, label: "MB/s" },
+        gbs:  { factor: 8e9, label: "GB/s" }
+      };
+
+      // 1. Converte in bps, poi divide per il fattore dell'unità di destinazione
+      const result = (v * units[from].factor) / units[to].factor;
+
+      // Formatta in stile italiano (es. 1.000 o 0,125) fino a 4 decimali senza zeri inutili
+      const formatted = result.toLocaleString('it-IT', { maximumFractionDigits: 4 });
+
+      resEl.innerText = `${formatted} ${units[to].label}`;
     }
   </script>
-</div>
+</div>		
  <div class="cyber-box" style="
     background:#000814;
     border:1px solid #00eaffaa;
