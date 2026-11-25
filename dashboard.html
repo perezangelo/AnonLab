@@ -889,73 +889,79 @@ startNetworkTrafficMonitor();
         </div>
 
         <script>
-        function startMalwareMonitor() {
-            const ctx = document.getElementById("malwareChart");
-            if (!ctx || typeof Chart === "undefined") return setTimeout(startMalwareMonitor, 200);
+function startMalwareMonitor() {
+    const ctx = document.getElementById("malwareChart");
+    if (!ctx || typeof Chart === "undefined") return setTimeout(startMalwareMonitor, 200);
 
-            async function loadMalwareData() {
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/soc/malware-activity.php");
-                    const data = await res.json();
+    async function loadMalwareData() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/malware-activity.php");
+            const data = await res.json();
 
-                    if (window.malwareChartInstance) {
-                        window.malwareChartInstance.data.labels = data.labels;
-                        window.netTrafficChartInstance = null;
-                        window.malwareChartInstance.data.datasets[0].data = data.values;
-                        window.malwareChartInstance.update();
-                        return;
-                    }
+            const existingMalware = (typeof Chart.getChart === "function" ? Chart.getChart(ctx) : null) || window.malwareChartInstance;
 
-                    window.malwareChartInstance = new Chart(ctx, {
-                        type: "doughnut",
-                        data: {
-                            labels: data.labels,
-                            datasets: [{
-                                data: data.values,
-                                backgroundColor: [
-                                    "#ff0044aa",
-                                    "#ffaa00aa",
-                                    "#00eaffaa",
-                                    "#7a00ffaa",
-                                    "#00ff99aa"
-                                ],
-                                borderWidth: 1,
-                                borderColor: "#030712"
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            cutout: "65%",
-                            plugins: {
-                                legend: {
-                                    position: "right",
-                                    labels: {
-                                        color: "#fff",
-                                        boxWidth: 12,
-                                        padding: 10
-                                    }
-                                }
-                            }
-                        }
-                    });
-
-                    setTimeout(() => {
-                        if (window.malwareChartInstance) {
-                            window.malwareChartInstance.resize();
-                        }
-                    }, 150);
-
-                } catch (error) {
-                    console.error("Errore Malware Monitor:", error);
-                }
+            if (existingMalware) {
+                existingMalware.data.labels = data.labels;
+                existingMalware.data.datasets[0].data = data.values;
+                existingMalware.update();
+                return;
             }
 
-            loadMalwareData();
-            setInterval(loadMalwareData, 15000);
+            if (typeof Chart.getChart === "function") {
+                const lingering = Chart.getChart(ctx);
+                if (lingering) lingering.destroy();
+            }
+
+            window.malwareChartInstance = new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        data: data.values,
+                        backgroundColor: [
+                            "#ff0044aa",
+                            "#ffaa00aa",
+                            "#00eaffaa",
+                            "#7a00ffaa",
+                            "#00ff99aa"
+                        ],
+                        borderWidth: 1,
+                        borderColor: "#030712"
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: "65%",
+                    plugins: {
+                        legend: {
+                            position: "right",
+                            labels: {
+                                color: "#fff",
+                                boxWidth: 12,
+                                padding: 10
+                            }
+                        }
+                    }
+                }
+            });
+
+            setTimeout(() => {
+                if (window.malwareChartInstance) {
+                    window.malwareChartInstance.resize();
+                }
+            }, 150);
+
+        } catch (error) {
+            console.error("Errore Malware Monitor:", error);
         }
-        startMalwareMonitor();
-        </script>
+    }
+
+    loadMalwareData();
+    setInterval(loadMalwareData, 15000);
+}
+startMalwareMonitor();
+</script>
 	    </div>
 
       <!-- AUTHENTICATION FAILURES -->
