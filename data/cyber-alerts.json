@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-68539",
+    "summary": "fulgur allows Unbounded string-set value accumulation causes memory/CPU exhaustion (denial of service)",
+    "severity": "HIGH",
+    "published": "2026-11-25T19:46:45Z",
+    "ghsa": "GHSA-vw2v-g4x7-xcqg"
+  },
+  {
+    "id": "CVE-2026-65971",
+    "summary": "livewire-powergrid: SQL injection via sortDirection in naturalSort queries",
+    "severity": "HIGH",
+    "published": "2026-11-25T19:44:57Z",
+    "ghsa": "GHSA-7fgc-3h6c-698r"
+  },
+  {
+    "id": "CVE-2026-65973",
+    "summary": "laradocs  Command injection via unescaped Node.js binary path in KaTeX SSR",
+    "severity": "MODERATE",
+    "published": "2026-11-25T19:41:53Z",
+    "ghsa": "GHSA-h746-qpxh-ph7g"
+  },
+  {
+    "id": "CVE-2026-64670",
+    "summary": "@waline/client vulnerable to stored XSS through unsanitized comment edit previews",
+    "severity": "CRITICAL",
+    "published": "2026-11-25T15:26:23Z",
+    "ghsa": "GHSA-crj3-q72p-ggqm"
+  },
+  {
     "id": "CVE-2026-64855",
     "summary": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / authentication bypass)",
     "severity": "HIGH",
@@ -40,33 +68,5 @@
     "severity": "CRITICAL",
     "published": "2026-11-24T21:01:10Z",
     "ghsa": "GHSA-c4hm-4h84-2cf3"
-  },
-  {
-    "id": "CVE-2026-63305",
-    "summary": "AVideo API FFmpeg process permits OS command injection via notifyCode/callback",
-    "severity": "HIGH",
-    "published": "2026-11-24T20:53:28Z",
-    "ghsa": "GHSA-g9x9-q7qj-6mv5"
-  },
-  {
-    "id": "CVE-2026-59192",
-    "summary": "Cakephp twig-view unserialize Twig filter allows arbitrary object deserialization",
-    "severity": "MODERATE",
-    "published": "2026-11-24T17:42:51Z",
-    "ghsa": "GHSA-48qj-5wxh-m8hc"
-  },
-  {
-    "id": "CVE-2026-63304",
-    "summary": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
-    "severity": "HIGH",
-    "published": "2026-11-23T22:06:28Z",
-    "ghsa": "GHSA-j44m-77cc-p3cc"
-  },
-  {
-    "id": "CVE-2026-63476",
-    "summary": "isomorphic-git allows unbounded memory allocation from attacker-controlled delta target size (DoS)",
-    "severity": "MODERATE",
-    "published": "2026-11-23T21:07:02Z",
-    "ghsa": "GHSA-9x82-4j54-863h"
   }
 ]
