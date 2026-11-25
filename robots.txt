@@ -1,12 +1,8 @@
 # ============================================================
-# ACCESSO GENERALE — Tutto il sito è indicizzabile
+# ACCESSO GENERALE & DISALLOW GLOBALI (Tutti i bot)
 # ============================================================
 User-agent: *
 Allow: /
-
-# ============================================================
-# OTTIMIZZAZIONE CRAWL BUDGET & FILE PRIVATI
-# ============================================================
 Disallow: /*.map$
 Disallow: /*.tmp$
 Disallow: /*.bak$
@@ -16,13 +12,12 @@ Disallow: /private/
 Disallow: /tmp/
 Disallow: /logs/
 Disallow: /phpmyadmin/
+Disallow: /test
+Disallow: /test.html
 
 # ============================================================
-# GOOGLEBOT (WEB, IMAGES, NEWS, ADSENSE)
+# GOOGLEBOT SPECIALISTI
 # ============================================================
-User-agent: Googlebot
-Allow: /
-
 User-agent: Googlebot-News
 Allow: /
 Allow: /news.html
@@ -38,7 +33,36 @@ User-agent: Mediapartners-Google
 Allow: /
 
 # ============================================================
-# BING / DUCKDUCKGO / BAIDU
+# MOTORI GENERATIVI & AI SEARCH (GEO: Generative Engine Optimization)
+# ============================================================
+# OpenAI (SearchGPT & ChatGPT Browsing)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# ============================================================
+# MOTORI ALTERNATIVI & BLOCCHI CRAWLER SPAM
 # ============================================================
 User-agent: Bingbot
 Allow: /
