@@ -645,52 +645,61 @@
         </div>
 
         <script>
-        function startNetworkTrafficMonitor() {
-            const ctx = document.getElementById("netTrafficChart");
-            if (!ctx || typeof Chart === "undefined") return setTimeout(startNetworkTrafficMonitor, 200);
+function startNetworkTrafficMonitor() {
+    const ctx = document.getElementById("netTrafficChart");
+    if (!ctx || typeof Chart === "undefined") return setTimeout(startNetworkTrafficMonitor, 200);
 
-            async function loadNetworkTraffic() {
-                try {
-                    const res = await fetch("https://angelonline.altervista.org/soc/network_traffic.php");
-                    const data = await res.json();
+    async function loadNetworkTraffic() {
+        try {
+            const res = await fetch("https://angelonline.altervista.org/soc/network_traffic.php");
+            const data = await res.json();
 
-                    if (window.netTrafficChartInstance) {
-                        window.netTrafficChartInstance.data.labels = data.labels;
-                        window.netTrafficChartInstance.data.datasets[0].data = data.values;
-                        window.netTrafficChartInstance.update();
-                        return;
-                    }
+            // Recupera in modo sicuro l'istanza di Chart.js già presente sul canvas
+            const existingChart = (typeof Chart.getChart === "function" ? Chart.getChart(ctx) : null) || window.netTrafficChartInstance;
 
-                    window.netTrafficChartInstance = new Chart(ctx, {
-                        type: "bar",
-                        data: {
-                            labels: data.labels,
-                            datasets: [{
-                                label: "KB/s",
-                                data: data.values,
-                                backgroundColor: "#00eaffaa"
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                x: { ticks: { color: "#fff" } },
-                                y: { ticks: { color: "#fff" } }
-                            }
-                        }
-                    });
-                } catch (error) {
-                    console.error("Errore Network Traffic:", error);
-                }
+            if (existingChart) {
+                existingChart.data.labels = data.labels;
+                existingChart.data.datasets[0].data = data.values;
+                existingChart.update();
+                return;
             }
 
-            loadNetworkTraffic();
-            setInterval(loadNetworkTraffic, 10000);
+            // Se per qualsiasi motivo il canvas è occupato da un'istanza orfana, la distrugge prima di ricrearla
+            if (typeof Chart.getChart === "function") {
+                const lingering = Chart.getChart(ctx);
+                if (lingering) lingering.destroy();
+            }
+
+            window.netTrafficChartInstance = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: "KB/s",
+                        data: data.values,
+                        backgroundColor: "#00eaffaa"
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: "#fff" } },
+                        y: { ticks: { color: "#fff" } }
+                    }
+                }
+            });
+        } catch (error) {
+            console.error("Errore Network Traffic:", error);
         }
-        startNetworkTrafficMonitor();
-        </script>
+    }
+
+    loadNetworkTraffic();
+    setInterval(loadNetworkTraffic, 10000);
+}
+startNetworkTrafficMonitor();
+</script>
       </div>
 
       <!-- TOP 5 IP SOSPETTI -->
