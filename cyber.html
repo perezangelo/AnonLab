@@ -1967,7 +1967,7 @@ function renderList(el, arr, emptyMsg) {
 </div>
 	  </div>
        
-      </div> <!-- fine cyber-grid -->
+              <!-- fine cyber-grid -->
       <!-- 🔥 BLOCCHI GRANDI SOTTO LA GRID -->
 
 		<!-- INCIDENT RESPONSE PANEL -->
@@ -2172,6 +2172,7 @@ setInterval(loadHeatIndex, 30000);
         </div>
 
     </div>
+	  </div>
 	
 <script>
 async function loadZeroDay() {
@@ -2454,10 +2455,30 @@ function rotateSpotlight() {
     </section>
 
     <!-- SIDEBAR -->
-    <div id="sidebar"></div>
+    <aside id="sidebar" class="sidebar" data-nosnippet></aside>
+
+    <script>
+    fetch("/partials/sidebar.html")
+      .then(res => {
+        if (!res.ok) throw new Error("Sidebar offline");
+        return res.text();
+      })
+      .then(data => {
+        const sb = document.getElementById("sidebar");
+        if (sb) {
+          sb.innerHTML = data;
+          if (typeof initCalculator === "function") initCalculator();
+          if (typeof initRadio === "function") initRadio();
+          if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+          if (typeof initOroscopo === "function") initOroscopo();
+          if (typeof initVisitCounter === "function") initVisitCounter();
+        }
+      })
+      .catch(e => console.error(e));
+    </script>
 
   </main>
-
+	
   <!-- FOOTER -->
   <div id="footer"></div>
 	
