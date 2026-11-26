@@ -111,7 +111,7 @@ fetch("/partials/ticker.html")
   </div>
 </section>
 
-		<p class="tech-seo-text">
+<p class="tech-seo-text">
   Il mondo della tecnologia evolve a un ritmo senza precedenti: intelligenza artificiale, automazione, 
   cybersecurity, cloud computing e nuovi modelli di sviluppo stanno trasformando il modo in cui aziende e 
   utenti interagiscono con il digitale. Questa pagina è dedicata alle principali novità del settore tech, 
@@ -140,11 +140,11 @@ fetch("/partials/ticker.html")
 </p>
 
 <!-- TABS -->
-<div style="display:flex; gap:10px; margin-bottom:15px;">
+<div style="display:flex; gap:10px; margin-bottom:15px; flex-wrap:wrap;">
   <button class="tab" data-target="tech-news" style="
-    background:#0a0a0a; border:1px solid #00eaff; color:#00eaff;
-    padding:8px 14px; border-radius:6px; cursor:pointer;
-    text-shadow:0 0 6px #00eaff;
+    background:#00eaff; border:1px solid #00eaff; color:#000;
+    padding:8px 14px; border-radius:6px; cursor:pointer; font-weight:600;
+    text-shadow:0 0 6px rgba(0,0,0,0.4);
   ">Tech News</button>
 
   <button class="tab" data-target="ai-trends" style="
@@ -176,139 +176,99 @@ fetch("/partials/ticker.html")
 <input id="tech-search" placeholder="Cerca negli articoli..." style="
   width:100%; padding:10px; margin-bottom:15px;
   background:#0a0a0a; border:1px solid #00eaff;
-  border-radius:6px; color:#fff;
+  border-radius:6px; color:#fff; box-sizing:border-box;
 ">
 
 <!-- CONTENITORE SCORREVOLE -->
 <div id="tech-content" style="
   border-left:2px solid #00eaff;
-  padding-left:10px;
-  overflow-y:auto;
+  padding-left:15px;
   padding-right:10px;
+  min-height:350px;
+  overflow-y:auto;
 ">
-
-  <ul id="tech-news"></ul>
-  <ul id="ai-trends" style="display:none;"></ul>
-  <ul id="hardware-feed" style="display:none;"></ul>
-  <ul id="software-feed" style="display:none;"></ul>
-  <ul id="innovation-feed" style="display:none;"></ul>
-
+  <ul id="tech-news" style="padding:0; margin:0;"></ul>
+  <ul id="ai-trends" style="display:none; padding:0; margin:0;"></ul>
+  <ul id="hardware-feed" style="display:none; padding:0; margin:0;"></ul>
+  <ul id="software-feed" style="display:none; padding:0; margin:0;"></ul>
+  <ul id="innovation-feed" style="display:none; padding:0; margin:0;"></ul>
 </div>
 
 <script>
-// Sincronizza altezza colonna con sidebar
+// Sincronizza altezza con sidebar (con salvaguardia se la sidebar è ancora a 0)
 function syncColumnHeight() {
     const sidebar = document.querySelector(".sidebar");
     const techContent = document.getElementById("tech-content");
 
     if (!sidebar || !techContent) return;
-
-    techContent.style.maxHeight = sidebar.offsetHeight + "px";
+    if (sidebar.offsetHeight > 200) {
+        techContent.style.maxHeight = sidebar.offsetHeight + "px";
+    }
 }
 
-syncColumnHeight();
+window.addEventListener("load", syncColumnHeight);
 window.addEventListener("resize", syncColumnHeight);
 
-// Tabs
+// Gestione Tabs
 document.querySelectorAll(".tab").forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelectorAll(".tab").forEach(b => {
             b.style.background = "#0a0a0a";
             b.style.color = "#00eaff";
+            b.style.fontWeight = "normal";
         });
 
         btn.style.background = "#00eaff";
         btn.style.color = "#000";
+        btn.style.fontWeight = "600";
 
         const target = btn.dataset.target;
-
         document.querySelectorAll("#tech-content ul").forEach(ul => ul.style.display = "none");
-        document.getElementById(target).style.display = "block";
+        
+        const activeUl = document.getElementById(target);
+        if (activeUl) activeUl.style.display = "block";
     });
 });
 
-// Ricerca live
+// Ricerca in tempo reale
 document.getElementById("tech-search").addEventListener("input", function() {
     const term = this.value.toLowerCase();
     const activeList = document.querySelector("#tech-content ul:not([style*='display: none'])");
 
-    activeList.querySelectorAll("li").forEach(item => {
-        item.style.display = item.innerText.toLowerCase().includes(term) ? "block" : "none";
-    });
+    if (activeList) {
+        activeList.querySelectorAll("li").forEach(item => {
+            item.style.display = item.innerText.toLowerCase().includes(term) ? "block" : "none";
+        });
+    }
 });
 
-// Loader feed
+// Caricatore Feed
 function loadFeed(endpoint, target) {
+    const box = document.getElementById(target);
+    if (!box) return;
+
     fetch("https://angelonline.altervista.org/newsops/" + endpoint + "?t=" + Date.now())
-        .then(r => r.json())
+        .then(r => {
+            if (!r.ok) throw new Error("HTTP error " + r.status);
+            return r.json();
+        })
         .then(data => {
             if (!Array.isArray(data)) data = [];
 
-            const box = document.getElementById(target);
             box.innerHTML = "";
 
-            data.forEach(item => {
-                box.innerHTML += `
-                    <li style="list-style:none; margin-bottom:20px;">
-                        <span style="display:block; color:#00eaff; font-weight:600; font-size:1.05rem;">
-                            ▣ ${item.title}
-                        </span>
-                        <span style="display:block; color:#b8dfff; font-size:0.9rem;">
-                            ${item.description || ""}
-                        </span>
-                        <div style="
-                            width:100%; height:1px; margin:12px 0;
-                            background:linear-gradient(90deg,
-                                rgba(0,234,255,0) 0%,
-                                rgba(0,234,255,0.8) 50%,
-                                rgba(0,234,255,0) 100%
-                            );
-                        "></div>
-                    </li>
-                `;
-            });
-        });
-}
-
-// Carica feed
-loadFeed("tech/tech-news.php", "tech-news");
-loadFeed("tech/tech-ai-trends.php", "ai-trends");
-loadFeed("tech/tech-hardware.php", "hardware-feed");
-loadFeed("tech/tech-software.php", "software-feed");
-loadFeed("tech/tech-innovation.php", "innovation-feed");
-</script>
-
-<script>
-function loadFeed(endpoint, target) {
-
-    fetch("https://angelonline.altervista.org/newsops/" + endpoint + "?t=" + Date.now())
-        .then(r => r.json())
-        .then(data => {
-
-            // Se il PHP restituisce qualcosa che NON è un array → fallback
-            if (!Array.isArray(data)) {
-                console.warn("Feed non valido:", endpoint, data);
-                data = [];
-            }
-
-            const box = document.getElementById(target);
-            box.innerHTML = "";
-
-            // Se il feed è vuoto → messaggio elegante
             if (data.length === 0) {
                 box.innerHTML = `
-                    <li style="color:#b8dfff; list-style:none; margin-bottom:20px;">
+                    <li style="color:#b8dfff; list-style:none; padding:10px 0;">
                         Nessun contenuto disponibile al momento.
                     </li>
                 `;
                 return;
             }
 
-            // Rendering delle news
             data.forEach(item => {
-
                 const title = item.title || "Titolo non disponibile";
-                const desc  = item.description || item.desc || "Nessuna descrizione disponibile";
+                const desc  = item.description || item.desc || "";
 
                 box.innerHTML += `
                     <li style="list-style:none; margin-bottom:20px;">
@@ -317,31 +277,29 @@ function loadFeed(endpoint, target) {
                             color:#00eaff;
                             font-weight:600;
                             font-size:1.05rem;
-                            margin-bottom:4px;
-                            text-shadow:0 0 6px rgba(0,234,255,0.6);
+                            margin-bottom:5px;
+                            text-shadow:0 0 6px rgba(0,234,255,0.5);
                         ">
                             ▣ ${title}
                         </span>
-
                         <span style="
                             display:block;
                             color:#b8dfff;
-                            font-size:0.9rem;
-                            line-height:1.4;
+                            font-size:0.92rem;
+                            line-height:1.45;
                         ">
                             ${desc}
                         </span>
-
                         <div style="
                             width:100%;
                             height:1px;
-                            margin:12px 0;
+                            margin:14px 0;
                             background:linear-gradient(90deg,
                                 rgba(0,234,255,0) 0%,
                                 rgba(0,234,255,0.8) 50%,
                                 rgba(0,234,255,0) 100%
                             );
-                            box-shadow:0 0 6px rgba(0,234,255,0.6);
+                            box-shadow:0 0 6px rgba(0,234,255,0.5);
                         "></div>
                     </li>
                 `;
@@ -349,33 +307,30 @@ function loadFeed(endpoint, target) {
         })
         .catch(err => {
             console.error("Errore feed:", endpoint, err);
-
-            const box = document.getElementById(target);
             box.innerHTML = `
-                <li style="color:#ff6b6b; list-style:none; margin-bottom:20px;">
-                    Errore nel caricamento del feed.
+                <li style="color:#ff6b6b; list-style:none; padding:10px 0;">
+                    Errore nel caricamento del feed (${endpoint}).
                 </li>
             `;
         });
 }
 
-// Caricamento iniziale
-loadFeed("tech/tech-news.php", "tech-news");
-loadFeed("tech/tech-ai-trends.php", "ai-trends");
-loadFeed("tech/tech-hardware.php", "hardware-feed");
-loadFeed("tech/tech-software.php", "software-feed");
-loadFeed("tech/tech-innovation.php", "innovation-feed");
+// Chiamata ai feed (senza il prefisso "tech/" che causava l'errore 404)
+function loadAllFeeds() {
+    loadFeed("tech-news.php", "tech-news");
+    loadFeed("tech-ai-trends.php", "ai-trends");
+    loadFeed("tech-hardware.php", "hardware-feed");
+    loadFeed("tech-software.php", "software-feed");
+    loadFeed("tech-innovation.php", "innovation-feed");
+}
+
+// Avvio iniziale
+loadAllFeeds();
 
 // Aggiornamento automatico ogni 60 secondi
-setInterval(() => {
-    loadFeed("tech/tech-news.php", "tech-news");
-    loadFeed("tech/tech-ai-trends.php", "ai-trends");
-    loadFeed("tech/tech-hardware.php", "hardware-feed");
-    loadFeed("tech/tech-software.php", "software-feed");
-    loadFeed("tech/tech-innovation.php", "innovation-feed");
-}, 60000);
+setInterval(loadAllFeeds, 60000);
 </script>
-
+		
       <p class="tech-intro">
         Novità, guide, recensioni e approfondimenti dedicati al mondo della tecnologia, 
         AI, software, hardware e innovazione digitale.
