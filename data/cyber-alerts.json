@@ -1,5 +1,33 @@
 [
   {
+    "id": "CVE-2026-69181",
+    "summary": "TastyIgniter permits Path Traversal in Media Upload",
+    "severity": "HIGH",
+    "published": "2026-11-25T22:54:30Z",
+    "ghsa": "GHSA-rj59-9f77-mvg5"
+  },
+  {
+    "id": "CVE-2026-69179",
+    "summary": "TastyIgniter allows Remote Code Execution (RCE) via Unrestricted file upload in Media Manager",
+    "severity": "CRITICAL",
+    "published": "2026-11-25T22:24:36Z",
+    "ghsa": "GHSA-7wwv-x6mc-pxqx"
+  },
+  {
+    "id": "CVE-2026-69178",
+    "summary": "TastyIgniter mail template editor allows remote code execution via server-side template injection",
+    "severity": "CRITICAL",
+    "published": "2026-11-25T22:24:13Z",
+    "ghsa": "GHSA-743w-g9pf-8p94"
+  },
+  {
+    "id": "CVE-2026-69177",
+    "summary": "TastyIgniter allows stored XSS via file upload",
+    "severity": "MODERATE",
+    "published": "2026-11-25T21:52:15Z",
+    "ghsa": "GHSA-mqg7-fw3f-mhp7"
+  },
+  {
     "id": "CVE-2026-68539",
     "summary": "fulgur allows Unbounded string-set value accumulation causes memory/CPU exhaustion (denial of service)",
     "severity": "HIGH",
@@ -40,33 +68,5 @@
     "severity": "MODERATE",
     "published": "2026-11-24T22:39:23Z",
     "ghsa": "GHSA-hq9r-72jq-2pxp"
-  },
-  {
-    "id": "CVE-2026-59831",
-    "summary": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespaces",
-    "severity": "MODERATE",
-    "published": "2026-11-24T22:26:25Z",
-    "ghsa": "GHSA-8cg3-r6g9-fpg2"
-  },
-  {
-    "id": "GHSA-jp3c-6v3g-mpxv",
-    "summary": "github.com/insomniacslk/dhcp permits denial of service through a malformed IPv4 payload length",
-    "severity": "HIGH",
-    "published": "2026-11-24T21:13:37Z",
-    "ghsa": "GHSA-jp3c-6v3g-mpxv"
-  },
-  {
-    "id": "CVE-2026-59818",
-    "summary": "etcd: CRL enforcement bypass on gRPC listener when `--listen-client-http-urls` is configured",
-    "severity": "MODERATE",
-    "published": "2026-11-24T21:09:38Z",
-    "ghsa": "GHSA-3wh4-j44w-pg92"
-  },
-  {
-    "id": "CVE-2026-59726",
-    "summary": "ruflo MCP bridge allows unauthenticated remote code execution in default Docker Compose deployments",
-    "severity": "CRITICAL",
-    "published": "2026-11-24T21:01:10Z",
-    "ghsa": "GHSA-c4hm-4h84-2cf3"
   }
 ]
