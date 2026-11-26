@@ -4,53 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About — Chi Siamo | AnonLab</title>
+    <title>Chi Siamo — Mission, Ricerca e Cultura Cyber | AnonLab</title>
 
-    <!-- SEO BASE -->
-    <meta name="description" content="AnonLab è un progetto indipendente dedicato alla cybersecurity, tecnologia e cultura digitale. Scopri mission, storia, valori e contatti.">
+    <!-- SEO BASE & GEO -->
+    <meta name="description" content="AnonLab è un laboratorio indipendente dedicato a cybersecurity, threat intelligence, analisi malware e OSINT. Scopri la mission, i valori e la nostra storia.">
     <meta name="author" content="AnonLab">
-
-    <!-- CANONICAL -->
     <link rel="canonical" href="https://anonlab.it/about.html">
-
-    <!-- INDEXING -->
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="googlebot" content="index, follow">
-    <meta name="bingbot" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
     <!-- SITEMAP -->
     <link rel="sitemap" type="application/xml" href="https://anonlab.it/sitemap.xml">
 
     <!-- OPEN GRAPH -->
-    <meta property="og:title" content="About — Chi Siamo | AnonLab">
-    <meta property="og:description" content="Scopri la mission, la storia e i valori di AnonLab, il progetto dedicato alla cybersecurity e alla cultura digitale.">
+    <meta property="og:title" content="Chi Siamo — Mission, Ricerca e Cultura Cyber | AnonLab">
+    <meta property="og:description" content="Laboratorio indipendente di cybersecurity e threat intelligence: monitoraggio delle minacce, diagnostica perimetrale e cultura della sicurezza.">
     <meta property="og:image" content="https://anonlab.it/img/eyes.png">
     <meta property="og:url" content="https://anonlab.it/about.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="AnonLab">
+    <meta property="og:locale" content="it_IT">
 
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About — Chi Siamo | AnonLab">
-    <meta name="twitter:description" content="Scopri la mission, la storia e i valori di AnonLab, il progetto dedicato alla cybersecurity e alla cultura digitale.">
+    <meta name="twitter:title" content="Chi Siamo — AnonLab Cyber Security Lab">
+    <meta name="twitter:description" content="Mission, trasparenza e ricerca indipendente in cybersecurity, threat intelligence e metodologie OSINT.">
     <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
 
-    <!-- JSON-LD -->
+    <!-- JSON-LD: AboutPage + Organization (E-E-A-T) + Breadcrumbs -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "name": "About AnonLab",
-      "url": "https://anonlab.it/about.html",
-      "description": "Pagina informativa su AnonLab: mission, storia, valori e contatti.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "AnonLab",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://anonlab.it/img/eyes.png"
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "@id": "https://anonlab.it/about.html#webpage",
+          "url": "https://anonlab.it/about.html",
+          "name": "Chi Siamo | AnonLab — Laboratorio Indipendente di Cybersecurity",
+          "description": "Mission, valori e storia di AnonLab: centro di ricerca indipendente dedicato a threat intelligence, OSINT, diagnostica perimetrale e difesa cibernetica.",
+          "breadcrumb": { "@id": "https://anonlab.it/about.html#breadcrumb" },
+          "inLanguage": "it"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://anonlab.it/#organization",
+          "name": "AnonLab",
+          "url": "https://anonlab.it/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://anonlab.it/img/eyes.png"
+          },
+          "foundingDate": "2024",
+          "description": "Laboratorio indipendente e piattaforma open intelligence specializzata nel tracciamento di minacce cibernetiche, botnet C2, indicatori IoC e utility di sicurezza.",
+          "knowsAbout": [
+            "Cybersecurity",
+            "Threat Intelligence",
+            "Open Source Intelligence (OSINT)",
+            "Malware Analysis",
+            "Network Defense",
+            "Vulnerability Assessment"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@anonlab.it",
+            "contactType": "support"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://anonlab.it/about.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://anonlab.it/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Chi Siamo",
+              "item": "https://anonlab.it/about.html"
+            }
+          ]
         }
-      }
+      ]
     }
     </script>
 
@@ -58,269 +95,271 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/custom.css">
 
+    <!-- IUBENDA COOKIE POLICY -->
     <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
-<script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-<script>
-(_iub=self._iub||[]).csConfiguration={
-	cookiePolicyId: 12413505,
-	siteId: 4661380,
-	localConsentDomain: 'anonlab.it',
-	timeoutLoadConfiguration: 30000,
-	lang: 'it',
-	enableTcf: true,
-	tcfVersion: 2,
-	tcfPurposes: {
-		 "2": "consent_only",
-		 "3": "consent_only",
-		 "4": "consent_only",
-		 "5": "consent_only",
-		 "6": "consent_only",
-		 "7": "consent_only",
-		 "8": "consent_only",
-		 "9": "consent_only",
-		"10": "consent_only"
-	},
-	invalidateConsentWithoutLog: true,
-	googleAdditionalConsentMode: true,
-	consentOnContinuedBrowsing: false,
-	banner: {
-		position: "bottom",
-		acceptButtonDisplay: true,
-		customizeButtonDisplay: true,
-		closeButtonDisplay: true,
-		closeButtonRejects: true,
-		fontSizeBody: "14px",
-	},
-}
-</script>
-<script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
+    <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
+    <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+    <script>
+    (_iub=self._iub||[]).csConfiguration={
+        cookiePolicyId: 12413505,
+        siteId: 4661380,
+        localConsentDomain: 'anonlab.it',
+        timeoutLoadConfiguration: 30000,
+        lang: 'it',
+        enableTcf: true,
+        tcfVersion: 2,
+        tcfPurposes: {
+             "2": "consent_only", "3": "consent_only", "4": "consent_only",
+             "5": "consent_only", "6": "consent_only", "7": "consent_only",
+             "8": "consent_only", "9": "consent_only", "10": "consent_only"
+        },
+        invalidateConsentWithoutLog: true,
+        googleAdditionalConsentMode: true,
+        consentOnContinuedBrowsing: false,
+        banner: {
+            position: "bottom",
+            acceptButtonDisplay: true,
+            customizeButtonDisplay: true,
+            closeButtonDisplay: true,
+            closeButtonRejects: true,
+            fontSizeBody: "14px",
+        },
+    }
+    </script>
+    <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 </head>
 	
 <body>
 
     <!-- HEADER -->
     <div id="header" aria-label="Intestazione del sito"></div>
+    <script>
+    fetch("/partials/header.html")
+        .then(r => r.ok ? r.text() : "")
+        .then(html => {
+            const el = document.getElementById("header");
+            if (el && html) el.innerHTML = html;
+        }).catch(e => console.error(e));
+    </script>
 
-    <!-- TICKER -->
-    <div id="ticker" aria-label="Ticker informazioni"></div>
-    <!-- CARICAMENTO TICKER -->
-<script>
-fetch("/partials/ticker.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("ticker").innerHTML = html;
-
-      // ⭐ Inizializza il ticker SOLO dopo che il partial è stato caricato
-      if (typeof initTicker === "function") {
-          initTicker();
-      }
-  });
-</script>
-
-<!-- SCRIPT TICKER -->
-<script src="/js/ticker.js"></script>
+    <!-- TICKER INFORMAZIONI (PROTETTO DA DATA-NOSNIPPET) -->
+    <div id="ticker" aria-label="Ticker informazioni" data-nosnippet></div>
+    <script>
+    fetch("/partials/ticker.html")
+      .then(r => r.text())
+      .then(html => {
+          document.getElementById("ticker").innerHTML = html;
+          if (typeof initTicker === "function") {
+              initTicker();
+          }
+      }).catch(e => console.error(e));
+    </script>
+    <script src="/js/ticker.js"></script>
 
     <main class="page">
 
-        <div class="main-column">
+        <section class="main-column">
 
             <section class="widget-large">
-                <h1>Chi siamo</h1>
-                <p>
-                    <strong>AnonLab</strong> è un progetto indipendente dedicato alla cybersecurity, alla tecnologia e alla cultura digitale.
-                    Nasce con l’obiettivo di offrire un punto di riferimento chiaro, affidabile e accessibile per chi vuole
-                    comprendere il mondo digitale moderno: minacce, innovazioni, strumenti, tendenze e sicurezza personale.
+                <h1 style="color:#00eaff; margin-bottom:12px;">Chi Siamo</h1>
+                <p style="line-height:1.7; color:#cbd5e1;">
+                    <strong>AnonLab</strong> è un progetto indipendente dedicato alla cybersecurity, alla ricerca tecnica e alla cultura digitale.
+                    Nasce con l’obiettivo di offrire un punto di riferimento trasparente, rigoroso e accessibile per analisti, 
+                    professionisti IT e appassionati desiderosi di comprendere le dinamiche del panorama cibernetico contemporaneo: 
+                    vulnerabilità emergenti, threat intelligence, diagnostica difensiva e tutela delle infrastrutture.
                 </p>
             </section>
-<section class="widget-large">
-    <h2 style="color:#00eaff;">Il nostro approccio alla sicurezza</h2>
 
-    <p>
-        L’approccio di <strong>AnonLab</strong> alla sicurezza informatica si fonda su un modello 
-        tecnico, trasparente e orientato ai dati. Analizziamo minacce reali, vulnerabilità 
-        emergenti e tecniche di attacco moderne, integrando fonti autorevoli come 
-        <a href="https://nvd.nist.gov" target="_blank" style="color:#ff4500;">NVD</a>, 
-        <a href="https://www.cisa.gov" target="_blank" style="color:#ff4500;">CISA</a> e 
-        <a href="https://thehackernews.com" target="_blank" style="color:#ff4500;">TheHackerNews</a>.
-    </p>
-
-    <p>
-        Ogni contenuto nasce da osservazione continua, studio tecnico e verifica delle 
-        informazioni. Monitoriamo superfici d’attacco, infrastrutture critiche, framework 
-        di exploitation e indicatori di compromissione, con l’obiettivo di fornire una 
-        visione chiara, verificata e operativa del panorama cyber.
-    </p>
-
-    <p>
-        Crediamo che la sicurezza non sia solo tecnologia, ma anche cultura: per questo 
-        integriamo analisi, guide, strumenti e collegamenti a risorse interne come 
-        <a href="/cyber.html" style="color:#ff4500;">Cybersecurity</a>, 
-        <a href="/tech.html" style="color:#ff4500;">Tecnologia</a> e 
-        <a href="/news.html" style="color:#ff4500;">News</a>, 
-        così da offrire un ecosistema completo e aggiornato.
-    </p>
-</section>
-
-<section class="widget-large">
-    <h2 style="color:#00eaff;">I nostri valori</h2>
-
-    <p>
-        <strong>Integrità</strong> — Ogni analisi pubblicata su AnonLab è basata su dati reali, 
-        fonti verificabili e osservazioni tecniche. Evitiamo sensazionalismi e informazioni 
-        distorte, privilegiando la qualità e l’accuratezza.
-    </p>
-
-    <p>
-        <strong>Condivisione</strong> — Crediamo in una cultura cyber aperta e accessibile. 
-        Per questo rendiamo disponibili risorse, strumenti e collegamenti utili, come 
-        <a href="https://www.bleepingcomputer.com" target="_blank" style="color:#ff4500;">BleepingComputer</a> 
-        e <a href="https://www.darkreading.com" target="_blank" style="color:#ff4500;">DarkReading</a>, 
-        per favorire una comunità più informata e resiliente.
-    </p>
-
-    <p>
-        <strong>Accessibilità</strong> — La sicurezza informatica deve essere comprensibile a tutti. 
-        Per questo traduciamo concetti complessi in contenuti chiari, pratici e applicabili, 
-        mantenendo un linguaggio tecnico ma accessibile.
-    </p>
-
-    <p>
-        <strong>Innovazione</strong> — Monitoriamo costantemente nuove tecnologie, trend globali, 
-        AI security, threat intelligence e strumenti emergenti, integrandoli nelle nostre 
-        analisi e nelle sezioni interne come 
-        <a href="/dashboard.html" style="color:#ff4500;">Dashboard SOC</a> e 
-        <a href="/tools.html" style="color:#ff4500;">Strumenti</a>.
-    </p>
-</section>
-
-<section class="widget-large">
-    <h2 style="color:#00eaff;">La nostra visione futura</h2>
-
-    <p>
-        Guardiamo al futuro della cybersecurity come a un ecosistema sempre più complesso, 
-        interconnesso e guidato dall’intelligenza artificiale. La nostra visione è costruire 
-        un hub digitale capace di anticipare le minacce, interpretare i segnali deboli e 
-        fornire strumenti concreti per migliorare la resilienza di individui e organizzazioni.
-    </p>
-
-    <p>
-        Vogliamo espandere AnonLab in un centro operativo completo: dashboard evolute, 
-        feed globali, analisi predittive, strumenti di threat intelligence e contenuti 
-        formativi avanzati. Un luogo dove informazione, tecnologia e consapevolezza si 
-        incontrano per creare un ambiente digitale più sicuro.
-    </p>
-
-    <p>
-        Il nostro obiettivo è diventare un punto di riferimento internazionale, mantenendo 
-        sempre la nostra identità: indipendente, tecnica, trasparente e orientata alla 
-        crescita della comunità cyber.
-    </p>
-</section>
             <section class="widget-large">
-                <h2>La Nostra Storia</h2>
+                <h2 style="color:#00eaff; margin-bottom:12px;">Il nostro approccio alla sicurezza</h2>
 
-                <div class="cyber-feed-list">
-                    <div>
-                        <strong>2024</strong><br>
-                        Nasce l’idea di creare un portale indipendente dedicato alla sicurezza informatica.
+                <p style="line-height:1.7; color:#cbd5e1; margin-bottom:12px;">
+                    L’approccio di <strong>AnonLab</strong> alla sicurezza informatica si fonda su un modello 
+                    tecnico, trasparente e guidato dai dati (data-driven). Analizziamo minacce reali, vettori d'attacco 
+                    e metodologie di intrusione integrando fonti primarie e standard di settore, tra cui 
+                    <a href="https://nvd.nist.gov" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">NVD</a>, 
+                    <a href="https://www.cisa.gov" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">CISA</a> e 
+                    <a href="https://thehackernews.com" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">TheHackerNews</a>.
+                </p>
+
+                <p style="line-height:1.7; color:#cbd5e1; margin-bottom:12px;">
+                    Ogni analisi nasce dall'osservazione diretta delle superfici esposte, monitorando indicatori di compromissione (IoC), 
+                    infrastrutture Command &amp; Control (C2) e framework di detection come il <strong>MITRE ATT&amp;CK</strong>.
+                </p>
+
+                <p style="line-height:1.7; color:#cbd5e1;">
+                    Crediamo fermamente che la sicurezza non sia un prodotto ma un processo continuo e una competenza condivisa: 
+                    per questo offriamo approfondimenti tecnici e utility aperte consultabili nelle nostre sezioni: 
+                    <a href="/cyber.html" style="color:#00eaff;">Cybersecurity</a>, 
+                    <a href="/tools.html" style="color:#00eaff;">Cyber Tools</a>, 
+                    <a href="/dashboard.html" style="color:#00eaff;">Dashboard Operativa</a> e 
+                    <a href="/soc-dashboard.html" style="color:#00eaff;">SOC Dashboard</a>.
+                </p>
+            </section>
+
+            <section class="widget-large">
+                <h2 style="color:#00eaff; margin-bottom:12px;">I nostri valori</h2>
+
+                <p style="line-height:1.7; color:#cbd5e1; margin-bottom:14px;">
+                    <strong style="color:#00ff88;">Integrità</strong> — Ogni analisi pubblicata su AnonLab è basata su dati oggettivi, 
+                    telemetria verificabile e osservazioni sperimentali. Rifiutiamo toni sensazionalistici, privilegiando la precisione 
+                    e la chiarezza tecnica.
+                </p>
+
+                <p style="line-height:1.7; color:#cbd5e1; margin-bottom:14px;">
+                    <strong style="color:#00ff88;">Condivisione della conoscenza</strong> — Promuoviamo una cultura della sicurezza inclusiva e distribuita. 
+                    Mettiamo a disposizione strumenti gratuiti di diagnostica e raccordiamo ricerche di rilievo internazionale da fonti come 
+                    <a href="https://www.bleepingcomputer.com" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">BleepingComputer</a> 
+                    e <a href="https://www.darkreading.com" target="_blank" rel="noopener noreferrer" style="color:#00eaff;">DarkReading</a>.
+                </p>
+
+                <p style="line-height:1.7; color:#cbd5e1; margin-bottom:14px;">
+                    <strong style="color:#00ff88;">Accessibilità</strong> — Traduciamo concetti crittografici, architetture di rete e tassonomie complesse 
+                    in guide strutturate e fruibili, mantenendo una salda aderenza agli standard ingegneristici.
+                </p>
+
+                <p style="line-height:1.7; color:#cbd5e1;">
+                    <strong style="color:#00ff88;">Indipendenza e Innovazione</strong> — Analizziamo costantemente l'evoluzione dell'intelligenza artificiale 
+                    applicata alla cyber defense, lo sviluppo di exploit zero-day e la telemetria delle botnet mondiali in modo totalmente neutrale e autonomo.
+                </p>
+            </section>
+
+            <section class="widget-large">
+                <h2 style="color:#00eaff; margin-bottom:12px;">La nostra visione futura</h2>
+
+                <p style="line-height:1.7; color:#cbd5e1; margin-bottom:12px;">
+                    Il futuro della sicurezza informatica è segnato da un perimetro liquido, minacce automatizzate e una rapida convergenza 
+                    tra AI e operazioni cibernetiche. La nostra visione è consolidare AnonLab come laboratorio indipendente e 
+                    hub di riferimento, capace di interpretare i pattern delle minacce prima che diventino incidenti critici.
+                </p>
+
+                <p style="line-height:1.7; color:#cbd5e1;">
+                    Continuiamo a potenziare le nostre console live, i feed decentralizzati e la documentazione specialistica per 
+                    supportare sia singoli utenti che analisti nella costruzione di una resilienza informatica moderna.
+                </p>
+            </section>
+
+            <section class="widget-large">
+                <h2 style="color:#00eaff; margin-bottom:12px;">La Nostra Storia</h2>
+
+                <div class="cyber-feed-list" style="display:flex; flex-direction:column; gap:12px; margin-top:10px;">
+                    <div style="background:#050c14; border:1px solid #1e293b; border-left:3px solid #00eaff; padding:12px 14px; border-radius:4px;">
+                        <strong style="color:#00eaff; font-size:1.05rem;">2024</strong><br>
+                        <span style="color:#cbd5e1; font-size:0.9rem;">Nasce il progetto AnonLab con l’obiettivo di strutturare un laboratorio indipendente orientato a ricerca, threat intelligence e informazione tecnica.</span>
                     </div>
 
-                    <div>
-                        <strong>2025</strong><br>
-                        Viene sviluppata la prima versione del sito, con focus su news e cultura cyber.
+                    <div style="background:#050c14; border:1px solid #1e293b; border-left:3px solid #00ff88; padding:12px 14px; border-radius:4px;">
+                        <strong style="color:#00ff88; font-size:1.05rem;">2025</strong><br>
+                        <span style="color:#cbd5e1; font-size:0.9rem;">Sviluppo della suite modulare di strumenti online (DNS, WHOIS, IP lookup, crittografia) e rilascio delle prime guide metodologiche OSINT.</span>
                     </div>
 
-                    <div>
-                        <strong>2026</strong><br>
-                        AnonLab evolve in un hub completo: dashboard SOC, feed globali, strumenti e approfondimenti.
+                    <div style="background:#050c14; border:1px solid #1e293b; border-left:3px solid #ffaa00; padding:12px 14px; border-radius:4px;">
+                        <strong style="color:#ffaa00; font-size:1.05rem;">2026</strong><br>
+                        <span style="color:#cbd5e1; font-size:0.9rem;">Evoluzione in un hub avanzato: integrazione della telemetria live su scala globale, monitoraggio C2 FeodoTracker e correlazione alert SOC.</span>
                     </div>
                 </div>
             </section>
 
             <section class="widget-large">
-    <h2 style="color:#00eaff;">Informazioni istituzionali</h2>
+                <h2 style="color:#00eaff; margin-bottom:12px;">Aree del Progetto</h2>
 
-    <p>
-        AnonLab è un progetto indipendente che integra analisi tecniche, strumenti operativi e contenuti formativi 
-        dedicati alla sicurezza informatica. Per approfondire le nostre attività puoi visitare le sezioni interne:
-    </p>
+                <p style="line-height:1.7; color:#cbd5e1; margin-bottom:10px;">
+                    Esplora i moduli operativi e i contenuti di ricerca di AnonLab:
+                </p>
 
-    <ul style="margin-top:10px; line-height:1.8;">
-        <li><a href="/cyber.html" style="color:#ff4500;">Cybersecurity</a> — contenuti tecnici, guide e analisi.</li>
-        <li><a href="/tools.html" style="color:#ff4500;">Strumenti</a> — dashboard, widget e risorse operative.</li>
-        <li><a href="/news.html" style="color:#ff4500;">News</a> — aggiornamenti quotidiani dal panorama cyber.</li>
-        <li><a href="/dashboard.html" style="color:#ff4500;">Dashboard SOC</a> — monitoraggio e intelligence.</li>
-    </ul>
-
-    <p style="margin-top:15px;">
-        La nostra missione è offrire un punto di riferimento chiaro, tecnico e affidabile nel mondo della cybersecurity,
-        mantenendo un approccio indipendente e orientato alla crescita della comunità digitale.
-    </p>
-</section>
-
-            <section class="widget-large">
-                <h2>Contatti</h2>
-                <p>Per collaborazioni, segnalazioni o richieste:</p>
-                <p><strong>Email:</strong> 
-  <a href="mailto:info@anonlab.it?subject=Richiesta%20di%20informazioni%20-%20AnonLab"
-     style="color:#00aaff; text-decoration:none; font-weight:bold;"
-     onmouseover="this.style.color='#33cfff'"
-     onmouseout="this.style.color='#00aaff'">
-     info@anonlab.it
-  </a>
-</p>
+                <ul style="margin-top:10px; line-height:1.9; color:#cbd5e1;">
+                    <li><a href="/cyber.html" style="color:#00eaff; font-weight:bold;">Cybersecurity Hub</a> — threat intelligence, matrici MITRE ATT&amp;CK e glossario.</li>
+                    <li><a href="/tools.html" style="color:#00eaff; font-weight:bold;">Cyber Tools Center</a> — suite di diagnostica, IP intelligence e verifiche perimetrali.</li>
+                    <li><a href="/dashboard.html" style="color:#00eaff; font-weight:bold;">Dashboard Operativa Live</a> — monitoraggio globale degli attacchi e telemetria C2.</li>
+                    <li><a href="/soc-dashboard.html" style="color:#00eaff; font-weight:bold;">SOC Dashboard</a> — correlazione eventi in tempo reale, threat level e log SIEM.</li>
+                    <li><a href="/lab-resources.html" style="color:#00eaff; font-weight:bold;">Lab Resources</a> — risorse tecniche, framework e software per analisti.</li>
+                    <li><a href="/contatti.html" style="color:#00eaff; font-weight:bold;">Contatti &amp; Security Disclosure</a> — canali di contatto e canale PGP.</li>
+                </ul>
             </section>
 
-        </div>
+            <section class="widget-large">
+                <h2 style="color:#00eaff; margin-bottom:12px;">Contatti</h2>
+                <p style="color:#cbd5e1; line-height:1.6;">Per collaborazioni di ricerca, segnalazioni tecniche o richieste informative:</p>
+                <p style="margin-top:8px;">
+                    <strong style="color:#fff;">Email Ufficiale:</strong> 
+                    <a href="mailto:info@anonlab.it?subject=Richiesta%20di%20informazioni%20-%20AnonLab"
+                       style="color:#00eaff; text-decoration:none; font-weight:bold;"
+                       onmouseover="this.style.textDecoration='underline'"
+                       onmouseout="this.style.textDecoration='none'">
+                       info@anonlab.it
+                    </a>
+                </p>
+            </section>
 
-        <!-- SIDEBAR -->
-        <div id="sidebar" aria-label="Barra laterale"></div>
+        </section>
+
+        <!-- ASIDE SIDEBAR (PERFETTAMENTE AGGANCIATA A DESTRA) -->
+        <aside id="sidebar" class="sidebar" aria-label="Barra laterale" data-nosnippet></aside>
+
+        <script>
+        fetch("/partials/sidebar.html")
+          .then(res => {
+            if (!res.ok) throw new Error("Sidebar offline");
+            return res.text();
+          })
+          .then(data => {
+            const sb = document.getElementById("sidebar");
+            if (sb) {
+              sb.innerHTML = data;
+              if (typeof initCalculator === "function") initCalculator();
+              if (typeof initRadio === "function") initRadio();
+              if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+              if (typeof initOroscopo === "function") initOroscopo();
+              if (typeof initVisitCounter === "function") initVisitCounter();
+            }
+          })
+          .catch(e => console.error(e));
+        </script>
 
     </main>
 
     <!-- FOOTER -->
     <div id="footer" aria-label="Piè di pagina"></div>
+    <script>
+    fetch("/partials/footer.html")
+      .then(r => r.ok ? r.text() : "")
+      .then(html => {
+        const el = document.getElementById("footer");
+        if (el && html) el.innerHTML = html;
+      }).catch(e => console.error(e));
+    </script>
 
-    <!-- SCRIPT (ordine corretto) -->
+    <!-- SCRIPT GLOBALI -->
     <script src="/js/main.js"></script>
     <script src="/js/ui.js"></script>
+
     <!-- BACK TO TOP BUTTON -->
-<button id="backToTop">↑</button>
+    <button id="backToTop" aria-label="Torna in cima" style="display:none;">↑</button>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const backToTop = document.getElementById('backToTop');
-    if (!backToTop) return;
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const backToTop = document.getElementById('backToTop');
+        if (!backToTop) return;
 
-    backToTop.style.display = 'none';
+        window.addEventListener('scroll', function () {
+          backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+        });
 
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
-
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+        backToTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
       });
-    });
-  });
-</script>
+    </script>
 
-	<script type="text/javascript">
+    <!-- TRACKING CLARITY & ADSENSE -->
+    <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
-</script>                 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>
+    </script>                 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
 
 </body>
 </html>
