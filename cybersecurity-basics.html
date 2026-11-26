@@ -103,35 +103,97 @@ table th {
 </script>
 <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 
+<!-- SCHEMA.ORG UNIFICATO & OTTIMIZZATO PER AI AGENTS & SEARCH ENGINES -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale",
-  "description": "Guida completa ai fondamenti della sicurezza informatica, minacce moderne, difesa digitale, SOC, threat intelligence e best practice.",
-  "author": {
-    "@type": "Organization",
-    "name": "AnonLab"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://anonlab.it/cybersecurity-basics.html"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "AnonLab"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anonlab.it/" },
-    { "@type": "ListItem", "position": 2, "name": "Cybersecurity", "item": "https://anonlab.it/cybersecurity.html" },
-    { "@type": "ListItem", "position": 3, "name": "Cybersecurity Basics", "item": "https://anonlab.it/cybersecurity-basics.html" }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://anonlab.it/#website",
+      "url": "https://anonlab.it/",
+      "name": "AnonLab",
+      "description": "Laboratorio di ricerca tecnica su Cybersecurity, OSINT e Threat Intelligence.",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://anonlab.it/#organization",
+        "name": "AnonLab",
+        "url": "https://anonlab.it/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://anonlab.it/img/eyes.png"
+        }
+      }
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://anonlab.it/cybersecurity-basics.html#article",
+      "isPartOf": { "@id": "https://anonlab.it/#website" },
+      "headline": "Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale",
+      "description": "Guida completa ai fondamenti della sicurezza informatica: tassonomia delle minacce, architetture difensive, SOC, Cyber Threat Intelligence e framework NIST/ISO 27001.",
+      "inLanguage": "it-IT",
+      "mainEntityOfPage": "https://anonlab.it/cybersecurity-basics.html",
+      "image": "https://anonlab.it/img/eyes.png",
+      "datePublished": "2024-01-15T08:00:00+01:00",
+      "dateModified": "2026-11-26T20:00:00+01:00",
+      "proficiencyLevel": "Beginner",
+      "author": {
+        "@type": "Organization",
+        "@id": "https://anonlab.it/#organization"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://anonlab.it/#organization"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Computer security", "sameAs": "https://en.wikipedia.org/wiki/Computer_security" },
+        { "@type": "Thing", "name": "Threat intelligence", "sameAs": "https://en.wikipedia.org/wiki/Threat_intelligence" },
+        { "@type": "Thing", "name": "Security operations center", "sameAs": "https://en.wikipedia.org/wiki/Security_operations_center" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#minacce", "#pilastri", "#faq-section"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://anonlab.it/cybersecurity-basics.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://anonlab.it/" },
+        { "@type": "ListItem", "position": 2, "name": "Cybersecurity", "item": "https://anonlab.it/cybersecurity.html" },
+        { "@type": "ListItem", "position": 3, "name": "Cybersecurity Basics", "item": "https://anonlab.it/cybersecurity-basics.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://anonlab.it/cybersecurity-basics.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Cos'è esattamente un SOC e perché è importante?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un SOC (Security Operations Center) è un team o una struttura dedicata al monitoraggio continuo dell'infrastruttura informatica per rilevare, analizzare e rispondere tempestivamente a qualsiasi minaccia o tentativo di attacco cibernetico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual è la differenza tra Vulnerabilità e Exploit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una vulnerabilità è una debolezza o una falla all'interno di un software o sistema. Un exploit è invece il codice o la tecnica sfruttata dagli attaccanti per trarre vantaggio da quella vulnerabilità specifica."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come posso capire se la mia password è stata compromessa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puoi utilizzare strumenti di verifica pubblici e sicuri come Have I Been Pwned, che incrociano il tuo indirizzo email con i database di dati trafugati nei data breach globali."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -162,7 +224,7 @@ fetch("/partials/ticker.html")
 
 <h1>Cybersecurity Basics — Fondamenti, Minacce e Difesa Digitale</h1>
 
-<!-- POSIZIONE 1: INDICE DI NAVIGAZIONE RAPIDA (Subito dopo l'H1 per migliorare la UX) -->
+<!-- INDICE DI NAVIGAZIONE RAPIDA -->
 <div style="background: #030712; border: 1px solid #1e293b; border-radius: 8px; padding: 15px 20px; margin-bottom: 30px;">
   <h4 style="color: #00eaff; margin-top: 0; margin-bottom: 10px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em;">Indice della Guida</h4>
   <ul style="list-style: none; padding-left: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; font-size: 0.88rem;">
@@ -184,9 +246,9 @@ Nel 2026 la sicurezza informatica è diventata un elemento strategico per aziend
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti fondamentali</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📘 <a href="https://www.sans.org/cybersecurity" target="_blank">SANS Cybersecurity Essentials</a></li>
-    <li>📘 <a href="https://www.cisa.gov/cybersecurity-awareness" target="_blank">CISA Cybersecurity Awareness</a></li>
-    <li>📘 <a href="https://www.cyber.gc.ca/en/guidance" target="_blank">Canadian Centre for Cyber Security — Guidance</a></li>
+    <li>📘 <a href="https://www.sans.org/cybersecurity" target="_blank" rel="noopener noreferrer">SANS Cybersecurity Essentials</a></li>
+    <li>📘 <a href="https://www.cisa.gov/cybersecurity-awareness" target="_blank" rel="noopener noreferrer">CISA Cybersecurity Awareness</a></li>
+    <li>📘 <a href="https://www.cyber.gc.ca/en/guidance" target="_blank" rel="noopener noreferrer">Canadian Centre for Cyber Security — Guidance</a></li>
   </ul>
 </div>
 </div>
@@ -220,9 +282,9 @@ Nel 2026 la sicurezza informatica è diventata un elemento strategico per aziend
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Fonti sulle minacce</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>⚠️ <a href="https://www.avast.com/c-threat-intelligence" target="_blank">Avast Threat Intelligence</a></li>
-    <li>⚠️ <a href="https://www.bitdefender.com/blog" target="_blank">Bitdefender Threat Reports</a></li>
-    <li>⚠️ <a href="https://www.eset.com/int/business/security-report" target="_blank">ESET Security Report</a></li>
+    <li>⚠️ <a href="https://www.avast.com/c-threat-intelligence" target="_blank" rel="noopener noreferrer">Avast Threat Intelligence</a></li>
+    <li>⚠️ <a href="https://www.bitdefender.com/blog" target="_blank" rel="noopener noreferrer">Bitdefender Threat Reports</a></li>
+    <li>⚠️ <a href="https://www.eset.com/int/business/security-report" target="_blank" rel="noopener noreferrer">ESET Security Report</a></li>
   </ul>
 </div>
 </div>
@@ -250,9 +312,9 @@ osservare trend di attacco e fornire insight tecnici utili a SOC e analisti.
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Fonti TI</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🛰️ <a href="https://www.trellix.com/en-us/advanced-research-center.html" target="_blank">Trellix Advanced Research Center</a></li>
-    <li>🛰️ <a href="https://www.sophos.com/en-us/security-news" target="_blank">Sophos Security News</a></li>
-    <li>🛰️ <a href="https://www.secureworks.com/research" target="_blank">Secureworks Counter Threat Unit</a></li>
+    <li>🛰️ <a href="https://www.trellix.com/en-us/advanced-research-center.html" target="_blank" rel="noopener noreferrer">Trellix Advanced Research Center</a></li>
+    <li>🛰️ <a href="https://www.sophos.com/en-us/security-news" target="_blank" rel="noopener noreferrer">Sophos Security News</a></li>
+    <li>🛰️ <a href="https://www.secureworks.com/research" target="_blank" rel="noopener noreferrer">Secureworks Counter Threat Unit</a></li>
   </ul>
 </div>
 </div>
@@ -269,7 +331,6 @@ osservare trend di attacco e fornire insight tecnici utili a SOC e analisti.
   <li><strong>Monitoraggio continuo</strong></li>
 </ul>
 
-<!-- POSIZIONE 2: TABELLA DEI FRAMEWORK (Integrazione concettuale sui pilastri) -->
 <h3 style="margin-top:30px; font-size:1.1rem; color:#00eaff;">Framework e Standard di Riferimento</h3>
 <p>Per strutturare la difesa in modo efficace, le organizzazioni adottano standard riconosciuti a livello internazionale:</p>
 
@@ -303,8 +364,8 @@ osservare trend di attacco e fornire insight tecnici utili a SOC e analisti.
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📚 <a href="https://www.isaca.org/resources" target="_blank">ISACA Cybersecurity Resources</a></li>
-    <li>📚 <a href="https://www.nist.gov/cyberframework" target="_blank">NIST Cybersecurity Framework</a></li>
+    <li>📚 <a href="https://www.isaca.org/resources" target="_blank" rel="noopener noreferrer">ISACA Cybersecurity Resources</a></li>
+    <li>📚 <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST Cybersecurity Framework</a></li>
   </ul>
 </div>
 </div>
@@ -331,8 +392,8 @@ radar delle minacce, strumenti OSINT e analisi tecniche.
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Fonti SOC</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🛡️ <a href="https://www.ibm.com/reports/threat-intelligence" target="_blank">IBM X‑Force Threat Intelligence</a></li>
-    <li>🛡️ <a href="https://www.spamhaus.org/statistics" target="_blank">Spamhaus Threat Statistics</a></li>
+    <li>🛡️ <a href="https://www.ibm.com/reports/threat-intelligence" target="_blank" rel="noopener noreferrer">IBM X‑Force Threat Intelligence</a></li>
+    <li>🛡️ <a href="https://www.spamhaus.org/statistics" target="_blank" rel="noopener noreferrer">Spamhaus Threat Statistics</a></li>
   </ul>
 </div>
 </div>
@@ -361,9 +422,9 @@ radar delle minacce, strumenti OSINT e analisi tecniche.
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Strumenti utili</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🧩 <a href="https://www.virustotal.com" target="_blank">VirusTotal</a></li>
-    <li>🧩 <a href="https://www.hybrid-analysis.com" target="_blank">Hybrid Analysis</a></li>
-    <li>🧩 <a href="https://www.osintframework.com" target="_blank">OSINT Framework</a></li>
+    <li>🧩 <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer">VirusTotal</a></li>
+    <li>🧩 <a href="https://www.hybrid-analysis.com" target="_blank" rel="noopener noreferrer">Hybrid Analysis</a></li>
+    <li>🧩 <a href="https://www.osintframework.com" target="_blank" rel="noopener noreferrer">OSINT Framework</a></li>
   </ul>
 </div>
 </div>
@@ -385,14 +446,14 @@ radar delle minacce, strumenti OSINT e analisi tecniche.
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Risorse utili</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>🔐 <a href="https://www.lastpass.com/password-manager" target="_blank">LastPass Password Manager</a></li>
-    <li>🔐 <a href="https://haveibeenpwned.com" target="_blank">Have I Been Pwned</a></li>
+    <li>🔐 <a href="https://www.lastpass.com/password-manager" target="_blank" rel="noopener noreferrer">LastPass Password Manager</a></li>
+    <li>🔐 <a href="https://haveibeenpwned.com" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a></li>
   </ul>
 </div>
 </div>
 
 <!-- ============================================================
-     QUIZ INTERATTIVO DI CYBERSECURITY (10 DOMANDE CON PUNTEGGIO)
+     QUIZ INTERATTIVO DI CYBERSECURITY (ID CORRETTO: quiz-section)
      ============================================================ -->
 <div class="section" id="quiz-section">
   <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #0f2a3a; padding-bottom:8px; margin-bottom:20px;">
@@ -404,22 +465,18 @@ radar delle minacce, strumenti OSINT e analisi tecniche.
     </span>
   </div>
 
-  <!-- Contenitore dinamico del quiz -->
   <div id="quiz-container">
     <p id="quiz-question" style="font-weight: 600; color: #fff; font-size: 1.02rem; margin-bottom: 20px;"></p>
     <div id="quiz-options" style="display: flex; flex-direction: column; gap: 10px;"></div>
   </div>
 
-  <!-- Risultato e spiegazione interattiva -->
   <div id="quiz-feedback" style="margin-top: 20px; padding: 12px; border-radius: 6px; display: none; font-size: 0.90rem; line-height: 1.5;"></div>
 
-  <!-- Pulsante Avanzamento -->
-  <button id="quiz-next-btn" onclick="nextQuizQuestion()" style="display: none; margin-top: 20px; background: #00eaff; color: #030712; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
+  <button id="quiz-next-btn" type="button" onclick="nextQuizQuestion()" style="display: none; margin-top: 20px; background: #00eaff; color: #030712; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
     Prossima Domanda →
   </button>
 </div>
 
-<!-- Logica JavaScript del Quiz Avanzato (Corretta) -->
 <script>
 const quizData = [
   {
@@ -533,8 +590,9 @@ function loadQuizQuestion() {
   document.getElementById("quiz-feedback").style.display = "none";
   document.getElementById("quiz-next-btn").style.display = "none";
 
-  qData.options.forEach((opt, index) => {
+  qData.options.forEach((opt) => {
     const btn = document.createElement("button");
+    btn.type = "button";
     btn.innerHTML = opt.text;
     btn.style.cssText = "padding: 12px; background: #0a0f14; border: 1px solid #1e293b; color: #e0e0e0; border-radius: 6px; cursor: pointer; text-align: left; font-size: 0.90rem; transition: background 0.2s;";
     btn.onclick = () => selectQuizOption(opt.score, opt.type, qData.explanation, btn);
@@ -607,7 +665,7 @@ function showQuizResults() {
       <h3 style="color: #00eaff; margin-bottom: 15px;">Test Completato con Successo</h3>
       <p style="font-size: 1.1rem; margin-bottom: 10px;">Il tuo punteggio totale: <strong style="color: #00eaff; font-size: 1.3rem;">${totalScore} / 30</strong></p>
       <p style="color: ${color}; font-weight: bold; font-size: 1.05rem; margin-top: 15px; line-height: 1.6;">${profile}</p>
-      <button onclick="resetQuiz()" style="margin-top: 25px; background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
+      <button type="button" onclick="resetQuiz()" style="margin-top: 25px; background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
         Ricomincia il Test ↺
       </button>
     </div>
@@ -617,7 +675,6 @@ function showQuizResults() {
 function resetQuiz() {
   currentQuestion = 0;
   totalScore = 0;
-  // Ripristina il container interno del quiz senza ricaricare la pagina
   const container = document.getElementById("quiz-container");
   container.innerHTML = `
     <p id="quiz-question" style="font-weight: 600; color: #fff; font-size: 1.02rem; margin-bottom: 20px;"></p>
@@ -626,7 +683,6 @@ function resetQuiz() {
   loadQuizQuestion();
 }
 
-// Avvia il quiz all'avvio della pagina
 document.addEventListener("DOMContentLoaded", loadQuizQuestion);
 </script>
 
@@ -827,23 +883,23 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
 
 <h3>Strumenti operativi AnonLab</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
-  <li>🛠️ <a href="/tools.html#iplookup">IP Lookup Tool</a></li>
-  <li>🛠️ <a href="/tools.html#dnslookup">DNS Checker</a></li>
-  <li>🛠️ <a href="/tools.html#hashanalyzer">Hash Analyzer</a></li>
-  <li>🛠️ <a href="/tools.html#portscanner">Port Scanner</a></li>
-  <li>🛡️ <a href="/tools.html#securityadvice">Security Advice Widget</a></li>
+  <li>🛠️ <a href="/tools/ip-lookup.html">IP Lookup Tool</a></li>
+  <li>🛠️ <a href="/tools/dns-checker.html">DNS Checker</a></li>
+  <li>🛠️ <a href="/tools/hash-analyzer.html">Hash Analyzer</a></li>
+  <li>🛠️ <a href="/tools/port-scanner.html">Port Scanner</a></li>
+  <li>🛡️ <a href="/widgets/security-advice.html">Security Advice Widget</a></li>
 </ul>
 
 <h3>Difesa Digitale</h3>
 <ul style="list-style:none; padding-left:0; line-height:1.7;">
-  <li>🔐 <a href="https://www.privacyguides.org" target="_blank">Proteggere la propria identità digitale</a></li>
-  <li>🔐 <a href="https://haveibeenpwned.com" target="_blank">Verificare se un account è compromesso</a></li>
-  <li>🔐 <a href="https://www.virustotal.com" target="_blank">Analizzare un link sospetto</a></li>
-  <li>🔐 <a href="https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks" target="_blank">Riconoscere un attacco phishing (CISA)</a></li>
+  <li>🔐 <a href="https://www.privacyguides.org" target="_blank" rel="noopener noreferrer">Proteggere la propria identità digitale</a></li>
+  <li>🔐 <a href="https://haveibeenpwned.com" target="_blank" rel="noopener noreferrer">Verificare se un account è compromesso</a></li>
+  <li>🔐 <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer">Analizzare un link sospetto</a></li>
+  <li>🔐 <a href="https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks" target="_blank" rel="noopener noreferrer">Riconoscere un attacco phishing (CISA)</a></li>
 </ul>
 </div>
 
-<!-- POSIZIONE 4: SEZIONE FAQ + LEGENDA + SCHEMA JSON-LD -->
+<!-- SEZIONE FAQ -->
 <div class="section" id="faq-section">
   <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid #0f2a3a; padding-bottom: 10px; margin-bottom: 20px;">
     <h2 style="margin: 0; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.04em; color: #00eaff;">
@@ -871,55 +927,17 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
   <details style="background: #030712; padding: 12px; border: 1px solid #1e293b; border-radius: 6px;">
     <summary style="color: #00eaff; cursor: pointer; font-weight: bold;">Come posso capire se la mia password è stata compromessa?</summary>
     <p style="margin-top: 8px; color: #ccc; font-size: 0.9rem;">
-      Puoi utilizzare strumenti di verifica pubblici e sicuri come <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">Have I Been Pwned</a>, che incrociano il tuo indirizzo email con i database di dati trafugati nei data breach globali.
+      Puoi utilizzare strumenti di verifica pubblici e sicuri come <a href="https://haveibeenpwned.com" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a>, che incrociano il tuo indirizzo email con i database di dati trafugati nei data breach globali.
     </p>
   </details>
 </div>
 
-<!-- Schema JSON-LD per FAQ (Rich Snippets Google) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Cos'è esattamente un SOC e perché è importante?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Un SOC (Security Operations Center) è un team o una struttura dedicata al monitoraggio continuo dell'infrastruttura informatica per rilevare, analizzare e rispondere tempestivamente a qualsiasi minaccia o tentativo di attacco cibernetico."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qual è la differenza tra Vulnerabilità e Exploit?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Una vulnerabilità è una debolezza o una falla all'interno di un software o sistema. Un exploit è invece il codice o la tecnica sfruttata dagli attaccanti per trarre vantaggio da quella vulnerabilità specifica."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Come posso capire se la mia password è stata compromessa?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puoi utilizzare strumenti di verifica pubblici e sicuri come Have I Been Pwned, che incrociano il tuo indirizzo email con i database di dati trafugati nei data breach globali."
-      }
-    }
-  ]
-}
-</script>
-
-<!-- LINK INTERNI -->
+<!-- LINK INTERNI (AUTO-LINK RIMOSSO) -->
 <nav class="anonlab-explorer" aria-label="Esplora altre sezioni AnonLab" style="margin-top: 25px;">
   <h4 style="color: #00eaff; margin-bottom: 12px; font-size: 1.1rem; font-weight: 600;">
     Esplora altre sezioni AnonLab
   </h4>
   <ul style="list-style: none; padding-left: 0; margin: 0; line-height: 1.8;">
-    <li style="margin-bottom: 8px;">
-      <span role="img" aria-label="Libro">📘</span> 
-      <a href="/cybersecurity-basics.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Cybersecurity Basics</a>
-    </li>
     <li style="margin-bottom: 8px;">
       <span role="img" aria-label="Libro">📘</span> 
       <a href="/osint-tools-explained.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">OSINT Tools Explained</a>
@@ -938,7 +956,7 @@ AnonLab mette a disposizione risorse e dashboard dedicate alla sicurezza informa
     </li>
     <li style="margin-bottom: 8px;">
       <span role="img" aria-label="Libro">📘</span> 
-      <a href="/vulnerabilities-cve-analysis.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Vulnerabilità & CVE Analysis</a>
+      <a href="/vulnerabilities-cve-analysis.html" style="text-decoration: underline; color: inherit; transition: opacity 0.2s;">Vulnerabilità &amp; CVE Analysis</a>
     </li>
   </ul>
 </nav>
@@ -954,19 +972,25 @@ AnonLab continua a evolversi come osservatorio tecnico sulle minacce digitali.
 <div style="margin-top:15px; padding:12px; background:#0a0f14; border:1px solid #0f2a3a; border-radius:8px;">
   <h4 style="color:#00eaff; margin-bottom:8px;">Approfondimenti finali</h4>
   <ul style="list-style:none; padding-left:0; line-height:1.7;">
-    <li>📚 <a href="https://www.cyberdefensemagazine.com" target="_blank">Cyber Defense Magazine</a></li>
-    <li>📚 <a href="https://www.techrepublic.com/topic/security" target="_blank">TechRepublic Security</a></li>
+    <li>📚 <a href="https://www.cyberdefensemagazine.com" target="_blank" rel="noopener noreferrer">Cyber Defense Magazine</a></li>
+    <li>📚 <a href="https://www.techrepublic.com/topic/security" target="_blank" rel="noopener noreferrer">TechRepublic Security</a></li>
   </ul>
 </div>
 </div>
+
 </section>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar"></div>
+
+</main> <!-- CHIUSURA MAIN CORRETTA PRIMA DEL FOOTER -->
+
+<!-- FOOTER -->
+<div id="footer"></div>
 
 <!-- SCRIPT PRINCIPALI -->
 <script src="/js/main.js"></script>
 <script src="/js/ui.js"></script>
-
-<!-- SIDEBAR -->
-<div id="sidebar" class="sidebar"></div>
 
 <script>
 fetch("/partials/sidebar.html")
@@ -988,14 +1012,7 @@ fetch("/partials/sidebar.html")
   .catch(error => {
       console.error("Errore sidebar:", error);
   });
-</script>
 
-    </main>
-
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script>
 fetch("/partials/footer.html")
   .then(r => r.text())
   .then(html => {
@@ -1003,38 +1020,36 @@ fetch("/partials/footer.html")
   });
 </script>
 
-<!-- BACK TO TOP -->
-<button id="backToTop">↑</button>
+<!-- BACK TO TOP OTTIMIZZATO -->
+<button id="backToTop" aria-label="Torna in cima">↑</button>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
   if (!backToTop) return;
 
-  window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    backToTop.style.display = scrollTop > 50 ? "block" : "none";
-  });
-
-  backToTop.addEventListener("click", () => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-    document.body.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
   function adjustBackToTopPosition() {
     const iubendaLogo = document.querySelector(".iubenda-cs-preferences-link");
-
     if (iubendaLogo) {
       const rect = iubendaLogo.getBoundingClientRect();
       const offset = window.innerHeight - rect.top + 10;
-      backToTop.style.bottom = offset + "px";
+      backToTop.style.bottom = `${offset}px`;
     } else {
       backToTop.style.bottom = "80px";
     }
   }
 
-  adjustBackToTopPosition();
-  setInterval(adjustBackToTopPosition, 800);
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    backToTop.style.display = scrollTop > 50 ? "block" : "none";
+    adjustBackToTopPosition();
+  }, { passive: true });
+
+  window.addEventListener("resize", adjustBackToTopPosition);
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 });
 </script>
 
@@ -1046,6 +1061,6 @@ document.addEventListener("DOMContentLoaded", () => {
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "y46cg93s3m");
 </script>
-    
+
 </body>
 </html>
