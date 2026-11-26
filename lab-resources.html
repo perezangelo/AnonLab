@@ -4,69 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lab Resources | AnonLab</title>
+    <title>Lab Resources: Toolkit Cyber Security, OSINT, Sysinternals e Forensics | AnonLab</title>
 
-    <!-- SEO BASE -->
-    <meta name="description" content="AnonLab Lab Resources: immagini, loghi, strumenti, script, template, PDF, risorse tecniche e materiali per cybersecurity, OSINT, sviluppo e analisi digitale.">
+    <!-- SEO BASE & GEO -->
+    <meta name="description" content="Archivio risorse tecniche AnonLab: tool di sicurezza, suite Sysinternals, guide VPN, digital forensics, cheat sheet OSINT, ISO OS e documentazione.">
     <meta name="author" content="AnonLab">
-
-    <!-- CANONICAL -->
     <link rel="canonical" href="https://anonlab.it/lab-resources.html">
-
-    <!-- INDEXING -->
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
     <!-- OPEN GRAPH -->
-    <meta property="og:title" content="Lab Resources | AnonLab">
-<meta property="og:description" content="Risorse, strumenti, immagini, script e file utili per cybersecurity, OSINT, sviluppo e analisi tecnica.">
-<meta property="og:image" content="https://anonlab.it/img/lab-resources-og.jpg">
-<meta property="og:image:alt" content="Interfaccia neon con icone cyber e risorse tecniche">
-<meta property="og:url" content="https://anonlab.it/lab-resources.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="AnonLab">
-<meta property="og:locale" content="it_IT">
+    <meta property="og:title" content="Lab Resources: Toolkit Cyber Security, OSINT e Forensics | AnonLab">
+    <meta property="og:description" content="Strumenti, software Sysinternals, script, immagini forensi, cheat sheet OSINT e guide VPN curate dal laboratorio AnonLab.">
+    <meta property="og:image" content="https://anonlab.it/img/lab-resources-og.jpg">
+    <meta property="og:image:alt" content="Interfaccia neon con icone cyber e risorse tecniche AnonLab">
+    <meta property="og:url" content="https://anonlab.it/lab-resources.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AnonLab">
+    <meta property="og:locale" content="it_IT">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lab Resources — Toolkit Cyber Security &amp; OSINT | AnonLab">
+    <meta name="twitter:description" content="Raccolta completa di utility, software per penetration testing, digital forensics, script e documentazione tecnica.">
+    <meta name="twitter:image" content="https://anonlab.it/img/lab-resources-og.jpg">
+
+    <!-- DATI STRUTTURATI SCHEMA.ORG -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://anonlab.it/lab-resources.html#webpage",
+          "url": "https://anonlab.it/lab-resources.html",
+          "name": "AnonLab Technical Lab Resources & Tool Library",
+          "description": "Hub di download e risorse tecniche: utility Windows/Sysinternals, penetration testing, memory forensics, modelli AI, OSINT e guide perimetrali.",
+          "breadcrumb": { "@id": "https://anonlab.it/lab-resources.html#breadcrumb" },
+          "inLanguage": "it"
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://anonlab.it/lab-resources.html#itemlist",
+          "name": "Categorie Risorse AnonLab",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Windows Tools & Sysinternals", "url": "https://anonlab.it/lab-resources.html#windows" },
+            { "@type": "ListItem", "position": 2, "name": "Linux & Network Scanning Tools", "url": "https://anonlab.it/lab-resources.html#linux" },
+            { "@type": "ListItem", "position": 3, "name": "VPN & Privacy Software", "url": "https://anonlab.it/lab-resources.html#vpn" },
+            { "@type": "ListItem", "position": 4, "name": "Web Pentesting Tools", "url": "https://anonlab.it/lab-resources.html#cyber" },
+            { "@type": "ListItem", "position": 5, "name": "Digital Forensics & Memory Analysis", "url": "https://anonlab.it/lab-resources.html#forensics" },
+            { "@type": "ListItem", "position": 6, "name": "AI Models & Frameworks", "url": "https://anonlab.it/lab-resources.html#ai" },
+            { "@type": "ListItem", "position": 7, "name": "OSINT Investigation Tools", "url": "https://anonlab.it/lab-resources.html#osint" },
+            { "@type": "ListItem", "position": 8, "name": "Cyber Graphics & Infographics Library", "url": "https://anonlab.it/lab-resources.html#docs" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://anonlab.it/lab-resources.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://anonlab.it/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Lab Resources",
+              "item": "https://anonlab.it/lab-resources.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/custom.css">
 
+    <!-- IUBENDA -->
     <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
-<link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
-<script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
-<script>
-(_iub=self._iub||[]).csConfiguration={
-	cookiePolicyId: 12413505,
-	siteId: 4661380,
-	localConsentDomain: 'anonlab.it',
-	timeoutLoadConfiguration: 30000,
-	lang: 'it',
-	enableTcf: true,
-	tcfVersion: 2,
-	tcfPurposes: {
-		 "2": "consent_only",
-		 "3": "consent_only",
-		 "4": "consent_only",
-		 "5": "consent_only",
-		 "6": "consent_only",
-		 "7": "consent_only",
-		 "8": "consent_only",
-		 "9": "consent_only",
-		"10": "consent_only"
-	},
-	invalidateConsentWithoutLog: true,
-	googleAdditionalConsentMode: true,
-	consentOnContinuedBrowsing: false,
-	banner: {
-		position: "top",
-		acceptButtonDisplay: true,
-		customizeButtonDisplay: true,
-		closeButtonDisplay: true,
-		closeButtonRejects: true,
-		fontSizeBody: "14px",
-	},
-}
-</script>
-<script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
+    <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
+    <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+    <script>
+    (_iub=self._iub||[]).csConfiguration={
+        cookiePolicyId: 12413505,
+        siteId: 4661380,
+        localConsentDomain: 'anonlab.it',
+        timeoutLoadConfiguration: 30000,
+        lang: 'it',
+        enableTcf: true,
+        tcfVersion: 2,
+        tcfPurposes: {
+             "2": "consent_only", "3": "consent_only", "4": "consent_only",
+             "5": "consent_only", "6": "consent_only", "7": "consent_only",
+             "8": "consent_only", "9": "consent_only", "10": "consent_only"
+        },
+        invalidateConsentWithoutLog: true,
+        googleAdditionalConsentMode: true,
+        consentOnContinuedBrowsing: false,
+        banner: {
+            position: "bottom",
+            acceptButtonDisplay: true,
+            customizeButtonDisplay: true,
+            closeButtonDisplay: true,
+            closeButtonRejects: true,
+            fontSizeBody: "14px",
+        },
+    }
+    </script>
+    <script async src="https://cdn.iubenda.com/cs/iubenda_cs.js"></script>
 </head>
 
     <body>
@@ -404,7 +452,6 @@ Benvenuto in Lab Resources di <strong>AnonLab</strong>.
   CATEGORIA ANDROID
   Strumenti mobile, APK utili, sicurezza mobile, analisi app e debugging.
 -->
-<a href="#android" ...>Android</a>
 
 <div style="margin:50px 0; padding:35px; border-radius:16px;
             background:linear-gradient(135deg,#1a0a00,#4a1f00);
@@ -2148,44 +2195,71 @@ Benvenuto in Lab Resources di <strong>AnonLab</strong>.
 
 </div> <!-- chiusura .main-column -->
 
-<div id="sidebar"></div> <!-- sidebar nel posto giusto -->
+<!-- ASIDE SIDEBAR (AGGANCIATA A DESTRA E CON WIDGET OPERATIVI) -->
+<aside id="sidebar" class="sidebar" aria-label="Barra laterale" data-nosnippet></aside>
+<script>
+fetch("/partials/sidebar.html")
+  .then(res => {
+    if (!res.ok) throw new Error("Sidebar offline");
+    return res.text();
+  })
+  .then(data => {
+    const sb = document.getElementById("sidebar");
+    if (sb) {
+      sb.innerHTML = data;
+      if (typeof initCalculator === "function") initCalculator();
+      if (typeof initRadio === "function") initRadio();
+      if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+      if (typeof initOroscopo === "function") initOroscopo();
+      if (typeof initVisitCounter === "function") initVisitCounter();
+    }
+  })
+  .catch(e => console.error(e));
+</script>
 
 </main>
 
-    <!-- FOOTER -->
-    <div id="footer"></div>
+<!-- FOOTER -->
+<div id="footer" aria-label="Piè di pagina"></div>
+<script>
+fetch("/partials/footer.html")
+  .then(r => r.ok ? r.text() : "")
+  .then(html => {
+    const el = document.getElementById("footer");
+    if (el && html) el.innerHTML = html;
+  }).catch(e => console.error(e));
+</script>
 
-    <!-- SCRIPT -->
-    <script src="/js/main.js"></script>
-    <script src="/js/ui.js"></script>
+<!-- SCRIPT GLOBALI -->
+<script src="/js/main.js" defer></script>
+<script src="/js/ui.js" defer></script>
 
-    <!-- BACK TO TOP -->
-    <button id="backToTop">↑</button>
+<!-- BACK TO TOP -->
+<button id="backToTop" aria-label="Torna in cima" style="display:none;">↑</button>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const backToTop = document.getElementById('backToTop');
-        backToTop.style.display = 'none';
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
 
-        window.addEventListener('scroll', function () {
-          backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
-        });
+    window.addEventListener('scroll', function () {
+      backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
 
-        backToTop.addEventListener('click', function () {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      });
-    </script>
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
 
-		<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y46cg93s3m");
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "y46cg93s3m");
 </script>              
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725"
-     crossorigin="anonymous"></script>    
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>    
 
 </body>
 </html>
