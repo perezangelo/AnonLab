@@ -254,7 +254,7 @@
     <h3 style="color:#ffaa00;">Threat Intelligence Summary</h3>
     <p style="color:#ccc;margin-bottom:15px;">Riepilogo delle principali minacce attive rilevate nelle ultime 24 ore.</p>
 
-    <ul id="tiSummaryBox" style="color:#fff;line-height:1.8;">
+    <ul id="tiSummaryBox" data-nosnippet style="color:#fff;line-height:1.8;">
   <li><strong>Threat Level:</strong> <span id="ti-threat-level">--</span>%</li>
   <li><strong>Zero‑Day Attivi:</strong> <span id="ti-zero-day">--</span></li>
   <li><strong>Exploit Pubblici:</strong> <span id="ti-exploits">--</span></li>
@@ -266,7 +266,7 @@
   <h3 style="color:#00eaff;">MITRE ATT&amp;CK Techniques</h3>
   <p style="color:#ccc;margin-bottom:15px;">Tecniche più utilizzate dagli attaccanti nelle ultime campagne osservate.</p>
 
-  <ul id="mitre-list" style="color:#fff;line-height:1.8;">
+  <ul id="mitre-list" data-nosnippet style="color:#fff;line-height:1.8;">
     <li>Caricamento...</li>
   </ul>
 
@@ -293,7 +293,7 @@
   <h3 style="color:#ff0044;">Threat Actors Spotlight</h3>
   <p style="color:#ccc;margin-bottom:15px;">Attori malevoli più attivi nelle ultime settimane.</p>
 
-  <ul id="actors-list" style="color:#fff;line-height:1.8;">
+  <ul id="actors-list" data-nosnippet style="color:#fff;line-height:1.8;">
     <li>Caricamento...</li>
   </ul>
 
@@ -334,7 +334,7 @@
   <h3 style="color:#00ff99;">Weekly Threat Trends</h3>
   <p style="color:#ccc;margin-bottom:15px;">Andamento delle principali categorie di minacce nell’ultima settimana.</p>
 
-  <ul id="trends-list" style="color:#fff;line-height:1.8;">
+  <ul id="trends-list" data-nosnippet style="color:#fff;line-height:1.8;">
     <li>Caricamento...</li>
   </ul>
 
@@ -361,7 +361,7 @@
   <h3 style="color:#ffaa00;">Zero‑Day Monitor</h3>
   <p style="color:#ccc;margin-bottom:15px;">Vulnerabilità zero‑day attualmente sfruttate attivamente.</p>
 
-  <ul id="zeroday-list" style="color:#fff;line-height:1.8;">
+  <ul id="zeroday-list" data-nosnippet style="color:#fff;line-height:1.8;">
     <li>Caricamento...</li>
   </ul>
 
@@ -706,7 +706,7 @@
   <h3 style="color:#ff0044;">Malware Activity Monitor</h3>
   <p style="color:#ccc;margin-bottom:15px;">Distribuzione dei principali malware rilevati.</p>
 
-<ul id="malwareActivityBox" style="color:#fff;line-height:1.8;">
+<ul id="malwareActivityBox" data-nosnippet style="color:#fff;line-height:1.8;">
   <li><strong>Ransomware:</strong> <span id="mal-ransomware">--</span>%</li>
   <li><strong>Trojan:</strong> <span id="mal-trojan">--</span>%</li>
   <li><strong>Spyware:</strong> <span id="mal-spyware">--</span>%</li>
@@ -987,7 +987,7 @@ setInterval(loadSupplyRisk, 60000);
     dal team di sicurezza.
   </p>
 
-  <ul id="incident-timeline" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:12px;">
+  <ul id="incident-timeline" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px; margin-top:12px;">
     <li>Caricamento timeline...</li>
   </ul>
 </div>
@@ -1031,7 +1031,7 @@ setInterval(loadIncidentTimeline, 60000);
   <p style="color:#999; font-size:13px; margin-top:6px; margin-bottom:12px;">
     Segnalazioni e correlazioni di sicurezza in tempo reale dal SIEM.
   </p>
-  <ul id="siemList" style="color:#fff;line-height:1.8;list-style:none;padding:0;margin:0;">
+  <ul id="siemList" data-nosnippet style="color:#fff;line-height:1.8;list-style:none;padding:0;margin:0;">
     <li style="color:#ccc;">Caricamento alert SIEM...</li>
   </ul>
 </div>
@@ -1289,7 +1289,7 @@ setInterval(loadMalwarePie, 60000);
     box-shadow:0 0 12px #00eaffaa;
 ">
   <h3 style="color:#00eaff;">C2 Geo Heatmap</h3>
-  <ul id="geoHeatmap" style="color:#ccc; line-height:1.7;">
+  <ul id="geoHeatmap" data-nosnippet style="color:#ccc; line-height:1.7;">
     <li>Caricamento...</li>
   </ul>
 </div>
@@ -1326,7 +1326,7 @@ setInterval(loadGeoHeatmap, 60000);
     box-shadow:0 0 12px #ffaa00aa;
 ">
   <h3 style="color:#ffaa00;">C2 Timeline</h3>
-  <ul id="c2Timeline" style="color:#ccc; line-height:1.7;">
+  <ul id="c2Timeline" data-nosnippet style="color:#ccc; line-height:1.7;">
     <li>Caricamento...</li>
   </ul>
 </div>
@@ -1363,7 +1363,7 @@ setInterval(loadC2Timeline, 60000);
     box-shadow:0 0 12px #7a00ffaa;
 ">
   <h3 style="color:#b366ff;">C2 Status Monitor</h3>
-  <ul id="statusStats" style="color:#ccc; line-height:1.7;">
+  <ul id="statusStats" data-nosnippet style="color:#ccc; line-height:1.7;">
     <li>Caricamento...</li>
   </ul>
 </div>
@@ -1391,7 +1391,7 @@ setInterval(loadStatusStats, 60000);
 	<!-- Ransomware Trends -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 style="color:#ff7b00;">Ransomware Trends 2026</h4>
-  <ul id="ransomList" style="color:#ccc; line-height:1.7;">
+  <ul id="ransomList" data-nosnippet style="color:#ccc; line-height:1.7;">
     <li>Caricamento...</li>
   </ul>
 </div>
@@ -1424,7 +1424,7 @@ setInterval(loadRansomTrends, 30000);
 <!-- Hacker Activity Heatmap -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 style="color:#ff7b00;">Hacker Activity Heatmap</h4>
-  <ul id="heatmapList" style="color:#ccc; line-height:1.7;">
+  <ul id="heatmapList" data-nosnippet style="color:#ccc; line-height:1.7;">
     <li>Caricamento...</li>
   </ul>
 </div>
@@ -1457,7 +1457,7 @@ setInterval(loadHeatmap, 30000);
 <!-- Timeline attacchi recenti -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 style="color:#ff7b00;">Timeline attacchi recenti</h4>
-  <ul id="timelineList" style="color:#ccc; line-height:1.7;">
+  <ul id="timelineList" data-nosnippet style="color:#ccc; line-height:1.7;">
     <li>Caricamento...</li>
   </ul>
 </div>
@@ -1492,21 +1492,21 @@ setInterval(loadTimeline, 60000);
 
           <div class="ti-section">
   <h4 class="ti-title">Ultime dal mondo TI</h4>
-  <ul id="tiNews" class="ti-list">
+  <ul id="tiNews" data-nosnippet class="ti-list">
     <li>Caricamento...</li>
   </ul>
 </div>
 	
          <div class="ti-section">
   <h4 class="ti-title">Indicatori di Compromissione (IoC)</h4>
-  <ul id="iocList" class="ti-list">
+  <ul id="iocList" data-nosnippet class="ti-list">
     <li>Caricamento...</li>
   </ul>
 </div>
 
           <div class="ti-section">
   <h4 class="ti-title">TTP più osservate (MITRE ATT&CK)</h4>
-  <ul id="mitreList" class="ti-list">
+  <ul id="mitreList" data-nosnippet class="ti-list">
     <li>Caricamento...</li>
 </ul>
 </div>
@@ -1536,7 +1536,7 @@ setInterval(loadTimeline, 60000);
 
           <div class="ti-section">
             <h4 class="ti-title">Risorse TI</h4>
-            <ul class="ti-list" style="list-style-type:disc; padding-left:20px;">
+            <ul class="ti-list" data-nosnippet style="list-style-type:disc; padding-left:20px;">
               <li><a href="https://www.cisa.gov" target="_blank" style="color:#ff7b00; font-weight:600; text-shadow:0 0 6px #ff7b00;">CISA Alerts</a></li>
               <li><a href="https://www.enisa.europa.eu" target="_blank" style="color:#ff7b00; font-weight:600; text-shadow:0 0 6px #ff7b00;">ENISA Threat Landscape</a></li>
               <li><a href="https://attack.mitre.org" target="_blank" style="color:#ff7b00; font-weight:600; text-shadow:0 0 6px #ff7b00;">MITRE ATT&CK</a></li>
@@ -1780,7 +1780,7 @@ setInterval(loadThreatDistribution, 60000);
 <!-- ATTACCHI INFORMATICI -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Attacchi Informatici</h4>
-  <ul id="sec-attacchi" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+  <ul id="sec-attacchi" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
     <li>Caricamento dati...</li>
   </ul>
 </div>
@@ -1788,7 +1788,7 @@ setInterval(loadThreatDistribution, 60000);
 <!-- DIFESA & SICUREZZA -->
 <div class="ti-section" style="margin-top:25px;">
   <h4 class="ti-title">Difesa & Sicurezza</h4>
-  <ul id="sec-difesa" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+  <ul id="sec-difesa" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
     <li>Caricamento dati...</li>
   </ul>
 </div>
@@ -1796,7 +1796,7 @@ setInterval(loadThreatDistribution, 60000);
 <!-- CULTURA CYBER -->
 <div class="ti-section" style="margin-top:25px; margin-bottom:20px;">
   <h4 class="ti-title">Cultura Cyber</h4>
-  <ul id="sec-cultura" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+  <ul id="sec-cultura" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
     <li>Caricamento dati...</li>
   </ul>
 </div>
@@ -1811,7 +1811,7 @@ setInterval(loadThreatDistribution, 60000);
     box-shadow:0 0 12px #ffffff33;
 ">
   <h3 style="color:#fff; margin-bottom:12px;">Cyber Awareness Tips</h3>
-  <ul id="awareness-tips" style="color:#ccc; line-height:1.7; font-size:14px;">
+  <ul id="awareness-tips" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px;">
     <li>Caricamento suggerimenti...</li>
   </ul>
 </div>
@@ -1819,7 +1819,7 @@ setInterval(loadThreatDistribution, 60000);
 <!-- CYBER OPERATIONS CHECKLIST -->
 <div class="ti-section" style="margin-top:25px; text-align:center;">
   <h4 class="ti-title" style="text-align:center;">Cyber Operations Checklist</h4>
-  <ul id="ops-checklist" style="
+  <ul id="ops-checklist" data-nosnippet style="
       color:#ccc;
       line-height:1.7;
       font-size:14px;
@@ -1843,7 +1843,7 @@ setInterval(loadThreatDistribution, 60000);
     </a>
   </p>
 
-  <ul id="soc-ops-status" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
+  <ul id="soc-ops-status" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px; margin-top:8px;">
     <li>Caricamento stato SOC...</li>
   </ul>
 </div>
@@ -1857,7 +1857,7 @@ setInterval(loadThreatDistribution, 60000);
     prima della disponibilità di aggiornamenti ufficiali.
   </p>
 
-  <ul id="zero-day-watchlist" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+  <ul id="zero-day-watchlist" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
     <li>Caricamento vulnerabilità...</li>
   </ul>
 </div>
@@ -1871,7 +1871,7 @@ setInterval(loadThreatDistribution, 60000);
     nelle ultime 24–48 ore.
   </p>
 
-  <ul id="ta-activity" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+  <ul id="ta-activity" data-nosnippet style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
     <li>Caricamento attività...</li>
   </ul>
 </div>
