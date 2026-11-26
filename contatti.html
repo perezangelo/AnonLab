@@ -2,54 +2,128 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Contatti AnonLab | Supporto Tecnico e Informazioni Cyber</title>
+  <title>Contatti &amp; Security Disclosure | AnonLab Cyber Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Ottimizzato per Google e Bing (<150 car.) -->
-  <meta name="description" content="Contatta AnonLab per supporto tecnico, informazioni sulla cybersecurity, collaborazioni editoriali e segnalazioni di vulnerabilità.">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <!-- SEO BASE & GEO -->
+  <meta name="description" content="Canali di contatto ufficiali AnonLab: supporto tecnico, triage sicurezza, collaborazioni di ricerca e responsible vulnerability disclosure.">
+  <meta name="author" content="AnonLab">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://anonlab.it/contatti.html">
 
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Contatti AnonLab | Supporto Tecnico e Cyber Intelligence">
-  <meta property="og:description" content="Canali ufficiali per comunicazioni, segnalazioni di sicurezza e collaborazioni con il team di AnonLab.">
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Contatti &amp; Security Disclosure | AnonLab Cyber Lab">
+  <meta property="og:description" content="Canali ufficiali per comunicazioni, segnalazioni di sicurezza informatica, invio chiavi PGP e collaborazioni tecniche.">
   <meta property="og:url" content="https://anonlab.it/contatti.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://anonlab.it/img/eyes.webp">
+  <meta property="og:image" content="https://anonlab.it/img/eyes.png">
+  <meta property="og:site_name" content="AnonLab">
+  <meta property="og:locale" content="it_IT">
 
-  <!-- Twitter -->
+  <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contatti AnonLab | Supporto Tecnico">
-  <meta name="twitter:description" content="Canali ufficiali per comunicazioni e segnalazioni di sicurezza con AnonLab.">
-  <meta name="twitter:image" content="https://anonlab.it/img/eyes.webp">
+  <meta name="twitter:title" content="Contatti AnonLab | Supporto Tecnico e Security Hub">
+  <meta name="twitter:description" content="Canali ufficiali di contatto, dipartimenti dedicati e linee guida per la disclosure responsabile delle vulnerabilità.">
+  <meta name="twitter:image" content="https://anonlab.it/img/eyes.png">
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/custom.css">
 
-  <!-- ⭐ JSON-LD DATI STRUTTURATI ARRICCHITI -->
+  <!-- JSON-LD COMPLETO: ContactPage + Organization + FAQPage + Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contatti AnonLab",
-    "url": "https://anonlab.it/contatti.html",
-    "description": "Pagina ufficiale di contatto, supporto tecnico e responsible disclosure di AnonLab.",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "AnonLab",
-      "url": "https://anonlab.it/",
-      "email": "info@anonlab.it",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "info@anonlab.it",
-        "contactType": "technical support",
-        "availableLanguage": ["Italian", "English"]
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://anonlab.it/contatti.html#webpage",
+        "url": "https://anonlab.it/contatti.html",
+        "name": "Contatti e Canali Ufficiali AnonLab",
+        "description": "Pagina ufficiale di contatto, supporto tecnico, dipartimento sicurezza e vulnerability disclosure di AnonLab.",
+        "breadcrumb": { "@id": "https://anonlab.it/contatti.html#breadcrumb" },
+        "inLanguage": "it"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://anonlab.it/#organization",
+        "name": "AnonLab",
+        "url": "https://anonlab.it/",
+        "logo": "https://anonlab.it/img/eyes.png",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "info@anonlab.it",
+            "contactType": "general inquiries",
+            "availableLanguage": ["Italian", "English"]
+          },
+          {
+            "@type": "ContactPoint",
+            "email": "security@anonlab.it",
+            "contactType": "security issues",
+            "availableLanguage": ["Italian", "English"]
+          },
+          {
+            "@type": "ContactPoint",
+            "email": "admin@anonlab.it",
+            "contactType": "technical support",
+            "availableLanguage": ["Italian", "English"]
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://anonlab.it/contatti.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quali sono i tempi medi di risposta del team AnonLab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le richieste ordinarie ricevono riscontro entro 24-48 ore lavorative. Le segnalazioni critiche inviate al dipartimento sicurezza hanno priorità di triage immediato."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "È possibile segnalare vulnerabilità o data breach in forma anonima?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sì, accettiamo segnalazioni crittografate via PGP e comunicazioni anonime nell'ambito del nostro programma di Responsible Disclosure."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come posso verificare se un'email ricevuta proviene realmente da AnonLab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tutte le email ufficiali provengono esclusivamente dal dominio @anonlab.it e sono firmate con chiavi SPF, DKIM e DMARC. AnonLab non richiede mai password o somme di denaro."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://anonlab.it/contatti.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://anonlab.it/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contatti",
+            "item": "https://anonlab.it/contatti.html"
+          }
+        ]
       }
-    }
+    ]
   }
   </script>
 
+  <!-- IUBENDA -->
   <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/iubenda_cs.js"/>
   <link rel="preload" as="script" href="https://cdn.iubenda.com/cs/tcf/stub-v2.js"/>
   <script src="https://cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
@@ -87,96 +161,251 @@
 
   <!-- HEADER -->
   <div id="header" aria-label="Intestazione del sito"></div>
+  <script>
+  fetch("/partials/header.html")
+    .then(r => r.ok ? r.text() : "")
+    .then(html => {
+      const el = document.getElementById("header");
+      if (el && html) el.innerHTML = html;
+    }).catch(e => console.error(e));
+  </script>
 
-  <!-- TICKER -->
-  <div id="ticker" aria-label="Ticker informazioni"></div>
+  <!-- TICKER INFORMAZIONI (PROTETTO DA DATA-NOSNIPPET) -->
+  <div id="ticker" aria-label="Ticker informazioni" data-nosnippet></div>
+  <script>
+  fetch("/partials/ticker.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("ticker").innerHTML = html;
+      if (typeof initTicker === "function") initTicker();
+    }).catch(e => console.error(e));
+  </script>
   <script src="/js/ticker.js" defer></script>
 
   <main class="page">
     <section class="main-column">
 
-      <h1 class="page-title">Contatti &amp; Canali Ufficiali AnonLab</h1>
+      <h1 class="page-title">Contatti &amp; Canali Operativi AnonLab</h1>
+      <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:25px;">
+        Benvenuto nel centro di comunicazione di <strong>AnonLab</strong>. Per garantire riscontri rapidi e puntuali,
+        abbiamo suddiviso i nostri canali in base alla natura della richiesta: supporto generale, amministrazione dell'infrastruttura
+        e segnalazioni di sicurezza/CERT.
+      </p>
 
-      <!-- CANALE PRINCIPALE -->
-      <div class="contact-box" style="background:#0d0d0d; border:1px solid rgba(0,234,255,0.3); border-radius:10px; padding:22px; margin-bottom:25px; box-shadow:0 0 16px rgba(0,234,255,0.1);">
-        <h2 style="color:#00eaff; margin-top:0; font-size:1.3rem;">Canale Principale</h2>
-        <p style="color:#e0e0e0; margin-bottom:12px;">
-          Per qualsiasi richiesta di supporto tecnico, informazioni sui progetti di monitoraggio o chiarimenti editoriali, il canale di riferimento è:
-        </p>
-        <p style="font-size:1.1rem; margin:0;">
-          ✉️ Email: 
-          <strong>
-            <a href="mailto:info@anonlab.it"
-               style="color:#00eaff; text-decoration:none; font-weight:bold; text-shadow:0 0 8px rgba(0,234,255,0.4);"
-               onmouseover="this.style.color='#00ffcc'"
-               onmouseout="this.style.color='#00eaff'">
-               info@anonlab.it
-            </a>
-          </strong>
-        </p>
-        <p style="color:#8b8b95; font-size:0.85rem; margin-top:8px;">
-          Tempo medio di risposta: 24–48 ore lavorative.
-        </p>
+      <!-- GRIGLIA CANALI EMAIL DEDICATI -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px; margin-bottom:30px;">
+        
+        <!-- BOX 1: INFO GENERALI -->
+        <div style="background:#080d14; border:1px solid rgba(0,234,255,0.3); border-left:4px solid #00eaff; border-radius:8px; padding:18px; box-shadow:0 0 12px rgba(0,234,255,0.08);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span style="font-size:1.3rem;">✉️</span>
+            <h2 style="color:#00eaff; margin:0; font-size:1.1rem;">Informazioni &amp; Stampa</h2>
+          </div>
+          <p style="color:#94a3b8; font-size:0.85rem; line-height:1.5; margin:0 0 12px 0;">
+            Richieste generali, proposte editoriali, segnalazioni di notizie cyber e collaborazioni open-source.
+          </p>
+          <a href="mailto:info@anonlab.it?subject=Richiesta%20Informazioni%20AnonLab" style="color:#00ff88; font-weight:bold; font-family:monospace; font-size:0.95rem; text-decoration:none;">
+            info@anonlab.it ↗
+          </a>
+        </div>
+
+        <!-- BOX 2: SECURITY & VULNERABILITY -->
+        <div style="background:#080d14; border:1px solid rgba(255,123,0,0.3); border-left:4px solid #ff7b00; border-radius:8px; padding:18px; box-shadow:0 0 12px rgba(255,123,0,0.08);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span style="font-size:1.3rem;">🛡️</span>
+            <h2 style="color:#ff7b00; margin:0; font-size:1.1rem;">Security &amp; Vulnerability</h2>
+          </div>
+          <p style="color:#94a3b8; font-size:0.85rem; line-height:1.5; margin:0 0 12px 0;">
+            Responsible disclosure, bug bounty coordination, segnalazione IoC e minacce emergenti.
+          </p>
+          <a href="mailto:security@anonlab.it?subject=Security%20Alert%20-%20Vulnerabilit%C3%A0" style="color:#ffaa00; font-weight:bold; font-family:monospace; font-size:0.95rem; text-decoration:none;">
+            security@anonlab.it ↗
+          </a>
+        </div>
+
+        <!-- BOX 3: ADMIN & SISTEMI -->
+        <div style="background:#080d14; border:1px solid rgba(168,85,247,0.3); border-left:4px solid #a855f7; border-radius:8px; padding:18px; box-shadow:0 0 12px rgba(168,85,247,0.08);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span style="font-size:1.3rem;">⚙️</span>
+            <h2 style="color:#a855f7; margin:0; font-size:1.1rem;">Admin &amp; Infrastruttura</h2>
+          </div>
+          <p style="color:#94a3b8; font-size:0.85rem; line-height:1.5; margin:0 0 12px 0;">
+            Gestione sistemistica del laboratorio, problemi tecnici con i widget, API feed e peering di rete.
+          </p>
+          <a href="mailto:admin@anonlab.it?subject=Segnalazione%20Tecnica%20Admin" style="color:#c084fc; font-weight:bold; font-family:monospace; font-size:0.95rem; text-decoration:none;">
+            admin@anonlab.it ↗
+          </a>
+        </div>
+
       </div>
 
-      <!-- COLLABORAZIONI E CONTRIBUTI -->
-      <div class="contact-box" style="background:#0d0d0d; border:1px solid rgba(0,234,255,0.2); border-radius:10px; padding:20px; margin-bottom:20px;">
-        <h2 style="color:#00eaff; margin-top:0; font-size:1.2rem;">Collaborazioni &amp; Guest Post</h2>
-        <p style="color:#ccc; line-height:1.6; margin:0;">
-          Se sei un ricercatore indipendente, un analista SOC o un appassionato di OSINT e desideri proporre articoli, analisi tecniche, write-up o strumenti da integrare nel nostro osservatorio, invia una bozza o una sintesi via email con oggetto <code>[Collaborazione AnonLab]</code>.
+      <!-- COMPILATORE RAPIDO MESSAGGIO (MAILTO ASSISTITO) -->
+      <section class="widget-large" style="background:#050c14; border:1px solid rgba(0,234,255,0.25); border-radius:8px; padding:22px; margin-bottom:30px;">
+        <h2 style="color:#00eaff; margin-top:0; font-size:1.2rem; display:flex; align-items:center; gap:8px;">
+          ⚡ Generatore Rapido di Richiesta
+        </h2>
+        <p style="color:#94a3b8; font-size:0.88rem; margin-bottom:16px;">
+          Seleziona il tema del tuo messaggio: verrà predisposta automaticamente un'email formattata nel tuo client di posta.
         </p>
-      </div>
 
-      <!-- VULNERABILITY DISCLOSURE -->
-      <div class="contact-box" style="background:#0d0d0d; border:1px solid rgba(255,123,0,0.3); border-radius:10px; padding:20px; margin-bottom:25px;">
-        <h2 style="color:#ff7b00; margin-top:0; font-size:1.2rem;">Segnalazioni di Sicurezza (Responsible Disclosure)</h2>
-        <p style="color:#ccc; line-height:1.6; margin:0;">
-          AnonLab adotta una politica di coordinamento responsabile delle vulnerabilità. Se riscontri un bug, una configurazione anomala o un problema di sicurezza sulla nostra infrastruttura o sui feed API, ti invitiamo a segnalarlo prontamente per consentirne la rapida risoluzione.
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div>
+            <label for="contactDept" style="color:#cbd5e1; font-size:0.82rem; font-weight:bold; display:block; margin-bottom:4px;">REPARTO DESTINATARIO:</label>
+            <select id="contactDept" style="width:100%; padding:10px; background:#0b131f; color:#00eaff; border:1px solid #1e293b; border-radius:4px; font-family:monospace; font-size:0.9rem;">
+              <option value="info@anonlab.it">[info@anonlab.it] Informazioni Generali &amp; Partnership</option>
+              <option value="security@anonlab.it">[security@anonlab.it] Segnalazione Vulnerabilità / Incident Report</option>
+              <option value="admin@anonlab.it">[admin@anonlab.it] Supporto Tecnico Piattaforma &amp; API</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="contactSubject" style="color:#cbd5e1; font-size:0.82rem; font-weight:bold; display:block; margin-bottom:4px;">OGGETTO:</label>
+            <input type="text" id="contactSubject" placeholder="es: Proposta analisi tecnica malware / Bug widget DNS" style="width:100%; box-sizing:border-box; padding:10px; background:#0b131f; color:#fff; border:1px solid #1e293b; border-radius:4px; font-family:monospace; font-size:0.9rem;">
+          </div>
+
+          <div>
+            <label for="contactBody" style="color:#cbd5e1; font-size:0.82rem; font-weight:bold; display:block; margin-bottom:4px;">SINTESI DEL MESSAGGIO:</label>
+            <textarea id="contactBody" rows="4" placeholder="Descrivi brevemente la tua richiesta o fornisci i dettagli tecnici..." style="width:100%; box-sizing:border-box; padding:10px; background:#0b131f; color:#fff; border:1px solid #1e293b; border-radius:4px; font-family:monospace; font-size:0.88rem;"></textarea>
+          </div>
+
+          <button type="button" onclick="composeMailto()" style="width:100%; padding:12px; background:#00eaff; color:#000; font-weight:bold; border:none; border-radius:4px; cursor:pointer; font-size:0.95rem; margin-top:6px; box-shadow:0 0 12px rgba(0,234,255,0.3);">
+            🚀 Apri nel Client di Posta Elettronica
+          </button>
+        </div>
+      </section>
+
+      <script>
+      function composeMailto() {
+        const dept = document.getElementById("contactDept").value;
+        const subj = document.getElementById("contactSubject").value.trim() || "Richiesta da AnonLab Portal";
+        const body = document.getElementById("contactBody").value.trim() || "Salve team di AnonLab,\n\n";
+        
+        const mailtoUrl = `mailto:${dept}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
+      }
+      </script>
+
+      <!-- BRAND PROTECTION & MITTENTI VERIFICATI -->
+      <section class="widget-large" style="background:#080d14; border:1px solid rgba(0,255,136,0.25); border-left:4px solid #00ff88; border-radius:8px; padding:20px; margin-bottom:25px;">
+        <h2 style="color:#00ff88; margin-top:0; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+          🛡️ Sicurezza Mittenti &amp; Politica Anti-Spoofing
+        </h2>
+        <p style="color:#cbd5e1; font-size:0.88rem; line-height:1.6; margin-bottom:10px;">
+          A tutela della nostra community e contro campagne di phishing o spoofing che utilizzano fraudolentemente il nome di AnonLab, ricordiamo che:
         </p>
-      </div>
+        <ul style="color:#94a3b8; font-size:0.85rem; line-height:1.7; margin:0 0 10px 18px; padding:0;">
+          <li>Tutte le comunicazioni autentiche provengono esclusivamente dal dominio registrato <code>@anonlab.it</code>.</li>
+          <li>I messaggi transazionali e i log automatici sono inoltrati unicamente dall'indirizzo di sistema <code>noreply@anonlab.it</code>.</li>
+          <li>AnonLab implementa rigorosi record crittografici <strong>SPF</strong>, <strong>DKIM</strong> e policy <strong>DMARC (p=reject/quarantine)</strong>. I messaggi non conformi vengono scartati dai server di posta.</li>
+          <li><strong>Avvertenza di sicurezza:</strong> Nessun membro del team AnonLab ti chiederà mai pagamenti, credenziali private o accesso a terminali remoti.</li>
+        </ul>
+      </section>
+
+      <!-- RESPONSIBLE VULNERABILITY DISCLOSURE (VDP) -->
+      <section class="widget-large" style="background:#080d14; border:1px solid rgba(255,123,0,0.25); border-left:4px solid #ff7b00; border-radius:8px; padding:20px; margin-bottom:25px;">
+        <h2 style="color:#ff7b00; margin-top:0; font-size:1.15rem;">
+          ⚖️ Responsible Vulnerability Disclosure
+        </h2>
+        <p style="color:#cbd5e1; font-size:0.88rem; line-height:1.6; margin-bottom:10px;">
+          AnonLab sostiene la ricerca di sicurezza responsabile e adotta i principi standard di coordinamento delle vulnerabilità (conformi alle linee guida RFC 9116):
+        </p>
+        <div style="background:#03070d; padding:12px; border-radius:6px; border:1px solid #1e293b; font-family:monospace; font-size:0.8rem; color:#cbd5e1; line-height:1.6;">
+          <strong>Linee Guida per i Ricercatori:</strong><br>
+          • Invia i dettagli della problematica (PoC, asset coinvolto, impatto) a <code>security@anonlab.it</code>.<br>
+          • Concedi un periodo di grazia ragionevole (90 giorni) per consentire il rilascio della patch prima di divulgare pubblicamente i dati.<br>
+          • Non procedere a esfiltrazione massiva di dati o interruzione dolosa della disponibilità dei servizi (DoS/DDoS).<br>
+          • <em>Safe Harbor:</em> Non intraprenderemo azioni legali contro ricercatori in buona fede che rispettano questi criteri.
+        </div>
+      </section>
+
+      <!-- FAQ SUI CONTATTI (INDICIZZABILI GEO/AI) -->
+      <section class="widget-large" style="background:#080d14; border:1px solid #1e293b; border-radius:8px; padding:20px; margin-bottom:25px;">
+        <h2 style="color:#00eaff; margin-top:0; font-size:1.15rem;">
+          ❓ Domande Frequenti sui Contatti
+        </h2>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px;">
+          <div>
+            <h3 style="color:#fff; font-size:0.95rem; margin:0 0 4px 0;">Qual è il tempo medio di risposta?</h3>
+            <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.5;">
+              Il nostro team esamina costantemente le richieste: la risposta ordinaria viene elaborata entro 24-48 ore lavorative. Le segnalazioni di incidente verso <code>security@</code> hanno corsia prioritaria continua.
+            </p>
+          </div>
+          <div style="border-top:1px solid #1e293b; padding-top:10px;">
+            <h3 style="color:#fff; font-size:0.95rem; margin:0 0 4px 0;">Posso inviare report su incidenti informatici in forma anonima?</h3>
+            <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.5;">
+              Certamente. Accettiamo segnalazioni tramite caselle email anonime o inoltrate con crittografia end-to-end PGP per proteggere l'identità della sorgente informativa.
+            </p>
+          </div>
+          <div style="border-top:1px solid #1e293b; padding-top:10px;">
+            <h3 style="color:#fff; font-size:0.95rem; margin:0 0 4px 0;">AnonLab accetta proposte per nuovi strumenti tecnici o guide?</h3>
+            <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.5;">
+              Sì! Incoraggiamo la condivisione open source. Se hai sviluppato uno script OSINT, una regola SIGMA o un'analisi CVE, scrivici a <code>info@anonlab.it</code> allegando una breve descrizione.
+            </p>
+          </div>
+        </div>
+      </section>
 
     </section>
 
-    <!-- SIDEBAR -->
-    <div id="sidebar" class="sidebar" aria-label="Barra laterale"></div>
+    <!-- ASIDE SIDEBAR (AGGANCIATA A DESTRA IN MODO PULITO) -->
+    <aside id="sidebar" class="sidebar" aria-label="Barra laterale" data-nosnippet></aside>
+
+    <script>
+    fetch("/partials/sidebar.html")
+      .then(res => {
+        if (!res.ok) throw new Error("Sidebar offline");
+        return res.text();
+      })
+      .then(data => {
+        const sb = document.getElementById("sidebar");
+        if (sb) {
+          sb.innerHTML = data;
+          if (typeof initCalculator === "function") initCalculator();
+          if (typeof initRadio === "function") initRadio();
+          if (typeof initYouTubePlayer === "function") initYouTubePlayer();
+          if (typeof initOroscopo === "function") initOroscopo();
+          if (typeof initVisitCounter === "function") initVisitCounter();
+        }
+      })
+      .catch(e => console.error(e));
+    </script>
 
   </main>
 
   <!-- FOOTER -->
   <div id="footer" aria-label="Piè di pagina"></div>
+  <script>
+  fetch("/partials/footer.html")
+    .then(r => r.ok ? r.text() : "")
+    .then(html => {
+      const el = document.getElementById("footer");
+      if (el && html) el.innerHTML = html;
+    }).catch(e => console.error(e));
+  </script>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT GLOBALI -->
   <script src="/js/main.js" defer></script>
   <script src="/js/ui.js" defer></script>
 
   <!-- BACK TO TOP BUTTON -->
-  <button id="backToTop" type="button" aria-label="Torna in alto">↑</button>
+  <button id="backToTop" type="button" aria-label="Torna in alto" style="display:none;">↑</button>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const backToTop = document.getElementById('backToTop');
       if (!backToTop) return;
 
-      backToTop.style.display = 'none';
-
       window.addEventListener('scroll', function () {
-        if (window.scrollY > 300) {
-          backToTop.style.display = 'block';
-        } else {
-          backToTop.style.display = 'none';
-        }
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
       }, { passive: true });
 
       backToTop.addEventListener('click', function () {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   </script>
 
-  <!-- CLARITY -->
+  <!-- CLARITY & ADSENSE -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -184,8 +413,6 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y46cg93s3m");
   </script>                 
-
-  <!-- ADSENSE -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655066977213725" crossorigin="anonymous"></script>
 
 </body>
