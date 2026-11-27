@@ -1,5 +1,70 @@
 [
   {
+    "title": "Microsoft removes WSUS server role in Windows Server 2028",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-removes-wsus-server-role-in-windows-server-2028/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/Windows-Server.jpg"
+  },
+  {
+    "title": "In Other News: Tanker Cyberattacks, EU Quantum Act, New VirusTotal Capabilities",
+    "link": "https://www.securityweek.com/in-other-news-tanker-cyberattacks-eu-quantum-act-new-virustotal-capabilities/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+  },
+  {
+    "title": "How to Keep Your Security Picture Current When Attackers Move at AI Speed",
+    "link": "https://thehackernews.com/2026/11/how-to-keep-your-security-picture.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivjmF6SycZfBA1Red5jxgerBNr4pe7i8jIwZyZkF20Kxvw__-2oD3cO1hKSCGGQRqncukvouxIx-6KBQdRf5jz9eXb80yFmNyTo2sOsmW2TEXS4irdH7uPvWfZh66zxIa9h0RixfLZtaKO3rSo_riHT9hfbyBGC1m_Y0_FWRu_M0EADEFFZmXFB_NG72Q/s1600/anecdotes.jpg"
+  },
+  {
+    "title": "Drupal warns of new site takeover flaw exploited in attacks",
+    "link": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/Drupal_headpic.jpg"
+  },
+  {
+    "title": "SAP confirms security incident after suspicious GitHub activity",
+    "link": "https://www.bleepingcomputer.com/news/security/sap-confirms-security-incident-after-suspicious-github-activity/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/sap.jpg"
+  },
+  {
+    "title": "100,000 Potentially Impacted by Colorado Data Breach",
+    "link": "https://www.securityweek.com/100000-potentially-impacted-by-colorado-data-breach/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
+  },
+  {
+    "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+    "link": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSXVfewkMqSKHEHRrAVXFHFOsMisOpBVnJ_sWbNNQQXuSWTHU5Y8AZW18gdQq7eI5N4l1dXoeBXVuqGGNClEK0U55LHgLYUxmopN9JHaMrYtrt4QrtWmk3uIvX8FzE2jL7Rf-oOG2fiDzj4g99wYn1Ih9uAOmyD0DtWN7ZqkG5UTd3xRYSRnIurQuT437O/s1600/trojan.jpg"
+  },
+  {
+    "title": "Microsoft pushes emergency hotpatch to fix Windows Server crashes",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/new-out-of-band-oob-emergency-hotpatch-fixes-windows-server-2025-crashes/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/Windows--Server.jpg"
+  },
+  {
+    "title": "New NFS2ROOT Linux flaw can let attackers gain root privileges",
+    "link": "https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/",
+    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Linux_tux.jpg"
+  },
+  {
+    "title": "Hex Package Manager Warns of Potential Data Breach",
+    "link": "https://www.securityweek.com/hex-package-manager-warns-of-potential-data-breach/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
+  },
+  {
+    "title": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+    "link": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
+    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/SAP_vulnerability-patches.jpg"
+  },
+  {
+    "title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+    "link": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjviiPK0v6Kpjxjo_jDNE9vaZ8-JKiq6Oct4uU6qPDfTXq66QnxuV2iExRo2Rx2FyHhyphenhyphenDquMIoxmlfo5GwxfKoEXRG8Pj38FDOzEKitDdhXBNOGN7b6sddsMozMuhI44c-3mimoE4OxU-Xg7h8IzhDiyrXmP6qBO-wW6xmitkIEv_EkU-FJUJBTNtQ8uY/s1600/swiss.jpg"
+  },
+  {
+    "title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+    "link": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy4kFFGLYGbyvO7M_M1gKBjBUm5TF_eT6dIHtCmXKz_cGyC6orRw9XupBLbcQlJTQEEqjZ3q73Cv_Sn9ncPKxOJYU8Poi8Q54-bWKIro4Sp4JYi9hjUjYy71OR1LOV6B5nX8dHK0jYSRJ1p4O1pdMWomZGhCiTKE7MkvrC-gfeINrM-GOab64Bw_MzxA6Z/s1600/cacti.png"
+  },
+  {
     "title": "OpenAI warns GPT-6.2 Astra will hit usage limits 40% faster because it fixed a bug",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-warns-gpt-62-astra-will-hit-usage-limits-40-percent-faster-because-it-fixed-a-bug/",
     "image": "https://www.bleepstatic.com/content/hl-images/2023/04/11/OpenAI-headpic.jpg"
@@ -83,70 +148,5 @@
     "title": "Hackers Exploit 10 Vulnerabilities Across Mitel, Juniper, Vates, and Danfoss Products",
     "link": "https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html",
     "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht82Zul6A6D_rTYZuOr0QQWkA4p8kQXRI-4qAYhdGBdTR0ZNzlHkHCiz3eSv5wm9Gq1rADX0CIEBUu08HBUbWd4fVKtL6f7UrWcaa_nVetYt0DyPj2-f_yM80HEIUbuy57mpftPYHHp1FKCNXvkDnFtsj-V5PWGUvWiNL38OKY3EIKUwKHuoKsIc4oSXeC/s1600/mitel.jpg"
-  },
-  {
-    "title": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps",
-    "link": "https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html",
-    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt0w3YJQrn6VoUVUTTj46NLfeL_JJE-sDoxKsuBe-_OxBtQ3iX8AZTZ1CEn39-N5TGKYd-0ZKdOT43UwAWUbpIXlFdDwhyphenhyphenEKpkQVVJYJVodQRHyz0pJeKEvJIJgUpAEQqXizajmrriq9Mj1aqioeK1Zug__X26Ra4HwzFg8ImTajGc6b7Ck9LW2OCIpPoa/s1600/dotnet.jpg"
-  },
-  {
-    "title": "Palo Alto Networks warns of Fragnesia flaw exploited in PAN-OS attacks",
-    "link": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-fragnesia-flaw-exploited-in-pan-os-attacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/25/paloalto.jpg"
-  },
-  {
-    "title": "1Password customer data stolen after employee GitHub account breach",
-    "link": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2023/10/23/1Password_binary.jpg"
-  },
-  {
-    "title": "Italy and Switzerland warn of autonomous AI-driven cyberattacks",
-    "link": "https://www.bleepingcomputer.com/news/security/italy-and-switzerland-warn-of-autonomous-ai-driven-cyberattacks/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/robot.jpg"
-  },
-  {
-    "title": "CISA warns of critical unpatched flaw in Danfoss refrigeration controllers",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-unpatched-flaw-in-danfoss-refrigeration-controllers/",
-    "image": "https://www.bleepstatic.com/content/hl-images/2026/11/25/danfoss.jpg"
-  },
-  {
-    "title": "Attackers Target .NET Developers With Poisoned Job Assessments",
-    "link": "https://www.darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
-    "image": ""
-  },
-  {
-    "title": "Two Newly Disclosed GeoServer Vulnerabilities Under Attack",
-    "link": "https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Vulnerability-Databases.jpg"
-  },
-  {
-    "title": "It's a Bot World. We're Just Living in It",
-    "link": "https://www.darkreading.com/cyber-risk/bot-world-just-living",
-    "image": ""
-  },
-  {
-    "title": "More Pentests Without More Pentesters: Where AI Safely Helps",
-    "link": "https://www.bleepingcomputer.com/news/security/more-pentests-without-more-pentesters-where-ai-safely-helps/",
-    "image": "https://www.bleepstatic.com/content/posts/2026/11/20/pentestpad-header-image.jpg"
-  },
-  {
-    "title": "Cyber Insurers See New Divide: AI Defense 'Haves' &amp; 'Have Nots'",
-    "link": "https://www.darkreading.com/cybersecurity-operations/cyber-insurers-see-new-ai-divide",
-    "image": ""
-  },
-  {
-    "title": "ShinyHunters Claims Comeback, New Inception Group Rejects Alleged Ties",
-    "link": "https://www.securityweek.com/shinyhunters-claims-comeback-new-inception-group-rejects-alleged-ties/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/09/cybercrime-hacker.jpeg"
-  },
-  {
-    "title": "Latin America Sees Cyberattacks on Ports, Pipelines &amp; Manufacturing",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/latin-america-cyberattacks-ports-pipelines-manufacturing",
-    "image": ""
-  },
-  {
-    "title": "US Treasury\u2019s FinCEN Disconnects Systems Following Cyber Incident",
-    "link": "https://www.securityweek.com/us-treasurys-fincen-disconnects-systems-following-cyber-incident/",
-    "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Treasury-Department.jpeg"
   }
 ]
