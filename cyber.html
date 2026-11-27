@@ -1027,15 +1027,15 @@ setInterval(loadIncidentTimeline, 60000);
     border-radius:8px;
     box-shadow:0 0 12px #ff0044aa;
 ">
-  <h3 style="color:#ff0044;">Live Threat IOC Feed</h3>
+  <h3 style="color:#ff0044;">Live Exploited Vulnerabilities Feed</h3>
   <p style="color:#999; font-size:13px; margin-top:6px; margin-bottom:12px;">
-    Indicatori reali di infrastrutture C2 attive sincronizzati dal feed pubblico Feodo Tracker (abuse.ch). Nessun dato simulato.
+    Vulnerabilità critiche realmente sfruttate in rete sincronizzate dal catalogo ufficiale CISA KEV. Nessun dato simulato.
   </p>
   <ul id="siemList" data-nosnippet style="color:#fff;line-height:1.8;list-style:none;padding:0;margin:0;">
-    <li style="color:#ccc;">Caricamento indicatori reali...</li>
+    <li style="color:#ccc;">Caricamento segnalazioni reali...</li>
   </ul>
   <p id="siemStatus" style="color:#777; font-size:11.5px; margin-top:10px; margin-bottom:0;">
-    Controllo automatico ogni 10s · Cache feed aggiornata ogni 10 min
+    Controllo automatico ogni 10s · Fonte: CISA KEV (cache 30 min)
   </p>
 </div>
 
@@ -1050,20 +1050,21 @@ async function loadSIEM() {
 
     const nowTime = new Date().toLocaleTimeString("it-IT", { hour12: false });
     if (statusEl) {
-      statusEl.textContent = `Ultimo check: ${nowTime} · Fonte reale: Feodo Tracker (cache 10 min)`;
+      statusEl.textContent = `Ultimo check: ${nowTime} · Fonte reale: CISA KEV (cache 30 min)`;
     }
 
     if (!Array.isArray(data) || !data.length) {
-      box.innerHTML = `<li style="color:#888;">Nessun indicatore disponibile al momento dal feed.</li>`;
+      box.innerHTML = `<li style="color:#888;">Nessuna segnalazione disponibile al momento dal feed.</li>`;
       return;
     }
 
-    box.innerHTML = data.map(a =>
-      `<li><strong style="color:#ffaa00;">[${escHtml(a.sev)}]</strong> ${escHtml(a.msg)}</li>`
-    ).join("");
+    box.innerHTML = data.map(a => {
+      const sevColor = (a.sev === "CRIT") ? "#ff3b5c" : "#ffaa00";
+      return `<li><strong style="color:${sevColor};">[${escHtml(a.sev)}]</strong> ${escHtml(a.msg)}</li>`;
+    }).join("");
   } catch (e) {
-    console.error("SIEM feed error:", e);
-    box.innerHTML = `<li style="color:#f66;">Errore nel caricamento del feed IOC.</li>`;
+    console.error("CISA KEV feed error:", e);
+    box.innerHTML = `<li style="color:#f66;">Errore nel caricamento del feed CISA KEV.</li>`;
     if (statusEl) {
       statusEl.textContent = "Feed temporaneamente non raggiungibile";
     }
