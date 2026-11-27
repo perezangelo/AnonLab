@@ -14,6 +14,8 @@ Disallow: /logs/
 Disallow: /phpmyadmin/
 Disallow: /test
 Disallow: /test.html
+Disallow: /?q=
+Disallow: /download.html
 
 # ============================================================
 # GOOGLEBOT SPECIALISTI
