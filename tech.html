@@ -247,7 +247,7 @@ function loadFeed(endpoint, target) {
     const box = document.getElementById(target);
     if (!box) return;
 
-    fetch("https://angelonline.altervista.org/newsops/" + endpoint + "?t=" + Date.now())
+    fetch("https://angelonline.altervista.org/newsops/tech/" + endpoint + "?t=" + Date.now())
         .then(r => {
             if (!r.ok) throw new Error("HTTP error " + r.status);
             return r.json();
@@ -315,7 +315,7 @@ function loadFeed(endpoint, target) {
         });
 }
 
-// Chiamata ai feed (senza il prefisso "tech/" che causava l'errore 404)
+// Chiamata ai feed dentro /newsops/tech/
 function loadAllFeeds() {
     loadFeed("tech-news.php", "tech-news");
     loadFeed("tech-ai-trends.php", "ai-trends");
