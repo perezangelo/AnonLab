@@ -1888,59 +1888,95 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
-	<div class="cyber-box" style="
-    background:#000814;
-    border:1px solid #ff0044aa;
-    padding:25px;
-    margin-top:30px;
-    border-radius:8px;
-    box-shadow:0 0 12px #ff0044aa;
-">
-  <h3 style="color:#ff0044;">Live Threat IOC Feed</h3>
-  <p style="color:#999; font-size:13px; margin-top:6px; margin-bottom:12px;">
-    Indicatori reali di infrastrutture C2 attive sincronizzati dal feed pubblico Feodo Tracker (abuse.ch). Nessun dato simulato.
+	<div class="ti-section" style="margin-top:25px; padding-top:18px; border-top:1px solid rgba(0,234,255,0.2);">
+  <h4 class="ti-title">Vettori &amp; TTPs Principali (MITRE ATT&amp;CK)</h4>
+
+  <p id="ttp-explanation" style="color:#999; font-size:13px; margin-top:6px; line-height:1.5;">
+    Le tecniche vengono sincronizzate automaticamente ogni 24 ore dal catalogo ufficiale MITRE ATT&amp;CK
+    e ruotano ogni giorno senza intervento manuale. Filtra per fase operativa o clicca su una voce per leggere un esempio di controllo.
   </p>
-  <ul id="siemList" data-nosnippet style="color:#fff;line-height:1.8;list-style:none;padding:0;margin:0;">
-    <li style="color:#ccc;">Caricamento indicatori reali...</li>
+
+  <div id="ttp-filters" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;">
+    <button type="button" data-phase="all" onclick="loadTtps('all')" style="background:#00eaff; color:#000; border:1px solid #00eaff; border-radius:4px; padding:4px 8px; font-size:11.5px; font-weight:600; cursor:pointer;">Tutte</button>
+    <button type="button" data-phase="initial-access" onclick="loadTtps('initial-access')" style="background:#0a0a0a; color:#00eaff; border:1px solid rgba(0,234,255,0.4); border-radius:4px; padding:4px 8px; font-size:11.5px; cursor:pointer;">Accesso Iniziale</button>
+    <button type="button" data-phase="lateral-movement" onclick="loadTtps('lateral-movement')" style="background:#0a0a0a; color:#00eaff; border:1px solid rgba(0,234,255,0.4); border-radius:4px; padding:4px 8px; font-size:11.5px; cursor:pointer;">Movimenti Laterali</button>
+    <button type="button" data-phase="impact" onclick="loadTtps('impact')" style="background:#0a0a0a; color:#00eaff; border:1px solid rgba(0,234,255,0.4); border-radius:4px; padding:4px 8px; font-size:11.5px; cursor:pointer;">Impatto</button>
+  </div>
+
+  <ul id="mitre-ttps" style="color:#ccc; line-height:1.7; font-size:14px; margin-top:10px;">
+    <li><strong style="color:#00eaff;">T1566 — Phishing:</strong> Gli avversari inviano messaggi per indurre gli utenti a eseguire azioni o credenziali compromesse.</li>
+    <li><strong style="color:#00eaff;">T1190 — Exploit Public-Facing Application:</strong> Sfruttamento di vulnerabilità in applicazioni o servizi esposti su reti pubbliche.</li>
+    <li><strong style="color:#00eaff;">T1021 — Remote Services:</strong> Uso di servizi remoti legittimi per accedere a sistemi interni alla rete.</li>
+    <li><strong style="color:#00eaff;">T1486 — Data Encrypted for Impact:</strong> Cifratura dei dati su sistemi locali o di rete per interromperne la disponibilità.</li>
   </ul>
-  <p id="siemStatus" style="color:#777; font-size:11.5px; margin-top:10px; margin-bottom:0;">
-    Controllo automatico ogni 10s · Cache feed aggiornata ogni 10 min
+
+  <p id="ttp-meta" style="color:#7fa8bc; font-size:11.5px; margin-top:8px; line-height:1.4;">
+    Sincronizzazione automatica ogni 24h · Clicca su una tecnica per visualizzare l'esempio pratico.
   </p>
 </div>
 
 <script>
-async function loadSIEM() {
-  const box = document.getElementById("siemList");
-  const statusEl = document.getElementById("siemStatus");
+let currentTtpPhase = "all";
+
+function updateTtpFilterButtons(activePhase) {
+  document.querySelectorAll("#ttp-filters button").forEach(btn => {
+    const isActive = btn.dataset.phase === activePhase;
+    btn.style.background = isActive ? "#00eaff" : "#0a0a0a";
+    btn.style.color = isActive ? "#000" : "#00eaff";
+    btn.style.fontWeight = isActive ? "600" : "400";
+  });
+}
+
+function toggleTtpExample(liEl) {
+  const box = liEl.querySelector(".ttp-example-box");
+  if (!box) return;
+  box.style.display = (box.style.display === "none" || !box.style.display) ? "block" : "none";
+}
+
+async function loadTtps(phase = currentTtpPhase) {
+  currentTtpPhase = phase;
+  updateTtpFilterButtons(phase);
+
+  const listEl = document.getElementById("mitre-ttps");
+  const metaEl = document.getElementById("ttp-meta");
+  const expEl  = document.getElementById("ttp-explanation");
+  if (!listEl) return;
+
   try {
-    const res = await fetch("https://angelonline.altervista.org/soc/siem-alerts.php", { cache: "no-store" });
+    const url = `https://angelonline.altervista.org/soc/ttps.php?phase=${encodeURIComponent(phase)}&t=${Date.now()}`;
+    const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
 
-    const nowTime = new Date().toLocaleTimeString("it-IT", { hour12: false });
-    if (statusEl) {
-      statusEl.textContent = `Ultimo check: ${nowTime} · Fonte reale: Feodo Tracker (cache 10 min)`;
+    if (!Array.isArray(data.ttps) || !data.ttps.length) return;
+
+    if (expEl && data.guide) {
+      expEl.textContent = data.guide;
     }
 
-    if (!Array.isArray(data) || !data.length) {
-      box.innerHTML = `<li style="color:#888;">Nessun indicatore disponibile al momento dal feed.</li>`;
-      return;
-    }
+    listEl.innerHTML = data.ttps.map(item => {
+      const phaseBadge = item.phase_label ? ` <span style="color:#7fa8bc; font-size:11.5px;">[${escHtml(item.phase_label)}]</span>` : "";
+      const exampleHtml = item.example
+        ? `<div class="ttp-example-box" style="display:none; color:#9ecbe0; font-size:12.5px; margin-top:4px; padding-left:8px; border-left:2px solid #00eaff;">Esempio di controllo: ${escHtml(item.example)}</div>`
+        : "";
 
-    box.innerHTML = data.map(a =>
-      `<li><strong style="color:#ffaa00;">[${escHtml(a.sev)}]</strong> ${escHtml(a.msg)}</li>`
-    ).join("");
+      return `
+        <li style="cursor:pointer; margin-bottom:6px;" onclick="toggleTtpExample(this)">
+          <strong style="color:#00eaff;">${escHtml(item.code)}</strong>${phaseBadge}: ${escHtml(item.desc)}
+          ${exampleHtml}
+        </li>
+      `;
+    }).join("");
+
+    if (metaEl) {
+      const src = data.source ? `Fonte: ${escHtml(data.source)}` : "Fonte automatica";
+      const upd = data.updated_at ? ` · Sync: ${escHtml(data.updated_at)}` : "";
+      metaEl.textContent = `${src}${upd} · Clicca su una voce per leggere l'esempio pratico.`;
+    }
   } catch (e) {
-    console.error("SIEM feed error:", e);
-    box.innerHTML = `<li style="color:#f66;">Errore nel caricamento del feed IOC.</li>`;
-    if (statusEl) {
-      statusEl.textContent = "Feed temporaneamente non raggiungibile";
-    }
+    console.warn("Fallback locale TTPs attivo:", e);
   }
 }
-
-loadSIEM();
-setInterval(loadSIEM, 10000);
 </script>
 	
 <!-- ========================= -->
