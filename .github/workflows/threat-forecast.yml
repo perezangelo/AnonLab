@@ -20,7 +20,7 @@ jobs:
 
       - name: Generate Forecast & Push to Altervista
         env:
-          FORECAST_TOKEN: ${{ secrets.FORECAST_SECRET_TOKEN }}
+          FORECAST_TOKEN: ${{ secrets.CYBER_SECRET_TOKEN }}
         run: |
           node -e '
           const https = require("https");
