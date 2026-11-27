@@ -1034,18 +1034,27 @@ setInterval(loadIncidentTimeline, 60000);
   <ul id="siemList" data-nosnippet style="color:#fff;line-height:1.8;list-style:none;padding:0;margin:0;">
     <li style="color:#ccc;">Caricamento alert SIEM...</li>
   </ul>
+  <p id="siemStatus" style="color:#777; font-size:11.5px; margin-top:10px; margin-bottom:0;">
+    Polling attivo ogni 10s · In attesa del primo controllo...
+  </p>
 </div>
 
 <script>
 async function loadSIEM() {
   const box = document.getElementById("siemList");
+  const statusEl = document.getElementById("siemStatus");
   try {
     const res = await fetch("https://angelonline.altervista.org/soc/siem-alerts.php", { cache: "no-store" });
     if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
 
+    const nowTime = new Date().toLocaleTimeString("it-IT", { hour12: false });
+    if (statusEl) {
+      statusEl.textContent = `Ultimo check: ${nowTime} · Aggiornamento automatico ogni 10s`;
+    }
+
     if (!Array.isArray(data) || !data.length) {
-      box.innerHTML = `<li style="color:#888;">Nessun alert attivo.</li>`;
+      box.innerHTML = `<li style="color:#888;">Nessun alert attivo al momento · Monitoraggio continuo in corso.</li>`;
       return;
     }
 
@@ -1055,6 +1064,9 @@ async function loadSIEM() {
   } catch (e) {
     console.error("SIEM error:", e);
     box.innerHTML = `<li style="color:#f66;">Errore nel caricamento alert SIEM.</li>`;
+    if (statusEl) {
+      statusEl.textContent = "Connessione all'endpoint SIEM temporaneamente non disponibile";
+    }
   }
 }
 
