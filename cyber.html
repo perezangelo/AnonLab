@@ -1891,6 +1891,7 @@ setInterval(loadThreatDistribution, 60000);
   </ul>
 </div>
 
+	<script>
 	async function loadTtps() {
   const listEl = document.getElementById("mitre-ttps");
   if (!listEl) return;
@@ -1909,7 +1910,8 @@ setInterval(loadThreatDistribution, 60000);
     console.warn("Fallback statico TTPs attivo:", e);
   }
 }
-
+</script>
+	
 <!-- ========================= -->
 <!-- SCRIPT PRINCIPALE CORRETTO -->
 <!-- ========================= -->
