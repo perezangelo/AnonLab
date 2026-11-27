@@ -16,6 +16,8 @@ Disallow: /test
 Disallow: /test.html
 Disallow: /?q=
 Disallow: /download.html
+Disallow: /partials/
+Disallow: /tools/base64.html
 
 # ============================================================
 # GOOGLEBOT SPECIALISTI
